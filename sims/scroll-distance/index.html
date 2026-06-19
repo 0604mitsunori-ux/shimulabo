@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/scroll-distance/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/scroll-distance.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/scroll-distance.png">
+<title>スクロール距離メーター｜あなたの親指、今年で何km？｜シミュラボ</title>
+<meta name="description" content="1日のスマホ時間を入れるだけで、あなたの親指が1年でスクロールする距離を計算。エベレスト何個分・富士山何個分かで体感できる無料シミュレーター。">
+<meta property="og:title" content="スクロール距離メーター｜あなたの親指、今年で何km？">
+<meta property="og:description" content="スマホ時間から、親指が1年で登る高さをエベレスト換算。あなたは何個分？">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/scroll-distance/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "スクロール距離メーター", "url": "https://shimulabo.com/sims/scroll-distance/", "description": "スマホ時間から、親指が1年でスクロールする距離をエベレスト換算。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "スクロール距離メーター", "item": "https://shimulabo.com/sims/scroll-distance/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "この距離は正確ですか？", "acceptedAnswer": {"@type": "Answer", "text": "あくまで目安の概算です。実際の距離は端末サイズ・操作のクセ・見るアプリによって変わります。「自分のスマホ時間を体感する」きっかけとしてお使いください。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結し、入力内容が外部に送られることはありません。"}}]}</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span><span class="tag">BETA</span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>人生・自分ごと<span>›</span><span class="cur">スクロール距離メーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">人生・自分ごと</div>
+    <h1>スクロール距離メーター</h1>
+    <p class="lead">毎日スマホをスクロールする親指は、実はとんでもない距離を「移動」しています。1日のスマホ時間を入れるだけで、1年で進む距離をエベレストや富士山の高さで体感できます。</p>
+  </div>
+
+  <section class="panel">
+    <h2>📱 条件を入れる</h2>
+    <div class="field">
+      <label>1日のスマホ時間 <span class="hint">（時間）</span></label>
+      <input type="number" id="hours" value="3" min="0.5" max="18" step="0.5" inputmode="decimal">
+    </div>
+    <div class="field">
+      <label>スクロールの多さ <span class="hint">（SNS・ニュースをどれくらい流し見するか）</span></label>
+      <select id="rate">
+        <option value="60">ライト（通話・連絡が中心）</option>
+        <option value="100" selected>ふつう（SNSもそこそこ見る）</option>
+        <option value="160">ヘビー（気づくと延々スクロール）</option>
+      </select>
+    </div>
+    <button class="btn btn-primary" id="calcBtn">親指の移動距離を見る</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">あなたの親指が1年で登る高さ</div>
+      <div class="big">エベレスト<span id="everest">0</span><span class="unit">個分</span></div>
+      <div class="sub" id="sub">—</div>
+
+      <div class="statline">
+        <div class="stat">
+          <div class="k">1年の距離</div>
+          <div class="v accent" id="yearKm">—</div>
+        </div>
+        <div class="stat">
+          <div class="k">富士山</div>
+          <div class="v" id="fuji">—</div>
+        </div>
+        <div class="stat">
+          <div class="k">スカイツリー</div>
+          <div class="v" id="skytree">—</div>
+        </div>
+      </div>
+
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>スクロール距離の計算方法</h2>
+    <p>スマホを操作している間、親指はフリック（はじく動き）でディスプレイの上を往復しています。本シミュレーターでは、スマホ利用1時間あたりに親指が動く距離を以下の目安で概算しています。</p>
+    <div class="note">
+      <strong>計算式</strong><br>
+      1年の距離 ＝ 1日のスマホ時間 × 1時間あたりの移動距離 × 365日<br>
+      <span style="font-size:13px">※1時間あたりの移動距離：ライト60m／ふつう100m／ヘビー160m を目安に設定</span>
+    </div>
+    <p>たとえば「ふつう」で1日3時間スマホを使う人は、1年で約110km。これはエベレスト（標高8,848m）を10回以上よじ登るのに匹敵する距離です。毎日の小さな動きも、1年積み重なると驚くほどの距離になります。</p>
+
+    <h2>距離を減らしたいなら</h2>
+    <ul>
+      <li><strong>無限スクロールのアプリを見直す</strong> ― 「終わりのない」フィードが距離を稼ぐ最大要因です。</li>
+      <li><strong>通知をオフにする</strong> ― 開く回数が減れば、自然とスクロール量も減ります。</li>
+      <li><strong>スクリーンタイムで上限を設定する</strong> ― 時間を区切るだけで距離は大きく変わります。</li>
+    </ul>
+
+    <h2>よくある質問</h2>
+    <dl class="faq">
+      <dt>この距離は正確ですか？</dt>
+      <dd>あくまで目安の概算です。実際の距離は端末サイズ・操作のクセ・見るアプリによって変わります。「自分のスマホ時間を体感する」きっかけとしてお使いください。</dd>
+      <dt>データは送信されますか？</dt>
+      <dd>いいえ。計算はすべてブラウザ内で完結し、入力内容が外部に送られることはありません。</dd>
+    </dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../machi-jikan/index.html"><span class="e">⏳</span><span>人生の「待ち時間」シミュレーター</span></a><a class="related-card" href="../kaigi-cost/index.html"><span class="e">🔥</span><span>会議コストシミュレーター</span></a><a class="related-card" href="../kuchikomi-hakyu/index.html"><span class="e">📈</span><span>口コミ波及シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const EVEREST = 8848, FUJI = 3776, SKYTREE = 634;
+  const $ = (id) => document.getElementById(id);
+  let last = null;
+
+  function calc() {
+    const hours = Math.max(0.1, +$('hours').value || 0);
+    const rate  = +$('rate').value;
+    const perDay = hours * rate;          // m / 日
+    const perYear = perDay * 365;         // m / 年
+    const everest = perYear / EVEREST;
+
+    last = { hours, perYear, everest };
+
+    $('sub').textContent = `1日${hours}時間 × 約${rate}m/時 で計算（1日あたり約${Math.round(perDay)}m）`;
+    $('yearKm').textContent = (perYear / 1000).toFixed(1) + ' km';
+    $('fuji').textContent   = (perYear / FUJI).toFixed(1) + ' 個分';
+    $('skytree').textContent= (perYear / SKYTREE).toFixed(0) + ' 本分';
+
+    $('resultPanel').style.display = '';
+    animate($('everest'), 0, everest, 900, 1);
+    $('resultPanel').scrollIntoView({ behavior:'smooth', block:'start' });
+  }
+
+  function animate(el, from, to, dur, dec) {
+    const t0 = performance.now();
+    (function step(now){
+      const p = Math.min(1, (now - t0) / dur);
+      const e = 1 - Math.pow(1 - p, 3);
+      el.textContent = (from + (to - from) * e).toFixed(dec);
+      if (p < 1) requestAnimationFrame(step);
+    })(performance.now());
+  }
+
+  function shareText() {
+    if (!last) return '';
+    return `私の親指、今年でエベレスト約${last.everest.toFixed(1)}個分をよじ登る計算らしい🧗‍♂️（スマホ${last.hours}時間/日）\n\nあなたの親指は何個分？👇`;
+  }
+
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => {
+    const intent = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText()) +
+      '&url=' + encodeURIComponent(location.href) + '&hashtags=' + encodeURIComponent('シミュラボ,スクロール距離');
+    window.open(intent, '_blank', 'noopener');
+  });
+  $('copyBtn').addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(shareText() + '\n' + location.href);
+      $('copyBtn').textContent = 'コピーしました ✓'; setTimeout(() => $('copyBtn').textContent = '結果をコピー', 1600);
+    } catch { alert(shareText()); }
+  });
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'scroll-distance', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/default.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/default.png">
+<title>シミュラボ｜世界の「なるほど」を触って分かるシミュレーター集</title>
+<meta name="description" content="会議コスト・人生の残り時間・身近な現象を、入力するだけで数字とアニメで体感できる無料シミュレーター集。スマホでそのまま遊べます。">
+<meta property="og:title" content="シミュラボ｜触って分かるシミュレーター集">
+<meta property="og:description" content="身近な「なるほど」を、入力するだけで数字とアニメで体感。無料・登録不要。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "シミュラボ", "url": "https://shimulabo.com/", "inLanguage": "ja", "description": "身近なギモンや現象を、入力するだけで数字とアニメで体感できる無料シミュレーター集。"}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/", "logo": "https://shimulabo.com/apple-touch-icon.png"}</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="./index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span><span class="tag">BETA</span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="contact/index.html">📣 広告掲載・タイアップ</a>
+  </div>
+</header>
+
+<section class="hero">
+  <span class="kicker"><span class="dot"></span>触れる実験室 — まいにち増えていく</span>
+  <h1>その<span class="mark-accent">「なんとなく」</span>、<br><span class="grad">数字にすると面白い。</span></h1>
+  <p class="lead">身近なギモンや世界のふしぎを、入力するだけで数字とアニメで体感。<br>眺めるだけで「なるほど」が手に入るシミュレーター集です。</p>
+  <div class="meta-strip">
+    <span><b>7</b>本 公開中</span>
+    <span class="sep"></span>
+    <span>🔓 登録不要</span>
+    <span class="sep"></span>
+    <span>💴 完全無料</span>
+    <span class="sep"></span>
+    <span>📱 スマホ対応</span>
+  </div>
+</section>
+
+<main class="wrap">
+
+  <section class="rank-wrap">
+    <div class="rank-head">
+      <h2>🏆 人気のシミュレーション</h2>
+      <span class="note">注目度の高い順</span>
+    </div>
+    <div class="rank-list" id="rankList"></div>
+  </section>
+
+  <div class="chips" id="chips">
+    <button class="chip is-on" data-cat="all">すべて</button>
+    <button class="chip" data-cat="money">お金・時間</button>
+    <button class="chip" data-cat="wonder">ふしぎ・現象</button>
+    <button class="chip" data-cat="life">人生・自分ごと</button>
+    <button class="chip" data-cat="marketing">マーケティング</button>
+  </div>
+
+  <div class="grid" id="grid">
+
+    <!-- 公開中 -->
+    <a class="sim-card" data-cat="money" href="sims/kaigi-cost/index.html">
+      <div class="thumb" style="background:linear-gradient(135deg,#fff1f2,#ffe4e6)"><span class="emoji">🔥</span></div>
+      <div class="body">
+        <div class="cat">お金・時間</div>
+        <h3>会議コストシミュレーター</h3>
+        <p>その会議、いくら燃えてる？参加人数と年収から、1分ごとに溶けていくお金をリアルタイム表示。</p>
+        <span class="go">触ってみる →</span>
+      </div>
+    </a>
+
+    <a class="sim-card" data-cat="wonder" href="sims/jutai/index.html">
+      <div class="thumb" style="background:linear-gradient(135deg,#eef2ff,#e0e7ff)"><span class="emoji">🚗</span></div>
+      <div class="body">
+        <div class="cat">ふしぎ・現象</div>
+        <h3>渋滞は勝手に生まれる</h3>
+        <p>事故ゼロでも渋滞の波が発生する様子をリング道路で。混雑度を上げると赤い波が走り出す。</p>
+        <span class="go">触ってみる →</span>
+      </div>
+    </a>
+
+    <a class="sim-card" data-cat="life" href="sims/scroll-distance/index.html">
+      <div class="thumb" style="background:linear-gradient(135deg,#fefce8,#fef9c3)"><span class="emoji">📱</span></div>
+      <div class="body">
+        <div class="cat">人生・自分ごと</div>
+        <h3>スクロール距離メーター</h3>
+        <p>今年あなたの親指が登る高さ＝エベレスト何個分？スマホ時間から距離を計算。</p>
+        <span class="go">触ってみる →</span>
+      </div>
+    </a>
+
+    <a class="sim-card" data-cat="life" href="sims/machi-jikan/index.html">
+      <div class="thumb" style="background:linear-gradient(135deg,#ecfeff,#cffafe)"><span class="emoji">⏳</span></div>
+      <div class="body">
+        <div class="cat">人生・自分ごと</div>
+        <h3>人生の「待ち時間」</h3>
+        <p>レジ・信号・ロード画面…生涯で何日を「待つ」だけに使うか年齢から計算。</p>
+        <span class="go">触ってみる →</span>
+      </div>
+    </a>
+
+    <a class="sim-card" data-cat="marketing" href="sims/kuchikomi-hakyu/index.html">
+      <div class="thumb" style="background:linear-gradient(135deg,#fff7ed,#fce7f3)"><span class="emoji">📈</span></div>
+      <div class="body">
+        <div class="cat">マーケティング</div>
+        <h3>口コミ波及シミュレーター</h3>
+        <p>お店の口コミは集客にどれだけ波及する？満足度を動かすと、年間集客がプラスにも“逆波及”にも。</p>
+        <span class="go">触ってみる →</span>
+      </div>
+    </a>
+
+    <a class="sim-card" data-cat="marketing" href="sims/catchcopy/index.html">
+      <div class="thumb" style="background:linear-gradient(135deg,#fff7ed,#fce7f3)"><span class="emoji">🪧</span></div>
+      <div class="body">
+        <div class="cat">マーケティング</div>
+        <h3>うさんくさいキャッチコピー製造機</h3>
+        <p>商品名を入れるだけで「99%が知らない…」系のうさんくさい広告コピーを量産。</p>
+        <span class="go">触ってみる →</span>
+      </div>
+    </a>
+
+    <a class="sim-card" data-cat="marketing" href="sims/influencer-soroban/index.html">
+      <div class="thumb" style="background:linear-gradient(135deg,#fff7ed,#fce7f3)"><span class="emoji">🦝</span></div>
+      <div class="body">
+        <div class="cat">マーケティング</div>
+        <h3>インフルエンサー皮算用</h3>
+        <p>フォロワー数を入れると、脳内の月収とインフルエンサーランクを皮算用（※案件が来れば）。</p>
+        <span class="go">触ってみる →</span>
+      </div>
+    </a>
+
+    <a class="req-card" href="request/index.html">
+      <span class="plus">＋💡</span>
+      <h3>作ってほしいシミュを送る</h3>
+      <p>あなたの「これ見てみたい」を募集中。<br>採用されたら実際に作って公開します。</p>
+    </a>
+
+  </div>
+
+  <section class="req-banner">
+    <h2>💡 次に作るシミュ、あなたが決める</h2>
+    <p>「こんなの数字で見てみたい」を送ってください。面白いアイデアは実際に作って公開します。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><strong>シミュラボ</strong> — 触って分かるシミュレーター集（β版）</p>
+    <p>
+      <a href="request/index.html">シミュをリクエスト</a>
+      <a href="board/index.html">リクエストボード</a>
+      <a href="contact/index.html">広告掲載・タイアップ</a>
+      <a href="terms/index.html">利用規約</a>
+      <a href="privacy/index.html">プライバシーポリシー</a>
+    </p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script src="assets/share-counter.js"></script>
+<script>
+  /* ===== 人気ランキング =====
+     score は当面「運営の注目度」(相対0〜100)。
+     拡散数（share-counter）がしきい値を超えたシミュは、実際のシェア数で
+     ランキングが並び替わる＝拡散が伸びるほど上位に上がる。 */
+  const SIMS = [
+    { href: 'sims/kaigi-cost/index.html',         emoji: '🔥', title: '会議コストシミュレーター',           cat: 'お金・時間',     score: 100 },
+    { href: 'sims/kuchikomi-hakyu/index.html',    emoji: '📈', title: '口コミ波及シミュレーター',           cat: 'マーケティング', score: 92 },
+    { href: 'sims/jutai/index.html',              emoji: '🚗', title: '渋滞は勝手に生まれる',               cat: 'ふしぎ・現象',   score: 86 },
+    { href: 'sims/machi-jikan/index.html',        emoji: '⏳', title: '人生の「待ち時間」',                 cat: '人生・自分ごと', score: 78 },
+    { href: 'sims/scroll-distance/index.html',    emoji: '📱', title: 'スクロール距離メーター',             cat: '人生・自分ごと', score: 71 },
+    { href: 'sims/influencer-soroban/index.html', emoji: '🦝', title: 'インフルエンサー皮算用',             cat: 'マーケティング', score: 64 },
+    { href: 'sims/catchcopy/index.html',          emoji: '🪧', title: 'うさんくさいキャッチコピー製造機',   cat: 'マーケティング', score: 57 }
+  ];
+
+  (async function renderRanking(){
+    const ids = SIMS.map(s => s.href.split('/')[1]); // sims/<id>/index.html → <id>
+    let counts = {};
+    try { counts = await ShareCounter.counts(ids); } catch (e) {}
+    const TH = (window.ShareCounter && ShareCounter.THRESHOLD) || 30;
+
+    // 拡散数がしきい値超えのシミュは実シェア数で、未満は注目度scoreで並べる
+    const enriched = SIMS.map(s => {
+      const id = s.href.split('/')[1];
+      const c = counts[id] || 0;
+      return { ...s, count: c, effCount: c >= TH ? c : 0 };
+    });
+    const ranked = enriched.sort((a, b) => (b.effCount - a.effCount) || (b.score - a.score)).slice(0, 5);
+    const maxScore = ranked[0].score;
+    const list = document.getElementById('rankList');
+    list.innerHTML = ranked.map((s, i) => {
+      const rank = i + 1;
+      const topClass = rank <= 3 ? ' top' + rank : '';
+      const badge = rank === 1 ? '🥇' : rank === 2 ? '🥈' : rank === 3 ? '🥉' : rank;
+      const w = Math.round((s.score / maxScore) * 100);
+      const shareLine = s.count >= TH ? `<div class="rank-share">🔥 ${s.count.toLocaleString()}回</div>` : '';
+      return `<a class="rank-row${topClass}" href="${s.href}">
+        <span class="rank-badge">${badge}</span>
+        <span class="rank-emoji">${s.emoji}</span>
+        <span class="rank-main"><div class="t">${s.title}</div><div class="c">${s.cat}</div>${shareLine}</span>
+        <span class="rank-bar"><span class="track"><span class="fill" style="width:${w}%"></span></span></span>
+        <span class="rank-arrow">›</span>
+      </a>`;
+    }).join('');
+  })();
+
+  /* ===== ギャラリーカードに拡散数を表示 =====
+     しきい値を超えたシミュだけ、サムネ右上に「🔥 ◯回」を出す。 */
+  (async function renderCardCounts(){
+    const cards = [...document.querySelectorAll('.grid a.sim-card[href]')];
+    const ids = cards.map(c => c.getAttribute('href').split('/')[1]);
+    let counts = {};
+    try { counts = await ShareCounter.counts(ids); } catch (e) { return; }
+    const TH = (window.ShareCounter && ShareCounter.THRESHOLD) || 30;
+    cards.forEach((card, i) => {
+      const c = counts[ids[i]] || 0;
+      if (c < TH) return;
+      const thumb = card.querySelector('.thumb');
+      if (!thumb) return;
+      const b = document.createElement('span');
+      b.className = 'card-share';
+      b.textContent = `🔥 ${c.toLocaleString()}回`;
+      thumb.appendChild(b);
+    });
+  })();
+
+  // カテゴリ絞り込み（クライアント完結）
+  const chips = document.getElementById('chips');
+  const cards = [...document.querySelectorAll('#grid .sim-card')];
+  chips.addEventListener('click', (e) => {
+    const btn = e.target.closest('.chip');
+    if (!btn) return;
+    chips.querySelectorAll('.chip').forEach(c => c.classList.remove('is-on'));
+    btn.classList.add('is-on');
+    const cat = btn.dataset.cat;
+    cards.forEach(card => {
+      card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+    });
+  });
+</script>
+</body>
+</html>

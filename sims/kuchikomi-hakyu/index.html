@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/kuchikomi-hakyu/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/kuchikomi-hakyu.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/kuchikomi-hakyu.png">
+<title>口コミ波及シミュレーター｜口コミは集客にどれだけ波及する？｜シミュラボ</title>
+<meta name="description" content="店舗の口コミ（クチコミ）が集客にどれだけ波及するかを、満足度・紹介の広がり・来店転換率から12か月でシミュレーション。★を上げると集客が複利で伸び、低いと“逆波及”でお客が減る様子を体感できる無料ツール。">
+<meta property="og:title" content="口コミ波及シミュレーター｜口コミは集客にどれだけ波及する？">
+<meta property="og:description" content="満足度（★）を動かすと、店舗の年間集客がプラスにもマイナスにも。口コミの複利と“逆波及”を体感。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/kuchikomi-hakyu/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "口コミ波及シミュレーター", "url": "https://shimulabo.com/sims/kuchikomi-hakyu/", "description": "店舗の口コミが集客にどれだけ波及するかを12か月でシミュレーション。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "口コミ波及シミュレーター", "item": "https://shimulabo.com/sims/kuchikomi-hakyu/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "数値は正確ですか？", "acceptedAnswer": {"@type": "Answer", "text": "口コミの広がりを単純化したモデルによる概算です。業種・立地・商材で実際の効果は変わります。「口コミを改善するとどの方向にどれくらい効くか」を体感する目安としてお使いください。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結し、入力内容が外部に送られることはありません。"}}]}</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span><span class="tag">BETA</span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>マーケティング<span>›</span><span class="cur">口コミ波及シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">マーケティング</div>
+    <h1>口コミ波及シミュレーター</h1>
+    <p class="lead">店舗の口コミ（クチコミ）は、満足したお客さんが次のお客さんを連れてくる「複利」の力を持っています。逆に評価が低いと、お客が減っていく“逆波及”も。あなたのお店で1年後、口コミがどれだけ集客に効くかをシミュレーションします。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🏬 お店の条件を入れる</h2>
+
+    <div class="field">
+      <label>口コミ以外の月間 新規客数 <span class="hint">（広告・通りがかり等の基礎流入）</span></label>
+      <input type="number" id="base" value="100" min="1" max="100000" inputmode="numeric">
+    </div>
+
+    <div class="field">
+      <div class="slider-head">
+        <label style="margin:0;">お客さんの満足度</label>
+        <span class="val"><span id="starsTxt">★★★★☆</span> <span id="satVal">4.2</span></span>
+      </div>
+      <input type="range" id="sat" min="10" max="50" value="42" step="1">
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label>1人が何人に話すか <span class="hint">（口コミ・紹介の広がり）</span></label>
+        <input type="number" id="tells" value="5" min="0" max="100" inputmode="numeric">
+      </div>
+      <div class="field">
+        <label>話を聞いた人の来店率 <span class="hint">（％）</span></label>
+        <input type="number" id="conv" value="10" min="0" max="100" inputmode="numeric">
+      </div>
+    </div>
+
+    <div class="field">
+      <label>客単価 <span class="hint">（売上換算に使用・円）</span></label>
+      <input type="number" id="price" value="3000" min="0" max="10000000" inputmode="numeric">
+    </div>
+  </section>
+
+  <section class="panel" id="resultPanel">
+    <div class="result" style="padding-bottom:8px;">
+      <div class="label">1年間で口コミがもたらす集客</div>
+      <div class="big"><span id="gapCustomers">0</span><span class="unit">人</span></div>
+      <div class="sub" id="gapMoney">—</div>
+    </div>
+
+    <div id="alertBox"></div>
+
+    <div style="margin-top:20px;">
+      <canvas id="chart" width="640" height="320" style="width:100%;height:auto;"></canvas>
+    </div>
+
+    <div class="statline" style="margin-top:18px;">
+      <div class="stat"><div class="k">口コミ増幅率</div><div class="v accent" id="rMult">—</div></div>
+      <div class="stat"><div class="k">1年合計（口コミあり）</div><div class="v" id="totalWith">—</div></div>
+      <div class="stat"><div class="k">1年合計（口コミなし）</div><div class="v" id="totalBase">—</div></div>
+    </div>
+
+    <div class="cta-box">
+      <h3>★を上げて、この“複利”を回しませんか？</h3>
+      <p>口コミを増やす・評価を上げる・MEOで露出を伸ばす——その運用代行を承っています。</p>
+      <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 28px;" href="../../contact/index.html">MEO・口コミ運用の相談をする →</a>
+    </div>
+
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row" style="margin-top:20px;">
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>口コミはなぜ「複利」で効くのか</h2>
+    <p>満足したお客さんは、友人や家族、SNSで店舗をすすめます。その話を聞いて来店した人が、また満足してすすめる——この連鎖が毎月積み重なることで、口コミ経由の集客は時間とともに広がっていきます。これが「波及（はきゅう）」です。</p>
+    <div class="note">
+      <strong>計算の考え方</strong><br>
+      月の集客 ＝ 基礎流入 ＋ （前月のお客さん × 口コミ増幅率）<br>
+      口コミ増幅率 ＝ 来店率 × 話す人数 ×（満足客のすすめる力 − 不満客の止める力）
+    </div>
+
+    <h2>★が低いと「逆波及」でお客が減る</h2>
+    <p>不満を持ったお客さんは、満足したお客さんよりも<strong>多くの人に</strong>悪い体験を伝えると言われています。評価が低い店舗では、口コミがプラスではなく<strong>マイナスに働き</strong>、放っておくとお客が静かに減っていきます。満足度を少し上げるだけで、この流れはプラスに反転します。</p>
+
+    <h2>口コミ集客とMEO（Googleマップ集客）の関係</h2>
+    <p>Googleビジネスプロフィールの口コミは、二重に効きます。ひとつは<strong>評価・件数が検索順位（MEO）に影響</strong>し、地図での露出＝基礎流入そのものが増えること。もうひとつは、口コミ評価が高いほど<strong>来店の決め手</strong>になり、転換率が上がること。つまり口コミを増やす施策は、このシミュレーターの「基礎流入」と「増幅率」の両方を押し上げます。</p>
+
+    <h2>よくある質問</h2>
+    <dl class="faq">
+      <dt>数値は正確ですか？</dt>
+      <dd>口コミの広がりを単純化したモデルによる概算です。業種・立地・商材で実際の効果は変わります。「口コミを改善するとどの方向にどれくらい効くか」を体感する目安としてお使いください。</dd>
+      <dt>データは送信されますか？</dt>
+      <dd>いいえ。計算はすべてブラウザ内で完結し、入力内容が外部に送られることはありません。</dd>
+    </dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../influencer-soroban/index.html"><span class="e">🦝</span><span>インフルエンサー皮算用シミュレーター</span></a><a class="related-card" href="../catchcopy/index.html"><span class="e">🪧</span><span>うさんくさいキャッチコピー製造機</span></a><a class="related-card" href="../kaigi-cost/index.html"><span class="e">🔥</span><span>会議コストシミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a>　|　<a href="../../contact/index.html">広告掲載・タイアップ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const MONTHS = 12;
+  const ctx = $('chart').getContext('2d');
+  let last = null;
+
+  function stars(s) {
+    const full = Math.round(s);
+    return '★★★★★'.slice(0, full) + '☆☆☆☆☆'.slice(0, 5 - full);
+  }
+
+  // 満足度 → すすめる確率 / 止める確率
+  function pPos(s) { return Math.max(0, 0.10 * (s - 2.0)); }   // ★5:0.30 ★4:0.20 ★3:0.10
+  function pNeg(s) { return Math.max(0, 0.12 * (3.5 - s)); }   // ★3:0.06 ★2:0.18 ★1:0.30
+
+  function recompute() {
+    const base  = Math.max(0, +$('base').value || 0);
+    const s     = (+$('sat').value) / 10;
+    const tells = Math.max(0, +$('tells').value || 0);
+    const conv  = Math.max(0, (+$('conv').value || 0) / 100);
+    const price = Math.max(0, +$('price').value || 0);
+
+    $('satVal').textContent = s.toFixed(1);
+    $('starsTxt').textContent = stars(s);
+
+    // 口コミ増幅率 R（不満客は1.5倍多く広めると仮定）
+    const R = conv * tells * (pPos(s) - 1.5 * pNeg(s));
+
+    // 12か月の月次客数：C_t = base + R * C_{t-1}
+    const withW = [], baseArr = [];
+    let prev = base;
+    for (let m = 0; m < MONTHS; m++) {
+      const c = Math.max(0, base + R * prev);
+      withW.push(c); baseArr.push(base); prev = c;
+    }
+    // 累計
+    const cumWith = []; const cumBase = [];
+    withW.reduce((a, c, i) => (cumWith[i] = a + c), 0);
+    baseArr.reduce((a, c, i) => (cumBase[i] = a + c), 0);
+
+    const totalWith = cumWith[MONTHS - 1];
+    const totalBase = cumBase[MONTHS - 1];
+    const gap = totalWith - totalBase;
+
+    last = { gap, totalWith, R, s };
+
+    $('gapCustomers').textContent = (gap >= 0 ? '+' : '−') + Math.abs(Math.round(gap)).toLocaleString();
+    $('gapMoney').textContent = '売上換算 ' + (gap >= 0 ? '+' : '−') + '¥' + Math.abs(Math.round(gap * price)).toLocaleString();
+    $('gapCustomers').style.color = gap >= 0 ? '' : '#16a34a'; // 色はbigのグラデを使うので基本そのまま
+    $('rMult').textContent = '×' + R.toFixed(3);
+    $('totalWith').textContent = Math.round(totalWith).toLocaleString() + ' 人';
+    $('totalBase').textContent = Math.round(totalBase).toLocaleString() + ' 人';
+
+    // アラート
+    const box = $('alertBox');
+    if (R > 0.001) {
+      box.innerHTML = `<div class="alert good">🚀 口コミがプラスに波及しています。満足度を保つほど、集客は雪だるま式に伸びます。</div>`;
+    } else if (R < -0.001) {
+      box.innerHTML = `<div class="alert bad">⚠️ 「逆波及」が発生中。評価が低いと、不満の口コミが広がりお客さんが静かに減っていきます。★を上げると流れが反転します。</div>`;
+    } else {
+      box.innerHTML = `<div class="alert">口コミの効果はほぼ中立。あと一歩 満足度を上げると、プラスに転じます。</div>`;
+    }
+
+    drawChart(cumWith, cumBase);
+  }
+
+  function drawChart(cw, cb) {
+    const W = 640, H = 320, padL = 52, padR = 16, padT = 18, padB = 34;
+    const plotW = W - padL - padR, plotH = H - padT - padB;
+    ctx.clearRect(0, 0, W, H);
+
+    const maxV = Math.max(cw[cw.length - 1], cb[cb.length - 1], 1);
+    const x = (i) => padL + (i / (MONTHS - 1)) * plotW;
+    const y = (v) => padT + plotH - (v / maxV) * plotH;
+
+    // グリッド & Y軸ラベル
+    ctx.strokeStyle = '#eef2f6'; ctx.fillStyle = '#94a3b8'; ctx.lineWidth = 1;
+    ctx.font = '11px sans-serif'; ctx.textAlign = 'right';
+    for (let g = 0; g <= 4; g++) {
+      const val = maxV * g / 4, yy = y(val);
+      ctx.beginPath(); ctx.moveTo(padL, yy); ctx.lineTo(W - padR, yy); ctx.stroke();
+      ctx.fillText(Math.round(val).toLocaleString(), padL - 8, yy + 4);
+    }
+    // X軸ラベル
+    ctx.textAlign = 'center';
+    [0, 2, 5, 8, 11].forEach(i => ctx.fillText((i + 1) + 'か月', x(i), H - 12));
+
+    // 差の塗り（あり と なし の間）
+    const pos = cw[cw.length - 1] >= cb[cb.length - 1];
+    ctx.beginPath();
+    ctx.moveTo(x(0), y(cb[0]));
+    for (let i = 0; i < MONTHS; i++) ctx.lineTo(x(i), y(cb[i]));
+    for (let i = MONTHS - 1; i >= 0; i--) ctx.lineTo(x(i), y(cw[i]));
+    ctx.closePath();
+    ctx.fillStyle = pos ? 'rgba(15,181,196,.16)' : 'rgba(244,63,94,.14)';
+    ctx.fill();
+
+    // なし（グレー）
+    line(cb, '#94a3b8', [6, 6]);
+    // あり（ティール or 赤）
+    line(cw, pos ? '#0a8794' : '#e24b4a', []);
+
+    // 凡例
+    ctx.textAlign = 'left'; ctx.font = '700 12px sans-serif';
+    ctx.fillStyle = pos ? '#0a8794' : '#e24b4a'; ctx.fillText('● 口コミあり', padL + 4, padT + 12);
+    ctx.fillStyle = '#94a3b8'; ctx.fillText('● 口コミなし', padL + 92, padT + 12);
+
+    function line(arr, color, dash) {
+      ctx.beginPath(); ctx.setLineDash(dash); ctx.strokeStyle = color; ctx.lineWidth = 2.5;
+      arr.forEach((v, i) => i ? ctx.lineTo(x(i), y(v)) : ctx.moveTo(x(i), y(v)));
+      ctx.stroke(); ctx.setLineDash([]);
+    }
+  }
+
+  function shareText() {
+    if (!last) return '';
+    if (last.gap >= 0)
+      return `お店の口コミ、1年で集客+${Math.round(last.gap).toLocaleString()}人ぶんの波及効果があるらしい📈（満足度★${last.s.toFixed(1)}）\n口コミは複利。あなたのお店でも試せる👇`;
+    return `満足度★${last.s.toFixed(1)}だと、口コミが"逆波及"して1年で集客−${Math.abs(Math.round(last.gap)).toLocaleString()}人…⚠️\n口コミ評価の怖さ、試してみて👇`;
+  }
+
+  ['base', 'sat', 'tells', 'conv', 'price'].forEach(id =>
+    $(id).addEventListener('input', recompute));
+  $('shareBtn').addEventListener('click', () => {
+    const intent = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText()) +
+      '&url=' + encodeURIComponent(location.href) + '&hashtags=' + encodeURIComponent('シミュラボ,口コミ,MEO');
+    window.open(intent, '_blank', 'noopener');
+  });
+  $('copyBtn').addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(shareText() + '\n' + location.href);
+      $('copyBtn').textContent = 'コピーしました ✓'; setTimeout(() => $('copyBtn').textContent = '結果をコピー', 1600);
+    } catch { alert(shareText()); }
+  });
+
+  recompute();
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'kuchikomi-hakyu', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

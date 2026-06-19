@@ -1,0 +1,11 @@
+{
+  "name": "shimulabo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "シミュラボ — 触って分かるシミュレーター集",
+  "dependencies": {
+    "@vercel/kv": "^1.0.1",
+    "@vercel/og": "^0.6.4"
+  }
+}

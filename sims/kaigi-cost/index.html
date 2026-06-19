@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/kaigi-cost/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/kaigi-cost.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/kaigi-cost.png">
+<title>会議コストシミュレーター｜その会議、いくら燃えてる？｜シミュラボ</title>
+<meta name="description" content="参加人数と平均年収を入れるだけで、会議中に溶けていく人件費をリアルタイム表示。毎週やっている定例の年間コストも自動計算する無料シミュレーター。">
+<meta property="og:title" content="会議コストシミュレーター｜その会議、いくら燃えてる？">
+<meta property="og:description" content="参加人数×年収から、会議中に燃えるお金を1秒ごとに可視化。あなたの定例、年間いくら？">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/kaigi-cost/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "会議コストシミュレーター", "url": "https://shimulabo.com/sims/kaigi-cost/", "description": "参加人数と年収から、会議中に溶けていく人件費をリアルタイム計算。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "会議コストシミュレーター", "item": "https://shimulabo.com/sims/kaigi-cost/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "この金額は正確ですか？", "acceptedAnswer": {"@type": "Answer", "text": "あくまで概算です。実際の人件費には社会保険料や間接費（オフィス代など）も乗るため、本来のコストはさらに高くなります。「最低でもこのくらい」という目安としてお使いください。"}}, {"@type": "Question", "name": "年間労働時間1,900時間の根拠は？", "acceptedAnswer": {"@type": "Answer", "text": "1日約7.5時間 × 月20日 × 12か月 ≒ 1,800〜1,900時間という一般的な目安を採用しています。"}}, {"@type": "Question", "name": "データはどこかに送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてお使いのブラウザ内で完結し、入力内容が外部に送られることはありません。"}}]}</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span><span class="tag">BETA</span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>お金・時間<span>›</span><span class="cur">会議コストシミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">お金・時間</div>
+    <h1>会議コストシミュレーター</h1>
+    <p class="lead">その会議、実は「お金」が燃えています。参加人数と平均年収を入れるだけで、会議中に溶けていく人件費がリアルタイムで分かります。</p>
+  </div>
+
+  <!-- 入力 -->
+  <section class="panel">
+    <h2>🧮 条件を入れる</h2>
+
+    <div class="row">
+      <div class="field">
+        <label>参加人数 <span class="hint">（人）</span></label>
+        <input type="number" id="people" value="6" min="1" max="500" inputmode="numeric">
+      </div>
+      <div class="field">
+        <label>会議の長さ <span class="hint">（分）</span></label>
+        <input type="number" id="minutes" value="60" min="1" max="600" inputmode="numeric">
+      </div>
+    </div>
+
+    <div class="field">
+      <label>参加者の平均年収 <span class="hint">（万円・ざっくりでOK）</span></label>
+      <select id="salary">
+        <option value="350">350万円（若手中心）</option>
+        <option value="500" selected>500万円（標準的な会社員）</option>
+        <option value="650">650万円（中堅・リーダー層）</option>
+        <option value="800">800万円（管理職が多い）</option>
+        <option value="1000">1,000万円（役員クラス）</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>開催ペース <span class="hint">（年間コスト換算に使用）</span></label>
+      <select id="freq">
+        <option value="0">単発（1回だけ）</option>
+        <option value="52" selected>毎週</option>
+        <option value="251">毎営業日</option>
+        <option value="24">隔週</option>
+        <option value="12">毎月</option>
+      </select>
+    </div>
+
+    <button class="btn btn-primary" id="calcBtn">この会議のコストを見る</button>
+  </section>
+
+  <!-- 結果 -->
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">この会議1回の人件費</div>
+      <div class="big"><span id="costOnce" class="burn">0</span><span class="unit">円</span></div>
+      <div class="sub" id="costSub">—</div>
+
+      <div class="statline">
+        <div class="stat">
+          <div class="k">1分あたり</div>
+          <div class="v accent" id="perMin">—</div>
+        </div>
+        <div class="stat">
+          <div class="k">1秒あたり</div>
+          <div class="v" id="perSec">—</div>
+        </div>
+        <div class="stat" id="yearStat">
+          <div class="k">年間コスト</div>
+          <div class="v accent" id="perYear">—</div>
+        </div>
+      </div>
+
+      <div class="share-row">
+        <button class="btn btn-ghost" id="burnBtn">▶ 会議をスタート（お金が燃えます）</button>
+      </div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 解説（SEO / LLMO 本文） -->
+  <article class="article">
+    <h2>会議コストの計算方法</h2>
+    <p>会議のコストは、参加者一人ひとりの「時間あたり人件費」を合計して求めます。本シミュレーターでは、年収から1時間あたりの人件費を次のように概算しています。</p>
+    <div class="note">
+      <strong>計算式</strong><br>
+      1時間あたり人件費 ＝ 年収 ÷ 年間労働時間（約1,900時間）<br>
+      会議コスト ＝ 1時間あたり人件費 × 参加人数 × 会議時間
+    </div>
+    <p>たとえば平均年収500万円の社員6人が60分会議をすると、概算で <strong>約16,000円</strong> がその1回で消費されます。これを毎週続けると、年間では <strong>80万円以上</strong> に達します。会議は「無料」に見えて、実際にはこれだけの人件費が動いているのです。</p>
+
+    <h2>なぜ会議コストを「見える化」すると良いのか</h2>
+    <ul>
+      <li><strong>参加人数を見直すきっかけになる</strong> ― 「とりあえず全員招集」をやめるだけでコストは大きく下がります。</li>
+      <li><strong>時間を短くする動機になる</strong> ― 60分を45分にするだけで25%の削減です。</li>
+      <li><strong>本当に会議が必要かを問える</strong> ― チャットや資料共有で済む議題は、会議にしないほうが安く済みます。</li>
+    </ul>
+
+    <h2>会議コストを下げる3つのコツ</h2>
+    <h3>1. 招集人数を絞る</h3>
+    <p>コストは人数に比例します。意思決定に不要な「念のため参加」を外すのが最も効きます。</p>
+    <h3>2. 時間に上限を決める</h3>
+    <p>「この会議は30分まで」と先に宣言すると、議論が引き締まります。</p>
+    <h3>3. 定例こそ棚卸しする</h3>
+    <p>毎週の定例は、1回あたりは小さくても年間では大きな額になります。年に一度は「この定例は本当に要るか」を見直しましょう。</p>
+
+    <h2>よくある質問</h2>
+    <dl class="faq">
+      <dt>この金額は正確ですか？</dt>
+      <dd>あくまで概算です。実際の人件費には社会保険料や間接費（オフィス代など）も乗るため、本来のコストはさらに高くなります。「最低でもこのくらい」という目安としてお使いください。</dd>
+      <dt>年間労働時間1,900時間の根拠は？</dt>
+      <dd>1日約7.5時間 × 月20日 × 12か月 ≒ 1,800〜1,900時間という一般的な目安を採用しています。</dd>
+      <dt>データはどこかに送信されますか？</dt>
+      <dd>いいえ。計算はすべてお使いのブラウザ内で完結し、入力内容が外部に送られることはありません。</dd>
+    </dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../kuchikomi-hakyu/index.html"><span class="e">📈</span><span>口コミ波及シミュレーター</span></a><a class="related-card" href="../jutai/index.html"><span class="e">🚗</span><span>渋滞は勝手に生まれる</span></a><a class="related-card" href="../machi-jikan/index.html"><span class="e">⏳</span><span>人生の「待ち時間」シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const ANNUAL_HOURS = 1900; // 年間労働時間の目安
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+
+  let burnTimer = null;
+  let perSecCost = 0;
+  let lastResult = null;
+
+  function calc() {
+    const people  = Math.max(1, +$('people').value || 0);
+    const minutes = Math.max(1, +$('minutes').value || 0);
+    const salary  = (+$('salary').value) * 10000; // 万円→円
+    const freq    = +$('freq').value;
+
+    const perHourPerson = salary / ANNUAL_HOURS;      // 1人1時間あたり
+    const perHour = perHourPerson * people;           // 全員/時
+    const perMin  = perHour / 60;
+    const perSec  = perMin / 60;
+    const once    = perMin * minutes;                 // この会議1回
+    const year    = once * freq;                      // 年間
+
+    perSecCost = perSec;
+    lastResult = { people, minutes, once, perMin, year, freq };
+
+    $('costSub').textContent =
+      `${people}人 × ${minutes}分 × 平均年収${(+$('salary').value).toLocaleString()}万円 で計算`;
+    $('perMin').textContent = yen(perMin);
+    $('perSec').textContent = yen(perSec);
+
+    if (freq > 0) {
+      $('yearStat').style.display = '';
+      $('perYear').textContent = yen(year);
+    } else {
+      $('yearStat').style.display = 'none';
+    }
+
+    // 結果を表示してアニメで数字を上げる
+    $('resultPanel').style.display = '';
+    animateNumber($('costOnce'), 0, once, 900);
+    stopBurn();
+    $('resultPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function animateNumber(el, from, to, dur) {
+    const start = performance.now();
+    function step(now) {
+      const p = Math.min(1, (now - start) / dur);
+      const ease = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(from + (to - from) * ease).toLocaleString('ja-JP');
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  // リアルタイムで燃やす
+  function toggleBurn() {
+    if (burnTimer) { stopBurn(); return; }
+    const el = $('costOnce');
+    let acc = +el.textContent.replace(/[^\d]/g, '') || 0;
+    const startVal = acc;
+    el.classList.add('burning');
+    $('burnBtn').textContent = '■ ストップ';
+    const t0 = performance.now();
+    burnTimer = setInterval(() => {
+      const elapsed = (performance.now() - t0) / 1000;
+      el.textContent = Math.round(startVal + perSecCost * elapsed).toLocaleString('ja-JP');
+    }, 80);
+  }
+  function stopBurn() {
+    if (burnTimer) { clearInterval(burnTimer); burnTimer = null; }
+    $('costOnce').classList.remove('burning');
+    $('burnBtn').textContent = '▶ 会議をスタート（お金が燃えます）';
+  }
+
+  function shareText() {
+    if (!lastResult) return '';
+    const r = lastResult;
+    let t = `この会議、1回で約${yen(r.once)}燃えてました🔥（${r.people}人×${r.minutes}分）`;
+    if (r.freq > 0) t += `\n毎週やってると年間 約${yen(r.year)}…！`;
+    t += `\n\nあなたの会議も測ってみる👇`;
+    return t;
+  }
+
+  $('calcBtn').addEventListener('click', calc);
+  $('burnBtn').addEventListener('click', toggleBurn);
+  $('shareBtn').addEventListener('click', () => {
+    const url = location.href;
+    const intent = 'https://twitter.com/intent/tweet?text=' +
+      encodeURIComponent(shareText()) + '&url=' + encodeURIComponent(url) +
+      '&hashtags=' + encodeURIComponent('シミュラボ,会議コスト');
+    window.open(intent, '_blank', 'noopener');
+  });
+  $('copyBtn').addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(shareText() + '\n' + location.href);
+      $('copyBtn').textContent = 'コピーしました ✓';
+      setTimeout(() => $('copyBtn').textContent = '結果をコピー', 1600);
+    } catch { alert(shareText()); }
+  });
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'kaigi-cost', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

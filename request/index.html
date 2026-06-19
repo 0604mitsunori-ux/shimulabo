@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/request/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/request.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/request.png">
+<title>シミュレーションをリクエストする｜こんなの作ってほしい！｜シミュラボ</title>
+<meta name="description" content="「こんなシミュレーションが見てみたい」をシミュラボに送れるリクエストページ。あなたのアイデアが実際に作られて公開されるかも。">
+<meta property="og:title" content="シミュレーションをリクエストする｜シミュラボ">
+<meta property="og:description" content="あなたの「これ数字で見てみたい」を送ってください。実際に作って公開するかも。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/request/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "リクエスト", "item": "https://shimulabo.com/request/"}]}</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span><span class="tag">BETA</span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../index.html">ホーム</a><span>›</span><span class="cur">リクエスト</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">REQUEST</div>
+    <h1>こんなシミュ、作ってほしい！</h1>
+    <p class="lead">あなたの「これ、数字やアニメで見てみたい」を送ってください。面白いアイデアは<strong>実際に作って公開</strong>します。採用されたら、ニックネームでクレジットも。</p>
+  </div>
+
+  <!-- リクエストのヒント -->
+  <section class="panel">
+    <h2>💡 こんなテーマ、待ってます</h2>
+    <ul style="margin:0;padding-left:20px;color:var(--ink-2);font-size:14px;line-height:1.9;">
+      <li>身近な「なんとなく」を数字にしたい（例：通勤を自転車にしたら年間どれだけ痩せる？）</li>
+      <li>世界のふしぎ・現象を触って見たい（例：信号がなかったら交差点はどうなる？）</li>
+      <li>仕事・お店の「これ効果ある？」を試したい（例：値上げしたら客数はどう動く？）</li>
+      <li>くだらないけど気になる（例：一生でまばたきは何回する？）</li>
+    </ul>
+  </section>
+
+  <!-- フォーム -->
+  <section class="panel">
+    <h2>✍️ リクエストを送る</h2>
+
+    <div class="field">
+      <label>どんなシミュレーションが見たいですか？ <span class="hint">（必須）</span></label>
+      <textarea id="idea" placeholder="例：コンビニ通いを週3回に減らしたら、1年でいくら貯まる？"></textarea>
+    </div>
+
+    <div class="field">
+      <label>ジャンル <span class="hint">（近いものを選んでください）</span></label>
+      <select id="genre">
+        <option value="お金・時間">お金・時間</option>
+        <option value="ふしぎ・現象">ふしぎ・現象</option>
+        <option value="人生・自分ごと">人生・自分ごと</option>
+        <option value="マーケティング・お店">マーケティング・お店</option>
+        <option value="くだらない・ネタ">くだらない・ネタ</option>
+        <option value="その他・おまかせ">その他・おまかせ</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>なぜ見てみたい？ <span class="hint">（任意・あると採用されやすい）</span></label>
+      <textarea id="why" style="min-height:80px;" placeholder="気になる理由や、こうだったら面白い、など"></textarea>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label>ニックネーム <span class="hint">（任意・採用時のクレジット用）</span></label>
+        <input type="text" id="nick" placeholder="例：しみゅ太郎">
+      </div>
+      <div class="field">
+        <label>メールアドレス <span class="hint">（任意・公開時にお知らせ）</span></label>
+        <input type="email" id="email" placeholder="例：you@example.com">
+      </div>
+    </div>
+
+    <button class="btn btn-primary" id="sendBtn">この内容でリクエストする</button>
+    <p id="note" style="font-size:13px;color:var(--ink-2);margin:14px 0 0;text-align:center;">
+      送信ボタンを押すと、メールソフトが起動します。
+    </p>
+  </section>
+
+  <article class="article">
+    <h2>リクエストのよくある質問</h2>
+    <dl class="faq">
+      <dt>必ず作ってもらえますか？</dt>
+      <dd>すべてをお約束はできませんが、いただいたアイデアはすべて目を通し、面白いものから順に制作します。</dd>
+      <dt>採用されたら教えてもらえますか？</dt>
+      <dd>メールアドレスをご記入いただいた方には、公開時にお知らせします。ニックネームをいただければ、ページにクレジットを載せます。</dd>
+      <dt>個人情報は何に使われますか？</dt>
+      <dd>いただいた連絡先は、リクエストへのご連絡以外には使用しません。</dd>
+    </dl>
+  </article>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  /* 公開時の動線：
+     ① 簡単版（今）… 下のTOにメールが届く（mailto）
+     ② 本格版（公開後）… api/request.js を立て、サーバーに蓄積＋投票ボード化 */
+  const TO = 'request@example.com';   // ▼公開時に受信用アドレスへ差し替え
+
+  $('sendBtn').addEventListener('click', () => {
+    const idea = $('idea').value.trim();
+    if (!idea) {
+      $('note').textContent = '⚠️ 「どんなシミュレーションが見たいか」は必須です。';
+      $('note').style.color = 'var(--accent-d)';
+      return;
+    }
+    const subject = `【シミュラボ】シミュレーションのリクエスト（${$('genre').value}）`;
+    const body =
+      `■ジャンル：${$('genre').value}\n` +
+      `■見たいシミュレーション：\n${idea}\n\n` +
+      `■見てみたい理由：\n${$('why').value.trim() || '（未記入）'}\n\n` +
+      `■ニックネーム：${$('nick').value.trim() || '（未記入）'}\n` +
+      `■メール：${$('email').value.trim() || '（未記入）'}\n`;
+
+    window.location.href = `mailto:${TO}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    $('note').textContent = '✅ メールソフトを起動しました。送信ありがとうございます！';
+    $('note').style.color = 'var(--teal-d)';
+  });
+})();
+</script>
+</body>
+</html>

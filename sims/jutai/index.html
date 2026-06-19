@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/jutai/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/jutai.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/jutai.png">
+<title>渋滞シミュレーター｜事故ゼロでも渋滞は勝手に生まれる｜シミュラボ</title>
+<meta name="description" content="全員が普通に運転しているだけなのに、原因ゼロで渋滞の波が発生する「自然渋滞」をリング道路で再現。混雑度を上げると渋滞が生まれる瞬間を体感できる無料シミュレーター。">
+<meta property="og:title" content="渋滞シミュレーター｜事故ゼロでも渋滞は勝手に生まれる">
+<meta property="og:description" content="原因がなくても渋滞は生まれる。混雑度を少し上げた瞬間、渋滞の波が走り出す様子を見てみよう。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/jutai/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "渋滞は勝手に生まれる", "url": "https://shimulabo.com/sims/jutai/", "description": "事故ゼロでも渋滞の波が発生する自然渋滞をリング道路で再現。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "渋滞は勝手に生まれる", "item": "https://shimulabo.com/sims/jutai/"}]}</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span><span class="tag">BETA</span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>ふしぎ・現象<span>›</span><span class="cur">渋滞は勝手に生まれる</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ふしぎ・現象</div>
+    <h1>渋滞は、勝手に生まれる。</h1>
+    <p class="lead">事故も工事もないのに、なぜか渋滞する。その正体は「自然渋滞」。全員がふつうに運転しているだけでも、車が増えると渋滞の波がひとりでに発生します。リング道路で再現してみました。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;">
+      <canvas id="road" width="520" height="520" style="width:100%;max-width:520px;height:auto;"></canvas>
+    </div>
+
+    <div class="field" style="margin-top:22px;">
+      <label>混雑度（車の間隔）<span class="hint" id="densityLabel">— ゆとりがある</span></label>
+      <input type="range" id="density" min="63" max="140" value="82" step="2" style="width:100%;">
+    </div>
+
+    <div class="share-row" style="margin-top:8px;">
+      <button class="btn btn-primary" id="playBtn" style="width:auto;padding-left:34px;padding-right:34px;">▶ 走らせる</button>
+      <button class="btn btn-ghost" id="resetBtn">リセット</button>
+    </div>
+
+    <div class="statline" style="margin-top:24px;">
+      <div class="stat"><div class="k">車の台数</div><div class="v" id="carCount">—</div></div>
+      <div class="stat"><div class="k">平均速度</div><div class="v accent" id="avgSpeed">—</div></div>
+      <div class="stat"><div class="k">渋滞ポイント</div><div class="v" id="jamCount">—</div></div>
+    </div>
+
+    <p style="text-align:center;color:var(--ink-2);font-size:13px;margin-top:18px;">
+      🟢 スムーズ　🟡 減速中　🔴 渋滞　― スライダーで混雑度を上げると、赤い波が生まれます。
+    </p>
+
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-x" id="shareBtn">𝕏 でシェア</button>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>なぜ原因がないのに渋滞するのか</h2>
+    <p>渋滞というと「事故」や「工事」を思い浮かべますが、実は高速道路の渋滞の多くは、はっきりした原因のない<strong>「自然渋滞」</strong>です。車の数がある密度を超えると、誰か一人のわずかなブレーキが後ろの車に次々と伝わり、その「ブレーキの波」が後方へ広がっていきます。これが渋滞の正体です。</p>
+    <p>このシミュレーターでは、すべての車が同じシンプルなルール（前の車との距離が近ければ緩め、遠ければ加速する）で動いています。それでも混雑度を上げると、誰も悪くないのに渋滞の波が生まれます。</p>
+
+    <h2>自然渋滞を防ぐコツ</h2>
+    <ul>
+      <li><strong>車間距離を広めにとる</strong> ― 急ブレーキの連鎖を吸収でき、渋滞の発生・悪化を防げます。</li>
+      <li><strong>一定の速度を保つ</strong> ― 加減速を減らすほど、後ろへ伝わる「波」が小さくなります。</li>
+      <li><strong>合流はゆずり合う</strong> ― 詰めすぎないことが、結果的に全体の流れを速くします。</li>
+    </ul>
+    <div class="note">この「全員が同じルールで動いても、全体としては予期しない現象が生まれる」という考え方は、群れの動き・株価・人混みの流れなど、身のまわりのいろいろな現象に共通しています。</div>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../kaigi-cost/index.html"><span class="e">🔥</span><span>会議コストシミュレーター</span></a><a class="related-card" href="../kuchikomi-hakyu/index.html"><span class="e">📈</span><span>口コミ波及シミュレーター</span></a><a class="related-card" href="../machi-jikan/index.html"><span class="e">⏳</span><span>人生の「待ち時間」シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const canvas = document.getElementById('road');
+  const ctx = canvas.getContext('2d');
+  const $ = (id) => document.getElementById(id);
+
+  const N = 42;                 // 車の数（固定）
+  const A = 1.0;                // 反応の強さ（感度）。小さいほど渋滞が起きやすい
+  const DT = 0.10;
+  const SUB = 2;                // サブステップ
+  const VMAX = Math.tanh(8 - 2) + Math.tanh(2);
+
+  let L = 150;                  // リング1周の長さ（=混雑度。小さいほど密）
+  let cars = [];               // {x, v}
+  let raf = null;
+
+  // 最適速度関数：前車との車間 h に応じた「出したい速度」
+  function Vopt(h) { return Math.tanh(h - 2) + Math.tanh(2); }
+
+  function densityWord(l) {
+    if (l >= 125) return '— かなりゆとり（流れる）';
+    if (l >= 110) return '— ゆとりがある';
+    if (l >= 95)  return '— ふつう';
+    if (l >= 80)  return '— やや混雑';
+    return '— 過密（渋滞しやすい）';
+  }
+
+  function init() {
+    L = +$('density').value;
+    const gap = L / N;
+    cars = [];
+    for (let i = 0; i < N; i++) {
+      // 均等配置＋ごくわずかな揺らぎ（これが渋滞の"種"になる）
+      const jitter = (Math.sin(i * 12.9898) * 43758.5453 % 1) * 0.6;
+      cars.push({ x: (i * gap + jitter) % L, v: VMAX });
+    }
+    $('densityLabel').textContent = densityWord(L);
+    $('carCount').textContent = N + ' 台';
+    draw();
+    updateStats();
+  }
+
+  function step() {
+    cars.sort((a, b) => a.x - b.x);
+    for (let s = 0; s < SUB; s++) {
+      for (let i = 0; i < N; i++) {
+        const next = cars[(i + 1) % N];
+        let h = next.x - cars[i].x;
+        if (h <= 0) h += L;             // リング上の前方車間
+        cars[i].a = A * (Vopt(h) - cars[i].v);
+      }
+      for (let i = 0; i < N; i++) {
+        cars[i].v += cars[i].a * DT;
+        if (cars[i].v < 0) cars[i].v = 0;
+        cars[i].x = (cars[i].x + cars[i].v * DT) % L;
+      }
+    }
+  }
+
+  function speedColor(v) {
+    const r = Math.max(0, Math.min(1, v / VMAX));   // 0=遅い 1=速い
+    if (r < 0.33) return '#f43f5e';                 // 赤：渋滞
+    if (r < 0.66) return '#f59e0b';                 // 黄：減速
+    return '#10b981';                               // 緑：スムーズ
+  }
+
+  function draw() {
+    const w = canvas.width, h = canvas.height;
+    const cx = w / 2, cy = h / 2, R = w * 0.40;
+    ctx.clearRect(0, 0, w, h);
+
+    // 道路
+    ctx.beginPath();
+    ctx.arc(cx, cy, R, 0, Math.PI * 2);
+    ctx.lineWidth = 30; ctx.strokeStyle = '#eef2f6'; ctx.stroke();
+    ctx.lineWidth = 1; ctx.setLineDash([6, 10]); ctx.strokeStyle = '#cdd6e0';
+    ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2); ctx.stroke();
+    ctx.setLineDash([]);
+
+    // 車
+    for (const c of cars) {
+      const ang = (c.x / L) * Math.PI * 2 - Math.PI / 2;
+      const px = cx + Math.cos(ang) * R, py = cy + Math.sin(ang) * R;
+      ctx.beginPath();
+      ctx.arc(px, py, 7, 0, Math.PI * 2);
+      ctx.fillStyle = speedColor(c.v);
+      ctx.fill();
+    }
+
+    // 中央ラベル
+    ctx.fillStyle = '#0b1220'; ctx.textAlign = 'center';
+    ctx.font = '700 15px "Hiragino Kaku Gothic ProN", sans-serif';
+    ctx.fillText('一方通行のリング道路', cx, cy - 6);
+    ctx.fillStyle = '#5b6878'; ctx.font = '400 12px sans-serif';
+    ctx.fillText(N + '台がぐるぐる走行中', cx, cy + 14);
+  }
+
+  function updateStats() {
+    const avg = cars.reduce((s, c) => s + c.v, 0) / N;
+    let jams = 0;
+    for (const c of cars) if (c.v < VMAX * 0.33) jams++;
+    $('avgSpeed').textContent = Math.round((avg / VMAX) * 100) + '%';
+    $('jamCount').textContent = jams + ' 台';
+  }
+
+  let acc = 0, lastT = 0;
+  function loop(t) {
+    if (!lastT) lastT = t;
+    lastT = t;
+    step();
+    draw();
+    updateStats();
+    raf = requestAnimationFrame(loop);
+  }
+
+  function play() {
+    if (raf) { cancelAnimationFrame(raf); raf = null; $('playBtn').textContent = '▶ 走らせる'; return; }
+    lastT = 0; $('playBtn').textContent = '⏸ 一時停止';
+    raf = requestAnimationFrame(loop);
+  }
+  function reset() {
+    if (raf) { cancelAnimationFrame(raf); raf = null; $('playBtn').textContent = '▶ 走らせる'; }
+    init();
+  }
+
+  $('playBtn').addEventListener('click', play);
+  $('resetBtn').addEventListener('click', reset);
+  $('density').addEventListener('input', () => {
+    const running = !!raf;
+    if (raf) { cancelAnimationFrame(raf); raf = null; }
+    init();
+    if (running) { $('playBtn').textContent = '⏸ 一時停止'; lastT = 0; raf = requestAnimationFrame(loop); }
+  });
+
+  init();
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>
+  document.getElementById('shareBtn').addEventListener('click', () => {
+    const text = '事故ゼロでも渋滞は「勝手に」生まれる…🚗\nリング道路のシミュレーターが地味に面白い👇';
+    const intent = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) +
+      '&url=' + encodeURIComponent(location.href) + '&hashtags=' + encodeURIComponent('シミュラボ,渋滞');
+    window.open(intent, '_blank', 'noopener');
+  });
+  ShareCounter.initSim({ simId:'jutai', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });
+</script>
+</body>
+</html>

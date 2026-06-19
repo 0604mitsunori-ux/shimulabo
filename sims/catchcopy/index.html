@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/catchcopy/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/catchcopy.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/catchcopy.png">
+<title>うさんくさいキャッチコピー製造機｜商品名を入れるだけ｜シミュラボ</title>
+<meta name="description" content="商品やサービスの名前を入れるだけで、どこかで見たことある“うさんくさい”広告キャッチコピーを量産。うさんくささスコア付き。くだらない無料ジェネレーター。">
+<meta property="og:title" content="うさんくさいキャッチコピー製造機">
+<meta property="og:description" content="商品名を入れるだけで、99%の人が知らない“うさんくさい”広告コピーを量産します。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/catchcopy/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "うさんくさいキャッチコピー製造機", "url": "https://shimulabo.com/sims/catchcopy/", "description": "商品名を入れるだけでうさんくさい広告コピーを量産するジョークツール。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "うさんくさいキャッチコピー製造機", "item": "https://shimulabo.com/sims/catchcopy/"}]}</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span><span class="tag">BETA</span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>マーケティング<span>›</span><span class="cur">うさんくさいキャッチコピー製造機</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">マーケティング</div>
+    <h1>うさんくさいキャッチコピー製造機</h1>
+    <p class="lead">商品やサービスの名前を入れるだけで、どこかで見たことある“あの感じ”のうさんくさい広告コピーを量産します。広告の「やりすぎ表現」を笑うためのジョークツールです。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🪧 商品・サービス名を入れる</h2>
+    <div class="field">
+      <label>商品・サービス名 <span class="hint">（なんでもOK。自分の名前でも可）</span></label>
+      <input type="text" id="name" value="まる秘サプリ" maxlength="24" placeholder="例：朝の青汁、推し活グッズ…">
+    </div>
+    <button class="btn btn-primary" id="genBtn">うさんくさいコピーを生成する</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result" style="padding-bottom:6px;">
+      <div class="label">うさんくささスコア</div>
+      <div class="big"><span id="score">0</span><span class="unit">%</span></div>
+      <div class="meter"><span id="meterBar" style="width:0%"></span></div>
+      <div class="sub" id="verdict">—</div>
+    </div>
+
+    <div id="copyList" style="margin-top:18px;"></div>
+
+    <div class="share-row">
+      <button class="btn btn-ghost" id="rerollBtn">🎲 もう一回ガチャ</button>
+    </div>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-x" id="shareBtn">𝕏 でシェア</button>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>このツールは何のため？</h2>
+    <p>世の中の広告には、つい笑ってしまうほど「盛った」表現があふれています。「人生変わった」「99%が知らない」「もう手放せない」——本ツールは、そうした“うさんくさい広告コピー”の型をネタとして詰め込んだジョークジェネレーターです。実際の広告制作に使うものではありません。</p>
+
+    <h2>本当に伝わるコピーは“盛らない”</h2>
+    <p>うさんくさいコピーが笑えるのは、それが「具体性のない誇張」だからです。逆に、信頼されるコピーには次の特徴があります。</p>
+    <ul>
+      <li><strong>主語が具体的</strong> ― 「99%の人」ではなく「30代の共働き世帯」のように、誰のためかが明確。</li>
+      <li><strong>数字に根拠がある</strong> ― 出典のない「実感No.1」ではなく、調査・実績にひもづく数字。</li>
+      <li><strong>誇大表現を避ける</strong> ― 景品表示法・薬機法の観点でも、根拠のない最上級表現はリスクになります。</li>
+    </ul>
+    <div class="note">笑えるコピーで惹きつけるのは一瞬。最後に選ばれるのは、ちゃんと伝わるコピーです。</div>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../kuchikomi-hakyu/index.html"><span class="e">📈</span><span>口コミ波及シミュレーター</span></a><a class="related-card" href="../influencer-soroban/index.html"><span class="e">🦝</span><span>インフルエンサー皮算用シミュレーター</span></a><a class="related-card" href="../kaigi-cost/index.html"><span class="e">🔥</span><span>会議コストシミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+
+  const templates = [
+    n => `${n}で、人生、変わりました。`,
+    n => `もう${n}なしの生活には戻れない。`,
+    n => `99%の人がまだ知らない、${n}の真実。`,
+    n => `【超有料級】${n}を、今だけ無料で大公開！`,
+    n => `${n}を使わないなんて、正直もったいない。`,
+    n => `業界に激震。${n}が、すべてを変える。`,
+    n => `たった3日で実感。これが${n}のチカラ。`,
+    n => `※閲覧注意※ ${n}、効果がありすぎて販売停止寸前。`,
+    n => `えっ、まだ${n}使ってないの…？`,
+    n => `${n}に出会えて、本当に良かった。（涙）`,
+    n => `【知らないと一生損】${n}、在庫わずか。`,
+    n => `フォロワー10万人が、こぞって選んだ${n}。`,
+    n => `寝てる間に。気づいたら。${n}。`,
+    n => `成功者は、みんな${n}を持っている。`,
+    n => `あなたの“それ”、${n}で解決します。`,
+    n => `【神回】${n}、買わない理由が見つからない。`,
+    n => `半信半疑だった私が、${n}で大号泣。`,
+    n => `今こそ${n}。迷っている時間が、もったいない。`
+  ];
+  const prefixes = ['', '🔥', '✨', '⚡', '【限定】', '💎', '⏰', '👑'];
+
+  function shuffle(a) {
+    const arr = a.slice();
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  let firstCopy = '';
+
+  function generate() {
+    const name = ($('name').value || '').trim() || 'コレ';
+    const picks = shuffle(templates).slice(0, 5);
+    const stars = (4.7 + Math.random() * 0.29).toFixed(1);
+    const list = $('copyList');
+    list.innerHTML = '';
+    picks.forEach((tpl, i) => {
+      const pre = prefixes[Math.floor(Math.random() * prefixes.length)];
+      const text = (pre ? pre + ' ' : '') + tpl(name);
+      if (i === 0) firstCopy = text;
+      const row = document.createElement('div');
+      row.className = 'copy-item';
+      row.innerHTML = `<span class="num">${i + 1}</span><span class="txt"></span><button class="mini">コピー</button>`;
+      row.querySelector('.txt').textContent = text;
+      row.querySelector('.mini').addEventListener('click', async () => {
+        try { await navigator.clipboard.writeText(text);
+          const b = row.querySelector('.mini'); b.textContent = '✓'; setTimeout(() => b.textContent = 'コピー', 1200);
+        } catch {}
+      });
+      list.appendChild(row);
+    });
+
+    const score = Math.floor(88 + Math.random() * 12); // 88〜99%
+    $('score').textContent = score;
+    $('meterBar').style.width = score + '%';
+    $('verdict').textContent = `★${stars}（自称）／うさんくささは過去最高クラスです`;
+
+    $('resultPanel').style.display = '';
+    $('resultPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  $('genBtn').addEventListener('click', generate);
+  $('rerollBtn').addEventListener('click', generate);
+  $('shareBtn').addEventListener('click', () => {
+    const text = `「${firstCopy}」\n\nうさんくさいキャッチコピー製造機で遊んだら、うさんくささ${$('score').textContent}%だった🪧\nあなたの商品でも作れる👇`;
+    const intent = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) +
+      '&url=' + encodeURIComponent(location.href) + '&hashtags=' + encodeURIComponent('シミュラボ,キャッチコピー');
+    window.open(intent, '_blank', 'noopener');
+  });
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'catchcopy', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

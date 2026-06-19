@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/board/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/board.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/board.png">
+<title>リクエストボード｜みんなが見たいシミュレーション｜シミュラボ</title>
+<meta name="description" content="次に作るシミュレーションの候補を、みんなの👍投票で決めるリクエストボード。票が多いものから実際に作って公開します。あなたのアイデアも投稿できます。">
+<meta property="og:title" content="リクエストボード｜みんなが見たいシミュレーション">
+<meta property="og:description" content="次に作るシミュは投票で決める。気になる案に👍して、人気を競わせよう。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/board/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "リクエストボード", "item": "https://shimulabo.com/board/"}]}</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span><span class="tag">BETA</span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../index.html">ホーム</a><span>›</span><span class="cur">リクエストボード</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">REQUEST BOARD</div>
+    <h1>みんなが見たいシミュ、投票で決定</h1>
+    <p class="lead">次に作るシミュレーションの候補です。気になるものに <strong>👍</strong> を押してください。票が多いものから順に、実際に作って公開します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🗳️ 投票はこちら（票の多い順）</h2>
+    <div class="vote-list" id="voteList"></div>
+    <p style="font-size:12px;color:var(--ink-2);margin:16px 0 0;text-align:center;">
+      ※ 投票は1案につき1回。集計は順次反映されます。
+    </p>
+  </section>
+
+  <section class="req-banner">
+    <h2>💡 候補にないアイデアは？</h2>
+    <p>「これも見てみたい」を直接送れます。投稿された案も、ここで投票にかけます。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../request/index.html">自分のアイデアを送る →</a>
+  </section>
+
+  <article class="article">
+    <h2>このボードについて</h2>
+    <p>シミュラボは「次に何を作るか」を、つくり手だけで決めません。みんなの投票で人気を集めたテーマから優先して制作します。応援したい案に投票し、見たかったシミュを一緒に育ててください。</p>
+    <div class="note">いただいたリクエストのうち、面白い案はこのボードに追加され、投票の対象になります。</div>
+  </article>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../index.html">← シミュラボ トップへ戻る</a>　|　<a href="../request/index.html">アイデアを送る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script src="../assets/vote.js"></script>
+<script>
+(() => {
+  /* 候補リクエスト（公開後は api/request の承認済みリストに差し替え可）。
+     id は投票集計のキー。安易に変えると票がリセットされるので注意。 */
+  const REQUESTS = [
+    { id: 'req-life-calendar', title: '人生カレンダー（人生を4,000週のマスで可視化）', genre: '人生・自分ごと' },
+    { id: 'req-turing',        title: '模様が勝手に生まれる（ヒョウ柄・シマ模様の不思議）', genre: 'ふしぎ・現象' },
+    { id: 'req-tabemono',      title: '一生で食べる量（米・卵・ラーメンの生涯総量）', genre: 'くだらない・ネタ' },
+    { id: 'req-chintai',       title: '賃貸 vs 持ち家 生涯コスト対決', genre: 'お金・時間' },
+    { id: 'req-sync',          title: '拍手・ホタルが勝手に揃う（同期現象）', genre: 'ふしぎ・現象' },
+    { id: 'req-shugi',         title: '結婚式ご祝儀 収支シミュ', genre: '人生・自分ごと' },
+    { id: 'req-this-year',     title: '今年もう何%終わった？メーター', genre: 'お金・時間' },
+    { id: 'req-edo',           title: 'もし江戸時代に生まれてたら（職業・寿命診断）', genre: 'くだらない・ネタ' }
+  ];
+
+  const listEl = document.getElementById('voteList');
+
+  async function render() {
+    const counts = await Vote.counts(REQUESTS.map(r => r.id));
+    const rows = REQUESTS.map(r => ({ ...r, n: counts[r.id] || 0 }))
+      .sort((a, b) => b.n - a.n);
+
+    listEl.innerHTML = rows.map((r, i) => {
+      const rank = i + 1;
+      const topClass = (r.n > 0 && rank <= 3) ? ' top' + rank : '';
+      const voted = Vote.hasVoted(r.id);
+      return `<div class="vote-row${topClass}" data-id="${r.id}">
+        <span class="vote-rank">${rank}</span>
+        <span class="vote-main"><div class="vt">${r.title}</div><div class="vc">${r.genre}</div></span>
+        <button class="vote-btn${voted ? ' voted' : ''}" ${voted ? 'disabled' : ''}>👍 <b>${r.n.toLocaleString()}</b></button>
+      </div>`;
+    }).join('');
+
+    listEl.querySelectorAll('.vote-btn:not(.voted)').forEach(btn => {
+      btn.addEventListener('click', async (e) => {
+        const id = e.target.closest('.vote-row').dataset.id;
+        if (Vote.hasVoted(id)) return;
+        await Vote.vote(id);
+        render(); // 投票したら順位を再計算（競わせる）
+      });
+    });
+  }
+
+  render();
+})();
+</script>
+</body>
+</html>

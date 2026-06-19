@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/machi-jikan/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/machi-jikan.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/machi-jikan.png">
+<title>人生の「待ち時間」シミュレーター｜生涯で何日を待つだけに使う？｜シミュラボ</title>
+<meta name="description" content="信号・レジ・電車・読み込み…生涯で『待つ』だけに使う時間を年齢から計算。あなたが人生で待ち続ける日数を可視化する無料シミュレーター。">
+<meta property="og:title" content="人生の「待ち時間」シミュレーター">
+<meta property="og:description" content="信号・レジ・電車・読み込み…あなたが生涯で『待つ』だけに使う時間は何日分？">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/machi-jikan/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "人生の「待ち時間」シミュレーター", "url": "https://shimulabo.com/sims/machi-jikan/", "description": "信号・レジ・電車・読み込み…生涯で待つだけに使う時間を計算。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "人生の「待ち時間」シミュレーター", "item": "https://shimulabo.com/sims/machi-jikan/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "この日数は正確ですか？", "acceptedAnswer": {"@type": "Answer", "text": "あくまで一般的な目安からの概算です。住んでいる地域や生活スタイルによって実際の待ち時間は変わります。「人生に占める待ち時間の大きさ」を体感する目安としてお使いください。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結し、入力した年齢などが外部に送られることはありません。"}}]}</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span><span class="tag">BETA</span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>人生・自分ごと<span>›</span><span class="cur">人生の「待ち時間」シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">人生・自分ごと</div>
+    <h1>人生の「待ち時間」シミュレーター</h1>
+    <p class="lead">信号、レジの行列、電車、読み込み画面…。気づかないうちに、私たちは毎日けっこうな時間を「待つ」だけに使っています。あなたが生涯で待ち続ける時間を、年齢から計算します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>⏳ 条件を入れる</h2>
+    <div class="row">
+      <div class="field">
+        <label>今の年齢 <span class="hint">（歳）</span></label>
+        <input type="number" id="age" value="30" min="1" max="100" inputmode="numeric">
+      </div>
+      <div class="field">
+        <label>想定寿命 <span class="hint">（歳）</span></label>
+        <input type="number" id="life" value="84" min="40" max="120" inputmode="numeric">
+      </div>
+    </div>
+    <button class="btn btn-primary" id="calcBtn">生涯の待ち時間を見る</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">あなたが生涯で「待つ」だけに使う時間</div>
+      <div class="big"><span id="lifeDays">0</span><span class="unit">日</span></div>
+      <div class="sub" id="sub">—</div>
+
+      <div class="statline">
+        <div class="stat">
+          <div class="k">＝ 換算すると</div>
+          <div class="v accent" id="lifeYears">—</div>
+        </div>
+        <div class="stat">
+          <div class="k">これまで待った</div>
+          <div class="v" id="pastDays">—</div>
+        </div>
+        <div class="stat">
+          <div class="k">1日あたり</div>
+          <div class="v" id="perDay">—</div>
+        </div>
+      </div>
+
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>何にどれくらい「待って」いるのか</h2>
+    <p>本シミュレーターでは、日常でよくある待ち時間を1日あたり合計約30分として概算しています。内訳の目安は次のとおりです。</p>
+    <ul>
+      <li>信号・横断歩道を待つ：約5分／日</li>
+      <li>レジ・会計の行列：約6分／日</li>
+      <li>電車・バスを待つ：約9分／日</li>
+      <li>読み込み・通信・起動の待ち：約7分／日</li>
+      <li>エレベーター・トイレなどの行列：約3分／日</li>
+    </ul>
+    <div class="note">
+      <strong>計算式</strong><br>
+      生涯の待ち時間 ＝ 1日の待ち時間（約30分）× 365日 × 想定寿命
+    </div>
+    <p>1日たった30分でも、80年以上積み重ねると <strong>600日以上＝約1.7年</strong> にもなります。人生のうち、まるまる1年半以上を「ただ待つ」ことに使っている計算です。</p>
+
+    <h2>待ち時間を取り戻すには</h2>
+    <ul>
+      <li><strong>待ち時間に"ながら"を仕込む</strong> ― 音声学習やメモ整理など、待ち時間を別の時間に変えるだけで体感は大きく変わります。</li>
+      <li><strong>混む時間帯を避ける</strong> ― 行列の待ち時間は時間帯選びで大きく減らせます。</li>
+      <li><strong>「待たない」を選ぶ</strong> ― ネット予約・モバイルオーダー・キャッシュレスで行列そのものを回避できます。</li>
+    </ul>
+
+    <h2>よくある質問</h2>
+    <dl class="faq">
+      <dt>この日数は正確ですか？</dt>
+      <dd>あくまで一般的な目安からの概算です。住んでいる地域や生活スタイルによって実際の待ち時間は変わります。「人生に占める待ち時間の大きさ」を体感する目安としてお使いください。</dd>
+      <dt>データは送信されますか？</dt>
+      <dd>いいえ。計算はすべてブラウザ内で完結し、入力した年齢などが外部に送られることはありません。</dd>
+    </dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../scroll-distance/index.html"><span class="e">📱</span><span>スクロール距離メーター</span></a><a class="related-card" href="../kaigi-cost/index.html"><span class="e">🔥</span><span>会議コストシミュレーター</span></a><a class="related-card" href="../kuchikomi-hakyu/index.html"><span class="e">📈</span><span>口コミ波及シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const MIN_PER_DAY = 30;   // 1日の待ち時間（分）
+  const $ = (id) => document.getElementById(id);
+  let last = null;
+
+  function calc() {
+    const age  = Math.max(1, +$('age').value || 0);
+    let life   = Math.max(age + 1, +$('life').value || 0);
+
+    const lifeMin = MIN_PER_DAY * 365 * life;      // 生涯（分）
+    const lifeDays = lifeMin / 1440;
+    const lifeYears = lifeDays / 365;
+    const pastDays = (MIN_PER_DAY * 365 * age) / 1440;
+
+    last = { age, lifeDays, lifeYears };
+
+    $('sub').textContent = `1日約30分 × 365日 × ${life}歳 で計算`;
+    $('lifeYears').textContent = lifeYears.toFixed(1) + ' 年';
+    $('pastDays').textContent  = Math.round(pastDays) + ' 日';
+    $('perDay').textContent    = '約30分';
+
+    $('resultPanel').style.display = '';
+    animate($('lifeDays'), 0, lifeDays, 900);
+    $('resultPanel').scrollIntoView({ behavior:'smooth', block:'start' });
+  }
+
+  function animate(el, from, to, dur) {
+    const t0 = performance.now();
+    (function step(now){
+      const p = Math.min(1, (now - t0) / dur);
+      const e = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(from + (to - from) * e).toLocaleString('ja-JP');
+      if (p < 1) requestAnimationFrame(step);
+    })(performance.now());
+  }
+
+  function shareText() {
+    if (!last) return '';
+    return `人生で「待つ」だけに使う時間、なんと約${Math.round(last.lifeDays).toLocaleString()}日（＝約${last.lifeYears.toFixed(1)}年）らしい…⏳\n\nあなたは何日待ち続ける？👇`;
+  }
+
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => {
+    const intent = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText()) +
+      '&url=' + encodeURIComponent(location.href) + '&hashtags=' + encodeURIComponent('シミュラボ,待ち時間');
+    window.open(intent, '_blank', 'noopener');
+  });
+  $('copyBtn').addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(shareText() + '\n' + location.href);
+      $('copyBtn').textContent = 'コピーしました ✓'; setTimeout(() => $('copyBtn').textContent = '結果をコピー', 1600);
+    } catch { alert(shareText()); }
+  });
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'machi-jikan', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>
