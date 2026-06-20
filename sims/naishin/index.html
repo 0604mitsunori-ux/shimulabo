@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/naishin/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/naishin.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/naishin.png">
+<title>内申点シミュレーター｜9教科の評定から内申点を計算｜シミュラボ</title>
+<meta name="description" content="主要5教科と実技4教科の評定（5段階）から、内申点の目安を計算する無料シミュレーター。実技2倍の地域にも対応。高校受験の目安に。">
+<meta property="og:title" content="内申点シミュレーター｜9教科の評定から計算">
+<meta property="og:description" content="5教科と実技4教科の評定から、内申点の目安を計算。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/naishin/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "内申点シミュレーター", "url": "https://shimulabo.com/sims/naishin/", "description": "9教科の評定から内申点の目安を計算（実技2倍対応）。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "内申点シミュレーター", "item": "https://shimulabo.com/sims/naishin/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "学年の重みは？", "acceptedAnswer": {"@type": "Answer", "text": "地域により中1〜中3の比重が違います（中3のみ・全学年など）。本ツールはある時点の素点の目安です。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>学生・勉強<span>›</span><span class="cur">内申点シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">学生・勉強</div>
+    <h1>内申点シミュレーター</h1>
+    <p class="lead">高校受験で大事な「内申点」。9教科の評定（5段階）から、あなたの内申点の目安を計算します。実技を2倍で計算する地域にも対応。</p>
+  </div>
+
+  <section class="panel">
+    <h2>📋 評定（5段階）</h2>
+    <div class="row"><div class="field"><label>主要5教科の合計 <span class="hint">（国・数・英・理・社／25点満点）</span></label><input type="number" id="main" value="20" min="5" max="25" inputmode="numeric"></div>
+    <div class="field"><label>実技4教科の合計 <span class="hint">（音・美・体・技家／20点満点）</span></label><input type="number" id="sub" value="14" min="4" max="20" inputmode="numeric"></div></div>
+    <div class="field"><label>計算方式（地域による）</label><select id="mode"><option value="1">通常（9教科×5＝45点満点）</option><option value="2">実技2倍（5教科＋実技×2）</option></select></div>
+    <button class="btn btn-primary" id="calcBtn">内申点を計算する</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">あなたの内申点（目安）</div>
+      <div class="big"><span id="big">0</span><span class="unit" id="unit">点</span></div>
+      <div class="sub" id="sub2">—</div>
+      <div class="statline"><div class="stat"><div class="k">満点</div><div class="v" id="max">—</div></div>
+      <div class="stat"><div class="k">達成率</div><div class="v accent" id="rate">—</div></div>
+      <div class="stat"><div class="k">評価</div><div class="v" id="rank" style="font-size:16px;">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>この計算について</h2>
+    <p>内申点（調査書点）の計算方法は<strong>都道府県や学校で大きく異なります</strong>。本ツールは代表的な「9教科×5段階＝45点満点」と「実技2倍」の2方式に対応した目安です。志望校の正確な計算方法は学校や先生に確認してください。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>学年の重みは？</dt><dd>地域により中1〜中3の比重が違います（中3のみ・全学年など）。本ツールはある時点の素点の目安です。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../goukaku/index.html"><span class="e">✏️</span><span>合格可能性シミュレーター</span></a><a class="related-card" href="../benkyo-time/index.html"><span class="e">📚</span><span>勉強時間シミュレーター</span></a><a class="related-card" href="../gakuhi/index.html"><span class="e">🎓</span><span>学費総額シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){
+    const m=Math.max(0,+$('main').value||0), s=Math.max(0,+$('sub').value||0), mode=+$('mode').value;
+    let score, max; if(mode===2){ score=m+s*2; max=25+40; } else { score=m+s; max=45; }
+    const rate=score/max*100;
+    let r= rate>=90?'トップ校ねらえる':rate>=78?'かなり良い':rate>=64?'平均より上':rate>=50?'平均的':'これから伸ばそう';
+    $('sub2').textContent=`5教科${m}＋実技${s}・${sel('mode').text}`;
+    $('max').textContent=max+'点'; $('rate').textContent=Math.round(rate)+'%'; $('rank').textContent=r;
+    SHARE=`内申点シミュ、私は${score}/${max}点（${Math.round(rate)}%・${r}）でした📋\nあなたは？👇`;
+    show(); anim($('big'),0,score,900);
+  }
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'naishin', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>
