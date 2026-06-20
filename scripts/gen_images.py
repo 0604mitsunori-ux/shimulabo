@@ -3,7 +3,7 @@
    出力: ogp/*.png（1200x630）, apple-touch-icon.png, favicon-32x32.png, favicon-16x16.png
 """
 import os
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OGP_DIR = os.path.join(ROOT, "ogp")
@@ -27,6 +27,47 @@ def hgrad(w, h, c1, c2):
         col = tuple(round(c1[i] + (c2[i] - c1[i]) * t) for i in range(3))
         d.line([(x, 0), (x, h)], fill=col)
     return img
+
+def lerp(c1, c2, t):
+    return tuple(round(c1[i] + (c2[i] - c1[i]) * t) for i in range(3))
+
+def grad_color(stops, t):
+    t = max(0.0, min(1.0, t))
+    for i in range(len(stops) - 1):
+        p0, c0 = stops[i]; p1, c1 = stops[i + 1]
+        if t <= p1:
+            tt = (t - p0) / (p1 - p0) if p1 > p0 else 0
+            return lerp(c0, c1, max(0.0, min(1.0, tt)))
+    return stops[-1][1]
+
+def dgrad(w, h, stops, ax=0.62, ay=0.38):
+    """斜めグラデを低解像度で作り拡大（高速・滑らか）。t は右・上ほど大きい。"""
+    sw, sh = 140, 74
+    small = Image.new("RGB", (sw, sh))
+    px = small.load()
+    s = ax + ay
+    for y in range(sh):
+        fy = (1 - y / (sh - 1)) * ay
+        for x in range(sw):
+            t = ((x / (sw - 1)) * ax + fy) / s
+            px[x, y] = grad_color(stops, t)
+    return small.resize((w, h), Image.BICUBIC)
+
+def dotgrid(d, x0, y0, cols, rows, gap, r, color):
+    for i in range(cols):
+        for j in range(rows):
+            cx = x0 + i * gap; cy = y0 + j * gap
+            d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=color)
+
+def sparkle(d, cx, cy, R, color=(255, 255, 255, 235)):
+    """4方向にとがった輝き（菱形×2）"""
+    nv = R * 0.16
+    d.polygon([(cx, cy - R), (cx + nv, cy), (cx, cy + R), (cx - nv, cy)], fill=color)
+    d.polygon([(cx - R, cy), (cx, cy + nv), (cx + R, cy), (cx, cy - nv)], fill=color)
+
+BG_STOPS = [(0.0, (16, 146, 178)), (0.42, (38, 88, 212)), (0.72, (66, 80, 226)), (1.0, (122, 92, 238))]
+CYAN = (74, 222, 235)
+PILL_BLUE = (37, 99, 235)
 
 def draw_flask(d, box, color, lw):
     """box=(x0,y0,x1,y1) の中にフラスコ(三角フラスコ風)を白線で描く"""
@@ -76,36 +117,88 @@ def wrap_jp(text, fnt, max_w):
         lines.append(cur)
     return lines
 
-def make_ogp(path, title, category, tagline="触って分かるシミュレーター集"):
+def make_ogp(path, title, category, tagline="触って分かるシミュレーター集", underline=None):
     W, H = 1200, 630
-    img = hgrad(W, H, TEAL, INDIGO).convert("RGBA")
+    img = dgrad(W, H, BG_STOPS).convert("RGBA")
+
+    # ===== 装飾レイヤー（半透明） =====
+    deco = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    dd = ImageDraw.Draw(deco)
+    # 大きな淡い円（右上・右下）
+    dd.ellipse([W - 250, -170, W + 230, 310], fill=(255, 255, 255, 16))
+    dd.ellipse([W - 470, H - 250, W - 110, H + 110], fill=(255, 255, 255, 12))
+    # 斜めライン（右下）
+    for k in range(6):
+        off = k * 78
+        dd.line([(W - 560 + off, H + 20), (W - 40 + off, H - 470)], fill=(255, 255, 255, 26), width=2)
+    # ドットグリッド（右上・右下）
+    dotgrid(dd, W - 250, 70, 9, 4, 23, 3, (255, 255, 255, 70))
+    dotgrid(dd, W - 210, H - 130, 8, 3, 23, 3, (255, 255, 255, 55))
+    # 光沢の球（下・中央右）＋ハイライト
+    bx, by, br = W - 360, H - 120, 52
+    dd.ellipse([bx - br, by - br, bx + br, by + br], fill=(255, 255, 255, 26))
+    dd.ellipse([bx - br * 0.5, by - br * 0.6, bx - br * 0.5 + br * 0.5, by - br * 0.6 + br * 0.5], fill=(255, 255, 255, 70))
+    img = Image.alpha_composite(img, deco)
+
+    # 輝き（グロー付き）
+    glow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    gd = ImageDraw.Draw(glow)
+    gd.ellipse([W - 330, 78, W - 250, 158], fill=(255, 255, 255, 120))
+    glow = glow.filter(ImageFilter.GaussianBlur(14))
+    img = Image.alpha_composite(img, glow)
+    spk = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    sparkle(ImageDraw.Draw(spk), W - 290, 118, 26)
+    img = Image.alpha_composite(img, spk)
+
     d = ImageDraw.Draw(img)
 
-    # ロゴ＋ワードマーク（左上）
-    tile = logo_tile(86)
-    img.paste(tile, (64, 56), tile)
-    d.text((166, 62), "シミュラボ", font=font(FONT_BOLD, 46), fill=WHITE)
-    d.text((168, 116), "SIMU LAB", font=font(FONT_MED, 22), fill=(255, 255, 255, 220))
+    # ===== ロゴ＋ワードマーク（左上） =====
+    tile = logo_tile(92)
+    img.paste(tile, (64, 52), tile)
+    d.text((176, 58), "シミュラボ", font=font(FONT_BOLD, 48), fill=WHITE)
+    d.text((178, 116), "SIMU LAB", font=font(FONT_MED, 23), fill=(255, 255, 255, 225))
 
-    # カテゴリピル
+    # ===== カテゴリピル =====
     pill_f = font(FONT_BOLD, 28)
     tw = pill_f.getlength(category)
-    px, py = 64, 210
-    d.rounded_rectangle([px, py, px + tw + 56, py + 52], radius=26, fill=(255, 255, 255, 235))
-    d.text((px + 28, py + 8), category, font=pill_f, fill=INDIGO)
+    px, py = 64, 206
+    d.rounded_rectangle([px, py, px + tw + 56, py + 54], radius=27, fill=(255, 255, 255, 240))
+    d.text((px + 28, py + 9), category, font=pill_f, fill=PILL_BLUE)
 
-    # タイトル
-    tf = font(FONT_BOLD, 66)
-    lines = wrap_jp(title, tf, W - 128)[:3]
-    ty = 300
+    # ===== タイトル（発光＋本体） =====
+    tf = font(FONT_BOLD, 64)
+    lines = wrap_jp(title, tf, W - 150)[:3]
+    ty0 = 300
+    lh = 84
+    # 発光レイヤー
+    tg = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    tgd = ImageDraw.Draw(tg)
+    ty = ty0
     for ln in lines:
-        # 影で可読性UP
-        d.text((66, ty + 3), ln, font=tf, fill=(0, 0, 0, 70))
+        tgd.text((64, ty), ln, font=tf, fill=(150, 215, 255, 180))
+        ty += lh
+    tg = tg.filter(ImageFilter.GaussianBlur(10))
+    img = Image.alpha_composite(img, tg)
+    d = ImageDraw.Draw(img)
+    # 本体（白）＋キーワード下線（シアン）
+    ty = ty0
+    for ln in lines:
         d.text((64, ty), ln, font=tf, fill=WHITE)
-        ty += 84
+        if underline and underline in ln:
+            pre = ln.split(underline)[0]
+            xs = 64 + tf.getlength(pre)
+            xe = xs + tf.getlength(underline)
+            uy = ty + lh * 0.92
+            d.rounded_rectangle([xs, uy, xe, uy + 9], radius=4, fill=CYAN + (255,))
+        ty += lh
 
-    # タグライン（下）
-    d.text((64, H - 70), tagline + "　|　シミュラボ", font=font(FONT_MED, 28), fill=(255, 255, 255, 235))
+    # ===== アクセントバー（短いシアン線） =====
+    aby = ty + 10
+    if aby < H - 96:
+        d.rounded_rectangle([64, aby, 64 + 92, aby + 9], radius=4, fill=CYAN + (235,))
+
+    # ===== タグライン（下） =====
+    d.text((64, H - 64), tagline + "　｜　シミュラボ", font=font(FONT_MED, 27), fill=(255, 255, 255, 235))
 
     img.convert("RGB").save(path, "PNG")
     print("OGP:", os.path.relpath(path, ROOT))
@@ -298,7 +391,8 @@ SIMS = [
 ]
 
 for sid, title, cat in SIMS:
-    make_ogp(os.path.join(OGP_DIR, f"{sid}.png"), title, cat)
+    ul = "なんとなく" if sid == "default" else None
+    make_ogp(os.path.join(OGP_DIR, f"{sid}.png"), title, cat, underline=ul)
 
 # favicon / touch icon
 logo_tile(180).convert("RGB").save(os.path.join(ROOT, "apple-touch-icon.png"), "PNG")
