@@ -332,12 +332,28 @@ for path in glob.glob(os.path.join(ROOT, "**", "index.html"), recursive=True):
         print("seo:", os.path.relpath(path, ROOT), "->", meta["kind"])
 
 # ---- sitemap.xml ----
+from datetime import date
+
+def lastmod_for(u):
+    """URLパス → 対応するindex.htmlのファイル更新日(YYYY-MM-DD)。無ければ空。"""
+    if u == "/":
+        rel = "index.html"
+    else:
+        rel = os.path.join(u.strip("/"), "index.html")
+    p = os.path.join(ROOT, rel)
+    try:
+        return date.fromtimestamp(os.path.getmtime(p)).isoformat()
+    except OSError:
+        return ""
+
 urls = ["/"] + [f"/sims/{s[0]}/" for s in SIMS] + [f"/{k}/" for k in SUBPAGES]
 sm = ['<?xml version="1.0" encoding="UTF-8"?>',
       '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
 for u in urls:
     pr = "1.0" if u == "/" else ("0.8" if u.startswith("/sims/") else "0.5")
-    sm.append(f"  <url><loc>{BASE}{u}</loc><changefreq>weekly</changefreq><priority>{pr}</priority></url>")
+    lm = lastmod_for(u)
+    lm_tag = f"<lastmod>{lm}</lastmod>" if lm else ""
+    sm.append(f"  <url><loc>{BASE}{u}</loc>{lm_tag}<changefreq>weekly</changefreq><priority>{pr}</priority></url>")
 sm.append("</urlset>")
 with open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8") as f:
     f.write("\n".join(sm) + "\n")
