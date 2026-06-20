@@ -32,7 +32,7 @@ TPL = '''<!DOCTYPE html>
   <div class="inner">
     <a class="brand" href="../../index.html">
       ''' + LOGO + '''
-      <span class="name">シミュ<b>ラボ</b></span><span class="tag">BETA</span>
+      <span class="name">シミュ<b>ラボ</b></span>
     </a>
     <span class="spacer"></span>
     <a class="back" href="../../index.html">← 一覧へ</a>
