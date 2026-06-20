@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/naming-buzz/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/naming-buzz.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/naming-buzz.png">
+<title>ネーミングバズ度診断｜その商品名、バズる名前？｜シミュラボ</title>
+<meta name="description" content="商品名・サービス名を入れるだけで、文字数・カタカナ率・リズムなどから「覚えやすさ／バズりやすさ」を点数化するエンタメ診断シミュレーター。">
+<meta property="og:title" content="ネーミングバズ度診断｜その商品名、バズる名前？">
+<meta property="og:description" content="商品名を入れると、覚えやすさ・バズりやすさを点数化。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/naming-buzz/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "ネーミングバズ度診断", "url": "https://shimulabo.com/sims/naming-buzz/", "description": "商品名の文字数やリズムから覚えやすさ・バズ度を点数化。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ネーミングバズ度診断", "item": "https://shimulabo.com/sims/naming-buzz/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "点数は正確ですか？", "acceptedAnswer": {"@type": "Answer", "text": "エンタメ診断です。実際の良し悪しは商品との相性・ターゲットで変わります。"}}, {"@type": "Question", "name": "入力した名前は送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。診断はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>マーケティング<span>›</span><span class="cur">ネーミングバズ度診断</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">マーケティング</div>
+    <h1>ネーミングバズ度診断</h1>
+    <p class="lead">良い商品名は、それだけで広がります。商品・サービス名を入れると、文字数やリズムから「覚えやすさ・バズりやすさ」を点数化します（エンタメ診断）。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🏷️ 名前を入れる</h2>
+    <div class="field"><label>商品・サービス名</label><input type="text" id="nm" value="モグモグ" maxlength="30" placeholder="例：シャキッと野菜"></div>
+    <button class="btn btn-primary" id="calcBtn">バズ度を診断する</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">この名前のバズ度は</div>
+      <div class="big"><span id="big">0</span><span class="unit">点</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="alert good" id="adv" style="text-align:left;margin-top:18px;">—</div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>覚えやすい名前の条件</h2>
+    <p>一般に、①短い（3〜6文字）②声に出しやすいリズム③繰り返しの音（モグモグ等）④数字や具体性、があると記憶に残りやすいと言われます。本診断はそれを簡易点数化したエンタメです。</p>
+    <div class="note">💡 迷ったら「声に出して3回言ってみる」。スッと言えて、すぐ思い出せる名前が強い名前です。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>点数は正確ですか？</dt><dd>エンタメ診断です。実際の良し悪しは商品との相性・ターゲットで変わります。</dd><dt>入力した名前は送信されますか？</dt><dd>いいえ。診断はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../influencer-soroban/index.html"><span class="e">🦝</span><span>インフルエンサー皮算用シミュレーター</span></a><a class="related-card" href="../catchcopy/index.html"><span class="e">🪧</span><span>うさんくさいキャッチコピー製造機</span></a><a class="related-card" href="../if-company/index.html"><span class="e">🏢</span><span>もしあなたが会社だったら</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){
+    const nm=($('nm').value||'').trim();
+    if(!nm){ alert('商品名を入力してね'); return; }
+    const len=[...nm].length;
+    const kata=(nm.match(/[\u30A0-\u30FF]/g)||[]).length;
+    const digit=(nm.match(/[0-9０-９]/g)||[]).length;
+    const rep=/(.)\1/.test(nm)?1:0;
+    let sc=48;
+    if(len>=3&&len<=6) sc+=18; else if(len<=8) sc+=8; else sc-=10;
+    sc+=Math.min(14,kata*4);
+    if(digit>0) sc+=8;
+    if(rep) sc+=12;
+    sc=Math.max(20,Math.min(99,sc));
+    let a; if(sc>=80)a='覚えやすくて拡散向き。SNSでも一度で覚えてもらえそう🔥';
+    else if(sc>=60)a='良いバランス。あと一歩、短く・声に出しやすくするとさらに強い名前に。';
+    else if(sc>=45)a='悪くないけど、もう少し短くするか、リズムのある音を足すと印象に残りやすく。';
+    else a='少し長め・覚えにくいかも。3〜6文字で、声に出して言いやすい候補も試してみよう。';
+    $('sub').textContent=`「${nm}」／${len}文字`;
+    $('adv').textContent='🏷️ '+a;
+    SHARE=`「${nm}」のネーミングバズ度は${sc}点でした🏷️\nあなたの商品名は何点？👇`;
+    show(); anim($('big'),0,sc,900);
+  }
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'naming-buzz', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>
