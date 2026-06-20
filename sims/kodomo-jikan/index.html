@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/kodomo-jikan/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/kodomo-jikan.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/kodomo-jikan.png">
+<title>子どもと過ごせる残り時間シミュレーター｜巣立ちまであと何日？｜シミュラボ</title>
+<meta name="description" content="子どもの今の年齢から、18歳で巣立つまでに一緒に過ごせる残りの日数を計算する無料シミュレーター。今ある時間の大切さに気づくきっかけに。">
+<meta property="og:title" content="子どもと過ごせる残り時間｜巣立ちまであと何日？">
+<meta property="og:description" content="子どもの年齢から、巣立ちまでに一緒に過ごせる残り日数を計算。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/kodomo-jikan/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "子どもと過ごせる残り時間", "url": "https://shimulabo.com/sims/kodomo-jikan/", "description": "子どもの年齢から巣立ちまでに一緒に過ごせる残り日数を計算。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "子どもと過ごせる残り時間", "item": "https://shimulabo.com/sims/kodomo-jikan/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "巣立ちの年齢は？", "acceptedAnswer": {"@type": "Answer", "text": "進学・就職などご家庭の想定で変えてください。一緒に暮らす期間の目安です。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。入力した年齢などは外部に送信されません。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>子ども・育児<span>›</span><span class="cur">子どもと過ごせる残り時間</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">子ども・育児</div>
+    <h1>子どもと過ごせる残り時間</h1>
+    <p class="lead">子どもと一緒に暮らせるのは、意外と短い時間です。今の年齢から、18歳で巣立つまでに一緒に過ごせる残りの日数を計算します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🧸 条件</h2>
+    <div class="field"><label>お子さんの今の年齢 <span class="hint">（歳）</span></label><input type="number" id="age" value="3" min="0" max="18" inputmode="numeric"></div>
+    <div class="field"><label>巣立つ年齢 <span class="hint">（歳・進学や就職で家を出る目安）</span></label><input type="number" id="leave" value="18" min="1" max="25" inputmode="numeric"></div>
+    <button class="btn btn-primary" id="calcBtn">残りの時間を見る</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">巣立ちまで、一緒に過ごせるのは あと</div>
+      <div class="big"><span id="big">0</span><span class="unit">日</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">残りの年数</div><div class="v accent" id="years">—</div></div>
+      <div class="stat"><div class="k">残りの夏休み</div><div class="v" id="natsu">—</div></div>
+      <div class="stat"><div class="k">すでに過ごした割合</div><div class="v" id="done">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>この計算について</h2>
+    <p>子どもが家で過ごす時間の多くは、18歳までに集中していると言われます。残りの日数や「あと何回の夏休み」を知ると、今ある時間がいっそう大切に感じられます。</p>
+    <div class="note">数字で脅すためではなく、今日の「いってらっしゃい」を大切にするためのツールです。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>巣立ちの年齢は？</dt><dd>進学・就職などご家庭の想定で変えてください。一緒に暮らす期間の目安です。</dd><dt>データは送信されますか？</dt><dd>いいえ。入力した年齢などは外部に送信されません。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../kosodate-hiyou/index.html"><span class="e">👶</span><span>子育て費用 総額シミュレーター</span></a><a class="related-card" href="../ikukyu/index.html"><span class="e">🍼</span><span>育休手当シミュレーター</span></a><a class="related-card" href="../jidou-teate/index.html"><span class="e">🎒</span><span>児童手当 総額シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){
+    const age=Math.max(0,+$('age').value||0), leave=Math.max(0,+$('leave').value||0);
+    const ry=Math.max(0,leave-age), days=ry*365, natsu=ry;
+    $('sub').textContent=`今${age}歳・${leave}歳で巣立つ想定`;
+    $('years').textContent=ry+'年'; $('natsu').textContent=natsu+'回'; $('done').textContent= leave>0?Math.round(age/leave*100)+'%':'—';
+    SHARE=`子どもと一緒に過ごせるのは、巣立ちまであと約${num(days)}日（夏休みあと${natsu}回）だった🧸\n一日一日を大切に。あなたは？👇`;
+    show(); anim($('big'),0,days,900);
+  }
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'kodomo-jikan', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

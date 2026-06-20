@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/pet-jikan/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/pet-jikan.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/pet-jikan.png">
+<title>ペットと過ごせる残り時間シミュレーター｜あと何日一緒にいられる？｜シミュラボ</title>
+<meta name="description" content="ペットの今の年齢と想定寿命から、これから一緒に過ごせる残りの日数を計算する無料シミュレーター。今ある時間を大切にするきっかけに。">
+<meta property="og:title" content="ペットと過ごせる残り時間｜あと何日一緒に？">
+<meta property="og:description" content="ペットの年齢と寿命から、一緒に過ごせる残り日数を計算。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/pet-jikan/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "ペットと過ごせる残り時間", "url": "https://shimulabo.com/sims/pet-jikan/", "description": "ペットの年齢と寿命から一緒に過ごせる残り日数を計算。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ペットと過ごせる残り時間", "item": "https://shimulabo.com/sims/pet-jikan/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "寿命の目安は？", "acceptedAnswer": {"@type": "Answer", "text": "犬猫はおおよそ15年前後ですが、犬種・体格・個体差で大きく変わります。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。入力した年齢などは外部に送信されません。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>ペット<span>›</span><span class="cur">ペットと過ごせる残り時間</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ペット</div>
+    <h1>ペットと過ごせる残り時間</h1>
+    <p class="lead">大切な家族であるペットと、これからどれくらい一緒にいられる？今の年齢と想定寿命から、残りの日数を計算します。今日のなでなでを、いつもより少し大切に。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🐈 条件</h2>
+    <div class="row"><div class="field"><label>ペットの今の年齢 <span class="hint">（歳）</span></label><input type="number" id="age" value="5" min="0" max="30" step="0.5" inputmode="decimal"></div>
+    <div class="field"><label>想定寿命 <span class="hint">（年・犬猫は15前後）</span></label><input type="number" id="life" value="15" min="1" max="30" inputmode="numeric"></div></div>
+    <button class="btn btn-primary" id="calcBtn">残りの時間を見る</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">これから一緒に過ごせるのは あと</div>
+      <div class="big"><span id="big">0</span><span class="unit">日</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">残りの年数</div><div class="v accent" id="years">—</div></div>
+      <div class="stat"><div class="k">残りの散歩・遊び</div><div class="v" id="play">—</div></div>
+      <div class="stat"><div class="k">一緒に過ごした割合</div><div class="v" id="done">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>この計算について</h2>
+    <p>ペットの一生は、人間よりずっと短いもの。残りの日数を知ることで、今ある時間がよりかけがえなく感じられます。数字に一喜一憂せず、今日を大切に過ごしてください。</p>
+    <div class="note">想定寿命はあくまで目安です。健康管理で、その日が一日でも先になりますように。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>寿命の目安は？</dt><dd>犬猫はおおよそ15年前後ですが、犬種・体格・個体差で大きく変わります。</dd><dt>データは送信されますか？</dt><dd>いいえ。入力した年齢などは外部に送信されません。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../pet-age/index.html"><span class="e">🐾</span><span>犬・猫の年齢 人間換算</span></a><a class="related-card" href="../pet-hiyou/index.html"><span class="e">🐕</span><span>ペットの生涯費用</span></a><a class="related-card" href="../pet-hoken/index.html"><span class="e">🏥</span><span>ペット保険 元が取れる？</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){
+    const age=Math.max(0,+$('age').value||0), life=Math.max(0,+$('life').value||0);
+    const ry=Math.max(0,life-age), days=ry*365;
+    $('sub').textContent=`今${age}歳・想定寿命${life}年`;
+    $('years').textContent=ry.toFixed(1)+'年'; $('play').textContent='約'+num(days)+'回'; $('done').textContent= life>0?Math.round(age/life*100)+'%':'—';
+    SHARE=`ペットと一緒に過ごせるのは、あと約${num(days)}日だった🐈\n今日のなでなでを大切に。あなたの子は？👇`;
+    show(); anim($('big'),0,days,900);
+  }
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'pet-jikan', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

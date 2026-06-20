@@ -36,7 +36,8 @@ const ALLOW = new Set([
   'bep', 'noshow', 'jinkenhi', 'nisa', 'kuruma-iji', 'furusato',
   'jikkou-jikyu', 'fukugyo-zei', 'shouyo-tedori', 'tango', 'shogakukin', 'benkyo-target',
   'kaiten', 'line-cv', 'zaiko', 'chochiku-mokuhyo', 'reborisk', 'fukuri72',
-  'taishokukin', 'nenkin-mikomi', 'zaitaku-setsuyaku', 'naishin', 'juken-hiyou', 'natsuyasumi'
+  'taishokukin', 'nenkin-mikomi', 'zaitaku-setsuyaku', 'naishin', 'juken-hiyou', 'natsuyasumi',
+  'kosodate-hiyou', 'kodomo-jikan', 'ikukyu', 'jidou-teate', 'hoiku-youchi', 'omutsu', 'shinchou', 'nezukashi', 'gakushi', 'okozukai', 'pet-age', 'pet-hiyou', 'pet-jikan', 'pet-hoken', 'sanpo', 'neko-nemuri', 'food-ryou', 'tatou', 'pet-taiju', 'pet-gohan-life'
 ]);
 
 export default async function handler(req, res) {

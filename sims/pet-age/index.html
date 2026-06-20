@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/pet-age/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/pet-age.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/pet-age.png">
+<title>犬・猫の年齢を人間に換算シミュレーター｜うちの子は何歳？｜シミュラボ</title>
+<meta name="description" content="犬（小型・大型）や猫の年齢を、人間でいう何歳かに換算する無料シミュレーター。うちの子の本当の年齢を知ろう。">
+<meta property="og:title" content="犬・猫の年齢を人間に換算｜うちの子は何歳？">
+<meta property="og:description" content="犬・猫の年齢を人間年齢に換算。うちの子は何歳？">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/pet-age/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "犬・猫の年齢 人間換算", "url": "https://shimulabo.com/sims/pet-age/", "description": "犬・猫の年齢を人間年齢に換算。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "犬・猫の年齢 人間換算", "item": "https://shimulabo.com/sims/pet-age/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "犬種で違う？", "acceptedAnswer": {"@type": "Answer", "text": "体格で差があります。本ツールは小〜中型／大型／猫の代表的な目安です。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>ペット<span>›</span><span class="cur">犬・猫の年齢 人間換算</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ペット</div>
+    <h1>犬・猫の年齢 人間換算シミュレーター</h1>
+    <p class="lead">うちの子、人間でいうと何歳？犬（小型・大型）や猫の年齢を、人間の年齢に換算します。意外と大人かも？</p>
+  </div>
+
+  <section class="panel">
+    <h2>🐾 条件</h2>
+    <div class="field"><label>種類</label><select id="type"><option value="small">犬（小〜中型）</option><option value="large">犬（大型）</option><option value="cat">猫</option></select></div>
+    <div class="field"><label>今の年齢 <span class="hint">（歳）</span></label><input type="number" id="age" value="3" min="0" max="30" step="0.5" inputmode="decimal"></div>
+    <button class="btn btn-primary" id="calcBtn">人間年齢に換算する</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">人間でいうと</div>
+      <div class="big"><span id="big">0</span><span class="unit">歳</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">ライフステージ</div><div class="v accent" id="stage" style="font-size:16px;">—</div></div>
+      <div class="stat"><div class="k">1年で歳をとる速さ</div><div class="v" id="speed">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>換算の考え方</h2>
+    <div class="note">最初の1年で約15歳、2年で約24歳まで一気に成長し、その後は小型犬・猫で1年に約4歳、大型犬で約7歳ずつ年をとる、という一般的な目安で換算しています。</div>
+    <p>大型犬ほど歳をとるのが速め。だからこそ、一緒の時間を大切に。健康診断は人間の年齢感覚で考えると分かりやすいです。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>犬種で違う？</dt><dd>体格で差があります。本ツールは小〜中型／大型／猫の代表的な目安です。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../pet-hiyou/index.html"><span class="e">🐕</span><span>ペットの生涯費用</span></a><a class="related-card" href="../pet-jikan/index.html"><span class="e">🐈</span><span>ペットと過ごせる残り時間</span></a><a class="related-card" href="../pet-hoken/index.html"><span class="e">🏥</span><span>ペット保険 元が取れる？</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){
+    const t=$('type').value, y=Math.max(0,+$('age').value||0);
+    let h; if(y<=1) h=15*y; else if(y<=2) h=15+(y-1)*9; else h=24+(y-2)*(t==='large'?7:4);
+    const speed= t==='large'?'約7歳/年':'約4歳/年';
+    let st= h<13?'子ども':h<20?'青年':h<45?'働き盛り':h<60?'中年':h<75?'シニア':'長寿・大ベテラン';
+    $('sub').textContent=`${sel('type').text}・${y}歳`;
+    $('stage').textContent=st; $('speed').textContent=speed;
+    SHARE=`うちの子（${sel('type').text}・${y}歳）、人間でいうと約${Math.round(h)}歳だった🐾（${st}）\nあなたの子は？👇`;
+    show(); anim($('big'),0,h,900);
+  }
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'pet-age', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

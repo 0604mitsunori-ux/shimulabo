@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/pet-taiju/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/pet-taiju.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/pet-taiju.png">
+<title>ペットの肥満度シミュレーター｜うちの子、太りすぎ？｜シミュラボ</title>
+<meta name="description" content="今の体重と適正体重を入れると、ペットの体重オーバー率（肥満度）を計算して判定する無料シミュレーター。健康管理のチェックに。">
+<meta property="og:title" content="ペットの肥満度シミュレーター｜うちの子、太りすぎ？">
+<meta property="og:description" content="今の体重と適正体重から、ペットの肥満度を計算・判定。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/pet-taiju/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "ペットの肥満度", "url": "https://shimulabo.com/sims/pet-taiju/", "description": "今の体重と適正体重からペットの肥満度を計算。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ペットの肥満度", "item": "https://shimulabo.com/sims/pet-taiju/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "適正体重が分からない", "acceptedAnswer": {"@type": "Answer", "text": "子犬・子猫の頃の体重や、かかりつけの先生の目安が参考になります。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>ペット<span>›</span><span class="cur">ペットの肥満度</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ペット</div>
+    <h1>ペットの肥満度シミュレーター</h1>
+    <p class="lead">うちの子、ちょっとぽっちゃり？今の体重と適正体重から、体重オーバーの割合（肥満度）を計算して判定します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>⚖️ 条件</h2>
+    <div class="row"><div class="field"><label>今の体重 <span class="hint">（kg）</span></label><input type="number" id="now" value="5" min="0.1" step="0.1" inputmode="decimal"></div>
+    <div class="field"><label>適正体重 <span class="hint">（kg・かかりつけの目安）</span></label><input type="number" id="ideal" value="4" min="0.1" step="0.1" inputmode="decimal"></div></div>
+    <button class="btn btn-primary" id="calcBtn">肥満度を見る</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label" id="lab">適正体重より</div>
+      <div class="big"><span id="big">0</span><span class="unit">%</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">判定</div><div class="v accent" id="judge" style="font-size:16px;">—</div></div>
+      <div class="stat"><div class="k">体重の差</div><div class="v" id="diff">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>判定の目安</h2>
+    <div class="note">適正体重＋10〜15%で「やや肥満」、＋15〜20%以上で「肥満」とされるのが一般的です（犬猫）。体型（あばらが触れるか・くびれがあるか）と合わせて見ましょう。</div>
+    <p>肥満は関節・心臓・糖尿病などのリスクを高めます。気になったら、フード量の見直しや、かかりつけの先生への相談を。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>適正体重が分からない</dt><dd>子犬・子猫の頃の体重や、かかりつけの先生の目安が参考になります。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../pet-age/index.html"><span class="e">🐾</span><span>犬・猫の年齢 人間換算</span></a><a class="related-card" href="../pet-hiyou/index.html"><span class="e">🐕</span><span>ペットの生涯費用</span></a><a class="related-card" href="../pet-jikan/index.html"><span class="e">🐈</span><span>ペットと過ごせる残り時間</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){
+    const now=Math.max(0.1,+$('now').value||0.1), ideal=Math.max(0.1,+$('ideal').value||0.1);
+    const over=(now-ideal)/ideal*100;
+    let j= over>=20?'肥満ぎみ':over>=10?'やや肥満':over>=-10?'適正':'やせぎみ';
+    $('lab').textContent= over>=0?'適正体重より':'適正体重より（軽い）';
+    $('sub').textContent=`今${now}kg・適正${ideal}kg`;
+    $('judge').textContent=j; $('diff').textContent=(over>=0?'+':'')+(now-ideal).toFixed(1)+'kg';
+    SHARE=`うちの子の肥満度、適正より${over>=0?'+':''}${over.toFixed(0)}%（${j}）だった⚖️\n健康のためにチェック。あなたの子は？👇`;
+    show(); anim($('big'),0,Math.abs(over),900);
+  }
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'pet-taiju', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

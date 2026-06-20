@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/pet-hoken/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/pet-hoken.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/pet-hoken.png">
+<title>ペット保険 元が取れる？シミュレーター｜入る価値ある？｜シミュラボ</title>
+<meta name="description" content="月々の保険料・加入年数・想定する生涯医療費・補償割合から、ペット保険で元が取れるか（損得）を試算する無料シミュレーター。">
+<meta property="og:title" content="ペット保険 元が取れる？｜入る価値ある？">
+<meta property="og:description" content="保険料と想定医療費から、ペット保険の損得を試算。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/pet-hoken/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "ペット保険 元が取れる？", "url": "https://shimulabo.com/sims/pet-hoken/", "description": "保険料と想定医療費からペット保険の損得を試算。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ペット保険 元が取れる？", "item": "https://shimulabo.com/sims/pet-hoken/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "医療費の想定はどれくらい？", "acceptedAnswer": {"@type": "Answer", "text": "生涯で数十万〜100万円超とさまざま。シニア期に増えやすい点も考慮を。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>ペット<span>›</span><span class="cur">ペット保険 元が取れる？</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ペット</div>
+    <h1>ペット保険 元が取れる？シミュレーター</h1>
+    <p class="lead">ペット保険、入ったほうがいい？月々の保険料と、想定する医療費から、元が取れるか（損得）を試算します。安心料と考えるかどうかの判断材料に。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🏥 条件</h2>
+    <div class="row"><div class="field"><label>月々の保険料 <span class="hint">（円）</span></label><input type="number" id="prem" value="3000" min="0" inputmode="numeric"></div>
+    <div class="field"><label>加入する年数 <span class="hint">（年）</span></label><input type="number" id="years" value="15" min="1" max="30" inputmode="numeric"></div></div>
+    <div class="row"><div class="field"><label>生涯にかかる医療費の想定 <span class="hint">（円）</span></label><input type="number" id="med" value="600000" min="0" inputmode="numeric"></div>
+    <div class="field"><label>保険の補償割合 <span class="hint">（％・50/70が一般的）</span></label><input type="number" id="cover" value="70" min="0" max="100" inputmode="numeric"></div></div>
+    <button class="btn btn-primary" id="calcBtn">損得を試算する</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label" id="lab">保険に入ると</div>
+      <div class="big"><span id="big">0</span><span class="unit" id="unit">円 おトク</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">支払う保険料 総額</div><div class="v" id="prem2">—</div></div>
+      <div class="stat"><div class="k">保険でカバーされる額</div><div class="v accent" id="cov">—</div></div></div>
+      <div class="note" style="text-align:left;margin-top:18px;">⚠️ 大きな手術・入院が重なると医療費はもっと膨らむことも。保険は「もしもの高額出費に備える安心料」という面もあります。</div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>計算方法</h2>
+    <div class="note"><strong>計算式</strong><br>保険料総額＝月々の保険料×12×年数<br>カバー額＝想定医療費×補償割合<br>損得＝カバー額−保険料総額</div>
+    <p>「元が取れるか」だけでなく、高額医療が突然来ても払える安心も保険の価値です。貯蓄で備えられるなら、それも一つの選択。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>医療費の想定はどれくらい？</dt><dd>生涯で数十万〜100万円超とさまざま。シニア期に増えやすい点も考慮を。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../pet-age/index.html"><span class="e">🐾</span><span>犬・猫の年齢 人間換算</span></a><a class="related-card" href="../pet-hiyou/index.html"><span class="e">🐕</span><span>ペットの生涯費用</span></a><a class="related-card" href="../pet-jikan/index.html"><span class="e">🐈</span><span>ペットと過ごせる残り時間</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){
+    const prem=Math.max(0,+$('prem').value||0), y=Math.max(1,+$('years').value||1), med=Math.max(0,+$('med').value||0), cv=(+$('cover').value||0)/100;
+    const premTotal=prem*12*y, cover=med*cv, diff=cover-premTotal, plus=diff>=0;
+    $('unit').textContent= plus?'円 おトク':'円 払い超過';
+    $('sub').textContent=`月${num(prem)}円×${y}年・医療費${num(med)}円・補償${(cv*100)}%`;
+    $('prem2').textContent=yen(premTotal); $('cov').textContent=yen(cover);
+    SHARE= plus?`ペット保険、この想定だと約${yen(Math.abs(diff))}おトクの試算だった🏥\nあなたの子は？👇`:`ペット保険、この想定だと約${yen(Math.abs(diff))}の払い超過。でも"もしも"の安心料かも🏥\n👇`;
+    show(); anim($('big'),0,Math.abs(diff),900);
+  }
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'pet-hoken', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>
