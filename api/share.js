@@ -39,7 +39,11 @@ const ALLOW = new Set([
   'taishokukin', 'nenkin-mikomi', 'zaitaku-setsuyaku', 'naishin', 'juken-hiyou', 'natsuyasumi',
   'kosodate-hiyou', 'kodomo-jikan', 'ikukyu', 'jidou-teate', 'hoiku-youchi', 'omutsu', 'shinchou', 'nezukashi', 'gakushi', 'okozukai', 'pet-age', 'pet-hiyou', 'pet-jikan', 'pet-hoken', 'sanpo', 'neko-nemuri', 'food-ryou', 'tatou', 'pet-taiju', 'pet-gohan-life',
   'buzz', 'kakaku-matsu', 'naming-buzz', 'gacha', 'kakuyasu-sim', 'jihanki', 'kinenbi', 'enkyori', 'aishou-seiza',
-  'seo-ctr', 'seo-kachi', 'zero-click', 'ai-inyou', 'repeat-rieki'
+  'seo-ctr', 'seo-kachi', 'zero-click', 'ai-inyou', 'repeat-rieki',
+  'bmi', 'kiso-taisha', 'tainai-nenrei', 'suibun', 'taishibo', 'hosu-karori', 'sake-karori', 'suimin-cycle', 'suwari', 'mizu-body',
+  'tanjyobi-uranai', 'zensei', 'kotoshi-unsei', 'namae-uranai', 'soul-color', 'doubutsu-uranai', 'ketsueki-aishou', 'lucky-today', 'kyusei', 'tarot-today',
+  'nenpi-gas', 'ev-vs-gas', 'kuruma-yosan', 'kousoku-shita', 'shaken-tsumitate', 'souko-kyori', 'chuko-nedan', 'drive-yosan', 'tsukin-car', 'kuruma-hoyuu',
+  'ryohi', 'mile-tamaru', 'jisa-boke', 'kaigai-iju', 'tabi-tsumitate', 'lcc-shinkansen', 'gasolin-doko', 'onsen-seiha', 'sekai-isshu', 'theme-park'
 ]);
 
 export default async function handler(req, res) {

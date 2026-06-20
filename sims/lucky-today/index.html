@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/lucky-today/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/lucky-today.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/lucky-today.png">
+<title>今日の運勢＆ラッキーアイテム｜今日のあなたの運気は？｜シミュラボ</title>
+<meta name="description" content="生年月日を入れると、今日の運勢スコアとラッキーカラー・ラッキーナンバー・ラッキーアイテムを占う毎日使えるエンタメシミュレーター。">
+<meta property="og:title" content="今日の運勢＆ラッキーアイテム｜今日の運気は？">
+<meta property="og:description" content="生年月日から、今日の運勢とラッキーアイテムを占う。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/lucky-today/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "今日の運勢＆ラッキーアイテム", "url": "https://shimulabo.com/sims/lucky-today/", "description": "生年月日から今日の運勢とラッキーアイテムを占う。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "今日の運勢＆ラッキーアイテム", "item": "https://shimulabo.com/sims/lucky-today/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "毎日変わりますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい。日付が変わると結果も変わります。"}}, {"@type": "Question", "name": "入力内容は送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。占いはすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>占い・診断<span>›</span><span class="cur">今日の運勢＆ラッキーアイテム</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">占い・診断</div>
+    <h1>今日の運勢＆ラッキーアイテム</h1>
+    <p class="lead">今日のあなたはツイてる？生年月日を入れると、今日の運勢スコアとラッキーカラー・ナンバー・アイテムを占います。毎朝の習慣にどうぞ。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🍀 生年月日を入れる</h2>
+    <div class="field"><label>生年月日</label><input type="date" id="d" value="1995-08-15"></div>
+    <button class="btn btn-primary" id="calcBtn">今日の運勢を占う</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">今日のあなたの運勢</div>
+      <div class="big"><span id="big">0</span><span class="unit">点</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">ラッキーカラー</div><div class="v accent" id="color">—</div></div>
+      <div class="stat"><div class="k">ラッキーナンバー</div><div class="v" id="numb">—</div></div>
+      <div class="stat"><div class="k">ラッキーアイテム</div><div class="v" id="item">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>この占いについて</h2>
+    <p>生年月日と「その日の日付」から運勢を導くので、毎日結果が変わります。良いことがありそうな日は積極的に、控えめな日は無理せずマイペースに。</p>
+    <div class="note">💡 ラッキーアイテムを身につけると、ちょっと気分が上がって良い1日になりやすいかも。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>毎日変わりますか？</dt><dd>はい。日付が変わると結果も変わります。</dd><dt>入力内容は送信されますか？</dt><dd>いいえ。占いはすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../tanjyobi-uranai/index.html"><span class="e">🔢</span><span>誕生日でわかる運命数</span></a><a class="related-card" href="../zensei/index.html"><span class="e">🔮</span><span>前世診断</span></a><a class="related-card" href="../kotoshi-unsei/index.html"><span class="e">🎍</span><span>今年の運勢占い</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const hash = (s) => { let h=2166136261; for(let i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h,16777619); } return (h>>>0); };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){
+    const d=$('d').value; if(!d){ alert('生年月日を選んでね'); return; }
+    const T=new Date(); const today=`${T.getFullYear()}-${T.getMonth()+1}-${T.getDate()}`;
+    const h=hash(d+'|'+today), score=40+h%61;
+    const colors=['レッド','ブルー','イエロー','グリーン','パープル','オレンジ','ピンク','ホワイト'];
+    const items=['ハンカチ','腕時計','イヤホン','お気に入りのペン','リップ','マグカップ','観葉植物','スニーカー'];
+    const color=colors[(h>>2)%8], numb=(h>>5)%9+1, item=items[(h>>8)%8];
+    let cm; if(score>=80)cm='絶好調！チャンスを逃さないで。'; else if(score>=60)cm='good。前向きに動ける日。'; else if(score>=45)cm='まずまず。マイペースで。'; else cm='充電日。無理せずいこう。';
+    $('sub').textContent=`今日(${T.getMonth()+1}/${T.getDate()})は…${cm}`;
+    $('color').textContent=color; $('numb').textContent=numb; $('item').textContent=item;
+    SHARE=`今日の運勢、${score}点でした🍀\nラッキーカラーは${color}、アイテムは${item}！\nあなたの今日は？👇`;
+    show(); anim($('big'),0,score,900);
+  }
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'lucky-today', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

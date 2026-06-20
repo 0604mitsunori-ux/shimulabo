@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/tanjyobi-uranai/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/tanjyobi-uranai.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/tanjyobi-uranai.png">
+<title>誕生日でわかる運命数｜あなたの数秘術ナンバーは？｜シミュラボ</title>
+<meta name="description" content="生年月日の数字をすべて足して導く「運命数（ライフパスナンバー）」から、あなたの基本的な性質を占う無料の数秘術シミュレーター。">
+<meta property="og:title" content="誕生日でわかる運命数｜あなたの数秘術ナンバーは？">
+<meta property="og:description" content="生年月日から運命数（ライフパスナンバー）を計算して占う。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/tanjyobi-uranai/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "誕生日でわかる運命数", "url": "https://shimulabo.com/sims/tanjyobi-uranai/", "description": "生年月日から数秘術の運命数を計算して占う。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "誕生日でわかる運命数", "item": "https://shimulabo.com/sims/tanjyobi-uranai/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "当たりますか？", "acceptedAnswer": {"@type": "Answer", "text": "エンタメ占いです。自己理解のヒントとしてお楽しみください。"}}, {"@type": "Question", "name": "入力した誕生日は送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。占いはすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>占い・診断<span>›</span><span class="cur">誕生日でわかる運命数</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">占い・診断</div>
+    <h1>誕生日でわかる運命数</h1>
+    <p class="lead">数秘術では、生年月日の数字をすべて足した「運命数」にあなたらしさが表れるとされます。誕生日を入れて、あなたのナンバーを占いましょう。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🔢 生年月日を入れる</h2>
+    <div class="field"><label>生年月日</label><input type="date" id="d" value="1995-08-15"></div>
+    <button class="btn btn-primary" id="calcBtn">運命数を占う</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">あなたの運命数は</div>
+      <div class="big"><span id="big">0</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="alert good" id="adv" style="text-align:left;margin-top:18px;">—</div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>運命数（ライフパスナンバー）とは</h2>
+    <p>生年月日の数字をすべて足し、1桁になるまで足し続けて出す数字です（11・22・33はマスターナンバーとして残します）。数秘術ではこの数が「生まれ持った性質」を表すとされます。</p>
+    <div class="note">💡 占いは自分を知るきっかけ。当たっている部分を活かし、苦手は工夫でカバーしていきましょう。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>当たりますか？</dt><dd>エンタメ占いです。自己理解のヒントとしてお楽しみください。</dd><dt>入力した誕生日は送信されますか？</dt><dd>いいえ。占いはすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../zensei/index.html"><span class="e">🔮</span><span>前世診断</span></a><a class="related-card" href="../kotoshi-unsei/index.html"><span class="e">🎍</span><span>今年の運勢占い</span></a><a class="related-card" href="../namae-uranai/index.html"><span class="e">📛</span><span>名前占い</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const hash = (s) => { let h=2166136261; for(let i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h,16777619); } return (h>>>0); };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){
+    const v=$('d').value; if(!v){ alert('生年月日を選んでね'); return; }
+    function lp(s){ let n=s.replace(/[^0-9]/g,'').split('').reduce((a,c)=>a+ +c,0); while(n>9&&n!==11&&n!==22&&n!==33){ n=n.toString().split('').reduce((a,c)=>a+ +c,0);} return n; }
+    const N=lp(v);
+    const M={1:['開拓者','自分で道を切り開くリーダー気質。行動力で周りを引っ張ります。'],2:['調和の人','人の気持ちに敏感で、サポートが得意。名脇役として輝きます。'],3:['表現者','明るくユニーク。クリエイティブな表現で人を楽しませます。'],4:['堅実家','コツコツ努力できる安定型。信頼を積み上げるタイプ。'],5:['自由人','好奇心旺盛で変化を楽しむ。フットワークの軽さが武器。'],6:['愛情家','面倒見が良く家庭的。人を支え育てることに喜びを感じます。'],7:['探究者','一人の時間を大切にする知的な分析家。深く突き詰める人。'],8:['実力者','野心と現実力を兼備。大きな目標を形にできるパワフルさ。'],9:['博愛者','視野が広く優しい理想家。みんなのために動ける人。'],11:['直感の人','鋭い直感とひらめき。人を導くカリスマ性を秘めます。'],22:['実現者','大きな夢を現実にする力。スケールの大きな実力者。'],33:['無償の愛','深い愛で人を包む稀有なナンバー。癒やしの存在。']};
+    const t=M[N]||['自由人','あなたらしい個性を大切に。'];
+    $('sub').textContent=`運命数 ${N}：${t[0]}`;
+    $('adv').textContent='🔢 '+t[1];
+    SHARE=`誕生日でわかる運命数、私は「${N}・${t[0]}」でした🔢\n${t[1]}\nあなたの運命数は？👇`;
+    show(); anim($('big'),0,N,800);
+  }
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'tanjyobi-uranai', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

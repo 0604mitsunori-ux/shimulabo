@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/tarot-today/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/tarot-today.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/tarot-today.png">
+<title>今日の一枚タロット｜今日のあなたへのメッセージは？｜シミュラボ</title>
+<meta name="description" content="占いたいテーマを選んでカードを引くと、タロットの大アルカナ1枚と今日のメッセージを占えるエンタメタロットシミュレーター。">
+<meta property="og:title" content="今日の一枚タロット｜今日のメッセージは？">
+<meta property="og:description" content="テーマを選んでカードを1枚引き、今日のメッセージを占う。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/tarot-today/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "今日の一枚タロット", "url": "https://shimulabo.com/sims/tarot-today/", "description": "テーマを選んでタロット1枚を引き今日のメッセージを占う。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "今日の一枚タロット", "item": "https://shimulabo.com/sims/tarot-today/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "毎日・テーマ別に変わりますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい。日付とテーマで引かれるカードが変わります。"}}, {"@type": "Question", "name": "入力内容は送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。占いはすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>占い・診断<span>›</span><span class="cur">今日の一枚タロット</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">占い・診断</div>
+    <h1>今日の一枚タロット</h1>
+    <p class="lead">今日のあなたへのメッセージを、タロット1枚に聞いてみましょう。占いたいテーマを選んでカードを引いてください（エンタメ占い）。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🃏 テーマを選んで引く</h2>
+    <div class="field"><label>占いたいこと</label><select id="theme"><option value="total">今日の総合運</option><option value="love">恋愛</option><option value="work">仕事</option><option value="money">金運</option></select></div>
+    <button class="btn btn-primary" id="calcBtn">カードを1枚引く</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">カードのエネルギー</div>
+      <div class="big"><span id="big">0</span><span class="unit">%</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="alert good" id="adv" style="text-align:left;margin-top:18px;">—</div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>この占いについて</h2>
+    <p>大アルカナ22枚から、その日とテーマに応じて1枚を引くエンタメタロットです。正位置はそのまま、逆位置は「少し気をつけて」のサイン。メッセージを今日のヒントに。</p>
+    <div class="note">💡 引いたカードの言葉を、今日の小さな指針にしてみてください。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>毎日・テーマ別に変わりますか？</dt><dd>はい。日付とテーマで引かれるカードが変わります。</dd><dt>入力内容は送信されますか？</dt><dd>いいえ。占いはすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../tanjyobi-uranai/index.html"><span class="e">🔢</span><span>誕生日でわかる運命数</span></a><a class="related-card" href="../zensei/index.html"><span class="e">🔮</span><span>前世診断</span></a><a class="related-card" href="../kotoshi-unsei/index.html"><span class="e">🎍</span><span>今年の運勢占い</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const hash = (s) => { let h=2166136261; for(let i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h,16777619); } return (h>>>0); };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){
+    const theme=$('theme').value;
+    const T=new Date(); const today=`${T.getFullYear()}-${T.getMonth()+1}-${T.getDate()}`;
+    const h=hash(today+'|'+theme);
+    const C=[['愚者','新しい一歩。思い切って踏み出して。'],['魔術師','準備は整った。あなたの実力を発揮する時。'],['女教皇','直感を信じて。静かに見極めを。'],['女帝','豊かさと愛情。受け取る心を大切に。'],['皇帝','主導権を握る時。堂々と進もう。'],['教皇','信頼できる人に相談を。学びの時。'],['恋人','心が動く出会い・選択。素直に。'],['戦車','勢いに乗って前進。突破口が開く。'],['力','焦らず粘り強く。やさしい強さで。'],['隠者','一人で考える時間が答えをくれる。'],['運命の輪','流れが変わる。チャンスを掴んで。'],['正義','公正な判断を。バランスが鍵。'],['吊された人','今は待ちの時。視点を変えて。'],['節制','ほどよく調和を。やりすぎ注意。'],['星','希望が見える。願いを大切に。'],['月','迷いやすい日。慎重に進もう。'],['太陽','最高の運気！自信を持って。'],['審判','再スタートの合図。過去を活かして。'],['世界','物事が完成へ。達成のとき。'],['力の杖','情熱を燃やして。やる気が結果に。'],['聖杯','心が満たされる。感謝を忘れずに。'],['星の硬貨','コツコツが実る。堅実にいこう。']];
+    const idx=h%22, up=(h>>5)%10>2; const card=C[idx];
+    const pct=up?(70+(h>>8)%31):(35+(h>>8)%30);
+    $('sub').textContent=`引いたカード：${card[0]}（${up?'正位置':'逆位置'}）`;
+    $('adv').textContent='🃏 '+(up?card[1]:card[1].replace(/。$/,'')+'…ただし少し慎重に。');
+    SHARE=`今日の一枚タロット、引いたのは「${card[0]}」(${up?'正位置':'逆位置'})🃏\n${card[1]}\nあなたのカードは？👇`;
+    show(); anim($('big'),0,pct,900);
+  }
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'tarot-today', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>
