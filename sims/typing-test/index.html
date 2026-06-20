@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/typing-test/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/typing-test.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/typing-test.png">
+<title>タイピング速度測定｜あなたのタイピングは何打/分？｜シミュラボ</title>
+<meta name="description" content="表示された文章を入力して、タイピングの速さ（1分あたりの文字数）と正確率を測定する無料のタイピングテスト。">
+<meta property="og:title" content="タイピング速度測定｜何打/分？">
+<meta property="og:description" content="文章を入力してタイピング速度と正確率を測定。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/typing-test/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "タイピング速度測定", "url": "https://shimulabo.com/sims/typing-test/", "description": "文章を入力してタイピング速度と正確率を測定。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "タイピング速度測定", "item": "https://shimulabo.com/sims/typing-test/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "日本語と英語どっち？", "acceptedAnswer": {"@type": "Answer", "text": "本テストはやさしい日本語（かな）の文章で測ります。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で測定します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>あそぶ・実験<span>›</span><span class="cur">タイピング速度測定</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">あそぶ・実験</div>
+    <h1>タイピング速度測定</h1>
+    <p class="lead">表示された文章を、できるだけ速く正確に入力してください。1分あたりの入力文字数（CPM）と正確率、ランクを判定します。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:16px;">
+      
+      <div style="width:100%;max-width:560px;"><div id="target" style="background:var(--teal-l);border-radius:12px;padding:16px;font-size:18px;line-height:1.8;margin-bottom:12px;min-height:60px;">スタートを押すと文章が出ます。</div><textarea id="inp" rows="3" placeholder="ここに入力…" style="width:100%;padding:12px;border:1.5px solid var(--line);border-radius:12px;font-size:16px;" disabled></textarea><div class="share-row" style="margin-top:0;flex-wrap:wrap;"><button class="btn btn-primary" id="start" style="padding:11px 18px;font-size:14px;">スタート</button></div><div id="res" style="display:none;text-align:center;margin-top:6px;padding:14px;border-radius:12px;background:var(--teal-l);font-weight:800;color:var(--ink);"></div></div>
+    </div>
+    <p style="text-align:center;color:var(--ink-2);font-size:13px;margin-top:14px;">速さだけでなく正確さも大事。ミスタイプは正確率に反映されます。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row"><button class="btn btn-x" id="shareBtn">𝕏 でシェア</button></div>
+  </section>
+
+  <article class="article">
+    <h2>CPMとは</h2>
+    <p>CPM（Characters Per Minute）は1分あたりに打てる文字数のこと。日本語入力ならローマ字の打鍵数で変わりますが、目安として150CPMで「日常的に困らない」、300CPM超で「速い」と言われます。毎日少しずつで誰でも上達します。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>日本語と英語どっち？</dt><dd>本テストはやさしい日本語（かな）の文章で測ります。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で測定します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../lorenz/index.html"><span class="e">🦋</span><span>ローレンツ・アトラクタ</span></a><a class="related-card" href="../pendulum-wave/index.html"><span class="e">🎐</span><span>振り子の波</span></a><a class="related-card" href="../solar-system/index.html"><span class="e">🪐</span><span>太陽系シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ見てみたい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = 'タイピング速度を測ってみた⌨️ 君は何打/分？';
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{const l=$(s.id+'L'); if(l){const u=()=>l.textContent=s.value; s.addEventListener('input',u); u();}}); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  try {
+    syncSliders();
+
+    const texts=['すもももももももものうち','となりのきゃくはよくかきくうきゃくだ','はやおきはさんもんのとく','あしたはきっといいてんきになる','ねこはこたつでまるくなる','ちりもつもればやまとなる','いそがばまわれということわざ','あさごはんをしっかりたべよう'];
+    const inp=$('inp');let cur='',st=0;
+    $('start').addEventListener('click',()=>{cur=texts[Math.floor(Math.random()*texts.length)];$('target').textContent=cur;inp.disabled=false;inp.value='';inp.focus();st=0;$('res').style.display='none';});
+    inp.addEventListener('input',()=>{
+      if(!st)st=performance.now();
+      const v=inp.value;
+      if(v.length>=cur.length){
+        const sec=(performance.now()-st)/1000; let ok=0;for(let i=0;i<cur.length;i++)if(v[i]===cur[i])ok++;
+        const acc=Math.round(ok/cur.length*100); let cpm=Math.round(cur.length/sec*60); if(!isFinite(cpm)||cpm>2000)cpm=2000;
+        let rank;if(cpm>=300&&acc>=95)rank='達人級！⌨️🔥';else if(cpm>=200)rank='速い！';else if(cpm>=120)rank='なかなか';else rank='これから伸びる';
+        $('res').style.display='';$('res').innerHTML='<span style="font-size:24px;color:var(--accent-d)">'+cpm+'</span> 打/分　正確率 '+acc+'%　'+rank;
+        SHARE='タイピング速度測定、私は'+cpm+'打/分・正確率'+acc+'%（'+rank+'）でした⌨️ 君は？';
+        inp.disabled=true;
+      }
+    });
+
+  } catch(e) { console.error(e); }
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click',()=>window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'typing-test', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/dna/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/dna.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/dna.png">
+<title>DNA二重らせんシミュレーター｜回る生命の設計図｜シミュラボ</title>
+<meta name="description" content="くるくると回転するDNAの二重らせんを眺められる無料シミュレーター。塩基対のはしごが立体的に回ります。">
+<meta property="og:title" content="DNA二重らせん｜回る生命の設計図">
+<meta property="og:description" content="回転する立体的なDNA二重らせんを眺める。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/dna/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "DNA二重らせんシミュレーター", "url": "https://shimulabo.com/sims/dna/", "description": "回転する立体的なDNA二重らせんを眺める。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "DNA二重らせんシミュレーター", "item": "https://shimulabo.com/sims/dna/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "色の意味は？", "acceptedAnswer": {"@type": "Answer", "text": "塩基対をイメージした色分けです（A-T／G-C）。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動きます。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>あそぶ・実験<span>›</span><span class="cur">DNA二重らせんシミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">あそぶ・実験</div>
+    <h1>DNA二重らせんシミュレーター</h1>
+    <p class="lead">私たちの体の設計図、DNA。2本のひもがはしごのようにつながり、らせんを描いて回ります。立体的に回転する二重らせんを眺めてみてください。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:16px;">
+      <canvas id="cv" width="440" height="560" style="width:100%;max-width:440px;height:auto;background:#0b1020;border:1px solid var(--line);border-radius:12px;"></canvas>
+      <div style="width:100%;max-width:560px;"><div class="field" style="margin-bottom:10px;"><div class="slider-head" style="display:flex;justify-content:space-between;"><label style="margin:0;">回転スピード</label><span class="val" id="spdL" style="font-weight:800;color:var(--teal-d);">5</span></div><input type="range" id="spd" min="1" max="12" value="5" step="1" style="width:100%;"></div></div>
+    </div>
+    <p style="text-align:center;color:var(--ink-2);font-size:13px;margin-top:14px;">4種類の塩基（A・T・G・C）の並びが、生き物すべての設計図になっています。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row"><button class="btn btn-x" id="shareBtn">𝕏 でシェア</button></div>
+  </section>
+
+  <article class="article">
+    <h2>二重らせんとは</h2>
+    <p>DNAは2本の鎖がねじれて結びついた「二重らせん」構造。鎖の間をつなぐ「塩基」はA-T、G-Cの組でペアになります。この4文字の並び順が、私たちの体をつくる遺伝情報そのもの。1953年にワトソンとクリックが構造を解明しました。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>色の意味は？</dt><dd>塩基対をイメージした色分けです（A-T／G-C）。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動きます。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../lorenz/index.html"><span class="e">🦋</span><span>ローレンツ・アトラクタ</span></a><a class="related-card" href="../pendulum-wave/index.html"><span class="e">🎐</span><span>振り子の波</span></a><a class="related-card" href="../solar-system/index.html"><span class="e">🪐</span><span>太陽系シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ見てみたい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = 'くるくる回るDNA二重らせん🧬 これが生命の設計図か…と眺めてしまう。';
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{const l=$(s.id+'L'); if(l){const u=()=>l.textContent=s.value; s.addEventListener('input',u); u();}}); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  try {
+    syncSliders();
+
+    const cv=$('cv'),x=cv.getContext('2d');const W=cv.width,H=cv.height,cx=W/2;let p=0;
+    const cols=[['#f43f5e','#fb923c'],['#22d3ee','#60a5fa']];
+    function loop(){
+      p+=(+$('spd').value)*0.012; x.fillStyle='#0b1020';x.fillRect(0,0,W,H);
+      const n=26,amp=W*0.32;
+      for(let i=0;i<n;i++){const y=30+i*(H-60)/n,ph=p+i*0.5;
+        const x1=cx+Math.sin(ph)*amp,x2=cx+Math.sin(ph+Math.PI)*amp;
+        const z1=Math.cos(ph),z2=Math.cos(ph+Math.PI);
+        const c=cols[i%2];
+        x.strokeStyle='rgba(255,255,255,.5)';x.lineWidth=2;x.beginPath();x.moveTo(x1,y);x.lineTo(x2,y);x.stroke();
+        const r1=4+z1*2.5,r2=4+z2*2.5;
+        x.fillStyle=c[0];x.globalAlpha=0.5+0.5*(z1+1)/2;x.beginPath();x.arc(x1,y,Math.abs(r1)+3,0,7);x.fill();
+        x.fillStyle=c[1];x.globalAlpha=0.5+0.5*(z2+1)/2;x.beginPath();x.arc(x2,y,Math.abs(r2)+3,0,7);x.fill();x.globalAlpha=1;}
+      requestAnimationFrame(loop);
+    } loop();
+
+  } catch(e) { console.error(e); }
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click',()=>window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'dna', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

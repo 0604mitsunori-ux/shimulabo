@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/fractal-tree/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/fractal-tree.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/fractal-tree.png">
+<title>フラクタルの木｜枝分かれの数式で育つ木シミュレーター｜シミュラボ</title>
+<meta name="description" content="枝が同じルールで分かれ続ける「フラクタルの木」を、角度や深さを変えながら描ける無料シミュレーター。風でゆれる演出つき。">
+<meta property="og:title" content="フラクタルの木｜枝分かれの数式で育つ木">
+<meta property="og:description" content="角度と深さのスライダーで自分だけの木を育てる。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/fractal-tree/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "フラクタルの木", "url": "https://shimulabo.com/sims/fractal-tree/", "description": "角度と深さを変えて自己相似の木を育てる。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "フラクタルの木", "item": "https://shimulabo.com/sims/fractal-tree/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "深さを上げると重い？", "acceptedAnswer": {"@type": "Answer", "text": "枝の数が指数的に増えます。13くらいまでが快適です。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動きます。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>あそぶ・実験<span>›</span><span class="cur">フラクタルの木</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">あそぶ・実験</div>
+    <h1>フラクタルの木</h1>
+    <p class="lead">「枝の先で2つに分かれる」を繰り返すだけ。それだけで本物の木のような形が生まれます。角度と深さを変えて、あなただけの木を育ててみてください（そよ風でゆれます）。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:16px;">
+      <canvas id="cv" width="600" height="460" style="width:100%;max-width:600px;height:auto;background:#0b1020;border:1px solid var(--line);border-radius:12px;"></canvas>
+      <div style="width:100%;max-width:560px;"><div class="field" style="margin-bottom:10px;"><div class="slider-head" style="display:flex;justify-content:space-between;"><label style="margin:0;">枝の角度</label><span class="val" id="angL" style="font-weight:800;color:var(--teal-d);">26</span></div><input type="range" id="ang" min="10" max="50" value="26" step="1" style="width:100%;"></div><div class="field" style="margin-bottom:10px;"><div class="slider-head" style="display:flex;justify-content:space-between;"><label style="margin:0;">枝分かれの深さ</label><span class="val" id="depthL" style="font-weight:800;color:var(--teal-d);">11</span></div><input type="range" id="depth" min="6" max="13" value="11" step="1" style="width:100%;"></div><div class="field" style="margin-bottom:10px;"><div class="slider-head" style="display:flex;justify-content:space-between;"><label style="margin:0;">風のつよさ</label><span class="val" id="windL" style="font-weight:800;color:var(--teal-d);">3</span></div><input type="range" id="wind" min="0" max="10" value="3" step="1" style="width:100%;"></div></div>
+    </div>
+    <p style="text-align:center;color:var(--ink-2);font-size:13px;margin-top:14px;">全体が部分と同じ形（自己相似）になるのがフラクタル。木・血管・川・雷も同じ仲間です。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row"><button class="btn btn-x" id="shareBtn">𝕏 でシェア</button></div>
+  </section>
+
+  <article class="article">
+    <h2>フラクタルとは</h2>
+    <p>拡大しても全体と同じような形が現れる図形のこと。木の枝、川の支流、肺の血管、稲妻——自然界はフラクタルだらけです。単純な「分かれるルール」の繰り返しが、複雑で自然な形を生み出します。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>深さを上げると重い？</dt><dd>枝の数が指数的に増えます。13くらいまでが快適です。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動きます。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../lorenz/index.html"><span class="e">🦋</span><span>ローレンツ・アトラクタ</span></a><a class="related-card" href="../pendulum-wave/index.html"><span class="e">🎐</span><span>振り子の波</span></a><a class="related-card" href="../solar-system/index.html"><span class="e">🪐</span><span>太陽系シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ見てみたい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = '角度を変えるだけで本物みたいな木が育つ…フラクタルの木🌳 自然界がフラクタルだらけって納得。';
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{const l=$(s.id+'L'); if(l){const u=()=>l.textContent=s.value; s.addEventListener('input',u); u();}}); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  try {
+    syncSliders();
+
+    const cv=$('cv'),x=cv.getContext('2d');const W=cv.width,H=cv.height;let t=0;
+    function branch(px,py,len,ang,depth,sway){
+      if(depth<=0||len<2)return;
+      const ex=px+Math.cos(ang)*len, ey=py+Math.sin(ang)*len;
+      x.strokeStyle='hsl('+(110-depth*6)+','+(40+depth*4)+'%,'+(28+depth*4)+'%)';x.lineWidth=depth*0.9;
+      x.beginPath();x.moveTo(px,py);x.lineTo(ex,ey);x.stroke();
+      const da=(+$('ang').value)*Math.PI/180;
+      const w=sway*Math.sin(t*0.8+depth)*0.04;
+      branch(ex,ey,len*0.74,ang-da+w,depth-1,sway);
+      branch(ex,ey,len*0.74,ang+da+w,depth-1,sway);
+    }
+    function loop(){
+      t+=0.03; x.fillStyle='#0b1020';x.fillRect(0,0,W,H);
+      branch(W/2,H-10,H*0.22,-Math.PI/2,+$('depth').value,+$('wind').value);
+      requestAnimationFrame(loop);
+    } loop();
+
+  } catch(e) { console.error(e); }
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click',()=>window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'fractal-tree', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

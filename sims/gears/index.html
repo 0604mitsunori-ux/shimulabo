@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/gears/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/gears.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/gears.png">
+<title>歯車シミュレーター｜かみ合う歯車と回転比｜シミュラボ</title>
+<meta name="description" content="かみ合って回る歯車の歯数を変えると、回転の速さの比（ギア比）がどう変わるかを目と数字で確かめられる無料シミュレーター。">
+<meta property="og:title" content="歯車シミュレーター｜かみ合う歯車と回転比">
+<meta property="og:description" content="歯数を変えてギア比＝回転速度の比を体感。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/gears/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "歯車シミュレーター", "url": "https://shimulabo.com/sims/gears/", "description": "歯数を変えて回転比（ギア比）を体感。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "歯車シミュレーター", "item": "https://shimulabo.com/sims/gears/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "なぜ逆向きに回る？", "acceptedAnswer": {"@type": "Answer", "text": "かみ合う歯車は必ず反対方向に回ります。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動きます。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>あそぶ・実験<span>›</span><span class="cur">歯車シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">あそぶ・実験</div>
+    <h1>歯車シミュレーター</h1>
+    <p class="lead">大きい歯車はゆっくり、小さい歯車はくるくる。かみ合う歯車の歯数を変えて、回転の速さの比（ギア比）が変わる様子を見てみましょう。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:16px;">
+      <canvas id="cv" width="600" height="420" style="width:100%;max-width:600px;height:auto;background:#0b1020;border:1px solid var(--line);border-radius:12px;"></canvas>
+      <div style="width:100%;max-width:560px;"><div class="field" style="margin-bottom:10px;"><div class="slider-head" style="display:flex;justify-content:space-between;"><label style="margin:0;">左の歯数</label><span class="val" id="t1L" style="font-weight:800;color:var(--teal-d);">24</span></div><input type="range" id="t1" min="8" max="40" value="24" step="1" style="width:100%;"></div><div class="field" style="margin-bottom:10px;"><div class="slider-head" style="display:flex;justify-content:space-between;"><label style="margin:0;">右の歯数</label><span class="val" id="t2L" style="font-weight:800;color:var(--teal-d);">12</span></div><input type="range" id="t2" min="8" max="40" value="12" step="1" style="width:100%;"></div></div>
+    </div>
+    <p style="text-align:center;color:var(--ink-2);font-size:13px;margin-top:14px;">歯数の比が、そのまま回転数の逆比に。歯数が半分の歯車は2倍速く回ります。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row"><button class="btn btn-x" id="shareBtn">𝕏 でシェア</button></div>
+  </section>
+
+  <article class="article">
+    <h2>ギア比のしくみ</h2>
+    <p>かみ合う歯車は、歯のかみ合う数が同じになるよう回ります。だから歯数が半分の歯車は2倍の速さで回転。自転車の変速、車のミッション、時計の針——すべてこの原理です。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>なぜ逆向きに回る？</dt><dd>かみ合う歯車は必ず反対方向に回ります。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動きます。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../lorenz/index.html"><span class="e">🦋</span><span>ローレンツ・アトラクタ</span></a><a class="related-card" href="../pendulum-wave/index.html"><span class="e">🎐</span><span>振り子の波</span></a><a class="related-card" href="../solar-system/index.html"><span class="e">🪐</span><span>太陽系シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ見てみたい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = '歯数を変えると回転速度の比が変わる…歯車シミュレーター⚙️ 自転車の変速もこれか！';
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{const l=$(s.id+'L'); if(l){const u=()=>l.textContent=s.value; s.addEventListener('input',u); u();}}); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  try {
+    syncSliders();
+
+    const cv=$('cv'),x=cv.getContext('2d');const W=cv.width,H=cv.height;let a=0;
+    function gear(cx,cy,teeth,rot,col){
+      const pr=teeth*4.2, ad=6; x.fillStyle=col;x.beginPath();
+      for(let i=0;i<teeth;i++){const t0=rot+i/teeth*Math.PI*2,t1=rot+(i+0.5)/teeth*Math.PI*2;
+        x.lineTo(cx+Math.cos(t0)*(pr+ad),cy+Math.sin(t0)*(pr+ad));
+        x.lineTo(cx+Math.cos(t0+0.0001)*(pr+ad),cy+Math.sin(t0)*(pr+ad));
+        const m0=rot+(i+0.25)/teeth*Math.PI*2;
+        x.lineTo(cx+Math.cos(m0)*pr,cy+Math.sin(m0)*pr);
+        x.lineTo(cx+Math.cos(t1)*pr,cy+Math.sin(t1)*pr);}
+      x.closePath();x.fill();
+      x.fillStyle='#0b1020';x.beginPath();x.arc(cx,cy,pr*0.35,0,7);x.fill();
+      x.strokeStyle='#0b1020';x.lineWidth=3;x.beginPath();x.moveTo(cx,cy);x.lineTo(cx+Math.cos(rot)*pr*0.8,cy+Math.sin(rot)*pr*0.8);x.stroke();
+    }
+    function loop(){
+      const t1=+$('t1').value,t2=+$('t2').value; x.fillStyle='#0b1020';x.fillRect(0,0,W,H);
+      const r1=t1*4.2,r2=t2*4.2,gap=r1+r2+12; const cx1=W/2-gap/2+10,cx2=cx1+gap-0; const cy=H/2;
+      a+=0.012; gear(cx1,cy,t1,a,'#5eead4'); gear(cx2,cy,t2,-a*t1/t2+Math.PI/t2,'#a78bfa');
+      x.fillStyle='#fff';x.font='bold 15px sans-serif';x.textAlign='center';
+      x.fillText('×'+(t1/t2).toFixed(2)+'倍速',W/2,H-14);
+      requestAnimationFrame(loop);
+    } loop();
+
+  } catch(e) { console.error(e); }
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click',()=>window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'gears', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

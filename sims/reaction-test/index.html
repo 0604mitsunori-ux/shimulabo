@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/reaction-test/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/reaction-test.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/reaction-test.png">
+<title>反応速度テスト｜あなたの反射神経は何ミリ秒？｜シミュラボ</title>
+<meta name="description" content="画面が緑に変わった瞬間にクリック。あなたの反応速度（反射神経）を5回の平均で測定し、ランク判定するゲーム型シミュレーター。">
+<meta property="og:title" content="反応速度テスト｜反射神経は何ミリ秒？">
+<meta property="og:description" content="緑になった瞬間にクリック。反応速度を測定＆ランク判定。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/reaction-test/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "反応速度テスト", "url": "https://shimulabo.com/sims/reaction-test/", "description": "緑になった瞬間にクリックして反応速度を測定。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "反応速度テスト", "item": "https://shimulabo.com/sims/reaction-test/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "スマホでもできる？", "acceptedAnswer": {"@type": "Answer", "text": "はい。タップで測定できます。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で測定します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>あそぶ・実験<span>›</span><span class="cur">反応速度テスト</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">あそぶ・実験</div>
+    <h1>反応速度テスト</h1>
+    <p class="lead">赤い画面が緑に変わった瞬間に、できるだけ速くクリック（タップ）！5回の平均で、あなたの反射神経を測定します。早押しゲームに自信ある人、挑戦どうぞ。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:16px;">
+      <canvas id="cv" width="600" height="360" style="width:100%;max-width:600px;height:auto;background:#0b1020;border:1px solid var(--line);border-radius:12px;cursor:pointer;"></canvas>
+      <div style="width:100%;max-width:560px;"><div class="share-row" style="margin-top:0;flex-wrap:wrap;"><button class="btn btn-primary" id="start" style="padding:11px 18px;font-size:14px;">スタート</button></div><div id="res" style="display:none;text-align:center;margin-top:6px;padding:14px;border-radius:12px;background:var(--teal-l);font-weight:800;color:var(--ink);"></div></div>
+    </div>
+    <p style="text-align:center;color:var(--ink-2);font-size:13px;margin-top:14px;">人間の平均は約250ミリ秒。緑になる前に押すとフライング判定です。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row"><button class="btn btn-x" id="shareBtn">𝕏 でシェア</button></div>
+  </section>
+
+  <article class="article">
+    <h2>反応速度のはなし</h2>
+    <p>光を見てから手を動かすまでには、目→脳→手と信号が伝わる時間がかかります。一般的な平均は200〜250ミリ秒ほど。eスポーツ選手やアスリートはこれが速い傾向があります。寝不足や疲れでも遅くなるので、コンディションチェックにも。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>スマホでもできる？</dt><dd>はい。タップで測定できます。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で測定します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../lorenz/index.html"><span class="e">🦋</span><span>ローレンツ・アトラクタ</span></a><a class="related-card" href="../pendulum-wave/index.html"><span class="e">🎐</span><span>振り子の波</span></a><a class="related-card" href="../solar-system/index.html"><span class="e">🪐</span><span>太陽系シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ見てみたい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = '反応速度テストやってみた⚡ 君の反射神経は何ミリ秒？';
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{const l=$(s.id+'L'); if(l){const u=()=>l.textContent=s.value; s.addEventListener('input',u); u();}}); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  try {
+    syncSliders();
+
+    const cv=$('cv'),x=cv.getContext('2d');const W=cv.width,H=cv.height;
+    let state='idle',t0=0,times=[],to=null;
+    function paint(col,line1,line2){x.fillStyle=col;x.fillRect(0,0,W,H);x.fillStyle='#fff';x.textAlign='center';x.font='bold 34px sans-serif';x.fillText(line1,W/2,H/2-6);if(line2){x.font='bold 20px sans-serif';x.fillText(line2,W/2,H/2+34);}}
+    function ready(){state='wait';paint('#dc2626','まだ…','緑になったらクリック！');to=setTimeout(()=>{state='go';t0=performance.now();paint('#16a34a','今だ！クリック！');},900+Math.random()*2200);}
+    function finish(){const avg=Math.round(times.reduce((a,b)=>a+b,0)/times.length);let rank;if(avg<200)rank='超人級！🦅';else if(avg<250)rank='かなり速い⚡';else if(avg<320)rank='平均的';else rank='ねむい？😴';
+      $('res').style.display='';$('res').innerHTML='平均 <span style="font-size:26px;color:var(--accent-d)">'+avg+'</span> ミリ秒　'+rank+'<br><span style="font-weight:600;font-size:13px;">'+times.map(t=>t+'ms').join(' / ')+'</span>';
+      SHARE='反応速度テスト、私の反射神経は平均'+avg+'ミリ秒（'+rank+'）でした⚡ 君は？';
+      paint('#0b1020','結果が出たよ →','もう一度はスタート');state='idle';}
+    cv.addEventListener('pointerdown',()=>{
+      if(state==='wait'){clearTimeout(to);paint('#0b1020','フライング！','スタートからやり直し');state='idle';times=[];return;}
+      if(state==='go'){const t=Math.round(performance.now()-t0);times.push(t);if(times.length>=5){finish();}else{paint('#0b1020',t+' ミリ秒',(times.length)+'/5回 完了 → クリックで次');state='between';}return;}
+      if(state==='between'){ready();return;}
+    });
+    $('start').addEventListener('click',()=>{times=[];$('res').style.display='none';ready();});
+    paint('#0b1020','スタートを押してね','緑になった瞬間にクリック');
+
+  } catch(e) { console.error(e); }
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click',()=>window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'reaction-test', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

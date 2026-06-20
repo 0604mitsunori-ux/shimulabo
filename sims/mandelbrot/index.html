@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/mandelbrot/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/mandelbrot.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/mandelbrot.png">
+<title>マンデルブロ集合エクスプローラー｜無限に続く模様をズーム｜シミュラボ</title>
+<meta name="description" content="ひとつの式の繰り返しから生まれる、無限に複雑な模様「マンデルブロ集合」。クリックでどこまでもズームできる無料シミュレーター。">
+<meta property="og:title" content="マンデルブロ集合｜無限に続く模様をズーム">
+<meta property="og:description" content="クリックでどこまでもズームできる無限フラクタル。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/mandelbrot/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "マンデルブロ集合エクスプローラー", "url": "https://shimulabo.com/sims/mandelbrot/", "description": "クリックでどこまでもズームできる無限フラクタル。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "マンデルブロ集合エクスプローラー", "item": "https://shimulabo.com/sims/mandelbrot/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "どこまでズームできる？", "acceptedAnswer": {"@type": "Answer", "text": "数値の精度の限界まで。本ツールでも数十段は潜れます。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で計算します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>あそぶ・実験<span>›</span><span class="cur">マンデルブロ集合エクスプローラー</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">あそぶ・実験</div>
+    <h1>マンデルブロ集合エクスプローラー</h1>
+    <p class="lead">たったひとつの式「z = z² + c」を繰り返すだけ。なのに、ズームしてもズームしても新しい模様が現れ続けます。クリックでどこまでも潜ってみてください。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:16px;">
+      <canvas id="cv" width="480" height="360" style="width:100%;max-width:560px;height:auto;background:#0b1020;border:1px solid var(--line);border-radius:12px;cursor:zoom-in;"></canvas>
+      <div style="width:100%;max-width:560px;"><div class="share-row" style="margin-top:0;flex-wrap:wrap;"><button class="btn btn-primary" id="reset" style="padding:11px 18px;font-size:14px;">最初に戻る</button><button class="btn btn-ghost" id="out" style="padding:11px 18px;font-size:14px;">ズームアウト</button></div><p style="text-align:center;color:var(--ink-2);font-size:12px;margin:6px 0 0;">画面をクリックでズームイン</p></div>
+    </div>
+    <p style="text-align:center;color:var(--ink-2);font-size:13px;margin-top:14px;">境界を拡大すると、全体とそっくりな小さなマンデルブロが無限に現れます。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row"><button class="btn btn-x" id="shareBtn">𝕏 でシェア</button></div>
+  </section>
+
+  <article class="article">
+    <h2>無限に複雑な理由</h2>
+    <p>各点について「z = z² + c」を繰り返し、無限大に飛んでいくか踏みとどまるかを色で表したものです。境界線は無限に入り組んでいて、拡大するたびに新しい渦や、全体と同じ小さなマンデルブロが現れます。たった1行の式が生む無限の世界です。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>どこまでズームできる？</dt><dd>数値の精度の限界まで。本ツールでも数十段は潜れます。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で計算します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../lorenz/index.html"><span class="e">🦋</span><span>ローレンツ・アトラクタ</span></a><a class="related-card" href="../pendulum-wave/index.html"><span class="e">🎐</span><span>振り子の波</span></a><a class="related-card" href="../solar-system/index.html"><span class="e">🪐</span><span>太陽系シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ見てみたい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = 'たった1行の式から無限に複雑な模様が生まれる…マンデルブロ集合、ズームが止まらない🌀';
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{const l=$(s.id+'L'); if(l){const u=()=>l.textContent=s.value; s.addEventListener('input',u); u();}}); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  try {
+    syncSliders();
+
+    const cv=$('cv'),x=cv.getContext('2d');const W=cv.width,H=cv.height;
+    let cxx=-0.6,cyy=0,scale=3.2;
+    function render(){
+      const img=x.createImageData(W,H),d=img.data,maxI=140;
+      for(let py=0;py<H;py++){const y0=cyy+(py/H-0.5)*scale*H/W;
+        for(let px=0;px<W;px++){const x0=cxx+(px/W-0.5)*scale;
+          let a=0,b=0,i=0;for(;i<maxI;i++){const a2=a*a-b*b+x0,b2=2*a*b+y0;a=a2;b=b2;if(a*a+b*b>4)break;}
+          const k=(py*W+px)*4;
+          if(i>=maxI){d[k]=8;d[k+1]=10;d[k+2]=26;}
+          else{const t=i/maxI;d[k]=Math.floor(9+255*Math.pow(t,0.5)*Math.abs(Math.sin(t*7)));d[k+1]=Math.floor(20+180*t);d[k+2]=Math.floor(60+180*(1-t));}
+          d[k+3]=255;}}
+      x.putImageData(img,0,0);
+    }
+    cv.addEventListener('click',e=>{const p=cpos(cv,e);cxx=cxx+(p[0]/W-0.5)*scale;cyy=cyy+(p[1]/H-0.5)*scale*H/W;scale*=0.5;render();});
+    $('reset').addEventListener('click',()=>{cxx=-0.6;cyy=0;scale=3.2;render();});
+    $('out').addEventListener('click',()=>{scale*=2;render();});
+    render();
+
+  } catch(e) { console.error(e); }
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click',()=>window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'mandelbrot', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

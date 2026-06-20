@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/spirograph/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/spirograph.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/spirograph.png">
+<title>スピログラフ｜歯車で描く幾何学模様シミュレーター｜シミュラボ</title>
+<meta name="description" content="大きな円の中で小さな円を転がして描く、美しい幾何学模様「スピログラフ」をブラウザで。半径やペン位置を変えて無限の模様を作れる無料シミュレーター。">
+<meta property="og:title" content="スピログラフ｜歯車で描く幾何学模様">
+<meta property="og:description" content="半径やペン位置を変えて無限の幾何学模様を描く。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/spirograph/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "スピログラフ", "url": "https://shimulabo.com/sims/spirograph/", "description": "半径やペン位置を変えて幾何学模様を描く。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "スピログラフ", "item": "https://shimulabo.com/sims/spirograph/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "保存できる？", "acceptedAnswer": {"@type": "Answer", "text": "スクリーンショットで保存できます。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で描画します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>あそぶ・実験<span>›</span><span class="cur">スピログラフ</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">あそぶ・実験</div>
+    <h1>スピログラフ</h1>
+    <p class="lead">あの定規みたいなおもちゃ「スピログラフ」を再現。円の大きさやペンの位置を変えるだけで、二度と同じものができない美しい模様が描けます。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:16px;">
+      <canvas id="cv" width="520" height="520" style="width:100%;max-width:520px;height:auto;background:#0b1020;border:1px solid var(--line);border-radius:12px;"></canvas>
+      <div style="width:100%;max-width:560px;"><div class="field" style="margin-bottom:10px;"><div class="slider-head" style="display:flex;justify-content:space-between;"><label style="margin:0;">外側の円</label><span class="val" id="RL" style="font-weight:800;color:var(--teal-d);">150</span></div><input type="range" id="R" min="60" max="200" value="150" step="1" style="width:100%;"></div><div class="field" style="margin-bottom:10px;"><div class="slider-head" style="display:flex;justify-content:space-between;"><label style="margin:0;">内側の円</label><span class="val" id="rL" style="font-weight:800;color:var(--teal-d);">52</span></div><input type="range" id="r" min="20" max="120" value="52" step="1" style="width:100%;"></div><div class="field" style="margin-bottom:10px;"><div class="slider-head" style="display:flex;justify-content:space-between;"><label style="margin:0;">ペンの位置</label><span class="val" id="dL" style="font-weight:800;color:var(--teal-d);">80</span></div><input type="range" id="d" min="10" max="120" value="80" step="1" style="width:100%;"></div><div class="share-row" style="margin-top:0;flex-wrap:wrap;"><button class="btn btn-primary" id="draw" style="padding:11px 18px;font-size:14px;">この設定で描く</button><button class="btn btn-ghost" id="rand" style="padding:11px 18px;font-size:14px;">ランダム</button></div></div>
+    </div>
+    <p style="text-align:center;color:var(--ink-2);font-size:13px;margin-top:14px;">外円と内円の半径の比で模様の形が決まります。整数比だときれいに閉じます。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row"><button class="btn btn-x" id="shareBtn">𝕏 でシェア</button></div>
+  </section>
+
+  <article class="article">
+    <h2>スピログラフの数学</h2>
+    <p>大きな円の内側で小さな円を転がし、小円の中の一点が描く軌跡を「ハイポトロコイド」と呼びます。半径の比が模様の対称性（花びらの数）を決め、ペンの位置で形が変わります。比が整数だと模様がぴったり閉じます。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>保存できる？</dt><dd>スクリーンショットで保存できます。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で描画します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../lorenz/index.html"><span class="e">🦋</span><span>ローレンツ・アトラクタ</span></a><a class="related-card" href="../pendulum-wave/index.html"><span class="e">🎐</span><span>振り子の波</span></a><a class="related-card" href="../solar-system/index.html"><span class="e">🪐</span><span>太陽系シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ見てみたい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = '半径を変えるだけで無限の幾何学模様…スピログラフ✏️ ずっと描いてられる。';
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{const l=$(s.id+'L'); if(l){const u=()=>l.textContent=s.value; s.addEventListener('input',u); u();}}); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  try {
+    syncSliders();
+
+    const cv=$('cv'),x=cv.getContext('2d');const W=cv.width,H=cv.height,cx=W/2,cy=H/2;let anim=null;
+    function draw(){
+      if(anim)cancelAnimationFrame(anim);
+      const R=+$('R').value,r=+$('r').value,d=+$('d').value;
+      x.fillStyle='#0b1020';x.fillRect(0,0,W,H);
+      let t=0;const dt=0.06,steps=Math.PI*2*(r/gcd(R,r))*6;let first=true;
+      x.lineWidth=1.6;
+      function step(){
+        for(let k=0;k<40;k++){const px=cx+(R-r)*Math.cos(t)+d*Math.cos((R-r)/r*t);const py=cy+(R-r)*Math.sin(t)-d*Math.sin((R-r)/r*t);
+          x.strokeStyle='hsl('+((t*40)%360)+',85%,62%)';if(first){x.beginPath();x.moveTo(px,py);first=false;}else x.lineTo(px,py);x.stroke();x.beginPath();x.moveTo(px,py);t+=dt;}
+        if(t<steps)anim=requestAnimationFrame(step);
+      } step();
+    }
+    function gcd(a,b){a=Math.round(a);b=Math.round(b);while(b){[a,b]=[b,a%b];}return a||1;}
+    $('draw').addEventListener('click',draw);
+    $('rand').addEventListener('click',()=>{$('R').value=80+Math.floor(Math.random()*120);$('r').value=20+Math.floor(Math.random()*90);$('d').value=20+Math.floor(Math.random()*90);syncSliders();draw();});
+    draw();
+
+  } catch(e) { console.error(e); }
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click',()=>window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'spirograph', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

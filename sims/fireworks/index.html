@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/fireworks/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/fireworks.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/fireworks.png">
+<title>花火シミュレーター｜タップで打ち上がる花火｜シミュラボ</title>
+<meta name="description" content="画面をタップすると花火が打ち上がって夜空に咲く、癒やしの無料花火シミュレーター。色とりどりの火花が重力で散っていきます。">
+<meta property="og:title" content="花火シミュレーター｜タップで打ち上がる花火">
+<meta property="og:description" content="タップで花火を打ち上げ。夜空に色とりどりの花火。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/fireworks/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "花火シミュレーター", "url": "https://shimulabo.com/sims/fireworks/", "description": "タップで打ち上がる花火を夜空に咲かせる。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "花火シミュレーター", "item": "https://shimulabo.com/sims/fireworks/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "音は出ますか？", "acceptedAnswer": {"@type": "Answer", "text": "出ません。静かに楽しめます。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動きます。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>あそぶ・実験<span>›</span><span class="cur">花火シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">あそぶ・実験</div>
+    <h1>花火シミュレーター</h1>
+    <p class="lead">画面をタップすると、花火が打ち上がって夜空に咲きます。連打すれば豪華に。音は出ないので、いつでもどこでも夏気分を。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:16px;">
+      <canvas id="cv" width="640" height="460" style="width:100%;max-width:640px;height:auto;background:#0b1020;border:1px solid var(--line);border-radius:12px;cursor:pointer;"></canvas>
+      <div style="width:100%;max-width:560px;"><div class="share-row" style="margin-top:0;flex-wrap:wrap;"><button class="btn btn-primary" id="auto" style="padding:11px 18px;font-size:14px;">自動で打ち上げ</button></div></div>
+    </div>
+    <p style="text-align:center;color:var(--ink-2);font-size:13px;margin-top:14px;">タップで打ち上げ／火花は重力で落ちながら消えていきます。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row"><button class="btn btn-x" id="shareBtn">𝕏 でシェア</button></div>
+  </section>
+
+  <article class="article">
+    <h2>花火の動きの再現</h2>
+    <p>打ち上げの玉が最高点で爆発し、数百個の火花が全方向へ飛び散ります。各火花には重力と空気抵抗、そして少しずつ消えていく明るさを与えています。シンプルな粒子（パーティクル）の集まりで、本物らしい動きが生まれます。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>音は出ますか？</dt><dd>出ません。静かに楽しめます。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動きます。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../lorenz/index.html"><span class="e">🦋</span><span>ローレンツ・アトラクタ</span></a><a class="related-card" href="../pendulum-wave/index.html"><span class="e">🎐</span><span>振り子の波</span></a><a class="related-card" href="../solar-system/index.html"><span class="e">🪐</span><span>太陽系シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ見てみたい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = 'タップで打ち上がる花火シミュレーター🎆 音が出ないからいつでも夏気分。連打すると豪華！';
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{const l=$(s.id+'L'); if(l){const u=()=>l.textContent=s.value; s.addEventListener('input',u); u();}}); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  try {
+    syncSliders();
+
+    const cv=$('cv'),x=cv.getContext('2d');const W=cv.width,H=cv.height;
+    let rockets=[],sparks=[],auto=false;
+    function launch(tx){const x0=tx!=null?tx:60+Math.random()*(W-120);rockets.push({x:x0,y:H,vy:-(7+Math.random()*2.5),ty:80+Math.random()*160,c:'hsl('+(Math.random()*360)+',90%,62%)'});}
+    function burst(px,py,c){for(let i=0;i<90;i++){const a=Math.random()*7,s=Math.random()*4+1;sparks.push({x:px,y:py,vx:Math.cos(a)*s,vy:Math.sin(a)*s,life:1,c:c});}}
+    cv.addEventListener('click',e=>{const p=cpos(cv,e);launch(p[0]);});
+    cv.addEventListener('touchstart',e=>{e.preventDefault();const p=cpos(cv,e);launch(p[0]);},{passive:false});
+    $('auto').addEventListener('click',()=>{auto=!auto;$('auto').textContent=auto?'■ 自動を止める':'自動で打ち上げ';});
+    let f=0;
+    function loop(){
+      f++; if(auto&&f%28===0)launch();
+      x.fillStyle='rgba(8,10,26,.28)';x.fillRect(0,0,W,H);
+      for(const r of rockets){r.y+=r.vy;r.vy+=0.06;x.fillStyle=r.c;x.fillRect(r.x,r.y,3,3);if(r.y<=r.ty||r.vy>=0){burst(r.x,r.y,r.c);r.dead=1;}}
+      rockets=rockets.filter(r=>!r.dead);
+      for(const s of sparks){s.x+=s.vx;s.y+=s.vy;s.vy+=0.05;s.vx*=0.99;s.life-=0.012;x.globalAlpha=Math.max(0,s.life);x.fillStyle=s.c;x.fillRect(s.x,s.y,2.4,2.4);}
+      x.globalAlpha=1;sparks=sparks.filter(s=>s.life>0);
+      requestAnimationFrame(loop);
+    } loop(); setTimeout(()=>launch(),400);
+
+  } catch(e) { console.error(e); }
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click',()=>window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'fireworks', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>
