@@ -26,7 +26,9 @@ const ALLOW = new Set([
   'tenshoku', 'fire', 'kyuryobi', 'coffee-life', 'yoi', 'taiju',
   'unmei', 'mental-age', 'isekai', 'neage',
   'konkatsu-match', 'konkatsu-jouken', 'konkatsu-type',
-  'kokuhaku', 'ryomoi', 'aisho-name', 'same-class', 'moteki'
+  'kokuhaku', 'ryomoi', 'aisho-name', 'same-class', 'moteki',
+  'life', 'forest-fire', 'schelling', 'sandpile', 'boids',
+  'double-pendulum', 'wave', 'diffusion', 'turing', 'sync'
 ]);
 
 export default async function handler(req, res) {

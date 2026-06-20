@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/wave/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/wave.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/wave.png">
+<title>波の干渉シミュレーター｜2つの波が作るしま模様｜シミュラボ</title>
+<meta name="description" content="2つの波源から広がる波が重なり、強め合う場所と打ち消し合う場所が「しま模様」になる干渉を、波源の間隔を変えながら体感できる無料シミュレーター。">
+<meta property="og:title" content="波の干渉シミュレーター｜2つの波が作るしま模様">
+<meta property="og:description" content="2つの波が重なると現れる干渉のしま模様を体感。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/wave/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "波の干渉シミュレーター", "url": "https://shimulabo.com/sims/wave/", "description": "2つの波が重なって生まれる干渉のしま模様を体感。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "波の干渉シミュレーター", "item": "https://shimulabo.com/sims/wave/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "波源を近づけると？", "acceptedAnswer": {"@type": "Answer", "text": "しま模様の間隔が広がります。逆に離すと細かくなります。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動作します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>ふしぎ・現象<span>›</span><span class="cur">波の干渉シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ふしぎ・現象</div>
+    <h1>波の干渉シミュレーター</h1>
+    <p class="lead">水面に2つの波源。広がる波が重なると、強め合う線と打ち消し合う線が現れ、美しい「しま模様」になります。波源の間隔を変えてみてください。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:16px;">
+      <canvas id="cv" width="480" height="320" style="width:100%;max-width:520px;height:auto;background:#fff;border:1px solid var(--line);border-radius:12px;"></canvas>
+      <div style="width:100%;max-width:560px;"><div class="field" style="margin-bottom:10px;"><div class="slider-head"><label style="margin:0;">2つの波源の間隔</label><span class="val" id="gapL">140</span></div><input type="range" id="gap" min="40" max="300" value="140" step="1" style="width:100%;"></div><div class="share-row" style="margin-top:0;"><button class="btn btn-ghost" id="toggle" style="padding:11px 18px;font-size:14px;">⏸ 一時停止</button></div></div>
+    </div>
+    <p style="text-align:center;color:var(--ink-2);font-size:13px;margin-top:14px;">明るい所＝波が強め合う／暗い所＝打ち消し合う。これが「干渉」です。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row"><button class="btn btn-x" id="shareBtn">𝕏 でシェア</button></div>
+  </section>
+
+  <article class="article">
+    <h2>干渉とは</h2>
+    <p>2つの波が重なると、山と山が合うところは強め合い（明るい）、山と谷が合うところは打ち消し合います（暗い）。この結果あらわれるしま模様が<strong>干渉縞</strong>です。光・音・水面など、波であれば共通して起こる現象で、ヤングの実験（光が波であることの証明）でも有名です。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>波源を近づけると？</dt><dd>しま模様の間隔が広がります。逆に離すと細かくなります。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動作します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../jutai/index.html"><span class="e">🚗</span><span>渋滞は勝手に生まれる</span></a><a class="related-card" href="../life/index.html"><span class="e">🦠</span><span>ライフゲーム</span></a><a class="related-card" href="../forest-fire/index.html"><span class="e">🔥</span><span>森林火災シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ見てみたい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const SHARE = '2つの波が重なると、強め合う線と消し合う線が現れる。干渉のしま模様🌊';
+  try {
+  const c=$('cv'),x=c.getContext('2d'),W=c.width,H=c.height,S=4;
+  const gw=Math.ceil(W/S),gh=Math.ceil(H/S),img=x.createImageData(gw,gh);
+  let t=0,run=true;
+  function frame(){const gap=+$('gap').value;$('gapL').textContent=gap+'px';const ax=W/2-gap/2,bx=W/2+gap/2,cy=H/2,k=0.18,d=img.data;
+    for(let gy=0;gy<gh;gy++)for(let gx=0;gx<gw;gx++){const px=gx*S,py=gy*S;const d1=Math.hypot(px-ax,py-cy),d2=Math.hypot(px-bx,py-cy);const v=Math.sin(k*d1-t)+Math.sin(k*d2-t);const b=Math.round((v+2)/4*255);const i=(gy*gw+gx)*4;d[i]=b*0.2;d[i+1]=b*0.7;d[i+2]=b;d[i+3]=255;}
+    x.putImageData(img,0,0);x.imageSmoothingEnabled=false;x.drawImage(c,0,0,gw,gh,0,0,W,H);}
+  function loop(){if(run){t+=0.25;frame();}requestAnimationFrame(loop);}
+  $('gap').addEventListener('input',()=>{$('gapL').textContent=$('gap').value+'px';if(!run)frame();});
+  $('toggle').addEventListener('click',()=>{run=!run;$('toggle').textContent=run?'⏸ 一時停止':'▶ 再生';});
+  loop();
+  } catch(e) { console.error(e); }
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click',()=>window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'wave', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

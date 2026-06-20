@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/boids/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/boids.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/boids.png">
+<title>鳥の群れシミュレーター（ボイド）｜群れはどう生まれる？｜シミュラボ</title>
+<meta name="description" content="一羽一羽は「近くに合わせる」だけの3つのルールで動いているのに、全体としては鳥の群れのような動きが生まれるボイドモデルをブラウザで体感できる無料シミュレーター。">
+<meta property="og:title" content="鳥の群れシミュレーター（ボイド）">
+<meta property="og:description" content="3つのルールだけで群れが生まれるボイドモデル。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/boids/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "鳥の群れシミュレーター（ボイド）", "url": "https://shimulabo.com/sims/boids/", "description": "3つのルールだけで群れが生まれるボイドモデル。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "鳥の群れシミュレーター（ボイド）", "item": "https://shimulabo.com/sims/boids/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "本物の鳥もこれ？", "acceptedAnswer": {"@type": "Answer", "text": "完全に同じではありませんが、群れの動きをよく再現できることで知られています。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動作します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>ふしぎ・現象<span>›</span><span class="cur">鳥の群れシミュレーター（ボイド）</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ふしぎ・現象</div>
+    <h1>鳥の群れシミュレーター（ボイド）</h1>
+    <p class="lead">一羽一羽は「ぶつからない・向きを合わせる・近づく」の3つだけ。リーダーもいないのに、全体としては生きた群れのような動きが生まれます。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:16px;">
+      <canvas id="cv" width="520" height="360" style="width:100%;max-width:540px;height:auto;background:#fff;border:1px solid var(--line);border-radius:12px;background:#0b1220;"></canvas>
+      <div style="width:100%;max-width:560px;"><div class="field" style="margin-bottom:10px;"><div class="slider-head"><label style="margin:0;">群れの数</label><span class="val" id="nL">90</span></div><input type="range" id="n" min="20" max="200" value="90" step="1" style="width:100%;"></div><div class="share-row" style="margin-top:0;"><button class="btn btn-ghost" id="reset" style="padding:11px 18px;font-size:14px;">リセット</button></div></div>
+    </div>
+    <p style="text-align:center;color:var(--ink-2);font-size:13px;margin-top:14px;">中央のルールだけで動く「ボイド」たち。だれも全体を指揮していないのに群れになります。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row"><button class="btn btn-x" id="shareBtn">𝕏 でシェア</button></div>
+  </section>
+
+  <article class="article">
+    <h2>3つのルール</h2>
+    <ul><li><strong>分離</strong>：近づきすぎたら離れる</li><li><strong>整列</strong>：周りと進む向きを合わせる</li><li><strong>結合</strong>：群れの中心へ寄っていく</li></ul>
+    <p>1986年にレイノルズが考案。中央の指揮者なしに、局所的なルールだけで群れの動きが生まれます（創発）。映画やゲームの群衆表現にも使われています。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>本物の鳥もこれ？</dt><dd>完全に同じではありませんが、群れの動きをよく再現できることで知られています。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動作します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../jutai/index.html"><span class="e">🚗</span><span>渋滞は勝手に生まれる</span></a><a class="related-card" href="../life/index.html"><span class="e">🦠</span><span>ライフゲーム</span></a><a class="related-card" href="../forest-fire/index.html"><span class="e">🔥</span><span>森林火災シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ見てみたい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const SHARE = '一羽一羽はただ"近くに合わせてる"だけ。なのに群れになる。ボイドの不思議🐦';
+  try {
+  const c=$('cv'),x=c.getContext('2d'),W=c.width,H=c.height;
+  let b=[];
+  function init(){const n=+$('n').value;$('nL').textContent=n;b=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:Math.random()*2-1,vy:Math.random()*2-1}));}
+  function step(){const R=40,R2=R*R;for(const p of b){let ax=0,ay=0,cx=0,cy=0,sx=0,sy=0,cnt=0;for(const q of b){if(q===p)continue;const dx=q.x-p.x,dy=q.y-p.y,d2=dx*dx+dy*dy;if(d2<R2&&d2>0){ax+=q.vx;ay+=q.vy;cx+=q.x;cy+=q.y;cnt++;if(d2<260){sx-=dx;sy-=dy;}}}if(cnt){ax/=cnt;ay/=cnt;cx/=cnt;cy/=cnt;p.vx+=(ax-p.vx)*0.05+(cx-p.x)*0.0008+sx*0.02;p.vy+=(ay-p.vy)*0.05+(cy-p.y)*0.0008+sy*0.02;}p.vx+=(Math.random()-.5)*0.1;p.vy+=(Math.random()-.5)*0.1;const sp=Math.hypot(p.vx,p.vy),mx=2.6;if(sp>mx){p.vx=p.vx/sp*mx;p.vy=p.vy/sp*mx;}p.x=(p.x+p.vx+W)%W;p.y=(p.y+p.vy+H)%H;}}
+  function draw(){x.fillStyle='rgba(11,18,32,0.35)';x.fillRect(0,0,W,H);for(const p of b){const a=Math.atan2(p.vy,p.vx);x.save();x.translate(p.x,p.y);x.rotate(a);x.fillStyle='#5dcaa5';x.beginPath();x.moveTo(6,0);x.lineTo(-4,3);x.lineTo(-4,-3);x.closePath();x.fill();x.restore();}}
+  function loop(){step();draw();requestAnimationFrame(loop);}
+  $('n').addEventListener('input',init);$('reset').addEventListener('click',init);
+  init();x.fillStyle='#0b1220';x.fillRect(0,0,W,H);loop();
+  } catch(e) { console.error(e); }
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click',()=>window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'boids', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

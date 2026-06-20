@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/double-pendulum/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/double-pendulum.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/double-pendulum.png">
+<title>二重振り子シミュレーター｜カオスを体感する｜シミュラボ</title>
+<meta name="description" content="ほんのわずかに初期条件が違うだけで、数秒後にはまったく違う動きになる「二重振り子」のカオスを、2本同時に並べて体感できる無料シミュレーター。">
+<meta property="og:title" content="二重振り子シミュレーター｜カオスを体感">
+<meta property="og:description" content="わずかな差が大きな違いに。二重振り子のカオスを2本並べて体感。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/double-pendulum/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "二重振り子シミュレーター", "url": "https://shimulabo.com/sims/double-pendulum/", "description": "わずかな初期差が大きな違いを生む二重振り子のカオス。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "二重振り子シミュレーター", "item": "https://shimulabo.com/sims/double-pendulum/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "ランダムなの？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。完全に決まった法則で動きます。それでも予測が難しいのがカオスの面白さです。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動作します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>ふしぎ・現象<span>›</span><span class="cur">二重振り子シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ふしぎ・現象</div>
+    <h1>二重振り子シミュレーター</h1>
+    <p class="lead">ほぼ同じスタートに見える2本の振り子。でも数秒後にはまったく違う動きに。これが「カオス」。小さな差が大きな違いを生む様子を見てください。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:16px;">
+      <canvas id="cv" width="420" height="400" style="width:100%;max-width:440px;height:auto;background:#fff;border:1px solid var(--line);border-radius:12px;background:#0b1220;"></canvas>
+      <div style="width:100%;max-width:560px;"><div class="share-row" style="margin-top:0;"><button class="btn btn-primary" id="reset" style="padding:11px 18px;font-size:14px;">リセット（少しズラして再開）</button></div></div>
+    </div>
+    <p style="text-align:center;color:var(--ink-2);font-size:13px;margin-top:14px;">2本の振り子は、ほんのわずかだけ初期角度が違うだけ。やがて完全にバラバラになります。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row"><button class="btn btn-x" id="shareBtn">𝕏 でシェア</button></div>
+  </section>
+
+  <article class="article">
+    <h2>カオスとは</h2>
+    <p>二重振り子は「決まった物理法則」で動く（ランダムではない）のに、初期条件のごくわずかな差が、時間とともに指数関数的に拡大します。これを<strong>カオス（バタフライ効果）</strong>と呼びます。天気予報が長期では当たりにくいのも、これが理由のひとつです。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>ランダムなの？</dt><dd>いいえ。完全に決まった法則で動きます。それでも予測が難しいのがカオスの面白さです。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動作します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../jutai/index.html"><span class="e">🚗</span><span>渋滞は勝手に生まれる</span></a><a class="related-card" href="../life/index.html"><span class="e">🦠</span><span>ライフゲーム</span></a><a class="related-card" href="../forest-fire/index.html"><span class="e">🔥</span><span>森林火災シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ見てみたい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const SHARE = 'まったく同じに見える初期条件が、数秒で全然違う動きに。これがカオス🌀';
+  try {
+  const c=$('cv'),x=c.getContext('2d'),W=c.width,H=c.height,ox=W/2,oy=H*0.4;
+  const L1=90,L2=90,m1=10,m2=10,g=1.0;
+  let P=[];
+  function mk(a1){return {a1:a1,a2:Math.PI/2,p1:0,p2:0,tr:[],col:''};}
+  function init(){P=[mk(Math.PI/2),mk(Math.PI/2+0.01)];P[0].col='#0fb5c4';P[1].col='#f43f5e';}
+  function deriv(s){const {a1,a2,p1,p2}=s;const d=a1-a2;const den=(2*m1+m2-m2*Math.cos(2*d));
+    const da1=(6/(m1*L1*L1))*(2*p1-3*Math.cos(d)*p2)/(16-9*Math.cos(d)*Math.cos(d));
+    const da2=(6/(m2*L2*L2))*(8*p2-3*Math.cos(d)*p1)/(16-9*Math.cos(d)*Math.cos(d));
+    const dp1=-0.5*m1*L1*L1*(da1*da2*Math.sin(d)+3*(g/L1)*Math.sin(a1));
+    const dp2=-0.5*m2*L2*L2*(-da1*da2*Math.sin(d)+(g/L2)*Math.sin(a2));
+    return {a1:da1,a2:da2,p1:dp1,p2:dp2};}
+  function stepOne(s){const dt=0.18;const k=deriv(s);s.a1+=k.a1*dt;s.a2+=k.a2*dt;s.p1+=k.p1*dt;s.p2+=k.p2*dt;}
+  function draw(){x.fillStyle='rgba(11,18,32,0.25)';x.fillRect(0,0,W,H);for(const s of P){const x1=ox+L1*Math.sin(s.a1),y1=oy+L1*Math.cos(s.a1),x2=x1+L2*Math.sin(s.a2),y2=y1+L2*Math.cos(s.a2);s.tr.push([x2,y2]);if(s.tr.length>120)s.tr.shift();x.strokeStyle=s.col;x.globalAlpha=0.5;x.beginPath();s.tr.forEach((p,i)=>i?x.lineTo(p[0],p[1]):x.moveTo(p[0],p[1]));x.stroke();x.globalAlpha=1;x.strokeStyle=s.col;x.lineWidth=2;x.beginPath();x.moveTo(ox,oy);x.lineTo(x1,y1);x.lineTo(x2,y2);x.stroke();x.fillStyle=s.col;x.beginPath();x.arc(x2,y2,5,0,7);x.fill();}}
+  function loop(){for(let k=0;k<3;k++)for(const s of P)stepOne(s);draw();requestAnimationFrame(loop);}
+  $('reset').addEventListener('click',()=>{init();x.fillStyle='#0b1220';x.fillRect(0,0,W,H);});
+  init();x.fillStyle='#0b1220';x.fillRect(0,0,W,H);loop();
+  } catch(e) { console.error(e); }
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click',()=>window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'double-pendulum', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

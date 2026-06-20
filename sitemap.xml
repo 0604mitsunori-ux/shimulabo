@@ -4,6 +4,16 @@
   <url><loc>https://shimulabo.com/sims/kaigi-cost/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shimulabo.com/sims/kuchikomi-hakyu/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shimulabo.com/sims/jutai/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/life/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/forest-fire/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/schelling/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/sandpile/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/boids/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/double-pendulum/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/wave/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/diffusion/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/turing/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/sync/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shimulabo.com/sims/machi-jikan/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shimulabo.com/sims/scroll-distance/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shimulabo.com/sims/influencer-soroban/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>

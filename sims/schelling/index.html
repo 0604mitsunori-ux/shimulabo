@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/schelling/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/schelling.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/schelling.png">
+<title>街の分断シミュレーター｜悪意ゼロでも分かれる（シェリング）｜シミュラボ</title>
+<meta name="description" content="「少しだけ同じ人が近くにいたい」という弱い好みだけで、街がくっきり2つに分断されていく様子を再現したシェリングの分居モデル。差別意識ゼロでも分離が起きる不思議を体感できます。">
+<meta property="og:title" content="街の分断シミュレーター｜悪意ゼロでも分かれる">
+<meta property="og:description" content="弱い好みだけで街が分断される、シェリングの分居モデル。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/schelling/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "街の分断シミュレーター", "url": "https://shimulabo.com/sims/schelling/", "description": "弱い好みだけで街が分断されるシェリングの分居モデル。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "街の分断シミュレーター", "item": "https://shimulabo.com/sims/schelling/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "差別の話ですか？", "acceptedAnswer": {"@type": "Answer", "text": "むしろ逆で、強い差別意識がなくても分離が起きうることを示すモデルです。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動作します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>ふしぎ・現象<span>›</span><span class="cur">街の分断シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ふしぎ・現象</div>
+    <h1>街の分断シミュレーター</h1>
+    <p class="lead">「ご近所にちょっとだけ同じ人がいると安心」。たったそれだけの弱い好みでも、街は放っておくとくっきり2つに分かれます。悪意ゼロでも起きる「分断」を見てください。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:16px;">
+      <canvas id="cv" width="400" height="400" style="width:100%;max-width:420px;height:auto;background:#fff;border:1px solid var(--line);border-radius:12px;"></canvas>
+      <div style="width:100%;max-width:560px;"><div class="field" style="margin-bottom:10px;"><div class="slider-head"><label style="margin:0;">満足する同類の割合</label><span class="val" id="tolL">35</span></div><input type="range" id="tol" min="10" max="70" value="35" step="1" style="width:100%;"></div><div class="share-row" style="margin-top:0;"><button class="btn btn-ghost" id="reset" style="padding:11px 18px;font-size:14px;">リセット</button><button class="btn btn-ghost" id="toggle" style="padding:11px 18px;font-size:14px;">⏸ 一時停止</button></div></div>
+    </div>
+    <p style="text-align:center;color:var(--ink-2);font-size:13px;margin-top:14px;">🔵🟠＝2つのグループ／白＝空き地。不満な人が空き地へ引っ越すだけで、街は分かれていきます。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row"><button class="btn btn-x" id="shareBtn">𝕏 でシェア</button></div>
+  </section>
+
+  <article class="article">
+    <h2>シェリングの分居モデル</h2>
+    <p>経済学者シェリングが示した有名なモデルです。各住人は「近所の◯％以上が同じ仲間なら満足、足りなければ引っ越す」というルールだけで動きます。<strong>「相手を排除したい」という気持ちはゼロ</strong>。それでも、わずかな好みが積み重なると、街全体は強く分断されてしまいます。</p>
+    <p>社会の分断やフィルターバブルを考えるうえで示唆に富んだモデルです。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>差別の話ですか？</dt><dd>むしろ逆で、強い差別意識がなくても分離が起きうることを示すモデルです。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動作します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../jutai/index.html"><span class="e">🚗</span><span>渋滞は勝手に生まれる</span></a><a class="related-card" href="../life/index.html"><span class="e">🦠</span><span>ライフゲーム</span></a><a class="related-card" href="../forest-fire/index.html"><span class="e">🔥</span><span>森林火災シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ見てみたい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const SHARE = '「少しだけ同じ人が近くにいたい」だけで、街はくっきり分断される。悪意ゼロでも…🏘️';
+  try {
+  const c=$('cv'),x=c.getContext('2d'),CELL=10,COLS=c.width/CELL|0,ROWS=c.height/CELL|0;
+  let g,run=true;
+  function init(){g=Array.from({length:ROWS},()=>Array.from({length:COLS},()=>{const r=Math.random();return r<0.45?1:r<0.9?2:0;}));$('tolL').textContent=$('tol').value+'%';draw();}
+  function happy(i,j){const t=g[i][j];if(!t)return true;let same=0,tot=0;for(let di=-1;di<=1;di++)for(let dj=-1;dj<=1;dj++){if(di||dj){const a=i+di,b=j+dj;if(a>=0&&a<ROWS&&b>=0&&b<COLS&&g[a][b]){tot++;if(g[a][b]===t)same++;}}}return tot===0?true:(same/tot)>=(+$('tol').value)/100;}
+  function step(){const empties=[];for(let i=0;i<ROWS;i++)for(let j=0;j<COLS;j++)if(!g[i][j])empties.push([i,j]);for(let i=0;i<ROWS;i++)for(let j=0;j<COLS;j++){if(g[i][j]&&!happy(i,j)&&empties.length){const k=Math.random()*empties.length|0,[a,b]=empties[k];g[a][b]=g[i][j];g[i][j]=0;empties[k]=[i,j];}}}
+  const COL=['#ffffff','#3b82f6','#f59e0b'];
+  function draw(){for(let i=0;i<ROWS;i++)for(let j=0;j<COLS;j++){x.fillStyle=COL[g[i][j]];x.fillRect(j*CELL,i*CELL,CELL-1,CELL-1);}}
+  let f=0;function loop(){if(run){f++;if(f%6===0)step();}draw();requestAnimationFrame(loop);}
+  $('tol').addEventListener('input',()=>$('tolL').textContent=$('tol').value+'%');
+  $('reset').addEventListener('click',init);$('toggle').addEventListener('click',()=>{run=!run;$('toggle').textContent=run?'⏸ 一時停止':'▶ 再生';});
+  init();loop();
+  } catch(e) { console.error(e); }
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click',()=>window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'schelling', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

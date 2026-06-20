@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/life/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/life.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/life.png">
+<title>ライフゲーム｜3つのルールで生命が生まれるシミュレーター｜シミュラボ</title>
+<meta name="description" content="生きる・死ぬのたった3つのルールだけで、まるで生命のようなパターンが生まれて動き続ける「ライフゲーム」をブラウザで体感できる無料シミュレーター。">
+<meta property="og:title" content="ライフゲーム｜3つのルールで生命が生まれる">
+<meta property="og:description" content="たった3つのルールで生命のようなパターンが動き出すライフゲーム。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/life/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "ライフゲーム", "url": "https://shimulabo.com/sims/life/", "description": "3つのルールだけで生命のようなパターンが生まれるライフゲーム。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ライフゲーム", "item": "https://shimulabo.com/sims/life/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "何の役に立つの？", "acceptedAnswer": {"@type": "Answer", "text": "創発・複雑系を直感的に理解できる教材として有名です。眺めるだけでも面白いですよ。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動作します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>ふしぎ・現象<span>›</span><span class="cur">ライフゲーム</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ふしぎ・現象</div>
+    <h1>ライフゲーム</h1>
+    <p class="lead">「生きる・死ぬ」のたった3つのルールだけ。それなのに、まるで生命のようなパターンが生まれ、動き、増えていきます。クリックで命を置いてみてください。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:16px;">
+      <canvas id="cv" width="480" height="360" style="width:100%;max-width:520px;height:auto;background:#fff;border:1px solid var(--line);border-radius:12px;cursor:crosshair;"></canvas>
+      <div style="width:100%;max-width:560px;"><div class="share-row" style="margin-top:0;"><button class="btn btn-primary" id="play" style="padding:11px 18px;font-size:14px;">⏸ 一時停止</button><button class="btn btn-ghost" id="rand" style="padding:11px 18px;font-size:14px;">ランダム</button><button class="btn btn-ghost" id="clear" style="padding:11px 18px;font-size:14px;">クリア</button></div></div>
+    </div>
+    <p style="text-align:center;color:var(--ink-2);font-size:13px;margin-top:14px;">マスをクリックで命を配置／🟦＝生きているセル。3つのルールだけで動き続けます。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row"><button class="btn btn-x" id="shareBtn">𝕏 でシェア</button></div>
+  </section>
+
+  <article class="article">
+    <h2>3つのルール</h2>
+    <ul><li>生きているセルの周りに2〜3個の仲間 → 生存</li><li>死んでいるセルの周りにちょうど3個 → 誕生</li><li>それ以外 → 死</li></ul>
+    <p>1970年に数学者コンウェイが考案。単純なルールから、移動する「グライダー」や永遠に動く構造など、驚くほど複雑なパターンが生まれます。これは「単純なルールから複雑さが生まれる（創発）」の代表例です。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>何の役に立つの？</dt><dd>創発・複雑系を直感的に理解できる教材として有名です。眺めるだけでも面白いですよ。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動作します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../jutai/index.html"><span class="e">🚗</span><span>渋滞は勝手に生まれる</span></a><a class="related-card" href="../forest-fire/index.html"><span class="e">🔥</span><span>森林火災シミュレーター</span></a><a class="related-card" href="../schelling/index.html"><span class="e">🏘️</span><span>街の分断シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ見てみたい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const SHARE = 'たった3つのルールで"生命"が生まれて動き出す…ライフゲーム、見てると止まらない🦠';
+  try {
+  const c=$('cv'),x=c.getContext('2d'),CELL=8,COLS=c.width/CELL|0,ROWS=c.height/CELL|0;
+  let g,run=true,f=0;
+  const mk=(fn)=>Array.from({length:ROWS},()=>Array.from({length:COLS},fn));
+  const rnd=()=>g=mk(()=>Math.random()<0.3?1:0);
+  const clr=()=>g=mk(()=>0);
+  function step(){const n=mk(()=>0);for(let i=0;i<ROWS;i++)for(let j=0;j<COLS;j++){let s=0;for(let di=-1;di<=1;di++)for(let dj=-1;dj<=1;dj++){if(di||dj)s+=g[(i+di+ROWS)%ROWS][(j+dj+COLS)%COLS];}n[i][j]=(g[i][j]&&(s===2||s===3))||(!g[i][j]&&s===3)?1:0;}g=n;}
+  function draw(){x.clearRect(0,0,c.width,c.height);x.fillStyle='#0fb5c4';for(let i=0;i<ROWS;i++)for(let j=0;j<COLS;j++)if(g[i][j])x.fillRect(j*CELL,i*CELL,CELL-1,CELL-1);}
+  function loop(){if(run){f++;if(f%4===0)step();}draw();requestAnimationFrame(loop);}
+  $('play').addEventListener('click',()=>{run=!run;$('play').textContent=run?'⏸ 一時停止':'▶ 再生';});
+  $('rand').addEventListener('click',rnd);$('clear').addEventListener('click',clr);
+  c.addEventListener('click',e=>{const r=c.getBoundingClientRect();const j=(e.clientX-r.left)/r.width*COLS|0,i=(e.clientY-r.top)/r.height*ROWS|0;if(g[i]&&g[i][j]!=null)g[i][j]^=1;});
+  rnd();loop();
+  } catch(e) { console.error(e); }
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click',()=>window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'life', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

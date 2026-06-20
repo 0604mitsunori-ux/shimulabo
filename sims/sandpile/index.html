@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/sandpile/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/sandpile.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/sandpile.png">
+<title>砂山崩しシミュレーター｜大崩壊はいつ来るか分からない｜シミュラボ</title>
+<meta name="description" content="砂を一粒ずつ積んでいくと、ある時 突然 連鎖的な大崩壊が起きる「自己組織化臨界」をブラウザで再現。地震や株価暴落にも通じる仕組みを体感できる無料シミュレーターです。">
+<meta property="og:title" content="砂山崩しシミュレーター｜大崩壊はいつ来るか分からない">
+<meta property="og:description" content="砂を積むとある時 突然 大崩壊。自己組織化臨界を体感。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/sandpile/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "砂山崩しシミュレーター", "url": "https://shimulabo.com/sims/sandpile/", "description": "砂を積むとある時 突然 大崩壊が起きる自己組織化臨界。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "砂山崩しシミュレーター", "item": "https://shimulabo.com/sims/sandpile/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "美しい模様になるのはなぜ？", "acceptedAnswer": {"@type": "Answer", "text": "崩れのルールが生む数学的なパターンです。完成形はフラクタル的な構造になります。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動作します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>ふしぎ・現象<span>›</span><span class="cur">砂山崩しシミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ふしぎ・現象</div>
+    <h1>砂山崩しシミュレーター</h1>
+    <p class="lead">砂を一粒ずつ積むだけ。小さな崩れが続くなか、ある瞬間、予測できない「大崩壊」が突然やってきます。地震や株価暴落にも通じる不思議な仕組みです。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:16px;">
+      <canvas id="cv" width="360" height="360" style="width:100%;max-width:400px;height:auto;background:#fff;border:1px solid var(--line);border-radius:12px;image-rendering:pixelated;"></canvas>
+      <div style="width:100%;max-width:560px;"><div class="share-row" style="margin-top:0;"><button class="btn btn-ghost" id="reset" style="padding:11px 18px;font-size:14px;">リセット</button></div></div>
+    </div>
+    <p style="text-align:center;color:var(--ink-2);font-size:13px;margin-top:14px;">中央に砂を積み続けています。色は砂の高さ。4つ積もると四方へ崩れ、それが連鎖します。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row"><button class="btn btn-x" id="shareBtn">𝕏 でシェア</button></div>
+  </section>
+
+  <article class="article">
+    <h2>自己組織化臨界</h2>
+    <p>1つのマスに砂が4粒たまると、周囲4マスへ1粒ずつ崩れます。崩れた先がまた4粒になれば、さらに崩れる…と連鎖します。たいていは小さな崩れですが、ときどき<strong>とてつもない大崩壊</strong>が起こります。しかも、いつ大崩壊が来るかは事前に分かりません。</p>
+    <p>この「ふだんは静かで、ときどき大事件」という性質は、地震・山火事・株価暴落など多くの現象に共通します。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>美しい模様になるのはなぜ？</dt><dd>崩れのルールが生む数学的なパターンです。完成形はフラクタル的な構造になります。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動作します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../jutai/index.html"><span class="e">🚗</span><span>渋滞は勝手に生まれる</span></a><a class="related-card" href="../life/index.html"><span class="e">🦠</span><span>ライフゲーム</span></a><a class="related-card" href="../forest-fire/index.html"><span class="e">🔥</span><span>森林火災シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ見てみたい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const SHARE = '砂を一粒ずつ積むだけ。ある時"大崩壊"が突然くる。地震や株価と同じ仕組み…⛰️';
+  try {
+  const c=$('cv'),x=c.getContext('2d'),N=c.width,img=x.createImageData(N,N);
+  let g,cx=N>>1,cy=N>>1;
+  const COL=[[245,247,250],[159,225,203],[29,158,117],[10,135,150]];
+  function init(){g=new Uint8Array(N*N);}
+  function add(n){for(let k=0;k<n;k++)g[cy*N+cx]++;}
+  function topple(){let again=true,c2=0;while(again&&c2<4){again=false;c2++;for(let i=1;i<N-1;i++)for(let j=1;j<N-1;j++){const id=i*N+j;if(g[id]>=4){const q=g[id]>>2;g[id]-=q*4;g[id-1]+=q;g[id+1]+=q;g[id-N]+=q;g[id+N]+=q;again=true;}}}}
+  function draw(){const d=img.data;for(let i=0;i<N*N;i++){const v=Math.min(3,g[i]),col=COL[v];d[i*4]=col[0];d[i*4+1]=col[1];d[i*4+2]=col[2];d[i*4+3]=255;}x.putImageData(img,0,0);}
+  function loop(){add(40);topple();draw();requestAnimationFrame(loop);}
+  $('reset').addEventListener('click',init);
+  init();loop();
+  } catch(e) { console.error(e); }
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click',()=>window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'sandpile', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>
