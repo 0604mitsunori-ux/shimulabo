@@ -24,7 +24,8 @@ const ALLOW = new Set([
   'subsc', 'caffeine', 'sleep-debt', 'warikan', 'takarakuji',
   'oyako', 'infure', 'if-company', 'nidone', 'chiritsumo', 'shutten',
   'tenshoku', 'fire', 'kyuryobi', 'coffee-life', 'yoi', 'taiju',
-  'unmei', 'mental-age', 'isekai', 'neage'
+  'unmei', 'mental-age', 'isekai', 'neage',
+  'konkatsu-match', 'konkatsu-jouken', 'konkatsu-type'
 ]);
 
 export default async function handler(req, res) {
