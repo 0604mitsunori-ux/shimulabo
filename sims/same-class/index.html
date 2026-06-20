@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/same-class/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/same-class.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/same-class.png">
+<title>好きな人と同じクラスになる確率｜中学生・高校生向け｜シミュラボ</title>
+<meta name="description" content="クラスの数と在学年数から、好きな人と同じクラスになる確率を計算。中学生・高校生向けの、ドキドキする確率シミュレーターです。">
+<meta property="og:title" content="好きな人と同じクラスになる確率｜中学生・高校生向け">
+<meta property="og:description" content="クラス数から、好きな人と同じクラスになる確率を計算。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/same-class/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "好きな人と同じクラスになる確率", "url": "https://shimulabo.com/sims/same-class/", "description": "クラス数から好きな人と同じクラスになる確率を計算（中高生向け）。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "好きな人と同じクラスになる確率", "item": "https://shimulabo.com/sims/same-class/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "本当にこの確率？", "acceptedAnswer": {"@type": "Answer", "text": "クラス分けが完全にランダムと仮定した計算です。実際は成績や人数調整などもあるため、あくまで目安です。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span><span class="tag">BETA</span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>恋愛・婚活<span>›</span><span class="cur">好きな人と同じクラスになる確率</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">恋愛・婚活</div>
+    <h1>好きな人と同じクラスになる確率</h1>
+    <p class="lead">新学期、好きな人や友達と同じクラスになれるかドキドキ…。クラスの数から、その確率を計算してみましょう。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🏫 学校のことを入れて</h2>
+    <div class="row"><div class="field"><label>学年のクラス数 <span class="hint">（組の数）</span></label><input type="number" id="c" value="4" min="1" max="30" inputmode="numeric"></div>
+    <div class="field"><label>残りの在学年数 <span class="hint">（年・中学なら最大3）</span></label><input type="number" id="n" value="3" min="1" max="6" inputmode="numeric"></div></div>
+    <button class="btn btn-primary" id="calcBtn">確率を計算する</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">在学中に一度でも同じクラスになる確率</div>
+      <div class="big"><span id="big">0</span><span class="unit">%</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline">
+        <div class="stat"><div class="k">毎年の確率</div><div class="v accent" id="one">—</div></div>
+        <div class="stat"><div class="k">ずっと同じクラス</div><div class="v" id="all">—</div></div>
+        <div class="stat"><div class="k">一度も同じにならない</div><div class="v" id="never">—</div></div>
+      </div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>計算方法</h2>
+    <div class="note"><strong>計算式</strong><br>毎年の確率 ＝ 1 ÷ クラス数<br>一度でも同じ ＝ 1 −（1 − 1/クラス数）の(在学年数)乗</div>
+    <p>クラスがランダムに分けられると仮定した計算です。クラス数が少ないほど、年数が多いほど、同じクラスになる確率は上がります。新学期のドキドキの参考にどうぞ。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>本当にこの確率？</dt><dd>クラス分けが完全にランダムと仮定した計算です。実際は成績や人数調整などもあるため、あくまで目安です。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../unmei/index.html"><span class="e">💘</span><span>運命の人に出会う確率</span></a><a class="related-card" href="../konkatsu-match/index.html"><span class="e">💍</span><span>婚活マッチ診断</span></a><a class="related-card" href="../konkatsu-jouken/index.html"><span class="e">💕</span><span>婚活 条件マッチ診断</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){
+    const c=Math.max(1,+$('c').value||1), n=Math.max(1,+$('n').value||1);
+    const one=1/c, all=Math.pow(1/c,n), atLeast=1-Math.pow(1-1/c,n), never=Math.pow(1-1/c,n);
+    $('sub').textContent=`${c}クラス・残り${n}年で計算`;
+    $('one').textContent=(one*100).toFixed(0)+'%'; $('all').textContent=(all*100).toFixed(1)+'%'; $('never').textContent=(never*100).toFixed(0)+'%';
+    SHARE=`好きな人と同じクラスになる確率、${c}クラスだと在学中に約${(atLeast*100).toFixed(0)}%だった🏫\n新学期、ドキドキ…！\nあなたの学校は？👇`;
+    show(); anim($('big'),0,atLeast*100,900);
+  }
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ,恋愛'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'same-class', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/aisho-name/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/aisho-name.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/aisho-name.png">
+<title>名前で相性占い｜二人の名前で相性をチェック｜シミュラボ</title>
+<meta name="description" content="あなたと気になる人の名前を入れるだけで、二人の相性を占う無料シミュレーター。学校でもSNSでも盛り上がる定番の相性占いです。">
+<meta property="og:title" content="名前で相性占い｜二人の名前で相性をチェック">
+<meta property="og:description" content="二人の名前を入れるだけで相性を占う、定番の相性占い。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/aisho-name/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "名前で相性占い", "url": "https://shimulabo.com/sims/aisho-name/", "description": "二人の名前から相性を占う定番の相性占い。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "名前で相性占い", "item": "https://shimulabo.com/sims/aisho-name/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "本名じゃないとダメ？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。ニックネームでもOK。同じ入力なら結果は変わりません。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。占いはすべてブラウザ内で完結し、名前は外部に送信されません。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span><span class="tag">BETA</span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>恋愛・婚活<span>›</span><span class="cur">名前で相性占い</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">恋愛・婚活</div>
+    <h1>名前で相性占い</h1>
+    <p class="lead">あなたと、気になるあの人。名前を入れるだけで、二人の相性を占います。友達同士でも、推しとでも、気軽にどうぞ。</p>
+  </div>
+
+  <section class="panel">
+    <h2>💘 二人の名前を入れて</h2>
+    <div class="row"><div class="field"><label>あなたの名前 <span class="hint">（ニックネームでOK）</span></label><input type="text" id="a" value="" placeholder="例：はると" maxlength="20"></div>
+    <div class="field"><label>相手の名前 <span class="hint">（ニックネームでOK）</span></label><input type="text" id="b" value="" placeholder="例：ひなた" maxlength="20"></div></div>
+    <button class="btn btn-primary" id="calcBtn">相性を占う</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label" id="lab">二人の相性は</div>
+      <div class="big"><span id="big">0</span><span class="unit">%</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="alert good" id="adv" style="text-align:left;margin-top:18px;">—</div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>この占いについて</h2>
+    <p>二人の名前から相性を占う、昔ながらの相性占いです。同じ名前の組み合わせなら何度占っても同じ結果になります。お遊びとしてお楽しみください。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>本名じゃないとダメ？</dt><dd>いいえ。ニックネームでもOK。同じ入力なら結果は変わりません。</dd><dt>データは送信されますか？</dt><dd>いいえ。占いはすべてブラウザ内で完結し、名前は外部に送信されません。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../unmei/index.html"><span class="e">💘</span><span>運命の人に出会う確率</span></a><a class="related-card" href="../konkatsu-match/index.html"><span class="e">💍</span><span>婚活マッチ診断</span></a><a class="related-card" href="../konkatsu-jouken/index.html"><span class="e">💕</span><span>婚活 条件マッチ診断</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){
+    const a=($('a').value||'').trim(), b=($('b').value||'').trim();
+    if(!a||!b){ $('sub').textContent='⚠️ 二人の名前を入れてね'; $('adv').textContent=''; $('big').textContent='0'; show(); return; }
+    const s=a+'♥'+b; let h=0; for(let i=0;i<s.length;i++){ h=(h*131+s.codePointAt(i))%1000003; }
+    const score=30+h%71;
+    let c; if(score>=85)c='最高の相性！運命級かも。大切にしてね💖';
+    else if(score>=65)c='とても good な相性。一緒にいて楽しい二人になれそう。';
+    else if(score>=45)c='悪くない相性。お互いを知るほど深まるタイプ。';
+    else c='今は伸びしろの相性。違いを楽しめると◎';
+    $('lab').textContent=`${a} ＆ ${b} の相性は`;
+    $('sub').textContent='二人の名前から占いました';
+    $('adv').textContent='💘 '+c;
+    SHARE=`「${a}」と「${b}」の名前相性は ${score}% でした💘\nあなたも気になる人と占ってみて👇`;
+    show(); anim($('big'),0,score,900);
+  }
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ,恋愛'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'aisho-name', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

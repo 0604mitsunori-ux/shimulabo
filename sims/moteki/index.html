@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/moteki/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/moteki.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/moteki.png">
+<title>モテ期はいつ来る？診断｜次のモテ期を占う｜シミュラボ</title>
+<meta name="description" content="年齢と最近の調子から、次の「モテ期」がいつ来るかを占う無料の恋愛診断シミュレーター。学生から大人まで楽しめます。">
+<meta property="og:title" content="モテ期はいつ来る？診断｜次のモテ期を占う">
+<meta property="og:description" content="年齢と調子から、次のモテ期がいつ来るかを占う恋愛診断。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/moteki/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "モテ期はいつ来る？診断", "url": "https://shimulabo.com/sims/moteki/", "description": "年齢と調子から次のモテ期がいつ来るかを占う恋愛診断。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "モテ期はいつ来る？診断", "item": "https://shimulabo.com/sims/moteki/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "本当に当たる？", "acceptedAnswer": {"@type": "Answer", "text": "占い・エンタメです。当たらなくても、笑って前向きに過ごすのが一番のモテ期の作り方かも。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。診断はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span><span class="tag">BETA</span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>恋愛・婚活<span>›</span><span class="cur">モテ期はいつ来る？診断</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">恋愛・婚活</div>
+    <h1>モテ期はいつ来る？診断</h1>
+    <p class="lead">人生に3回あると言われる「モテ期」。あなたの次のモテ期がいつ来るのか、占ってみましょう。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🌟 あなたのことを教えて</h2>
+    <div class="row"><div class="field"><label>今の年齢 <span class="hint">（歳）</span></label><input type="number" id="age" value="20" min="10" max="90" inputmode="numeric"></div>
+    <div class="field"><label>最近の恋愛運は？</label><select id="luck"><option value="good">なんだか好調</option><option value="normal" selected>ふつう</option><option value="bad">ちょっと低調</option></select></div></div>
+    <button class="btn btn-primary" id="calcBtn">モテ期を占う</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">次のモテ期まで、あと</div>
+      <div class="big"><span id="big">0</span><span class="unit">年</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline">
+        <div class="stat"><div class="k">次のモテ期は</div><div class="v accent" id="at">—</div></div>
+        <div class="stat"><div class="k">モテ期の強さ</div><div class="v" id="pow">—</div></div>
+        <div class="stat"><div class="k">タイプ</div><div class="v" id="type" style="font-size:15px;">—</div></div>
+      </div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>この診断について</h2>
+    <p>「モテ期は人生に3回」という言い伝えをもとにした、占い・エンタメ診断です。結果は気軽に楽しんでください。モテ期は、自分磨きと前向きさで引き寄せられるとも言われます。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>本当に当たる？</dt><dd>占い・エンタメです。当たらなくても、笑って前向きに過ごすのが一番のモテ期の作り方かも。</dd><dt>データは送信されますか？</dt><dd>いいえ。診断はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../unmei/index.html"><span class="e">💘</span><span>運命の人に出会う確率</span></a><a class="related-card" href="../konkatsu-match/index.html"><span class="e">💍</span><span>婚活マッチ診断</span></a><a class="related-card" href="../konkatsu-jouken/index.html"><span class="e">💕</span><span>婚活 条件マッチ診断</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){
+    const age=Math.max(10,+$('age').value||10), luck=$('luck').value;
+    const ss='m'+age+luck; let h=0; for(let i=0;i<ss.length;i++) h=(h*131+ss.codePointAt(i))%99991;
+    let yrs=1+(h%6); if(luck==='good')yrs=Math.max(1,yrs-2); if(luck==='bad')yrs=yrs+2;
+    const at=age+yrs; const pow=['★★★☆☆','★★★★☆','★★★★★'][h%3];
+    const types=['出会い運上昇型','内面が輝く型','まわりが放っておかない型','急にモテだす型'];
+    const t=types[h%types.length];
+    $('sub').textContent=`${age}歳・恋愛運：${sel('luck').text}`;
+    $('at').textContent=at+'歳ごろ'; $('pow').textContent=pow; $('type').textContent=t;
+    SHARE=`モテ期診断、私の次のモテ期は${at}歳ごろ（あと${yrs}年）でした🌟 タイプは「${t}」\nあなたのモテ期はいつ？👇`;
+    show(); anim($('big'),0,yrs,900);
+  }
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ,恋愛'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'moteki', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

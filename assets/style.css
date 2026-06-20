@@ -177,6 +177,7 @@ a { color: var(--teal-d); }
 .sim-card[data-cat="wonder"]::before    { background: linear-gradient(90deg, var(--indigo), var(--violet)); }
 .sim-card[data-cat="life"]::before      { background: linear-gradient(90deg, var(--teal), #06b6d4); }
 .sim-card[data-cat="marketing"]::before { background: linear-gradient(90deg, var(--gold), #ec4899); }
+.sim-card[data-cat="love"]::before      { background: linear-gradient(90deg, #f43f5e, #ec4899); }
 .sim-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); border-color: transparent; }
 .sim-card .thumb {
   height: 132px; display: grid; place-items: center; position: relative;
@@ -197,6 +198,7 @@ a { color: var(--teal-d); }
 .sim-card[data-cat="wonder"]    .cat { color: var(--indigo); }
 .sim-card[data-cat="life"]      .cat { color: var(--teal-d); }
 .sim-card[data-cat="marketing"] .cat { color: #be185d; }
+.sim-card[data-cat="love"]      .cat { color: #db2777; }
 .sim-card h3 { margin: 7px 0 9px; font-size: 19px; }
 .sim-card p { margin: 0; font-size: 13.5px; color: var(--ink-2); line-height: 1.7; }
 .sim-card .go {
