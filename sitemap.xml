@@ -116,6 +116,11 @@
   <url><loc>https://shimulabo.com/sims/kinenbi/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shimulabo.com/sims/enkyori/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shimulabo.com/sims/aishou-seiza/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/seo-ctr/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/seo-kachi/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/zero-click/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/ai-inyou/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/repeat-rieki/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shimulabo.com/contact/</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://shimulabo.com/request/</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://shimulabo.com/board/</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>

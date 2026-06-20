@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/seo-ctr/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/seo-ctr.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/seo-ctr.png">
+<title>検索順位別クリック率シミュレーター｜順位が上がると流入はどれだけ増える？｜シミュラボ</title>
+<meta name="description" content="月間検索ボリュームと検索順位から、想定クリック率（CTR）と月間クリック数を試算。現在順位から目標順位に上げると流入がどれだけ増えるかが分かる無料のSEOシミュレーター。">
+<meta property="og:title" content="検索順位別クリック率シミュレーター｜順位で流入はどう変わる？">
+<meta property="og:description" content="検索ボリュームと順位から、想定クリック数と順位アップの効果を試算。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/seo-ctr/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "検索順位別クリック率シミュレーター", "url": "https://shimulabo.com/sims/seo-ctr/", "description": "検索ボリュームと順位から想定クリック数と順位アップ効果を試算。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "検索順位別クリック率シミュレーター", "item": "https://shimulabo.com/sims/seo-ctr/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "CTRは固定値ですか？", "acceptedAnswer": {"@type": "Answer", "text": "業種・検索意図・リッチリザルトの有無で変わります。本ツールは一般的な平均カーブによる概算です。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>マーケティング<span>›</span><span class="cur">検索順位別クリック率シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">マーケティング</div>
+    <h1>検索順位別クリック率シミュレーター</h1>
+    <p class="lead">検索で何位に入るかで、流入は大きく変わります。月間検索数と順位から、想定クリック数を試算。今の順位から上げたときの伸びも分かります。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🔍 条件を入れる</h2>
+    <div class="field"><label>月間検索ボリューム <span class="hint">（そのキーワードが月に検索される回数）</span></label><input type="number" id="vol" value="10000" min="0" inputmode="numeric"></div>
+    <div class="row"><div class="field"><label>現在の検索順位 <span class="hint">（位）</span></label><input type="number" id="cur" value="8" min="1" max="100" inputmode="numeric"></div>
+    <div class="field"><label>目標の検索順位 <span class="hint">（位）</span></label><input type="number" id="goal" value="3" min="1" max="100" inputmode="numeric"></div></div>
+    <button class="btn btn-primary" id="calcBtn">流入の変化を見る</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">目標順位での 月間クリック数</div>
+      <div class="big"><span id="big">0</span><span class="unit">クリック</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">現在のクリック</div><div class="v" id="now">—</div></div>
+      <div class="stat"><div class="k">増えるクリック</div><div class="v accent" id="up">—</div></div>
+      <div class="stat"><div class="k">目標順位のCTR</div><div class="v" id="ctr">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>計算の考え方</h2>
+    <div class="note"><strong>計算式</strong><br>月間クリック ＝ 月間検索ボリューム × 順位別CTR<br>順位別CTRは一般的な実測値（1位約28％／3位約11％／10位約2％…）にもとづく目安です。</div>
+    <p>1位と10位ではクリック率に10倍以上の差。とくに1〜3位の「上位3枠」に入れるかどうかで流入が一変します。検索ボリュームの大きいキーワードほど、順位アップの効果は大きくなります。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>CTRは固定値ですか？</dt><dd>業種・検索意図・リッチリザルトの有無で変わります。本ツールは一般的な平均カーブによる概算です。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../influencer-soroban/index.html"><span class="e">🦝</span><span>インフルエンサー皮算用シミュレーター</span></a><a class="related-card" href="../catchcopy/index.html"><span class="e">🪧</span><span>うさんくさいキャッチコピー製造機</span></a><a class="related-card" href="../if-company/index.html"><span class="e">🏢</span><span>もしあなたが会社だったら</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function ctr(p){
+    const t={1:28,2:15,3:11,4:8,5:6,6:4.5,7:3.5,8:3,9:2.5,10:2.2};
+    p=Math.max(1,Math.round(p));
+    if(p<=10) return t[p];
+    if(p<=20) return Math.max(0.4, 1.2-(p-10)*0.08);
+    return 0.3;
+  }
+  function calc(){
+    const vol=Math.max(0,+$('vol').value||0), cur=Math.max(1,+$('cur').value||1), goal=Math.max(1,+$('goal').value||1);
+    const cc=vol*ctr(cur)/100, gc=vol*ctr(goal)/100, up=gc-cc;
+    $('sub').textContent=`${cur}位（CTR${ctr(cur)}%）→ ${goal}位（CTR${ctr(goal)}%）`;
+    $('now').textContent=num(cc)+'回'; $('up').textContent=(up>=0?'+':'')+num(up)+'回'; $('ctr').textContent=ctr(goal)+'%';
+    SHARE=`検索${cur}位→${goal}位で、月間クリックが${num(cc)}→${num(gc)}回に🔍（月+${num(up)}回）\n上位3枠の威力よ。👇`;
+    show(); anim($('big'),0,gc,900);
+  }
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'seo-ctr', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

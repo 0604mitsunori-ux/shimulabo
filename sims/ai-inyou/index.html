@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/ai-inyou/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/ai-inyou.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/ai-inyou.png">
+<title>AI被引用ポテンシャル診断｜あなたのコンテンツ、AIに引用される？｜シミュラボ</title>
+<meta name="description" content="独自情報・専門性・構造化・結論の明快さ・出典の5項目から、ChatGPTやAI検索に引用されやすいか（LLMOポテンシャル）を点数化する無料診断シミュレーター。">
+<meta property="og:title" content="AI被引用ポテンシャル診断｜あなたのコンテンツ、AIに引用される？">
+<meta property="og:description" content="5項目チェックで、AIに引用されやすいか（LLMO）を点数化。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/ai-inyou/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "AI被引用ポテンシャル診断", "url": "https://shimulabo.com/sims/ai-inyou/", "description": "独自性・専門性・構造化など5観点でAIに引用されやすさを点数化。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "AI被引用ポテンシャル診断", "item": "https://shimulabo.com/sims/ai-inyou/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "点数が高ければ必ず引用されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。あくまで一般的な傾向にもとづく自己診断の目安です。"}}, {"@type": "Question", "name": "入力内容は送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。診断はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>マーケティング<span>›</span><span class="cur">AI被引用ポテンシャル診断</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">マーケティング</div>
+    <h1>AI被引用ポテンシャル診断</h1>
+    <p class="lead">ChatGPTやAI検索は、信頼できて分かりやすいページを「引用」します。あなたのコンテンツがAIに引用されやすいかを、5つの観点で診断します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🤖 5つの観点でチェック</h2>
+    <div class="field"><label>① 独自の情報・一次データはある？</label><select id="q1"><option value="20">独自調査・体験・データがある</option><option value="10" selected>一部ある</option><option value="0">一般論が中心</option></select></div>
+    <div class="field"><label>② 著者・運営者の専門性は明示されている？</label><select id="q2"><option value="20">著者情報・実績が明確</option><option value="8" selected>少し触れている</option><option value="0">不明</option></select></div>
+    <div class="field"><label>③ 見出し・箇条書き・表・FAQで構造化されている？</label><select id="q3"><option value="20">しっかり構造化</option><option value="10" selected>ある程度</option><option value="0">文章のかたまり</option></select></div>
+    <div class="field"><label>④ 結論・答えが先に明快に書かれている？</label><select id="q4"><option value="20">冒頭で結論提示</option><option value="10" selected>まあまあ</option><option value="0">読まないと分からない</option></select></div>
+    <div class="field"><label>⑤ 出典・更新日が明記されている？</label><select id="q5"><option value="20">出典・更新日あり</option><option value="8" selected>どちらか</option><option value="0">なし</option></select></div>
+    <button class="btn btn-primary" id="calcBtn">ポテンシャルを診断する</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">AI被引用ポテンシャル</div>
+      <div class="big"><span id="big">0</span><span class="unit">点</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="alert good" id="adv" style="text-align:left;margin-top:18px;">—</div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>AIに引用される条件（LLMO）</h2>
+    <p>生成AIは、①独自性・一次情報 ②発信者の信頼性（E-E-A-T）③構造化された分かりやすさ ④結論の明快さ ⑤出典の明示、がそろった情報を引用しやすいと言われます。これらを満たすと、検索だけでなくAIの回答内でも名前が出やすくなります。</p>
+    <div class="note">💡 まずは「結論を冒頭に」「独自データや体験を足す」「FAQと出典を付ける」の3つから。AIにも人にも親切なページが、これからの正解です。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>点数が高ければ必ず引用されますか？</dt><dd>いいえ。あくまで一般的な傾向にもとづく自己診断の目安です。</dd><dt>入力内容は送信されますか？</dt><dd>いいえ。診断はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../influencer-soroban/index.html"><span class="e">🦝</span><span>インフルエンサー皮算用シミュレーター</span></a><a class="related-card" href="../catchcopy/index.html"><span class="e">🪧</span><span>うさんくさいキャッチコピー製造機</span></a><a class="related-card" href="../if-company/index.html"><span class="e">🏢</span><span>もしあなたが会社だったら</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){
+    let s=0; for(const id of ['q1','q2','q3','q4','q5']) s+=(+$(id).value||0);
+    s=Math.max(0,Math.min(100,s));
+    let a; if(s>=80)a='AIに引用されやすい優良コンテンツ。独自性・構造・信頼性がそろっています。この型を横展開しましょう🔥';
+    else if(s>=55)a='ベースは good。あと一歩、独自データ・出典・結論の先出しを足すと引用率がぐっと上がります。';
+    else if(s>=30)a='伸びしろ大。まずは「結論を冒頭に」「FAQと出典を追加」「見出しで構造化」から着手を。';
+    else a='今はAIに見つけてもらいにくい状態。独自情報・専門性の明示・構造化を一から整えるのがおすすめです。';
+    $('sub').textContent=`独自性・専門性・構造・結論・出典の5観点／100点満点`;
+    $('adv').textContent='🤖 '+a;
+    SHARE=`AI被引用ポテンシャル診断、私のコンテンツは${s}点でした🤖\nAI検索時代、引用される設計が勝ち筋。あなたは何点？👇`;
+    show(); anim($('big'),0,s,900);
+  }
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'ai-inyou', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

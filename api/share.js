@@ -38,7 +38,8 @@ const ALLOW = new Set([
   'kaiten', 'line-cv', 'zaiko', 'chochiku-mokuhyo', 'reborisk', 'fukuri72',
   'taishokukin', 'nenkin-mikomi', 'zaitaku-setsuyaku', 'naishin', 'juken-hiyou', 'natsuyasumi',
   'kosodate-hiyou', 'kodomo-jikan', 'ikukyu', 'jidou-teate', 'hoiku-youchi', 'omutsu', 'shinchou', 'nezukashi', 'gakushi', 'okozukai', 'pet-age', 'pet-hiyou', 'pet-jikan', 'pet-hoken', 'sanpo', 'neko-nemuri', 'food-ryou', 'tatou', 'pet-taiju', 'pet-gohan-life',
-  'buzz', 'kakaku-matsu', 'naming-buzz', 'gacha', 'kakuyasu-sim', 'jihanki', 'kinenbi', 'enkyori', 'aishou-seiza'
+  'buzz', 'kakaku-matsu', 'naming-buzz', 'gacha', 'kakuyasu-sim', 'jihanki', 'kinenbi', 'enkyori', 'aishou-seiza',
+  'seo-ctr', 'seo-kachi', 'zero-click', 'ai-inyou', 'repeat-rieki'
 ]);
 
 export default async function handler(req, res) {
