@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/taiju/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/taiju.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/taiju.png">
+<title>半年後の体重シミュレーター｜今のカロリー収支だと何kg？｜シミュラボ</title>
+<meta name="description" content="今の体重と1日のカロリー収支（摂取−消費）から、半年後・1年後の体重を予測する無料シミュレーター。">
+<meta property="og:title" content="半年後の体重シミュレーター｜今のカロリー収支だと何kg？">
+<meta property="og:description" content="1日のカロリー収支から半年後・1年後の体重を予測。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/taiju/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "半年後の体重シミュレーター", "url": "https://shimulabo.com/sims/taiju/", "description": "1日のカロリー収支から半年後・1年後の体重を予測。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "半年後の体重シミュレーター", "item": "https://shimulabo.com/sims/taiju/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "この通りに増減しますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。実際は代謝の変化や水分などで単純には進みません。あくまで収支の目安としてお使いください。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span><span class="tag">BETA</span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>人生・自分ごと<span>›</span><span class="cur">半年後の体重シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">人生・自分ごと</div>
+    <h1>半年後の体重シミュレーター</h1>
+    <p class="lead">毎日のちょっとした食べ過ぎ・運動不足は、体重にじわじわ効いてきます。今のカロリー収支のままだと、半年後・1年後に何kgになるかを予測します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>⚖️ 条件を入れる</h2>
+    <div class="row"><div class="field"><label>今の体重 <span class="hint">（kg）</span></label><input type="number" id="kg" value="65" min="20" max="200" step="0.1" inputmode="decimal"></div>
+    <div class="field"><label>1日のカロリー収支 <span class="hint">（摂取−消費 kcal・食べ過ぎは＋）</span></label><input type="number" id="bal" value="200" min="-2000" max="2000" inputmode="numeric"></div></div>
+    <button class="btn btn-primary" id="calcBtn">半年後を予測する</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">このままだと半年後</div>
+      <div class="big"><span id="big">0</span><span class="unit">kg</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">1ヶ月の変化</div><div class="v accent" id="mo">—</div></div>
+      <div class="stat"><div class="k">1年後</div><div class="v" id="y1">—</div></div>
+      <div class="stat"><div class="k">変化量(半年)</div><div class="v" id="d">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>計算方法</h2>
+    <div class="note"><strong>計算式</strong><br>体脂肪1kg ≒ 約7,200kcal<br>体重変化 ＝ 1日のカロリー収支 × 日数 ÷ 7,200</div>
+    <p>1日たった+200kcal（おにぎり1個ぶん）でも、半年で約5kg増える計算。逆にマイナス収支なら同じペースで減ります。小さな差の積み重ねが体重を作ります。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>この通りに増減しますか？</dt><dd>いいえ。実際は代謝の変化や水分などで単純には進みません。あくまで収支の目安としてお使いください。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../machi-jikan/index.html"><span class="e">⏳</span><span>人生の「待ち時間」シミュレーター</span></a><a class="related-card" href="../scroll-distance/index.html"><span class="e">📱</span><span>スクロール距離メーター</span></a><a class="related-card" href="../caffeine/index.html"><span class="e">☕</span><span>カフェイン残量シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){
+    const kg=Math.max(0,+$('kg').value||0), bal=+$('bal').value||0;
+    const half=bal*182/7200, year=bal*365/7200, mo=bal*30/7200;
+    const after=kg+half;
+    $('sub').textContent=`今${kg}kg・1日 ${bal>=0?'+':''}${bal}kcal`;
+    $('mo').textContent=(mo>=0?'+':'')+mo.toFixed(1)+'kg'; $('y1').textContent=(kg+year).toFixed(1)+'kg'; $('d').textContent=(half>=0?'+':'')+half.toFixed(1)+'kg';
+    SHARE=`今のカロリー収支のままだと、半年後 約${after.toFixed(1)}kg（${half>=0?'+':''}${half.toFixed(1)}kg）になる予測…⚖️\nあなたは？👇`;
+    show(); anim($('big'),0,after,900,1);
+  }
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'taiju', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

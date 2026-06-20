@@ -22,7 +22,9 @@ const ALLOW = new Set([
   'kaigi-cost', 'jutai', 'scroll-distance', 'machi-jikan',
   'catchcopy', 'influencer-soroban', 'kuchikomi-hakyu',
   'subsc', 'caffeine', 'sleep-debt', 'warikan', 'takarakuji',
-  'oyako', 'infure', 'if-company', 'nidone', 'chiritsumo', 'shutten'
+  'oyako', 'infure', 'if-company', 'nidone', 'chiritsumo', 'shutten',
+  'tenshoku', 'fire', 'kyuryobi', 'coffee-life', 'yoi', 'taiju',
+  'unmei', 'mental-age', 'isekai', 'neage'
 ]);
 
 export default async function handler(req, res) {
