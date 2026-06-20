@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/tsukin/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/tsukin.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/tsukin.png">
+<title>通勤時間の生涯コストシミュレーター｜人生で何日 通勤してる？｜シミュラボ</title>
+<meta name="description" content="片道の通勤時間・出勤日数・働く年数から、生涯で通勤に使う総時間を計算する無料シミュレーター。通勤時間の大きさを可視化します。">
+<meta property="og:title" content="通勤時間の生涯コスト｜人生で何日 通勤してる？">
+<meta property="og:description" content="片道の通勤時間から、生涯の通勤時間を日数換算で可視化。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/tsukin/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "通勤時間の生涯コスト", "url": "https://shimulabo.com/sims/tsukin/", "description": "片道の通勤時間から生涯の通勤時間を日数換算。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "通勤時間の生涯コスト", "item": "https://shimulabo.com/sims/tsukin/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "在宅勤務だと？", "acceptedAnswer": {"@type": "Answer", "text": "出勤日数を減らして計算すれば、在宅で浮く時間が分かります。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>仕事・働き方<span>›</span><span class="cur">通勤時間の生涯コスト</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">仕事・働き方</div>
+    <h1>通勤時間の生涯コストシミュレーター</h1>
+    <p class="lead">毎日の通勤、生涯で合計するとどれだけの時間になる？片道の時間から、人生で通勤に使う総時間を計算します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🚃 条件</h2>
+    <div class="row"><div class="field"><label>片道の通勤時間 <span class="hint">（分）</span></label><input type="number" id="one" value="45" min="0" inputmode="numeric"></div>
+    <div class="field"><label>週の出勤日数 <span class="hint">（日）</span></label><input type="number" id="wd" value="5" min="0" max="7" inputmode="numeric"></div></div>
+    <div class="field"><label>あと働く年数 <span class="hint">（年）</span></label><input type="number" id="years" value="30" min="0" inputmode="numeric"></div>
+    <button class="btn btn-primary" id="calcBtn">生涯の通勤時間を見る</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">生涯で通勤に使う時間</div>
+      <div class="big"><span id="big">0</span><span class="unit">時間</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">まる何日分</div><div class="v accent" id="days">—</div></div>
+      <div class="stat"><div class="k">1年あたり</div><div class="v" id="yr">—</div></div>
+      <div class="stat"><div class="k">1日の往復</div><div class="v" id="rt">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>計算方法</h2>
+    <div class="note"><strong>計算式</strong><br>1日の往復＝片道×2／年間＝往復×週の出勤日数×52<br>生涯＝年間×働く年数</div>
+    <p>片道45分でも、30年で約4,700時間＝まる195日分。通勤時間を学習や副業に変える、職住近接を選ぶなど、人生の使い方を考えるきっかけに。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>在宅勤務だと？</dt><dd>出勤日数を減らして計算すれば、在宅で浮く時間が分かります。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../tenshoku/index.html"><span class="e">🔀</span><span>転職 年収ifシミュレーター</span></a><a class="related-card" href="../zangyo/index.html"><span class="e">🕒</span><span>残業代シミュレーター</span></a><a class="related-card" href="../yukyu/index.html"><span class="e">🏖️</span><span>有給消化シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){
+    const one=Math.max(0,+$('one').value||0), wd=Math.max(0,+$('wd').value||0), y=Math.max(0,+$('years').value||0);
+    const rt=one*2, yearMin=rt*wd*52, totalH=yearMin*y/60;
+    $('sub').textContent=`片道${one}分・週${wd}日・${y}年`;
+    $('days').textContent=(totalH/24).toFixed(0)+'日'; $('yr').textContent=Math.round(yearMin*y/y/60||yearMin/60)+'時間'; $('rt').textContent=rt+'分';
+    SHARE=`生涯の通勤時間、約${num(totalH)}時間（まる${(totalH/24).toFixed(0)}日分）だった🚃\nこの時間、何に使う？あなたは？👇`;
+    show(); anim($('big'),0,totalH,900);
+  }
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'tsukin', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

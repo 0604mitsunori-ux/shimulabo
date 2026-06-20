@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/yukyu/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/yukyu.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/yukyu.png">
+<title>有給消化シミュレーター｜使わない有給、いくら捨ててる？｜シミュラボ</title>
+<meta name="description" content="残っている有給日数と月給から、有給の金額価値を計算。消化しないまま捨ててしまう有給を「お金」に換算する無料シミュレーター。">
+<meta property="og:title" content="有給消化シミュレーター｜使わない有給、いくら捨ててる？">
+<meta property="og:description" content="残っている有給を金額に換算。捨てると損する額は？">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/yukyu/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "有給消化シミュレーター", "url": "https://shimulabo.com/sims/yukyu/", "description": "残っている有給を金額に換算。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "有給消化シミュレーター", "item": "https://shimulabo.com/sims/yukyu/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "有給は買い取ってもらえる？", "acceptedAnswer": {"@type": "Answer", "text": "原則は買い取り不可（退職時など例外あり）。だからこそ「使う」のが基本です。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>仕事・働き方<span>›</span><span class="cur">有給消化シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">仕事・働き方</div>
+    <h1>有給消化シミュレーター</h1>
+    <p class="lead">使い切れずに消えていく有給休暇。実はけっこうな「お金」です。あなたの残り有給の金額価値を計算します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🏖️ 条件</h2>
+    <div class="row"><div class="field"><label>残っている有給 <span class="hint">（日）</span></label><input type="number" id="days" value="10" min="0" inputmode="numeric"></div>
+    <div class="field"><label>月給 <span class="hint">（万円）</span></label><input type="number" id="pay" value="25" min="0" step="0.5" inputmode="decimal"></div></div>
+    <div class="field"><label>1ヶ月の勤務日数 <span class="hint">（日）</span></label><input type="number" id="wd" value="20" min="1" inputmode="numeric"></div>
+    <button class="btn btn-primary" id="calcBtn">有給の価値を見る</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">残っている有給の金額価値</div>
+      <div class="big"><span id="big">0</span><span class="unit">円</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">日給換算</div><div class="v" id="dw">—</div></div>
+      <div class="stat"><div class="k">残り日数</div><div class="v" id="d">—</div></div>
+      <div class="stat"><div class="k">＝ 連休にすると</div><div class="v accent" id="wk">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>計算方法</h2>
+    <div class="note"><strong>計算式</strong><br>日給＝月給÷勤務日数／有給の価値＝日給×残り日数</div>
+    <p>有給は「賃金が出る休み」。使わずに失効させると、その分を働いてタダで提供しているのと同じです。計画的に消化しましょう。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>有給は買い取ってもらえる？</dt><dd>原則は買い取り不可（退職時など例外あり）。だからこそ「使う」のが基本です。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../tenshoku/index.html"><span class="e">🔀</span><span>転職 年収ifシミュレーター</span></a><a class="related-card" href="../zangyo/index.html"><span class="e">🕒</span><span>残業代シミュレーター</span></a><a class="related-card" href="../freelance/index.html"><span class="e">🧑‍💻</span><span>フリーランス手取りシミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){
+    const days=Math.max(0,+$('days').value||0), pay=Math.max(0,+$('pay').value||0)*10000, wd=Math.max(1,+$('wd').value||1);
+    const dw=pay/wd, val=dw*days;
+    $('sub').textContent=`月給${num(pay/10000)}万・勤務${wd}日／月`;
+    $('dw').textContent=yen(dw); $('d').textContent=days+'日'; $('wk').textContent='約'+Math.round(days/5)+'週間の休み';
+    SHARE=`残ってる有給、金額にすると${yen(val)}分だった🏖️（${days}日）\n使わないと損！あなたは？👇`;
+    show(); anim($('big'),0,val,900);
+  }
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'yukyu', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

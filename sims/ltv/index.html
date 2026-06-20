@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/ltv/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/ltv.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/ltv.png">
+<title>LTV（顧客生涯価値）シミュレーター｜1人のお客さんはいくらの価値？｜シミュラボ</title>
+<meta name="description" content="客単価・来店頻度・継続年数・粗利率から、1人の顧客がもたらすLTV（生涯価値）と、新規獲得にかけられる上限を試算する無料シミュレーター。">
+<meta property="og:title" content="LTVシミュレーター｜1人のお客さんはいくらの価値？">
+<meta property="og:description" content="客単価と来店頻度・継続年数からLTVと獲得コスト上限を試算。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/ltv/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "LTVシミュレーター", "url": "https://shimulabo.com/sims/ltv/", "description": "客単価と来店頻度からLTVと獲得コスト上限を試算。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "LTVシミュレーター", "item": "https://shimulabo.com/sims/ltv/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "リピートを増やすには？", "acceptedAnswer": {"@type": "Answer", "text": "口コミ・再来店の仕組み・MEOでの再発見が効きます。LTVが上がると広告も回しやすくなります。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>店舗・ビジネス<span>›</span><span class="cur">LTVシミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">店舗・ビジネス</div>
+    <h1>LTVシミュレーター</h1>
+    <p class="lead">1人のお客さんは、生涯であなたのお店にいくら使ってくれる？このLTV（顧客生涯価値）が分かると、新規集客にいくらまでかけられるかが見えてきます。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🔁 条件</h2>
+    <div class="row"><div class="field"><label>客単価 <span class="hint">（円）</span></label><input type="number" id="aov" value="3000" min="0" inputmode="numeric"></div>
+    <div class="field"><label>月の来店回数 <span class="hint">（回）</span></label><input type="number" id="freq" value="1" min="0" step="0.1" inputmode="decimal"></div></div>
+    <div class="row"><div class="field"><label>継続年数 <span class="hint">（年）</span></label><input type="number" id="years" value="2" min="0" step="0.5" inputmode="decimal"></div>
+    <div class="field"><label>粗利率 <span class="hint">（％）</span></label><input type="number" id="margin" value="40" min="0" max="100" inputmode="numeric"></div></div>
+    <button class="btn btn-primary" id="calcBtn">LTVを試算する</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">1人あたりのLTV（売上ベース）</div>
+      <div class="big"><span id="big">0</span><span class="unit">円</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">粗利ベースのLTV</div><div class="v" id="gp">—</div></div>
+      <div class="stat"><div class="k">新規獲得にかけられる上限</div><div class="v accent" id="cac">—</div></div>
+      <div class="stat"><div class="k">年間の売上/人</div><div class="v" id="yr">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>計算方法</h2>
+    <div class="note"><strong>計算式</strong><br>LTV(売上)＝客単価×月の来店回数×12×継続年数<br>粗利LTV＝LTV×粗利率（＝新規獲得にかけられる上限の目安）</div>
+    <p>新規のお客さん1人を獲得するのにかけてよい広告費の上限は、ざっくり「粗利LTV」まで。リピートを増やすほどLTVは伸び、集客にかけられる予算も増えます。</p>
+    <div class="note">📣 集客やWeb広告の運用でお困りなら、<a href="../../contact/index.html">プロに相談</a>できます（MEO・広告運用・SEO代行）。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>リピートを増やすには？</dt><dd>口コミ・再来店の仕組み・MEOでの再発見が効きます。LTVが上がると広告も回しやすくなります。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../kuchikomi-hakyu/index.html"><span class="e">📈</span><span>口コミ波及シミュレーター</span></a><a class="related-card" href="../shutten/index.html"><span class="e">🏪</span><span>出店集客シミュレーター</span></a><a class="related-card" href="../neage/index.html"><span class="e">🏷️</span><span>値上げ客数シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){
+    const aov=Math.max(0,+$('aov').value||0),f=Math.max(0,+$('freq').value||0),y=Math.max(0,+$('years').value||0),m=(+$('margin').value||0)/100;
+    const ltv=aov*f*12*y, gp=ltv*m, yr=aov*f*12;
+    $('sub').textContent=`客単価${num(aov)}円・月${f}回・${y}年・粗利${(m*100)}%`;
+    $('gp').textContent=yen(gp); $('cac').textContent='〜'+yen(gp); $('yr').textContent=yen(yr);
+    SHARE=`うちの顧客LTVは1人${yen(ltv)}（粗利${yen(gp)}）だった🔁\n新規獲得はここまでかけてOK。\nあなたのお店は？👇`;
+    show(); anim($('big'),0,ltv,900);
+  }
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'ltv', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

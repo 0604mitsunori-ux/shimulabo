@@ -178,6 +178,10 @@ a { color: var(--teal-d); }
 .sim-card[data-cat="life"]::before      { background: linear-gradient(90deg, var(--teal), #06b6d4); }
 .sim-card[data-cat="marketing"]::before { background: linear-gradient(90deg, var(--gold), #ec4899); }
 .sim-card[data-cat="love"]::before      { background: linear-gradient(90deg, #f43f5e, #ec4899); }
+.sim-card[data-cat="biz"]::before        { background: linear-gradient(90deg, #f59e0b, #ea580c); }
+.sim-card[data-cat="finance"]::before    { background: linear-gradient(90deg, #16a34a, #15803d); }
+.sim-card[data-cat="work"]::before       { background: linear-gradient(90deg, #3b82f6, #2563eb); }
+.sim-card[data-cat="study"]::before      { background: linear-gradient(90deg, #8b5cf6, #7c3aed); }
 .sim-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); border-color: transparent; }
 .sim-card .thumb {
   height: 132px; display: grid; place-items: center; position: relative;
@@ -199,6 +203,10 @@ a { color: var(--teal-d); }
 .sim-card[data-cat="life"]      .cat { color: var(--teal-d); }
 .sim-card[data-cat="marketing"] .cat { color: #be185d; }
 .sim-card[data-cat="love"]      .cat { color: #db2777; }
+.sim-card[data-cat="biz"]       .cat { color: #b45309; }
+.sim-card[data-cat="finance"]   .cat { color: #15803d; }
+.sim-card[data-cat="work"]      .cat { color: #1d4ed8; }
+.sim-card[data-cat="study"]     .cat { color: #6d28d9; }
 .sim-card h3 { margin: 7px 0 9px; font-size: 19px; }
 .sim-card p { margin: 0; font-size: 13.5px; color: var(--ink-2); line-height: 1.7; }
 .sim-card .go {

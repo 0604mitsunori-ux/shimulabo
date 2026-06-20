@@ -28,7 +28,11 @@ const ALLOW = new Set([
   'konkatsu-match', 'konkatsu-jouken', 'konkatsu-type',
   'kokuhaku', 'ryomoi', 'aisho-name', 'same-class', 'moteki',
   'life', 'forest-fire', 'schelling', 'sandpile', 'boids',
-  'double-pendulum', 'wave', 'diffusion', 'turing', 'sync'
+  'double-pendulum', 'wave', 'diffusion', 'turing', 'sync',
+  'ad-roas', 'ltv', 'coupon', 'chirashi-web',
+  'jutaku-loan', 'kuriage', 'hosho', 'rougo',
+  'zangyo', 'yukyu', 'freelance', 'tsukin',
+  'goukaku', 'benkyo-time', 'gakuhi', 'bukatsu'
 ]);
 
 export default async function handler(req, res) {
