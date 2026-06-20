@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/shutten/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/shutten.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/shutten.png">
+<title>出店集客シミュレーター｜業種×立地で1年目の集客を試算（MEO効果つき）｜シミュラボ</title>
+<meta name="description" content="業種・立地・商圏人口・競合数から、新規出店の1年目の集客と売上を試算。さらにMEO（Googleマップ）対策をした場合にどれだけ集客が増えるかも同時にシミュレーションできる無料ツール。">
+<meta property="og:title" content="出店集客シミュレーター｜1年目の集客を試算（MEO効果つき）">
+<meta property="og:description" content="業種×立地×商圏から、出店1年目の集客を試算。MEO対策でどれだけ増えるかも同時に。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/shutten/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "出店集客シミュレーター", "url": "https://shimulabo.com/sims/shutten/", "description": "業種・立地・商圏から出店1年目の集客を試算。MEO対策での伸びしろも算出。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "出店集客シミュレーター", "item": "https://shimulabo.com/sims/shutten/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "この数字は保証ですか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。あくまで一般的なモデルによる概算・参考値です。実際の集客は商品力・価格・接客・季節・広告など多くの要因で変動します。出店判断は必ず実地調査や専門家の確認とあわせて行ってください。"}}, {"@type": "Question", "name": "MEOの効果はどのくらい確実ですか？", "acceptedAnswer": {"@type": "Answer", "text": "店舗・地域・運用の質によって変わります。本ツールの上乗せ分は一般的な傾向にもとづく目安で、効果を保証するものではありません。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結し、入力内容が外部に送られることはありません。"}}]}</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span><span class="tag">BETA</span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>マーケティング<span>›</span><span class="cur">出店集客シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">マーケティング</div>
+    <h1>出店集客シミュレーター</h1>
+    <p class="lead">新しくお店を出すとき、1年目にどれくらいお客さんが見込めるのか。業種・立地・商圏から集客を試算します。さらに<strong>MEO（Googleマップ）対策をした場合の上乗せ</strong>も同時に出します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🏪 出店の条件を入れる</h2>
+    <div class="row">
+      <div class="field">
+        <label>業種</label>
+        <select id="biz">
+          <option value="restaurant">飲食店（レストラン・居酒屋）</option>
+          <option value="cafe">カフェ・スイーツ</option>
+          <option value="beauty">美容室・サロン</option>
+          <option value="clinic">クリニック・歯科</option>
+          <option value="seitai">整体・接骨院</option>
+          <option value="retail">小売・物販店</option>
+          <option value="other">その他サービス</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>立地・業態</label>
+        <select id="loc">
+          <option value="1.3">駅前・繁華街</option>
+          <option value="1.0" selected>ロードサイド</option>
+          <option value="0.8">住宅街</option>
+          <option value="1.1">オフィス街</option>
+          <option value="1.4">商業施設内</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label>商圏人口 <span class="hint">（徒歩・車で来られる範囲の人口・目安）</span></label>
+        <input type="number" id="pop" value="30000" min="100" max="5000000" inputmode="numeric">
+      </div>
+      <div class="field">
+        <label>商圏内の競合店数 <span class="hint">（同業種の数・ざっくり）</span></label>
+        <input type="number" id="comp" value="10" min="0" max="2000" inputmode="numeric">
+      </div>
+    </div>
+    <div class="field">
+      <label>客単価 <span class="hint">（円・業種で自動入力／調整可）</span></label>
+      <input type="number" id="price" value="3000" min="0" max="1000000" inputmode="numeric">
+    </div>
+    <button class="btn btn-primary" id="calcBtn">1年目の集客を試算する</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result" style="padding-bottom:6px;">
+      <div class="label">1年目の累計集客（通常の立ち上がり）</div>
+      <div class="big"><span id="big">0</span><span class="unit">人</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline">
+        <div class="stat"><div class="k">軌道に乗った後の月間</div><div class="v" id="steady">—</div></div>
+        <div class="stat"><div class="k">1年目の売上目安</div><div class="v accent" id="sales">—</div></div>
+        <div class="stat"><div class="k">商圏シェア（目安）</div><div class="v" id="share">—</div></div>
+      </div>
+    </div>
+
+    <div class="alert good" id="meoBox" style="text-align:left;margin-top:22px;">—</div>
+
+    <div style="margin-top:18px;">
+      <canvas id="chart" width="640" height="320" style="width:100%;height:auto;"></canvas>
+    </div>
+
+    <div class="cta-box">
+      <h3>この「MEOの伸びしろ」を、実際に取りにいきませんか？</h3>
+      <p>Googleマップでの露出・口コミ・上位表示を伸ばすMEO運用代行を承っています。出店前のご相談も歓迎です。</p>
+      <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 28px;" href="../../contact/index.html">MEO・出店集客の相談をする →</a>
+    </div>
+
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>集客の試算の考え方</h2>
+    <p>本シミュレーターは、出店分析でよく使われる考え方を、わかりやすく簡略化したものです。</p>
+    <div class="note">
+      <strong>計算の流れ</strong><br>
+      ① 商圏のその業種の総需要 ＝ 商圏人口 × 業種別の月間利用回数<br>
+      ② 自店の取り分 ＝ 総需要 ×（1 ÷（競合数＋1））× 立地係数 × 商圏到達率<br>
+      ③ 1年目は認知が徐々に広がる（開業直後は少なく、数ヶ月かけて軌道に乗る曲線）
+    </div>
+    <p>業種ごとに「人が月に何回その業種を使うか」「客単価」の目安を内蔵しています。飲食やカフェは高頻度、美容室やクリニックは低頻度、というように業種特性を反映します。</p>
+
+    <h2>MEO対策をすると、なぜ集客が増えるのか</h2>
+    <p>新規店の最大の壁は「知られていないこと」。MEO（Googleマップ最適化）は、ここに二重に効きます。</p>
+    <ul>
+      <li><strong>立ち上がりが速くなる</strong> ― 開業直後から「近くの○○」で見つけてもらえ、認知の曲線が前倒しになります。</li>
+      <li><strong>商圏シェアが上がる</strong> ― 地図で上位・高評価だと、競合より選ばれやすくなります。</li>
+    </ul>
+    <p>このシミュレーターでは、MEO対策ありの場合に「立ち上がりの速さ」と「商圏シェア」が改善するものとして、通常時との差（伸びしろ）を計算しています。</p>
+
+    <h2>よくある質問</h2>
+    <dl class="faq">
+      <dt>この数字は保証ですか？</dt>
+      <dd>いいえ。あくまで一般的なモデルによる<strong>概算・参考値</strong>です。実際の集客は商品力・価格・接客・季節・広告など多くの要因で変動します。出店判断は必ず実地調査や専門家の確認とあわせて行ってください。</dd>
+      <dt>MEOの効果はどのくらい確実ですか？</dt>
+      <dd>店舗・地域・運用の質によって変わります。本ツールの上乗せ分は一般的な傾向にもとづく目安で、効果を保証するものではありません。</dd>
+      <dt>データは送信されますか？</dt>
+      <dd>いいえ。計算はすべてブラウザ内で完結し、入力内容が外部に送られることはありません。</dd>
+    </dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../kuchikomi-hakyu/index.html"><span class="e">📈</span><span>口コミ波及シミュレーター</span></a><a class="related-card" href="../influencer-soroban/index.html"><span class="e">🦝</span><span>インフルエンサー皮算用シミュレーター</span></a><a class="related-card" href="../catchcopy/index.html"><span class="e">🪧</span><span>うさんくさいキャッチコピー製造機</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a>　|　<a href="../../contact/index.html">MEO・集客の相談</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const ctx = $('chart').getContext('2d');
+  const M = 12, REACH = 0.6;
+  // 業種別：月間利用回数(商圏人口あたり) と 客単価の目安
+  const BIZ = {
+    restaurant:{d:2.5, p:3000}, cafe:{d:3.5, p:700}, beauty:{d:0.4, p:6000},
+    clinic:{d:0.35, p:3500}, seitai:{d:0.5, p:4500}, retail:{d:1.2, p:2500}, other:{d:0.6, p:3000}
+  };
+  let last = null;
+
+  // 業種変更で客単価を自動セット
+  $('biz').addEventListener('change', () => { $('price').value = BIZ[$('biz').value].p; });
+
+  function series(steady, tau){ const a=[]; for(let t=1;t<=M;t++) a.push(steady*(1-Math.exp(-t/tau))); return a; }
+  function cum(a){ const c=[]; a.reduce((s,v,i)=>(c[i]=s+v),0); return c; }
+
+  function calc(){
+    const biz = BIZ[$('biz').value];
+    const loc = +$('loc').value;
+    const pop = Math.max(0, +$('pop').value||0);
+    const comp = Math.max(0, +$('comp').value||0);
+    const price = Math.max(0, +$('price').value||0);
+
+    const demand = pop * biz.d;                       // 商圏の月間総需要(延べ)
+    const shareBase = Math.min(0.9, (1/(comp+1)) * loc);
+    const steadyBase = demand * shareBase * REACH;    // 定常月間来店(通常)
+    const shareMeo = Math.min(0.95, shareBase * 1.25);
+    const steadyMeo = demand * shareMeo * REACH;      // 定常月間来店(MEOあり)
+
+    const base = series(steadyBase, 4.0);             // 通常は認知ゆっくり
+    const meo  = series(steadyMeo, 2.5);              // MEOは立ち上がり速い
+    const cumBase = cum(base), cumMeo = cum(meo);
+
+    const yBase = cumBase[M-1], yMeo = cumMeo[M-1], up = yMeo - yBase;
+    const upPct = yBase>0 ? up/yBase*100 : 0;
+
+    last = { yBase, up, upPct, upSales: up*price };
+
+    $('sub').textContent = `${$('biz').selectedOptions[0].text}／${$('loc').selectedOptions[0].text}／商圏${num(pop)}人・競合${comp}店`;
+    $('steady').textContent = num(steadyBase) + ' 人/月';
+    $('sales').textContent = yen(yBase * price);
+    $('share').textContent = (shareBase*100).toFixed(1) + '%';
+    $('meoBox').innerHTML = `🚀 <strong>MEO対策をすると</strong>、1年目の集客は <strong>+${num(up)}人（+${upPct.toFixed(0)}%）</strong>、売上にして <strong>+${yen(up*price)}</strong> の伸びしろが見込めます。`;
+
+    $('resultPanel').style.display = '';
+    drawChart(cumBase, cumMeo);
+    anim($('big'), 0, yBase, 900);
+    $('resultPanel').scrollIntoView({ behavior:'smooth', block:'start' });
+  }
+
+  function anim(el, from, to, dur){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);el.textContent=Math.round(from+(to-from)*e).toLocaleString('ja-JP');if(p<1)requestAnimationFrame(s);})(performance.now()); }
+
+  function drawChart(cb, cm){
+    const W=640,H=320,padL=58,padR=16,padT=18,padB=34, plotW=W-padL-padR, plotH=H-padT-padB;
+    ctx.clearRect(0,0,W,H);
+    const maxV=Math.max(cm[M-1],1);
+    const x=(i)=>padL+(i/(M-1))*plotW, y=(v)=>padT+plotH-(v/maxV)*plotH;
+    ctx.strokeStyle='#eef2f6'; ctx.fillStyle='#94a3b8'; ctx.lineWidth=1; ctx.font='11px sans-serif'; ctx.textAlign='right';
+    for(let g=0;g<=4;g++){ const val=maxV*g/4, yy=y(val); ctx.beginPath(); ctx.moveTo(padL,yy); ctx.lineTo(W-padR,yy); ctx.stroke(); ctx.fillText(Math.round(val).toLocaleString(), padL-8, yy+4); }
+    ctx.textAlign='center'; [0,2,5,8,11].forEach(i=>ctx.fillText((i+1)+'ヶ月',x(i),H-12));
+    // 伸びしろ塗り
+    ctx.beginPath(); ctx.moveTo(x(0),y(cb[0])); for(let i=0;i<M;i++)ctx.lineTo(x(i),y(cb[i])); for(let i=M-1;i>=0;i--)ctx.lineTo(x(i),y(cm[i])); ctx.closePath(); ctx.fillStyle='rgba(15,181,196,.16)'; ctx.fill();
+    line(cb,'#94a3b8',[6,6]); line(cm,'#0a8794',[]);
+    ctx.textAlign='left'; ctx.font='700 12px sans-serif'; ctx.fillStyle='#0a8794'; ctx.fillText('● MEO対策あり',padL+4,padT+12); ctx.fillStyle='#94a3b8'; ctx.fillText('● 通常',padL+118,padT+12);
+    function line(arr,c,dash){ ctx.beginPath(); ctx.setLineDash(dash); ctx.strokeStyle=c; ctx.lineWidth=2.5; arr.forEach((v,i)=>i?ctx.lineTo(x(i),y(v)):ctx.moveTo(x(i),y(v))); ctx.stroke(); ctx.setLineDash([]); }
+  }
+
+  function shareText(){ return last ? `新規出店の1年目集客を試算したら、MEO対策で +${num(last.up)}人（+${last.upPct.toFixed(0)}%）/ 売上+${yen(last.upSales)}の伸びしろだった🏪\n\nあなたのお店でも試算👇` : ''; }
+
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(shareText())+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ,出店,MEO'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(shareText()+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(shareText());} });
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'shutten', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>
