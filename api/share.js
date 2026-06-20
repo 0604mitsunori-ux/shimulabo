@@ -20,7 +20,9 @@ import { kv } from '@vercel/kv';
 // 受け付けるシミュID（不正キーでKVを汚さないためのホワイトリスト）
 const ALLOW = new Set([
   'kaigi-cost', 'jutai', 'scroll-distance', 'machi-jikan',
-  'catchcopy', 'influencer-soroban', 'kuchikomi-hakyu'
+  'catchcopy', 'influencer-soroban', 'kuchikomi-hakyu',
+  'subsc', 'caffeine', 'sleep-debt', 'warikan', 'takarakuji',
+  'oyako', 'infure', 'if-company', 'nidone', 'chiritsumo'
 ]);
 
 export default async function handler(req, res) {
