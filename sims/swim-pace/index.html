@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/swim-pace/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/swim-pace.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/swim-pace.png">
+<title>水泳ペース換算シミュレーター｜100mあたり何秒？｜シミュラボ</title>
+<meta name="description" content="泳いだ距離とタイムから、100mあたりのペース・1mあたり・時速を計算する無料の水泳ペース換算ツール。">
+<meta property="og:title" content="水泳ペース換算｜100mあたり何秒？">
+<meta property="og:description" content="距離とタイムから水泳の100mペース・時速を計算。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/swim-pace/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "水泳ペース換算シミュレーター", "url": "https://shimulabo.com/sims/swim-pace/", "description": "距離とタイムから100mあたりのペースを換算。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "水泳ペース換算シミュレーター", "item": "https://shimulabo.com/sims/swim-pace/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "クロール以外でも使える？", "acceptedAnswer": {"@type": "Answer", "text": "はい。泳法を問わず距離とタイムで換算できます。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>スポーツ・運動<span>›</span><span class="cur">水泳ペース換算シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">スポーツ・運動</div>
+    <h1>水泳ペース換算シミュレーター</h1>
+    <p class="lead">泳いだ距離とタイムから、100mあたりのペースに換算します。練習の記録や、自分の泳力の把握に。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🏊 条件を入れる</h2>
+    <div class="row"><div class="field"><label>距離 <span class="hint">（m）</span></label><input type="number" id="dist" value="50" min="1" inputmode="numeric"></div>
+    <div class="field"><label>タイム <span class="hint">（秒）</span></label><input type="number" id="sec" value="50" min="1" step="0.1" inputmode="decimal"></div></div>
+    <button class="btn btn-primary" id="calcBtn">ペースを見る</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">100mあたりのペース</div>
+      <div class="big"><span id="big">0</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">1mあたり</div><div class="v accent" id="per1">—</div></div>
+      <div class="stat"><div class="k">時速</div><div class="v" id="kmh">—</div></div>
+      <div class="stat"><div class="k">距離</div><div class="v" id="dv">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>ペース換算の使い方</h2>
+    <div class="note"><strong>計算式</strong><br>100mペース ＝ タイム ÷ 距離 × 100</div>
+    <p>「100mあたり」にそろえると、距離が違う記録どうしも比べられます。一般的な大人の目安は100mを2分前後。続けるほど自然と縮みます。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>クロール以外でも使える？</dt><dd>はい。泳法を問わず距離とタイムで換算できます。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../marathon-yosoku/index.html"><span class="e">🏃</span><span>フルマラソン完走タイム予測</span></a><a class="related-card" href="../run-pace/index.html"><span class="e">👟</span><span>ランニング目標ペース計算</span></a><a class="related-card" href="../kintore-1rm/index.html"><span class="e">🏋️</span><span>1RM計算機（最大挙上重量）</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const hash = (s) => { let h=2166136261; for(let i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h,16777619); } return (h>>>0); };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function fmt(s){const m=Math.floor(s/60),x=Math.round(s%60);return m>0?(m+"'"+('0'+x).slice(-2)+'"'):x.toFixed(0)+'秒';}
+  function calc(){
+    const dist=Math.max(1,+$('dist').value||1), sec=Math.max(0.1,+$('sec').value||1);
+    const per100=sec/dist*100;
+    $('big').textContent=fmt(per100);
+    $('sub').textContent=`${dist}m を ${sec}秒`;
+    $('per1').textContent=(sec/dist).toFixed(2)+'秒'; $('kmh').textContent=(dist/sec*3.6).toFixed(2)+'km/h'; $('dv').textContent=dist+'m';
+    SHARE=`水泳ペース換算、私は100mあたり ${fmt(per100)} ペースでした🏊（${dist}m/${sec}秒）\nあなたは？👇`;
+    show();
+  }
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'swim-pace', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

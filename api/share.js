@@ -46,7 +46,11 @@ const ALLOW = new Set([
   'ryohi', 'mile-tamaru', 'jisa-boke', 'kaigai-iju', 'tabi-tsumitate', 'lcc-shinkansen', 'gasolin-doko', 'onsen-seiha', 'sekai-isshu', 'theme-park',
   'yachin-tekisei', 'hikkoshi-hiyou', 'chintai-mochiie', 'denki-setsuyaku', 'hitorigurashi', 'kounetsu', 'net-hikari', 'kaji-jikan', 'kagu-tsumitate', 'tatami-henkan',
   'ramen-roudou', 'gaishoku-jisui', 'issho-tabemono', 'conveni-super', 'karori-undou', 'cafe-nenkan', 'obento-lunch', 'tabehoudai', 'uber-jisui', 'nomikai-nenkan',
-  'lorenz', 'pendulum-wave', 'solar-system', 'gravity', 'fireworks', 'fractal-tree', 'mandelbrot', 'starfield', 'gears', 'dna', 'reaction-test', 'typing-test', 'memory-test', 'spirograph', 'ripple'
+  'lorenz', 'pendulum-wave', 'solar-system', 'gravity', 'fireworks', 'fractal-tree', 'mandelbrot', 'starfield', 'gears', 'dna', 'reaction-test', 'typing-test', 'memory-test', 'spirograph', 'ripple',
+  'datsumo-sougaku', 'cosme-nenkan', 'fuku-shogai', 'biyoin-nenkan', 'diet-mokuhyou', 'nail-matsu', 'hada-nenrei', 'wardrobe', 'kami-nobiru', 'depacos',
+  'marathon-yosoku', 'run-pace', 'kintore-1rm', 'tairyoku-nenrei', 'shomou-undou', 'golf-handi', 'swim-pace', 'jitensha', 'taishibo-otoshi', 'shinpaku-zone',
+  'oshi-nenkan', 'live-ensei', 'subsc-motodori', 'tsumige', 'eiga-shougai', 'manga-otomegai', 'oshi-jikan', 'ticket-tousen', 'live-sankai', 'goods-shuunou',
+  'stress-do', 'seikaku-type', 'moeotsuki-do', 'jiko-koutei', 'komyu-type', 'kachikan', 'chrono', 'ketsudan', 'resilience', 'kokoro-yoyuu'
 ]);
 
 export default async function handler(req, res) {

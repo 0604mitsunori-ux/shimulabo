@@ -205,6 +205,10 @@ a { color: var(--teal-d); }
 .sim-card[data-cat="home"]::before       { background: linear-gradient(90deg, #10b981, #047857); }
 .sim-card[data-cat="food"]::before       { background: linear-gradient(90deg, #fb923c, #f43f5e); }
 .sim-card[data-cat="play"]::before       { background: linear-gradient(90deg, #06b6d4, #8b5cf6); }
+.sim-card[data-cat="beauty"]::before     { background: linear-gradient(90deg, #fb7185, #db2777); }
+.sim-card[data-cat="sports"]::before     { background: linear-gradient(90deg, #34d399, #059669); }
+.sim-card[data-cat="oshi"]::before       { background: linear-gradient(90deg, #c084fc, #e879f9); }
+.sim-card[data-cat="mental"]::before     { background: linear-gradient(90deg, #38bdf8, #6366f1); }
 .sim-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); border-color: transparent; }
 .sim-card .thumb {
   height: 132px; display: grid; place-items: center; position: relative;
@@ -239,6 +243,10 @@ a { color: var(--teal-d); }
 .sim-card[data-cat="home"]      .cat { color: #047857; }
 .sim-card[data-cat="food"]      .cat { color: #ea580c; }
 .sim-card[data-cat="play"]      .cat { color: #7c3aed; }
+.sim-card[data-cat="beauty"]    .cat { color: #be185d; }
+.sim-card[data-cat="sports"]    .cat { color: #059669; }
+.sim-card[data-cat="oshi"]      .cat { color: #a21caf; }
+.sim-card[data-cat="mental"]    .cat { color: #4338ca; }
 .sim-card h3 { margin: 7px 0 9px; font-size: 19px; }
 .sim-card p { margin: 0; font-size: 13.5px; color: var(--ink-2); line-height: 1.7; }
 .sim-card .go {

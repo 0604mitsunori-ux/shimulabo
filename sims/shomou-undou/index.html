@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/shomou-undou/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/shomou-undou.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/shomou-undou.png">
+<title>運動の消費カロリー計算｜その運動、何kcal燃える？｜シミュラボ</title>
+<meta name="description" content="運動の種目・時間・体重から、消費カロリーと燃える脂肪量を計算する無料シミュレーター（MET値ベース）。">
+<meta property="og:title" content="運動の消費カロリー計算｜何kcal燃える？">
+<meta property="og:description" content="種目・時間・体重から運動の消費カロリーを計算。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/shomou-undou/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "運動の消費カロリー計算", "url": "https://shimulabo.com/sims/shomou-undou/", "description": "種目・時間・体重から運動の消費カロリーを計算。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "運動の消費カロリー計算", "item": "https://shimulabo.com/sims/shomou-undou/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "正確な値ですか？", "acceptedAnswer": {"@type": "Answer", "text": "体格・強度で変わる概算です。傾向の目安としてお使いください。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>スポーツ・運動<span>›</span><span class="cur">運動の消費カロリー計算</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">スポーツ・運動</div>
+    <h1>運動の消費カロリー計算</h1>
+    <p class="lead">ジョギング30分で何kcal？運動の種目・時間・体重から、消費カロリーと燃える脂肪量を計算します。運動メニュー選びの参考に。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🔥 条件を選ぶ</h2>
+    <div class="field"><label>運動の種目</label><select id="met"><option value="3.5">ウォーキング</option><option value="7" selected>ジョギング</option><option value="10">ランニング(速め)</option><option value="8">水泳</option><option value="6">サイクリング</option><option value="5">筋トレ</option><option value="3">ヨガ</option><option value="7.3">なわとび</option></select></div>
+    <div class="row"><div class="field"><label>時間 <span class="hint">（分）</span></label><input type="number" id="min" value="30" min="0" inputmode="numeric"></div>
+    <div class="field"><label>体重 <span class="hint">（kg）</span></label><input type="number" id="w" value="60" min="20" max="200" step="0.1" inputmode="decimal"></div></div>
+    <button class="btn btn-primary" id="calcBtn">消費カロリーを見る</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">消費カロリー</div>
+      <div class="big"><span id="big">0</span><span class="unit">kcal</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">燃える脂肪</div><div class="v accent" id="fat">—</div></div>
+      <div class="stat"><div class="k">ごはん換算</div><div class="v" id="rice">—</div></div>
+      <div class="stat"><div class="k">運動強度(METs)</div><div class="v" id="metv">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>計算方法</h2>
+    <div class="note"><strong>計算式（METs法）</strong><br>消費カロリー ＝ METs × 3.5 × 体重(kg) ÷ 200 × 時間(分)<br>脂肪1g ≒ 7.2kcal／ごはん1杯 ≒ 252kcal</div>
+    <p>METsは運動の強さを表す数値。同じ時間でも強度が高いほどよく燃えます。続けやすい運動を選んで、習慣にするのが結局いちばんの近道です。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>正確な値ですか？</dt><dd>体格・強度で変わる概算です。傾向の目安としてお使いください。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../marathon-yosoku/index.html"><span class="e">🏃</span><span>フルマラソン完走タイム予測</span></a><a class="related-card" href="../run-pace/index.html"><span class="e">👟</span><span>ランニング目標ペース計算</span></a><a class="related-card" href="../kintore-1rm/index.html"><span class="e">🏋️</span><span>1RM計算機（最大挙上重量）</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const hash = (s) => { let h=2166136261; for(let i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h,16777619); } return (h>>>0); };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){
+    const met=+$('met').value||1, min=Math.max(0,+$('min').value||0), w=Math.max(1,+$('w').value||1);
+    const kcal=met*3.5*w/200*min, fat=kcal/7.2;
+    $('sub').textContent=`${sel('met').text} ${min}分・${w}kg`;
+    $('fat').textContent=num(fat)+'g'; $('rice').textContent=(kcal/252).toFixed(1)+'杯'; $('metv').textContent=met;
+    SHARE=`運動の消費カロリー、${sel('met').text}${min}分で約${num(kcal)}kcal・脂肪${num(fat)}g燃える計算でした🔥\n運動えらい！👇`;
+    show(); anim($('big'),0,kcal,900);
+  }
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'shomou-undou', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>
