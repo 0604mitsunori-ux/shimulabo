@@ -43,7 +43,9 @@ const ALLOW = new Set([
   'bmi', 'kiso-taisha', 'tainai-nenrei', 'suibun', 'taishibo', 'hosu-karori', 'sake-karori', 'suimin-cycle', 'suwari', 'mizu-body',
   'tanjyobi-uranai', 'zensei', 'kotoshi-unsei', 'namae-uranai', 'soul-color', 'doubutsu-uranai', 'ketsueki-aishou', 'lucky-today', 'kyusei', 'tarot-today',
   'nenpi-gas', 'ev-vs-gas', 'kuruma-yosan', 'kousoku-shita', 'shaken-tsumitate', 'souko-kyori', 'chuko-nedan', 'drive-yosan', 'tsukin-car', 'kuruma-hoyuu',
-  'ryohi', 'mile-tamaru', 'jisa-boke', 'kaigai-iju', 'tabi-tsumitate', 'lcc-shinkansen', 'gasolin-doko', 'onsen-seiha', 'sekai-isshu', 'theme-park'
+  'ryohi', 'mile-tamaru', 'jisa-boke', 'kaigai-iju', 'tabi-tsumitate', 'lcc-shinkansen', 'gasolin-doko', 'onsen-seiha', 'sekai-isshu', 'theme-park',
+  'yachin-tekisei', 'hikkoshi-hiyou', 'chintai-mochiie', 'denki-setsuyaku', 'hitorigurashi', 'kounetsu', 'net-hikari', 'kaji-jikan', 'kagu-tsumitate', 'tatami-henkan',
+  'ramen-roudou', 'gaishoku-jisui', 'issho-tabemono', 'conveni-super', 'karori-undou', 'cafe-nenkan', 'obento-lunch', 'tabehoudai', 'uber-jisui', 'nomikai-nenkan'
 ]);
 
 export default async function handler(req, res) {
