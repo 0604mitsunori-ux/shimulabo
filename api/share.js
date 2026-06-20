@@ -32,7 +32,9 @@ const ALLOW = new Set([
   'ad-roas', 'ltv', 'coupon', 'chirashi-web',
   'jutaku-loan', 'kuriage', 'hosho', 'rougo',
   'zangyo', 'yukyu', 'freelance', 'tsukin',
-  'goukaku', 'benkyo-time', 'gakuhi', 'bukatsu'
+  'goukaku', 'benkyo-time', 'gakuhi', 'bukatsu',
+  'bep', 'noshow', 'jinkenhi', 'nisa', 'kuruma-iji', 'furusato',
+  'jikkou-jikyu', 'fukugyo-zei', 'shouyo-tedori', 'tango', 'shogakukin', 'benkyo-target'
 ]);
 
 export default async function handler(req, res) {

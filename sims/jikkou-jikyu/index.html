@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/jikkou-jikyu/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/jikkou-jikyu.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/jikkou-jikyu.png">
+<title>実質時給シミュレーター｜残業込み、あなたの本当の時給は？｜シミュラボ</title>
+<meta name="description" content="月給・所定労働時間・残業時間から、サービス残業も含めた「実質時給」を計算する無料シミュレーター。働き方を見直すきっかけに。">
+<meta property="og:title" content="実質時給シミュレーター｜あなたの本当の時給は？">
+<meta property="og:description" content="残業込みで、月給を実際の労働時間で割った実質時給を計算。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/jikkou-jikyu/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "実質時給シミュレーター", "url": "https://shimulabo.com/sims/jikkou-jikyu/", "description": "残業込みの総労働時間で割った実質時給を計算。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "実質時給シミュレーター", "item": "https://shimulabo.com/sims/jikkou-jikyu/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "手取りで計算した方がいい？", "acceptedAnswer": {"@type": "Answer", "text": "手取りで入れれば「手取りベースの実質時給」になります。比較したい基準で入れてください。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>仕事・働き方<span>›</span><span class="cur">実質時給シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">仕事・働き方</div>
+    <h1>実質時給シミュレーター</h1>
+    <p class="lead">月給を「実際に働いた時間」で割ると、本当の時給が見えてきます。残業（とくにサービス残業）を含めた、あなたの実質時給を計算します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>⏱️ 条件</h2>
+    <div class="row"><div class="field"><label>月給（手取り前） <span class="hint">（万円）</span></label><input type="number" id="pay" value="25" min="0" step="0.5" inputmode="decimal"></div>
+    <div class="field"><label>所定労働時間 <span class="hint">（時間/月）</span></label><input type="number" id="base" value="160" min="1" inputmode="numeric"></div></div>
+    <div class="row"><div class="field"><label>月の残業時間 <span class="hint">（時間）</span></label><input type="number" id="ot" value="30" min="0" inputmode="numeric"></div>
+    <div class="field"><label>残業代は出る？</label><select id="paid"><option value="1">出る（割増25%）</option><option value="0" selected>ほぼ出ない</option></select></div></div>
+    <button class="btn btn-primary" id="calcBtn">実質時給を見る</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">あなたの実質時給</div>
+      <div class="big"><span id="big">0</span><span class="unit">円</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">額面の時給（所定のみ）</div><div class="v" id="face">—</div></div>
+      <div class="stat"><div class="k">実際の総労働時間</div><div class="v" id="tot">—</div></div>
+      <div class="stat"><div class="k">残業代</div><div class="v accent" id="ot2">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>計算方法</h2>
+    <div class="note"><strong>計算式</strong><br>総労働時間＝所定＋残業<br>総支給＝月給(＋残業代が出るなら加算)<br>実質時給＝総支給÷総労働時間</div>
+    <p>残業代が出ないのに残業が多いと、実質時給はどんどん下がります。数字で見ると、働き方を見直すきっかけになります。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>手取りで計算した方がいい？</dt><dd>手取りで入れれば「手取りベースの実質時給」になります。比較したい基準で入れてください。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../tenshoku/index.html"><span class="e">🔀</span><span>転職 年収ifシミュレーター</span></a><a class="related-card" href="../zangyo/index.html"><span class="e">🕒</span><span>残業代シミュレーター</span></a><a class="related-card" href="../yukyu/index.html"><span class="e">🏖️</span><span>有給消化シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){
+    const pay=Math.max(0,+$('pay').value||0)*10000, base=Math.max(1,+$('base').value||1), ot=Math.max(0,+$('ot').value||0), paid=+$('paid').value;
+    const faceHourly=pay/base; const otpay= paid? faceHourly*1.25*ot : 0;
+    const totalPay=pay+otpay, totalH=base+ot, real=totalPay/totalH;
+    $('sub').textContent=`月給${num(pay/10000)}万・所定${base}h・残業${ot}h・${sel('paid').text}`;
+    $('face').textContent=yen(faceHourly); $('tot').textContent=totalH+'時間'; $('ot2').textContent=yen(otpay);
+    SHARE=`私の実質時給、残業込みで${yen(real)}だった⏱️（額面時給${yen(faceHourly)}）\nあなたは？👇`;
+    show(); anim($('big'),0,real,900);
+  }
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'jikkou-jikyu', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

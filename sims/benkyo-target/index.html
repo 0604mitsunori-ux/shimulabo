@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/benkyo-target/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/benkyo-target.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/benkyo-target.png">
+<title>目標点までの勉強量シミュレーター｜1日何時間やればいい？｜シミュラボ</title>
+<meta name="description" content="目標点・今の点数・テストまでの日数から、目標達成に必要な総勉強時間と1日あたりの勉強時間を試算する無料シミュレーター。">
+<meta property="og:title" content="目標点までの勉強量｜1日何時間やればいい？">
+<meta property="og:description" content="目標点と残り日数から、1日に必要な勉強時間を試算。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/benkyo-target/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "目標点までの勉強量シミュレーター", "url": "https://shimulabo.com/sims/benkyo-target/", "description": "目標点と残り日数から1日に必要な勉強時間を逆算。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "目標点までの勉強量シミュレーター", "item": "https://shimulabo.com/sims/benkyo-target/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "1点3時間って本当？", "acceptedAnswer": {"@type": "Answer", "text": "科目や現在地で変わる目安です。自分の感覚に合わせて調整してください。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>学生・勉強<span>›</span><span class="cur">目標点までの勉強量シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">学生・勉強</div>
+    <h1>目標点までの勉強量シミュレーター</h1>
+    <p class="lead">テストの目標点まで、1日どれくらい勉強すればいい？目標点・今の点数・残り日数から、必要な勉強量を逆算します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🎯 条件</h2>
+    <div class="row"><div class="field"><label>目標点 <span class="hint">（点）</span></label><input type="number" id="goal" value="80" min="0" max="100" inputmode="numeric"></div>
+    <div class="field"><label>今の点数 <span class="hint">（点）</span></label><input type="number" id="now" value="55" min="0" max="100" inputmode="numeric"></div></div>
+    <div class="row"><div class="field"><label>テストまでの日数 <span class="hint">（日）</span></label><input type="number" id="days" value="30" min="1" inputmode="numeric"></div>
+    <div class="field"><label>1点上げるのに必要な時間 <span class="hint">（時間・目安）</span></label><input type="number" id="perpt" value="3" min="0.5" step="0.5" inputmode="decimal"></div></div>
+    <button class="btn btn-primary" id="calcBtn">必要な勉強量を見る</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">1日に必要な勉強時間</div>
+      <div class="big"><span id="big">0</span><span class="unit">時間</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">必要な総勉強時間</div><div class="v accent" id="tot">—</div></div>
+      <div class="stat"><div class="k">あと何点</div><div class="v" id="gap">—</div></div>
+      <div class="stat"><div class="k">残り日数</div><div class="v" id="d">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>計算方法</h2>
+    <div class="note"><strong>計算式</strong><br>必要総時間＝(目標点−今の点数)×1点あたりの時間<br>1日あたり＝必要総時間÷残り日数</div>
+    <p>「あと25点」と言われると遠く感じますが、「1日◯時間」に分解すると一気に現実的になります。逆算して、毎日の計画に落とし込みましょう。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>1点3時間って本当？</dt><dd>科目や現在地で変わる目安です。自分の感覚に合わせて調整してください。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../goukaku/index.html"><span class="e">✏️</span><span>合格可能性シミュレーター</span></a><a class="related-card" href="../benkyo-time/index.html"><span class="e">📚</span><span>勉強時間シミュレーター</span></a><a class="related-card" href="../gakuhi/index.html"><span class="e">🎓</span><span>学費総額シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){
+    const goal=+$('goal').value||0, now=+$('now').value||0, days=Math.max(1,+$('days').value||1), pp=Math.max(0.1,+$('perpt').value||0.1);
+    const gap=Math.max(0,goal-now), tot=gap*pp, perDay=tot/days;
+    $('sub').textContent=`${now}点 → 目標${goal}点・あと${days}日`;
+    $('tot').textContent=num(tot)+'時間'; $('gap').textContent=gap+'点'; $('d').textContent=days+'日';
+    SHARE=`目標${goal}点まで、1日${perDay.toFixed(1)}時間の勉強が必要だった🎯（あと${gap}点/${days}日）\nやるしかない。あなたは？👇`;
+    show(); anim($('big'),0,perDay,900,1);
+  }
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'benkyo-target', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>
