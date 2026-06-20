@@ -1126,19 +1126,89 @@
     });
   })();
 
-  // カテゴリ絞り込み（クライアント完結）
+  // ===== カテゴリ別セクションに整理（トップの見通しを良くする） =====
+  const CATS = [
+    ['money','お金・時間','💰'],['wonder','ふしぎ・現象','🌀'],['life','人生・自分ごと','⏳'],
+    ['marketing','マーケティング','📣'],['love','恋愛・婚活','💘'],['biz','店舗・ビジネス','🏪'],
+    ['finance','マネー・保険・不動産','🏦'],['work','仕事・働き方','💼'],['study','学生・勉強','📚'],
+    ['kids','子ども・育児','👶'],['pet','ペット','🐾'],['health','健康・カラダ','🫀'],
+    ['uranai','占い・診断','🔮'],['car','クルマ・乗り物','🚗'],['travel','旅行・おでかけ','✈️'],
+  ];
+  const PREVIEW = 6;
+  const grid = document.getElementById('grid');
+  const allCards = [...grid.querySelectorAll('.sim-card')];
+  const reqCard = grid.querySelector('.req-card');
+  const byCat = {};
+  allCards.forEach(c => { (byCat[c.dataset.cat] = byCat[c.dataset.cat] || []).push(c); });
+  grid.innerHTML = '';
+  grid.classList.remove('grid'); // 親はラッパーにし、各セクション内に .grid を持たせる
+
+  const blocks = {};
+  CATS.forEach(([slug,label,ic]) => {
+    const list = byCat[slug]; if (!list || !list.length) return;
+    const block = document.createElement('section');
+    block.className = 'cat-block'; block.dataset.cat = slug;
+    const h = document.createElement('h2'); h.className = 'cat-title';
+    h.innerHTML = `<span class="ic">${ic}</span>${label}<span class="cnt">${list.length}本</span><span class="all" data-cat="${slug}">すべて見る →</span>`;
+    const g = document.createElement('div'); g.className = 'grid';
+    list.forEach((c,i) => { if (i >= PREVIEW) c.classList.add('hide'); g.appendChild(c); });
+    block.appendChild(h); block.appendChild(g);
+    if (list.length > PREVIEW) {
+      const more = document.createElement('button'); more.className = 'cat-more';
+      more.textContent = `＋ あと ${list.length - PREVIEW} 本を見る`;
+      more.addEventListener('click', () => {
+        g.querySelectorAll('.sim-card.hide').forEach(c => c.classList.remove('hide'));
+        more.classList.add('hide');
+      });
+      block.appendChild(more);
+    }
+    grid.appendChild(block); blocks[slug] = block;
+  });
+  if (reqCard) {
+    const rb = document.createElement('section'); rb.className = 'cat-block'; rb.dataset.cat = '__req';
+    const rg = document.createElement('div'); rg.className = 'grid'; rg.appendChild(reqCard);
+    rb.appendChild(rg); grid.appendChild(rb); blocks.__req = rb;
+  }
+
+  function showAll(){
+    Object.entries(blocks).forEach(([slug, block]) => {
+      block.classList.remove('hide');
+      if (slug === '__req') return;
+      [...block.querySelectorAll('.sim-card')].forEach((c,i) => c.classList.toggle('hide', i >= PREVIEW));
+      const more = block.querySelector('.cat-more'); if (more) more.classList.remove('hide');
+    });
+  }
+  function showCat(cat){
+    Object.entries(blocks).forEach(([slug, block]) => {
+      if (slug === cat || slug === '__req') {
+        block.classList.remove('hide');
+        block.querySelectorAll('.sim-card').forEach(c => c.classList.remove('hide'));
+        const more = block.querySelector('.cat-more'); if (more) more.classList.add('hide');
+      } else {
+        block.classList.add('hide');
+      }
+    });
+  }
+
+  // カテゴリ絞り込み（チップ）
   const chips = document.getElementById('chips');
-  const cards = [...document.querySelectorAll('#grid .sim-card')];
   chips.addEventListener('click', (e) => {
-    const btn = e.target.closest('.chip');
-    if (!btn) return;
+    const btn = e.target.closest('.chip'); if (!btn) return;
     chips.querySelectorAll('.chip').forEach(c => c.classList.remove('is-on'));
     btn.classList.add('is-on');
-    const cat = btn.dataset.cat;
-    cards.forEach(card => {
-      card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
-    });
+    (btn.dataset.cat === 'all') ? showAll() : showCat(btn.dataset.cat);
+    chips.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
+  // 各セクションの「すべて見る →」でそのカテゴリに絞り込み
+  grid.addEventListener('click', (e) => {
+    const all = e.target.closest('.all'); if (!all) return;
+    const cat = all.dataset.cat;
+    chips.querySelectorAll('.chip').forEach(c => c.classList.toggle('is-on', c.dataset.cat === cat));
+    showCat(cat);
+    chips.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  showAll();
 </script>
 </body>
 </html>

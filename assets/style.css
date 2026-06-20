@@ -163,6 +163,20 @@ a { color: var(--teal-d); }
 
 /* ====================== ギャラリー ====================== */
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin-top: 28px; }
+
+/* ===== カテゴリ別セクション（トップ整理） ===== */
+.cat-block { margin: 0; }
+.cat-block + .cat-block { margin-top: 40px; padding-top: 36px; border-top: 1px solid var(--line); }
+.cat-title { display: flex; align-items: center; gap: 10px; margin: 0; font-size: 19px; font-weight: 900; color: var(--ink); }
+.cat-title .ic { font-size: 22px; line-height: 1; }
+.cat-title .cnt { font-size: 12px; font-weight: 800; color: var(--teal-d); background: var(--teal-l); padding: 3px 11px; border-radius: 999px; }
+.cat-title .all { margin-left: auto; font-size: 13px; font-weight: 800; color: var(--teal-d); cursor: pointer; white-space: nowrap; }
+.cat-title .all:hover { text-decoration: underline; }
+.cat-block .grid { margin-top: 18px; }
+.cat-more { display: block; margin: 18px auto 0; padding: 11px 26px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--card); font-weight: 800; font-size: 13px; color: var(--ink); cursor: pointer; transition: .15s; }
+.cat-more:hover { border-color: var(--teal); color: var(--teal-d); box-shadow: var(--shadow-sm); }
+.sim-card.hide, .cat-block.hide, .cat-more.hide { display: none !important; }
+#grid { margin-top: 26px; }
 .sim-card {
   position: relative; display: flex; flex-direction: column;
   background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
