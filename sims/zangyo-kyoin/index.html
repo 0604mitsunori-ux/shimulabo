@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/zangyo-kyoin/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/zangyo-kyoin.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/zangyo-kyoin.png">
+<title>教員の残業時間シミュレーター｜月の残業、何時間？｜シミュラボ</title>
+<meta name="description" content="出勤・退勤時刻と持ち帰り仕事の時間から、教員の1日・1ヶ月の時間外労働の目安を計算するツール。働き方を見つめ直すきっかけに。">
+<meta property="og:title" content="教員の残業時間シミュレーター｜月何時間？">
+<meta property="og:description" content="出退勤と持ち帰りから教員の残業時間を試算。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/zangyo-kyoin/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "教員の残業時間シミュレーター", "url": "https://shimulabo.com/sims/zangyo-kyoin/", "description": "出勤・退勤時刻と持ち帰り仕事の時間から、教員の1日・1ヶ月の時間外労働の目安を計算するツール。働き方を見つめ直すきっかけに。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "教員の残業時間シミュレーター", "item": "https://shimulabo.com/sims/zangyo-kyoin/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "部活動は？", "acceptedAnswer": {"@type": "Answer", "text": "退勤時刻に部活指導後の時間を含めて入れてください。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>教員・先生<span>›</span><span class="cur">教員の残業時間シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">教員・先生</div>
+    <h1>教員の残業時間シミュレーター</h1>
+    <p class="lead">出勤・退勤時刻と持ち帰り仕事から、1日・1ヶ月の時間外労働の目安を出します。働き方を見直すきっかけに（所定労働は7時間45分で計算）。</p>
+  </div>
+
+  <section class="panel">
+    <h2>⏰ 条件を入れる</h2>
+    <div class="row"><div class="field"><label>出勤時刻</label><input type="time" id="in" value="07:45"></div>
+    <div class="field"><label>退勤時刻</label><input type="time" id="out" value="19:00"></div></div>
+    <div class="row"><div class="field"><label>休憩時間 <span class="hint">（分）</span></label><input type="number" id="rest" value="45" min="0" inputmode="numeric"></div>
+    <div class="field"><label>持ち帰り仕事 <span class="hint">（分/日）</span></label><input type="number" id="home" value="30" min="0" inputmode="numeric"></div></div>
+    <button class="btn btn-primary" id="calcBtn">残業時間を見る</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">1ヶ月の時間外労働</div>
+      <div class="big"><span id="big">0</span><span class="unit">時間</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">1日あたり</div><div class="v" id="day">—</div></div>
+      <div class="stat"><div class="k">過労死ライン(月80h)</div><div class="v accent" id="line">—</div></div>
+      <div class="stat"><div class="k">年間</div><div class="v" id="year">—</div></div></div>
+      <a class="cta-box" href="https://piyopiyo-teacher.com/?page_id=1103" target="_blank" rel="noopener" style="display:block;text-decoration:none;text-align:left;margin-top:20px;background:linear-gradient(135deg,#fff7ed,#ffedd5);border:1.5px solid #fcd34d;border-radius:14px;padding:16px 18px;">
+        <div style="font-weight:900;color:#b45309;font-size:15px;">📝 通知表の所見づくり、もっとラクに。</div>
+        <div style="font-size:13px;color:var(--ink-2);margin-top:5px;line-height:1.6;">観点を選ぶだけで自然な所見文が完成。先生のための「通知表 所見作成ツール」を無料で試せます。</div>
+        <div style="margin-top:10px;font-weight:800;color:#b45309;font-size:13px;">所見作成ツールを使ってみる →</div>
+      </a>
+      <div style="text-align:center;margin-top:14px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>教員の働き方</h2>
+    <div class="note"><strong>計算式</strong><br>1日の時間外 ＝（退勤 − 出勤 − 休憩）− 7時間45分 ＋ 持ち帰り<br>月 ＝ 1日 × 20日</div>
+    <p>「過労死ライン」は月80時間が一つの目安とされます。本ツールで現状を可視化し、業務の見直し・分担・ICT活用（採点や所見の時短など）で負担軽減を。先生の健康が一番です。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>部活動は？</dt><dd>退勤時刻に部活指導後の時間を含めて入れてください。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../seiseki-hyotei/index.html"><span class="e">📊</span><span>観点別評価→評定シミュレーター</span></a><a class="related-card" href="../test-toukei/index.html"><span class="e">📈</span><span>テスト統計シミュレーター</span></a><a class="related-card" href="../naishin-keisan/index.html"><span class="e">🎯</span><span>内申点 計算シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){
+    const pin=($('in').value||'07:45').split(':').map(Number), pout=($('out').value||'19:00').split(':').map(Number);
+    const inM=pin[0]*60+pin[1], outM=pout[0]*60+pout[1], rest=Math.max(0,+$('rest').value||0), home=Math.max(0,+$('home').value||0);
+    let work=outM-inM-rest; if(work<0)work+=1440;
+    const over=Math.max(0,work-465)+home; const monthH=over*20/60;
+    $('sub').textContent=`実働${(work/60).toFixed(1)}h・所定7h45m`;
+    $('day').textContent=(over/60).toFixed(1)+'時間'; $('line').textContent=monthH>=80?'超えています…':'あと'+(80-monthH).toFixed(0)+'h'; $('year').textContent=num(monthH*12)+'時間';
+    SHARE=`教員の残業時間シミュ、月の時間外は約${monthH.toFixed(0)}時間でした⏰ 働き方、見直そう…`;
+    show(); anim($('big'),0,monthH,800);
+  }
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ,教員'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'zangyo-kyoin', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

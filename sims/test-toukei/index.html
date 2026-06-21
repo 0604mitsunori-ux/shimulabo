@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/test-toukei/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/test-toukei.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/test-toukei.png">
+<title>テスト統計シミュレーター｜平均点・最高最低・標準偏差を一発計算｜シミュラボ</title>
+<meta name="description" content="点数を貼り付けるだけで、クラスの平均点・最高点・最低点・range・標準偏差を自動計算する先生向け無料ツール。">
+<meta property="og:title" content="テスト統計シミュレーター｜平均・標準偏差を計算">
+<meta property="og:description" content="点数を貼り付けて平均・最高最低・標準偏差を計算。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/test-toukei/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "テスト統計シミュレーター", "url": "https://shimulabo.com/sims/test-toukei/", "description": "点数を貼り付けるだけで、クラスの平均点・最高点・最低点・range・標準偏差を自動計算する先生向け無料ツール。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "テスト統計シミュレーター", "item": "https://shimulabo.com/sims/test-toukei/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "偏差値は出る？", "acceptedAnswer": {"@type": "Answer", "text": "個人の偏差値は「偏差値計算シミュ」をご利用ください。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>教員・先生<span>›</span><span class="cur">テスト統計シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">教員・先生</div>
+    <h1>テスト統計シミュレーター</h1>
+    <p class="lead">テストの点数をカンマやスペース、改行で区切って貼り付けるだけ。平均点・最高最低・標準偏差を一発で計算します。成績処理の下調べに。</p>
+  </div>
+
+  <section class="panel">
+    <h2>📈 点数を貼り付け</h2>
+    <div class="field"><label>点数（カンマ・スペース・改行区切り）</label><textarea id="scores" rows="4" style="width:100%;padding:12px;border:1.5px solid var(--line);border-radius:12px;font-size:15px;">72, 85, 60, 90, 45, 78, 88, 65, 70, 95</textarea></div>
+    <button class="btn btn-primary" id="calcBtn">統計を計算する</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">クラスの平均点</div>
+      <div class="big"><span id="big">0</span><span class="unit">点</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">最高 / 最低</div><div class="v accent" id="hl">—</div></div>
+      <div class="stat"><div class="k">標準偏差</div><div class="v" id="sd">—</div></div>
+      <div class="stat"><div class="k">人数</div><div class="v" id="n">—</div></div></div>
+      <a class="cta-box" href="https://piyopiyo-teacher.com/?page_id=1103" target="_blank" rel="noopener" style="display:block;text-decoration:none;text-align:left;margin-top:20px;background:linear-gradient(135deg,#fff7ed,#ffedd5);border:1.5px solid #fcd34d;border-radius:14px;padding:16px 18px;">
+        <div style="font-weight:900;color:#b45309;font-size:15px;">📝 通知表の所見づくり、もっとラクに。</div>
+        <div style="font-size:13px;color:var(--ink-2);margin-top:5px;line-height:1.6;">観点を選ぶだけで自然な所見文が完成。先生のための「通知表 所見作成ツール」を無料で試せます。</div>
+        <div style="margin-top:10px;font-weight:800;color:#b45309;font-size:13px;">所見作成ツールを使ってみる →</div>
+      </a>
+      <div style="text-align:center;margin-top:14px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>計算する指標</h2>
+    <div class="note"><strong>計算式</strong><br>平均 ＝ 合計 ÷ 人数／標準偏差 ＝ √(各点と平均の差の2乗の平均)</div>
+    <p>平均点だけでなく、標準偏差（点数のばらつき）を見ると、問題の難易度やクラスの理解の幅が分かります。範囲（最高−最低）も指導の参考に。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>偏差値は出る？</dt><dd>個人の偏差値は「偏差値計算シミュ」をご利用ください。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../seiseki-hyotei/index.html"><span class="e">📊</span><span>観点別評価→評定シミュレーター</span></a><a class="related-card" href="../naishin-keisan/index.html"><span class="e">🎯</span><span>内申点 計算シミュレーター</span></a><a class="related-card" href="../shoken-jitan/index.html"><span class="e">📝</span><span>所見作成 時短シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){
+    const arr=($('scores').value.match(/-?\d+(?:\.\d+)?/g)||[]).map(Number);
+    if(!arr.length){alert('点数を入力してね');return;}
+    const n=arr.length, sum=arr.reduce((a,b)=>a+b,0), mean=sum/n;
+    const sd=Math.sqrt(arr.reduce((a,b)=>a+(b-mean)*(b-mean),0)/n);
+    $('sub').textContent=`${n}人ぶんの点数から`;
+    $('hl').textContent=Math.max(...arr)+' / '+Math.min(...arr); $('sd').textContent=sd.toFixed(1); $('n').textContent=n+'人';
+    SHARE=`テスト統計シミュ、平均${mean.toFixed(1)}点・標準偏差${sd.toFixed(1)}でした📈`;
+    show(); anim($('big'),0,mean,800,1);
+  }
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ,教員'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'test-toukei', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

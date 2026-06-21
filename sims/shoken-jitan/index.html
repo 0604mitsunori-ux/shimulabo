@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/shoken-jitan/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/shoken-jitan.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/shoken-jitan.png">
+<title>所見作成 時短シミュレーター｜通知表の所見、何時間かかってる？｜シミュラボ</title>
+<meta name="description" content="児童生徒数と1人あたりの所見作成時間から、所見づくりの総作業時間と、ツール活用でどれだけ時短できるかを試算する先生向け無料ツール。">
+<meta property="og:title" content="所見作成 時短シミュレーター｜何時間かかってる？">
+<meta property="og:description" content="人数と1人の所見時間から総作業時間と時短効果を試算。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/shoken-jitan/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "所見作成 時短シミュレーター", "url": "https://shimulabo.com/sims/shoken-jitan/", "description": "児童生徒数と1人あたりの所見作成時間から、所見づくりの総作業時間と、ツール活用でどれだけ時短できるかを試算する先生向け無料ツール。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "所見作成 時短シミュレーター", "item": "https://shimulabo.com/sims/shoken-jitan/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "質は落ちない？", "acceptedAnswer": {"@type": "Answer", "text": "文例をベースに自分の言葉で調整すれば、質を保ちつつ時短できます。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>教員・先生<span>›</span><span class="cur">所見作成 時短シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">教員・先生</div>
+    <h1>所見作成 時短シミュレーター</h1>
+    <p class="lead">通知表の所見、クラス全員分で何時間かかっていますか？人数と1人あたりの時間から総作業時間を計算。作成ツールを使った場合の時短効果も出します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>📝 条件を入れる</h2>
+    <div class="row"><div class="field"><label>児童生徒数 <span class="hint">（人）</span></label><input type="number" id="n" value="35" min="1" inputmode="numeric"></div>
+    <div class="field"><label>1人の所見にかかる時間 <span class="hint">（分）</span></label><input type="number" id="min" value="15" min="0" inputmode="numeric"></div></div>
+    <div class="field"><label>ツール活用で1人あたり <span class="hint">（分・目安5分）</span></label><input type="number" id="tool" value="5" min="0" inputmode="numeric"></div>
+    <button class="btn btn-primary" id="calcBtn">作業時間を見る</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">所見づくりの総作業時間</div>
+      <div class="big"><span id="big">0</span><span class="unit">時間</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">ツール活用なら</div><div class="v accent" id="after">—</div></div>
+      <div class="stat"><div class="k">短縮できる時間</div><div class="v" id="save">—</div></div>
+      <div class="stat"><div class="k">学期3回ぶん短縮</div><div class="v" id="year">—</div></div></div>
+      <a class="cta-box" href="https://piyopiyo-teacher.com/?page_id=1103" target="_blank" rel="noopener" style="display:block;text-decoration:none;text-align:left;margin-top:20px;background:linear-gradient(135deg,#fff7ed,#ffedd5);border:1.5px solid #fcd34d;border-radius:14px;padding:16px 18px;">
+        <div style="font-weight:900;color:#b45309;font-size:15px;">📝 通知表の所見づくり、もっとラクに。</div>
+        <div style="font-size:13px;color:var(--ink-2);margin-top:5px;line-height:1.6;">観点を選ぶだけで自然な所見文が完成。先生のための「通知表 所見作成ツール」を無料で試せます。</div>
+        <div style="margin-top:10px;font-weight:800;color:#b45309;font-size:13px;">所見作成ツールを使ってみる →</div>
+      </a>
+      <div style="text-align:center;margin-top:14px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>所見作成の負担</h2>
+    <div class="note"><strong>計算式</strong><br>総作業時間 ＝ 人数 × 1人の所見時間／短縮 ＝（現状 − ツール活用時）× 人数</div>
+    <p>所見作成は学期末の大きな負担。文例から選んで整える「所見作成ツール」を使うと、1人あたりの時間をぐっと縮められます。浮いた時間を子どもと向き合う時間に。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>質は落ちない？</dt><dd>文例をベースに自分の言葉で調整すれば、質を保ちつつ時短できます。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../seiseki-hyotei/index.html"><span class="e">📊</span><span>観点別評価→評定シミュレーター</span></a><a class="related-card" href="../test-toukei/index.html"><span class="e">📈</span><span>テスト統計シミュレーター</span></a><a class="related-card" href="../naishin-keisan/index.html"><span class="e">🎯</span><span>内申点 計算シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){
+    const n=Math.max(0,+$('n').value||0),mi=Math.max(0,+$('min').value||0),t=Math.max(0,+$('tool').value||0);
+    const total=n*mi/60, after=n*t/60, save=total-after;
+    $('sub').textContent=`${n}人 × ${mi}分`;
+    $('after').textContent=after.toFixed(1)+'時間'; $('save').textContent=save.toFixed(1)+'時間'; $('year').textContent=(save*3).toFixed(1)+'時間';
+    SHARE=`所見作成 時短シミュ、今は${total.toFixed(1)}時間→ツール活用で${after.toFixed(1)}時間に📝（${save.toFixed(1)}時間の時短！）`;
+    show(); anim($('big'),0,total,800,1);
+  }
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ,教員'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'shoken-jitan', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

@@ -317,7 +317,8 @@
     '推し活・エンタメ': { emojis: ['🎉', '🌟', '💜', '🎤'], mode: 'burst', count: 56 },
     'マーケティング': { emojis: ['📈', '✨', '🚀'], mode: 'burst', count: 42 },
     '学生・勉強': { emojis: ['✏️', '📚', '✨', '💯'], mode: 'burst', count: 42 },
-    '人生・自分ごと': { emojis: ['✨', '⏳', '🌈'], mode: 'burst', count: 42 }
+    '人生・自分ごと': { emojis: ['✨', '⏳', '🌈'], mode: 'burst', count: 42 },
+    '教員・先生': { emojis: ['✏️', '📋', '💯', '✨', '🌸'], mode: 'burst', count: 44 }
   };
   function partyFor(panel, fallbackEmoji, power) {
     var cat = catLabel();
