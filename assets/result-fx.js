@@ -49,7 +49,16 @@
   var PIGGY = ['tsumitate-fukuri', 'fire', 'chiritsumo', 'haitou-shisan', 'nisa', 'tabi-tsumitate',
     'kagu-tsumitate', 'shaken-tsumitate', 'gakushi', 'kuriage', 'point-katsu'];
   // 宝くじ・大金系 → コインが降る
-  var COIN = ['takarakuji', 'oshi-nenkan', 'gacha'];
+  var COIN = ['takarakuji', 'oshi-nenkan', 'gacha', 'hakooshi'];
+  // 恋愛・相性系 → ハートが鼓動
+  var HEART = ['kokuhaku', 'ryomoi', 'aishou-seiza', 'birthday-aishou', 'konkatsu-type', 'konkatsu-match',
+    'moteki', 'unmei', 'ketsueki-aishou', 'aisho-name', 'same-class', 'kinenbi', 'enkyori'];
+  // 時間系 → 砂時計がくるくる
+  var CLOCK = ['machi-jikan', 'jinsei-calendar', 'seimei-suimin', 'sumaho-shogai', 'kaji-jikan',
+    'oshi-jikan', 'kodomo-jikan', 'pet-jikan', 'nidone', 'kyuryobi'];
+  // ダイエット・燃焼系 → 炎がメラメラ
+  var FLAME = ['taiju', 'diet-mokuhyou', 'taishibo', 'taishibo-otoshi', 'shomou-undou',
+    'karori-undou', 'hosu-karori', 'kaidan', 'sake-karori', 'kiso-taisha'];
 
   function insertSpecial(panel, node) {
     var result = panel.querySelector('.result') || panel;
@@ -88,6 +97,37 @@
     var d = document.createElement('div');
     d.className = 'fx-special';
     d.innerHTML = '<div class="fx-piggy" style="animation-delay:.05s">💰</div><div class="fx-cap">ざっくざく！</div>';
+    for (var i = 0; i < 4; i++) {
+      var c = document.createElement('span');
+      c.className = 'fx-coin'; c.textContent = i % 2 ? '💴' : '🪙';
+      c.style.left = (36 + i * 12) + '%'; c.style.animationDelay = (i * 150) + 'ms';
+      d.appendChild(c);
+    }
+    return d;
+  }
+  function heartNode() {
+    var d = document.createElement('div');
+    d.className = 'fx-special';
+    d.innerHTML = '<div class="fx-heart">💗</div><div class="fx-cap">ドキドキ…！</div>';
+    for (var i = 0; i < 5; i++) {
+      var h = document.createElement('span');
+      h.className = 'fx-coin'; h.textContent = ['💕', '💖', '💞', '💘', '❤️'][i];
+      h.style.left = (28 + i * 11) + '%'; h.style.top = 'auto'; h.style.bottom = '-6px';
+      h.style.animation = 'fxheartup 1.3s ease-out forwards'; h.style.animationDelay = (i * 130) + 'ms';
+      d.appendChild(h);
+    }
+    return d;
+  }
+  function clockNode() {
+    var d = document.createElement('div');
+    d.className = 'fx-special';
+    d.innerHTML = '<div class="fx-clock">⏳</div><div class="fx-cap">時は金なり</div>';
+    return d;
+  }
+  function flameNode() {
+    var d = document.createElement('div');
+    d.className = 'fx-special';
+    d.innerHTML = '<div class="fx-flame"><span>🔥</span><span>🔥</span><span>🔥</span></div><div class="fx-cap">メラメラ燃焼！</div>';
     return d;
   }
   // 専用アニメを実行（あれば {emoji} を返す）
@@ -95,8 +135,11 @@
     var id = simId();
     var node = null, emoji = null;
     if (PIGGY.indexOf(id) >= 0) { node = piggyNode(); emoji = '🪙'; }
-    else if (id === 'scroll-distance' || hasKeyword(panel, /富士山|エベレスト/)) { node = fujiNode(); emoji = '🗻'; }
+    else if (HEART.indexOf(id) >= 0) { node = heartNode(); emoji = '💗'; }
+    else if (FLAME.indexOf(id) >= 0) { node = flameNode(); emoji = '🔥'; }
+    else if (CLOCK.indexOf(id) >= 0) { node = clockNode(); emoji = '⏳'; }
     else if (COIN.indexOf(id) >= 0) { node = coinNode(); emoji = '💰'; }
+    else if (id === 'scroll-distance' || hasKeyword(panel, /富士山|エベレスト/)) { node = fujiNode(); emoji = '🗻'; }
     if (!node) return null;
     insertSpecial(panel, node);
     return { emoji: emoji };
@@ -146,7 +189,7 @@
     var special = runSpecial(panel);
 
     if (!matches.length) {
-      if (special && QUIET_CATS.indexOf(catLabel()) === -1) celebrate(special.emoji);
+      partyFor(panel, special ? special.emoji : null);
       return;
     }
 
@@ -190,38 +233,71 @@
     if (sl && sl.parentNode) sl.parentNode.insertBefore(wrap, sl.nextSibling);
     else result.insertBefore(wrap, result.firstChild ? result.firstChild.nextSibling : null);
 
-    // お祝い演出（楽しい比較が出た & 深刻カテゴリでない時だけ）
-    if (QUIET_CATS.indexOf(catLabel()) === -1) {
-      celebrate(pick[0].emoji);
-    }
+    // テーマ演出（カテゴリ別／メンタル等は静か）
+    partyFor(panel, pick[0].emoji);
   }
 
-  // ===== 紙吹雪＋絵文字が舞う =====
-  function celebrate(emoji) {
+  // ===== 汎用パーティクルエンジン（紙吹雪/絵文字 rain・up・burst） =====
+  function fxParticles(opts) {
+    opts = opts || {};
+    var emojis = opts.emojis || [], n = opts.count || 60, mode = opts.mode || 'burst', dur = opts.duration || 1500;
+    var cols = opts.colors || ['#f43f5e', '#0fb5c4', '#6366f1', '#f59e0b', '#8b5cf6', '#22c55e'];
     var cv = document.createElement('canvas');
     cv.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9999';
     cv.width = innerWidth; cv.height = innerHeight;
     document.body.appendChild(cv);
     var x = cv.getContext('2d');
-    var cols = ['#f43f5e', '#0fb5c4', '#6366f1', '#f59e0b', '#8b5cf6', '#22c55e'];
     var P = [], cx = innerWidth / 2, cy = innerHeight * 0.32, t0 = performance.now();
-    for (var i = 0; i < 90; i++) {
-      var a = Math.random() * Math.PI * 2, sp = 4 + Math.random() * 9;
-      P.push({ x: cx, y: cy, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp - 3, c: cols[i % cols.length], r: 4 + Math.random() * 4, rot: Math.random() * 6, em: (i % 6 === 0) });
+    for (var i = 0; i < n; i++) {
+      var p = { rot: Math.random() * 6, vr: (Math.random() - 0.5) * 0.34, c: cols[i % cols.length], r: 4 + Math.random() * 4, sz: 18 + Math.random() * 14 };
+      if (mode === 'rain') { p.x = Math.random() * innerWidth; p.y = -20 - Math.random() * innerHeight * 0.4; p.vx = (Math.random() - 0.5) * 1.6; p.vy = 3 + Math.random() * 4.5; p.g = 0.10; }
+      else if (mode === 'up') { p.x = cx + (Math.random() - 0.5) * innerWidth * 0.6; p.y = innerHeight * 0.62 + Math.random() * 90; p.vx = (Math.random() - 0.5) * 1.4; p.vy = -(2.2 + Math.random() * 3.4); p.g = -0.015; }
+      else { var a = Math.random() * 6.283, sp = 4 + Math.random() * 9.5; p.x = cx; p.y = cy; p.vx = Math.cos(a) * sp; p.vy = Math.sin(a) * sp - 3.5; p.g = 0.22; }
+      p.em = emojis.length ? ((mode === 'burst') ? (i % 2 === 0 ? emojis[(i / 2 | 0) % emojis.length] : null) : emojis[i % emojis.length]) : null;
+      P.push(p);
     }
     function frame(now) {
       var el = now - t0; x.clearRect(0, 0, cv.width, cv.height);
+      var al = Math.max(0, 1 - el / dur);
       P.forEach(function (p) {
-        p.vy += 0.22; p.vx *= 0.99; p.x += p.vx; p.y += p.vy; p.rot += 0.2;
-        var al = Math.max(0, 1 - el / 1300);
+        p.vy += p.g; p.vx *= 0.995; p.x += p.vx; p.y += p.vy; p.rot += p.vr;
         x.globalAlpha = al;
-        if (p.em) { x.font = '22px serif'; x.fillText(emoji, p.x, p.y); }
+        if (p.em) { x.font = p.sz + 'px serif'; x.textAlign = 'center'; x.fillText(p.em, p.x, p.y); }
         else { x.save(); x.translate(p.x, p.y); x.rotate(p.rot); x.fillStyle = p.c; x.fillRect(-p.r, -p.r / 2, p.r * 2, p.r); x.restore(); }
       });
       x.globalAlpha = 1;
-      if (el < 1300) requestAnimationFrame(frame); else cv.remove();
+      if (el < dur) requestAnimationFrame(frame); else cv.remove();
     }
     requestAnimationFrame(frame);
+  }
+
+  // カテゴリ別のテーマ演出
+  var CATFX = {
+    '恋愛・婚活': { emojis: ['💕', '💗', '💖', '💞'], mode: 'up', count: 42 },
+    'ペット': { emojis: ['🐾', '🐶', '🐱', '🦴'], mode: 'up', count: 36 },
+    'お金・時間': { emojis: ['🪙', '💴', '💰'], mode: 'rain', count: 48 },
+    'マネー・保険・不動産': { emojis: ['🪙', '💴', '💰'], mode: 'rain', count: 48 },
+    '店舗・ビジネス': { emojis: ['💰', '📈', '🪙'], mode: 'rain', count: 42 },
+    '仕事・働き方': { emojis: ['💼', '🪙', '✨'], mode: 'rain', count: 38 },
+    '健康・カラダ': { emojis: ['🔥', '💪', '✨'], mode: 'burst', count: 48 },
+    'スポーツ・運動': { emojis: ['🔥', '💪', '⚡', '🏅'], mode: 'burst', count: 50 },
+    '占い・診断': { emojis: ['✨', '⭐', '🔮', '🌟'], mode: 'burst', count: 52 },
+    '子ども・育児': { emojis: ['🎈', '🧸', '⭐', '🍼'], mode: 'up', count: 40 },
+    'グルメ・食': { emojis: ['😋', '🍴', '✨', '🍚'], mode: 'burst', count: 42 },
+    '旅行・おでかけ': { emojis: ['✈️', '🌍', '🧳', '⭐'], mode: 'burst', count: 44 },
+    'クルマ・乗り物': { emojis: ['🚗', '💨', '✨'], mode: 'burst', count: 38 },
+    '住まい・暮らし': { emojis: ['🏠', '✨', '🔑'], mode: 'burst', count: 38 },
+    '美容・ファッション': { emojis: ['💄', '✨', '💖', '👜'], mode: 'up', count: 42 },
+    '推し活・エンタメ': { emojis: ['🎉', '🌟', '💜', '🎤'], mode: 'burst', count: 56 },
+    'マーケティング': { emojis: ['📈', '✨', '🚀'], mode: 'burst', count: 42 },
+    '学生・勉強': { emojis: ['✏️', '📚', '✨', '💯'], mode: 'burst', count: 42 },
+    '人生・自分ごと': { emojis: ['✨', '⏳', '🌈'], mode: 'burst', count: 42 }
+  };
+  function partyFor(panel, fallbackEmoji) {
+    var cat = catLabel();
+    if (QUIET_CATS.indexOf(cat) !== -1) return; // メンタル等は静かに
+    var cfg = CATFX[cat] || { emojis: [fallbackEmoji || '🎉', '✨'], mode: 'burst', count: 44 };
+    fxParticles(cfg);
   }
 
   function hook() {
