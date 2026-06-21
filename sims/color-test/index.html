@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/color-test/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/color-test.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/color-test.png">
+<title>色当てゲーム｜1つだけ違う色、どこまで見分けられる？｜シミュラボ</title>
+<meta name="description" content="並んだタイルの中から、1つだけ微妙に色が違うタイルを見つけるゲーム。レベルが上がるほど色の差が小さく難しくなる、色覚チャレンジ型シミュレーター。">
+<meta property="og:title" content="色当てゲーム｜違う色、どこまで見分けられる？">
+<meta property="og:description" content="1つだけ違う色を探すゲーム。何レベルまでいける？">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/color-test/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "色当てゲーム", "url": "https://shimulabo.com/sims/color-test/", "description": "並んだタイルの中から、1つだけ微妙に色が違うタイルを見つけるゲーム。レベルが上がるほど色の差が小さく難しくなる、色覚チャレンジ型シミュレーター。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "色当てゲーム", "item": "https://shimulabo.com/sims/color-test/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "色覚検査になる？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。あくまでゲームです。医学的な検査ではありません。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動きます。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>あそぶ・実験<span>›</span><span class="cur">色当てゲーム</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">あそぶ・実験</div>
+    <h1>色当てゲーム</h1>
+    <p class="lead">並んだタイルの中に、1つだけ微妙に色が違うものが。それを見つけてタップ！正解するほど色の差は小さく、マスは増えて難しくなります。あなたの色を見分ける力は？</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:16px;">
+      <canvas id="cv" width="440" height="440" style="width:100%;max-width:440px;height:auto;background:#0b1020;border:1px solid var(--line);border-radius:12px;cursor:pointer;"></canvas>
+      <div style="width:100%;max-width:560px;"><div id="lv" style="text-align:center;font-weight:800;margin-bottom:8px;">スタートを押してね</div><div class="share-row" style="margin-top:0;flex-wrap:wrap;"><button class="btn btn-primary" id="start" style="padding:11px 18px;font-size:14px;">スタート</button></div><div id="res" style="display:none;text-align:center;margin-top:6px;padding:14px;border-radius:12px;background:var(--teal-l);font-weight:800;color:var(--ink);"></div></div>
+    </div>
+    <p style="text-align:center;color:var(--ink-2);font-size:13px;margin-top:14px;">1つだけ違う色のタイルをタップ。レベルが上がると差が小さくなります。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row"><button class="btn btn-x" id="shareBtn">𝕏 でシェア</button></div>
+  </section>
+
+  <article class="article">
+    <h2>色を見分ける力</h2>
+    <p>人の目はわずかな色の違いも見分けられますが、その精度には個人差があります。このゲームはレベルが上がるほど色差が小さくなり、マスも増えていきます。どこまで見分けられるか挑戦してみてください。明るい画面・適度な距離で見るのがコツ。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>色覚検査になる？</dt><dd>いいえ。あくまでゲームです。医学的な検査ではありません。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動きます。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../lorenz/index.html"><span class="e">🦋</span><span>ローレンツ・アトラクタ</span></a><a class="related-card" href="../pendulum-wave/index.html"><span class="e">🎐</span><span>振り子の波</span></a><a class="related-card" href="../solar-system/index.html"><span class="e">🪐</span><span>太陽系シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ見てみたい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = '色当てゲーム👁️ 1つだけ違う色、どこまで見分けられる？君は何レベル？';
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{const l=$(s.id+'L'); if(l){const u=()=>l.textContent=s.value; s.addEventListener('input',u); u();}}); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  try {
+    syncSliders();
+
+    const cv=$('cv'),x=cv.getContext('2d');const W=cv.width,H=cv.height;
+    let level=1,grid=2,oddIdx=0,baseCol='',oddCol='',playing=false;
+    function rr(px,py,w,h,r){x.beginPath();x.moveTo(px+r,py);x.arcTo(px+w,py,px+w,py+h,r);x.arcTo(px+w,py+h,px,py+h,r);x.arcTo(px,py+h,px,py,r);x.arcTo(px,py,px+w,py,r);x.closePath();}
+    function next(){grid=Math.min(7,1+Math.ceil((level+1)/2));const diff=Math.max(4,40-level*2.4);
+      const bh=Math.random()*360,bs=55+Math.random()*20,bl=45+Math.random()*15;
+      baseCol='hsl('+bh+','+bs+'%,'+bl+'%)';oddCol='hsl('+bh+','+bs+'%,'+(bl+diff*(Math.random()<0.5?-1:1))+'%)';
+      oddIdx=Math.floor(Math.random()*grid*grid);draw();}
+    function draw(){x.fillStyle='#0b1020';x.fillRect(0,0,W,H);const gap=6,cell=(W-gap*(grid+1))/grid;
+      for(let i=0;i<grid*grid;i++){const r=Math.floor(i/grid),c=i%grid,px=gap+c*(cell+gap),py=gap+r*(cell+gap);
+        x.fillStyle=(i===oddIdx)?oddCol:baseCol;rr(px,py,cell,cell,8);x.fill();}}
+    cv.addEventListener('pointerdown',e=>{if(!playing)return;const p=cpos(cv,e);const gap=6,cell=(W-gap*(grid+1))/grid;
+      const c=Math.floor((p[0]-gap)/(cell+gap)),r=Math.floor((p[1]-gap)/(cell+gap));if(c<0||c>=grid||r<0||r>=grid)return;const idx=r*grid+c;
+      if(idx===oddIdx){level++;$('lv').textContent='レベル '+level;next();}
+      else{playing=false;$('res').style.display='';$('res').innerHTML='ゲームオーバー！レベル <span style="font-size:24px;color:var(--accent-d)">'+level+'</span> まで到達👁️';SHARE='色当てゲーム、レベル'+level+'まで到達できた👁️ 君は？';}});
+    $('start').addEventListener('click',()=>{level=1;playing=true;$('res').style.display='none';$('lv').textContent='レベル 1';next();});
+    x.fillStyle='#0b1020';x.fillRect(0,0,W,H);
+
+  } catch(e) { console.error(e); }
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click',()=>window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'color-test', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

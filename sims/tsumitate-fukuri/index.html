@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/tsumitate-fukuri/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/tsumitate-fukuri.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/tsumitate-fukuri.png">
+<title>つみたて複利シミュレーター｜毎月の積立、◯年後いくら？｜シミュラボ</title>
+<meta name="description" content="毎月の積立額・想定利回り・積立年数から、複利で増えた将来の資産額と運用益を計算する無料シミュレーター。">
+<meta property="og:title" content="つみたて複利シミュレーター｜◯年後いくら？">
+<meta property="og:description" content="毎月の積立と利回りから、複利の将来額を計算。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/tsumitate-fukuri/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "つみたて複利シミュレーター", "url": "https://shimulabo.com/sims/tsumitate-fukuri/", "description": "毎月の積立額・想定利回り・積立年数から、複利で増えた将来の資産額と運用益を計算する無料シミュレーター。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "つみたて複利シミュレーター", "item": "https://shimulabo.com/sims/tsumitate-fukuri/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "必ず増える？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。利回りは想定値で、相場により変動・元本割れもあり得ます。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>お金・時間<span>›</span><span class="cur">つみたて複利シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">お金・時間</div>
+    <h1>つみたて複利シミュレーター</h1>
+    <p class="lead">毎月コツコツ積み立てると、複利の力で雪だるま式に増えます。積立額・利回り・年数から、将来の資産額と運用益を出します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>📈 条件を入れる</h2>
+    <div class="row"><div class="field"><label>毎月の積立 <span class="hint">（円）</span></label><input type="number" id="pmt" value="30000" min="0" inputmode="numeric"></div>
+    <div class="field"><label>想定利回り <span class="hint">（％/年）</span></label><input type="number" id="r" value="5" min="0" max="20" step="0.1" inputmode="decimal"></div></div>
+    <div class="field"><label>積立年数 <span class="hint">（年）</span></label><input type="number" id="yr" value="20" min="1" max="60" inputmode="numeric"></div>
+    <button class="btn btn-primary" id="calcBtn">将来の資産を見る</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label" id="lab">◯年後の資産</div>
+      <div class="big"><span id="big">0</span><span class="unit">円</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">積み立てた元本</div><div class="v" id="moto">—</div></div>
+      <div class="stat"><div class="k">運用益</div><div class="v accent" id="eki">—</div></div>
+      <div class="stat"><div class="k">利回り</div><div class="v" id="rv">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>複利の力</h2>
+    <div class="note"><strong>計算式</strong><br>将来額 ＝ 毎月積立 ×（(1+月利)^月数 − 1）÷ 月利<br>（月利 ＝ 年利 ÷ 12）</div>
+    <p>利益が利益を生むのが複利。同じ積立でも、期間が長いほど運用益の割合が大きくなります。新NISAなどの非課税制度と組み合わせると効果的。※投資は元本保証ではありません。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>必ず増える？</dt><dd>いいえ。利回りは想定値で、相場により変動・元本割れもあり得ます。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../kaigi-cost/index.html"><span class="e">🔥</span><span>会議コストシミュレーター</span></a><a class="related-card" href="../subsc/index.html"><span class="e">💸</span><span>サブスク墓場シミュレーター</span></a><a class="related-card" href="../warikan/index.html"><span class="e">🍻</span><span>割り勘の不公平シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const hash = (s) => { let h=2166136261; for(let i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h,16777619); } return (h>>>0); };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){const pmt=Math.max(0,+$('pmt').value||0),r=Math.max(0,+$('r').value||0)/100,yr=Math.max(1,+$('yr').value||1);const n=yr*12,mr=r/12;
+    const fv=mr>0?pmt*((Math.pow(1+mr,n)-1)/mr):pmt*n;const moto=pmt*n;
+    $('lab').textContent=`${yr}年後の資産`;$('sub').textContent=`月${num(pmt)}円・利回り${(r*100).toFixed(1)}％・${yr}年`;
+    $('moto').textContent=yen(moto);$('eki').textContent=yen(fv-moto);$('rv').textContent=(r*100).toFixed(1)+'％';
+    SHARE=`つみたて複利シミュ、月${num(pmt)}円を${yr}年で約${yen(fv)}に（運用益${yen(fv-moto)}）📈\n複利すごい…！👇`;show();anim($('big'),0,fv,900);}
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'tsumitate-fukuri', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/galton/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/galton.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/galton.png">
+<title>ガルトンボード｜ランダムから正規分布が生まれるシミュレーター｜シミュラボ</title>
+<meta name="description" content="たくさんのボールが釘にぶつかって左右にランダムに落ちるだけで、きれいな釣り鐘型（正規分布）が現れる「ガルトンボード」を体感できる無料シミュレーター。">
+<meta property="og:title" content="ガルトンボード｜ランダムから正規分布が生まれる">
+<meta property="og:description" content="ボールが左右にランダムに落ちるだけで釣り鐘型が出現。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/galton/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "ガルトンボード", "url": "https://shimulabo.com/sims/galton/", "description": "たくさんのボールが釘にぶつかって左右にランダムに落ちるだけで、きれいな釣り鐘型（正規分布）が現れる「ガルトンボード」を体感できる無料シミュレーター。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ガルトンボード", "item": "https://shimulabo.com/sims/galton/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "毎回同じ形？", "acceptedAnswer": {"@type": "Answer", "text": "細部は違いますが、釣り鐘型に収束します。それが確率の不思議。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動きます。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>ふしぎ・現象<span>›</span><span class="cur">ガルトンボード</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ふしぎ・現象</div>
+    <h1>ガルトンボード</h1>
+    <p class="lead">ボールは釘にぶつかるたび、左右にランダムに転がるだけ。なのに、たまっていくと美しい釣り鐘型（正規分布）が現れます。ランダムの中の秩序を眺めてください。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:16px;">
+      <canvas id="cv" width="520" height="440" style="width:100%;max-width:560px;height:auto;background:#0b1020;border:1px solid var(--line);border-radius:12px;"></canvas>
+      <div style="width:100%;max-width:560px;"><div class="share-row" style="margin-top:0;flex-wrap:wrap;"><button class="btn btn-primary" id="reset" style="padding:11px 18px;font-size:14px;">リセット</button></div></div>
+    </div>
+    <p style="text-align:center;color:var(--ink-2);font-size:13px;margin-top:14px;">偶然の積み重ねが「正規分布（ベルカーブ）」を生みます。身長やテストの点の分布もこの形。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row"><button class="btn btn-x" id="shareBtn">𝕏 でシェア</button></div>
+  </section>
+
+  <article class="article">
+    <h2>なぜ釣り鐘型に？</h2>
+    <p>1個のボールがどこに落ちるかは完全にランダム。でも何千個も落とすと、中央が高く両端が低い「正規分布」になります。これは「たくさんの偶然が重なると安定した形が現れる（中心極限定理）」の visual な実例。自然界やデータの多くがこの形をしています。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>毎回同じ形？</dt><dd>細部は違いますが、釣り鐘型に収束します。それが確率の不思議。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動きます。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../jutai/index.html"><span class="e">🚗</span><span>渋滞は勝手に生まれる</span></a><a class="related-card" href="../life/index.html"><span class="e">🦠</span><span>ライフゲーム</span></a><a class="related-card" href="../forest-fire/index.html"><span class="e">🔥</span><span>森林火災シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ見てみたい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = 'ボールが左右にランダムに落ちるだけで、きれいな釣り鐘型が生まれる…ガルトンボード🎲 確率って美しい。';
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{const l=$(s.id+'L'); if(l){const u=()=>l.textContent=s.value; s.addEventListener('input',u); u();}}); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  try {
+    syncSliders();
+
+    const cv=$('cv'),x=cv.getContext('2d');const W=cv.width,H=cv.height;
+    const rows=11,bins=rows+1,topY=24,botY=H-120,colW=W/(bins);
+    let counts=new Array(bins).fill(0),balls=[],f=0;
+    $('reset').addEventListener('click',()=>{counts.fill(0);balls=[];});
+    function loop(){f++;if(f%5===0)balls.push({x:W/2,y:topY,row:-1,bin:0});
+      x.fillStyle='#0b1020';x.fillRect(0,0,W,H);
+      x.fillStyle='rgba(255,255,255,.22)';
+      for(let r=0;r<rows;r++){const py=topY+(r+1)*(botY-topY)/(rows+1);const n=r+1;for(let c=0;c<n;c++){const px=W/2+(c-r/2)*colW*0.62;x.beginPath();x.arc(px,py,2,0,7);x.fill();}}
+      for(const b of balls){b.y+=3.2;const r=Math.floor((b.y-topY)/((botY-topY)/(rows+1)));
+        if(r>b.row&&r<rows){b.row=r;const d=Math.random()<0.5?-1:1;b.x+=d*colW*0.31;if(d>0)b.bin++;}
+        if(b.y>=botY){counts[Math.max(0,Math.min(bins-1,b.bin))]++;b.dead=1;}
+        x.fillStyle='#5eead4';x.beginPath();x.arc(b.x,b.y,3.4,0,7);x.fill();}
+      balls=balls.filter(b=>!b.dead);
+      const max=Math.max(1,...counts);
+      for(let i=0;i<bins;i++){const h=counts[i]/max*96;x.fillStyle='hsl('+(190+i*9)+',82%,62%)';x.fillRect(i*colW+2,H-18-h,colW-4,h);}
+      requestAnimationFrame(loop);
+    } loop();
+
+  } catch(e) { console.error(e); }
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click',()=>window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'galton', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

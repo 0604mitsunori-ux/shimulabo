@@ -253,6 +253,14 @@ SIMS = [
     ("resilience", "レジリエンス診断", "🛟", "メンタル・自己分析", "6項目で逆境から立ち直る力の目安を診断。"),
     ("kokoro-yoyuu", "心の余裕度チェック", "🍃", "メンタル・自己分析", "5問で今の心の余裕度をチェック。"),
 ]
+# --- 全カテゴリ3本ずつ補充分(gen_sims22〜26)を自動取り込み ---
+for _m in ('gen_sims22','gen_sims23','gen_sims24','gen_sims25','gen_sims26'):
+    try:
+        _mod = __import__(_m)
+        for _s in _mod.SIMS:
+            SIMS.append((_s['id'], _s.get('h1', _s['title']), _s['emoji'], _s['cat'], _s['desc']))
+    except Exception as _e:
+        print('skip', _m, _e)
 SIM_BY_ID = {s[0]: s for s in SIMS}
 
 # サブページ（パンくず用ラベル）

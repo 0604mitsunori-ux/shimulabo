@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/souzoku-zei/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/souzoku-zei.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/souzoku-zei.png">
+<title>相続税ざっくりシミュレーター｜うちは相続税かかる？｜シミュラボ</title>
+<meta name="description" content="遺産総額と法定相続人の数から、基礎控除を引いた課税対象額と、おおまかな相続税額の目安を試算する無料シミュレーター。">
+<meta property="og:title" content="相続税ざっくりシミュレーター｜うちはかかる？">
+<meta property="og:description" content="遺産総額と相続人数から、相続税の目安を試算。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/souzoku-zei/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "相続税ざっくりシミュレーター", "url": "https://shimulabo.com/sims/souzoku-zei/", "description": "遺産総額と法定相続人の数から、基礎控除を引いた課税対象額と、おおまかな相続税額の目安を試算する無料シミュレーター。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "相続税ざっくりシミュレーター", "item": "https://shimulabo.com/sims/souzoku-zei/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "正確な額？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。控除や特例（配偶者控除・小規模宅地等）で大きく変わります。必ず専門家へ。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>マネー・保険・不動産<span>›</span><span class="cur">相続税ざっくりシミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">マネー・保険・不動産</div>
+    <h1>相続税ざっくりシミュレーター</h1>
+    <p class="lead">「うちは相続税がかかるの？」をまず把握。遺産総額と法定相続人の数から、基礎控除と課税対象額、おおまかな税額の目安を出します（正確には専門家へ）。</p>
+  </div>
+
+  <section class="panel">
+    <h2>📜 条件を入れる</h2>
+    <div class="row"><div class="field"><label>遺産の総額 <span class="hint">（万円）</span></label><input type="number" id="isan" value="5000" min="0" inputmode="numeric"></div>
+    <div class="field"><label>法定相続人の数 <span class="hint">（人）</span></label><input type="number" id="n" value="3" min="1" max="20" inputmode="numeric"></div></div>
+    <button class="btn btn-primary" id="calcBtn">相続税の目安を見る</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">相続税の目安（総額）</div>
+      <div class="big"><span id="big">0</span><span class="unit">万円</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">基礎控除</div><div class="v" id="kiso">—</div></div>
+      <div class="stat"><div class="k">課税対象</div><div class="v accent" id="kazei">—</div></div>
+      <div class="stat"><div class="k">判定</div><div class="v" id="judge">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>基礎控除を超えなければ非課税</h2>
+    <div class="note"><strong>計算式</strong><br>基礎控除 ＝ 3,000万円 ＋ 600万円 × 法定相続人の数<br>遺産がこれを超えなければ、相続税はかかりません。</div>
+    <p>多くの家庭は基礎控除内におさまります。超える場合の税額は、各相続人の取得額に応じた累進税率で計算されます（本ツールは超過分への簡易概算）。正確な計算・申告は税理士にご相談を。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>正確な額？</dt><dd>いいえ。控除や特例（配偶者控除・小規模宅地等）で大きく変わります。必ず専門家へ。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../jutaku-loan/index.html"><span class="e">🏠</span><span>住宅ローン返済シミュレーター</span></a><a class="related-card" href="../kuriage/index.html"><span class="e">💴</span><span>繰上返済 効果シミュレーター</span></a><a class="related-card" href="../hosho/index.html"><span class="e">🛡️</span><span>必要保障額シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const hash = (s) => { let h=2166136261; for(let i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h,16777619); } return (h>>>0); };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){const isan=Math.max(0,+$('isan').value||0),n=Math.max(1,+$('n').value||1);
+    const kiso=3000+600*n,kazei=Math.max(0,isan-kiso);
+    // 超過分への簡易概算（実際は各人按分の累進）
+    let zei;if(kazei<=1000)zei=kazei*0.1;else if(kazei<=3000)zei=kazei*0.15-50;else if(kazei<=5000)zei=kazei*0.2-200;else if(kazei<=10000)zei=kazei*0.3-700;else zei=kazei*0.4-1700;
+    zei=Math.max(0,zei);
+    $('sub').textContent=`遺産${num(isan)}万・相続人${n}人`;$('kiso').textContent=num(kiso)+'万円';$('kazei').textContent=num(kazei)+'万円';$('judge').textContent=kazei<=0?'非課税の見込み🎉':'課税の可能性';
+    SHARE=`相続税ざっくりシミュ、遺産${num(isan)}万・相続人${n}人で${kazei<=0?'基礎控除内＝非課税の見込み':'相続税の目安は約'+num(zei)+'万円'}でした📜\nまずは把握から。👇`;show();anim($('big'),0,zei,900);}
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'souzoku-zei', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

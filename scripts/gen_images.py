@@ -445,6 +445,15 @@ SIMS = [
     ("board",              "みんなが見たいシミュ、投票で決定",         "REQUEST BOARD"),
 ]
 
+# --- 全カテゴリ3本ずつ補充分(gen_sims22〜26)を自動取り込み ---
+for _m in ('gen_sims22','gen_sims23','gen_sims24','gen_sims25','gen_sims26'):
+    try:
+        _mod = __import__(_m)
+        for _s in _mod.SIMS:
+            SIMS.append((_s['id'], _s['h1'], _s['cat']))
+    except Exception as _e:
+        print('skip', _m, _e)
+
 for sid, title, cat in SIMS:
     ul = "なんとなく" if sid == "default" else None
     make_ogp(os.path.join(OGP_DIR, f"{sid}.png"), title, cat, underline=ul)

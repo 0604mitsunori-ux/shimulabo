@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/osake-shogai/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/osake-shogai.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/osake-shogai.png">
+<title>一生で飲むお酒シミュレーター｜生涯でどれだけ飲む？｜シミュラボ</title>
+<meta name="description" content="1週間に飲むお酒の杯数とこれからの年数から、一生で飲むお酒の杯数・量・金額を計算するエンタメシミュレーター。">
+<meta property="og:title" content="一生で飲むお酒｜生涯でどれだけ飲む？">
+<meta property="og:description" content="週の杯数から、一生で飲むお酒の量と金額を計算。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/osake-shogai/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "一生で飲むお酒シミュレーター", "url": "https://shimulabo.com/sims/osake-shogai/", "description": "1週間に飲むお酒の杯数とこれからの年数から、一生で飲むお酒の杯数・量・金額を計算するエンタメシミュレーター。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "一生で飲むお酒シミュレーター", "item": "https://shimulabo.com/sims/osake-shogai/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "適量は？", "acceptedAnswer": {"@type": "Answer", "text": "一般に1日ビール中瓶1本程度が目安。週2日の休肝日が推奨されます。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>グルメ・食<span>›</span><span class="cur">一生で飲むお酒シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">グルメ・食</div>
+    <h1>一生で飲むお酒シミュレーター</h1>
+    <p class="lead">晩酌に飲み会…一生でどれだけお酒を飲むんだろう？週の杯数とこれからの年数から、生涯の杯数・量・金額を出します（飲みすぎ注意のきっかけにも）。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🍶 条件を入れる</h2>
+    <div class="row"><div class="field"><label>1週間に飲む杯数 <span class="hint">（杯）</span></label><input type="number" id="week" value="7" min="0" inputmode="numeric"></div>
+    <div class="field"><label>これからの年数 <span class="hint">（年）</span></label><input type="number" id="yr" value="40" min="1" max="70" inputmode="numeric"></div></div>
+    <div class="field"><label>1杯の値段 <span class="hint">（円・金額の計算用）</span></label><input type="number" id="price" value="500" min="0" inputmode="numeric"></div>
+    <button class="btn btn-primary" id="calcBtn">一生分を見る</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">一生で飲む杯数</div>
+      <div class="big"><span id="big">0</span><span class="unit">杯</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">お酒代の総額</div><div class="v accent" id="money">—</div></div>
+      <div class="stat"><div class="k">中ジョッキ何杯分(L)</div><div class="v" id="litre">—</div></div>
+      <div class="stat"><div class="k">1年で</div><div class="v" id="year">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>計算方法</h2>
+    <div class="note"><strong>計算式</strong><br>生涯の杯数 ＝ 週の杯数 × 52 × 年数</div>
+    <p>楽しいお酒も、生涯にするとかなりの量と金額に。適量を守れば人生の楽しみ、飲みすぎは健康とお財布の敵。休肝日を作るだけでも、量・金額・健康に大きな差が出ます。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>適量は？</dt><dd>一般に1日ビール中瓶1本程度が目安。週2日の休肝日が推奨されます。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../ramen-roudou/index.html"><span class="e">🍜</span><span>ラーメン1杯の労働時間シミュレーター</span></a><a class="related-card" href="../gaishoku-jisui/index.html"><span class="e">🍳</span><span>外食 vs 自炊 シミュレーター</span></a><a class="related-card" href="../issho-tabemono/index.html"><span class="e">🍚</span><span>一生で食べる量シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const hash = (s) => { let h=2166136261; for(let i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h,16777619); } return (h>>>0); };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){const week=Math.max(0,+$('week').value||0),yr=Math.max(1,+$('yr').value||1),price=Math.max(0,+$('price').value||0);
+    const cups=week*52*yr,money=cups*price,litre=cups*0.35;
+    $('sub').textContent=`週${week}杯 × ${yr}年`;$('money').textContent=yen(money);$('litre').textContent=num(litre)+'L';$('year').textContent=num(week*52)+'杯';
+    SHARE=`一生で飲むお酒シミュ、生涯${num(cups)}杯・${yen(money)}分でした🍶\n適量で長く楽しも…！👇`;show();anim($('big'),0,cups,900);}
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'osake-shogai', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

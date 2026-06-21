@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/lissajous/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/lissajous.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/lissajous.png">
+<title>リサージュ図形｜2つの波が描く幾何学模様シミュレーター｜シミュラボ</title>
+<meta name="description" content="縦と横、2つの単純な波（サインカーブ）を組み合わせるだけで、8の字やリボン、複雑な網目模様が生まれる「リサージュ図形」を描ける無料シミュレーター。">
+<meta property="og:title" content="リサージュ図形｜2つの波が描く幾何学模様">
+<meta property="og:description" content="縦横2つの波の周波数比で無限の幾何学模様を描く。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/lissajous/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "リサージュ図形", "url": "https://shimulabo.com/sims/lissajous/", "description": "縦と横、2つの単純な波（サインカーブ）を組み合わせるだけで、8の字やリボン、複雑な網目模様が生まれる「リサージュ図形」を描ける無料シミュレーター。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "リサージュ図形", "item": "https://shimulabo.com/sims/lissajous/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "比を変えると？", "acceptedAnswer": {"@type": "Answer", "text": "整数比ほどシンプルで閉じた形に。比が複雑だと網目状になります。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動きます。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>ふしぎ・現象<span>›</span><span class="cur">リサージュ図形</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ふしぎ・現象</div>
+    <h1>リサージュ図形</h1>
+    <p class="lead">縦と横、2つのサインカーブを組み合わせるだけ。周波数の比を変えると、8の字・リボン・網目…無限の幾何学模様が現れます。理科の実験でも有名な美しい曲線です。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:16px;">
+      <canvas id="cv" width="520" height="520" style="width:100%;max-width:520px;height:auto;background:#0b1020;border:1px solid var(--line);border-radius:12px;"></canvas>
+      <div style="width:100%;max-width:560px;"><div class="field" style="margin-bottom:10px;"><div class="slider-head" style="display:flex;justify-content:space-between;"><label style="margin:0;">横の周波数</label><span class="val" id="aL" style="font-weight:800;color:var(--teal-d);">3</span></div><input type="range" id="a" min="1" max="8" value="3" step="1" style="width:100%;"></div><div class="field" style="margin-bottom:10px;"><div class="slider-head" style="display:flex;justify-content:space-between;"><label style="margin:0;">縦の周波数</label><span class="val" id="bL" style="font-weight:800;color:var(--teal-d);">2</span></div><input type="range" id="b" min="1" max="8" value="2" step="1" style="width:100%;"></div><div class="field" style="margin-bottom:10px;"><div class="slider-head" style="display:flex;justify-content:space-between;"><label style="margin:0;">位相差（度）</label><span class="val" id="deltaL" style="font-weight:800;color:var(--teal-d);">30</span></div><input type="range" id="delta" min="0" max="180" value="30" step="1" style="width:100%;"></div></div>
+    </div>
+    <p style="text-align:center;color:var(--ink-2);font-size:13px;margin-top:14px;">周波数の比が整数だと模様が閉じます。オシロスコープでも見られる物理の名場面。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row"><button class="btn btn-x" id="shareBtn">𝕏 でシェア</button></div>
+  </section>
+
+  <article class="article">
+    <h2>リサージュ図形とは</h2>
+    <p>x方向とy方向に、それぞれ単純なサイン波で動く点の軌跡です。横と縦の周波数の比（例：3対2）で模様の形が決まります。音の周波数の比較や、電気信号の解析（オシロスコープ）でも使われる、科学と美が交わる図形です。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>比を変えると？</dt><dd>整数比ほどシンプルで閉じた形に。比が複雑だと網目状になります。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動きます。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../jutai/index.html"><span class="e">🚗</span><span>渋滞は勝手に生まれる</span></a><a class="related-card" href="../life/index.html"><span class="e">🦠</span><span>ライフゲーム</span></a><a class="related-card" href="../forest-fire/index.html"><span class="e">🔥</span><span>森林火災シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ見てみたい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = '縦横2つの波を組み合わせるだけで無限の模様…リサージュ図形🌀 周波数比を変えるのが楽しい。';
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{const l=$(s.id+'L'); if(l){const u=()=>l.textContent=s.value; s.addEventListener('input',u); u();}}); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  try {
+    syncSliders();
+
+    const cv=$('cv'),x=cv.getContext('2d');const W=cv.width,H=cv.height,cx=W/2,cy=H/2;let ph=0;
+    function loop(){const a=+$('a').value,b=+$('b').value,delta=(+$('delta').value)*Math.PI/180;
+      x.fillStyle='#0b1020';x.fillRect(0,0,W,H);
+      const A=W*0.42,B=H*0.42;x.lineWidth=2;
+      for(let t=0;t<=Math.PI*2;t+=0.008){const px=cx+A*Math.sin(a*t+delta+ph),py=cy+B*Math.sin(b*t);
+        x.strokeStyle='hsl('+((t/(Math.PI*2)*300+ph*50)%360)+',85%,63%)';
+        if(t===0){x.beginPath();x.moveTo(px,py);}else{x.lineTo(px,py);}}
+      x.stroke();ph+=0.006;requestAnimationFrame(loop);
+    } loop();
+
+  } catch(e) { console.error(e); }
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click',()=>window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'lissajous', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

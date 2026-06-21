@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/birthday-aishou/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/birthday-aishou.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/birthday-aishou.png">
+<title>誕生日で相性占い｜ふたりの誕生日、相性は何％？｜シミュラボ</title>
+<meta name="description" content="自分と相手の誕生日から、運命数の組み合わせで相性を占うエンタメ相性診断シミュレーター。">
+<meta property="og:title" content="誕生日で相性占い｜ふたりの相性は何％？">
+<meta property="og:description" content="ふたりの誕生日から、相性とアドバイスを占う。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/birthday-aishou/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "誕生日で相性占い", "url": "https://shimulabo.com/sims/birthday-aishou/", "description": "自分と相手の誕生日から、運命数の組み合わせで相性を占うエンタメ相性診断シミュレーター。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "誕生日で相性占い", "item": "https://shimulabo.com/sims/birthday-aishou/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "当たる？", "acceptedAnswer": {"@type": "Answer", "text": "エンタメ占いです。楽しむためのものとしてお使いください。"}}, {"@type": "Question", "name": "入力した誕生日は送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。占いはすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>恋愛・婚活<span>›</span><span class="cur">誕生日で相性占い</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">恋愛・婚活</div>
+    <h1>誕生日で相性占い</h1>
+    <p class="lead">ふたりの誕生日から相性を占います。気になるあの人、恋人、友達と試してみて。盛り上がる定番のエンタメ占いです（数字で人を値踏みするものではありません）。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🎂 ふたりの誕生日を入れる</h2>
+    <div class="field"><label>あなたの誕生日</label><input type="date" id="d1" value="1996-05-12"></div>
+    <div class="field"><label>相手の誕生日</label><input type="date" id="d2" value="1995-09-23"></div>
+    <button class="btn btn-primary" id="calcBtn">相性を占う</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">ふたりの相性は</div>
+      <div class="big"><span id="big">0</span><span class="unit">％</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="alert good" id="adv" style="text-align:left;margin-top:18px;">—</div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>この占いについて</h2>
+    <p>ふたりの誕生日を数秘術ふうに組み合わせて相性を導くエンタメ占いです。同じ組み合わせなら結果は変わりません。相性が何％でも、思いやりがあれば良い関係は築けます。会話のきっかけにどうぞ。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>当たる？</dt><dd>エンタメ占いです。楽しむためのものとしてお使いください。</dd><dt>入力した誕生日は送信されますか？</dt><dd>いいえ。占いはすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../unmei/index.html"><span class="e">💘</span><span>運命の人に出会う確率</span></a><a class="related-card" href="../konkatsu-match/index.html"><span class="e">💍</span><span>婚活マッチ診断</span></a><a class="related-card" href="../konkatsu-jouken/index.html"><span class="e">💕</span><span>婚活 条件マッチ診断</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const hash = (s) => { let h=2166136261; for(let i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h,16777619); } return (h>>>0); };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){const d1=$('d1').value,d2=$('d2').value;if(!d1||!d2){alert('ふたりの誕生日を入れてね');return;}
+    const h=hash(d1+'|'+d2),sc=55+h%46;
+    let a;if(sc>=85)a='息ぴったりのベストカップル。自然体でいられる関係です✨';else if(sc>=70)a='good な相性。お互いを尊重すれば長続きします。';else a='違いはあるけど学び合える二人。歩み寄りがカギ。';
+    $('sub').textContent=`あなた(${d1}) × 相手(${d2})`;$('adv').textContent='🎂 '+a;
+    SHARE=`誕生日で相性占い、ふたりの相性は${sc}％でした🎂\n${sc>=70?'いい感じ…！':'違いを楽しむ二人。'}あなたは？👇`;show();anim($('big'),0,sc,900);}
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'birthday-aishou', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

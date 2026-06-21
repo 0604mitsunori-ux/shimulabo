@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/kaidan/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/kaidan.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/kaidan.png">
+<title>階段カロリーシミュレーター｜階段で1年どれだけ燃える？｜シミュラボ</title>
+<meta name="description" content="1日に上る階段の段数と体重から、消費カロリーと1年・10年での累計、エレベーターを使わない効果を計算する無料シミュレーター。">
+<meta property="og:title" content="階段カロリー｜階段で1年どれだけ燃える？">
+<meta property="og:description" content="1日の段数と体重から、階段の消費カロリーを計算。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/kaidan/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "階段カロリーシミュレーター", "url": "https://shimulabo.com/sims/kaidan/", "description": "1日に上る階段の段数と体重から、消費カロリーと1年・10年での累計、エレベーターを使わない効果を計算する無料シミュレーター。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "階段カロリーシミュレーター", "item": "https://shimulabo.com/sims/kaidan/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "下りもカロリー使う？", "acceptedAnswer": {"@type": "Answer", "text": "上りより少なめですが消費します。本ツールは上り基準の概算です。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>健康・カラダ<span>›</span><span class="cur">階段カロリーシミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">健康・カラダ</div>
+    <h1>階段カロリーシミュレーター</h1>
+    <p class="lead">「エレベーターより階段」を続けると、どれだけ燃える？1日に上る段数と体重から、消費カロリーと年間の累計を出します。塵も積もれば、です。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🪜 条件を入れる</h2>
+    <div class="row"><div class="field"><label>1日に上る段数 <span class="hint">（段）</span></label><input type="number" id="steps" value="100" min="0" inputmode="numeric"></div>
+    <div class="field"><label>体重 <span class="hint">（kg）</span></label><input type="number" id="w" value="60" min="20" max="200" step="0.1" inputmode="decimal"></div></div>
+    <button class="btn btn-primary" id="calcBtn">消費カロリーを見る</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">1日の消費カロリー</div>
+      <div class="big"><span id="big">0</span><span class="unit">kcal</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">1年で</div><div class="v accent" id="year">—</div></div>
+      <div class="stat"><div class="k">脂肪にすると(年)</div><div class="v" id="fat">—</div></div>
+      <div class="stat"><div class="k">10年で</div><div class="v" id="y10">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>階段は手軽な運動</h2>
+    <div class="note"><strong>計算式（目安）</strong><br>1段上る消費 ≒ 0.1kcal × 体重 ÷ 60<br>（階段昇りは平地歩行の数倍の運動強度）</div>
+    <p>階段の上り下りは、特別な時間を取らずにできるお手軽運動。1日100段でも、1年では意外な量に。エレベーターやエスカレーターを1回階段に変える、から始めてみては。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>下りもカロリー使う？</dt><dd>上りより少なめですが消費します。本ツールは上り基準の概算です。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../bmi/index.html"><span class="e">⚖️</span><span>BMI・適正体重シミュレーター</span></a><a class="related-card" href="../kiso-taisha/index.html"><span class="e">🔥</span><span>基礎代謝＆必要カロリー計算</span></a><a class="related-card" href="../tainai-nenrei/index.html"><span class="e">🫀</span><span>体内年齢診断</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const hash = (s) => { let h=2166136261; for(let i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h,16777619); } return (h>>>0); };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){const steps=Math.max(0,+$('steps').value||0),w=Math.max(1,+$('w').value||1);
+    const day=steps*0.1*w/60,year=day*365;
+    $('sub').textContent=`1日${num(steps)}段・体重${w}kg`;$('year').textContent=num(year)+'kcal';$('fat').textContent=num(year/7.2)+'g';$('y10').textContent=num(year*10)+'kcal';
+    SHARE=`階段カロリーシミュ、1日${num(steps)}段で年${num(year)}kcal（脂肪${num(year/7.2)}g）燃える計算でした🪜\n階段えらい！👇`;show();anim($('big'),0,day,900);}
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'kaidan', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>
