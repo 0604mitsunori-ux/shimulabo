@@ -387,6 +387,9 @@ def related_html(sid):
 # ---- 各ページ適用 ----
 patched = 0
 for path in glob.glob(os.path.join(ROOT, "**", "index.html"), recursive=True):
+    # /en/ 配下は自己完結（canonical/hreflang/JSON-LD/GA直書き）なのでスキップ
+    if os.path.relpath(path, ROOT).replace("\\", "/").startswith("en/"):
+        continue
     with open(path, "r", encoding="utf-8") as f:
         html = f.read()
     meta = page_meta(path)
@@ -429,14 +432,42 @@ def lastmod_for(u):
     except OSError:
         return ""
 
-urls = ["/"] + [f"/sims/{s[0]}/" for s in SIMS] + [f"/{k}/" for k in SUBPAGES]
-sm = ['<?xml version="1.0" encoding="UTF-8"?>',
-      '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-for u in urls:
-    pr = "1.0" if u == "/" else ("0.8" if u.startswith("/sims/") else "0.5")
+# 英語版(/en/)の存在をファイルから検出
+en_ids = set(os.path.basename(os.path.dirname(p))
+             for p in glob.glob(os.path.join(ROOT, "en", "sims", "*", "index.html")))
+en_home = os.path.exists(os.path.join(ROOT, "en", "index.html"))
+
+def alt_links(ja_url, en_url):
+    return ('<xhtml:link rel="alternate" hreflang="ja" href="' + BASE + ja_url + '"/>'
+            '<xhtml:link rel="alternate" hreflang="en" href="' + BASE + en_url + '"/>'
+            '<xhtml:link rel="alternate" hreflang="x-default" href="' + BASE + ja_url + '"/>')
+
+def url_entry(u, pr, alt=""):
     lm = lastmod_for(u)
     lm_tag = f"<lastmod>{lm}</lastmod>" if lm else ""
-    sm.append(f"  <url><loc>{BASE}{u}</loc>{lm_tag}<changefreq>weekly</changefreq><priority>{pr}</priority></url>")
+    return f"  <url><loc>{BASE}{u}</loc>{lm_tag}{alt}<changefreq>weekly</changefreq><priority>{pr}</priority></url>"
+
+sm = ['<?xml version="1.0" encoding="UTF-8"?>',
+      '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">']
+# 日本語
+ja_urls = ["/"] + [f"/sims/{s[0]}/" for s in SIMS] + [f"/{k}/" for k in SUBPAGES]
+for u in ja_urls:
+    pr = "1.0" if u == "/" else ("0.8" if u.startswith("/sims/") else "0.5")
+    alt = ""
+    if u == "/" and en_home:
+        alt = alt_links("/", "/en/")
+    elif u.startswith("/sims/"):
+        sid = u.split("/")[2]
+        if sid in en_ids:
+            alt = alt_links(u, f"/en/sims/{sid}/")
+    sm.append(url_entry(u, pr, alt))
+# 英語(/en/)
+if en_home:
+    sm.append(url_entry("/en/", "0.9", alt_links("/", "/en/")))
+for sid in sorted(en_ids):
+    u = f"/en/sims/{sid}/"
+    alt = alt_links(f"/sims/{sid}/", u)
+    sm.append(url_entry(u, "0.8", alt))
 sm.append("</urlset>")
 with open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8") as f:
     f.write("\n".join(sm) + "\n")

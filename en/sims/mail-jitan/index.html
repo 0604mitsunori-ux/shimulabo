@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Email Writing Voice Calculator | How much do you save dictating email? | SimuLab</title>
+<meta name="description" content="From emails per day and minutes to write each, see how much time and money you save per year by dictating your email with voice input.">
+<link rel="canonical" href="https://shimulabo.com/en/sims/mail-jitan/">
+<link rel="alternate" hreflang="ja" href="https://shimulabo.com/sims/mail-jitan/">
+<link rel="alternate" hreflang="en" href="https://shimulabo.com/en/sims/mail-jitan/">
+<link rel="alternate" hreflang="x-default" href="https://shimulabo.com/sims/mail-jitan/">
+<meta property="og:title" content="Email Writing Voice Calculator | Yearly savings">
+<meta property="og:description" content="See your yearly savings from dictating email instead of typing it.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://shimulabo.com/en/sims/mail-jitan/">
+<meta property="og:image" content="https://shimulabo.com/ogp/mail-jitan.png">
+<meta property="og:locale" content="en_US">
+<meta name="robots" content="index,follow">
+<link rel="icon" href="../../../favicon-32x32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
+<link rel="stylesheet" href="../../../assets/style.css">
+<!-- ga4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Email Writing Voice Calculator", "url": "https://shimulabo.com/en/sims/mail-jitan/", "description": "See your yearly savings from dictating email instead of typing it.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "SimuLab", "url": "https://shimulabo.com/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://shimulabo.com/en/"}, {"@type": "ListItem", "position": 2, "name": "Email Writing Voice Calculator", "item": "https://shimulabo.com/en/sims/mail-jitan/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Will it sound too casual?", "acceptedAnswer": {"@type": "Answer", "text": "AI rewrites speech into a clean professional tone — it won't read like a transcript."}}, {"@type": "Question", "name": "Is my data sent anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. This calculator runs entirely in your browser."}}]}</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../../en/index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">Simu<b>Lab</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../../en/index.html">← All sims</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../../en/index.html">Home</a><span>›</span>Voice Input & Time Saved<span>›</span><span class="cur">Email Writing Voice Calculator</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">Voice Input & Time Saved</div>
+    <h1>Email Writing Voice Calculator</h1>
+    <p class="lead">You write a lot of email. What if you talked it instead? From emails per day and minutes per email, see the time and money voice input frees up each year.</p>
+  </div>
+
+  <section class="panel">
+    <h2>✉️ Your numbers</h2>
+    <div class="row"><div class="field"><label>Emails written per day</label><input type="number" id="n" value="15" min="0" inputmode="numeric"></div>
+    <div class="field"><label>Minutes per email</label><input type="number" id="min" value="4" min="0" step="0.5" inputmode="decimal"></div></div>
+    <div class="field"><label>Hourly rate <span class="hint">($)</span></label><input type="number" id="rate" value="30" min="0" inputmode="numeric"></div>
+    <button class="btn btn-primary" id="calcBtn">See the savings</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">Saved per year on email</div>
+      <div class="big">$<span id="big">0</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">Time saved / day</div><div class="v accent" id="day">—</div></div>
+      <div class="stat"><div class="k">Hours saved / year</div><div class="v" id="hours">—</div></div>
+      <div class="stat"><div class="k">Emails / year</div><div class="v" id="cnt">—</div></div></div>
+      <a class="cta-box" href="https://www.typeless.com/?via=44144c" target="_blank" rel="noopener" style="display:block;text-decoration:none;text-align:left;margin-top:20px;background:linear-gradient(135deg,#eef2ff,#f5f3ff);border:1.5px solid #a5b4fc;border-radius:14px;padding:18px;">
+        <div style="font-weight:900;color:#4f46e5;font-size:15px;">🎙️ That time saving is real — with voice input.</div>
+        <div style="font-size:13px;color:var(--ink-2);margin-top:6px;line-height:1.7;">Talking is far faster than typing. <strong>The best voice-input tool right now is Typeless</strong>: its AI cleans up filler words and turns speech into polished text, so meeting notes, emails and articles get done in a fraction of the time. People stop wanting to go back to the keyboard.</div>
+        <div style="margin-top:12px;display:inline-flex;align-items:center;gap:8px;background:#4f46e5;color:#fff;font-weight:800;font-size:14px;padding:11px 22px;border-radius:999px;">Try Typeless for free →</div>
+      </a>
+      <div style="text-align:center;margin-top:14px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">Share on 𝕏</button>
+        <button class="btn btn-ghost" id="copyBtn">Copy result</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>Email is made for voice</h2>
+    <div class="note"><strong>Formula</strong><br>Voice cuts writing time to about 1/3.<br>Yearly saving = minutes/email × 2/3 × emails/day × 240 workdays × hourly rate</div>
+    <p>Routine emails are the fastest to dictate — and AI tidies the tone and formatting, so proofreading shrinks too. The more email you send, the bigger the win.</p><div class="note" style="margin-top:14px;"><strong>Bottom line: the best voice-input tool right now is Typeless.</strong><br>There are many dictation tools, but Typeless stands out for accuracy and for auto-cleaning filler words into natural written text — turning the savings above into reality.</div>
+    <h2>FAQ</h2><dl class="faq"><dt>Will it sound too casual?</dt><dd>AI rewrites speech into a clean professional tone — it won't read like a transcript.</dd><dt>Is my data sent anywhere?</dt><dd>No. This calculator runs entirely in your browser.</dd></dl>
+  </article>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../../en/index.html">← Back to SimuLab home</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 SimuLab (シミュラボ)</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const usd = (n) => '$' + Math.round(n).toLocaleString('en-US');
+  const num = (n) => Math.round(n).toLocaleString('en-US');
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('en-US'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){const n=Math.max(0,+$('n').value||0),mi=Math.max(0,+$('min').value||0),r=Math.max(0,+$('rate').value||0);
+    const saveDay=n*mi*2/3, yearH=saveDay*240/60, money=yearH*r;
+    $('sub').textContent=`${n}/day · ${mi} min each · $${num(r)}/hr`;$('day').textContent=num(saveDay)+' min';$('hours').textContent=num(yearH)+' hrs';$('cnt').textContent=num(n*240);
+    SHARE=`Dictating my email would save about ${usd(money)} (${num(yearH)} hours) a year ✉️`;show();anim($('big'),0,money,900);}
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('SimuLab,voiceinput'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='Copied ✓'; setTimeout(()=>$('copyBtn').textContent='Copy result',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../../assets/result-fx.js"></script>
+<script src="../../../assets/lang-toggle.js"></script>
+<script src="../../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'mail-jitan', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

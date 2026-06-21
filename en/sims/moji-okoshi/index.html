@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transcription Cost Savings Calculator | How much do you save with AI transcription? | SimuLab</title>
+<meta name="description" content="From minutes recorded per month and your outsourcing rate, see how much you save per year by switching transcription to AI voice recognition.">
+<link rel="canonical" href="https://shimulabo.com/en/sims/moji-okoshi/">
+<link rel="alternate" hreflang="ja" href="https://shimulabo.com/sims/moji-okoshi/">
+<link rel="alternate" hreflang="en" href="https://shimulabo.com/en/sims/moji-okoshi/">
+<link rel="alternate" hreflang="x-default" href="https://shimulabo.com/sims/moji-okoshi/">
+<meta property="og:title" content="Transcription Cost Savings Calculator">
+<meta property="og:description" content="See yearly savings from switching transcription to AI.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://shimulabo.com/en/sims/moji-okoshi/">
+<meta property="og:image" content="https://shimulabo.com/ogp/moji-okoshi.png">
+<meta property="og:locale" content="en_US">
+<meta name="robots" content="index,follow">
+<link rel="icon" href="../../../favicon-32x32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
+<link rel="stylesheet" href="../../../assets/style.css">
+<!-- ga4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Transcription Cost Savings Calculator", "url": "https://shimulabo.com/en/sims/moji-okoshi/", "description": "See yearly savings from switching transcription to AI.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "SimuLab", "url": "https://shimulabo.com/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://shimulabo.com/en/"}, {"@type": "ListItem", "position": 2, "name": "Transcription Cost Savings Calculator", "item": "https://shimulabo.com/en/sims/moji-okoshi/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is AI accuracy on par?", "acceptedAnswer": {"@type": "Answer", "text": "Modern AI is highly accurate, with speaker separation and custom vocabulary in many tools."}}, {"@type": "Question", "name": "Is my data sent anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. This calculator runs entirely in your browser."}}]}</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../../en/index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">Simu<b>Lab</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../../en/index.html">← All sims</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../../en/index.html">Home</a><span>›</span>Voice Input & Time Saved<span>›</span><span class="cur">Transcription Cost Savings Calculator</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">Voice Input & Time Saved</div>
+    <h1>Transcription Cost Savings Calculator</h1>
+    <p class="lead">Outsourced transcription is billed by the minute. See how much you save per year by switching interview and meeting transcription to AI voice recognition.</p>
+  </div>
+
+  <section class="panel">
+    <h2>🔊 Your numbers</h2>
+    <div class="row"><div class="field"><label>Minutes recorded per month</label><input type="number" id="min" value="180" min="0" inputmode="numeric"></div>
+    <div class="field"><label>Outsourcing rate <span class="hint">($/min)</span></label><input type="number" id="tanka" value="1.5" min="0" step="0.1" inputmode="decimal"></div></div>
+    <div class="field"><label>AI tool monthly cost <span class="hint">($)</span></label><input type="number" id="tool" value="15" min="0" inputmode="numeric"></div>
+    <button class="btn btn-primary" id="calcBtn">See the savings</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">Transcription saved per year</div>
+      <div class="big">$<span id="big">0</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">Outsourced / year</div><div class="v" id="gai">—</div></div>
+      <div class="stat"><div class="k">AI tool / year</div><div class="v" id="toolv">—</div></div>
+      <div class="stat"><div class="k">Savings rate</div><div class="v accent" id="rate">—</div></div></div>
+      <a class="cta-box" href="https://www.typeless.com/?via=44144c" target="_blank" rel="noopener" style="display:block;text-decoration:none;text-align:left;margin-top:20px;background:linear-gradient(135deg,#eef2ff,#f5f3ff);border:1.5px solid #a5b4fc;border-radius:14px;padding:18px;">
+        <div style="font-weight:900;color:#4f46e5;font-size:15px;">🎙️ That time saving is real — with voice input.</div>
+        <div style="font-size:13px;color:var(--ink-2);margin-top:6px;line-height:1.7;">Talking is far faster than typing. <strong>The best voice-input tool right now is Typeless</strong>: its AI cleans up filler words and turns speech into polished text, so meeting notes, emails and articles get done in a fraction of the time. People stop wanting to go back to the keyboard.</div>
+        <div style="margin-top:12px;display:inline-flex;align-items:center;gap:8px;background:#4f46e5;color:#fff;font-weight:800;font-size:14px;padding:11px 22px;border-radius:999px;">Try Typeless for free →</div>
+      </a>
+      <div style="text-align:center;margin-top:14px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">Share on 𝕏</button>
+        <button class="btn btn-ghost" id="copyBtn">Copy result</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>Outsourced vs AI transcription</h2>
+    <div class="note"><strong>Formula</strong><br>Outsourced (year) = minutes × rate/min × 12<br>Savings = outsourced cost − AI tool yearly cost</div>
+    <p>Human transcription typically runs $1–2 per recorded minute. AI transcription is often a flat monthly fee with unlimited use — the more you transcribe, the more you save, and it's far faster too.</p><div class="note" style="margin-top:14px;"><strong>Bottom line: the best voice-input tool right now is Typeless.</strong><br>There are many dictation tools, but Typeless stands out for accuracy and for auto-cleaning filler words into natural written text — turning the savings above into reality.</div>
+    <h2>FAQ</h2><dl class="faq"><dt>Is AI accuracy on par?</dt><dd>Modern AI is highly accurate, with speaker separation and custom vocabulary in many tools.</dd><dt>Is my data sent anywhere?</dt><dd>No. This calculator runs entirely in your browser.</dd></dl>
+  </article>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../../en/index.html">← Back to SimuLab home</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 SimuLab (シミュラボ)</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const usd = (n) => '$' + Math.round(n).toLocaleString('en-US');
+  const num = (n) => Math.round(n).toLocaleString('en-US');
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('en-US'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){const mi=Math.max(0,+$('min').value||0),t=Math.max(0,+$('tanka').value||0),tool=Math.max(0,+$('tool').value||0);
+    const gai=mi*t*12, toolY=tool*12, save=Math.max(0,gai-toolY), rate=gai>0?save/gai*100:0;
+    $('sub').textContent=`${num(mi)} min/mo · $${t}/min`;$('gai').textContent=usd(gai);$('toolv').textContent=usd(toolY);$('rate').textContent=Math.round(rate)+'%';
+    SHARE=`Switching transcription to AI would save about ${usd(save)} a year (${Math.round(rate)}% off) 🔊`;show();anim($('big'),0,save,900);}
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('SimuLab,voiceinput'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='Copied ✓'; setTimeout(()=>$('copyBtn').textContent='Copy result',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../../assets/result-fx.js"></script>
+<script src="../../../assets/lang-toggle.js"></script>
+<script src="../../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'moji-okoshi', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

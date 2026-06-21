@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lifetime Typing Time Calculator | How many days can voice input give you back? | SimuLab</title>
+<meta name="description" content="From your daily typing hours and the years ahead, see your lifetime hours at the keyboard and how many days of your life voice input could give back.">
+<link rel="canonical" href="https://shimulabo.com/en/sims/shogai-typing/">
+<link rel="alternate" hreflang="ja" href="https://shimulabo.com/sims/shogai-typing/">
+<link rel="alternate" hreflang="en" href="https://shimulabo.com/en/sims/shogai-typing/">
+<link rel="alternate" hreflang="x-default" href="https://shimulabo.com/sims/shogai-typing/">
+<meta property="og:title" content="Lifetime Typing Time Calculator | Days you can reclaim">
+<meta property="og:description" content="See your lifetime typing hours and the days voice input could give back.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://shimulabo.com/en/sims/shogai-typing/">
+<meta property="og:image" content="https://shimulabo.com/ogp/shogai-typing.png">
+<meta property="og:locale" content="en_US">
+<meta name="robots" content="index,follow">
+<link rel="icon" href="../../../favicon-32x32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
+<link rel="stylesheet" href="../../../assets/style.css">
+<!-- ga4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Lifetime Typing Time Calculator", "url": "https://shimulabo.com/en/sims/shogai-typing/", "description": "See your lifetime typing hours and the days voice input could give back.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "SimuLab", "url": "https://shimulabo.com/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://shimulabo.com/en/"}, {"@type": "ListItem", "position": 2, "name": "Lifetime Typing Time Calculator", "item": "https://shimulabo.com/en/sims/shogai-typing/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can everything go to voice?", "acceptedAnswer": {"@type": "Answer", "text": "Code and fine edits still suit the keyboard, but most prose can be dictated."}}, {"@type": "Question", "name": "Is my data sent anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. This calculator runs entirely in your browser."}}]}</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../../en/index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">Simu<b>Lab</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../../en/index.html">← All sims</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../../en/index.html">Home</a><span>›</span>Voice Input & Time Saved<span>›</span><span class="cur">Lifetime Typing Time Calculator</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">Voice Input & Time Saved</div>
+    <h1>Lifetime Typing Time Calculator</h1>
+    <p class="lead">How many days of your life will you spend at the keyboard? From your daily typing hours, see your lifetime total — and how many days voice input could give back.</p>
+  </div>
+
+  <section class="panel">
+    <h2>⌨️ Your numbers</h2>
+    <div class="row"><div class="field"><label>Typing hours per day</label><input type="number" id="h" value="4" min="0" max="16" step="0.5" inputmode="decimal"></div>
+    <div class="field"><label>Years ahead</label><input type="number" id="years" value="40" min="1" max="70" inputmode="numeric"></div></div>
+    <button class="btn btn-primary" id="calcBtn">See the time I can reclaim</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">Time voice input could give back</div>
+      <div class="big"><span id="big">0</span><span class="unit"> days</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">Lifetime typing</div><div class="v" id="total">—</div></div>
+      <div class="stat"><div class="k">Hours reclaimed</div><div class="v accent" id="back">—</div></div>
+      <div class="stat"><div class="k">Per day</div><div class="v" id="day">—</div></div></div>
+      <a class="cta-box" href="https://www.typeless.com/?via=44144c" target="_blank" rel="noopener" style="display:block;text-decoration:none;text-align:left;margin-top:20px;background:linear-gradient(135deg,#eef2ff,#f5f3ff);border:1.5px solid #a5b4fc;border-radius:14px;padding:18px;">
+        <div style="font-weight:900;color:#4f46e5;font-size:15px;">🎙️ That time saving is real — with voice input.</div>
+        <div style="font-size:13px;color:var(--ink-2);margin-top:6px;line-height:1.7;">Talking is far faster than typing. <strong>The best voice-input tool right now is Typeless</strong>: its AI cleans up filler words and turns speech into polished text, so meeting notes, emails and articles get done in a fraction of the time. People stop wanting to go back to the keyboard.</div>
+        <div style="margin-top:12px;display:inline-flex;align-items:center;gap:8px;background:#4f46e5;color:#fff;font-weight:800;font-size:14px;padding:11px 22px;border-radius:999px;">Try Typeless for free →</div>
+      </a>
+      <div style="text-align:center;margin-top:14px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">Share on 𝕏</button>
+        <button class="btn btn-ghost" id="copyBtn">Copy result</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>Reclaim your time</h2>
+    <div class="note"><strong>Formula</strong><br>Lifetime typing = hours/day × 365 × years<br>Reclaimable = lifetime typing × 2/3 (voice ≈ 3× faster)</div>
+    <p>Daily keyboard time piles into days — even months — of your life. Reclaim two-thirds of it with voice input, and imagine what that time could become. Time is your most valuable asset.</p><div class="note" style="margin-top:14px;"><strong>Bottom line: the best voice-input tool right now is Typeless.</strong><br>There are many dictation tools, but Typeless stands out for accuracy and for auto-cleaning filler words into natural written text — turning the savings above into reality.</div>
+    <h2>FAQ</h2><dl class="faq"><dt>Can everything go to voice?</dt><dd>Code and fine edits still suit the keyboard, but most prose can be dictated.</dd><dt>Is my data sent anywhere?</dt><dd>No. This calculator runs entirely in your browser.</dd></dl>
+  </article>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../../en/index.html">← Back to SimuLab home</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 SimuLab (シミュラボ)</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const usd = (n) => '$' + Math.round(n).toLocaleString('en-US');
+  const num = (n) => Math.round(n).toLocaleString('en-US');
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('en-US'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){const h=Math.max(0,+$('h').value||0),y=Math.max(1,+$('years').value||1);
+    const totalH=h*365*y, backH=totalH*2/3, backDays=backH/24;
+    $('sub').textContent=`${h} hrs/day × ${y} years`;$('total').textContent=num(totalH)+' hrs';$('back').textContent=num(backH)+' hrs';$('day').textContent=num(h*2/3*60)+' min';
+    SHARE=`Switching to voice input could give me back about ${num(backDays)} days of my life ⌨️`;show();anim($('big'),0,backDays,900);}
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('SimuLab,voiceinput'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='Copied ✓'; setTimeout(()=>$('copyBtn').textContent='Copy result',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../../assets/result-fx.js"></script>
+<script src="../../../assets/lang-toggle.js"></script>
+<script src="../../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'shogai-typing', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>
