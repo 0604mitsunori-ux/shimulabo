@@ -57,7 +57,8 @@ const ALLOW = new Set([
   'shukatsu-sougaku', 'ohaka-hiyou', 'sougi-hiyou', 'kaigo-hiyou', 'nenkin-kurisage', 'seizen-zoyo', 'kougaku-ryoyo', 'ending-do', 'kenkou-jumyo', 'isan-bunkatsu',
   'juuminzei', 'shotokuzei', 'iryouhi-koujo', 'nenmatsu-chousei', 'fuyou-koujo', 'kabu-zei', 'shouhizei', 'kojin-jigyo', 'zoyozei', 'taishokukin-zei',
   'heigan-goukaku', 'hitsuyo-hensachi', 'juken-sougaku', 'juken-jikan', 'chugaku-juken', 'moshi-hantei', 'goukaku-saiteiten', 'nyushi-shindan', 'yobikou-hiyou', 'shigan-bairitsu',
-  'kotoshi-pct', 'otoshidama', 'bonus-haibun', 'christmas-yosan', 'nengajo-cost', 'kisei-hiyou', 'goshugi-souba', 'hanami-yosan', 'valentine-yosan', 'gyouji-countdown'
+  'kotoshi-pct', 'otoshidama', 'bonus-haibun', 'christmas-yosan', 'nengajo-cost', 'kisei-hiyou', 'goshugi-souba', 'hanami-yosan', 'valentine-yosan', 'gyouji-countdown',
+  'input-jitan', 'gijiroku-jitan', 'mail-jitan', 'blog-shippitsu', 'moji-okoshi', 'shorui-jitan', 'chat-jitan', 'memo-jitan', 'shogai-typing', 'kenshouen'
 ]);
 
 export default async function handler(req, res) {

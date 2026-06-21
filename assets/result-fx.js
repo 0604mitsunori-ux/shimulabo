@@ -322,7 +322,8 @@
     'シニア・終活・介護': { emojis: ['🍵', '🌸', '✨'], mode: 'burst', count: 36 },
     '税金・確定申告': { emojis: ['🧾', '💴', '✨'], mode: 'rain', count: 42 },
     '受験・進学': { emojis: ['🌸', '📣', '💯', '✨'], mode: 'burst', count: 50 },
-    '季節・行事': { emojis: ['🎉', '🎍', '🎄', '✨', '🎊'], mode: 'burst', count: 50 }
+    '季節・行事': { emojis: ['🎉', '🎍', '🎄', '✨', '🎊'], mode: 'burst', count: 50 },
+    '音声入力・時短': { emojis: ['🎙️', '💬', '⏱️', '✨'], mode: 'up', count: 44 }
   };
   function partyFor(panel, fallbackEmoji, power) {
     var cat = catLabel();

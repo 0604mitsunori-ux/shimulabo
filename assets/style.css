@@ -243,6 +243,7 @@ a { color: var(--teal-d); }
 .sim-card[data-cat="sports"]::before     { background: linear-gradient(90deg, #34d399, #059669); }
 .sim-card[data-cat="oshi"]::before       { background: linear-gradient(90deg, #c084fc, #e879f9); }
 .sim-card[data-cat="mental"]::before     { background: linear-gradient(90deg, #38bdf8, #6366f1); }
+.sim-card[data-cat="voice"]::before      { background: linear-gradient(90deg, #818cf8, #a855f7); }
 .sim-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); border-color: transparent; }
 .sim-card .thumb {
   height: 132px; display: grid; place-items: center; position: relative;
@@ -286,6 +287,7 @@ a { color: var(--teal-d); }
 .sim-card[data-cat="sports"]    .cat { color: #059669; }
 .sim-card[data-cat="oshi"]      .cat { color: #a21caf; }
 .sim-card[data-cat="mental"]    .cat { color: #4338ca; }
+.sim-card[data-cat="voice"]     .cat { color: #6d28d9; }
 .sim-card h3 { margin: 7px 0 9px; font-size: 19px; }
 .sim-card p { margin: 0; font-size: 13.5px; color: var(--ink-2); line-height: 1.7; }
 .sim-card .go {

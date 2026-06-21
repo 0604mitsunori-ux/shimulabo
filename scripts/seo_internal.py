@@ -254,7 +254,7 @@ SIMS = [
     ("kokoro-yoyuu", "心の余裕度チェック", "🍃", "メンタル・自己分析", "5問で今の心の余裕度をチェック。"),
 ]
 # --- 全カテゴリ3本ずつ補充分(gen_sims22〜26)を自動取り込み ---
-for _m in ('gen_sims22','gen_sims23','gen_sims24','gen_sims25','gen_sims26','gen_sims_teacher','gen_sims27','gen_sims28','gen_sims29','gen_sims30'):
+for _m in ('gen_sims22','gen_sims23','gen_sims24','gen_sims25','gen_sims26','gen_sims_teacher','gen_sims27','gen_sims28','gen_sims29','gen_sims30','gen_sims_voice'):
     try:
         _mod = __import__(_m)
         for _s in _mod.SIMS:
