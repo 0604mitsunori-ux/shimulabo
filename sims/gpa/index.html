@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/gpa/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/gpa.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/gpa.png">
+<title>GPA計算ツール｜大学・高校のGPAを成績から自動計算｜シミュラボ</title>
+<meta name="description" content="秀・優・良・可（A・B・C・D）など成績の科目数を入れるだけで、GPA（評価平均）を自動計算する無料ツール。大学生・高校生・先生の成績管理に。">
+<meta property="og:title" content="GPA計算ツール｜成績からGPAを自動計算">
+<meta property="og:description" content="成績の科目数を入れるだけでGPAを自動計算。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/gpa/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "GPA計算ツール", "url": "https://shimulabo.com/sims/gpa/", "description": "秀・優・良・可（A・B・C・D）など成績の科目数を入れるだけで、GPA（評価平均）を自動計算する無料ツール。大学生・高校生・先生の成績管理に。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "GPA計算ツール", "item": "https://shimulabo.com/sims/gpa/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "単位数で重み付けは？", "acceptedAnswer": {"@type": "Answer", "text": "本ツールは科目数ベースの簡易計算です。厳密には単位数加重で計算する大学が多いです。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>教員・先生<span>›</span><span class="cur">GPA計算ツール</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">教員・先生</div>
+    <h1>GPA計算ツール</h1>
+    <p class="lead">大学・高校の成績評価から「GPA」を計算します。秀＝4・優＝3・良＝2・可＝1として、それぞれの科目数を入れるだけ。奨学金・留学・院進の出願準備や成績管理に。</p>
+  </div>
+
+  <section class="panel">
+    <h2>📗 成績の科目数を入れる</h2>
+    <div class="row"><div class="field"><label>秀／S／A（4点）</label><input type="number" id="a" value="6" min="0" inputmode="numeric"></div>
+    <div class="field"><label>優／B（3点）</label><input type="number" id="b" value="8" min="0" inputmode="numeric"></div></div>
+    <div class="row"><div class="field"><label>良／C（2点）</label><input type="number" id="c" value="4" min="0" inputmode="numeric"></div>
+    <div class="field"><label>可／D（1点）</label><input type="number" id="d" value="2" min="0" inputmode="numeric"></div></div>
+    <button class="btn btn-primary" id="calcBtn">GPAを計算する</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">あなたのGPA</div>
+      <div class="big"><span id="big">0</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">総科目数</div><div class="v" id="n">—</div></div>
+      <div class="stat"><div class="k">獲得ポイント計</div><div class="v" id="pt">—</div></div>
+      <div class="stat"><div class="k">評価の目安</div><div class="v accent" id="rank">—</div></div></div>
+      <a class="cta-box" href="https://piyopiyo-teacher.com/?page_id=1103" target="_blank" rel="noopener" style="display:block;text-decoration:none;text-align:left;margin-top:20px;background:linear-gradient(135deg,#fff7ed,#ffedd5);border:1.5px solid #fcd34d;border-radius:14px;padding:16px 18px;">
+        <div style="font-weight:900;color:#b45309;font-size:15px;">📝 通知表の所見づくり、もっとラクに。</div>
+        <div style="font-size:13px;color:var(--ink-2);margin-top:5px;line-height:1.6;">観点を選ぶだけで自然な所見文が完成。先生のための「通知表 所見作成ツール」を無料で試せます。</div>
+        <div style="margin-top:10px;font-weight:800;color:#b45309;font-size:13px;">所見作成ツールを使ってみる →</div>
+      </a>
+      <div style="text-align:center;margin-top:14px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>GPAの計算方法</h2>
+    <div class="note"><strong>計算式</strong><br>GPA ＝（各評価のポイント × 科目数）の合計 ÷ 総科目数<br>一般的に 秀/S/A=4・優/B=3・良/C=2・可/D=1・不可=0</div>
+    <p>GPA（Grade Point Average）は成績の平均値。奨学金・交換留学・大学院進学などで重視されます。4.0満点で、3.0以上あると評価されやすい目安。大学により単位数で重み付けする「単位加重GPA」を使う場合もあります（本ツールは科目数ベースの簡易版）。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>単位数で重み付けは？</dt><dd>本ツールは科目数ベースの簡易計算です。厳密には単位数加重で計算する大学が多いです。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../seiseki-hyotei/index.html"><span class="e">📊</span><span>観点別評価→評定シミュレーター</span></a><a class="related-card" href="../test-toukei/index.html"><span class="e">📈</span><span>テスト統計シミュレーター</span></a><a class="related-card" href="../naishin-keisan/index.html"><span class="e">🎯</span><span>内申点 計算シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){
+    const a=Math.max(0,+$('a').value||0),b=Math.max(0,+$('b').value||0),c=Math.max(0,+$('c').value||0),d=Math.max(0,+$('d').value||0);
+    const n=a+b+c+d, pt=a*4+b*3+c*2+d*1, gpa=n>0?pt/n:0;
+    let r; if(gpa>=3.5)r='非常に優秀'; else if(gpa>=3.0)r='優秀'; else if(gpa>=2.0)r='標準'; else r='要努力';
+    $('sub').textContent=`${n}科目の成績から`;
+    $('n').textContent=n+'科目'; $('pt').textContent=pt+'pt'; $('rank').textContent=r;
+    SHARE=`GPA計算ツール、私のGPAは${gpa.toFixed(2)}（${r}）でした📗`;
+    show(); anim($('big'),0,gpa,800,2);
+  }
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ,教員'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'gpa', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

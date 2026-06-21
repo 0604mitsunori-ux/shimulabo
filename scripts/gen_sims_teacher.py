@@ -581,6 +581,219 @@ add(id='kyushoku-shukin', cat=T, emoji='💴',
     show(); anim($('big'),0,total,800);
   }''')
 
+# ===== SEO穴場キーワード狙いの追加7本 =====
+add(id='hyoutei-heikin', cat=T, emoji='🎓',
+  title='評定平均値 計算シミュレーター｜推薦・指定校の評定平均をすぐ計算｜シミュラボ',
+  desc='全科目の評定（5段階）を入力するだけで、大学推薦・指定校推薦の出願基準に使う「評定平均値（学習成績の状況）」を自動計算。基準クリアの目安も表示する無料ツール。',
+  ogtitle='評定平均値 計算｜推薦・指定校の評定平均をすぐ計算', ogdesc='全科目の評定から評定平均値を自動計算。推薦基準の目安も。',
+  h1='評定平均値 計算シミュレーター',
+  lead='大学の指定校推薦・公募推薦で使う「評定平均値（学習成績の状況）」を、全科目の評定を貼り付けるだけで計算します。志望校の基準に届くかの目安もチェック。先生の進路指導・生徒の自己確認に。',
+  inputs='''    <h2>🎓 評定を入力</h2>
+    <div class="field"><label>全科目の評定（5・4・3…をカンマや改行で）</label><textarea id="hyotei" rows="4" style="width:100%;padding:12px;border:1.5px solid var(--line);border-radius:12px;font-size:15px;">5,4,4,5,3,4,4,5,4,3,4,4</textarea></div>
+    <button class="btn btn-primary" id="calcBtn">評定平均値を計算する</button>''',
+  result='''      <div class="label">評定平均値</div>
+      <div class="big"><span id="big">0</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">科目数</div><div class="v" id="n">—</div></div>
+      <div class="stat"><div class="k">評定の合計</div><div class="v" id="sum">—</div></div>
+      <div class="stat"><div class="k">推薦の目安</div><div class="v accent" id="rank">—</div></div></div>''',
+  article='''    <h2>評定平均値とは</h2>
+    <div class="note"><strong>計算式</strong><br>評定平均値 ＝ 全科目の評定の合計 ÷ 科目数（小数第1位まで）</div>
+    <p>高校3年間（または出願時まで）の全科目の評定を平均した数値で、大学の推薦入試で重視されます。指定校推薦は3.5〜4.3以上を基準にする大学が多く、評定平均値はA〜Eの段階にも区分されます（4.3以上=A、3.5以上=B…）。本ツールは目安です。正確な値は学校の調査書でご確認ください。</p>
+    <h2>よくある質問</h2>'''+faq([('何年分を入れる？','一般に高1〜出願時までの全科目です。学校の指示に従ってください。'),('データは送信されますか？','いいえ。計算はすべてブラウザ内で完結します。')]),
+  js='''  function calc(){
+    const arr=($('hyotei').value.match(/[1-5](?:\\.\\d)?/g)||[]).map(Number);
+    if(!arr.length){alert('評定を入力してね');return;}
+    const n=arr.length, sum=arr.reduce((a,b)=>a+b,0), avg=sum/n;
+    let r; if(avg>=4.3)r='A（4.3以上）'; else if(avg>=3.5)r='B（3.5以上）'; else if(avg>=2.7)r='C'; else if(avg>=1.9)r='D'; else r='E';
+    $('sub').textContent=`${n}科目の評定から`;
+    $('n').textContent=n+'科目'; $('sum').textContent=sum+'点'; $('rank').textContent=r;
+    SHARE=`評定平均値 計算シミュ、評定平均は${avg.toFixed(1)}（区分${r.charAt(0)}）でした🎓`;
+    show(); anim($('big'),0,avg,800,1);
+  }''')
+
+add(id='gpa', cat=T, emoji='📗',
+  title='GPA計算ツール｜大学・高校のGPAを成績から自動計算｜シミュラボ',
+  desc='秀・優・良・可（A・B・C・D）など成績の科目数を入れるだけで、GPA（評価平均）を自動計算する無料ツール。大学生・高校生・先生の成績管理に。',
+  ogtitle='GPA計算ツール｜成績からGPAを自動計算', ogdesc='成績の科目数を入れるだけでGPAを自動計算。',
+  h1='GPA計算ツール',
+  lead='大学・高校の成績評価から「GPA」を計算します。秀＝4・優＝3・良＝2・可＝1として、それぞれの科目数を入れるだけ。奨学金・留学・院進の出願準備や成績管理に。',
+  inputs='''    <h2>📗 成績の科目数を入れる</h2>
+    <div class="row"><div class="field"><label>秀／S／A（4点）</label><input type="number" id="a" value="6" min="0" inputmode="numeric"></div>
+    <div class="field"><label>優／B（3点）</label><input type="number" id="b" value="8" min="0" inputmode="numeric"></div></div>
+    <div class="row"><div class="field"><label>良／C（2点）</label><input type="number" id="c" value="4" min="0" inputmode="numeric"></div>
+    <div class="field"><label>可／D（1点）</label><input type="number" id="d" value="2" min="0" inputmode="numeric"></div></div>
+    <button class="btn btn-primary" id="calcBtn">GPAを計算する</button>''',
+  result='''      <div class="label">あなたのGPA</div>
+      <div class="big"><span id="big">0</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">総科目数</div><div class="v" id="n">—</div></div>
+      <div class="stat"><div class="k">獲得ポイント計</div><div class="v" id="pt">—</div></div>
+      <div class="stat"><div class="k">評価の目安</div><div class="v accent" id="rank">—</div></div></div>''',
+  article='''    <h2>GPAの計算方法</h2>
+    <div class="note"><strong>計算式</strong><br>GPA ＝（各評価のポイント × 科目数）の合計 ÷ 総科目数<br>一般的に 秀/S/A=4・優/B=3・良/C=2・可/D=1・不可=0</div>
+    <p>GPA（Grade Point Average）は成績の平均値。奨学金・交換留学・大学院進学などで重視されます。4.0満点で、3.0以上あると評価されやすい目安。大学により単位数で重み付けする「単位加重GPA」を使う場合もあります（本ツールは科目数ベースの簡易版）。</p>
+    <h2>よくある質問</h2>'''+faq([('単位数で重み付けは？','本ツールは科目数ベースの簡易計算です。厳密には単位数加重で計算する大学が多いです。'),('データは送信されますか？','いいえ。計算はすべてブラウザ内で完結します。')]),
+  js='''  function calc(){
+    const a=Math.max(0,+$('a').value||0),b=Math.max(0,+$('b').value||0),c=Math.max(0,+$('c').value||0),d=Math.max(0,+$('d').value||0);
+    const n=a+b+c+d, pt=a*4+b*3+c*2+d*1, gpa=n>0?pt/n:0;
+    let r; if(gpa>=3.5)r='非常に優秀'; else if(gpa>=3.0)r='優秀'; else if(gpa>=2.0)r='標準'; else r='要努力';
+    $('sub').textContent=`${n}科目の成績から`;
+    $('n').textContent=n+'科目'; $('pt').textContent=pt+'pt'; $('rank').textContent=r;
+    SHARE=`GPA計算ツール、私のGPAは${gpa.toFixed(2)}（${r}）でした📗`;
+    show(); anim($('big'),0,gpa,800,2);
+  }''')
+
+add(id='jugyou-jisuu', cat=T, emoji='🗓️',
+  title='年間授業時数シミュレーター｜標準授業時数を満たしてる？｜シミュラボ',
+  desc='週の授業時数と実施週数から年間の授業時数を計算し、学年ごとの標準授業時数を満たしているか・過不足を確認できる先生向け無料ツール。',
+  ogtitle='年間授業時数シミュレーター｜標準時数を満たしてる？', ogdesc='週時数と実施週数から年間授業時数と標準との過不足を計算。',
+  h1='年間授業時数シミュレーター',
+  lead='週の授業コマ数と実施週数から、年間の授業時数を計算。学年ごとの「標準授業時数」と比べて、足りているか・どれくらい余裕があるかを確認できます。年間指導計画づくりに。',
+  inputs='''    <h2>🗓️ 条件を入れる</h2>
+    <div class="field"><label>学年（標準授業時数）</label><select id="grade"><option value="850">小1（850）</option><option value="910">小2（910）</option><option value="980">小3（980）</option><option value="1015" selected>小4〜6（1015）</option><option value="1015">中学（1015）</option></select></div>
+    <div class="row"><div class="field"><label>週の授業時数 <span class="hint">（コマ）</span></label><input type="number" id="week" value="29" min="1" inputmode="numeric"></div>
+    <div class="field"><label>年間の実施週数 <span class="hint">（週）</span></label><input type="number" id="weeks" value="35" min="1" inputmode="numeric"></div></div>
+    <button class="btn btn-primary" id="calcBtn">年間授業時数を見る</button>''',
+  result='''      <div class="label">年間の実施授業時数</div>
+      <div class="big"><span id="big">0</span><span class="unit">コマ</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">標準授業時数</div><div class="v" id="std">—</div></div>
+      <div class="stat"><div class="k">過不足</div><div class="v accent" id="diff">—</div></div>
+      <div class="stat"><div class="k">判定</div><div class="v" id="judge">—</div></div></div>''',
+  article='''    <h2>標準授業時数とは</h2>
+    <div class="note"><strong>計算式</strong><br>年間授業時数 ＝ 週の授業時数 × 実施週数<br>学習指導要領の標準授業時数：小4〜6・中学＝1015コマ（1コマ＝小45分・中50分）</div>
+    <p>各学校は学習指導要領が定める「標準授業時数」を確保する必要があります。行事や休校で時数が不足しないよう、年間指導計画で管理します。本ツールは概算で、正確には教科ごとの時数管理が必要です。</p>
+    <h2>よくある質問</h2>'''+faq([('教科ごとに見たい？','教科ごとの週コマ数で計算すると各教科の年間時数が出ます。'),('データは送信されますか？','いいえ。計算はすべてブラウザ内で完結します。')]),
+  js='''  function calc(){
+    const std=+$('grade').value||1015, week=Math.max(1,+$('week').value||1), weeks=Math.max(1,+$('weeks').value||1);
+    const total=week*weeks, diff=total-std;
+    $('sub').textContent=`週${week}コマ × ${weeks}週`;
+    $('std').textContent=std+'コマ'; $('diff').textContent=(diff>=0?'+':'')+diff+'コマ'; $('judge').textContent= diff>=0?'確保できる見込み✓':'不足の可能性';
+    SHARE=`年間授業時数シミュ、年間${total}コマ（標準${std}に対し${diff>=0?'+':''}${diff}）でした🗓️`;
+    show(); anim($('big'),0,total,800);
+  }''')
+
+add(id='kekka-tani', cat=T, emoji='⚠️',
+  title='欠課時数・単位シミュレーター｜あと何回休むと単位が危ない？｜シミュラボ',
+  desc='科目の年間授業時数と現在の欠課時数、欠課上限の割合から、単位修得のためにあと何回まで休めるかを計算する高校生・先生向け無料ツール。',
+  ogtitle='欠課時数・単位シミュレーター｜あと何回休める？', ogdesc='年間時数と欠課数から、単位を落とさず休める残り回数を計算。',
+  h1='欠課時数・単位シミュレーター',
+  lead='高校で「欠時オーバー」して単位を落とすのが心配な人へ。科目の年間授業時数と今の欠課時数から、あと何回まで休めるか（単位修得ライン）を計算します。',
+  inputs='''    <h2>⚠️ 条件を入れる</h2>
+    <div class="row"><div class="field"><label>その科目の年間授業時数 <span class="hint">（コマ）</span></label><input type="number" id="total" value="70" min="1" inputmode="numeric"></div>
+    <div class="field"><label>これまでの欠課時数 <span class="hint">（コマ）</span></label><input type="number" id="abs" value="10" min="0" inputmode="numeric"></div></div>
+    <div class="field"><label>欠課できる上限の割合 <span class="hint">（％・校則。一般に1/3＝33%）</span></label><input type="number" id="limit" value="33" min="1" max="100" inputmode="numeric"></div>
+    <button class="btn btn-primary" id="calcBtn">あと何回休めるか見る</button>''',
+  result='''      <div class="label">あと休める回数</div>
+      <div class="big"><span id="big">0</span><span class="unit">コマ</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">欠課の上限</div><div class="v" id="max">—</div></div>
+      <div class="stat"><div class="k">現在の欠課</div><div class="v" id="now">—</div></div>
+      <div class="stat"><div class="k">状態</div><div class="v accent" id="judge">—</div></div></div>''',
+  article='''    <h2>欠課と単位修得</h2>
+    <div class="note"><strong>計算式</strong><br>欠課の上限 ＝ 年間授業時数 × 上限の割合<br>あと休める ＝ 上限 − これまでの欠課</div>
+    <p>高校は科目ごとに出席時数が単位修得の条件になっており、欠課が一定（多くは総時数の3分の1）を超えると単位を落とす（原級留置の原因に）ことがあります。基準は学校で異なるので、必ず校則・担任に確認を。本ツールは目安です。</p>
+    <h2>よくある質問</h2>'''+faq([('遅刻・早退は？','学校により「3回で1欠課」など換算があります。校則に従ってください。'),('データは送信されますか？','いいえ。計算はすべてブラウザ内で完結します。')]),
+  js='''  function calc(){
+    const total=Math.max(1,+$('total').value||1), abs=Math.max(0,+$('abs').value||0), lim=Math.max(1,Math.min(100,+$('limit').value||33))/100;
+    const max=Math.floor(total*lim), left=max-abs;
+    let j; if(left<0)j='上限超過の可能性…要相談'; else if(left<=2)j='危険ライン！注意'; else if(left<=5)j='余裕少なめ'; else j='まだ余裕あり';
+    $('sub').textContent=`年間${total}コマ・上限${Math.round(lim*100)}%`;
+    $('max').textContent=max+'コマ'; $('now').textContent=abs+'コマ'; $('judge').textContent=j;
+    SHARE=`欠課時数・単位シミュ、あと${Math.max(0,left)}回まで休める計算でした⚠️（${j}）`;
+    show(); anim($('big'),0,Math.max(0,left),800);
+  }''')
+
+add(id='kyoin-kyuryo', cat=T, emoji='💴',
+  title='教員の給料シミュレーター｜号俸・経験年数から月給の目安｜シミュラボ',
+  desc='経験年数と学歴・地域手当から、公立学校教員の月給・年収の目安を試算する無料ツール。教職調整額・地域手当も加味。これから教員を目指す人にも。',
+  ogtitle='教員の給料シミュレーター｜月給・年収の目安', ogdesc='経験年数と学歴・地域手当から教員の給料の目安を試算。',
+  h1='教員の給料シミュレーター',
+  lead='公立学校の教員の給料、経験を積むとどれくらい？経験年数・学歴・地域手当から、月給と年収の目安を試算します（教職調整額4%込み）。教員志望の方の参考にも。',
+  inputs='''    <h2>💴 条件を入れる</h2>
+    <div class="row"><div class="field"><label>経験年数 <span class="hint">（年）</span></label><input type="number" id="years" value="5" min="0" max="40" inputmode="numeric"></div>
+    <div class="field"><label>学歴</label><select id="edu"><option value="202000" selected>大卒</option><option value="228000">大学院卒</option><option value="184000">短大卒</option></select></div></div>
+    <div class="field"><label>地域手当</label><select id="chiiki"><option value="0">なし（地方）</option><option value="0.1" selected>10%（都市部）</option><option value="0.2">20%（東京特別区など）</option></select></div>
+    <button class="btn btn-primary" id="calcBtn">給料の目安を見る</button>''',
+  result='''      <div class="label">月給の目安（総支給）</div>
+      <div class="big"><span id="big">0</span><span class="unit">円</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">年収の目安</div><div class="v accent" id="year">—</div></div>
+      <div class="stat"><div class="k">基本給</div><div class="v" id="base">—</div></div>
+      <div class="stat"><div class="k">教職調整額(4%)</div><div class="v" id="cho">—</div></div></div>''',
+  article='''    <h2>教員の給料のしくみ</h2>
+    <div class="note"><strong>概算の内訳</strong><br>基本給 ＝ 初任給 ＋ 経験年数 × 約4,500円（昇給の目安）<br>月給 ＝ 基本給 ＋ 教職調整額（基本給×4%）＋ 地域手当<br>年収 ＝ 月給 × 12 ＋ ボーナス（約4.5ヶ月）</div>
+    <p>教員には残業代の代わりに「教職調整額（基本給の4%）」が一律支給されます（給特法）。実際の給料は自治体の給料表・号俸・各種手当（扶養・住居・部活など）で大きく変わるため、本ツールはあくまで目安です。</p>
+    <h2>よくある質問</h2>'''+faq([('正確な額は？','自治体の給料表で号俸ごとに決まります。本ツールは概算の目安です。'),('データは送信されますか？','いいえ。計算はすべてブラウザ内で完結します。')]),
+  js='''  function calc(){
+    const y=Math.max(0,+$('years').value||0), init=+$('edu').value||202000, ch=+$('chiiki').value||0;
+    const base=init+y*4500, cho=base*0.04, region=base*ch, month=base+cho+region;
+    const yearInc=month*12+base*4.5;
+    $('sub').textContent=`経験${y}年・${sel('edu').text}・地域手当${Math.round(ch*100)}%`;
+    $('year').textContent=yen(yearInc); $('base').textContent=yen(base); $('cho').textContent=yen(cho);
+    SHARE=`教員の給料シミュ、月給の目安は約${yen(month)}・年収約${yen(yearInc)}でした💴（経験${y}年）`;
+    show(); anim($('big'),0,month,800);
+  }''')
+
+add(id='kyosai-bairitsu', cat=T, emoji='📋',
+  title='教員採用試験 倍率シミュレーター｜受験者数と採用数から倍率を計算｜シミュラボ',
+  desc='教員採用試験の受験者数と採用者数（合格者数）から、競争倍率と合格率を計算する無料ツール。自治体・校種別の倍率比較や受験校選びの参考に。',
+  ogtitle='教員採用試験 倍率シミュレーター｜倍率を計算', ogdesc='受験者数と採用数から教採の倍率と合格率を計算。',
+  h1='教員採用試験 倍率シミュレーター',
+  lead='教員採用試験（教採）の倍率を、受験者数と採用者数から計算します。合格率もわかるので、自治体・校種ごとの比較や、出願先選びの目安に。',
+  inputs='''    <h2>📋 条件を入れる</h2>
+    <div class="row"><div class="field"><label>受験者数 <span class="hint">（人）</span></label><input type="number" id="apply" value="1200" min="1" inputmode="numeric"></div>
+    <div class="field"><label>採用者数（合格者数） <span class="hint">（人）</span></label><input type="number" id="pass" value="300" min="1" inputmode="numeric"></div></div>
+    <button class="btn btn-primary" id="calcBtn">倍率を計算する</button>''',
+  result='''      <div class="label">競争倍率</div>
+      <div class="big"><span id="big">0</span><span class="unit">倍</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">合格率</div><div class="v accent" id="rate">—</div></div>
+      <div class="stat"><div class="k">不合格者の目安</div><div class="v" id="fail">—</div></div>
+      <div class="stat"><div class="k">全国平均(約3〜4倍)と</div><div class="v" id="vs">—</div></div></div>''',
+  article='''    <h2>教採の倍率</h2>
+    <div class="note"><strong>計算式</strong><br>倍率 ＝ 受験者数 ÷ 採用者数／合格率 ＝ 採用者数 ÷ 受験者数 ×100</div>
+    <p>近年は教員不足を背景に倍率が下がる自治体も増えています（全国平均は小学校で2倍台、中高でやや高め）。校種・教科・自治体で大きく差があるため、志望先の最新データと合わせて確認しましょう。</p>
+    <h2>よくある質問</h2>'''+faq([('倍率が低い＝受かりやすい？','傾向としてはそうですが、合否は試験の出来しだいです。対策が大切。'),('データは送信されますか？','いいえ。計算はすべてブラウザ内で完結します。')]),
+  js='''  function calc(){
+    const a=Math.max(1,+$('apply').value||1), p=Math.max(1,+$('pass').value||1);
+    const b=a/p, rate=p/a*100;
+    $('sub').textContent=`受験${num(a)}人 ÷ 採用${num(p)}人`;
+    $('rate').textContent=rate.toFixed(1)+'%'; $('fail').textContent=num(Math.max(0,a-p))+'人'; $('vs').textContent= b<3?'低め（受かりやすい傾向）':b>4?'高め（難関）':'平均的';
+    SHARE=`教員採用試験 倍率シミュ、倍率は${b.toFixed(1)}倍・合格率${rate.toFixed(1)}%でした📋`;
+    show(); anim($('big'),0,b,800,1);
+  }''')
+
+add(id='gakkyu-hensei', cat=T, emoji='🏫',
+  title='学級編成シミュレーター｜児童生徒数から何クラス？（35人学級）｜シミュラボ',
+  desc='学年の児童生徒数と1クラスの上限人数（35人・40人）から、何クラスに編成されるか・1クラスの平均人数・あと何人で1クラス増えるかを計算する先生向け無料ツール。',
+  ogtitle='学級編成シミュレーター｜何クラスになる？35人学級', ogdesc='児童生徒数と上限人数からクラス数・平均人数を計算。',
+  h1='学級編成シミュレーター',
+  lead='学年の人数から、何クラスに分かれるかを計算します。35人学級・40人学級の上限に対応。1クラスの平均人数や、「あと何人で1クラス増える（減る）」のボーダーも分かります。',
+  inputs='''    <h2>🏫 条件を入れる</h2>
+    <div class="row"><div class="field"><label>学年の児童生徒数 <span class="hint">（人）</span></label><input type="number" id="n" value="72" min="1" inputmode="numeric"></div>
+    <div class="field"><label>1クラスの上限</label><select id="cap"><option value="35" selected>35人（小学校・中学）</option><option value="40">40人</option><option value="30">30人</option></select></div></div>
+    <button class="btn btn-primary" id="calcBtn">クラス数を見る</button>''',
+  result='''      <div class="label">編成されるクラス数</div>
+      <div class="big"><span id="big">0</span><span class="unit">クラス</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">1クラス平均</div><div class="v accent" id="avg">—</div></div>
+      <div class="stat"><div class="k">あと何人で+1クラス</div><div class="v" id="next">—</div></div>
+      <div class="stat"><div class="k">上限</div><div class="v" id="cap">—</div></div></div>''',
+  article='''    <h2>学級編制の標準</h2>
+    <div class="note"><strong>計算式</strong><br>クラス数 ＝ 児童生徒数 ÷ 1クラスの上限（端数は切り上げ）<br>1クラス平均 ＝ 児童生徒数 ÷ クラス数</div>
+    <p>公立小中学校の1学級の人数は「学級編制の標準」で定められ、小学校は段階的に35人学級へ。1人増えるだけでクラス数が変わり、教員配置にも影響します。実際は特別支援学級なども含めた配置になります。</p>
+    <h2>よくある質問</h2>'''+faq([('1人の差でクラスが変わる？','はい。上限を1人超えると1クラス増えます。本ツールでボーダーを確認できます。'),('データは送信されますか？','いいえ。計算はすべてブラウザ内で完結します。')]),
+  js='''  function calc(){
+    const n=Math.max(1,+$('n').value||1), cap=+$('cap').value||35;
+    const classes=Math.ceil(n/cap), avg=n/classes, toNext=(classes*cap)-n+1;
+    $('sub').textContent=`${n}人・上限${cap}人`;
+    $('avg').textContent=avg.toFixed(1)+'人'; $('next').textContent='あと'+toNext+'人'; $('cap').textContent=cap+'人';
+    SHARE=`学級編成シミュ、${n}人なら${classes}クラス（1クラス平均${avg.toFixed(1)}人）でした🏫`;
+    show(); anim($('big'),0,classes,800);
+  }''')
+
 def render():
     for s in SIMS:
         d=os.path.join(ROOT,'sims',s['id']); os.makedirs(d,exist_ok=True)
