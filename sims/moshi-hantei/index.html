@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/moshi-hantei/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/moshi-hantei.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/moshi-hantei.png">
+<title>模試判定シミュレーター｜点数と偏差値からA〜E判定｜シミュラボ</title>
+<meta name="description" content="模試の得点・平均点・標準偏差から偏差値を出し、志望校の偏差値と比べてA〜E判定の目安を表示する受験生向け無料シミュレーター。">
+<meta property="og:title" content="模試判定シミュレーター｜A〜E判定の目安">
+<meta property="og:description" content="点数と志望校偏差値から合格判定A〜Eの目安を表示。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/moshi-hantei/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "模試判定シミュレーター", "url": "https://shimulabo.com/sims/moshi-hantei/", "description": "模試の得点・平均点・標準偏差から偏差値を出し、志望校の偏差値と比べてA〜E判定の目安を表示する受験生向け無料シミュレーター。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "模試判定シミュレーター", "item": "https://shimulabo.com/sims/moshi-hantei/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "E判定から受かる？", "acceptedAnswer": {"@type": "Answer", "text": "十分あり得ます。判定は現状で、努力で変わります。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>受験・進学<span>›</span><span class="cur">模試判定シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">受験・進学</div>
+    <h1>模試判定シミュレーター</h1>
+    <p class="lead">模試の点数と志望校の偏差値から、合格判定（A〜E）の目安を出します。自分の位置を把握して、次の学習計画に活かしましょう。</p>
+  </div>
+
+  <section class="panel">
+    <h2>📝 条件を入れる</h2>
+    <div class="row"><div class="field"><label>自分の得点</label><input type="number" id="score" value="62" min="0" inputmode="numeric"></div>
+    <div class="field"><label>平均点</label><input type="number" id="mean" value="55" min="0" inputmode="numeric"></div></div>
+    <div class="row"><div class="field"><label>標準偏差 <span class="hint">（不明なら15）</span></label><input type="number" id="sd" value="15" min="1" inputmode="numeric"></div>
+    <div class="field"><label>志望校の偏差値</label><input type="number" id="goal" value="58" min="20" max="80" inputmode="numeric"></div></div>
+    <button class="btn btn-primary" id="calcBtn">判定を見る</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">合格判定の目安</div>
+      <div class="big" style="font-size:52px;"><span id="big">—</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="alert good" id="adv" style="text-align:left;margin-top:18px;">—</div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>判定の目安</h2>
+    <div class="note"><strong>計算式</strong><br>偏差値 ＝ 50 ＋ 10 ×（得点 − 平均）÷ 標準偏差<br>判定：志望校偏差値との差で A(+3以上)/B(+0)/C(-3)/D(-6)/E に区分</div>
+    <p>A判定でも油断は禁物、E判定でも諦める必要はありません。判定はあくまで「今の位置」。本番までの伸びしろを信じて、弱点を埋めていきましょう。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>E判定から受かる？</dt><dd>十分あり得ます。判定は現状で、努力で変わります。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../heigan-goukaku/index.html"><span class="e">🌸</span><span>併願校 合格確率シミュレーター</span></a><a class="related-card" href="../hitsuyo-hensachi/index.html"><span class="e">📈</span><span>必要偏差値シミュレーター</span></a><a class="related-card" href="../juken-sougaku/index.html"><span class="e">💰</span><span>受験総費用シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const hash = (s) => { let h=2166136261; for(let i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h,16777619); } return (h>>>0); };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){const s=+$('score').value||0,m=+$('mean').value||0,sd=Math.max(1,+$('sd').value||1),goal=+$('goal').value||50;
+    const h=50+10*(s-m)/sd, d=h-goal;
+    let r,a; if(d>=3){r='A';a='合格圏内！この調子でケアレスミス対策を。';}else if(d>=0){r='B';a='合格に手が届く位置。得点の安定を狙おう。';}else if(d>=-3){r='C';a='あと一歩。苦手分野を集中的に。';}else if(d>=-6){r='D';a='伸びしろ大。基礎固めから着実に。';}else{r='E';a='今からでも逆転可能。計画的に積み上げよう。';}
+    $('big').textContent=r+'判定';$('sub').textContent=`偏差値${h.toFixed(1)}（志望校${goal}）`;$('adv').textContent='📝 '+a;
+    SHARE=`模試判定シミュ、偏差値${h.toFixed(1)}で志望校は「${r}判定」でした📝`;show();}
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'moshi-hantei', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

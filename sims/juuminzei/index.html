@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/juuminzei/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/juuminzei.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/juuminzei.png">
+<title>住民税シミュレーター｜年収から住民税はいくら？｜シミュラボ</title>
+<meta name="description" content="額面年収から、給与所得控除・社会保険料・基礎控除を概算で引いて、1年の住民税の目安を計算する無料シミュレーター。">
+<meta property="og:title" content="住民税シミュレーター｜年収から住民税はいくら？">
+<meta property="og:description" content="年収から住民税の目安を概算で計算。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/juuminzei/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "住民税シミュレーター", "url": "https://shimulabo.com/sims/juuminzei/", "description": "額面年収から、給与所得控除・社会保険料・基礎控除を概算で引いて、1年の住民税の目安を計算する無料シミュレーター。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "住民税シミュレーター", "item": "https://shimulabo.com/sims/juuminzei/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "いつ払う？", "acceptedAnswer": {"@type": "Answer", "text": "前年所得に対し、翌年6月〜翌々年5月に納めます。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>税金・確定申告<span>›</span><span class="cur">住民税シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">税金・確定申告</div>
+    <h1>住民税シミュレーター</h1>
+    <p class="lead">翌年にやってくる住民税、年収からいくらになる？給与所得控除や社会保険料を引いた概算で、年間の住民税の目安を出します（独身・概算）。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🧾 年収を入れる</h2>
+    <div class="field"><label>額面年収 <span class="hint">（万円）</span></label><input type="number" id="g" value="450" min="0" inputmode="numeric"></div>
+    <button class="btn btn-primary" id="calcBtn">住民税を計算する</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">年間の住民税（目安）</div>
+      <div class="big"><span id="big">0</span><span class="unit">円</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">1ヶ月あたり</div><div class="v accent" id="mo">—</div></div>
+      <div class="stat"><div class="k">課税所得</div><div class="v" id="ka">—</div></div>
+      <div class="stat"><div class="k">所得割＋均等割</div><div class="v" id="uchi">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>住民税のしくみ</h2>
+    <div class="note"><strong>概算の計算</strong><br>課税所得 ＝ 年収 − 給与所得控除 − 社会保険料(約15%) − 基礎控除43万<br>住民税 ＝ 課税所得 × 10% ＋ 均等割（約5,000円）</div>
+    <p>住民税は前年の所得に対して課税され、翌年の6月から納めます。所得割（一律約10%）＋均等割が基本。扶養や各種控除で変わるため、本ツールは独身・概算の目安です。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>いつ払う？</dt><dd>前年所得に対し、翌年6月〜翌々年5月に納めます。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../shotokuzei/index.html"><span class="e">💴</span><span>所得税シミュレーター</span></a><a class="related-card" href="../iryouhi-koujo/index.html"><span class="e">🩹</span><span>医療費控除シミュレーター</span></a><a class="related-card" href="../nenmatsu-chousei/index.html"><span class="e">📋</span><span>年末調整 還付額シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const hash = (s) => { let h=2166136261; for(let i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h,16777619); } return (h>>>0); };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function kyuyo(g){ // 給与所得控除後の給与所得(円) g=円
+    let c; if(g<=1625000)c=550000; else if(g<=1800000)c=g*0.4-100000; else if(g<=3600000)c=g*0.3+80000; else if(g<=6600000)c=g*0.2+440000; else if(g<=8500000)c=g*0.1+1100000; else c=1950000;
+    return Math.max(0,g-c);
+  }
+  function calc(){const g=Math.max(0,+$('g').value||0)*10000;
+    const sho=kyuyo(g), sha=g*0.15, ka=Math.max(0,sho-sha-430000);
+    const tax=ka*0.10+5000;
+    $('sub').textContent=`額面${num(g/10000)}万円`;$('mo').textContent=yen(tax/12);$('ka').textContent=yen(ka);$('uchi').textContent=yen(ka*0.1)+'＋5,000';
+    SHARE=`住民税シミュ、年収${num(g/10000)}万円なら住民税は年 約${yen(tax)}（月${yen(tax/12)}）でした🧾`;show();anim($('big'),0,tax,800);}
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'juuminzei', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

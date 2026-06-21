@@ -318,7 +318,11 @@
     'マーケティング': { emojis: ['📈', '✨', '🚀'], mode: 'burst', count: 42 },
     '学生・勉強': { emojis: ['✏️', '📚', '✨', '💯'], mode: 'burst', count: 42 },
     '人生・自分ごと': { emojis: ['✨', '⏳', '🌈'], mode: 'burst', count: 42 },
-    '教員・先生': { emojis: ['✏️', '📋', '💯', '✨', '🌸'], mode: 'burst', count: 44 }
+    '教員・先生': { emojis: ['✏️', '📋', '💯', '✨', '🌸'], mode: 'burst', count: 44 },
+    'シニア・終活・介護': { emojis: ['🍵', '🌸', '✨'], mode: 'burst', count: 36 },
+    '税金・確定申告': { emojis: ['🧾', '💴', '✨'], mode: 'rain', count: 42 },
+    '受験・進学': { emojis: ['🌸', '📣', '💯', '✨'], mode: 'burst', count: 50 },
+    '季節・行事': { emojis: ['🎉', '🎍', '🎄', '✨', '🎊'], mode: 'burst', count: 50 }
   };
   function partyFor(panel, fallbackEmoji, power) {
     var cat = catLabel();

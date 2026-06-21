@@ -52,7 +52,12 @@ const ALLOW = new Set([
   'oshi-nenkan', 'live-ensei', 'subsc-motodori', 'tsumige', 'eiga-shougai', 'manga-otomegai', 'oshi-jikan', 'ticket-tousen', 'live-sankai', 'goods-shuunou',
   'stress-do', 'seikaku-type', 'moeotsuki-do', 'jiko-koutei', 'komyu-type', 'kachikan', 'chrono', 'ketsudan', 'resilience', 'kokoro-yoyuu',
   'point-katsu', 'atm-tesuuryo', 'tsumitate-fukuri', 'jinsei-calendar', 'seimei-suimin', 'sumaho-shogai', 'cvr-uriage', 'follower-kachi', 'email-cv', 'deto-yosan', 'kekkonshiki-hiyou', 'birthday-aishou', 'genka-rieki', 'kyakutanka-up', 'kaiin-monthly', 'ideco-setsuzei', 'haitou-shisan', 'souzoku-zei', 'nenshu-tedori', 'shoushin-sa', 'fukugyo-mokuhyou', 'juku-sougaku', 'gakureki-chingin', 'pomodoro', 'nyuuji-hiyou', 'kodomo-shokuhi', 'narai-goto', 'pet-iryou', 'pet-toilet', 'pet-trim', 'tabako-cost', 'kakuzato', 'kaidan', 'birthstone', 'yesno-uranai', 'biorhythm', 'kuruma-shogai', 'jidousha-zei', 'taiya-cost', 'shogai-ryokou', 'gaika-ryougae', 'camp-hiyou', 'koushinryo', 'kaden-denkidai', 'mizu-setsuyaku', 'shokuhi-tekisei', 'osake-shogai', 'okashi-nenkan', 'kutsu-shogai', 'gym-motodori', 'supple-nenkan', 'yakyu-kyusoku', 'vertical-jump', 'undou-shukan', 'oshi-anniv', 'cosplay-hiyou', 'hakooshi', 'motivation-type', 'kansha-do', 'shuuchu-type', 'galton', 'lissajous', 'magnet', 'kaleido', 'aim-trainer', 'color-test',
-  'seiseki-hyotei', 'test-toukei', 'naishin-keisan', 'shoken-jitan', 'saiten-jikan', 'sekigae-pattern', 'class-kumiawase', 'han-wake', 'shusseki-ritsu', 'print-cost', 'wasure-kyokusen', 'hensachi', 'zangyo-kyoin', 'tairyoku-hyouka', 'kyushoku-shukin'
+  'seiseki-hyotei', 'test-toukei', 'naishin-keisan', 'shoken-jitan', 'saiten-jikan', 'sekigae-pattern', 'class-kumiawase', 'han-wake', 'shusseki-ritsu', 'print-cost', 'wasure-kyokusen', 'hensachi', 'zangyo-kyoin', 'tairyoku-hyouka', 'kyushoku-shukin',
+  'hyoutei-heikin', 'gpa', 'jugyou-jisuu', 'kekka-tani', 'kyoin-kyuryo', 'kyosai-bairitsu', 'gakkyu-hensei',
+  'shukatsu-sougaku', 'ohaka-hiyou', 'sougi-hiyou', 'kaigo-hiyou', 'nenkin-kurisage', 'seizen-zoyo', 'kougaku-ryoyo', 'ending-do', 'kenkou-jumyo', 'isan-bunkatsu',
+  'juuminzei', 'shotokuzei', 'iryouhi-koujo', 'nenmatsu-chousei', 'fuyou-koujo', 'kabu-zei', 'shouhizei', 'kojin-jigyo', 'zoyozei', 'taishokukin-zei',
+  'heigan-goukaku', 'hitsuyo-hensachi', 'juken-sougaku', 'juken-jikan', 'chugaku-juken', 'moshi-hantei', 'goukaku-saiteiten', 'nyushi-shindan', 'yobikou-hiyou', 'shigan-bairitsu',
+  'kotoshi-pct', 'otoshidama', 'bonus-haibun', 'christmas-yosan', 'nengajo-cost', 'kisei-hiyou', 'goshugi-souba', 'hanami-yosan', 'valentine-yosan', 'gyouji-countdown'
 ]);
 
 export default async function handler(req, res) {

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/shotokuzei/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/shotokuzei.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/shotokuzei.png">
+<title>所得税シミュレーター｜年収から所得税はいくら？｜シミュラボ</title>
+<meta name="description" content="額面年収から、給与所得控除・社会保険料・基礎控除を引いた課税所得をもとに、累進税率で所得税の目安を計算する無料シミュレーター。">
+<meta property="og:title" content="所得税シミュレーター｜年収から所得税は？">
+<meta property="og:description" content="年収から課税所得を出し、累進税率で所得税を計算。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/shotokuzei/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "所得税シミュレーター", "url": "https://shimulabo.com/sims/shotokuzei/", "description": "額面年収から、給与所得控除・社会保険料・基礎控除を引いた課税所得をもとに、累進税率で所得税の目安を計算する無料シミュレーター。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "所得税シミュレーター", "item": "https://shimulabo.com/sims/shotokuzei/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "控除を増やすには？", "acceptedAnswer": {"@type": "Answer", "text": "iDeCo・ふるさと納税・各種保険料控除などで課税所得を減らせます。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>税金・確定申告<span>›</span><span class="cur">所得税シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">税金・確定申告</div>
+    <h1>所得税シミュレーター</h1>
+    <p class="lead">年収からかかる所得税はいくら？給与所得控除などを引いた課税所得に、累進税率を当てはめて所得税の目安を計算します（独身・概算）。</p>
+  </div>
+
+  <section class="panel">
+    <h2>💴 年収を入れる</h2>
+    <div class="field"><label>額面年収 <span class="hint">（万円）</span></label><input type="number" id="g" value="450" min="0" inputmode="numeric"></div>
+    <button class="btn btn-primary" id="calcBtn">所得税を計算する</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">年間の所得税（目安）</div>
+      <div class="big"><span id="big">0</span><span class="unit">円</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">課税所得</div><div class="v" id="ka">—</div></div>
+      <div class="stat"><div class="k">適用税率</div><div class="v accent" id="rate">—</div></div>
+      <div class="stat"><div class="k">月あたり</div><div class="v" id="mo">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>所得税の累進課税</h2>
+    <div class="note"><strong>税率（課税所得）</strong><br>195万以下5%／〜330万10%／〜695万20%／〜900万23%／〜1800万33%／〜4000万40%／超45%<br>（基礎控除48万・給与所得控除・社会保険料控除後）</div>
+    <p>所得税は所得が高いほど税率が上がる累進課税。本ツールは独身・概算で、扶養・各種控除（生命保険料・iDeCo等）で実際は下がります。復興特別所得税(2.1%)は考慮していません。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>控除を増やすには？</dt><dd>iDeCo・ふるさと納税・各種保険料控除などで課税所得を減らせます。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../juuminzei/index.html"><span class="e">🧾</span><span>住民税シミュレーター</span></a><a class="related-card" href="../iryouhi-koujo/index.html"><span class="e">🩹</span><span>医療費控除シミュレーター</span></a><a class="related-card" href="../nenmatsu-chousei/index.html"><span class="e">📋</span><span>年末調整 還付額シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const hash = (s) => { let h=2166136261; for(let i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h,16777619); } return (h>>>0); };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function kyuyo(g){let c;if(g<=1625000)c=550000;else if(g<=1800000)c=g*0.4-100000;else if(g<=3600000)c=g*0.3+80000;else if(g<=6600000)c=g*0.2+440000;else if(g<=8500000)c=g*0.1+1100000;else c=1950000;return Math.max(0,g-c);}
+  function calc(){const g=Math.max(0,+$('g').value||0)*10000;
+    const ka=Math.max(0,kyuyo(g)-g*0.15-480000);
+    let tax,rate;
+    if(ka<=1950000){tax=ka*0.05;rate='5%';}else if(ka<=3300000){tax=ka*0.10-97500;rate='10%';}else if(ka<=6950000){tax=ka*0.20-427500;rate='20%';}else if(ka<=9000000){tax=ka*0.23-636000;rate='23%';}else if(ka<=18000000){tax=ka*0.33-1536000;rate='33%';}else{tax=ka*0.40-2796000;rate='40%';}
+    tax=Math.max(0,tax);
+    $('sub').textContent=`額面${num(g/10000)}万円`;$('ka').textContent=yen(ka);$('rate').textContent=rate;$('mo').textContent=yen(tax/12);
+    SHARE=`所得税シミュ、年収${num(g/10000)}万円なら所得税は年 約${yen(tax)}（税率${rate}）でした💴`;show();anim($('big'),0,tax,800);}
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'shotokuzei', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

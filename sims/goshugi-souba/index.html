@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/goshugi-souba/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/goshugi-souba.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/goshugi-souba.png">
+<title>ご祝儀・香典の相場シミュレーター｜関係別にいくら包む？｜シミュラボ</title>
+<meta name="description" content="相手との関係（友人・親族・上司など）と行事（結婚式・葬儀・出産祝いなど）から、ご祝儀・香典・お祝いの相場の目安を表示する無料ツール。">
+<meta property="og:title" content="ご祝儀・香典の相場｜いくら包む？">
+<meta property="og:description" content="関係と行事からご祝儀・香典の相場の目安を表示。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/goshugi-souba/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "ご祝儀・香典の相場シミュレーター", "url": "https://shimulabo.com/sims/goshugi-souba/", "description": "相手との関係（友人・親族・上司など）と行事（結婚式・葬儀・出産祝いなど）から、ご祝儀・香典・お祝いの相場の目安を表示する無料ツール。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ご祝儀・香典の相場シミュレーター", "item": "https://shimulabo.com/sims/goshugi-souba/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "夫婦で出席は？", "acceptedAnswer": {"@type": "Answer", "text": "結婚式の夫婦連名は5万円が一般的な目安です。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>季節・行事<span>›</span><span class="cur">ご祝儀・香典の相場シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">季節・行事</div>
+    <h1>ご祝儀・香典の相場シミュレーター</h1>
+    <p class="lead">結婚式のご祝儀、お葬式の香典、いくら包めばいい？相手との関係と行事から、相場の目安を表示します。マナーで迷ったときの早見に。</p>
+  </div>
+
+  <section class="panel">
+    <h2>💐 条件を選ぶ</h2>
+    <div class="field"><label>行事</label><select id="event"><option value="wedding" selected>結婚式（ご祝儀）</option><option value="funeral">葬儀（香典）</option><option value="birth">出産祝い</option></select></div>
+    <div class="field"><label>相手との関係</label><select id="rel"><option value="friend" selected>友人・同僚</option><option value="relative">親族（いとこ等）</option><option value="close">兄弟姉妹・親しい親族</option><option value="boss">上司・恩師</option></select></div>
+    <button class="btn btn-primary" id="calcBtn">相場を見る</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">相場の目安</div>
+      <div class="big"><span id="big">0</span><span class="unit">円</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="alert good" id="adv" style="text-align:left;margin-top:18px;">—</div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>ご祝儀・香典のマナー</h2>
+    <div class="note"><strong>目安</strong><br>結婚式：友人3万／親族3〜5万／兄弟5万<br>香典：友人5千〜1万／親族1〜3万<br>出産祝い：友人5千〜1万／親族1〜3万</div>
+    <p>ご祝儀は「4」「9」を避け、結婚式は割り切れない奇数（3万など）が定番。香典は新札を避けるなどのマナーも。地域・家のしきたりで変わるので、迷ったら周囲に確認を。本ツールは一般的な目安です。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>夫婦で出席は？</dt><dd>結婚式の夫婦連名は5万円が一般的な目安です。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../kotoshi-pct/index.html"><span class="e">📅</span><span>今年あと何％シミュレーター</span></a><a class="related-card" href="../otoshidama/index.html"><span class="e">🧧</span><span>お年玉 総額シミュレーター</span></a><a class="related-card" href="../bonus-haibun/index.html"><span class="e">💰</span><span>ボーナス使い道シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const hash = (s) => { let h=2166136261; for(let i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h,16777619); } return (h>>>0); };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){const ev=$('event').value, rel=$('rel').value;
+    const tbl={wedding:{friend:30000,relative:30000,close:50000,boss:30000},funeral:{friend:7000,relative:15000,close:30000,boss:10000},birth:{friend:7000,relative:15000,close:20000,boss:10000}};
+    const v=tbl[ev][rel];
+    const note={wedding:'割り切れない奇数（3万など）が定番。新札で。',funeral:'香典は新札を避けるのがマナー。表書きは宗派で確認を。',birth:'実用品や現金で。出産後1ヶ月以内が目安。'}[ev];
+    $('sub').textContent=`${sel('event').text}・${sel('rel').text}`;$('adv').textContent='💐 '+note;
+    SHARE=`ご祝儀・香典の相場シミュ、${sel('event').text}（${sel('rel').text}）の目安は約${yen(v)}でした💐`;show();anim($('big'),0,v,800);}
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'goshugi-souba', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

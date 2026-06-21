@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/taishokukin-zei/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/taishokukin-zei.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/taishokukin-zei.png">
+<title>退職金の税金シミュレーター｜退職金の手取りはいくら？｜シミュラボ</title>
+<meta name="description" content="退職金の額と勤続年数から、退職所得控除を引いた課税額・税金・手取りを計算する無料シミュレーター。退職金は税制優遇が大きい。">
+<meta property="og:title" content="退職金の税金シミュレーター｜手取りはいくら？">
+<meta property="og:description" content="退職金と勤続年数から退職所得控除・税・手取りを計算。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/taishokukin-zei/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "退職金の税金シミュレーター", "url": "https://shimulabo.com/sims/taishokukin-zei/", "description": "退職金の額と勤続年数から、退職所得控除を引いた課税額・税金・手取りを計算する無料シミュレーター。退職金は税制優遇が大きい。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "退職金の税金シミュレーター", "item": "https://shimulabo.com/sims/taishokukin-zei/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "一時金と年金どちら？", "acceptedAnswer": {"@type": "Answer", "text": "一時金は退職所得控除、年金受取は公的年金等控除。トータルで比較を。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>税金・確定申告<span>›</span><span class="cur">退職金の税金シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">税金・確定申告</div>
+    <h1>退職金の税金シミュレーター</h1>
+    <p class="lead">退職金には大きな税制優遇（退職所得控除）があります。退職金の額と勤続年数から、引かれる税金と手取りを計算します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🏖️ 条件を入れる</h2>
+    <div class="row"><div class="field"><label>退職金の額 <span class="hint">（万円）</span></label><input type="number" id="m" value="2000" min="0" inputmode="numeric"></div>
+    <div class="field"><label>勤続年数 <span class="hint">（年）</span></label><input type="number" id="years" value="35" min="1" max="50" inputmode="numeric"></div></div>
+    <button class="btn btn-primary" id="calcBtn">手取りを見る</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">退職金の手取り</div>
+      <div class="big"><span id="big">0</span><span class="unit">万円</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">退職所得控除</div><div class="v accent" id="koujo">—</div></div>
+      <div class="stat"><div class="k">税金の合計</div><div class="v" id="zei">—</div></div>
+      <div class="stat"><div class="k">課税退職所得</div><div class="v" id="ka">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>退職金が優遇される理由</h2>
+    <div class="note"><strong>計算式</strong><br>退職所得控除 ＝ 勤続20年まで40万/年、20年超は70万/年<br>課税退職所得 ＝（退職金 − 控除）÷ 2<br>これに所得税・住民税がかかる</div>
+    <p>長年の勤労への配慮で、退職金は控除が大きく、さらに残りを「半分」にしてから課税されるため、税金がかなり軽くなります。勤続年数が長いほど控除も増えます。本ツールは概算です。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>一時金と年金どちら？</dt><dd>一時金は退職所得控除、年金受取は公的年金等控除。トータルで比較を。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../juuminzei/index.html"><span class="e">🧾</span><span>住民税シミュレーター</span></a><a class="related-card" href="../shotokuzei/index.html"><span class="e">💴</span><span>所得税シミュレーター</span></a><a class="related-card" href="../iryouhi-koujo/index.html"><span class="e">🩹</span><span>医療費控除シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const hash = (s) => { let h=2166136261; for(let i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h,16777619); } return (h>>>0); };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){const m=Math.max(0,+$('m').value||0)*10000, y=Math.max(1,+$('years').value||1);
+    const koujo=(y<=20?40*y:800+70*(y-20))*10000;
+    const ka=Math.max(0,(m-koujo)/2);
+    let it;if(ka<=1950000)it=ka*0.05;else if(ka<=3300000)it=ka*0.10-97500;else if(ka<=6950000)it=ka*0.20-427500;else if(ka<=9000000)it=ka*0.23-636000;else it=ka*0.33-1536000; it=Math.max(0,it);
+    const ju=ka*0.10, zei=it+ju, net=m-zei;
+    $('sub').textContent=`退職金${num(m/10000)}万・勤続${y}年`;$('koujo').textContent=num(koujo/10000)+'万円';$('zei').textContent=yen(zei);$('ka').textContent=num(ka/10000)+'万円';
+    SHARE=`退職金の税金シミュ、${num(m/10000)}万円の手取りは約${num(net/10000)}万円でした🏖️（控除${num(koujo/10000)}万・税優遇大）`;show();anim($('big'),0,net/10000,800);}
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'taishokukin-zei', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>
