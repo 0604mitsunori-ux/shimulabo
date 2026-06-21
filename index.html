@@ -66,6 +66,26 @@
 
 <main class="wrap">
 
+  <section class="search-wrap">
+    <div class="search-box">
+      <span class="search-ico" aria-hidden="true">🔍</span>
+      <input type="search" id="searchInput" placeholder="やりたいこと・気になる言葉で検索（例：費用、占い、税金、カロリー…）" autocomplete="off" aria-label="シミュレーションを検索">
+      <button class="search-clear" id="searchClear" aria-label="検索をクリア" hidden>✕</button>
+    </div>
+    <div class="search-suggest" id="searchSuggest">
+      <span class="ss-label">人気の検索:</span>
+      <button data-q="費用">費用</button>
+      <button data-q="カロリー">カロリー</button>
+      <button data-q="占い">占い</button>
+      <button data-q="診断">診断</button>
+      <button data-q="税金">税金</button>
+      <button data-q="受験">受験</button>
+      <button data-q="保険">保険</button>
+      <button data-q="音声入力">音声入力</button>
+    </div>
+    <div class="search-meta" id="searchMeta" hidden></div>
+  </section>
+
   <section class="rank-wrap">
     <div class="rank-head">
       <h2>🏆 人気のシミュレーション</h2>
@@ -2490,6 +2510,12 @@
   const chips = document.getElementById('chips');
   chips.addEventListener('click', (e) => {
     const btn = e.target.closest('.chip'); if (!btn) return;
+    if (searching) {
+      sInput.value = ''; searching = false; sClear.hidden = true;
+      sMeta.hidden = true; sMeta.innerHTML = '';
+      if (rankWrap) rankWrap.style.display = '';
+      Object.values(blocks).forEach(b => { const a = b.querySelector('.cat-title .all'); if (a) a.style.display = ''; });
+    }
     chips.querySelectorAll('.chip').forEach(c => c.classList.remove('is-on'));
     btn.classList.add('is-on');
     (btn.dataset.cat === 'all') ? showAll() : showCat(btn.dataset.cat);
@@ -2504,8 +2530,83 @@
     chips.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 
+  // ===== 検索（373本を横断・インクリメンタル） =====
+  const norm = s => (s || '').toLowerCase()
+    .replace(/[ァ-ヶ]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60)) // カタカナ→ひらがな
+    .replace(/[\s　]+/g, '');
+  // 各カードに検索用テキストを付与（タイトル＋カテゴリ＋説明＋スラグ）
+  allCards.forEach(c => {
+    const t = (c.querySelector('h3') || {}).textContent || '';
+    const cat = (c.querySelector('.cat') || {}).textContent || '';
+    const desc = (c.querySelector('.body p') || {}).textContent || '';
+    const slug = (c.getAttribute('href') || '').split('/')[1] || '';
+    c._hay = norm(t + ' ' + cat + ' ' + desc + ' ' + slug);
+  });
+  const sInput = document.getElementById('searchInput');
+  const sClear = document.getElementById('searchClear');
+  const sMeta = document.getElementById('searchMeta');
+  const sSuggest = document.getElementById('searchSuggest');
+  const rankWrap = document.querySelector('.rank-wrap');
+  let searching = false;
+
+  function runSearch(raw) {
+    const q = norm((raw || '').trim());
+    if (!q) { exitSearch(); return; }
+    searching = true;
+    sClear.hidden = false;
+    if (rankWrap) rankWrap.style.display = 'none';
+    chips.querySelectorAll('.chip').forEach(c => c.classList.remove('is-on'));
+    Object.entries(blocks).forEach(([slug, block]) => {
+      if (slug === '__req') { block.classList.add('hide'); return; }
+      let shown = 0;
+      block.querySelectorAll('.sim-card').forEach(card => {
+        const m = card._hay.includes(q);
+        card.classList.toggle('hide', !m);
+        if (m) shown++;
+      });
+      block.classList.toggle('hide', shown === 0);
+      const more = block.querySelector('.cat-more'); if (more) more.classList.add('hide');
+      const all = block.querySelector('.cat-title .all'); if (all) all.style.display = 'none';
+    });
+    const total = allCards.filter(c => !c.classList.contains('hide')).length;
+    sMeta.hidden = false;
+    sMeta.innerHTML = total > 0
+      ? `「<b>${raw.trim()}</b>」の検索結果：<b>${total}</b>件`
+      : `<div class="search-empty">「<b>${raw.trim()}</b>」に一致するシミュは見つかりませんでした。<br>別のキーワード、または下のカテゴリからお探しください。</div>`;
+  }
+  function exitSearch() {
+    searching = false;
+    sClear.hidden = true;
+    sMeta.hidden = true; sMeta.innerHTML = '';
+    if (rankWrap) rankWrap.style.display = '';
+    Object.values(blocks).forEach(block => {
+      const all = block.querySelector('.cat-title .all'); if (all) all.style.display = '';
+    });
+    chips.querySelectorAll('.chip').forEach(c => c.classList.toggle('is-on', c.dataset.cat === 'all'));
+    showAll();
+  }
+  sInput.addEventListener('input', () => runSearch(sInput.value));
+  sClear.addEventListener('click', () => { sInput.value = ''; sInput.focus(); exitSearch(); });
+  sSuggest.addEventListener('click', e => {
+    const b = e.target.closest('button[data-q]'); if (!b) return;
+    sInput.value = b.dataset.q; runSearch(b.dataset.q);
+    document.querySelector('.search-wrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+  // キーボード："/"で検索にフォーカス、Escでクリア
+  document.addEventListener('keydown', e => {
+    const tag = (document.activeElement && document.activeElement.tagName) || '';
+    if (e.key === '/' && !/INPUT|TEXTAREA|SELECT/.test(tag)) { e.preventDefault(); sInput.focus(); }
+    else if (e.key === 'Escape' && searching) { sInput.value = ''; exitSearch(); }
+  });
+
+  // ===== 上へ戻るFAB =====
+  const toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', () => { toTop.hidden = window.scrollY < 600; }, { passive: true });
+  toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
   showAll();
 </script>
+<button class="to-top" id="toTop" aria-label="ページ上部へ戻る" hidden>↑</button>
 <script src="assets/lang-toggle.js"></script>
 </body>
 </html>
