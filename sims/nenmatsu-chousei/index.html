@@ -13,9 +13,9 @@
     <meta property="og:image" content="https://shimulabo.com/ogp/nenmatsu-chousei.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://shimulabo.com/ogp/nenmatsu-chousei.png">
-<title>年末調整 還付額シミュレーター｜年末調整でいくら戻る？｜シミュラボ</title>
+<title>年末調整 還付金の計算｜いくら戻る？シミュレーター｜シミュラボ</title>
 <meta name="description" content="生命保険料控除・iDeCo・扶養などの控除額と税率から、年末調整で戻ってくる税金の目安を計算する無料シミュレーター。">
-<meta property="og:title" content="年末調整 還付額シミュレーター｜いくら戻る？">
+<meta property="og:title" content="年末調整の還付金はいくら？計算シミュレーター">
 <meta property="og:description" content="各種控除と税率から年末調整の還付額を計算。">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="../../assets/style.css">
@@ -25,7 +25,7 @@
     <meta name="robots" content="index,follow">
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "年末調整 還付額シミュレーター", "url": "https://shimulabo.com/sims/nenmatsu-chousei/", "description": "生命保険料控除・iDeCo・扶養などの控除額と税率から、年末調整で戻ってくる税金の目安を計算する無料シミュレーター。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "年末調整 還付額シミュレーター", "item": "https://shimulabo.com/sims/nenmatsu-chousei/"}]}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "iDeCoも年末調整で？", "acceptedAnswer": {"@type": "Answer", "text": "会社員は年末調整で申告できます（証明書が必要）。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "iDeCoも年末調整でできる？", "acceptedAnswer": {"@type": "Answer", "text": "会社員は年末調整で申告できます（国民年金基金連合会の控除証明書が必要）。"}}, {"@type": "Question", "name": "還付はいつ戻る？", "acceptedAnswer": {"@type": "Answer", "text": "一般的に12月または1月の給与に上乗せで戻ります。"}}, {"@type": "Question", "name": "ふるさと納税は対象？", "acceptedAnswer": {"@type": "Answer", "text": "年末調整では不可。ワンストップ特例か確定申告で手続きします。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
     <!-- ga4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
@@ -86,10 +86,20 @@
   </section>
 
   <article class="article">
+    <div class="note" style="border-left:4px solid var(--teal)"><strong>結論</strong>：年末調整の還付は <b>控除の合計 × 所得税率</b> が目安。毎月多めに天引きされた所得税を、控除を反映して精算するしくみです。</div>
     <h2>年末調整で戻るしくみ</h2>
+    <p>会社員は毎月の給与から所得税を「概算で多め」に天引きされています。年末に各種控除を反映して正しい税額を計算し直し、払いすぎていた分が12月（または1月）の給与で戻ってきます。</p>
     <div class="note"><strong>計算式</strong><br>控除合計 ＝ 生命保険料控除 ＋ iDeCo掛金 ＋ 扶養控除(1人38万)…<br>還付 ≒ 控除合計 × 所得税率</div>
-    <p>毎月の給与から多めに天引きされた所得税が、控除を反映して精算され、払いすぎた分が戻ります。保険料控除証明書やiDeCoの証明書を会社に提出するのを忘れずに。住民税も翌年軽くなります。</p>
-    <h2>よくある質問</h2><dl class="faq"><dt>iDeCoも年末調整で？</dt><dd>会社員は年末調整で申告できます（証明書が必要）。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+    <h2>年末調整で申告できる主な控除</h2>
+    <table class="seo-table">
+      <tr><th>控除</th><th>必要なもの</th></tr>
+      <tr><td>生命保険料控除（最大12万円）</td><td>保険会社の控除証明書</td></tr>
+      <tr><td>iDeCo（小規模企業共済等掛金）</td><td>国民年金基金連合会の証明書</td></tr>
+      <tr><td>扶養控除・配偶者(特別)控除</td><td>申告書への記入</td></tr>
+      <tr><td>地震保険料控除</td><td>控除証明書</td></tr>
+    </table>
+    <p>※ 医療費控除・ふるさと納税（ワンストップ未利用）・初年度の住宅ローン控除は年末調整では受けられず、確定申告が必要です。住民税も翌年軽くなります。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>iDeCoも年末調整でできる？</dt><dd>会社員は年末調整で申告できます（国民年金基金連合会の控除証明書が必要）。</dd><dt>還付はいつ戻る？</dt><dd>一般的に12月または1月の給与に上乗せで戻ります。</dd><dt>ふるさと納税は対象？</dt><dd>年末調整では不可。ワンストップ特例か確定申告で手続きします。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl><h2>参考</h2><ul class="seo-refs"><li>国税庁「年末調整」</li><li>国税庁「給与所得者の保険料控除」</li></ul>
   </article>
 
   <nav class="related" aria-label="related">

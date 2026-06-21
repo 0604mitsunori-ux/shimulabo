@@ -13,9 +13,9 @@
     <meta property="og:image" content="https://shimulabo.com/ogp/fuyou-koujo.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://shimulabo.com/ogp/fuyou-koujo.png">
-<title>扶養控除シミュレーター｜扶養家族で税金はいくら減る？｜シミュラボ</title>
+<title>扶養控除の計算シミュレーター｜税金はいくら減る？区分別｜シミュラボ</title>
 <meta name="description" content="扶養する家族の人数と年齢区分（一般・特定扶養・老人扶養）から、扶養控除による所得税・住民税の節税額を計算する無料シミュレーター。">
-<meta property="og:title" content="扶養控除シミュレーター｜税金はいくら減る？">
+<meta property="og:title" content="扶養控除でいくら減る？計算シミュレーター">
 <meta property="og:description" content="扶養人数と区分から扶養控除の節税額を計算。">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="../../assets/style.css">
@@ -25,7 +25,7 @@
     <meta name="robots" content="index,follow">
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "扶養控除シミュレーター", "url": "https://shimulabo.com/sims/fuyou-koujo/", "description": "扶養する家族の人数と年齢区分（一般・特定扶養・老人扶養）から、扶養控除による所得税・住民税の節税額を計算する無料シミュレーター。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "扶養控除シミュレーター", "item": "https://shimulabo.com/sims/fuyou-koujo/"}]}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "16歳未満は？", "acceptedAnswer": {"@type": "Answer", "text": "児童手当の対象で、扶養控除（所得税）はありません。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "なぜ大学生世代が大きい？", "acceptedAnswer": {"@type": "Answer", "text": "19〜22歳は教育費がかさむ時期への配慮で「特定扶養親族」として控除額が63万円と大きく設定されています。"}}, {"@type": "Question", "name": "共働きの子どもはどちらの扶養に？", "acceptedAnswer": {"@type": "Answer", "text": "所得税率の高い方（収入が多い方）の扶養にすると、世帯全体の節税額が大きくなります。"}}, {"@type": "Question", "name": "16歳未満は？", "acceptedAnswer": {"@type": "Answer", "text": "児童手当の対象で、扶養控除（所得税）はありません。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
     <!-- ga4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
@@ -86,10 +86,18 @@
   </section>
 
   <article class="article">
-    <h2>扶養控除の区分</h2>
-    <div class="note"><strong>控除額（所得税）</strong><br>一般の扶養親族(16歳〜)＝38万／特定扶養(19〜22歳)＝63万／老人扶養(70歳〜・同居)＝58万、別居48万<br>節税 ≒ 控除 ×（所得税率＋住民税分）</div>
-    <p>大学生世代（特定扶養）は控除が大きく節税効果も大。扶養に入れるには家族の年収要件（給与なら103万円以下）があります。本ツールは概算で、住民税の控除額は所得税と少し異なります。</p>
-    <h2>よくある質問</h2><dl class="faq"><dt>16歳未満は？</dt><dd>児童手当の対象で、扶養控除（所得税）はありません。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+    <div class="note" style="border-left:4px solid var(--teal)"><strong>結論</strong>：扶養控除の節税額は <b>控除額 ×（所得税率＋住民税約10%）</b>。大学生世代（特定扶養）が最も大きく節税できます。</div>
+    <h2>扶養控除の区分と控除額</h2>
+    <p>生計を同じくする家族（年収103万円以下など要件あり）を扶養していると、所得税・住民税が軽くなります。年齢区分によって控除額が異なります。</p>
+    <table class="seo-table">
+      <tr><th>区分</th><th>所得税の控除</th><th>住民税の控除</th></tr>
+      <tr><td>一般の扶養（16歳〜）</td><td>38万円</td><td>33万円</td></tr>
+      <tr><td>特定扶養（19〜22歳）</td><td>63万円</td><td>45万円</td></tr>
+      <tr><td>老人扶養（70歳〜・同居）</td><td>58万円</td><td>45万円</td></tr>
+      <tr><td>老人扶養（70歳〜・別居）</td><td>48万円</td><td>38万円</td></tr>
+    </table>
+    <p>※ 16歳未満は児童手当の対象で、扶養控除（所得税）はありません。扶養に入れるには対象家族の年収要件（給与収入なら103万円以下＝合計所得48万円以下）があります。本ツールは概算です。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>なぜ大学生世代が大きい？</dt><dd>19〜22歳は教育費がかさむ時期への配慮で「特定扶養親族」として控除額が63万円と大きく設定されています。</dd><dt>共働きの子どもはどちらの扶養に？</dt><dd>所得税率の高い方（収入が多い方）の扶養にすると、世帯全体の節税額が大きくなります。</dd><dt>16歳未満は？</dt><dd>児童手当の対象で、扶養控除（所得税）はありません。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl><h2>参考</h2><ul class="seo-refs"><li>国税庁「扶養控除」</li><li>国税庁「扶養親族の範囲・所得要件」</li></ul>
   </article>
 
   <nav class="related" aria-label="related">
