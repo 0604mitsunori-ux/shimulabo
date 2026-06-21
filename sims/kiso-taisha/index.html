@@ -25,7 +25,7 @@
     <meta name="robots" content="index,follow">
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "基礎代謝＆必要カロリー計算", "url": "https://shimulabo.com/sims/kiso-taisha/", "description": "性別・年齢・体格・活動量から基礎代謝と必要カロリーを計算。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "基礎代謝＆必要カロリー計算", "item": "https://shimulabo.com/sims/kiso-taisha/"}]}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "正確な値ですか？", "acceptedAnswer": {"@type": "Answer", "text": "推定式による目安です。実際の代謝には個人差があります。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "基礎代謝を上げるには？", "acceptedAnswer": {"@type": "Answer", "text": "筋肉量を増やすことが基本です。除脂肪体重（筋肉など）が多いほど基礎代謝は高くなります。"}}, {"@type": "Question", "name": "正確な値ですか？", "acceptedAnswer": {"@type": "Answer", "text": "推定式による目安です。実際の代謝には体組成・体質による個人差があります。"}}, {"@type": "Question", "name": "ハリス・ベネディクト式と何が違う？", "acceptedAnswer": {"@type": "Answer", "text": "どちらも推定式ですが、ミフリン・サンジョール式は近年の体格に合いやすく、誤差が小さいとされています。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
     <!-- ga4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
@@ -87,10 +87,21 @@
   </section>
 
   <article class="article">
-    <h2>計算方法</h2>
-    <div class="note"><strong>計算式（ミフリン・サンジョール式）</strong><br>基礎代謝 ＝ 10×体重 ＋ 6.25×身長 − 5×年齢 ＋（男性+5／女性−161）<br>必要カロリー ＝ 基礎代謝 × 活動係数</div>
-    <p>必要カロリーより摂取が少なければ減量、多ければ増量の方向です。1日−500kcalで月約2kgが目安ですが、無理な制限は禁物です。</p>
-    <h2>よくある質問</h2><dl class="faq"><dt>正確な値ですか？</dt><dd>推定式による目安です。実際の代謝には個人差があります。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+    <div class="note" style="border-left:4px solid var(--teal)"><strong>結論</strong>：1日に必要なカロリーは <b>基礎代謝 × 活動係数</b>。基礎代謝は性別・年齢・身長・体重からミフリン・サンジョール式で求めます。</div>
+    <h2>基礎代謝と必要カロリーの計算方法</h2>
+    <p>基礎代謝量（BMR）は、安静にしていても生命維持のために消費されるエネルギーで、1日の総消費の約6〜7割を占めます。これに日々の活動量をかけたものが「1日に必要なカロリー（推定エネルギー必要量）」です。</p>
+    <div class="note"><strong>計算式（ミフリン・サンジョール式）</strong><br>基礎代謝 ＝ 10×体重(kg) ＋ 6.25×身長(cm) − 5×年齢 ＋（男性 +5／女性 −161）<br>必要カロリー ＝ 基礎代謝 × 活動係数</div>
+    <h2>活動係数の目安</h2>
+    <table class="seo-table">
+      <tr><th>活動レベル</th><th>係数</th><th>目安</th></tr>
+      <tr><td>ほぼ運動しない</td><td>1.2</td><td>デスクワーク中心</td></tr>
+      <tr><td>軽い運動</td><td>1.375</td><td>週1〜3回の運動</td></tr>
+      <tr><td>中程度</td><td>1.55</td><td>週3〜5回の運動</td></tr>
+      <tr><td>よく動く</td><td>1.725</td><td>週6〜7回の運動</td></tr>
+    </table>
+    <h2>ダイエット・増量の目安</h2>
+    <p>体脂肪1kgは約7,200kcalに相当します。1日の摂取を必要カロリーより <b>約500kcal減らす</b>と、計算上は1ヶ月で約2kgの減量ペースになります。ただし極端な制限は筋肉量の低下や体調不良を招くため、無理のない範囲で行いましょう。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>基礎代謝を上げるには？</dt><dd>筋肉量を増やすことが基本です。除脂肪体重（筋肉など）が多いほど基礎代謝は高くなります。</dd><dt>正確な値ですか？</dt><dd>推定式による目安です。実際の代謝には体組成・体質による個人差があります。</dd><dt>ハリス・ベネディクト式と何が違う？</dt><dd>どちらも推定式ですが、ミフリン・サンジョール式は近年の体格に合いやすく、誤差が小さいとされています。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl><h2>参考</h2><ul class="seo-refs"><li>厚生労働省「日本人の食事摂取基準」推定エネルギー必要量</li><li>Mifflin MD, St Jeor ST ほか (1990) 安静時エネルギー消費量の推定式</li></ul>
   </article>
 
   <nav class="related" aria-label="related">
@@ -137,9 +148,9 @@
   $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
 })();
 </script>
+<script src="../../assets/result-fx.js"></script>
 <script src="../../assets/share-counter.js"></script>
 <script>ShareCounter.initSim({ simId:'kiso-taisha', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
-<script src="../../assets/result-fx.js"></script>
 <script src="../../assets/lang-toggle.js"></script>
 </body>
 </html>

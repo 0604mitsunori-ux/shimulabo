@@ -536,6 +536,12 @@ a { color: var(--teal-d); }
 .article p, .article li { color: #2c3645; }
 .article ul { padding-left: 22px; }
 .article .note { background: var(--teal-l); border: 1px solid #c7f0f4; border-radius: 13px; padding: 17px 19px; font-size: 14px; }
+.article table, .article .seo-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+.article th, .article td { border: 1px solid var(--line); padding: 9px 13px; text-align: left; }
+.article th { background: var(--teal-l); color: var(--teal-d); font-weight: 800; }
+.article tr:nth-child(even) td { background: #fafbfc; }
+.article .seo-refs { margin: 10px 0 0; padding-left: 20px; font-size: 13px; color: var(--ink-2); }
+.article .seo-refs li { margin: 4px 0; }
 
 .faq dt { font-weight: 900; margin-top: 16px; }
 .faq dd { margin: 4px 0 0; color: var(--ink-2); }

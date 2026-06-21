@@ -127,10 +127,29 @@ SIMS.append(dict(id='bmi', cat=HEALTH, emoji='⚖️',
       <div class="statline"><div class="stat"><div class="k">適正体重(BMI22)</div><div class="v accent" id="ideal">—</div></div>
       <div class="stat"><div class="k">今との差</div><div class="v" id="diff">—</div></div>
       <div class="stat"><div class="k">判定</div><div class="v" id="judge">—</div></div></div>''',
-  article='''    <h2>BMIの見方</h2>
-    <div class="note"><strong>計算式</strong><br>BMI ＝ 体重(kg) ÷ 身長(m)²／適正体重 ＝ 22 × 身長(m)²<br>日本肥満学会の目安：18.5未満=低体重／18.5〜25=普通／25以上=肥満</div>
-    <p>BMIは体格の目安で、筋肉量や体脂肪までは分かりません。数字は参考として、体調や見た目とあわせて判断しましょう。</p>
-    <h2>よくある質問</h2>'''+faq([('BMIが普通なら健康ですか？','BMIはあくまで体格指数です。体脂肪率や生活習慣も含めて総合的に見てください。'),('データは送信されますか？','いいえ。計算はすべてブラウザ内で完結します。')]),
+  article='''    <div class="note" style="border-left:4px solid var(--teal)"><strong>結論</strong>：BMIは <b>体重(kg) ÷ 身長(m) ÷ 身長(m)</b> で計算します。最も病気になりにくいとされる適正値は <b>22</b>（適正体重 ＝ 22 × 身長(m)²）です。</div>
+    <h2>BMIの計算式と適正体重</h2>
+    <p>BMI（Body Mass Index＝体格指数）は、身長と体重から肥満度を表す国際的な指標です。日本肥満学会は、統計的に最も病気になりにくいBMIを <b>22</b> とし、これを基準に適正体重を算出します。</p>
+    <div class="note"><strong>計算式</strong><br>BMI ＝ 体重(kg) ÷ 身長(m)²<br>適正体重 ＝ 22 × 身長(m)²</div>
+    <h2>BMIの判定基準（日本肥満学会）</h2>
+    <table class="seo-table">
+      <tr><th>BMI</th><th>判定</th></tr>
+      <tr><td>18.5 未満</td><td>低体重（やせ）</td></tr>
+      <tr><td>18.5〜25 未満</td><td>普通体重</td></tr>
+      <tr><td>25〜30 未満</td><td>肥満（1度）</td></tr>
+      <tr><td>30〜35 未満</td><td>肥満（2度）</td></tr>
+      <tr><td>35〜40 未満</td><td>肥満（3度）</td></tr>
+      <tr><td>40 以上</td><td>肥満（4度）</td></tr>
+    </table>
+    <p>※ WHO基準では25以上を「過体重」、30以上を「肥満」と区分しており、日本の基準はやや厳しめに設定されています。</p>
+    <h2>BMIを使うときの注意点</h2>
+    <p>BMIは身長と体重だけの指標で、<b>筋肉量や体脂肪率までは分かりません</b>。筋肉質な人は高めに、いわゆる隠れ肥満の人は低めに出ることがあります。数字は目安として、体脂肪率・お腹まわり・体調とあわせて総合的に判断しましょう。健康上の判断は医療機関にご相談ください。</p>
+    <h2>よくある質問</h2>'''+faq([
+      ('適正体重は何kgですか？','身長(m)²×22で求めます。例：身長170cmなら 1.7×1.7×22≒63.6kg が適正体重の目安です。'),
+      ('BMIが普通なら健康ですか？','BMIはあくまで体格指数です。体脂肪率・筋肉量・生活習慣も含めて総合的に見てください。'),
+      ('子どもにも使えますか？','成人向けの指標です。子どもは成長段階で基準が異なるため、学校・医療機関の基準をご利用ください。'),
+      ('データは送信されますか？','いいえ。計算はすべてブラウザ内で完結します。')])
+    +'''<h2>参考</h2><ul class="seo-refs"><li>日本肥満学会「肥満症診療ガイドライン」肥満度分類</li><li>厚生労働省 e-ヘルスネット「BMI」</li></ul>''',
   js='''  function calc(){
     const h=Math.max(1,+$('h').value||1)/100, w=Math.max(0,+$('w').value||0);
     const bmi=w/(h*h), ideal=22*h*h, diff=w-ideal;
@@ -160,10 +179,26 @@ SIMS.append(dict(id='kiso-taisha', cat=HEALTH, emoji='🔥',
       <div class="statline"><div class="stat"><div class="k">基礎代謝</div><div class="v" id="bmr">—</div></div>
       <div class="stat"><div class="k">減量の目安(-500)</div><div class="v accent" id="diet">—</div></div>
       <div class="stat"><div class="k">活動レベル</div><div class="v" id="lv">—</div></div></div>''',
-  article='''    <h2>計算方法</h2>
-    <div class="note"><strong>計算式（ミフリン・サンジョール式）</strong><br>基礎代謝 ＝ 10×体重 ＋ 6.25×身長 − 5×年齢 ＋（男性+5／女性−161）<br>必要カロリー ＝ 基礎代謝 × 活動係数</div>
-    <p>必要カロリーより摂取が少なければ減量、多ければ増量の方向です。1日−500kcalで月約2kgが目安ですが、無理な制限は禁物です。</p>
-    <h2>よくある質問</h2>'''+faq([('正確な値ですか？','推定式による目安です。実際の代謝には個人差があります。'),('データは送信されますか？','いいえ。計算はすべてブラウザ内で完結します。')]),
+  article='''    <div class="note" style="border-left:4px solid var(--teal)"><strong>結論</strong>：1日に必要なカロリーは <b>基礎代謝 × 活動係数</b>。基礎代謝は性別・年齢・身長・体重からミフリン・サンジョール式で求めます。</div>
+    <h2>基礎代謝と必要カロリーの計算方法</h2>
+    <p>基礎代謝量（BMR）は、安静にしていても生命維持のために消費されるエネルギーで、1日の総消費の約6〜7割を占めます。これに日々の活動量をかけたものが「1日に必要なカロリー（推定エネルギー必要量）」です。</p>
+    <div class="note"><strong>計算式（ミフリン・サンジョール式）</strong><br>基礎代謝 ＝ 10×体重(kg) ＋ 6.25×身長(cm) − 5×年齢 ＋（男性 +5／女性 −161）<br>必要カロリー ＝ 基礎代謝 × 活動係数</div>
+    <h2>活動係数の目安</h2>
+    <table class="seo-table">
+      <tr><th>活動レベル</th><th>係数</th><th>目安</th></tr>
+      <tr><td>ほぼ運動しない</td><td>1.2</td><td>デスクワーク中心</td></tr>
+      <tr><td>軽い運動</td><td>1.375</td><td>週1〜3回の運動</td></tr>
+      <tr><td>中程度</td><td>1.55</td><td>週3〜5回の運動</td></tr>
+      <tr><td>よく動く</td><td>1.725</td><td>週6〜7回の運動</td></tr>
+    </table>
+    <h2>ダイエット・増量の目安</h2>
+    <p>体脂肪1kgは約7,200kcalに相当します。1日の摂取を必要カロリーより <b>約500kcal減らす</b>と、計算上は1ヶ月で約2kgの減量ペースになります。ただし極端な制限は筋肉量の低下や体調不良を招くため、無理のない範囲で行いましょう。</p>
+    <h2>よくある質問</h2>'''+faq([
+      ('基礎代謝を上げるには？','筋肉量を増やすことが基本です。除脂肪体重（筋肉など）が多いほど基礎代謝は高くなります。'),
+      ('正確な値ですか？','推定式による目安です。実際の代謝には体組成・体質による個人差があります。'),
+      ('ハリス・ベネディクト式と何が違う？','どちらも推定式ですが、ミフリン・サンジョール式は近年の体格に合いやすく、誤差が小さいとされています。'),
+      ('データは送信されますか？','いいえ。計算はすべてブラウザ内で完結します。')])
+    +'''<h2>参考</h2><ul class="seo-refs"><li>厚生労働省「日本人の食事摂取基準」推定エネルギー必要量</li><li>Mifflin MD, St Jeor ST ほか (1990) 安静時エネルギー消費量の推定式</li></ul>''',
   js='''  function calc(){
     const sex=$('sex').value, age=Math.max(1,+$('age').value||1), h=Math.max(1,+$('h').value||1), w=Math.max(0,+$('w').value||0), act=+$('act').value||1.2;
     const bmr=10*w+6.25*h-5*age+(sex==='m'?5:-161), need=bmr*act;

@@ -41,6 +41,9 @@ def block(prefix, ogid, url):
 
 patched = 0
 for path in glob.glob(os.path.join(ROOT, "**", "index.html"), recursive=True):
+    # /en/ は自己完結（favicon/og/canonical直書き）なのでスキップ
+    if os.path.relpath(path, ROOT).replace("\\", "/").startswith("en/"):
+        continue
     with open(path, "r", encoding="utf-8") as f:
         html = f.read()
     if MARKER in html:
