@@ -43,6 +43,21 @@
     var m = location.pathname.match(/\/sims\/([^\/]+)/);
     return m ? m[1] : '';
   }
+  function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+  // 結果から演出の強さ(0〜1)を推定：％→そのまま／比較個数→log／大きな数→log
+  function computeIntensity(panel, matches) {
+    var big = panel.querySelector('.big');
+    var bigWrap = big && big.parentNode ? big.parentNode.textContent : (big ? big.textContent : '');
+    var pm = bigWrap.replace(/,/g, '').match(/(\d+(?:\.\d+)?)\s*[%％点]/);
+    if (pm) return clamp(parseFloat(pm[1]) / 100, 0.1, 1);
+    if (matches.length) {
+      var mx = matches.reduce(function (a, m) { return Math.max(a, m.count); }, 0);
+      return clamp(Math.log10(mx + 1) / 2, 0.3, 1); // 10個→0.5, 100個→1.0
+    }
+    var nb = firstNum(big ? big.textContent : '');
+    if (isFinite(nb) && nb > 0) return clamp(Math.log10(nb + 1) / 8, 0.3, 1); // 1万→0.5, 1億→1.0
+    return 0.55;
+  }
 
   // ===== 名物シミュの専用アニメ =====
   // 貯金・複利・積立など「育つ」系 → ブタ貯金箱がふくらむ
@@ -66,31 +81,36 @@
     if (sl && sl.parentNode) sl.parentNode.insertBefore(node, sl.nextSibling);
     else result.insertBefore(node, result.firstChild);
   }
-  function piggyNode() {
+  function piggyNode(power) {
+    power = power || 0.5;
     var d = document.createElement('div');
     d.className = 'fx-special';
-    d.innerHTML = '<div class="fx-piggy">🐷</div>' +
-      '<div class="fx-cap">コツコツ育つ貯金箱</div>';
-    // コインが上から落ちて入る
-    for (var i = 0; i < 4; i++) {
+    var sz = Math.round(48 + power * 46); // 48〜94px
+    d.innerHTML = '<div class="fx-piggy" style="font-size:' + sz + 'px">🐷</div>' +
+      '<div class="fx-cap">' + (power > 0.8 ? 'どんどん育つ大貯金！' : 'コツコツ育つ貯金箱') + '</div>';
+    var coins = Math.round(3 + power * 5); // 3〜8枚
+    for (var i = 0; i < coins; i++) {
       var c = document.createElement('span');
-      c.className = 'fx-coin'; c.textContent = '🪙';
-      c.style.left = (38 + i * 12) + '%'; c.style.animationDelay = (i * 180) + 'ms';
+      c.className = 'fx-coin'; c.textContent = i % 3 === 2 ? '💴' : '🪙';
+      c.style.left = (30 + (i / coins) * 44) + '%'; c.style.animationDelay = (i * 130) + 'ms';
       d.appendChild(c);
     }
     return d;
   }
-  function fujiNode() {
+  function fujiNode(power) {
+    power = power || 0.5;
     var d = document.createElement('div');
     d.className = 'fx-special';
+    var scale = (0.7 + power * 0.7).toFixed(2); // 0.7〜1.4倍
     d.innerHTML =
+      '<div style="transform:scale(' + scale + ');transform-origin:bottom center;display:inline-block">' +
       '<svg class="fx-rise" width="220" height="140" viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg">' +
       '<defs><linearGradient id="fg" x1="0" y1="0" x2="0" y2="1">' +
       '<stop offset="0" stop-color="#6f93c7"/><stop offset="1" stop-color="#3f5d8f"/></linearGradient></defs>' +
       '<polygon points="110,12 205,128 15,128" fill="url(#fg)"/>' +
       '<polygon points="110,12 138,46 126,40 116,50 110,38 104,50 94,42 82,46" fill="#fff"/>' +
-      '<ellipse cx="110" cy="130" rx="100" ry="9" fill="rgba(255,255,255,.12)"/></svg>' +
-      '<div class="fx-cap">そびえ立つ高さ！</div>';
+      '<ellipse cx="110" cy="130" rx="100" ry="9" fill="rgba(255,255,255,.12)"/></svg></div>' +
+      '<div class="fx-cap">' + (power > 0.8 ? '天までそびえる高さ！' : 'そびえ立つ高さ！') + '</div>';
     return d;
   }
   function coinNode() {
@@ -105,10 +125,13 @@
     }
     return d;
   }
-  function heartNode() {
+  function heartNode(power) {
+    power = power || 0.5;
     var d = document.createElement('div');
     d.className = 'fx-special';
-    d.innerHTML = '<div class="fx-heart">💗</div><div class="fx-cap">ドキドキ…！</div>';
+    var sz = Math.round(50 + power * 40), spd = (1.15 - power * 0.55).toFixed(2); // 高%ほど大きく速い鼓動
+    d.innerHTML = '<div class="fx-heart" style="font-size:' + sz + 'px;animation-duration:' + spd + 's">💗</div>' +
+      '<div class="fx-cap">' + (power > 0.8 ? '相性バツグン…！💖' : 'ドキドキ…！') + '</div>';
     for (var i = 0; i < 5; i++) {
       var h = document.createElement('span');
       h.className = 'fx-coin'; h.textContent = ['💕', '💖', '💞', '💘', '❤️'][i];
@@ -131,15 +154,15 @@
     return d;
   }
   // 専用アニメを実行（あれば {emoji} を返す）
-  function runSpecial(panel) {
+  function runSpecial(panel, power) {
     var id = simId();
     var node = null, emoji = null;
-    if (PIGGY.indexOf(id) >= 0) { node = piggyNode(); emoji = '🪙'; }
-    else if (HEART.indexOf(id) >= 0) { node = heartNode(); emoji = '💗'; }
+    if (PIGGY.indexOf(id) >= 0) { node = piggyNode(power); emoji = '🪙'; }
+    else if (HEART.indexOf(id) >= 0) { node = heartNode(power); emoji = '💗'; }
     else if (FLAME.indexOf(id) >= 0) { node = flameNode(); emoji = '🔥'; }
     else if (CLOCK.indexOf(id) >= 0) { node = clockNode(); emoji = '⏳'; }
     else if (COIN.indexOf(id) >= 0) { node = coinNode(); emoji = '💰'; }
-    else if (id === 'scroll-distance' || hasKeyword(panel, /富士山|エベレスト/)) { node = fujiNode(); emoji = '🗻'; }
+    else if (id === 'scroll-distance' || hasKeyword(panel, /富士山|エベレスト/)) { node = fujiNode(power); emoji = '🗻'; }
     if (!node) return null;
     insertSpecial(panel, node);
     return { emoji: emoji };
@@ -185,11 +208,13 @@
     var oldw = panel.querySelector('.fx-wrap'); if (oldw) oldw.remove();
     var olds = panel.querySelector('.fx-special'); if (olds) olds.remove();
 
+    // 結果の大きさ＝演出の強さ
+    var power = computeIntensity(panel, matches);
     // 名物シミュの専用アニメ
-    var special = runSpecial(panel);
+    var special = runSpecial(panel, power);
 
     if (!matches.length) {
-      partyFor(panel, special ? special.emoji : null);
+      partyFor(panel, special ? special.emoji : null, power);
       return;
     }
 
@@ -233,8 +258,8 @@
     if (sl && sl.parentNode) sl.parentNode.insertBefore(wrap, sl.nextSibling);
     else result.insertBefore(wrap, result.firstChild ? result.firstChild.nextSibling : null);
 
-    // テーマ演出（カテゴリ別／メンタル等は静か）
-    partyFor(panel, pick[0].emoji);
+    // テーマ演出（カテゴリ別・結果が大きいほど派手／メンタル等は静か）
+    partyFor(panel, pick[0].emoji, power);
   }
 
   // ===== 汎用パーティクルエンジン（紙吹雪/絵文字 rain・up・burst） =====
@@ -250,9 +275,10 @@
     var P = [], cx = innerWidth / 2, cy = innerHeight * 0.32, t0 = performance.now();
     for (var i = 0; i < n; i++) {
       var p = { rot: Math.random() * 6, vr: (Math.random() - 0.5) * 0.34, c: cols[i % cols.length], r: 4 + Math.random() * 4, sz: 18 + Math.random() * 14 };
-      if (mode === 'rain') { p.x = Math.random() * innerWidth; p.y = -20 - Math.random() * innerHeight * 0.4; p.vx = (Math.random() - 0.5) * 1.6; p.vy = 3 + Math.random() * 4.5; p.g = 0.10; }
-      else if (mode === 'up') { p.x = cx + (Math.random() - 0.5) * innerWidth * 0.6; p.y = innerHeight * 0.62 + Math.random() * 90; p.vx = (Math.random() - 0.5) * 1.4; p.vy = -(2.2 + Math.random() * 3.4); p.g = -0.015; }
-      else { var a = Math.random() * 6.283, sp = 4 + Math.random() * 9.5; p.x = cx; p.y = cy; p.vx = Math.cos(a) * sp; p.vy = Math.sin(a) * sp - 3.5; p.g = 0.22; }
+      var pw = opts.power != null ? opts.power : 0.55, boost = 0.7 + pw * 0.7;
+      if (mode === 'rain') { p.x = Math.random() * innerWidth; p.y = -20 - Math.random() * innerHeight * 0.4; p.vx = (Math.random() - 0.5) * 1.6; p.vy = (3 + Math.random() * 4.5) * (0.85 + pw * 0.5); p.g = 0.10; }
+      else if (mode === 'up') { p.x = cx + (Math.random() - 0.5) * innerWidth * 0.6; p.y = innerHeight * 0.62 + Math.random() * 90; p.vx = (Math.random() - 0.5) * 1.4; p.vy = -(2.2 + Math.random() * 3.4) * boost; p.g = -0.015; }
+      else { var a = Math.random() * 6.283, sp = (4 + Math.random() * 9.5) * boost; p.x = cx; p.y = cy; p.vx = Math.cos(a) * sp; p.vy = Math.sin(a) * sp - 3.5; p.g = 0.22; }
       p.em = emojis.length ? ((mode === 'burst') ? (i % 2 === 0 ? emojis[(i / 2 | 0) % emojis.length] : null) : emojis[i % emojis.length]) : null;
       P.push(p);
     }
@@ -293,20 +319,25 @@
     '学生・勉強': { emojis: ['✏️', '📚', '✨', '💯'], mode: 'burst', count: 42 },
     '人生・自分ごと': { emojis: ['✨', '⏳', '🌈'], mode: 'burst', count: 42 }
   };
-  function partyFor(panel, fallbackEmoji) {
+  function partyFor(panel, fallbackEmoji, power) {
     var cat = catLabel();
     if (QUIET_CATS.indexOf(cat) !== -1) return; // メンタル等は静かに
-    var cfg = CATFX[cat] || { emojis: [fallbackEmoji || '🎉', '✨'], mode: 'burst', count: 44 };
-    fxParticles(cfg);
+    power = (power == null ? 0.55 : power);
+    var base = CATFX[cat] || { emojis: [fallbackEmoji || '🎉', '✨'], mode: 'burst', count: 44 };
+    fxParticles({
+      emojis: base.emojis, mode: base.mode, colors: base.colors,
+      count: Math.min(150, Math.round(base.count * (0.45 + power))), // 結果が大きいほど増量
+      power: power, duration: 1250 + Math.round(power * 950)
+    });
   }
 
   function hook() {
     var btn = document.getElementById('calcBtn');
-    if (btn) btn.addEventListener('click', function () { setTimeout(enhance, 40); });
+    if (btn) btn.addEventListener('click', function () { setTimeout(enhance, 800); });
     // 念のため：結果パネルの表示切替も監視（calcBtn以外で出すシミュ対策）
     var panel = document.getElementById('resultPanel');
     if (panel && window.MutationObserver) {
-      new MutationObserver(function () { setTimeout(enhance, 40); })
+      new MutationObserver(function () { setTimeout(enhance, 800); })
         .observe(panel, { attributes: true, attributeFilter: ['style'] });
     }
   }
