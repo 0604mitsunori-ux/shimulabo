@@ -9,15 +9,20 @@
 (function () {
   // ラベル/値に含まれるキーワード → 絵文字（上から順に最初の一致を採用）
   var MAP = [
-    [/富士山/, '🗻'], [/エベレスト/, '⛰️'], [/東京ドーム|ドーム/, '🏟️'],
-    [/地球|周/, '🌍'], [/月まで|月面|\b月\b/, '🌙'],
-    [/映画/, '🎬'], [/絵本/, '📖'], [/本棚|蔵書/, '📚'],
-    [/ペットボトル/, '🍶'], [/コップ/, '🥤'], [/ジョッキ|ビール/, '🍺'], [/缶/, '🥫'],
-    [/袋/, '🛍️'], [/箱|ケース/, '📦'],
-    [/ゾウ|象/, '🐘'], [/相撲|力士/, '🏋️'], [/プール/, '🏊'], [/お?風呂/, '🛁'],
-    [/教室/, '🏫'], [/コーヒー/, '☕'], [/茶碗|ごはん|お米|白米/, '🍚'],
-    [/タバコ|本数/, '🚬'], [/東京.?大阪|往復/, '🚗'], [/サッカー/, '⚽'],
-    [/世界一周/, '✈️'], [/温泉/, '♨️']
+    [/富士山/, '🗻'], [/エベレスト/, '⛰️'], [/東京タワー/, '🗼'], [/スカイツリー/, '🗼'],
+    [/東京ドーム|ドーム/, '🏟️'], [/地球|周/, '🌍'], [/月まで|月面|\b月\b/, '🌙'],
+    [/新幹線/, '🚄'], [/ジャンボ|飛行機|ジェット/, '✈️'], [/バス/, '🚌'], [/自転車/, '🚲'],
+    [/札束|お札|万円札/, '💴'], [/小判|金貨/, '🪙'], [/ドラム缶/, '🛢️'],
+    [/映画/, '🎬'], [/絵本/, '📖'], [/本棚|蔵書|書籍/, '📚'], [/新聞/, '📰'],
+    [/ペットボトル/, '🍶'], [/コップ/, '🥤'], [/ジョッキ|ビール/, '🍺'], [/ワイン/, '🍷'], [/缶/, '🥫'],
+    [/袋/, '🛍️'], [/箱|ケース|段ボール/, '📦'], [/風船/, '🎈'], [/バケツ/, '🪣'], [/ドラム/, '🥁'],
+    [/ゾウ|象/, '🐘'], [/相撲|力士/, '🏋️'], [/犬|わんこ/, '🐕'], [/猫|にゃんこ/, '🐈'],
+    [/プール/, '🏊'], [/お?風呂|湯船/, '🛁'], [/教室/, '🏫'], [/家|マンション|一軒家/, '🏠'],
+    [/コーヒー/, '☕'], [/茶碗|ごはん|お米|白米/, '🍚'], [/ハンバーガー/, '🍔'], [/ケーキ/, '🍰'],
+    [/寿司|すし/, '🍣'], [/ピザ/, '🍕'], [/ドーナツ/, '🍩'], [/たまご|卵/, '🥚'],
+    [/りんご|リンゴ/, '🍎'], [/バナナ/, '🍌'], [/牛乳|ミルク/, '🥛'], [/角砂糖|砂糖/, '🧊'],
+    [/タバコ|本数/, '🚬'], [/東京.?大阪|往復/, '🚗'], [/サッカー|コート/, '⚽'],
+    [/世界一周/, '✈️'], [/温泉/, '♨️'], [/プレゼント/, '🎁'], [/トロフィー|優勝/, '🏆']
   ];
   // 絵文字を出さない（深刻・ネガティブで賑やかし不要な）カテゴリ
   var QUIET_CATS = ['メンタル・自己分析'];
@@ -33,6 +38,73 @@
   function catLabel() {
     var c = document.querySelector('.sim-head .cat');
     return c ? c.textContent.trim() : '';
+  }
+  function simId() {
+    var m = location.pathname.match(/\/sims\/([^\/]+)/);
+    return m ? m[1] : '';
+  }
+
+  // ===== 名物シミュの専用アニメ =====
+  // 貯金・複利・積立など「育つ」系 → ブタ貯金箱がふくらむ
+  var PIGGY = ['tsumitate-fukuri', 'fire', 'chiritsumo', 'haitou-shisan', 'nisa', 'tabi-tsumitate',
+    'kagu-tsumitate', 'shaken-tsumitate', 'gakushi', 'kuriage', 'point-katsu'];
+  // 宝くじ・大金系 → コインが降る
+  var COIN = ['takarakuji', 'oshi-nenkan', 'gacha'];
+
+  function insertSpecial(panel, node) {
+    var result = panel.querySelector('.result') || panel;
+    var sl = panel.querySelector('.statline') || panel.querySelector('.big');
+    if (sl && sl.parentNode) sl.parentNode.insertBefore(node, sl.nextSibling);
+    else result.insertBefore(node, result.firstChild);
+  }
+  function piggyNode() {
+    var d = document.createElement('div');
+    d.className = 'fx-special';
+    d.innerHTML = '<div class="fx-piggy">🐷</div>' +
+      '<div class="fx-cap">コツコツ育つ貯金箱</div>';
+    // コインが上から落ちて入る
+    for (var i = 0; i < 4; i++) {
+      var c = document.createElement('span');
+      c.className = 'fx-coin'; c.textContent = '🪙';
+      c.style.left = (38 + i * 12) + '%'; c.style.animationDelay = (i * 180) + 'ms';
+      d.appendChild(c);
+    }
+    return d;
+  }
+  function fujiNode() {
+    var d = document.createElement('div');
+    d.className = 'fx-special';
+    d.innerHTML =
+      '<svg class="fx-rise" width="220" height="140" viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg">' +
+      '<defs><linearGradient id="fg" x1="0" y1="0" x2="0" y2="1">' +
+      '<stop offset="0" stop-color="#6f93c7"/><stop offset="1" stop-color="#3f5d8f"/></linearGradient></defs>' +
+      '<polygon points="110,12 205,128 15,128" fill="url(#fg)"/>' +
+      '<polygon points="110,12 138,46 126,40 116,50 110,38 104,50 94,42 82,46" fill="#fff"/>' +
+      '<ellipse cx="110" cy="130" rx="100" ry="9" fill="rgba(255,255,255,.12)"/></svg>' +
+      '<div class="fx-cap">そびえ立つ高さ！</div>';
+    return d;
+  }
+  function coinNode() {
+    var d = document.createElement('div');
+    d.className = 'fx-special';
+    d.innerHTML = '<div class="fx-piggy" style="animation-delay:.05s">💰</div><div class="fx-cap">ざっくざく！</div>';
+    return d;
+  }
+  // 専用アニメを実行（あれば {emoji} を返す）
+  function runSpecial(panel) {
+    var id = simId();
+    var node = null, emoji = null;
+    if (PIGGY.indexOf(id) >= 0) { node = piggyNode(); emoji = '🪙'; }
+    else if (id === 'scroll-distance' || hasKeyword(panel, /富士山|エベレスト/)) { node = fujiNode(); emoji = '🗻'; }
+    else if (COIN.indexOf(id) >= 0) { node = coinNode(); emoji = '💰'; }
+    if (!node) return null;
+    insertSpecial(panel, node);
+    return { emoji: emoji };
+  }
+  function hasKeyword(panel, re) {
+    var t = '';
+    panel.querySelectorAll('.k,.v,.label,.sub').forEach(function (e) { t += e.textContent + ' '; });
+    return re.test(t);
   }
 
   var lastSig = '';
@@ -57,18 +129,26 @@
       matches.push({ label: noun, emoji: emo, count: Math.round(n), unit: unit });
     });
 
-    var sig = matches.map(function (m) { return m.label + m.count + m.emoji; }).join('|');
     // 数字のバウンス（毎回）
     var big = panel.querySelector('.big');
+    var bigText = big ? big.textContent : '';
     if (big) { big.classList.remove('fx-pop'); void big.offsetWidth; big.classList.add('fx-pop'); }
 
-    if (sig === lastSig) return; // 同じ結果なら絵文字は作り直さない
+    var sig = simId() + '|' + bigText + '|' + matches.map(function (m) { return m.label + m.count + m.emoji; }).join('|');
+    if (sig === lastSig) return; // 同じ結果なら作り直さない
     lastSig = sig;
 
     // 既存のFX要素を除去
-    var old = panel.querySelector('.fx-wrap');
-    if (old) old.parentNode.removeChild(old);
-    if (!matches.length) return;
+    var oldw = panel.querySelector('.fx-wrap'); if (oldw) oldw.remove();
+    var olds = panel.querySelector('.fx-special'); if (olds) olds.remove();
+
+    // 名物シミュの専用アニメ
+    var special = runSpecial(panel);
+
+    if (!matches.length) {
+      if (special && QUIET_CATS.indexOf(catLabel()) === -1) celebrate(special.emoji);
+      return;
+    }
 
     // いちばん見栄えする1〜2件を採用（count上限でソート、極端に多いものは後ろ）
     matches.sort(function (a, b) {
