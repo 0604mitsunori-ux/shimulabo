@@ -96,6 +96,7 @@ __JS__
   $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
 })();
 </script>
+<script src="../../assets/result-fx.js"></script>
 <script src="../../assets/share-counter.js"></script>
 <script>ShareCounter.initSim({ simId:'__ID__', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
 </body>

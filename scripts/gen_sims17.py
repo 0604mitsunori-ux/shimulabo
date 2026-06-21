@@ -90,6 +90,7 @@ __JS__
   const sb=$('shareBtn'); if(sb) sb.addEventListener('click',()=>window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
 })();
 </script>
+<script src="../../assets/result-fx.js"></script>
 <script src="../../assets/share-counter.js"></script>
 <script>ShareCounter.initSim({ simId:'__ID__', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
 </body>

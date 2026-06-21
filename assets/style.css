@@ -177,6 +177,16 @@ a { color: var(--teal-d); }
 .cat-more:hover { border-color: var(--teal); color: var(--teal-d); box-shadow: var(--shadow-sm); }
 .sim-card.hide, .cat-block.hide, .cat-more.hide { display: none !important; }
 #grid { margin-top: 26px; }
+
+/* ===== 結果演出（result-fx） ===== */
+.fx-wrap { margin: 16px 0 4px; }
+.fx-icons { display: flex; flex-wrap: wrap; gap: 7px; justify-content: center; align-items: center; margin-top: 10px; }
+.fx-icons .fx-lab { width: 100%; text-align: center; font-size: 12px; font-weight: 800; color: var(--ink-2); margin-bottom: 2px; }
+.fx-icon { font-size: 26px; line-height: 1; opacity: 0; transform: scale(0) translateY(10px); animation: fxpop .42s cubic-bezier(.2,1.5,.4,1) forwards; }
+@keyframes fxpop { to { opacity: 1; transform: scale(1) translateY(0); } }
+.fx-more { font-size: 15px; font-weight: 900; color: var(--accent-d); align-self: center; }
+.big.fx-pop { display: inline-block; animation: fxbig .6s cubic-bezier(.2,1.5,.4,1); }
+@keyframes fxbig { 0% { transform: scale(.55); } 55% { transform: scale(1.14); } 100% { transform: scale(1); } }
 .sim-card {
   position: relative; display: flex; flex-direction: column;
   background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
