@@ -13,6 +13,18 @@
   function simIdOf(p) { var m = p.match(/\/sims\/([^\/]+)\//); return m ? m[1] : null; }
   var id = simIdOf(path);
 
+  // 最近見たシミュを記録（個別シミュページのみ・トップで表示）
+  if (id && !isEN) {
+    try {
+      var rk = 'sl_recent';
+      var rec = JSON.parse(localStorage.getItem(rk) || '[]');
+      rec = rec.filter(function (x) { return x && x.id !== id; });
+      rec.unshift({ id: id, t: Date.now() });
+      if (rec.length > 12) rec = rec.slice(0, 12);
+      localStorage.setItem(rk, JSON.stringify(rec));
+    } catch (e) {}
+  }
+
   // 切替先URL（絶対パス）。無い場合は null。
   var href = null, label = '';
   if (isEN) {

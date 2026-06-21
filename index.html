@@ -86,6 +86,14 @@
     <div class="search-meta" id="searchMeta" hidden></div>
   </section>
 
+  <section class="recent-wrap" id="recentWrap" hidden>
+    <div class="recent-head">
+      <h2>🕘 最近見たシミュ</h2>
+      <button class="rc-clear" id="recentClear">履歴を消す</button>
+    </div>
+    <div class="recent-list" id="recentList"></div>
+  </section>
+
   <section class="rank-wrap">
     <div class="rank-head">
       <h2>🏆 人気のシミュレーション</h2>
@@ -94,37 +102,17 @@
     <div class="rank-list" id="rankList"></div>
   </section>
 
-  <div class="chips" id="chips">
-    <button class="chip is-on" data-cat="all">すべて</button>
-    <button class="chip" data-cat="money">お金・時間</button>
-    <button class="chip" data-cat="wonder">ふしぎ・現象</button>
-    <button class="chip" data-cat="life">人生・自分ごと</button>
-    <button class="chip" data-cat="marketing">マーケティング</button>
-    <button class="chip" data-cat="love">恋愛・婚活</button>
-    <button class="chip" data-cat="biz">店舗・ビジネス</button>
-    <button class="chip" data-cat="finance">マネー・保険・不動産</button>
-    <button class="chip" data-cat="work">仕事・働き方</button>
-    <button class="chip" data-cat="study">学生・勉強</button>
-    <button class="chip" data-cat="kids">子ども・育児</button>
-    <button class="chip" data-cat="pet">ペット</button>
-    <button class="chip" data-cat="health">健康・カラダ</button>
-    <button class="chip" data-cat="uranai">占い・診断</button>
-    <button class="chip" data-cat="car">クルマ・乗り物</button>
-    <button class="chip" data-cat="travel">旅行・おでかけ</button>
-    <button class="chip" data-cat="home">住まい・暮らし</button>
-    <button class="chip" data-cat="food">グルメ・食</button>
-    <button class="chip" data-cat="play">あそぶ・実験</button>
-    <button class="chip" data-cat="beauty">美容・ファッション</button>
-    <button class="chip" data-cat="sports">スポーツ・運動</button>
-    <button class="chip" data-cat="oshi">推し活・エンタメ</button>
-    <button class="chip" data-cat="mental">メンタル・自己分析</button>
-    <button class="chip" data-cat="teacher">教員・先生</button>
-    <button class="chip" data-cat="senior">シニア・終活・介護</button>
-    <button class="chip" data-cat="tax">税金・確定申告</button>
-    <button class="chip" data-cat="juken">受験・進学</button>
-    <button class="chip" data-cat="season">季節・行事</button>
-    <button class="chip" data-cat="voice">音声入力・時短</button>
+  <div class="chips group-chips" id="groupChips">
+    <button class="chip is-on" data-group="all">すべて</button>
+    <button class="chip" data-group="money">💰 お金・保険・税</button>
+    <button class="chip" data-group="work">💼 しごと・ビジネス</button>
+    <button class="chip" data-group="learn">📚 まなび・こども</button>
+    <button class="chip" data-group="health">🫀 健康・美容・運動</button>
+    <button class="chip" data-group="fun">💘 恋愛・占い・推し</button>
+    <button class="chip" data-group="living">🏠 くらし・グルメ・旅</button>
+    <button class="chip" data-group="life">⏳ 人生・シニア</button>
   </div>
+  <div class="chips sub-chips" id="subChips" hidden></div>
 
   <div class="grid" id="grid">
 
@@ -2506,42 +2494,98 @@
     });
   }
 
-  // カテゴリ絞り込み（チップ）
-  const chips = document.getElementById('chips');
-  chips.addEventListener('click', (e) => {
+  // ===== カテゴリ2階層（親グループ → 子カテゴリ） =====
+  const CATLABEL = {}; CATS.forEach(([slug, label, ic]) => { CATLABEL[slug] = { label, ic }; });
+  const GROUPS = [
+    { key: 'money',  cats: ['money', 'finance', 'tax'] },
+    { key: 'work',   cats: ['work', 'biz', 'marketing', 'voice'] },
+    { key: 'learn',  cats: ['study', 'juken', 'teacher', 'kids'] },
+    { key: 'health', cats: ['health', 'sports', 'beauty', 'mental'] },
+    { key: 'fun',    cats: ['love', 'uranai', 'oshi', 'play', 'wonder'] },
+    { key: 'living', cats: ['home', 'food', 'travel', 'car', 'pet', 'season'] },
+    { key: 'life',   cats: ['life', 'senior'] },
+  ];
+  const groupChips = document.getElementById('groupChips');
+  const subChips = document.getElementById('subChips');
+
+  function showGroup(key) {
+    const g = GROUPS.find(x => x.key === key); if (!g) return;
+    const set = new Set(g.cats.filter(s => blocks[s]));
+    Object.entries(blocks).forEach(([slug, block]) => {
+      if (slug === '__req') { block.classList.add('hide'); return; }
+      if (set.has(slug)) {
+        block.classList.remove('hide');
+        [...block.querySelectorAll('.sim-card')].forEach((c, i) => c.classList.toggle('hide', i >= PREVIEW));
+        const more = block.querySelector('.cat-more'); if (more) more.classList.remove('hide');
+        const all = block.querySelector('.cat-title .all'); if (all) all.style.display = '';
+      } else block.classList.add('hide');
+    });
+  }
+  function renderSubChips(key) {
+    const g = GROUPS.find(x => x.key === key);
+    if (!g) { subChips.hidden = true; subChips.innerHTML = ''; return; }
+    let html = '<button class="chip sub is-on" data-cat="__group">↧ このグループすべて</button>';
+    html += g.cats.filter(s => blocks[s]).map(s => {
+      const m = CATLABEL[s] || { label: s, ic: '' };
+      return `<button class="chip sub" data-cat="${s}">${m.ic} ${m.label}</button>`;
+    }).join('');
+    subChips.innerHTML = html; subChips.hidden = false;
+  }
+  groupChips.addEventListener('click', (e) => {
     const btn = e.target.closest('.chip'); if (!btn) return;
-    if (searching) {
-      sInput.value = ''; searching = false; sClear.hidden = true;
-      sMeta.hidden = true; sMeta.innerHTML = '';
-      if (rankWrap) rankWrap.style.display = '';
-      Object.values(blocks).forEach(b => { const a = b.querySelector('.cat-title .all'); if (a) a.style.display = ''; });
-    }
-    chips.querySelectorAll('.chip').forEach(c => c.classList.remove('is-on'));
+    clearSearchUI();
+    groupChips.querySelectorAll('.chip').forEach(c => c.classList.remove('is-on'));
     btn.classList.add('is-on');
-    (btn.dataset.cat === 'all') ? showAll() : showCat(btn.dataset.cat);
-    chips.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const key = btn.dataset.group;
+    if (key === 'all') { renderSubChips(null); showAll(); }
+    else { renderSubChips(key); showGroup(key); }
+    groupChips.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
-  // 各セクションの「すべて見る →」でそのカテゴリに絞り込み
+  subChips.addEventListener('click', (e) => {
+    const btn = e.target.closest('.chip'); if (!btn) return;
+    subChips.querySelectorAll('.chip').forEach(c => c.classList.remove('is-on'));
+    btn.classList.add('is-on');
+    const cat = btn.dataset.cat;
+    if (cat === '__group') { const on = groupChips.querySelector('.chip.is-on'); if (on) showGroup(on.dataset.group); }
+    else showCat(cat);
+    subChips.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+  // 各セクション「すべて見る →」→ 親グループ＋子カテゴリを連動選択
   grid.addEventListener('click', (e) => {
     const all = e.target.closest('.all'); if (!all) return;
     const cat = all.dataset.cat;
-    chips.querySelectorAll('.chip').forEach(c => c.classList.toggle('is-on', c.dataset.cat === cat));
+    clearSearchUI();
+    const g = GROUPS.find(x => x.cats.includes(cat));
+    groupChips.querySelectorAll('.chip').forEach(c => c.classList.toggle('is-on', c.dataset.group === (g ? g.key : 'all')));
+    renderSubChips(g ? g.key : null);
+    if (g) subChips.querySelectorAll('.chip').forEach(c => c.classList.toggle('is-on', c.dataset.cat === cat));
     showCat(cat);
-    chips.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    groupChips.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 
-  // ===== 検索（373本を横断・インクリメンタル） =====
+  // ===== 検索（373本を横断・インクリメンタル＋一致ハイライト） =====
   const norm = s => (s || '').toLowerCase()
     .replace(/[ァ-ヶ]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60)) // カタカナ→ひらがな
     .replace(/[\s　]+/g, '');
-  // 各カードに検索用テキストを付与（タイトル＋カテゴリ＋説明＋スラグ）
+  const esc = s => s.replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
+  // 各カードに検索用テキスト＋元タイトルを付与
   allCards.forEach(c => {
     const t = (c.querySelector('h3') || {}).textContent || '';
     const cat = (c.querySelector('.cat') || {}).textContent || '';
     const desc = (c.querySelector('.body p') || {}).textContent || '';
     const slug = (c.getAttribute('href') || '').split('/')[1] || '';
+    c._title = t;
     c._hay = norm(t + ' ' + cat + ' ' + desc + ' ' + slug);
   });
+  function setTitle(card, raw) {
+    const h3 = card.querySelector('h3'); if (!h3) return;
+    const orig = card._title || '';
+    if (!raw) { if (h3.querySelector('mark')) h3.textContent = orig; return; }
+    const idx = orig.toLowerCase().indexOf(raw.toLowerCase());
+    if (idx < 0) { if (h3.querySelector('mark')) h3.textContent = orig; return; }
+    h3.innerHTML = esc(orig.slice(0, idx)) + '<mark>' + esc(orig.slice(idx, idx + raw.length)) + '</mark>' + esc(orig.slice(idx + raw.length));
+  }
+  function restoreTitles() { allCards.forEach(c => setTitle(c, null)); }
   const sInput = document.getElementById('searchInput');
   const sClear = document.getElementById('searchClear');
   const sMeta = document.getElementById('searchMeta');
@@ -2550,18 +2594,21 @@
   let searching = false;
 
   function runSearch(raw) {
-    const q = norm((raw || '').trim());
+    const rawT = (raw || '').trim();
+    const q = norm(rawT);
     if (!q) { exitSearch(); return; }
     searching = true;
     sClear.hidden = false;
     if (rankWrap) rankWrap.style.display = 'none';
-    chips.querySelectorAll('.chip').forEach(c => c.classList.remove('is-on'));
+    groupChips.querySelectorAll('.chip').forEach(c => c.classList.remove('is-on'));
+    subChips.hidden = true;
     Object.entries(blocks).forEach(([slug, block]) => {
       if (slug === '__req') { block.classList.add('hide'); return; }
       let shown = 0;
       block.querySelectorAll('.sim-card').forEach(card => {
         const m = card._hay.includes(q);
         card.classList.toggle('hide', !m);
+        setTitle(card, m ? rawT : null);
         if (m) shown++;
       });
       block.classList.toggle('hide', shown === 0);
@@ -2571,19 +2618,29 @@
     const total = allCards.filter(c => !c.classList.contains('hide')).length;
     sMeta.hidden = false;
     sMeta.innerHTML = total > 0
-      ? `「<b>${raw.trim()}</b>」の検索結果：<b>${total}</b>件`
-      : `<div class="search-empty">「<b>${raw.trim()}</b>」に一致するシミュは見つかりませんでした。<br>別のキーワード、または下のカテゴリからお探しください。</div>`;
+      ? `「<b>${esc(rawT)}</b>」の検索結果：<b>${total}</b>件`
+      : `<div class="search-empty">「<b>${esc(rawT)}</b>」に一致するシミュは見つかりませんでした。<br>別のキーワード、または下のカテゴリからお探しください。</div>`;
   }
   function exitSearch() {
     searching = false;
     sClear.hidden = true;
     sMeta.hidden = true; sMeta.innerHTML = '';
     if (rankWrap) rankWrap.style.display = '';
+    restoreTitles();
     Object.values(blocks).forEach(block => {
       const all = block.querySelector('.cat-title .all'); if (all) all.style.display = '';
     });
-    chips.querySelectorAll('.chip').forEach(c => c.classList.toggle('is-on', c.dataset.cat === 'all'));
+    groupChips.querySelectorAll('.chip').forEach(c => c.classList.toggle('is-on', c.dataset.group === 'all'));
+    subChips.hidden = true; subChips.innerHTML = '';
     showAll();
+  }
+  function clearSearchUI() {
+    if (!searching) return;
+    searching = false; sInput.value = ''; sClear.hidden = true;
+    sMeta.hidden = true; sMeta.innerHTML = '';
+    if (rankWrap) rankWrap.style.display = '';
+    restoreTitles();
+    Object.values(blocks).forEach(b => { const a = b.querySelector('.cat-title .all'); if (a) a.style.display = ''; });
   }
   sInput.addEventListener('input', () => runSearch(sInput.value));
   sClear.addEventListener('click', () => { sInput.value = ''; sInput.focus(); exitSearch(); });
@@ -2598,6 +2655,32 @@
     if (e.key === '/' && !/INPUT|TEXTAREA|SELECT/.test(tag)) { e.preventDefault(); sInput.focus(); }
     else if (e.key === 'Escape' && searching) { sInput.value = ''; exitSearch(); }
   });
+
+  // ===== 最近見たシミュ（localStorage、各シミュページで lang-toggle.js が記録） =====
+  (function renderRecent() {
+    let arr = [];
+    try { arr = JSON.parse(localStorage.getItem('sl_recent') || '[]'); } catch (e) {}
+    if (!arr.length) return;
+    const meta = {};
+    allCards.forEach(c => {
+      const href = c.getAttribute('href') || '';
+      const cid = href.split('/')[1]; if (!cid) return;
+      meta[cid] = {
+        href: href,
+        title: (c.querySelector('h3') || {}).textContent || cid,
+        emoji: (c.querySelector('.thumb .emoji') || {}).textContent || '🔧'
+      };
+    });
+    const items = arr.map(x => meta[x.id]).filter(Boolean).slice(0, 8);
+    if (!items.length) return;
+    const wrap = document.getElementById('recentWrap');
+    const list = document.getElementById('recentList');
+    list.innerHTML = items.map(s =>
+      `<a class="recent-card" href="${s.href}"><span class="re">${s.emoji}</span><span class="rt">${s.title}</span></a>`).join('');
+    wrap.hidden = false;
+    const clr = document.getElementById('recentClear');
+    if (clr) clr.addEventListener('click', () => { try { localStorage.removeItem('sl_recent'); } catch (e) {} wrap.hidden = true; });
+  })();
 
   // ===== 上へ戻るFAB =====
   const toTop = document.getElementById('toTop');
