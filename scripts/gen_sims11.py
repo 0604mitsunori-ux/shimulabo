@@ -23,6 +23,9 @@ TPL = '''<!DOCTYPE html>
 <meta property="og:description" content="__OGDESC__">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
 </head>
 <body>
 
