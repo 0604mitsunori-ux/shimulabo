@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/root-keisan/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/root-keisan.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/root-keisan.png">
+<title>ルート計算機（平方根）｜√の値を計算・簡単な形に変形｜シミュラボ</title>
+<meta name="description" content="数値を入れるだけで平方根（ルート）の値を計算する無料ツール。√72＝6√2 のように、ルートを簡単な形（a√b）に変形する機能つき。数学の宿題や検算に。">
+<meta property="og:title" content="ルート計算機（平方根）｜√の値・簡単な形">
+<meta property="og:description" content="平方根の値を計算し、a√bの形にも変形。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/root-keisan/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "ルート計算機（平方根）", "url": "https://shimulabo.com/sims/root-keisan/", "description": "数値を入れるだけで平方根（ルート）の値を計算する無料ツール。√72＝6√2 のように、ルートを簡単な形（a√b）に変形する機能つき。数学の宿題や検算に。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ルート計算機（平方根）", "item": "https://shimulabo.com/sims/root-keisan/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "簡単な形って？", "acceptedAnswer": {"@type": "Answer", "text": "√72＝6√2 のように、√の外に出せる数を出した形です。"}}, {"@type": "Question", "name": "マイナスは？", "acceptedAnswer": {"@type": "Answer", "text": "負の数の平方根は実数では表せません（虚数になります）。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>便利ツール<span>›</span><span class="cur">ルート計算機（平方根）</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">便利ツール</div>
+    <h1>ルート計算機（平方根）</h1>
+    <p class="lead">√（ルート）の値は?数値を入れると平方根を計算し、√72＝6√2のように「いちばん簡単な形」にも変形します。数学の検算に。</p>
+  </div>
+
+  <section class="panel">
+    <h2>√ 数値を入れる</h2>
+    <div class="field"><label>√ の中の数</label><input type="number" id="n" value="72" min="0" step="any" inputmode="decimal"></div>
+    <button class="btn btn-primary" id="calcBtn">ルートを計算</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">平方根（√n）の値</div>
+      <div class="big"><span id="big">0</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">簡単な形</div><div class="v accent" id="simp">—</div></div>
+      <div class="stat"><div class="k">2乗すると</div><div class="v" id="sq">—</div></div></div>
+      <div class="viz-wrap" style="margin-top:14px;"></div>
+      <div style="text-align:center;margin-top:12px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 でシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <div class="note"><strong>平方根とは</strong><br>2乗するとその数になる値が平方根。√72は約8.485で、72＝36×2 なので √72＝6√2 と簡単にできます。</div>
+    <h2>ルート（平方根）の計算</h2>
+    <p>平方根は「2乗するとその数になる値」です。√の中の数を、平方数（4・9・16…）で割れる分だけ外に出すと、6√2のような「簡単な形」になります。これを「ルートを簡単にする」「根号を外に出す」といいます。本ツールは小数の値と、簡単な形の両方を表示するので、宿題の答え合わせや検算に便利です。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>簡単な形って？</dt><dd>√72＝6√2 のように、√の外に出せる数を出した形です。</dd><dt>マイナスは？</dt><dd>負の数の平方根は実数では表せません（虚数になります）。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../percent-keisan/index.html"><span class="e">％</span><span>パーセント計算機</span></a><a class="related-card" href="../bunsuu-keisan/index.html"><span class="e">½</span><span>分数計算機</span></a><a class="related-card" href="../jikan-keisan/index.html"><span class="e">⏱️</span><span>時間計算機（経過時間）</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなツールも欲しい？</h2>
+    <p>あなたの「これ計算したい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => (Math.round(n*100)/100).toLocaleString('ja-JP');
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const clamp = (v,a,b) => Math.max(a,Math.min(b,v));
+  let SHARE = '', raf = 0;
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function simplify(n){if(!Number.isInteger(n)||n<0)return null;let out=1,inn=n;for(let i=2;i*i<=inn;i++){while(inn%(i*i)===0){out*=i;inn/=i*i;}}return [out,inn];}
+  function calc(){const n=+$('n').value;if(n<0){$('big').textContent='—';$('sub').textContent='0以上の数を入れてね（負は虚数）';show();return;}
+    const v=Math.sqrt(n);$('sub').textContent='√'+n+' ＝ '+(Math.round(v*1e6)/1e6);
+    const sp=simplify(n);let stxt;
+    if(sp){const[o,i]=sp;stxt=(i===1)?(''+o):(o===1?('√'+i):(o+'√'+i));}else stxt='√'+n+'（整数でないため）';
+    $('simp').textContent=stxt;$('sq').textContent=Math.round(v*v*1e6)/1e6;
+    SHARE='ルート計算機、√'+n+' ＝ '+(Math.round(v*1000)/1000)+'（簡単な形：'+stxt+'）でした√';show();anim(v);}
+  function anim(v){const el=$('big'),t0=performance.now();(function s(n){const p=Math.min(1,(n-t0)/700),e=1-Math.pow(1-p,3);el.textContent=(Math.round(v*e*100)/100).toLocaleString('ja-JP');if(p<1)requestAnimationFrame(s);else el.textContent=(Math.round(v*100)/100).toLocaleString('ja-JP');})(performance.now());}
+  const cb=$('calcBtn'); if(cb) cb.addEventListener('click', calc);
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  const cp=$('copyBtn'); if(cp) cp.addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'root-keisan', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

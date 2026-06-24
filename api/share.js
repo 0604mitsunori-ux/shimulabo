@@ -78,7 +78,11 @@ const ALLOW = new Set([
   'koden-souba', 'shukugi-souba', 'otoshidama-souba', 'shussan-iwai-souba', 'kekkon-iwai-souba', 'uchiiwai-keisan', 'nyugaku-iwai-souba', 'mochu-checker', 'kanchu-mimai', 'chouju-iwai',
   'zeikomi-keisan', 'waribiki-keisan', 'hensachi-keisan', 'hiritsu-keisan', 'nenrei-keisan', 'roma-suji', 'hyojun-hensa', 'taiseki-keisan', 'yakubun-keisan', 'junretsu-keisan',
   'machigai-sagashi', 'shinkei-suijaku', 'shunkan-kioku', 'simon-game', 'gyakushou-kioku', 'mental-rotation', 'nakama-hazure', 'ichi-kioku', 'tango-kioku', 'schulte',
-  'mosquito-on', 'hansha-shinkei', 'click-cps', 'shiryoku-test', 'shikikaku-test', 'iq-test', 'typing-sokudo', 'rhythm-test', 'mato-tap', 'gonogo-test'
+  'mosquito-on', 'hansha-shinkei', 'click-cps', 'shiryoku-test', 'shikikaku-test', 'iq-test', 'typing-sokudo', 'rhythm-test', 'mato-tap', 'gonogo-test',
+  'ketsuatsu-check', 'taishibo-keisan', 'ranning-calorie', 'saidai-shinpaku', 'biyo-taiju',
+  'hairan-keisan', 'ninshin-shusu', 'seiri-cycle', 'kiso-taion',
+  'inu-nenrei', 'neko-nenrei', 'kodomo-shincho', 'kodomo-himan',
+  'root-keisan', 'nijihoteishiki', 'en-menseki', 'naishinten', 'hikkoshi-hiyou', 'shoki-hiyou', 'jidoshazei'
 ]);
 
 export default async function handler(req, res) {

@@ -92,7 +92,8 @@ def make_engines(SIMS, CAT, TPL, viz):
 
     def add(**k):
         k.setdefault('visual','')
-        SIMS.append(dict(cat=CAT, **k))
+        k.setdefault('cat', CAT)  # cat=... をkで渡せばsimごとに上書き可
+        SIMS.append(dict(**k))
 
     def render():
         ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
