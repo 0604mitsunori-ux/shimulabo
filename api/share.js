@@ -73,7 +73,9 @@ const ALLOW = new Set([
   'twinray', 'unmei-hito', 'aite-kimochi', 'shugorei', 'deai-uranai',
   'renai-shindan', 'renai-type', 'renai-hensachi', 'mote-do', 'risou-aite', 'renai-kachikan', 'kakehiki-type', 'matchapp-aisho', 'kekkon-tekireiki', 'koibito-itsu',
   'uwaki-do', 'uwaki-sign', 'isharyo-furin', 'tantei-hiyou', 'youikuhi', 'zaisan-bunyo', 'shouko-check', 'shinrai-do', 'kentaiki', 'uwaki-nayami',
-  'kid-eigo-type', 'kid-eigo-itsukara', 'kid-tablet-muki', 'kid-gakushu-type', 'kid-yaruki', 'kid-kyozai-hiyou', 'kid-eigomimi', 'kid-jitaku', 'kid-gakushu-jikan', 'kid-naraigoto'
+  'kid-eigo-type', 'kid-eigo-itsukara', 'kid-tablet-muki', 'kid-gakushu-type', 'kid-yaruki', 'kid-kyozai-hiyou', 'kid-eigomimi', 'kid-jitaku', 'kid-gakushu-jikan', 'kid-naraigoto',
+  'gasolinedai', 'aircon-denki', 'denkidai-keisan', 'kaden-denki', 'suidoudai', 'gasudai', 'led-setsuyaku', 'danbou-hikaku', 'ev-vs-gasoline', 'kounetsuhi-shindan',
+  'koden-souba', 'shukugi-souba', 'otoshidama-souba', 'shussan-iwai-souba', 'kekkon-iwai-souba', 'uchiiwai-keisan', 'nyugaku-iwai-souba', 'mochu-checker', 'kanchu-mimai', 'chouju-iwai'
 ]);
 
 export default async function handler(req, res) {

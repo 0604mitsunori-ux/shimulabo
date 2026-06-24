@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/denkidai-keisan/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/denkidai-keisan.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/denkidai-keisan.png">
+<title>電気代計算機｜消費電力(W)と時間から電気代を計算｜シミュラボ</title>
+<meta name="description" content="消費電力(W)・使用時間・日数・電気単価から、電気代を自動計算する無料ツール。家電の電気代やワット数からの目安計算に使えます。">
+<meta property="og:title" content="電気代計算機｜W・時間から電気代を計算">
+<meta property="og:description" content="消費電力・使用時間・単価から電気代を自動計算。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/denkidai-keisan/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "電気代計算機", "url": "https://shimulabo.com/sims/denkidai-keisan/", "description": "消費電力(W)・使用時間・日数・電気単価から、電気代を自動計算する無料ツール。家電の電気代やワット数からの目安計算に使えます。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "電気代計算機", "item": "https://shimulabo.com/sims/denkidai-keisan/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "W数はどこを見る？", "acceptedAnswer": {"@type": "Answer", "text": "家電の本体ラベルや取扱説明書の「消費電力」を確認してください。"}}, {"@type": "Question", "name": "単価の目安は？", "acceptedAnswer": {"@type": "Answer", "text": "契約により異なりますが、目安は1kWhあたり27〜35円ほどです。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>光熱費・節約<span>›</span><span class="cur">電気代計算機</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">光熱費・節約</div>
+    <h1>電気代計算機</h1>
+    <p class="lead">この家電の電気代はいくら?消費電力(W)・使用時間・日数・電気単価を入れるだけで、電気代を計算します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>💡 条件を入れる</h2>
+    <div class="row"><div class="field"><label>消費電力 <span class="hint">W（ワット）</span></label><input type="number" id="watt" value="1000" min="0" inputmode="decimal"></div>
+    <div class="field"><label>電気料金の単価 <span class="hint">円/kWh</span></label><input type="number" id="tanka" value="31" min="0" inputmode="decimal"></div></div>
+    <div class="row"><div class="field"><label>1日の使用時間 <span class="hint">時間</span></label><input type="number" id="hours" value="3" min="0" inputmode="decimal"></div>
+    <div class="field"><label>使う日数 <span class="hint">日</span></label><input type="number" id="days" value="30" min="0" inputmode="numeric"></div></div>
+    <button class="btn btn-primary" id="calcBtn">電気代を計算</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">電気代（期間合計）</div>
+      <div class="big"><span id="big">0</span><span class="unit">円</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">1時間あたり</div><div class="v" id="hour">—</div></div>
+      <div class="stat"><div class="k">1日あたり</div><div class="v" id="day">—</div></div>
+      <div class="stat"><div class="k">消費電力量</div><div class="v accent" id="kwh">—</div></div></div>
+      <div class="viz-wrap" style="margin-top:14px;"></div>
+      <div style="text-align:center;margin-top:12px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 でシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <div class="note"><strong>計算式</strong><br>電気代 ＝ 消費電力(W) ÷ 1000 × 使用時間 × 日数 × 単価（円/kWh）</div>
+    <h2>電気代の計算方法</h2>
+    <p>電気代は「消費電力(kW)×使用時間×単価」で求められます。W（ワット）は家電の本体やラベルに記載。1kWh（キロワットアワー）あたりの単価は、契約プランで概ね27〜35円ほどです。複数の家電の電気代を比べて、節電の優先順位を考えるのに役立ちます。※電気料金の単価は契約・地域・時期で変わります。標準的な目安として31円/kWh前後で計算しています。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>W数はどこを見る？</dt><dd>家電の本体ラベルや取扱説明書の「消費電力」を確認してください。</dd><dt>単価の目安は？</dt><dd>契約により異なりますが、目安は1kWhあたり27〜35円ほどです。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../gasolinedai/index.html"><span class="e">⛽</span><span>ガソリン代計算機</span></a><a class="related-card" href="../aircon-denki/index.html"><span class="e">❄️</span><span>エアコンの電気代計算機</span></a><a class="related-card" href="../kaden-denki/index.html"><span class="e">🔌</span><span>家電別 電気代早見シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなツールも欲しい？</h2>
+    <p>あなたの「これ計算したい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => (Math.round(n*100)/100).toLocaleString('ja-JP');
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const clamp = (v,a,b) => Math.max(a,Math.min(b,v));
+  let SHARE = '', raf = 0;
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){const w=Math.max(0,+$('watt').value||0),t=Math.max(0,+$('tanka').value||0),h=Math.max(0,+$('hours').value||0),d=Math.max(0,+$('days').value||0);
+    const kwh=w/1000, perH=kwh*t, perD=perH*h, total=perD*d;
+    $('sub').textContent=`${num(w)}W・1日${num(h)}h × ${num(d)}日`;
+    $('hour').textContent=yen(perH);$('day').textContent=yen(perD);$('kwh').textContent=num(kwh*h*d)+'kWh';
+    SHARE=`電気代計算機、${num(w)}Wを${num(d)}日使うと約${yen(total)}でした💡`;show();anim(total);}
+  function anim(v){const el=$('big'),t0=performance.now();(function s(n){const p=Math.min(1,(n-t0)/800),e=1-Math.pow(1-p,3);el.textContent=Math.round(v*e).toLocaleString('ja-JP');if(p<1)requestAnimationFrame(s);})(performance.now());}
+  const cb=$('calcBtn'); if(cb) cb.addEventListener('click', calc);
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  const cp=$('copyBtn'); if(cp) cp.addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'denkidai-keisan', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

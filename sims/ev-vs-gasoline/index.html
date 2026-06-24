@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/ev-vs-gasoline/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/ev-vs-gasoline.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/ev-vs-gasoline.png">
+<title>EV vs ガソリン車 燃料費比較シミュレーター｜どっちが安い？｜シミュラボ</title>
+<meta name="description" content="月間の走行距離から、EV（電気自動車）の電気代とガソリン車の燃料費を比較できる無料ツール。年間でどれだけ差が出るかが分かります。">
+<meta property="og:title" content="EV vs ガソリン車 燃料費比較｜どっちが安い？">
+<meta property="og:description" content="走行距離からEVの電気代とガソリン車の燃料費を比較。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/ev-vs-gasoline/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "EV vs ガソリン車 燃料費比較シミュレーター", "url": "https://shimulabo.com/sims/ev-vs-gasoline/", "description": "月間の走行距離から、EV（電気自動車）の電気代とガソリン車の燃料費を比較できる無料ツール。年間でどれだけ差が出るかが分かります。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "EV vs ガソリン車 燃料費比較シミュレーター", "item": "https://shimulabo.com/sims/ev-vs-gasoline/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "電費(km/kWh)とは？", "acceptedAnswer": {"@type": "Answer", "text": "1kWhで走れる距離。EVの「燃費」にあたる指標で、概ね6〜8km/kWhほどです。"}}, {"@type": "Question", "name": "急速充電だと変わる？", "acceptedAnswer": {"@type": "Answer", "text": "はい。外部の急速充電は単価が高めなので、自宅充電中心の方がお得です。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>光熱費・節約<span>›</span><span class="cur">EV vs ガソリン車 燃料費比較シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">光熱費・節約</div>
+    <h1>EV vs ガソリン車 燃料費比較シミュレーター</h1>
+    <p class="lead">電気自動車(EV)とガソリン車、燃料費はどっちが安い?月間の走行距離を入れると、EVの電気代とガソリン車の燃料費を比較します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🔋 条件を入れる</h2>
+    <div class="field"><label>月間の走行距離 <span class="hint">km</span></label><input type="number" id="dist" value="800" min="0" inputmode="decimal"></div>
+    <div class="row"><div class="field"><label>ガソリン車の燃費 <span class="hint">km/L</span></label><input type="number" id="nenpi" value="15" min="0.1" inputmode="decimal"></div>
+    <div class="field"><label>ガソリン単価 <span class="hint">円/L</span></label><input type="number" id="gtanka" value="175" min="0" inputmode="decimal"></div></div>
+    <div class="row"><div class="field"><label>EVの電費 <span class="hint">km/kWh</span></label><input type="number" id="denpi" value="7" min="0.1" inputmode="decimal"></div>
+    <div class="field"><label>電気単価 <span class="hint">円/kWh</span></label><input type="number" id="etanka" value="31" min="0" inputmode="decimal"></div></div>
+    <button class="btn btn-primary" id="calcBtn">燃料費を比較</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">月の燃料費の差（ガソリン − EV）</div>
+      <div class="big"><span id="big">0</span><span class="unit">円/月 お得</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">ガソリン車</div><div class="v" id="gas">—</div></div>
+      <div class="stat"><div class="k">EV（電気代）</div><div class="v accent" id="ev">—</div></div>
+      <div class="stat"><div class="k">年間の差額</div><div class="v" id="year">—</div></div></div>
+      <div class="viz-wrap" style="margin-top:14px;"></div>
+      <div style="text-align:center;margin-top:12px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 でシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <div class="note"><strong>計算式</strong><br>ガソリン車 ＝ 距離÷燃費×ガソリン単価／EV ＝ 距離÷電費×電気単価</div>
+    <h2>EVとガソリン車、燃料費はどっちが安い？</h2>
+    <p>一般に、走った距離あたりの「燃料費」は<b>EVの方が安い</b>傾向です（自宅充電・通常単価の場合）。ただし、EVは車両価格が高め、急速充電は単価が上がる、電気料金プランで差が出る、などの要素もあります。本ツールは燃料費（電気代・ガソリン代）のみの比較です。車両価格・税・メンテまで含めた総コストは別途検討を。※電気料金の単価は契約・地域・時期で変わります。標準的な目安として31円/kWh前後で計算しています。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>電費(km/kWh)とは？</dt><dd>1kWhで走れる距離。EVの「燃費」にあたる指標で、概ね6〜8km/kWhほどです。</dd><dt>急速充電だと変わる？</dt><dd>はい。外部の急速充電は単価が高めなので、自宅充電中心の方がお得です。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../gasolinedai/index.html"><span class="e">⛽</span><span>ガソリン代計算機</span></a><a class="related-card" href="../aircon-denki/index.html"><span class="e">❄️</span><span>エアコンの電気代計算機</span></a><a class="related-card" href="../denkidai-keisan/index.html"><span class="e">💡</span><span>電気代計算機</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなツールも欲しい？</h2>
+    <p>あなたの「これ計算したい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => (Math.round(n*100)/100).toLocaleString('ja-JP');
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const clamp = (v,a,b) => Math.max(a,Math.min(b,v));
+  let SHARE = '', raf = 0;
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){const d=Math.max(0,+$('dist').value||0),n=Math.max(0.1,+$('nenpi').value||0.1),g=Math.max(0,+$('gtanka').value||0),dp=Math.max(0.1,+$('denpi').value||0.1),e=Math.max(0,+$('etanka').value||0);
+    const gas=d/n*g, ev=d/dp*e, diff=gas-ev;
+    $('gas').textContent=yen(gas)+'/月';$('ev').textContent=yen(ev)+'/月';$('year').textContent=yen(Math.abs(diff)*12);
+    $('sub').textContent = diff>=0 ? `EVの方が月 ${yen(diff)} お得` : `ガソリン車の方が月 ${yen(-diff)} お得`;
+    SHARE=`EV vs ガソリン燃料費、月${num(d)}kmならEVが月${yen(Math.abs(diff))}お得（年${yen(Math.abs(diff)*12)}）でした🔋`;show();anim(Math.abs(diff));}
+  function anim(v){const el=$('big'),t0=performance.now();(function s(n){const p=Math.min(1,(n-t0)/800),e=1-Math.pow(1-p,3);el.textContent=Math.round(v*e).toLocaleString('ja-JP');if(p<1)requestAnimationFrame(s);})(performance.now());}
+  const cb=$('calcBtn'); if(cb) cb.addEventListener('click', calc);
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  const cp=$('copyBtn'); if(cp) cp.addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'ev-vs-gasoline', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

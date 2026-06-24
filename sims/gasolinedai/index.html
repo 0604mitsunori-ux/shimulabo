@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/gasolinedai/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/gasolinedai.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/gasolinedai.png">
+<title>ガソリン代計算機｜走行距離・燃費からガソリン代を計算｜シミュラボ</title>
+<meta name="description" content="走行距離・燃費（km/L）・ガソリン単価を入れるだけで、ガソリン代を自動計算する無料ツール。片道・往復の費用や、1kmあたりの単価も分かります。">
+<meta property="og:title" content="ガソリン代計算機｜走行距離・燃費から計算">
+<meta property="og:description" content="距離・燃費・単価からガソリン代を自動計算。往復・1kmあたりも。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/gasolinedai/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "ガソリン代計算機", "url": "https://shimulabo.com/sims/gasolinedai/", "description": "走行距離・燃費（km/L）・ガソリン単価を入れるだけで、ガソリン代を自動計算する無料ツール。片道・往復の費用や、1kmあたりの単価も分かります。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ガソリン代計算機", "item": "https://shimulabo.com/sims/gasolinedai/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "燃費がわからない", "acceptedAnswer": {"@type": "Answer", "text": "カタログ燃費（WLTCモード等）や、満タン法（給油量÷走行距離）で求められます。"}}, {"@type": "Question", "name": "ガソリン単価の目安は？", "acceptedAnswer": {"@type": "Answer", "text": "レギュラーで概ね160〜185円/L前後。最新の店頭価格を入れると正確です。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>光熱費・節約<span>›</span><span class="cur">ガソリン代計算機</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">光熱費・節約</div>
+    <h1>ガソリン代計算機</h1>
+    <p class="lead">ドライブや通勤のガソリン代はいくら?走行距離・燃費・ガソリン単価を入れるだけで、片道・往復の費用を自動計算します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>⛽ 条件を入れる</h2>
+    <div class="row"><div class="field"><label>走行距離（片道）<span class="hint">km</span></label><input type="number" id="dist" value="100" min="0" inputmode="decimal"></div>
+    <div class="field"><label>燃費 <span class="hint">km/L</span></label><input type="number" id="nenpi" value="15" min="0.1" inputmode="decimal"></div></div>
+    <div class="field"><label>ガソリン単価 <span class="hint">円/L</span></label><input type="number" id="tanka" value="175" min="0" inputmode="decimal"></div>
+    <button class="btn btn-primary" id="calcBtn">ガソリン代を計算</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">ガソリン代（片道）</div>
+      <div class="big"><span id="big">0</span><span class="unit">円</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">往復</div><div class="v accent" id="round">—</div></div>
+      <div class="stat"><div class="k">使用ガソリン量</div><div class="v" id="liter">—</div></div>
+      <div class="stat"><div class="k">1kmあたり</div><div class="v" id="perkm">—</div></div></div>
+      <div class="viz-wrap" style="margin-top:14px;"></div>
+      <div style="text-align:center;margin-top:12px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 でシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <div class="note"><strong>計算式</strong><br>ガソリン代 ＝ 走行距離 ÷ 燃費 × ガソリン単価</div>
+    <h2>ガソリン代の計算方法</h2>
+    <p>ガソリン代は「走行距離 ÷ 燃費 × 1Lあたりの単価」で求められます。たとえば100kmを燃費15km/L・単価175円で走ると、約1,167円。燃費がいい車ほど、また単価が安いほどガソリン代は下がります。長距離ドライブや通勤の費用、ガソリン代の割り勘の計算にも使えます。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>燃費がわからない</dt><dd>カタログ燃費（WLTCモード等）や、満タン法（給油量÷走行距離）で求められます。</dd><dt>ガソリン単価の目安は？</dt><dd>レギュラーで概ね160〜185円/L前後。最新の店頭価格を入れると正確です。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../aircon-denki/index.html"><span class="e">❄️</span><span>エアコンの電気代計算機</span></a><a class="related-card" href="../denkidai-keisan/index.html"><span class="e">💡</span><span>電気代計算機</span></a><a class="related-card" href="../kaden-denki/index.html"><span class="e">🔌</span><span>家電別 電気代早見シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなツールも欲しい？</h2>
+    <p>あなたの「これ計算したい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => (Math.round(n*100)/100).toLocaleString('ja-JP');
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const clamp = (v,a,b) => Math.max(a,Math.min(b,v));
+  let SHARE = '', raf = 0;
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){const d=Math.max(0,+$('dist').value||0),n=Math.max(0.1,+$('nenpi').value||0.1),t=Math.max(0,+$('tanka').value||0);
+    const liter=d/n, cost=liter*t, perkm=t/n;
+    $('sub').textContent=`${num(d)}km ÷ ${num(n)}km/L × ${num(t)}円`;
+    $('round').textContent=yen(cost*2);$('liter').textContent=num(liter)+'L';$('perkm').textContent=yen(perkm)+'/km';
+    SHARE=`ガソリン代計算機、片道${num(d)}kmで約${yen(cost)}（往復${yen(cost*2)}）でした⛽`;show();anim(cost);}
+  function anim(v){const el=$('big'),t0=performance.now();(function s(n){const p=Math.min(1,(n-t0)/800),e=1-Math.pow(1-p,3);el.textContent=Math.round(v*e).toLocaleString('ja-JP');if(p<1)requestAnimationFrame(s);})(performance.now());}
+  const cb=$('calcBtn'); if(cb) cb.addEventListener('click', calc);
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  const cp=$('copyBtn'); if(cp) cp.addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'gasolinedai', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>
