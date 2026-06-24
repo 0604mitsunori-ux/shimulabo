@@ -61,7 +61,8 @@ const ALLOW = new Set([
   'input-jitan', 'gijiroku-jitan', 'mail-jitan', 'blog-shippitsu', 'moji-okoshi', 'shorui-jitan', 'chat-jitan', 'memo-jitan', 'shogai-typing', 'kenshouen',
   'nenrei-keisan', 'shussan-yotei', 'waribiki',
   'snowflake', 'three-body', 'doppler', 'newtons-cradle', 'sort-visualizer', 'voronoi', 'flow-field', 'koch', 'montecarlo-pi', 'double-slit',
-  'voice-memo', 'voice-diary', 'sotsuron-jitan', 'sumaho-input', 'ai-bunsho', 'writer-jikyu', 'dokusho-memo', 'input-baisoku', 'atama-tana', 'jinsei-input'
+  'voice-memo', 'voice-diary', 'sotsuron-jitan', 'sumaho-input', 'ai-bunsho', 'writer-jikyu', 'dokusho-memo', 'input-baisoku', 'atama-tana', 'jinsei-input',
+  'aisho-16type', 'doubutsu-type', 'pet-aisho-type', 'sengoku-busho', 'sangokushi-type', 'osake-type', 'iro-type', 'hana-type', 'yoji-jukugo-type', 'tenshoku-type'
 ]);
 
 export default async function handler(req, res) {

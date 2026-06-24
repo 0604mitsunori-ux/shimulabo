@@ -499,6 +499,24 @@ a { color: var(--teal-d); }
 .row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 @media (max-width: 520px){ .row { grid-template-columns: 1fr; } }
 
+/* ====================== 16タイプ診断クイズ ====================== */
+.quiz { display: flex; flex-direction: column; gap: 13px; margin: 8px 0 16px; }
+.quiz .q { background: var(--bg-2, #f6f8fb); border: 1px solid var(--line); border-radius: 13px; padding: 13px 14px; }
+.quiz .qt { margin: 0 0 10px; font-weight: 800; font-size: 15px; line-height: 1.6; }
+.quiz .qt b { color: var(--teal-d); margin-right: 4px; }
+.quiz .opts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.quiz .opt {
+  font-weight: 800; font-size: 14px; padding: 13px 10px; border-radius: 11px;
+  border: 1.6px solid var(--line); background: #fff; color: var(--ink);
+  cursor: pointer; transition: .15s; text-align: center; line-height: 1.4;
+}
+.quiz .opt:hover { border-color: var(--teal); }
+.quiz .opt.on {
+  background: linear-gradient(135deg, var(--teal), var(--indigo)); color: #fff;
+  border-color: transparent; box-shadow: var(--shadow-sm);
+}
+@media (max-width: 420px){ .quiz .opts { grid-template-columns: 1fr; } }
+
 /* ボタン */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
