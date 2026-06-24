@@ -64,7 +64,9 @@ const ALLOW = new Set([
   'voice-memo', 'voice-diary', 'sotsuron-jitan', 'sumaho-input', 'ai-bunsho', 'writer-jikyu', 'dokusho-memo', 'input-baisoku', 'atama-tana', 'jinsei-input',
   'aisho-16type', 'doubutsu-type', 'pet-aisho-type', 'sengoku-busho', 'sangokushi-type', 'osake-type', 'iro-type', 'hana-type', 'yoji-jukugo-type', 'tenshoku-type',
   'percent-keisan', 'bunsuu-keisan', 'jikan-keisan', 'shinsu-henkan', 'wareki-henkan', 'nissu-keisan', 'kakuritsu-keisan', 'tani-henkan', 'hayasa-keisan', 'moji-count',
-  'stress-check', 'hsp-shindan', 'eq-shindan', 'anger-type', 'kanpeki-do', 'kizukare', 'shinpaisei', 'nou-nenrei', 'suuji-kioku', 'stroop-test'
+  'stress-check', 'hsp-shindan', 'eq-shindan', 'anger-type', 'kanpeki-do', 'kizukare', 'shinpaisei', 'nou-nenrei', 'suuji-kioku', 'stroop-test',
+  'soinsu-bunkai', 'password-gen', 'koubaisu-yakusu', 'ondo-henkan', 'aspect-keisan', 'romaji-henkan', 'heikin-keisan', 'jikyu-keisan', 'zenkaku-hankaku', 'menseki-keisan',
+  'naikou-gaikou', 'negative-shikou', 'smartphone-izon', 'rakkan-hikan', 'kyoukan-ryoku', 'kichoumen-zubora', 'ankan-flash', 'doutai-shiryoku', 'keisanryoku', 'chuuiryoku'
 ]);
 
 export default async function handler(req, res) {

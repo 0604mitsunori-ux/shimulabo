@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/heikin-keisan/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/heikin-keisan.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/heikin-keisan.png">
+<title>平均値計算ツール｜複数の数の平均・合計・中央値を計算｜シミュラボ</title>
+<meta name="description" content="数値をまとめて入力するだけで、平均・合計・個数・最大・最小・中央値を一度に計算する無料ツール。テストの点数や記録の集計に。">
+<meta property="og:title" content="平均値計算ツール｜平均・合計・中央値を計算">
+<meta property="og:description" content="複数の数の平均・合計・個数・最大最小・中央値を一発計算。無料。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/heikin-keisan/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "平均値計算ツール", "url": "https://shimulabo.com/sims/heikin-keisan/", "description": "数値をまとめて入力するだけで、平均・合計・個数・最大・最小・中央値を一度に計算する無料ツール。テストの点数や記録の集計に。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "平均値計算ツール", "item": "https://shimulabo.com/sims/heikin-keisan/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "区切りは何が使える？", "acceptedAnswer": {"@type": "Answer", "text": "カンマ・スペース・改行のどれでもOKです。混在しても大丈夫。"}}, {"@type": "Question", "name": "小数も計算できる？", "acceptedAnswer": {"@type": "Answer", "text": "はい。小数を含めて計算できます。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>便利ツール<span>›</span><span class="cur">平均値計算ツール</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">便利ツール</div>
+    <h1>平均値計算ツール</h1>
+    <p class="lead">数値をカンマ・スペース・改行で区切って入れるだけ。平均・合計・個数・最大・最小・中央値をまとめて計算します。テストの点数や記録の集計に。</p>
+  </div>
+
+  <section class="panel">
+    <h2>📊 数値を入れる</h2>
+    <p style="color:var(--ink-2);font-size:13px;margin:-2px 0 6px;">カンマ・スペース・改行で区切ってください</p>
+    <textarea id="v" rows="4" placeholder="例：80, 75, 92, 60, 88" style="width:100%;font-size:15px;padding:12px;border:1.5px solid var(--line);border-radius:10px;">80, 75, 92, 60, 88</textarea>
+    <button class="btn btn-primary" id="calcBtn" style="margin-top:10px;">計算する</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">平均</div>
+      <div class="big"><span id="big">—</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">合計 / 個数</div><div class="v accent" id="sumc">—</div></div>
+      <div class="stat"><div class="k">最大 / 最小</div><div class="v" id="mm">—</div></div>
+      <div class="stat"><div class="k">中央値</div><div class="v" id="med">—</div></div></div>
+      <div class="viz-wrap" style="margin-top:14px;"></div>
+      <div style="text-align:center;margin-top:12px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 でシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <div class="note"><strong>用語</strong><br>平均＝合計÷個数／中央値＝小さい順に並べたときの真ん中の値。極端な値があるときは中央値のほうが実感に近いことがあります。</div>
+    <h2>平均値の計算</h2>
+    <p>テストの点数、毎日の記録、売上などの平均をまとめて計算します。平均は全体の傾向をつかむのに便利ですが、1つだけ極端に大きい/小さい値があると引っ張られます。そんなときは中央値も合わせて見るのがおすすめです。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>区切りは何が使える？</dt><dd>カンマ・スペース・改行のどれでもOKです。混在しても大丈夫。</dd><dt>小数も計算できる？</dt><dd>はい。小数を含めて計算できます。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../percent-keisan/index.html"><span class="e">％</span><span>パーセント計算機</span></a><a class="related-card" href="../bunsuu-keisan/index.html"><span class="e">½</span><span>分数計算機</span></a><a class="related-card" href="../jikan-keisan/index.html"><span class="e">⏱️</span><span>時間計算機（経過時間）</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなツールも欲しい？</h2>
+    <p>あなたの「これ計算したい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => (Math.round(n*100)/100).toLocaleString('ja-JP');
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const clamp = (v,a,b) => Math.max(a,Math.min(b,v));
+  let SHARE = '', raf = 0;
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){const raw=$('v').value||'';const nums=raw.split(/[^0-9.\-]+/).filter(x=>x!==''&&!isNaN(+x)).map(Number);
+    if(nums.length===0){$('big').textContent='数値を入力';$('sub').textContent='—';$('sumc').textContent='—';$('mm').textContent='—';$('med').textContent='—';show();return;}
+    const sum=nums.reduce((a,b)=>a+b,0),avg=sum/nums.length;
+    const sorted=nums.slice().sort((a,b)=>a-b),n=sorted.length;
+    const med=n%2?sorted[(n-1)/2]:(sorted[n/2-1]+sorted[n/2])/2;
+    $('big').textContent=num(avg);$('sub').textContent=nums.length+'個の平均';
+    $('sumc').textContent=num(sum)+' / '+nums.length;$('mm').textContent=num(sorted[n-1])+' / '+num(sorted[0]);$('med').textContent=num(med);
+    SHARE=`平均値計算：${nums.length}個の平均は ${num(avg)} でした📊`;show();}
+  const cb=$('calcBtn'); if(cb) cb.addEventListener('click', calc);
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  const cp=$('copyBtn'); if(cp) cp.addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'heikin-keisan', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

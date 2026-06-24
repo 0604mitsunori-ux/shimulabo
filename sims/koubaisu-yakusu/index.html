@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/koubaisu-yakusu/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/koubaisu-yakusu.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/koubaisu-yakusu.png">
+<title>最小公倍数・最大公約数の計算機｜2〜3つの数で計算｜シミュラボ</title>
+<meta name="description" content="2つまたは3つの整数の最小公倍数（LCM）と最大公約数（GCD）を一発で計算する無料ツール。分数の通分や約分、周期の計算に。求め方も解説。">
+<meta property="og:title" content="最小公倍数・最大公約数の計算機">
+<meta property="og:description" content="2〜3つの数の最小公倍数(LCM)・最大公約数(GCD)を計算。無料。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/koubaisu-yakusu/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "最小公倍数・最大公約数の計算機", "url": "https://shimulabo.com/sims/koubaisu-yakusu/", "description": "2つまたは3つの整数の最小公倍数（LCM）と最大公約数（GCD）を一発で計算する無料ツール。分数の通分や約分、周期の計算に。求め方も解説。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "最小公倍数・最大公約数の計算機", "item": "https://shimulabo.com/sims/koubaisu-yakusu/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "3つの数でも計算できる？", "acceptedAnswer": {"@type": "Answer", "text": "はい。数3に入力すると3つの数のLCM・GCDを計算します。"}}, {"@type": "Question", "name": "求め方は？", "acceptedAnswer": {"@type": "Answer", "text": "ユークリッドの互除法でGCDを求め、LCMは a×b÷GCD で計算しています。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>便利ツール<span>›</span><span class="cur">最小公倍数・最大公約数の計算機</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">便利ツール</div>
+    <h1>最小公倍数・最大公約数の計算機</h1>
+    <p class="lead">2つ（または3つ）の整数を入れるだけで、最小公倍数（LCM）と最大公約数（GCD）を計算します。通分・約分や、周期がそろうタイミングの計算に。</p>
+  </div>
+
+  <section class="panel">
+    <h2>➗ 整数を入れる</h2>
+    <div class="row"><div class="field"><label>数 1</label><input type="number" id="a" value="12" min="1" inputmode="numeric"></div>
+    <div class="field"><label>数 2</label><input type="number" id="b" value="18" min="1" inputmode="numeric"></div></div>
+    <div class="field"><label>数 3 <span class="hint">（任意・空欄でOK）</span></label><input type="number" id="c" value="" min="1" inputmode="numeric"></div>
+    <button class="btn btn-primary" id="calcBtn">計算する</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">最小公倍数（LCM）</div>
+      <div class="big"><span id="big">—</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">最大公約数（GCD）</div><div class="v accent" id="gcd">—</div></div></div>
+      <div class="viz-wrap" style="margin-top:14px;"></div>
+      <div style="text-align:center;margin-top:12px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 でシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <div class="note"><strong>用語</strong><br>最大公約数（GCD）＝共通して割り切れる最大の数／最小公倍数（LCM）＝共通の倍数のうち最小の数。LCM ＝ a×b ÷ GCD で求まります。</div>
+    <h2>最小公倍数・最大公約数の使いみち</h2>
+    <p>分数の足し算では分母の最小公倍数で通分し、約分には最大公約数を使います。「2つの歯車が同時にスタート位置に戻るのは何回転後か」「2つのイベントが同じ日に重なるのは何日ごとか」といった周期の計算にも使われます。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>3つの数でも計算できる？</dt><dd>はい。数3に入力すると3つの数のLCM・GCDを計算します。</dd><dt>求め方は？</dt><dd>ユークリッドの互除法でGCDを求め、LCMは a×b÷GCD で計算しています。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../percent-keisan/index.html"><span class="e">％</span><span>パーセント計算機</span></a><a class="related-card" href="../bunsuu-keisan/index.html"><span class="e">½</span><span>分数計算機</span></a><a class="related-card" href="../jikan-keisan/index.html"><span class="e">⏱️</span><span>時間計算機（経過時間）</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなツールも欲しい？</h2>
+    <p>あなたの「これ計算したい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => (Math.round(n*100)/100).toLocaleString('ja-JP');
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const clamp = (v,a,b) => Math.max(a,Math.min(b,v));
+  let SHARE = '', raf = 0;
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function gcd(x,y){x=Math.abs(x);y=Math.abs(y);while(y){[x,y]=[y,x%y];}return x||1;}
+  function lcm(x,y){return x/gcd(x,y)*y;}
+  function calc(){let a=Math.trunc(+$('a').value||0),b=Math.trunc(+$('b').value||0),cR=$('c').value,c=cR===''?null:Math.trunc(+cR||0);
+    if(a<1||b<1||(c!==null&&c<1)){$('big').textContent='1以上の整数を入力';$('sub').textContent='—';$('gcd').textContent='—';show();return;}
+    let g=gcd(a,b),l=lcm(a,b);if(c){g=gcd(g,c);l=lcm(l,c);}
+    $('big').textContent=num(l);$('sub').textContent=c?`${a}, ${b}, ${c}`:`${a}, ${b}`;
+    $('gcd').textContent=num(g);
+    SHARE=`最小公倍数・最大公約数：${c?a+','+b+','+c:a+','+b} → LCM=${num(l)}・GCD=${num(g)} でした➗`;show();}
+  const cb=$('calcBtn'); if(cb) cb.addEventListener('click', calc);
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  const cp=$('copyBtn'); if(cp) cp.addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'koubaisu-yakusu', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

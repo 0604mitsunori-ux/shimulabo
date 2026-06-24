@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/soinsu-bunkai/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/soinsu-bunkai.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/soinsu-bunkai.png">
+<title>素因数分解ツール｜数を素数の積に分解（約数の個数も）｜シミュラボ</title>
+<meta name="description" content="整数を入力するだけで素因数分解し、2×2×3のように素数の積で表示する無料ツール。約数の個数や素数判定もできます。中学・高校数学の確認に。">
+<meta property="og:title" content="素因数分解ツール｜数を素数の積に分解">
+<meta property="og:description" content="整数を素因数分解。約数の個数・素数判定も。無料の素因数分解ツール。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/soinsu-bunkai/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "素因数分解ツール", "url": "https://shimulabo.com/sims/soinsu-bunkai/", "description": "整数を入力するだけで素因数分解し、2×2×3のように素数の積で表示する無料ツール。約数の個数や素数判定もできます。中学・高校数学の確認に。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "素因数分解ツール", "item": "https://shimulabo.com/sims/soinsu-bunkai/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "大きい数も分解できる？", "acceptedAnswer": {"@type": "Answer", "text": "12桁程度まで対応していますが、非常に大きな素数の積は時間がかかる場合があります。"}}, {"@type": "Question", "name": "1は素数？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。1は素数ではありません。素数は2以上で約数が2個の数です。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>便利ツール<span>›</span><span class="cur">素因数分解ツール</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">便利ツール</div>
+    <h1>素因数分解ツール</h1>
+    <p class="lead">整数を入れるだけで、素因数分解（素数のかけ算の形）にします。約数の個数や、素数かどうかも判定。数学の宿題や確認に。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🔢 整数を入れる</h2>
+    <div class="field"><label>分解する整数 <span class="hint">（2以上）</span></label><input type="number" id="n" value="360" min="2" inputmode="numeric"></div>
+    <button class="btn btn-primary" id="calcBtn">素因数分解する</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">素因数分解の結果</div>
+      <div class="big" style="font-size:30px;word-break:break-all;"><span id="big">—</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">約数の個数</div><div class="v accent" id="divc">—</div></div>
+      <div class="stat"><div class="k">素数判定</div><div class="v" id="prime">—</div></div>
+      <div class="stat"><div class="k">桁数</div><div class="v" id="keta">—</div></div></div>
+      <div class="viz-wrap" style="margin-top:14px;"></div>
+      <div style="text-align:center;margin-top:12px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 でシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <div class="note"><strong>素因数分解とは</strong><br>その整数を「素数（1とその数自身でしか割れない数）」だけのかけ算で表すこと。例：360 ＝ 2³ × 3² × 5。</div>
+    <h2>素因数分解のやり方</h2>
+    <p>小さい素数（2,3,5,7…）で順番に割っていき、割り切れなくなるまで続けます。約数の個数は「各素数の指数に＋1したものの積」で求められます（360なら(3+1)(2+1)(1+1)＝24個）。最大公約数・最小公倍数を求めるときの基礎にもなります。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>大きい数も分解できる？</dt><dd>12桁程度まで対応していますが、非常に大きな素数の積は時間がかかる場合があります。</dd><dt>1は素数？</dt><dd>いいえ。1は素数ではありません。素数は2以上で約数が2個の数です。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../percent-keisan/index.html"><span class="e">％</span><span>パーセント計算機</span></a><a class="related-card" href="../bunsuu-keisan/index.html"><span class="e">½</span><span>分数計算機</span></a><a class="related-card" href="../jikan-keisan/index.html"><span class="e">⏱️</span><span>時間計算機（経過時間）</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなツールも欲しい？</h2>
+    <p>あなたの「これ計算したい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => (Math.round(n*100)/100).toLocaleString('ja-JP');
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const clamp = (v,a,b) => Math.max(a,Math.min(b,v));
+  let SHARE = '', raf = 0;
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){let n=Math.trunc(+$('n').value||0);
+    if(n<2||n>1e12){$('big').textContent='2以上の整数を入力';$('sub').textContent='—';$('divc').textContent='—';$('prime').textContent='—';$('keta').textContent='—';show();return;}
+    const orig=n,fac={};let m=n;
+    for(let d=2;d*d<=m;d++){while(m%d===0){fac[d]=(fac[d]||0)+1;m/=d;}}
+    if(m>1)fac[m]=(fac[m]||0)+1;
+    const keys=Object.keys(fac).map(Number).sort((a,b)=>a-b);
+    const str=keys.map(p=>fac[p]>1?(p+'^'+fac[p]):String(p)).join(' × ');
+    const divc=keys.reduce((a,p)=>a*(fac[p]+1),1);
+    const isPrime=(keys.length===1&&fac[keys[0]]===1);
+    $('big').textContent=str;$('sub').textContent=num(orig)+' を素因数分解';
+    $('divc').textContent=num(divc)+'個';$('prime').textContent=isPrime?'素数です✨':'素数でない';$('keta').textContent=String(orig).length+'桁';
+    SHARE=`素因数分解：${num(orig)} ＝ ${str} でした🔢`;show();}
+  const cb=$('calcBtn'); if(cb) cb.addEventListener('click', calc);
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  const cp=$('copyBtn'); if(cp) cp.addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'soinsu-bunkai', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

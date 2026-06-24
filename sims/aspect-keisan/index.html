@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/aspect-keisan/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/aspect-keisan.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/aspect-keisan.png">
+<title>アスペクト比計算機｜縦横比を求める・サイズを比から計算｜シミュラボ</title>
+<meta name="description" content="幅と高さからアスペクト比（16:9など）を求めたり、比率を保ったまま片方のサイズから他方を計算できる無料ツール。動画・画像・デザインのサイズ調整に。">
+<meta property="og:title" content="アスペクト比計算機｜縦横比を求める">
+<meta property="og:description" content="幅と高さから16:9などの比を計算。比を保ってサイズ変換も。無料。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/aspect-keisan/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "アスペクト比計算機", "url": "https://shimulabo.com/sims/aspect-keisan/", "description": "幅と高さからアスペクト比（16:9など）を求めたり、比率を保ったまま片方のサイズから他方を計算できる無料ツール。動画・画像・デザインのサイズ調整に。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "アスペクト比計算機", "item": "https://shimulabo.com/sims/aspect-keisan/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "16:9のサイズ例は？", "acceptedAnswer": {"@type": "Answer", "text": "1920×1080、1280×720、3840×2160（4K）などが16:9です。"}}, {"@type": "Question", "name": "比がきれいにならない", "acceptedAnswer": {"@type": "Answer", "text": "映像規格でない数値だと複雑な比になります。小数の比も併記しています。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>便利ツール<span>›</span><span class="cur">アスペクト比計算機</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">便利ツール</div>
+    <h1>アスペクト比計算機</h1>
+    <p class="lead">幅と高さを入れると、16:9のようなアスペクト比（縦横比）を求めます。さらに「新しい幅」を入れると、比率を保ったままの高さも計算。動画・画像・スライドのサイズ調整に。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🖼️ 幅と高さを入れる</h2>
+    <div class="row"><div class="field"><label>幅 W</label><input type="number" id="w" value="1920" min="1" inputmode="numeric"></div>
+    <div class="field"><label>高さ H</label><input type="number" id="h" value="1080" min="1" inputmode="numeric"></div></div>
+    <div class="field"><label>新しい幅 <span class="hint">（任意・比を保って高さを計算）</span></label><input type="number" id="nw" value="" min="1" inputmode="numeric"></div>
+    <button class="btn btn-primary" id="calcBtn">アスペクト比を計算</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">アスペクト比</div>
+      <div class="big" style="font-size:38px;"><span id="big">—</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">小数の比</div><div class="v accent" id="dec">—</div></div>
+      <div class="stat"><div class="k">新しい幅なら高さは</div><div class="v" id="nh">—</div></div></div>
+      <div class="viz-wrap" style="margin-top:14px;"></div>
+      <div style="text-align:center;margin-top:12px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 でシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <div class="note"><strong>アスペクト比とは</strong><br>幅と高さの比のこと。16:9（地デジ・YouTube）、4:3（昔のTV）、1:1（Instagram）、9:16（スマホ縦・TikTok）などが代表的。</div>
+    <h2>アスペクト比の使い方</h2>
+    <p>動画や画像を別のサイズに変えるとき、アスペクト比を保たないと縦長・横長に歪んでしまいます。このツールは幅と高さから比を求め、最大公約数で「16:9」のように簡単な整数比にします。「幅を1280にしたいけど高さは？」も自動計算します。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>16:9のサイズ例は？</dt><dd>1920×1080、1280×720、3840×2160（4K）などが16:9です。</dd><dt>比がきれいにならない</dt><dd>映像規格でない数値だと複雑な比になります。小数の比も併記しています。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../percent-keisan/index.html"><span class="e">％</span><span>パーセント計算機</span></a><a class="related-card" href="../bunsuu-keisan/index.html"><span class="e">½</span><span>分数計算機</span></a><a class="related-card" href="../jikan-keisan/index.html"><span class="e">⏱️</span><span>時間計算機（経過時間）</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなツールも欲しい？</h2>
+    <p>あなたの「これ計算したい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => (Math.round(n*100)/100).toLocaleString('ja-JP');
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const clamp = (v,a,b) => Math.max(a,Math.min(b,v));
+  let SHARE = '', raf = 0;
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function gcd(x,y){x=Math.abs(Math.round(x));y=Math.abs(Math.round(y));while(y){[x,y]=[y,x%y];}return x||1;}
+  function calc(){const w=+$('w').value||0,h=+$('h').value||0,nw=$('nw').value;
+    if(w<1||h<1){$('big').textContent='幅と高さを入力';show();return;}
+    const g=gcd(w,h),rw=Math.round(w/g),rh=Math.round(h/g);
+    $('big').textContent=rw+' : '+rh;$('sub').textContent=`${num(w)} × ${num(h)}`;
+    $('dec').textContent='1 : '+num(h/w*100)/100+'　('+num(w/h*100)/100+':1)';
+    $('nh').textContent=nw!==''?num((+nw)*h/w)+' px':'—';
+    SHARE=`アスペクト比計算：${num(w)}×${num(h)} は ${rw}:${rh} でした🖼️`;show();}
+  const cb=$('calcBtn'); if(cb) cb.addEventListener('click', calc);
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  const cp=$('copyBtn'); if(cp) cp.addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'aspect-keisan', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>
