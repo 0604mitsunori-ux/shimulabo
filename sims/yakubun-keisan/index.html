@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/yakubun-keisan/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/yakubun-keisan.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/yakubun-keisan.png">
+<title>約分計算機｜分数を約分・帯分数・小数にすぐ変換｜シミュラボ</title>
+<meta name="description" content="分子と分母を入れるだけで、分数を約分（いちばん簡単な分数）し、帯分数・小数にも変換する無料ツール。最大公約数も表示します。">
+<meta property="og:title" content="約分計算機｜分数を約分・帯分数・小数に">
+<meta property="og:description" content="分子・分母から約分・帯分数・小数・最大公約数を計算。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/yakubun-keisan/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "約分計算機", "url": "https://shimulabo.com/sims/yakubun-keisan/", "description": "分子と分母を入れるだけで、分数を約分（いちばん簡単な分数）し、帯分数・小数にも変換する無料ツール。最大公約数も表示します。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "約分計算機", "item": "https://shimulabo.com/sims/yakubun-keisan/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "最大公約数って？", "acceptedAnswer": {"@type": "Answer", "text": "分子と分母を割り切れる最大の数です。これで割ると一度で約分できます。"}}, {"@type": "Question", "name": "帯分数とは？", "acceptedAnswer": {"@type": "Answer", "text": "「2と1/3」のように整数と分数を組み合わせた表し方です。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>便利ツール<span>›</span><span class="cur">約分計算機</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">便利ツール</div>
+    <h1>約分計算機</h1>
+    <p class="lead">この分数、約分するとどうなる?分子と分母を入れると、いちばん簡単な分数に約分し、帯分数・小数にも直します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>➗ 分数を入れる</h2>
+    <div class="row"><div class="field"><label>分子</label><input type="number" id="num" value="24" inputmode="numeric"></div>
+    <div class="field"><label>分母</label><input type="number" id="den" value="36" min="1" inputmode="numeric"></div></div>
+    <button class="btn btn-primary" id="calcBtn">約分する</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">約分した分数</div>
+      <div class="big" style="font-size:34px;"><span id="big">—</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">帯分数</div><div class="v accent" id="mixed">—</div></div>
+      <div class="stat"><div class="k">小数</div><div class="v" id="dec">—</div></div>
+      <div class="stat"><div class="k">最大公約数</div><div class="v" id="g">—</div></div></div>
+      <div class="viz-wrap" style="margin-top:14px;"></div>
+      <div style="text-align:center;margin-top:12px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 でシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <div class="note"><strong>約分のやり方</strong><br>分子と分母を、その最大公約数（GCD）で割ると、いちばん簡単な分数になります。</div>
+    <h2>約分とは</h2>
+    <p>約分は、分数の分子と分母を同じ数で割って、より簡単な分数にすることです。たとえば24/36は、分子・分母の最大公約数12で割ると2/3になります。約分しても分数の値（大きさ）は変わりません。仮分数（分子≧分母）は、帯分数（整数＋真分数）にも直せます。計算の見直しや、答え合わせに使えます。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>最大公約数って？</dt><dd>分子と分母を割り切れる最大の数です。これで割ると一度で約分できます。</dd><dt>帯分数とは？</dt><dd>「2と1/3」のように整数と分数を組み合わせた表し方です。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../percent-keisan/index.html"><span class="e">％</span><span>パーセント計算機</span></a><a class="related-card" href="../bunsuu-keisan/index.html"><span class="e">½</span><span>分数計算機</span></a><a class="related-card" href="../jikan-keisan/index.html"><span class="e">⏱️</span><span>時間計算機（経過時間）</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなツールも欲しい？</h2>
+    <p>あなたの「これ計算したい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => (Math.round(n*100)/100).toLocaleString('ja-JP');
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const clamp = (v,a,b) => Math.max(a,Math.min(b,v));
+  let SHARE = '', raf = 0;
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function gcd(a,b){a=Math.abs(a);b=Math.abs(b);while(b){[a,b]=[b,a%b];}return a||1;}
+  function calc(){let nu=Math.trunc(+$('num').value||0),de=Math.trunc(+$('den').value||0);
+    if(de===0){$('big').textContent='—';$('sub').textContent='分母に0は使えません';show();return;}
+    const sign=(nu<0)!==(de<0)?-1:1;nu=Math.abs(nu);de=Math.abs(de);
+    const g=gcd(nu,de),sn=nu/g,sd=de/g;
+    $('big').textContent=(sign<0?'-':'')+sn+' / '+sd;
+    $('sub').textContent=`${(sign<0?'-':'')}${Math.abs(+$('num').value||0)} / ${Math.abs(+$('den').value||0)} を約分`;
+    // 帯分数
+    let mixed='—';if(sn>=sd&&sd!==0){const w=Math.floor(sn/sd),r=sn%sd;mixed=(sign<0?'-':'')+(r===0?(''+w):(w+' と '+r+'/'+sd));}
+    else mixed=(sign<0?'-':'')+sn+'/'+sd;
+    $('mixed').textContent=mixed;$('dec').textContent=(sign*sn/sd).toFixed(4).replace(/\.?0+$/,'');$('g').textContent=g;
+    SHARE=`約分計算機、${nu}/${de} ＝ ${(sign<0?'-':'')}${sn}/${sd} でした➗`;show();}
+
+  const cb=$('calcBtn'); if(cb) cb.addEventListener('click', calc);
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  const cp=$('copyBtn'); if(cp) cp.addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'yakubun-keisan', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

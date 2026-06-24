@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/taiseki-keisan/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/taiseki-keisan.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/taiseki-keisan.png">
+<title>体積計算機｜立方体・直方体・円柱・球・円錐の体積を計算｜シミュラボ</title>
+<meta name="description" content="形状を選んで寸法を入れるだけで、立方体・直方体・円柱・球・円錐の体積を自動計算する無料ツール。リットル換算も表示します。">
+<meta property="og:title" content="体積計算機｜直方体・円柱・球などを計算">
+<meta property="og:description" content="形状と寸法から体積を自動計算。リットル換算も。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/taiseki-keisan/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "体積計算機", "url": "https://shimulabo.com/sims/taiseki-keisan/", "description": "形状を選んで寸法を入れるだけで、立方体・直方体・円柱・球・円錐の体積を自動計算する無料ツール。リットル換算も表示します。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "体積計算機", "item": "https://shimulabo.com/sims/taiseki-keisan/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "単位は何でもいい？", "acceptedAnswer": {"@type": "Answer", "text": "はい。同じ単位で入れれば、その単位の3乗が体積になります。"}}, {"@type": "Question", "name": "リットルにしたい", "acceptedAnswer": {"@type": "Answer", "text": "cmで入力すれば、cm³÷1000でリットル換算を表示します。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>便利ツール<span>›</span><span class="cur">体積計算機</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">便利ツール</div>
+    <h1>体積計算機</h1>
+    <p class="lead">箱や筒、ボールの体積は?形を選んで寸法を入れるだけで、体積を計算します。水槽の容量やリットル換算にも。</p>
+  </div>
+
+  <section class="panel">
+    <h2>📦 形と寸法を入れる</h2>
+    <div class="field"><label>形状</label><select id="shape">
+      <option value="cube">立方体（一辺）</option><option value="box" selected>直方体（縦・横・高さ）</option>
+      <option value="cyl">円柱（半径・高さ）</option><option value="sphere">球（半径）</option><option value="cone">円錐（半径・高さ）</option></select></div>
+    <div class="row"><div class="field"><label id="lA">縦</label><input type="number" id="A" value="10" min="0" inputmode="decimal"></div>
+    <div class="field"><label id="lB">横</label><input type="number" id="B" value="20" min="0" inputmode="decimal"></div></div>
+    <div class="field"><label id="lC">高さ</label><input type="number" id="C" value="15" min="0" inputmode="decimal"></div>
+    <p class="hint" style="margin:2px 0 0;">単位はcmで入れるとリットル換算も表示します。</p>
+    <button class="btn btn-primary" id="calcBtn">体積を計算</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">体積</div>
+      <div class="big"><span id="big">0</span><span class="unit">立方単位</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">cm³ なら</div><div class="v accent" id="liter">—</div></div></div>
+      <div class="viz-wrap" style="margin-top:14px;"></div>
+      <div style="text-align:center;margin-top:12px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 でシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <div class="note"><strong>体積の公式</strong><br>立方体 a³／直方体 縦×横×高さ／円柱 πr²h／球 4/3πr³／円錐 1/3πr²h</div>
+    <h2>体積の計算方法</h2>
+    <p>体積は立体が占める空間の大きさです。直方体は「縦×横×高さ」、円柱は「底面積（πr²）×高さ」、球は「4/3×π×半径³」で求めます。寸法をcmで入れた場合、1リットル＝1,000cm³なので、cm³の値を1,000で割るとリットルに換算できます。水槽の容量計算や、収納・梱包のサイズ確認に便利です。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>単位は何でもいい？</dt><dd>はい。同じ単位で入れれば、その単位の3乗が体積になります。</dd><dt>リットルにしたい</dt><dd>cmで入力すれば、cm³÷1000でリットル換算を表示します。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../percent-keisan/index.html"><span class="e">％</span><span>パーセント計算機</span></a><a class="related-card" href="../bunsuu-keisan/index.html"><span class="e">½</span><span>分数計算機</span></a><a class="related-card" href="../jikan-keisan/index.html"><span class="e">⏱️</span><span>時間計算機（経過時間）</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなツールも欲しい？</h2>
+    <p>あなたの「これ計算したい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => (Math.round(n*100)/100).toLocaleString('ja-JP');
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const clamp = (v,a,b) => Math.max(a,Math.min(b,v));
+  let SHARE = '', raf = 0;
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  const LBL={cube:['一辺','',''],box:['縦','横','高さ'],cyl:['半径','高さ',''],sphere:['半径','',''],cone:['半径','高さ','']};
+  function upd(){const s=$('shape').value,l=LBL[s];$('lA').textContent=l[0];
+    $('lB').parentElement.style.display=l[1]?'':'none';$('lB').previousElementSibling;$('lB').parentElement.querySelector('label').textContent=l[1]||'';
+    $('lC').parentElement.style.display=l[2]?'':'none';$('lC').textContent=l[2]||'';}
+  function calc(){const s=$('shape').value,a=Math.max(0,+$('A').value||0),b=Math.max(0,+$('B').value||0),c=Math.max(0,+$('C').value||0),PI=Math.PI;let v=0,name='';
+    if(s==='cube'){v=a*a*a;name='立方体';}
+    else if(s==='box'){v=a*b*c;name='直方体';}
+    else if(s==='cyl'){v=PI*a*a*b;name='円柱';}
+    else if(s==='sphere'){v=4/3*PI*a*a*a;name='球';}
+    else{v=1/3*PI*a*a*b;name='円錐';}
+    const rv=Math.round(v*1000)/1000;
+    $('big').textContent=rv.toLocaleString('ja-JP');$('sub').textContent=name+'の体積';
+    $('liter').textContent=(Math.round(v/1000*1000)/1000).toLocaleString('ja-JP')+' L';
+    SHARE=`体積計算機、${name}の体積は ${rv} 立方単位（${Math.round(v/1000*1000)/1000}L）でした📦`;show();}
+  $('shape').addEventListener('change',upd);upd();
+
+  const cb=$('calcBtn'); if(cb) cb.addEventListener('click', calc);
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  const cp=$('copyBtn'); if(cp) cp.addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'taiseki-keisan', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

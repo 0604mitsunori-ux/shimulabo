@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/junretsu-keisan/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/junretsu-keisan.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/junretsu-keisan.png">
+<title>順列・組み合わせ計算機｜nPr・nCr・階乗をすぐ計算｜シミュラボ</title>
+<meta name="description" content="n個からr個を選ぶ順列(nPr)・組み合わせ(nCr)・階乗(n!)を自動計算する無料ツール。くじや当選確率、場合の数の計算に使えます。">
+<meta property="og:title" content="順列・組み合わせ計算機｜nPr・nCr・階乗">
+<meta property="og:description" content="n個からr個の順列・組み合わせ・階乗を自動計算。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/junretsu-keisan/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "順列・組み合わせ計算機", "url": "https://shimulabo.com/sims/junretsu-keisan/", "description": "n個からr個を選ぶ順列(nPr)・組み合わせ(nCr)・階乗(n!)を自動計算する無料ツール。くじや当選確率、場合の数の計算に使えます。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "順列・組み合わせ計算機", "item": "https://shimulabo.com/sims/junretsu-keisan/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "nPrとnCrどっちを使う？", "acceptedAnswer": {"@type": "Answer", "text": "順番が意味を持つなら順列(nPr)、選ぶだけで順番は関係ないなら組み合わせ(nCr)です。"}}, {"@type": "Question", "name": "大きい数は？", "acceptedAnswer": {"@type": "Answer", "text": "階乗は急激に大きくなります。nが大きいと近似表示になる場合があります。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>便利ツール<span>›</span><span class="cur">順列・組み合わせ計算機</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">便利ツール</div>
+    <h1>順列・組み合わせ計算機</h1>
+    <p class="lead">「5人から3人を選ぶ」は何通り?n個からr個を選ぶ順列(nPr)・組み合わせ(nCr)・階乗(n!)を計算します。場合の数・確率の計算に。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🎰 数を入れる</h2>
+    <div class="row"><div class="field"><label>n（全体の数）</label><input type="number" id="n" value="5" min="0" max="170" inputmode="numeric"></div>
+    <div class="field"><label>r（選ぶ数）</label><input type="number" id="r" value="3" min="0" inputmode="numeric"></div></div>
+    <button class="btn btn-primary" id="calcBtn">計算する</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">組み合わせ nCr（順番を区別しない）</div>
+      <div class="big"><span id="big">0</span><span class="unit">通り</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">順列 nPr（順番を区別）</div><div class="v accent" id="perm">—</div></div>
+      <div class="stat"><div class="k">n の階乗（n!）</div><div class="v" id="fact">—</div></div></div>
+      <div class="viz-wrap" style="margin-top:14px;"></div>
+      <div style="text-align:center;margin-top:12px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 でシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <div class="note"><strong>公式</strong><br>順列 nPr ＝ n!÷(n−r)!／組み合わせ nCr ＝ n!÷(r!×(n−r)!)／階乗 n! ＝ n×(n−1)×…×1</div>
+    <h2>順列と組み合わせの違い</h2>
+    <p>順列(nPr)は「順番を区別して」並べる場合の数、組み合わせ(nCr)は「順番を区別せず」選ぶ場合の数です。たとえば5人から3人を選ぶとき、組み合わせは10通り、順番（並び順）まで区別する順列は60通り。くじ引きの当選確率、座席の並び、チーム分けなど「場合の数」を求めるときに使います。階乗(n!)は1からnまでの整数をすべて掛けた数です。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>nPrとnCrどっちを使う？</dt><dd>順番が意味を持つなら順列(nPr)、選ぶだけで順番は関係ないなら組み合わせ(nCr)です。</dd><dt>大きい数は？</dt><dd>階乗は急激に大きくなります。nが大きいと近似表示になる場合があります。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../percent-keisan/index.html"><span class="e">％</span><span>パーセント計算機</span></a><a class="related-card" href="../bunsuu-keisan/index.html"><span class="e">½</span><span>分数計算機</span></a><a class="related-card" href="../jikan-keisan/index.html"><span class="e">⏱️</span><span>時間計算機（経過時間）</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなツールも欲しい？</h2>
+    <p>あなたの「これ計算したい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => (Math.round(n*100)/100).toLocaleString('ja-JP');
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const clamp = (v,a,b) => Math.max(a,Math.min(b,v));
+  let SHARE = '', raf = 0;
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function fact(n){let f=1;for(let i=2;i<=n;i++)f*=i;return f;}
+  function calc(){const n=Math.max(0,Math.trunc(+$('n').value||0)),r=Math.max(0,Math.trunc(+$('r').value||0));
+    if(r>n){$('big').textContent='—';$('sub').textContent='r は n 以下にしてね';show();return;}
+    let nPr=1;for(let i=0;i<r;i++)nPr*=(n-i);
+    let nCr=nPr;for(let i=2;i<=r;i++)nCr/=i;nCr=Math.round(nCr);
+    const f=fact(n);
+    const fmt=x=>x>=1e15?x.toExponential(3):Math.round(x).toLocaleString('ja-JP');
+    $('big').textContent=fmt(nCr);$('sub').textContent=`${n}個から${r}個を選ぶ`;
+    $('perm').textContent=fmt(nPr)+'通り';$('fact').textContent=fmt(f);
+    SHARE=`順列・組み合わせ計算機、${n}個から${r}個は 組み合わせ${fmt(nCr)}通り・順列${fmt(nPr)}通り でした🎰`;show();
+    const el=$('big'),tv=nCr,t0=performance.now();(function s(t){const p=Math.min(1,(t-t0)/700);el.textContent=fmt(Math.round(tv*p));if(p<1)requestAnimationFrame(s);else el.textContent=fmt(tv);})(performance.now());}
+
+  const cb=$('calcBtn'); if(cb) cb.addEventListener('click', calc);
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  const cp=$('copyBtn'); if(cp) cp.addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'junretsu-keisan', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/hensachi-keisan/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/hensachi-keisan.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/hensachi-keisan.png">
+<title>偏差値計算機｜点数・平均点・標準偏差から偏差値を計算｜シミュラボ</title>
+<meta name="description" content="自分の点数・平均点・標準偏差を入れるだけで、偏差値を自動計算する無料ツール。テストの立ち位置（上位何％か）の目安も分かります。">
+<meta property="og:title" content="偏差値計算機｜点数・平均から偏差値を計算">
+<meta property="og:description" content="点数・平均点・標準偏差から偏差値を自動計算。上位％も。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/hensachi-keisan/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "偏差値計算機", "url": "https://shimulabo.com/sims/hensachi-keisan/", "description": "自分の点数・平均点・標準偏差を入れるだけで、偏差値を自動計算する無料ツール。テストの立ち位置（上位何％か）の目安も分かります。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "偏差値計算機", "item": "https://shimulabo.com/sims/hensachi-keisan/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "標準偏差が分からない", "acceptedAnswer": {"@type": "Answer", "text": "テスト全体のばらつきの指標です。不明なら15前後を目安に入れてみてください。"}}, {"@type": "Question", "name": "偏差値の上限は？", "acceptedAnswer": {"@type": "Answer", "text": "理論上は青天井ですが、現実には25〜75程度に収まることがほとんどです。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>便利ツール<span>›</span><span class="cur">偏差値計算機</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">便利ツール</div>
+    <h1>偏差値計算機</h1>
+    <p class="lead">このテスト、偏差値いくつ?自分の点数・平均点・標準偏差を入れると、偏差値を計算します。上位何％かの目安も表示。</p>
+  </div>
+
+  <section class="panel">
+    <h2>📊 条件を入れる</h2>
+    <div class="row"><div class="field"><label>自分の点数</label><input type="number" id="score" value="70" inputmode="decimal"></div>
+    <div class="field"><label>平均点</label><input type="number" id="avg" value="60" inputmode="decimal"></div></div>
+    <div class="field"><label>標準偏差 <span class="hint">分からなければ15</span></label><input type="number" id="sd" value="15" min="0.1" inputmode="decimal"></div>
+    <button class="btn btn-primary" id="calcBtn">偏差値を計算</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">あなたの偏差値</div>
+      <div class="big"><span id="big">0</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">平均点との差</div><div class="v" id="diff">—</div></div>
+      <div class="stat"><div class="k">上位の目安</div><div class="v accent" id="rank">—</div></div></div>
+      <div class="viz-wrap" style="margin-top:14px;"></div>
+      <div style="text-align:center;margin-top:12px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 でシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <div class="note"><strong>計算式</strong><br>偏差値 ＝ 50 ＋ 10 ×（自分の点数 − 平均点）÷ 標準偏差</div>
+    <h2>偏差値とは</h2>
+    <p>偏差値は、平均点を50として、自分の点数が平均からどれだけ離れているかを表す指標です。標準偏差で割ることで、点数のばらつきが違うテストどうしを比較できます。偏差値60は上位約16％、偏差値70は上位約2.3％にあたります（得点が正規分布の場合）。標準偏差が分からないときは、目安として15前後で計算してみてください。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>標準偏差が分からない</dt><dd>テスト全体のばらつきの指標です。不明なら15前後を目安に入れてみてください。</dd><dt>偏差値の上限は？</dt><dd>理論上は青天井ですが、現実には25〜75程度に収まることがほとんどです。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../percent-keisan/index.html"><span class="e">％</span><span>パーセント計算機</span></a><a class="related-card" href="../bunsuu-keisan/index.html"><span class="e">½</span><span>分数計算機</span></a><a class="related-card" href="../jikan-keisan/index.html"><span class="e">⏱️</span><span>時間計算機（経過時間）</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなツールも欲しい？</h2>
+    <p>あなたの「これ計算したい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => (Math.round(n*100)/100).toLocaleString('ja-JP');
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const clamp = (v,a,b) => Math.max(a,Math.min(b,v));
+  let SHARE = '', raf = 0;
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function erf(x){const s=x<0?-1:1;x=Math.abs(x);const t=1/(1+0.3275911*x);const y=1-(((((1.061405429*t-1.453152027)*t)+1.421413741)*t-0.284496736)*t+0.254829592)*t*Math.exp(-x*x);return s*y;}
+  function calc(){const sc=+$('score').value||0,m=+$('avg').value||0,sd=Math.max(0.1,+$('sd').value||0.1);
+    const h=Math.round((50+10*(sc-m)/sd)*10)/10;
+    const z=(h-50)/10; const upper=Math.round((1-0.5*(1+erf(z/Math.SQRT2)))*1000)/10;
+    $('big').textContent=h;$('sub').textContent=`点数${num(sc)}・平均${num(m)}・標準偏差${num(sd)}`;
+    $('diff').textContent=(sc-m>=0?'+':'')+num(sc-m)+'点';$('rank').textContent='上位 約'+Math.max(0.1,upper)+'%';
+    SHARE=`偏差値計算機、点数${num(sc)}・平均${num(m)}なら偏差値${h}（上位約${Math.max(0.1,upper)}%）でした📊`;show();
+    const el=$('big'),t0=performance.now();(function s(n){const p=Math.min(1,(n-t0)/700);el.textContent=(Math.round(h*p*10)/10).toFixed(1);if(p<1)requestAnimationFrame(s);else el.textContent=h;})(performance.now());}
+
+  const cb=$('calcBtn'); if(cb) cb.addEventListener('click', calc);
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  const cp=$('copyBtn'); if(cp) cp.addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'hensachi-keisan', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

@@ -75,7 +75,10 @@ const ALLOW = new Set([
   'uwaki-do', 'uwaki-sign', 'isharyo-furin', 'tantei-hiyou', 'youikuhi', 'zaisan-bunyo', 'shouko-check', 'shinrai-do', 'kentaiki', 'uwaki-nayami',
   'kid-eigo-type', 'kid-eigo-itsukara', 'kid-tablet-muki', 'kid-gakushu-type', 'kid-yaruki', 'kid-kyozai-hiyou', 'kid-eigomimi', 'kid-jitaku', 'kid-gakushu-jikan', 'kid-naraigoto',
   'gasolinedai', 'aircon-denki', 'denkidai-keisan', 'kaden-denki', 'suidoudai', 'gasudai', 'led-setsuyaku', 'danbou-hikaku', 'ev-vs-gasoline', 'kounetsuhi-shindan',
-  'koden-souba', 'shukugi-souba', 'otoshidama-souba', 'shussan-iwai-souba', 'kekkon-iwai-souba', 'uchiiwai-keisan', 'nyugaku-iwai-souba', 'mochu-checker', 'kanchu-mimai', 'chouju-iwai'
+  'koden-souba', 'shukugi-souba', 'otoshidama-souba', 'shussan-iwai-souba', 'kekkon-iwai-souba', 'uchiiwai-keisan', 'nyugaku-iwai-souba', 'mochu-checker', 'kanchu-mimai', 'chouju-iwai',
+  'zeikomi-keisan', 'waribiki-keisan', 'hensachi-keisan', 'hiritsu-keisan', 'nenrei-keisan', 'roma-suji', 'hyojun-hensa', 'taiseki-keisan', 'yakubun-keisan', 'junretsu-keisan',
+  'machigai-sagashi', 'shinkei-suijaku', 'shunkan-kioku', 'simon-game', 'gyakushou-kioku', 'mental-rotation', 'nakama-hazure', 'ichi-kioku', 'tango-kioku', 'schulte',
+  'mosquito-on', 'hansha-shinkei', 'click-cps', 'shiryoku-test', 'shikikaku-test', 'iq-test', 'typing-sokudo', 'rhythm-test', 'mato-tap', 'gonogo-test'
 ]);
 
 export default async function handler(req, res) {

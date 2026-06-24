@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/hiritsu-keisan/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/hiritsu-keisan.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/hiritsu-keisan.png">
+<title>比率計算機｜比例式 A:B＝C:X の X をすぐ計算｜シミュラボ</title>
+<meta name="description" content="A:B＝C:X の比例式から、未知の数Xを自動計算する無料ツール。比を簡単な整数に約分する機能もあり、料理の分量や図面の縮尺計算に使えます。">
+<meta property="og:title" content="比率計算機｜比例式 A:B＝C:X を計算">
+<meta property="og:description" content="比例式の未知数Xを自動計算。比の約分も。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/hiritsu-keisan/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "比率計算機", "url": "https://shimulabo.com/sims/hiritsu-keisan/", "description": "A:B＝C:X の比例式から、未知の数Xを自動計算する無料ツール。比を簡単な整数に約分する機能もあり、料理の分量や図面の縮尺計算に使えます。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "比率計算機", "item": "https://shimulabo.com/sims/hiritsu-keisan/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "小数や分数でも使える？", "acceptedAnswer": {"@type": "Answer", "text": "はい。A・B・Cに小数を入れてもXを計算できます。"}}, {"@type": "Question", "name": "比を簡単にしたい", "acceptedAnswer": {"@type": "Answer", "text": "A:Bの最大公約数で割った「いちばん簡単な比」も表示します。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>便利ツール<span>›</span><span class="cur">比率計算機</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">便利ツール</div>
+    <h1>比率計算機</h1>
+    <p class="lead">A:B＝C:?の「?」をすぐ計算。比例式の未知数を求めます。料理の分量、図面の縮尺、混合比の計算などに。</p>
+  </div>
+
+  <section class="panel">
+    <h2>⚖️ 比例式を入れる（A:B＝C:X）</h2>
+    <div class="row"><div class="field"><label>A</label><input type="number" id="a" value="2" inputmode="decimal"></div>
+    <div class="field"><label>B</label><input type="number" id="b" value="3" inputmode="decimal"></div></div>
+    <div class="row"><div class="field"><label>C</label><input type="number" id="c" value="10" inputmode="decimal"></div>
+    <div class="field"><label>X（求める数）</label><input type="text" id="x" value="?" disabled></div></div>
+    <button class="btn btn-primary" id="calcBtn">X を計算</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">X の値</div>
+      <div class="big"><span id="big">0</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">いちばん簡単な比</div><div class="v accent" id="ratio">—</div></div></div>
+      <div class="viz-wrap" style="margin-top:14px;"></div>
+      <div style="text-align:center;margin-top:12px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 でシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <div class="note"><strong>計算式</strong><br>A:B ＝ C:X のとき　X ＝ B × C ÷ A</div>
+    <h2>比率（比例式）の計算方法</h2>
+    <p>「A対BがC対Xに等しい」という比例式は、外側どうし・内側どうしの積が等しい性質（A×X＝B×C）を使って解きます。つまりX＝B×C÷A。たとえば2:3＝10:Xなら、X＝3×10÷2＝15。料理で「2人分のレシピを5人分にしたい」、図面の縮尺、濃度や混合比の計算などに役立ちます。本ツールは比をいちばん簡単な整数比にも直します。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>小数や分数でも使える？</dt><dd>はい。A・B・Cに小数を入れてもXを計算できます。</dd><dt>比を簡単にしたい</dt><dd>A:Bの最大公約数で割った「いちばん簡単な比」も表示します。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../percent-keisan/index.html"><span class="e">％</span><span>パーセント計算機</span></a><a class="related-card" href="../bunsuu-keisan/index.html"><span class="e">½</span><span>分数計算機</span></a><a class="related-card" href="../jikan-keisan/index.html"><span class="e">⏱️</span><span>時間計算機（経過時間）</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなツールも欲しい？</h2>
+    <p>あなたの「これ計算したい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => (Math.round(n*100)/100).toLocaleString('ja-JP');
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const clamp = (v,a,b) => Math.max(a,Math.min(b,v));
+  let SHARE = '', raf = 0;
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function gcd(a,b){a=Math.abs(a);b=Math.abs(b);while(b){[a,b]=[b,a%b];}return a||1;}
+  function calc(){const a=+$('a').value||0,b=+$('b').value||0,c=+$('c').value||0;
+    if(a===0){$('big').textContent='—';$('sub').textContent='Aに0は使えません';show();return;}
+    const x=b*c/a;$('big').textContent=(Math.round(x*1000)/1000).toLocaleString('ja-JP');
+    $('x').value=Math.round(x*1000)/1000;
+    // 約分（整数のときのみ）
+    let rtxt='—';
+    if(Number.isInteger(a)&&Number.isInteger(b)){const g=gcd(a,b);rtxt=(a/g)+' : '+(b/g);}
+    $('sub').textContent=`${num(a)} : ${num(b)} ＝ ${num(c)} : X`;$('ratio').textContent=rtxt;
+    SHARE=`比率計算機、${num(a)}:${num(b)}＝${num(c)}:X なら X＝${Math.round(x*1000)/1000} でした⚖️`;show();}
+
+  const cb=$('calcBtn'); if(cb) cb.addEventListener('click', calc);
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  const cp=$('copyBtn'); if(cp) cp.addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'hiritsu-keisan', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>
