@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/flow-field/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/flow-field.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/flow-field.png">
+<title>パーリンノイズ フローフィールド｜流れる生成アートの無料シミュレーター｜シミュラボ</title>
+<meta name="description" content="パーリンノイズ（なめらかな乱数）が作る見えない「流れの場」に沿って、無数の粒子が線を描いていく生成アートのシミュレーター。ノイズの細かさを変えると、模様がガラリと変わります。">
+<meta property="og:title" content="パーリンノイズ フローフィールド｜流れる生成アート">
+<meta property="og:description" content="なめらかな乱数が作る流れに沿って粒子が線を描く生成アート。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/flow-field/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "パーリンノイズ・フローフィールド", "url": "https://shimulabo.com/sims/flow-field/", "description": "パーリンノイズ（なめらかな乱数）が作る見えない「流れの場」に沿って、無数の粒子が線を描いていく生成アートのシミュレーター。ノイズの細かさを変えると、模様がガラリと変わります。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "パーリンノイズ・フローフィールド", "item": "https://shimulabo.com/sims/flow-field/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "ジェネラティブアートとは？", "acceptedAnswer": {"@type": "Answer", "text": "人が直接1本ずつ描くのではなく、ルールやアルゴリズムに沿ってコンピュータが模様を生成する作品のことです。"}}, {"@type": "Question", "name": "毎回ちがう模様になりますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい。リセットや配色変更で異なる流れと色になります。気に入った絵はスクショで保存してください。"}}, {"@type": "Question", "name": "重くないですか？", "acceptedAnswer": {"@type": "Answer", "text": "負荷を抑えた軽量版です。古い端末では粒子数を控えめにしています。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>あそぶ・実験<span>›</span><span class="cur">パーリンノイズ・フローフィールド</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">あそぶ・実験</div>
+    <h1>パーリンノイズ・フローフィールド</h1>
+    <p class="lead">パーリンノイズという「なめらかな乱数」を使うと、目に見えない風のような流れが生まれます。その流れに沿って無数の粒子を走らせると、川や煙のような美しい模様に。眺めるだけのデジタルアートです。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:16px;">
+      <canvas id="cv" width="520" height="360" style="width:100%;max-width:540px;height:auto;background:#fff;border:1px solid var(--line);border-radius:12px;background:#0a0a12;"></canvas>
+      <div style="width:100%;max-width:560px;"><div class="field" style="margin-bottom:10px;"><div class="slider-head"><label style="margin:0;">流れの細かさ</label><span class="val" id="sclL">10</span></div><input type="range" id="scl" min="3" max="30" value="10" step="1" style="width:100%;"></div><div class="share-row" style="margin-top:0;flex-wrap:wrap;"><button class="btn btn-ghost" id="palette" style="padding:11px 18px;font-size:14px;">🎨 配色を変える</button><button class="btn btn-ghost" id="reset" style="padding:11px 18px;font-size:14px;">リセット</button></div></div>
+    </div>
+    <p style="text-align:center;color:var(--ink-2);font-size:13px;margin-top:14px;">見えないベクトルの流れに沿って粒子が線を描きます。細かさを変えると模様が変化します。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row"><button class="btn btn-x" id="shareBtn">𝕏 でシェア</button></div>
+  </section>
+
+  <article class="article">
+    <div class="note" style="border-left:4px solid var(--teal)"><strong>結論</strong>：パーリンノイズは、点と点が急に飛ばずに<b>なめらかに変化する乱数</b>です。各地点の値を「矢印の向き」に変換すると、自然な流れの地図（フローフィールド）ができ、そこに粒子を流すと有機的な模様＝<b>ジェネラティブアート</b>が生まれます。</div>
+    <h2>パーリンノイズとは</h2>
+    <p>パーリンノイズ（Perlin noise）は、1983年に映画『トロン』のために、ケン・パーリンが考案したなめらかな乱数の作り方です。ふつうの乱数は隣り合う値がバラバラですが、パーリンノイズは隣どうしがゆるやかにつながるため、雲・炎・地形・水面など「自然なゆらぎ」の表現に欠かせません。CG・ゲーム・VFXで広く使われ、パーリンはこの功績でアカデミー科学技術賞を受賞しました。</p>
+    <h2>フローフィールドの仕組み</h2>
+    <p>画面の各場所でノイズの値を求め、それを角度に変換すると「矢印が並んだ流れの地図」ができます。粒子はその場所の矢印の向きへ少しずつ進み、軌跡を薄く重ねていきます。流れの細かさ（ノイズの拡大率）を変えると、大きくうねる模様にも、細かく入り組んだ模様にも変化します。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>ジェネラティブアートとは？</dt><dd>人が直接1本ずつ描くのではなく、ルールやアルゴリズムに沿ってコンピュータが模様を生成する作品のことです。</dd><dt>毎回ちがう模様になりますか？</dt><dd>はい。リセットや配色変更で異なる流れと色になります。気に入った絵はスクショで保存してください。</dd><dt>重くないですか？</dt><dd>負荷を抑えた軽量版です。古い端末では粒子数を控えめにしています。</dd></dl><h2>参考</h2><ul class="seo-refs"><li>Perlin, K. (1985) "An Image Synthesizer" (SIGGRAPH) パーリンノイズの原典</li><li>Perlin, K. (2002) "Improving Noise" 改良版ノイズ</li><li>The Nature of Code（Daniel Shiffman）フローフィールドの解説</li></ul>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../lorenz/index.html"><span class="e">🦋</span><span>ローレンツ・アトラクタ</span></a><a class="related-card" href="../pendulum-wave/index.html"><span class="e">🎐</span><span>振り子の波</span></a><a class="related-card" href="../solar-system/index.html"><span class="e">🪐</span><span>太陽系シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ見てみたい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const SHARE = 'なめらかな乱数「パーリンノイズ」で粒子を流すと、川や煙みたいな模様が生まれる🌬️ 生成アート。';
+  try {
+  const c=$('cv'),x=c.getContext('2d'),W=c.width,H=c.height;
+  const G=14;let grid=[],parts=[],z=0,pal=0,frame=0;
+  const PALS=[[190,255],[20,60],[270,330],[90,160]];
+  function noiseGrid(){grid=[];for(let i=0;i<=G;i++){grid[i]=[];for(let j=0;j<=G;j++)grid[i][j]=Math.random()*6.283;}}
+  function smooth(gx,gy){const i=Math.floor(gx),j=Math.floor(gy),fx=gx-i,fy=gy-j;
+    const a=grid[i%G][j%G],b=grid[(i+1)%G][j%G],cc=grid[i%G][(j+1)%G],d=grid[(i+1)%G][(j+1)%G];
+    const u=fx*fx*(3-2*fx),v=fy*fy*(3-2*fy);
+    const top=a+(b-a)*u,bot=cc+(d-cc)*u;return top+(bot-top)*v;}
+  function reset(){noiseGrid();parts=[];for(let i=0;i<700;i++)parts.push({x:Math.random()*W,y:Math.random()*H});x.fillStyle='#0a0a12';x.fillRect(0,0,W,H);}
+  function step(){const scl=(+$('scl').value)/200;$('sclL').textContent=$('scl').value;z+=0.0007;
+    const [h0,h1]=PALS[pal];
+    for(const p of parts){const gx=(p.x*scl)%G,gy=(p.y*scl)%G;const ang=smooth((gx+G)%G,(gy+G)%G)*3+z*40;
+      const nx=p.x+Math.cos(ang)*1.4,ny=p.y+Math.sin(ang)*1.4;
+      const hue=h0+(h1-h0)*(p.y/H);x.strokeStyle='hsla('+hue+',80%,62%,0.10)';x.lineWidth=1;
+      x.beginPath();x.moveTo(p.x,p.y);x.lineTo(nx,ny);x.stroke();
+      p.x=nx;p.y=ny;if(p.x<0||p.x>W||p.y<0||p.y>H){p.x=Math.random()*W;p.y=Math.random()*H;}}}
+  function loop(){frame++;if(frame%600===0){x.fillStyle='rgba(10,10,18,0.10)';x.fillRect(0,0,W,H);}step();requestAnimationFrame(loop);}
+  $('palette').addEventListener('click',()=>{pal=(pal+1)%PALS.length;});
+  $('reset').addEventListener('click',reset);
+  $('scl').addEventListener('input',()=>$('sclL').textContent=$('scl').value);
+  reset();loop();
+  } catch(e) { console.error(e); }
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click',()=>window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'flow-field', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

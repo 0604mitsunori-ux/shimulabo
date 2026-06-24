@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/double-slit/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/double-slit.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/double-slit.png">
+<title>ダブルスリット実験シミュレーター｜1個ずつでも縞ができる謎｜シミュラボ</title>
+<meta name="description" content="2つのスリットに向けて粒子を1個ずつ撃つと、1個1個はランダムに当たるのに、積み重なると干渉縞（しま模様）が現れる「ダブルスリット実験（二重スリット実験）」を再現する無料シミュレーター。量子力学の不思議を体感できます。">
+<meta property="og:title" content="ダブルスリット実験｜1個ずつでも縞ができる謎">
+<meta property="og:description" content="粒子を1個ずつ撃つだけで干渉縞が現れる二重スリット実験を再現。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/double-slit/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "ダブルスリット実験シミュレーター", "url": "https://shimulabo.com/sims/double-slit/", "description": "2つのスリットに向けて粒子を1個ずつ撃つと、1個1個はランダムに当たるのに、積み重なると干渉縞（しま模様）が現れる「ダブルスリット実験（二重スリット実験）」を再現する無料シミュレーター。量子力学の不思議を体感できます。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ダブルスリット実験シミュレーター", "item": "https://shimulabo.com/sims/double-slit/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "粒子なのに波って、どういうこと？", "acceptedAnswer": {"@type": "Answer", "text": "量子の世界では、電子や光は「粒」と「波」の両方の性質を持ちます（波と粒子の二重性）。状況によってどちらの顔を見せるかが変わります。"}}, {"@type": "Question", "name": "片方を閉じると縞が消えるのはなぜ？", "acceptedAnswer": {"@type": "Answer", "text": "干渉は2つの経路の波が重なって初めて起こります。経路が1つになると重ね合わせがなくなり、縞も消えます。"}}, {"@type": "Question", "name": "これは本物の物理ですか？", "acceptedAnswer": {"@type": "Answer", "text": "干渉縞の現れ方を確率モデルで再現した可視化です。考え方は実際の二重スリット実験に基づいています。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>ふしぎ・現象<span>›</span><span class="cur">ダブルスリット実験シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ふしぎ・現象</div>
+    <h1>ダブルスリット実験シミュレーター</h1>
+    <p class="lead">2つの細いすき間（スリット）に向けて、粒を1個ずつ撃ち込みます。1個1個はランダムに当たるのに、積み重なると不思議なしま模様＝干渉縞が現れます。「世界一美しい実験」とも呼ばれる量子の謎を体感してください。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:16px;">
+      <canvas id="cv" width="460" height="400" style="width:100%;max-width:500px;height:auto;background:#fff;border:1px solid var(--line);border-radius:12px;background:#05060f;"></canvas>
+      <div style="width:100%;max-width:560px;"><div class="field" style="margin-bottom:10px;"><div class="slider-head"><label style="margin:0;">スリットの間隔</label><span class="val" id="gapL">60</span></div><input type="range" id="gap" min="20" max="120" value="60" step="1" style="width:100%;"></div><div class="field" style="margin-bottom:10px;"><label>スリット</label><select id="mode"><option value="two">両方ひらく</option><option value="one">片方を閉じる</option></select></div><div class="share-row" style="margin-top:0;flex-wrap:wrap;"><button class="btn btn-ghost" id="reset" style="padding:11px 18px;font-size:14px;">リセット</button><button class="btn btn-ghost" id="fast" style="padding:11px 18px;font-size:14px;">⏩ 一気に当てる</button></div></div>
+    </div>
+    <p style="text-align:center;color:var(--ink-2);font-size:13px;margin-top:14px;">上から粒子を発射、下のスクリーンに当たって積もります。両方ひらくと縞模様が現れます。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row"><button class="btn btn-x" id="shareBtn">𝕏 でシェア</button></div>
+  </section>
+
+  <article class="article">
+    <div class="note" style="border-left:4px solid var(--teal)"><strong>結論</strong>：粒子を1個ずつ撃っても、両方のスリットを開けておくと、当たった点が積み重なって<b>縞模様（干渉縞）</b>になります。まるで1個の粒が「両方のすき間を同時に通った波」のように振る舞う――これが量子力学の最大の謎です。片方を閉じると縞は消えます。</div>
+    <h2>ダブルスリット実験とは</h2>
+    <p>ダブルスリット実験（二重スリット実験）は、2本の細いすき間に向けて光や電子を当て、その先のスクリーンにできる模様を見る実験です。19世紀にトマス・ヤングが光で行い、光が波であることを示しました。20世紀には電子1個ずつでも同じ縞ができることが確かめられ、量子力学を象徴する実験になりました。</p>
+    <h2>なぜ1個ずつなのに縞ができるのか</h2>
+    <p>粒子を1個だけ撃つと、スクリーンには1点だけ記録されます。どこに当たるかはランダムです。ところが何千個も積み重ねると、当たりやすい場所と当たらない場所が縞状に分かれます。これは、1個の粒子が「両方のスリットを通る波」として広がり、自分自身と干渉して、当たる確率に濃淡ができるためと説明されます。</p>
+    <div class="note"><strong>もっと不思議なこと</strong><br>「どちらのスリットを通ったか」を観測しようとすると、とたんに縞模様は消え、ただの2本の帯になります。見るか見ないかで結果が変わる――これが「観測問題」と呼ばれる謎です。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>粒子なのに波って、どういうこと？</dt><dd>量子の世界では、電子や光は「粒」と「波」の両方の性質を持ちます（波と粒子の二重性）。状況によってどちらの顔を見せるかが変わります。</dd><dt>片方を閉じると縞が消えるのはなぜ？</dt><dd>干渉は2つの経路の波が重なって初めて起こります。経路が1つになると重ね合わせがなくなり、縞も消えます。</dd><dt>これは本物の物理ですか？</dt><dd>干渉縞の現れ方を確率モデルで再現した可視化です。考え方は実際の二重スリット実験に基づいています。</dd></dl><h2>参考</h2><ul class="seo-refs"><li>Young, T. (1804) 光の干渉実験（ヤングの実験）</li><li>Feynman, R. 『ファインマン物理学』二重スリットの章</li><li>Tonomura, A. ほか (1989) 電子1個ずつの二重スリット実験（日立）</li></ul>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../jutai/index.html"><span class="e">🚗</span><span>渋滞は勝手に生まれる</span></a><a class="related-card" href="../life/index.html"><span class="e">🦠</span><span>ライフゲーム</span></a><a class="related-card" href="../forest-fire/index.html"><span class="e">🔥</span><span>森林火災シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ見てみたい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const SHARE = '粒を1個ずつ撃つだけなのに、積もると縞模様が現れる…ダブルスリット実験、量子の最大の謎⚛️';
+  try {
+  const c=$('cv'),x=c.getContext('2d'),W=c.width,H=c.height;
+  const slitY=120,screenY=H-26,NB=120;
+  let bins=new Float32Array(NB),maxb=1;
+  function intensity(xpix){const gap=+$('gap').value;
+    const cx=W/2,d=(xpix-cx);
+    const sigma=W*0.30,envlp=Math.exp(-(d*d)/(2*sigma*sigma));
+    if($('mode').value==='one'){const w=gap*1.3;return Math.exp(-(d*d)/(2*w*w));}
+    const fr=Math.cos(d*Math.PI*gap/2600);
+    return fr*fr*envlp;}
+  function sample(){const cx=W/2;for(let tries=0;tries<60;tries++){const xp=Math.random()*W;const p=intensity(xp);if(Math.random()<p)return xp;}return cx+(Math.random()-0.5)*W*0.5;}
+  function bg(){x.fillStyle='#05060f';x.fillRect(0,0,W,H);
+    x.fillStyle='#2a3350';x.fillRect(0,slitY-4,W,8);
+    const gap=+$('gap').value,cx=W/2,sw=10;
+    x.clearRect(cx-gap/2-sw/2,slitY-4,sw,8);
+    if($('mode').value==='two')x.clearRect(cx+gap/2-sw/2,slitY-4,sw,8);
+    x.fillStyle='#05060f';x.fillRect(cx-gap/2-sw/2,slitY-4,sw,8);if($('mode').value==='two')x.fillRect(cx+gap/2-sw/2,slitY-4,sw,8);
+    x.fillStyle='#1a2238';x.fillRect(0,screenY,W,4);}
+  function fire(n){for(let i=0;i<n;i++){const xp=sample();const b=Math.min(NB-1,Math.max(0,(xp/W*NB)|0));bins[b]++;maxb=Math.max(maxb,bins[b]);
+    const px=(b+0.5)/NB*W,py=screenY-2-Math.random()*1;x.fillStyle='rgba(120,200,255,0.9)';x.fillRect(xp-1,slitY+8+Math.random()*4,2,2);}
+    drawScreen();}
+  function drawScreen(){x.clearRect(0,screenY-150,W,150);
+    for(let b=0;b<NB;b++){const h=bins[b]/maxb*140;const px=b/NB*W;
+      const g=Math.round(120+120*bins[b]/maxb);x.fillStyle='rgba('+g+',200,255,0.9)';x.fillRect(px,screenY-h,W/NB+0.6,h);}}
+  function reset(){bins=new Float32Array(NB);maxb=1;bg();}
+  let auto=false;
+  function loop(){fire(auto?40:6);requestAnimationFrame(loop);}
+  $('reset').addEventListener('click',reset);
+  $('fast').addEventListener('click',()=>{auto=!auto;$('fast').textContent=auto?'⏸ ゆっくり':'⏩ 一気に当てる';});
+  $('gap').addEventListener('input',()=>{$('gapL').textContent=$('gap').value;reset();});
+  $('mode').addEventListener('change',reset);
+  reset();loop();
+  } catch(e) { console.error(e); }
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click',()=>window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'double-slit', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

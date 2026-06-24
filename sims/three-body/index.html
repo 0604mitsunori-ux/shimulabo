@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/three-body/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/three-body.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/three-body.png">
+<title>三体問題シミュレーター｜3つの星のカオスを体感する無料ツール｜シミュラボ</title>
+<meta name="description" content="3つの星がお互いの重力で引き合うだけなのに、軌道がぐちゃぐちゃに乱れて二度と同じにならない「三体問題」のカオスをブラウザで体感できる無料シミュレーター。なぜ未来が計算できないのかも解説。">
+<meta property="og:title" content="三体問題シミュレーター｜3つの星のカオスを体感">
+<meta property="og:description" content="3つの星が引き合うだけで予測不能のカオス軌道に。三体問題を体感。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/three-body/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "三体問題シミュレーター", "url": "https://shimulabo.com/sims/three-body/", "description": "3つの星がお互いの重力で引き合うだけなのに、軌道がぐちゃぐちゃに乱れて二度と同じにならない「三体問題」のカオスをブラウザで体感できる無料シミュレーター。なぜ未来が計算できないのかも解説。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "三体問題シミュレーター", "item": "https://shimulabo.com/sims/three-body/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "三体問題は解けたのですか？", "acceptedAnswer": {"@type": "Answer", "text": "一般解（どんな初期条件にも効く数式の答え）は存在しないと証明済みです。特殊な初期条件での周期解（8の字解など）や、数値計算による近似は可能です。"}}, {"@type": "Question", "name": "ランダムに動かしているの？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。万有引力の法則どおりに計算しています。それでも予測が難しいのがカオスの面白さです。"}}, {"@type": "Question", "name": "星が画面外へ飛んでいくのは？", "acceptedAnswer": {"@type": "Answer", "text": "三体ではしばしば1つが弾き飛ばされます。実際の三体系でも起こる現象で、その時は新しい配置で再スタートします。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>ふしぎ・現象<span>›</span><span class="cur">三体問題シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ふしぎ・現象</div>
+    <h1>三体問題シミュレーター</h1>
+    <p class="lead">星が2つなら軌道はきれいな楕円。ところが3つになると、お互いの重力で引き合うだけで動きは予測不能のカオスに。これが300年解かれていない「三体問題」です。リセットするたびに、まったく違う運命が生まれます。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:16px;">
+      <canvas id="cv" width="480" height="400" style="width:100%;max-width:520px;height:auto;background:#fff;border:1px solid var(--line);border-radius:12px;background:#05060f;"></canvas>
+      <div style="width:100%;max-width:560px;"><div class="field" style="margin-bottom:10px;"><div class="slider-head"><label style="margin:0;">時間の速さ</label><span class="val" id="spdL">3</span></div><input type="range" id="spd" min="1" max="6" value="3" step="1" style="width:100%;"></div><div class="share-row" style="margin-top:0;flex-wrap:wrap;"><button class="btn btn-primary" id="reset" style="padding:11px 18px;font-size:14px;">🌌 別の初期配置で始める</button><button class="btn btn-ghost" id="clr" style="padding:11px 18px;font-size:14px;">軌跡を消す</button></div></div>
+    </div>
+    <p style="text-align:center;color:var(--ink-2);font-size:13px;margin-top:14px;">3つの星と、それぞれが描く軌跡。少しでも初期位置が違うと、その後は完全に別の運命になります。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row"><button class="btn btn-x" id="shareBtn">𝕏 でシェア</button></div>
+  </section>
+
+  <article class="article">
+    <div class="note" style="border-left:4px solid var(--teal)"><strong>結論</strong>：2つの天体の運動は数式できれいに解けますが（二体問題）、<b>3つになった瞬間、一般には解の公式が存在しない</b>ことが証明されています。わずかな初期条件の差が時間とともに爆発的に拡大する「カオス」のため、長期の未来は原理的に計算しきれません。</div>
+    <h2>三体問題とは</h2>
+    <p>三体問題とは、互いに重力をおよぼし合う3つの天体が、この先どう動くかを求める問題です。太陽・地球・月のような身近な組み合わせでもあります。ニュートン以来、多くの数学者が挑みましたが、19世紀末にポアンカレが「一般には解析的な解（きれいな数式の答え）は存在しない」ことを示しました。</p>
+    <h2>なぜ未来が計算できないのか（カオス）</h2>
+    <p>三体問題は「決まった物理法則」で動くので、本来ランダムではありません。それでも、初期位置をほんの少し変えただけで、数ステップ後にはまったく違う軌道になります。この<strong>初期値鋭敏性（バタフライ効果）</strong>がカオスの正体です。コンピュータで数値計算はできますが、ごく小さな誤差が拡大するため、遠い未来ほど予測の信頼性は落ちます。</p>
+    <h2>身のまわりの三体問題</h2>
+    <p>SF小説『三体』で広く知られるようになりましたが、現実の天文学でも重要です。人工衛星の軌道設計、連星まわりの惑星の安定性、ラグランジュ点（重力が釣り合う点）の計算など、応用は多岐にわたります。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>三体問題は解けたのですか？</dt><dd>一般解（どんな初期条件にも効く数式の答え）は存在しないと証明済みです。特殊な初期条件での周期解（8の字解など）や、数値計算による近似は可能です。</dd><dt>ランダムに動かしているの？</dt><dd>いいえ。万有引力の法則どおりに計算しています。それでも予測が難しいのがカオスの面白さです。</dd><dt>星が画面外へ飛んでいくのは？</dt><dd>三体ではしばしば1つが弾き飛ばされます。実際の三体系でも起こる現象で、その時は新しい配置で再スタートします。</dd></dl><h2>参考</h2><ul class="seo-refs"><li>Poincaré, H. 「天体力学の新しい方法」（三体問題とカオスの先駆的研究）</li><li>Newton, I. 『プリンキピア』万有引力の法則</li><li>国立天文台「ラグランジュ点」解説</li></ul>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../jutai/index.html"><span class="e">🚗</span><span>渋滞は勝手に生まれる</span></a><a class="related-card" href="../life/index.html"><span class="e">🦠</span><span>ライフゲーム</span></a><a class="related-card" href="../forest-fire/index.html"><span class="e">🔥</span><span>森林火災シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ見てみたい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const SHARE = '3つの星が引き合うだけで、軌道は予測不能のカオスに🌌 300年解けてない三体問題、見てると止まらない。';
+  try {
+  const c=$('cv'),x=c.getContext('2d'),W=c.width,H=c.height;
+  const COL=['#5dd6ff','#ff7a9c','#ffd166'];
+  let B=[];
+  function reset(){const cx=W/2,cy=H/2,R=90;B=[];
+    for(let i=0;i<3;i++){const a=i*2.094+Math.random()*0.4;
+      B.push({x:cx+Math.cos(a)*R*(0.8+Math.random()*0.4),y:cy+Math.sin(a)*R*(0.8+Math.random()*0.4),
+        vx:-Math.sin(a)*0.5+(Math.random()-0.5)*0.3,vy:Math.cos(a)*0.5+(Math.random()-0.5)*0.3,
+        m:9+Math.random()*4,tr:[],col:COL[i]});}
+    x.fillStyle='#05060f';x.fillRect(0,0,W,H);}
+  function offscreen(p){return p.x<-200||p.x>W+200||p.y<-200||p.y>H+200;}
+  function stepOne(dt){const G=0.55,soft=140;
+    for(const p of B){let ax=0,ay=0;for(const q of B){if(q===p)continue;const dx=q.x-p.x,dy=q.y-p.y,d2=dx*dx+dy*dy+soft,d=Math.sqrt(d2);const f=G*q.m/d2;ax+=f*dx/d;ay+=f*dy/d;}p.ax=ax;p.ay=ay;}
+    for(const p of B){p.vx+=p.ax*dt;p.vy+=p.ay*dt;p.x+=p.vx*dt;p.y+=p.vy*dt;p.tr.push([p.x,p.y]);if(p.tr.length>180)p.tr.shift();}}
+  function draw(){x.fillStyle='rgba(5,6,15,0.16)';x.fillRect(0,0,W,H);
+    for(const p of B){x.strokeStyle=p.col;x.globalAlpha=0.55;x.lineWidth=1.4;x.beginPath();p.tr.forEach((t,i)=>i?x.lineTo(t[0],t[1]):x.moveTo(t[0],t[1]));x.stroke();x.globalAlpha=1;
+      x.shadowColor=p.col;x.shadowBlur=16;x.fillStyle=p.col;x.beginPath();x.arc(p.x,p.y,p.m*0.5,0,7);x.fill();x.shadowBlur=0;}}
+  function loop(){const sp=+$('spd').value;$('spdL').textContent=sp;for(let k=0;k<sp;k++)stepOne(0.6);
+    if(B.some(offscreen))reset();draw();requestAnimationFrame(loop);}
+  $('reset').addEventListener('click',reset);
+  $('clr').addEventListener('click',()=>{B.forEach(p=>p.tr=[]);x.fillStyle='#05060f';x.fillRect(0,0,W,H);});
+  $('spd').addEventListener('input',()=>$('spdL').textContent=$('spd').value);
+  reset();loop();
+  } catch(e) { console.error(e); }
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click',()=>window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'three-body', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

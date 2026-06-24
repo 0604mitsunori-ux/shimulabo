@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/dokusho-memo/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/dokusho-memo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/dokusho-memo.png">
+<title>読書メモ蓄積シミュレーター｜話してアウトプットすると学びはどれだけ残る？｜シミュラボ</title>
+<meta name="description" content="年間の読書冊数から、感想やメモを音声でアウトプットすると、何文字・文庫本何冊分の「知識資産」が残るかを可視化する無料シミュレーター。読みっぱなしを防ぎます。">
+<meta property="og:title" content="読書メモ蓄積シミュ｜話すと学びはどれだけ残る？">
+<meta property="og:description" content="年間読書数から、話してメモすると残る知識資産を可視化。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/dokusho-memo/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "読書メモ蓄積シミュレーター", "url": "https://shimulabo.com/sims/dokusho-memo/", "description": "年間の読書冊数から、感想やメモを音声でアウトプットすると、何文字・文庫本何冊分の「知識資産」が残るかを可視化する無料シミュレーター。読みっぱなしを防ぎます。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "読書メモ蓄積シミュレーター", "item": "https://shimulabo.com/sims/dokusho-memo/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "何を話せばいい？", "acceptedAnswer": {"@type": "Answer", "text": "「一番の学び」「使えそうな点」「印象的な一文」の3つだけでも十分です。"}}, {"@type": "Question", "name": "記憶に本当に残る？", "acceptedAnswer": {"@type": "Answer", "text": "自分の言葉で再構成（アウトプット）すると定着しやすいことが知られています。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>音声入力・時短<span>›</span><span class="cur">読書メモ蓄積シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">音声入力・時短</div>
+    <h1>読書メモ蓄積シミュレーター</h1>
+    <p class="lead">本は読んだだけでは、内容の多くを忘れてしまいます。読後に少し話して残すだけで、学びは「知識資産」に変わる。年間の読書冊数から、音声アウトプットで蓄積される知識量を可視化します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🧠 条件を入れる</h2>
+    <div class="row"><div class="field"><label>年間の読書冊数 <span class="hint">（冊）</span></label><input type="number" id="books" value="24" min="0" inputmode="numeric"></div>
+    <div class="field"><label>1冊で話す感想 <span class="hint">（分）</span></label><input type="number" id="min" value="5" min="0" step="0.5" inputmode="decimal"></div></div>
+    <div class="field"><label>続ける年数 <span class="hint">（年）</span></label><input type="number" id="years" value="10" min="1" max="60" inputmode="numeric"></div>
+    <button class="btn btn-primary" id="calcBtn">残る知識資産を見る</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">蓄積される知識資産</div>
+      <div class="big"><span id="big">0</span><span class="unit">文字</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">文庫本にすると</div><div class="v accent" id="books2">—</div></div>
+      <div class="stat"><div class="k">アウトプットする冊数</div><div class="v" id="cnt">—</div></div>
+      <div class="stat"><div class="k">手で書くなら</div><div class="v" id="hand">—</div></div></div>
+      <div class="viz-wrap" style="margin-top:16px;"><canvas id="viz" width="480" height="210" style="width:100%;max-width:500px;height:auto;display:block;margin:0 auto;background:#0b1530;border-radius:14px;"></canvas></div>
+      <a class="cta-box" href="https://www.typeless.com/?via=44144c" target="_blank" rel="nofollow sponsored noopener" style="display:block;text-decoration:none;text-align:left;margin-top:20px;background:linear-gradient(135deg,#eef2ff,#f5f3ff);border:1.5px solid #a5b4fc;border-radius:14px;padding:18px;">
+        <div style="font-weight:900;color:#4f46e5;font-size:15px;">🎙️ その時間、「話すだけ」で取り戻せます。</div>
+        <div style="font-size:13px;color:var(--ink-2);margin-top:6px;line-height:1.7;">打つのをやめて話す時代。中でも<strong>今いちばんおすすめなのが「Typeless」</strong>です。AIが「えーと」などの言い淀みも自動でカット・整文し、議事録・メール・記事・日記まで一気に仕上げます。タイピングに戻れなくなる人が続出。</div>
+        <div style="margin-top:12px;display:inline-flex;align-items:center;gap:8px;background:#4f46e5;color:#fff;font-weight:800;font-size:14px;padding:11px 22px;border-radius:999px;">Typeless を無料で試す →</div>
+      </a>
+      <div style="text-align:center;margin-top:14px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <div class="note" style="border-left:4px solid var(--teal)"><strong>結論</strong>：人は読んだ内容の多くを数日で忘れます。読後に<b>話してアウトプット</b>すれば記憶に定着し、テキストとして検索・再利用できる「知識資産」になります。話す速さは約300字/分なので、ほんの数分で1冊分の学びを残せます。</div>
+    <h2>読みっぱなしは、学びを捨てている</h2>
+    <p>どんなに良い本も、アウトプットしなければ「読んだ気」で終わります。学びを定着させる最強の方法は「自分の言葉で説明する」こと。でも、毎回ノートに書くのは続きません。話すだけなら、本を閉じた直後に1〜2分で残せます。</p>
+    <h2>話す→テキスト化で、知識が積み上がる</h2>
+    <p>音声で感想・要点を話し、AIが整文。検索できる読書メモが自動でたまっていきます。1年後には、自分専用の知識データベース。仕事のアイデアも、SNS発信のネタも、そこから引き出せます。インプットを資産に変える習慣です。</p><div class="note" style="margin-top:14px;"><strong>結論：今いちばんおすすめの音声入力ツールは「Typeless」</strong><br>音声入力ツールは数あれど、精度・整文（言い淀みの自動カット）・日本語の自然さで頭ひとつ抜けているのがTypelessです。上の試算ぶんの時間を、現実に取り戻せます。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>何を話せばいい？</dt><dd>「一番の学び」「使えそうな点」「印象的な一文」の3つだけでも十分です。</dd><dt>記憶に本当に残る？</dt><dd>自分の言葉で再構成（アウトプット）すると定着しやすいことが知られています。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../input-jitan/index.html"><span class="e">🎙️</span><span>音声入力 時短シミュレーター</span></a><a class="related-card" href="../gijiroku-jitan/index.html"><span class="e">📝</span><span>議事録 音声入力シミュレーター</span></a><a class="related-card" href="../mail-jitan/index.html"><span class="e">✉️</span><span>メール作成 音声入力シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const clamp = (v,a,b) => Math.max(a,Math.min(b,v));
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  try {
+  let raf=0;
+  function calc(){const b=Math.max(0,+$('books').value||0),mi=Math.max(0,+$('min').value||0),y=Math.max(1,+$('years').value||1);
+    const chars=b*mi*300*y, books2=chars/80000, cnt=b*y, handMin=b*mi*3*y;
+    $('sub').textContent=`年${b}冊・1冊${mi}分 × ${y}年`;
+    $('books2').textContent=books2.toFixed(1)+'冊';$('cnt').textContent=num(cnt)+'冊';$('hand').textContent=num(handMin/60)+'時間';
+    SHARE=`読書メモ蓄積シミュ、話してアウトプットすると${y}年で約${num(chars)}文字（文庫${books2.toFixed(1)}冊分）の知識資産が残る計算でした🧠`;
+    show();anim($('big'),0,chars,1000);startViz(Math.min(60,Math.round(cnt)));}
+  function startViz(cnt){const c=$('viz'),x=c.getContext('2d'),W=c.width,H=c.height;cancelAnimationFrame(raf);
+    const cx=W/2,cy=H/2+6,t0=performance.now(),DUR=2200;
+    const parts=[];for(let i=0;i<cnt;i++)parts.push({a:Math.random()*6.28,r:60+Math.random()*70,sp:0.4+Math.random()*0.6,delay:i/Math.max(cnt,1)});
+    function brain(level){x.strokeStyle='rgba(167,139,250,'+(0.4+0.6*level)+')';x.lineWidth=2.5;
+      x.beginPath();x.arc(cx,cy,46,0,7);x.stroke();
+      x.beginPath();for(let a=0;a<6.28;a+=0.5){const rr=46+Math.sin(a*3)*6;x.lineTo(cx+Math.cos(a)*rr,cy+Math.sin(a)*rr);}x.closePath();x.stroke();
+      x.fillStyle='rgba(99,102,241,'+(0.15+0.5*level)+')';x.beginPath();x.arc(cx,cy,46,0,7);x.fill();}
+    function frame(n){const p=Math.min(1,(n-t0)/DUR);x.fillStyle='#0b1530';x.fillRect(0,0,W,H);
+      let landed=0;
+      for(const q of parts){const lp=clamp((p-q.delay)*2.2,0,1);if(lp>=1)landed++;
+        const rr=q.r*(1-lp);const xx=cx+Math.cos(q.a)*rr,yy=cy+Math.sin(q.a)*rr-(1-lp)*0;
+        x.fillStyle='hsla('+(255+q.a*8)+',80%,70%,'+(0.4+0.6*lp)+')';x.beginPath();x.arc(xx,yy,3.5,0,7);x.fill();}
+      brain(landed/Math.max(cnt,1));
+      x.fillStyle='#fff';x.font='bold 13px sans-serif';x.textAlign='center';x.fillText('📚→🧠 学びが知識資産に',W/2,24);
+      if(p<1)raf=requestAnimationFrame(frame);}
+    raf=requestAnimationFrame(frame);}
+  } catch(e){ console.error('sim error', e); }
+  const cb=$('calcBtn'); if(cb) cb.addEventListener('click', calc);
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ,音声入力'),'_blank','noopener'));
+  const cp=$('copyBtn'); if(cp) cp.addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'dokusho-memo', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

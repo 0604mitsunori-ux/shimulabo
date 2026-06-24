@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/newtons-cradle/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/newtons-cradle.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/newtons-cradle.png">
+<title>ニュートンのゆりかごシミュレーター｜運動量保存を体感する無料ツール｜シミュラボ</title>
+<meta name="description" content="端の玉を持ち上げて離すと、反対側の玉だけが同じ数だけ跳ね上がる「ニュートンのゆりかご」をブラウザで再現する無料シミュレーター。なぜ真ん中の玉は動かないのか、運動量保存とエネルギー保存の仕組みも解説します。">
+<meta property="og:title" content="ニュートンのゆりかご｜運動量保存を体感">
+<meta property="og:description" content="端の玉を離すと反対側だけが跳ねる、運動量保存のシミュレーター。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/newtons-cradle/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "ニュートンのゆりかごシミュレーター", "url": "https://shimulabo.com/sims/newtons-cradle/", "description": "端の玉を持ち上げて離すと、反対側の玉だけが同じ数だけ跳ね上がる「ニュートンのゆりかご」をブラウザで再現する無料シミュレーター。なぜ真ん中の玉は動かないのか、運動量保存とエネルギー保存の仕組みも解説します。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ニュートンのゆりかごシミュレーター", "item": "https://shimulabo.com/sims/newtons-cradle/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "2個ぶつけたら、なぜ1個が倍の速さで飛ばないの？", "acceptedAnswer": {"@type": "Answer", "text": "その場合は運動量は保存できてもエネルギーが保存できません。2つの保存則を両立できるのは「同じ数・同じ速さ」だけです。"}}, {"@type": "Question", "name": "いつか止まるのはなぜ？", "acceptedAnswer": {"@type": "Answer", "text": "空気抵抗や、玉のわずかな変形・音による微小なエネルギー損失があるためです。理想状態なら止まりません。"}}, {"@type": "Question", "name": "真ん中の玉は本当に動いていないの？", "acceptedAnswer": {"@type": "Answer", "text": "厳密にはごくわずかに動きますが、衝撃を伝えるだけでほぼ静止して見えます。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>ふしぎ・現象<span>›</span><span class="cur">ニュートンのゆりかごシミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ふしぎ・現象</div>
+    <h1>ニュートンのゆりかごシミュレーター</h1>
+    <p class="lead">端の玉を持ち上げて離すと、反対側の玉だけが同じ数だけ跳ねる――あの不思議な置物「ニュートンのゆりかご」。持ち上げる数を変えて、運動量とエネルギーが玉から玉へ伝わる様子を体感してください。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:16px;">
+      <canvas id="cv" width="480" height="340" style="width:100%;max-width:520px;height:auto;background:#fff;border:1px solid var(--line);border-radius:12px;background:#0e1626;"></canvas>
+      <div style="width:100%;max-width:560px;"><div class="field" style="margin-bottom:10px;"><div class="slider-head"><label style="margin:0;">持ち上げる玉の数</label><span class="val" id="liftL">1</span></div><input type="range" id="lift" min="1" max="4" value="1" step="1" style="width:100%;"></div><div class="share-row" style="margin-top:0;flex-wrap:wrap;"><button class="btn btn-primary" id="go" style="padding:11px 18px;font-size:14px;">▶ 離す</button></div></div>
+    </div>
+    <p style="text-align:center;color:var(--ink-2);font-size:13px;margin-top:14px;">左端から指定した数の玉を持ち上げて離します。反対側から同じ数の玉が跳ね上がります。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row"><button class="btn btn-x" id="shareBtn">𝕏 でシェア</button></div>
+  </section>
+
+  <article class="article">
+    <div class="note" style="border-left:4px solid var(--teal)"><strong>結論</strong>：1個ぶつけたら1個、2個なら2個だけが反対側で跳ねます。これは<b>運動量保存則</b>と<b>運動エネルギー保存則</b>の<b>両方</b>を同時に満たす答えが「同じ個数・同じ速さで跳ねる」だけだから。真ん中の玉は衝撃を一瞬で伝えるだけで、ほとんど動きません。</div>
+    <h2>ニュートンのゆりかごとは</h2>
+    <p>ニュートンのゆりかご（Newton's cradle）は、同じ重さの金属球を糸で吊るして一列に並べた装置です。端の球を引いて離すと、反対端の球だけが同じ勢いで跳ね上がります。物理学者アイザック・ニュートンにちなんで名付けられ、運動量とエネルギーの保存をわかりやすく示す教材として有名です。</p>
+    <h2>なぜ反対側だけが同じ数跳ねるのか</h2>
+    <p>玉どうしの衝突では、ほぼエネルギーが失われない「弾性衝突」が起こります。このとき成り立つのが次の2つです。</p>
+    <div class="note"><strong>2つの保存則</strong><br>運動量保存：質量×速度の合計は衝突の前後で変わらない<br>エネルギー保存：（½×質量×速度²）の合計も変わらない</div>
+    <p>この2つを同時に満たす組み合わせは、「ぶつけた数と同じ数の玉が、同じ速さで反対側から飛び出す」場合だけです。だから1個なら1個、2個なら2個。真ん中の玉は、力を瞬間的に隣へ伝えるパイプ役で、自分はほとんど動きません。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>2個ぶつけたら、なぜ1個が倍の速さで飛ばないの？</dt><dd>その場合は運動量は保存できてもエネルギーが保存できません。2つの保存則を両立できるのは「同じ数・同じ速さ」だけです。</dd><dt>いつか止まるのはなぜ？</dt><dd>空気抵抗や、玉のわずかな変形・音による微小なエネルギー損失があるためです。理想状態なら止まりません。</dd><dt>真ん中の玉は本当に動いていないの？</dt><dd>厳密にはごくわずかに動きますが、衝撃を伝えるだけでほぼ静止して見えます。</dd></dl><h2>参考</h2><ul class="seo-refs"><li>Newton, I. 運動の三法則（運動量保存の基礎）</li><li>Hutzler, S. et al. "Rocking Newton’s cradle" (American Journal of Physics, 2004)</li><li>高校物理「弾性衝突と運動量保存」</li></ul>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../jutai/index.html"><span class="e">🚗</span><span>渋滞は勝手に生まれる</span></a><a class="related-card" href="../life/index.html"><span class="e">🦠</span><span>ライフゲーム</span></a><a class="related-card" href="../forest-fire/index.html"><span class="e">🔥</span><span>森林火災シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ見てみたい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const SHARE = '端の玉を離すと、反対側だけが同じ数跳ねる。ニュートンのゆりかご、運動量保存の傑作🟤';
+  try {
+  const c=$('cv'),x=c.getContext('2d'),W=c.width,H=c.height;
+  const N=5,R=22,pivY=46,L=210,gapX=R*2+2,startX=W/2-gapX*2;
+  const G=0.0006,A0=0.9;
+  let ang=new Array(N).fill(0),vel=new Array(N).fill(0),swing=null;
+  function px(i){return startX+i*gapX;}
+  function release(){const k=Math.min(4,Math.max(1,+$('lift').value));$('liftL').textContent=k;
+    swing={side:'L',k:k,a:-A0,w:0};ang.fill(0);}
+  function physics(){if(!swing)return;
+    swing.w+=-G*1000*Math.sin(swing.a);swing.a+=swing.w;
+    const k=swing.k;
+    if(swing.side==='L'&&swing.a>=0){swing.a=0;swing.side='R';}
+    else if(swing.side==='R'&&swing.a<=0){swing.a=0;swing.side='L';}
+    // amplitude grows on outer side only
+    if(swing.side==='L'){for(let i=0;i<N;i++)ang[i]=i<k?swing.a:0;}
+    else{for(let i=0;i<N;i++)ang[i]=i>=N-k?swing.a:0;}}
+  function draw(){x.fillStyle='#0e1626';x.fillRect(0,0,W,H);
+    x.strokeStyle='#33405c';x.lineWidth=3;x.beginPath();x.moveTo(startX-R,pivY);x.lineTo(px(N-1)+R,pivY);x.stroke();
+    for(let i=0;i<N;i++){const a=ang[i];const bx=px(i)+Math.sin(a)*L,by=pivY+Math.cos(a)*L;
+      x.strokeStyle='#7b8aa8';x.lineWidth=1.5;x.beginPath();x.moveTo(px(i),pivY);x.lineTo(bx,by);x.stroke();
+      const g=x.createRadialGradient(bx-7,by-7,2,bx,by,R);g.addColorStop(0,'#dfe8ff');g.addColorStop(1,'#8aa0d8');
+      x.fillStyle=g;x.beginPath();x.arc(bx,by,R,0,7);x.fill();x.strokeStyle='#4a5a82';x.lineWidth=1.5;x.stroke();}}
+  function loop(){physics();draw();requestAnimationFrame(loop);}
+  $('go').addEventListener('click',release);
+  $('lift').addEventListener('input',()=>$('liftL').textContent=$('lift').value);
+  draw();loop();
+  } catch(e) { console.error(e); }
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click',()=>window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'newtons-cradle', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

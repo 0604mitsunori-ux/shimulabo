@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/koch/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/koch.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/koch.png">
+<title>コッホ雪片 フラクタル図形ジェネレーター｜反復で描く無料シミュレーター｜シミュラボ</title>
+<meta name="description" content="コッホ曲線・コッホ雪片・シェルピンスキー・ドラゴン曲線などのフラクタル図形を、反復回数を変えながらアニメーションで描く無料シミュレーター。拡大しても同じ形が現れる「自己相似」を体感できます。">
+<meta property="og:title" content="コッホ雪片 フラクタル図形ジェネレーター">
+<meta property="og:description" content="コッホ曲線・雪片・ドラゴン曲線を反復で描くフラクタル生成器。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/koch/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "コッホ雪片・フラクタル図形ジェネレーター", "url": "https://shimulabo.com/sims/koch/", "description": "コッホ曲線・コッホ雪片・シェルピンスキー・ドラゴン曲線などのフラクタル図形を、反復回数を変えながらアニメーションで描く無料シミュレーター。拡大しても同じ形が現れる「自己相似」を体感できます。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "コッホ雪片・フラクタル図形ジェネレーター", "item": "https://shimulabo.com/sims/koch/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "フラクタルの「次元」って何ですか？", "acceptedAnswer": {"@type": "Answer", "text": "直線は1次元、面は2次元ですが、フラクタルはその中間の「1.26次元」のような分数の次元（フラクタル次元）を持ちます。"}}, {"@type": "Question", "name": "どこまで反復できますか？", "acceptedAnswer": {"@type": "Answer", "text": "画面では6回までにしています。理論上は無限にくり返せ、いくら拡大しても新しいギザギザが現れます。"}}, {"@type": "Question", "name": "自然界のどこにありますか？", "acceptedAnswer": {"@type": "Answer", "text": "海岸線、シダの葉、樹木、雷の枝分かれ、雲の輪郭などが代表例です。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>あそぶ・実験<span>›</span><span class="cur">コッホ雪片・フラクタル図形ジェネレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">あそぶ・実験</div>
+    <h1>コッホ雪片・フラクタル図形ジェネレーター</h1>
+    <p class="lead">直線を折り曲げる操作を何度もくり返すと、雪の結晶のような複雑な図形「コッホ雪片」が現れます。反復回数を上げると、どこを拡大しても同じ形が出てくる「フラクタル」の不思議が見えてきます。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:16px;">
+      <canvas id="cv" width="460" height="380" style="width:100%;max-width:500px;height:auto;background:#fff;border:1px solid var(--line);border-radius:12px;background:#0b1530;"></canvas>
+      <div style="width:100%;max-width:560px;"><div class="field" style="margin-bottom:10px;"><label>図形</label><select id="shape"><option value="snow">コッホ雪片</option><option value="koch">コッホ曲線</option><option value="sier">シェルピンスキー</option><option value="dragon">ドラゴン曲線</option></select></div><div class="field" style="margin-bottom:10px;"><div class="slider-head"><label style="margin:0;">反復回数</label><span class="val" id="iterL">3</span></div><input type="range" id="iter" min="0" max="6" value="3" step="1" style="width:100%;"></div><div class="share-row" style="margin-top:0;flex-wrap:wrap;"><button class="btn btn-primary" id="redraw" style="padding:11px 18px;font-size:14px;">▶ 描き直す</button></div></div>
+    </div>
+    <p style="text-align:center;color:var(--ink-2);font-size:13px;margin-top:14px;">反復回数を上げるほど細かくなります。一部を拡大すると全体と同じ形が現れます（自己相似）。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row"><button class="btn btn-x" id="shareBtn">𝕏 でシェア</button></div>
+  </section>
+
+  <article class="article">
+    <div class="note" style="border-left:4px solid var(--teal)"><strong>結論</strong>：フラクタルとは、<b>一部を拡大すると全体とそっくりな形が現れる「自己相似」</b>な図形のこと。コッホ雪片は、線を折り曲げる単純な操作のくり返しだけで、無限に入り組んだ縁を持つ図形になります。</div>
+    <h2>コッホ曲線・コッホ雪片とは</h2>
+    <p>コッホ曲線は、1904年に数学者ヘルゲ・フォン・コッホが考えた図形です。1本の線分を3等分し、真ん中の区間を山型（正三角形の2辺）に置きかえます。この操作を各線分にくり返すと、ギザギザがどんどん細かくなります。正三角形の3辺すべてにこれを行ったものが「コッホ雪片」で、雪の結晶のような輪郭になります。</p>
+    <div class="note"><strong>不思議な性質</strong><br>コッホ雪片は、<b>面積は有限</b>なのに<b>周の長さは無限</b>に伸びていきます。反復のたびに辺の数が4/3倍に増えるためです。</div>
+    <h2>いろいろなフラクタル</h2>
+    <ul>
+      <li><strong>シェルピンスキー</strong>：三角形から中央の三角形をくり抜き続ける図形</li>
+      <li><strong>ドラゴン曲線</strong>：紙を半分に折り続けたときの折り目が作る曲線</li>
+    </ul>
+    <p>フラクタルは数学の世界だけのものではありません。海岸線・樹木の枝・雲・血管の分かれ方など、自然界のいたるところに自己相似の構造が見られます。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>フラクタルの「次元」って何ですか？</dt><dd>直線は1次元、面は2次元ですが、フラクタルはその中間の「1.26次元」のような分数の次元（フラクタル次元）を持ちます。</dd><dt>どこまで反復できますか？</dt><dd>画面では6回までにしています。理論上は無限にくり返せ、いくら拡大しても新しいギザギザが現れます。</dd><dt>自然界のどこにありますか？</dt><dd>海岸線、シダの葉、樹木、雷の枝分かれ、雲の輪郭などが代表例です。</dd></dl><h2>参考</h2><ul class="seo-refs"><li>von Koch, H. (1904) コッホ曲線の原論文</li><li>Mandelbrot, B. 『フラクタル幾何学』（フラクタルの概念を確立）</li><li>Mandelbrot, B. (1967) "How Long Is the Coast of Britain?" (Science)</li></ul>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../lorenz/index.html"><span class="e">🦋</span><span>ローレンツ・アトラクタ</span></a><a class="related-card" href="../pendulum-wave/index.html"><span class="e">🎐</span><span>振り子の波</span></a><a class="related-card" href="../solar-system/index.html"><span class="e">🪐</span><span>太陽系シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ見てみたい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const SHARE = '線を折り曲げ続けるだけで、雪の結晶みたいなコッホ雪片に🔺 拡大しても同じ形が出るフラクタルの不思議。';
+  try {
+  const c=$('cv'),x=c.getContext('2d'),W=c.width,H=c.height;
+  let pts=[],drawn=0,raf=0;
+  function lsys(axiom,rules,it){let s=axiom;for(let k=0;k<it;k++){let n='';for(const ch of s)n+=rules[ch]||ch;s=n;}return s;}
+  function turtle(s,ang,start){const st=[];let px=start.x,py=start.y,a=start.a;const pts=[[px,py]];
+    for(const ch of s){if(ch==='F'||ch==='A'||ch==='B'){px+=Math.cos(a);py+=Math.sin(a);pts.push([px,py]);}
+      else if(ch==='+')a+=ang;else if(ch==='-')a-=ang;}return pts;}
+  function build(){const it=+$('iter').value;$('iterL').textContent=it;const sh=$('shape').value;let raw,ang,ax,start;
+    if(sh==='koch'){raw=lsys('F',{F:'F+F--F+F'},it);ang=Math.PI/3;start={x:0,y:0,a:0};}
+    else if(sh==='snow'){raw=lsys('F--F--F',{F:'F+F--F+F'},it);ang=Math.PI/3;start={x:0,y:0,a:0};}
+    else if(sh==='sier'){raw=lsys('A',{A:'B-A-B',B:'A+B+A'},it);ang=Math.PI/3;start={x:0,y:0,a:0};}
+    else{raw=lsys('FX',{X:'X+YF+',Y:'-FX-Y'},it);ang=Math.PI/2;start={x:0,y:0,a:0};}
+    let p=turtle(raw,ang,start);
+    let minx=1e9,miny=1e9,maxx=-1e9,maxy=-1e9;for(const q of p){minx=Math.min(minx,q[0]);maxx=Math.max(maxx,q[0]);miny=Math.min(miny,q[1]);maxy=Math.max(maxy,q[1]);}
+    const pw=maxx-minx||1,ph=maxy-miny||1,pad=30,sc=Math.min((W-pad*2)/pw,(H-pad*2)/ph);
+    pts=p.map(q=>[(q[0]-minx)*sc+(W-pw*sc)/2,(q[1]-miny)*sc+(H-ph*sc)/2]);drawn=0;}
+  function loop(){x.fillStyle='#0b1530';x.fillRect(0,0,W,H);
+    drawn=Math.min(pts.length,drawn+Math.max(2,pts.length/60|0));
+    x.strokeStyle='#7fe9ff';x.lineWidth=1.4;x.shadowColor='#3aa0ff';x.shadowBlur=6;x.beginPath();
+    for(let i=0;i<drawn;i++){const q=pts[i];i?x.lineTo(q[0],q[1]):x.moveTo(q[0],q[1]);}x.stroke();x.shadowBlur=0;
+    if(drawn<pts.length)raf=requestAnimationFrame(loop);}
+  function start(){cancelAnimationFrame(raf);build();loop();}
+  $('redraw').addEventListener('click',start);
+  $('shape').addEventListener('change',start);
+  $('iter').addEventListener('input',start);
+  start();
+  } catch(e) { console.error(e); }
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click',()=>window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'koch', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

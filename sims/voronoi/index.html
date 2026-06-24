@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/voronoi/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/voronoi.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/voronoi.png">
+<title>ボロノイ図ジェネレーター｜母点で平面を分割する無料シミュレーター｜シミュラボ</title>
+<meta name="description" content="いくつかの点（母点）に対して「どの点に一番近いか」で平面を塗り分ける、ボロノイ図をリアルタイムで生成する無料シミュレーター。点をクリックで追加したり、動かしてセルが変化する様子を体感できます。">
+<meta property="og:title" content="ボロノイ図ジェネレーター｜母点で平面を分割">
+<meta property="og:description" content="一番近い母点で平面を塗り分けるボロノイ図をリアルタイム生成。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/voronoi/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "ボロノイ図ジェネレーター", "url": "https://shimulabo.com/sims/voronoi/", "description": "いくつかの点（母点）に対して「どの点に一番近いか」で平面を塗り分ける、ボロノイ図をリアルタイムで生成する無料シミュレーター。点をクリックで追加したり、動かしてセルが変化する様子を体感できます。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ボロノイ図ジェネレーター", "item": "https://shimulabo.com/sims/voronoi/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "ドロネー三角形分割との関係は？", "acceptedAnswer": {"@type": "Answer", "text": "ボロノイ図と表裏一体の関係にあり、母点どうしを結んでできる三角形分割がドロネー図です。"}}, {"@type": "Question", "name": "境界線はどうやって決まるの？", "acceptedAnswer": {"@type": "Answer", "text": "隣り合う母点を結んだ線分の垂直二等分線が境界になります。だから領域は凸多角形になります。"}}, {"@type": "Question", "name": "点はいくつまで増やせますか？", "acceptedAnswer": {"@type": "Answer", "text": "スライダーで増やせるほか、クリックでも追加できます。多いほど細かいタイルになります。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>あそぶ・実験<span>›</span><span class="cur">ボロノイ図ジェネレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">あそぶ・実験</div>
+    <h1>ボロノイ図ジェネレーター</h1>
+    <p class="lead">たくさんの点に対して「どの点が一番近いか」で色を塗ると、平面が多角形のタイルに分かれます。これがボロノイ図。点をクリックで足したり、動く点が作るセルの変化を眺めてください。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:16px;">
+      <canvas id="cv" width="460" height="360" style="width:100%;max-width:500px;height:auto;background:#fff;border:1px solid var(--line);border-radius:12px;cursor:crosshair;"></canvas>
+      <div style="width:100%;max-width:560px;"><div class="field" style="margin-bottom:10px;"><div class="slider-head"><label style="margin:0;">母点の数</label><span class="val" id="npL">10</span></div><input type="range" id="np" min="3" max="24" value="10" step="1" style="width:100%;"></div><div class="share-row" style="margin-top:0;flex-wrap:wrap;"><button class="btn btn-ghost" id="reset" style="padding:11px 18px;font-size:14px;">リセット</button><button class="btn btn-ghost" id="toggle" style="padding:11px 18px;font-size:14px;">⏸ 動きを止める</button></div></div>
+    </div>
+    <p style="text-align:center;color:var(--ink-2);font-size:13px;margin-top:14px;">同じ色の領域＝その色の点が最も近い場所。キャンバスをクリックで母点を追加できます。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row"><button class="btn btn-x" id="shareBtn">𝕏 でシェア</button></div>
+  </section>
+
+  <article class="article">
+    <div class="note" style="border-left:4px solid var(--teal)"><strong>結論</strong>：ボロノイ図は「平面上の各場所を、最も近い母点ごとに縄張り分けした図」です。隣り合う母点の<b>垂直二等分線</b>が境界になり、領域は必ず凸多角形になります。最寄り店の商圏、携帯基地局のエリア分けなど応用は多彩です。</div>
+    <h2>ボロノイ図とは</h2>
+    <p>ボロノイ図（Voronoi diagram）は、平面にいくつかの母点（種となる点）を置いたとき、それぞれの場所を「一番近い母点」ごとに塗り分けてできる図形です。数学者ゲオルギー・ボロノイにちなみます。生まれる境界線は、隣り合う2つの母点を結ぶ線の垂直二等分線でできています。</p>
+    <h2>どこで使われている？</h2>
+    <ul>
+      <li><strong>商圏・立地分析</strong>：最寄りの店舗・施設の担当エリアを求める</li>
+      <li><strong>通信</strong>：携帯電話の基地局がカバーするエリア分け</li>
+      <li><strong>地理・気象</strong>：観測点ごとの代表エリア（ティーセン多角形）</li>
+      <li><strong>CG・ゲーム</strong>：自然な地形や模様、ひび割れの生成</li>
+    </ul>
+    <p>身近な例では「キリンの模様」「乾いた泥のひび割れ」もボロノイ図に近い構造をしています。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>ドロネー三角形分割との関係は？</dt><dd>ボロノイ図と表裏一体の関係にあり、母点どうしを結んでできる三角形分割がドロネー図です。</dd><dt>境界線はどうやって決まるの？</dt><dd>隣り合う母点を結んだ線分の垂直二等分線が境界になります。だから領域は凸多角形になります。</dd><dt>点はいくつまで増やせますか？</dt><dd>スライダーで増やせるほか、クリックでも追加できます。多いほど細かいタイルになります。</dd></dl><h2>参考</h2><ul class="seo-refs"><li>Voronoi, G. (1908) 二次形式に関する研究（ボロノイ図の起源）</li><li>Aurenhammer, F. "Voronoi Diagrams" (ACM Computing Surveys, 1991)</li><li>Thiessen, A. ティーセン多角形（気象観測への応用）</li></ul>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../lorenz/index.html"><span class="e">🦋</span><span>ローレンツ・アトラクタ</span></a><a class="related-card" href="../pendulum-wave/index.html"><span class="e">🎐</span><span>振り子の波</span></a><a class="related-card" href="../solar-system/index.html"><span class="e">🪐</span><span>太陽系シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ見てみたい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const SHARE = '一番近い点で平面を塗り分けるとタイルになる…ボロノイ図、動かすとセルが踊って気持ちいい🔷';
+  try {
+  const c=$('cv'),x=c.getContext('2d'),W=c.width,H=c.height,S=4;
+  const gw=Math.ceil(W/S),gh=Math.ceil(H/S),img=x.createImageData(gw,gh);
+  let pts=[],run=true;
+  function hsl(h){h=((h%360)+360)%360;const s=0.55,l=0.56;const k=n=>(n+h/30)%12;const f=n=>l-s*Math.min(l,1-l)*Math.max(-1,Math.min(k(n)-3,9-k(n),1));return [f(0)*255,f(8)*255,f(4)*255];}
+  function reset(){const n=+$('np').value;$('npL').textContent=n;pts=[];for(let i=0;i<n;i++)pts.push({x:20+Math.random()*(W-40),y:20+Math.random()*(H-40),vx:(Math.random()-.5)*1.4,vy:(Math.random()-.5)*1.4,col:hsl(i*360/n)});}
+  function step(){if(!run)return;for(const p of pts){p.x+=p.vx;p.y+=p.vy;if(p.x<8||p.x>W-8)p.vx*=-1;if(p.y<8||p.y>H-8)p.vy*=-1;}}
+  function draw(){const d=img.data;
+    for(let gy=0;gy<gh;gy++)for(let gx=0;gx<gw;gx++){const px=gx*S,py=gy*S;let bd=1e9,bi=0;
+      for(let i=0;i<pts.length;i++){const dx=px-pts[i].x,dy=py-pts[i].y,dd=dx*dx+dy*dy;if(dd<bd){bd=dd;bi=i;}}
+      const col=pts[bi].col,id=(gy*gw+gx)*4,edge=bd<60?0.6:1;d[id]=col[0]*edge;d[id+1]=col[1]*edge;d[id+2]=col[2]*edge;d[id+3]=255;}
+    x.putImageData(img,0,0);x.imageSmoothingEnabled=false;x.drawImage(c,0,0,gw,gh,0,0,W,H);
+    for(const p of pts){x.fillStyle='#fff';x.beginPath();x.arc(p.x,p.y,3,0,7);x.fill();x.strokeStyle='#0e1626';x.lineWidth=1;x.stroke();}}
+  function loop(){step();draw();requestAnimationFrame(loop);}
+  $('reset').addEventListener('click',reset);
+  $('np').addEventListener('input',reset);
+  $('toggle').addEventListener('click',()=>{run=!run;$('toggle').textContent=run?'⏸ 動きを止める':'▶ 動かす';});
+  c.addEventListener('click',e=>{const r=c.getBoundingClientRect();pts.push({x:(e.clientX-r.left)/r.width*W,y:(e.clientY-r.top)/r.height*H,vx:(Math.random()-.5)*1.4,vy:(Math.random()-.5)*1.4,col:hsl(pts.length*47)});});
+  reset();loop();
+  } catch(e) { console.error(e); }
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click',()=>window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+})();
+</script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'voronoi', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>
