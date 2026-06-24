@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/shinsu-henkan/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/shinsu-henkan.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/shinsu-henkan.png">
+<title>進数変換ツール｜2進数・8進数・10進数・16進数を相互変換｜シミュラボ</title>
+<meta name="description" content="2進数・8進数・10進数・16進数を相互に変換できる無料ツール。入力した数値を一度にすべての進数で表示。ビット表示つきでプログラミング学習にも。">
+<meta property="og:title" content="進数変換ツール｜2進数・10進数・16進数を相互変換">
+<meta property="og:description" content="2/8/10/16進数を一度に相互変換。ビット表示つきの進数変換ツール。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/shinsu-henkan/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "進数変換ツール（2進・8進・10進・16進）", "url": "https://shimulabo.com/sims/shinsu-henkan/", "description": "2進数・8進数・10進数・16進数を相互に変換できる無料ツール。入力した数値を一度にすべての進数で表示。ビット表示つきでプログラミング学習にも。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "進数変換ツール（2進・8進・10進・16進）", "item": "https://shimulabo.com/sims/shinsu-henkan/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "16進数のアルファベットは大文字？小文字？", "acceptedAnswer": {"@type": "Answer", "text": "本ツールは大文字（FF）で表示します。意味は同じです。"}}, {"@type": "Question", "name": "負の数や小数は？", "acceptedAnswer": {"@type": "Answer", "text": "本ツールは0以上の整数に対応しています。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>便利ツール<span>›</span><span class="cur">進数変換ツール（2進・8進・10進・16進）</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">便利ツール</div>
+    <h1>進数変換ツール（2進・8進・10進・16進）</h1>
+    <p class="lead">数値と「入力した進数」を選ぶだけで、2進数・8進数・10進数・16進数に一度に変換します。プログラミングやネットワークの学習に。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🔢 数値を入れる</h2>
+    <div class="row"><div class="field"><label>数値</label><input type="text" id="v" value="255" inputmode="text" autocomplete="off"></div>
+    <div class="field"><label>入力した進数</label><select id="from"><option value="10" selected>10進数</option><option value="2">2進数</option><option value="8">8進数</option><option value="16">16進数</option></select></div></div>
+    <button class="btn btn-primary" id="calcBtn">変換する</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">10進数</div>
+      <div class="big" style="font-size:34px;"><span id="big">—</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">2進数</div><div class="v accent" id="bin" style="font-size:14px;word-break:break-all;">—</div></div>
+      <div class="stat"><div class="k">8進数</div><div class="v" id="oct">—</div></div>
+      <div class="stat"><div class="k">16進数</div><div class="v" id="hex">—</div></div></div>
+      <div class="viz-wrap" style="margin-top:14px;"><canvas id="viz" width="480" height="70" style="width:100%;max-width:500px;height:auto;display:block;margin:0 auto;background:#0b1530;border-radius:12px;"></canvas></div>
+      <div style="text-align:center;margin-top:12px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 でシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <div class="note"><strong>進数とは</strong><br>2進数は0と1だけ、16進数は0〜9とA〜Fで数を表します。コンピュータは内部で2進数を使い、色コード（#FF0000）などは16進数です。</div>
+    <h2>進数変換の使い方</h2>
+    <p>「255を16進数にすると？」のような変換が一瞬でできます。10進数255は16進数でFF、2進数で11111111。プログラミング、ネットワーク（IPアドレス・サブネット）、Webの色指定などで進数変換は頻出します。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>16進数のアルファベットは大文字？小文字？</dt><dd>本ツールは大文字（FF）で表示します。意味は同じです。</dd><dt>負の数や小数は？</dt><dd>本ツールは0以上の整数に対応しています。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../percent-keisan/index.html"><span class="e">％</span><span>パーセント計算機</span></a><a class="related-card" href="../bunsuu-keisan/index.html"><span class="e">½</span><span>分数計算機</span></a><a class="related-card" href="../jikan-keisan/index.html"><span class="e">⏱️</span><span>時間計算機（経過時間）</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなツールも欲しい？</h2>
+    <p>あなたの「これ計算したい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => (Math.round(n*100)/100).toLocaleString('ja-JP');
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const clamp = (v,a,b) => Math.max(a,Math.min(b,v));
+  let SHARE = '', raf = 0;
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){const raw=($('v').value||'').trim().replace(/^0[xob]/i,''),fb=+$('from').value;
+    const dec=parseInt(raw,fb);
+    if(isNaN(dec)||dec<0){$('big').textContent='入力エラー';$('sub').textContent='その進数で使えない文字が含まれています';$('bin').textContent='—';$('oct').textContent='—';$('hex').textContent='—';show();return;}
+    const bin=dec.toString(2),oct=dec.toString(8),hex=dec.toString(16).toUpperCase();
+    $('big').textContent=num(dec);$('sub').textContent=`入力：${raw}（${fb}進数）`;
+    $('bin').textContent=bin;$('oct').textContent=oct;$('hex').textContent=hex;
+    SHARE=`進数変換：10進${dec} ＝ 2進${bin} ＝ 16進${hex} でした🔢`;show();drawBits(bin);}
+  function drawBits(bin){const c=$('viz'),x=c.getContext('2d'),W=c.width,H=c.height;cancelAnimationFrame(raf);
+    const bits=bin.padStart(Math.ceil(bin.length/4)*4,'0').slice(-32).split('');
+    const n=bits.length,bw=Math.min(26,(W-20)/n),sx=(W-n*bw)/2,by=H/2-bw/2,t0=performance.now();
+    function f(t){const p=Math.min(1,(t-t0)/600);x.fillStyle='#0b1530';x.fillRect(0,0,W,H);
+      bits.forEach((b,i)=>{const on=b==='1',show=i<n*p;x.fillStyle=show?(on?'#34d399':'rgba(255,255,255,.12)'):'rgba(255,255,255,.04)';
+        x.fillRect(sx+i*bw,by,bw-2,bw-2);if(show){x.fillStyle=on?'#06281f':'rgba(255,255,255,.5)';x.font='bold 12px monospace';x.textAlign='center';x.textBaseline='middle';x.fillText(b,sx+i*bw+(bw-2)/2,by+(bw-2)/2);}});
+      if(p<1)raf=requestAnimationFrame(f);}raf=requestAnimationFrame(f);}
+  const cb=$('calcBtn'); if(cb) cb.addEventListener('click', calc);
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  const cp=$('copyBtn'); if(cp) cp.addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'shinsu-henkan', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

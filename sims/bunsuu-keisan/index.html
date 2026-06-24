@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/bunsuu-keisan/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/bunsuu-keisan.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/bunsuu-keisan.png">
+<title>分数計算機｜分数の足し算・引き算・かけ算・割り算（約分つき）｜シミュラボ</title>
+<meta name="description" content="2つの分数の足し算・引き算・かけ算・割り算を、約分・通分まで自動で行う無料の分数計算機。小数への変換結果も表示します。宿題や確認に。">
+<meta property="og:title" content="分数計算機｜足し算・引き算・かけ算・割り算">
+<meta property="og:description" content="2つの分数を約分・通分つきで計算。小数変換も。無料の分数計算機。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/bunsuu-keisan/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "分数計算機", "url": "https://shimulabo.com/sims/bunsuu-keisan/", "description": "2つの分数の足し算・引き算・かけ算・割り算を、約分・通分まで自動で行う無料の分数計算機。小数への変換結果も表示します。宿題や確認に。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "分数計算機", "item": "https://shimulabo.com/sims/bunsuu-keisan/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "帯分数も計算できる？", "acceptedAnswer": {"@type": "Answer", "text": "分子・分母に直して入力してください（例：1と1/2なら 3/2）。"}}, {"@type": "Question", "name": "約分はどうやってる？", "acceptedAnswer": {"@type": "Answer", "text": "分子と分母の最大公約数（ユークリッドの互除法）で割っています。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>便利ツール<span>›</span><span class="cur">分数計算機</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">便利ツール</div>
+    <h1>分数計算機</h1>
+    <p class="lead">2つの分数と記号（＋−×÷）を選ぶだけで、答えを約分まで自動で計算します。通分や約分が面倒なときに。小数にした値も表示します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>½ 分数を入れる</h2>
+    <div class="row"><div class="field"><label>分子1</label><input type="number" id="a" value="1" inputmode="numeric"></div>
+    <div class="field"><label>分母1</label><input type="number" id="b" value="2" inputmode="numeric"></div></div>
+    <div class="field"><label>計算記号</label><select id="op"><option value="+">＋ 足す</option><option value="-">− 引く</option><option value="*">× かける</option><option value="/">÷ 割る</option></select></div>
+    <div class="row"><div class="field"><label>分子2</label><input type="number" id="c" value="1" inputmode="numeric"></div>
+    <div class="field"><label>分母2</label><input type="number" id="d" value="3" inputmode="numeric"></div></div>
+    <button class="btn btn-primary" id="calcBtn">計算する</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">答え（約分済み）</div>
+      <div class="big" style="font-size:38px;"><span id="big">—</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">小数にすると</div><div class="v accent" id="dec">—</div></div>
+      <div class="stat"><div class="k">仮分数→帯分数</div><div class="v" id="mixed">—</div></div></div>
+      <div class="viz-wrap" style="margin-top:14px;"></div>
+      <div style="text-align:center;margin-top:12px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 でシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <div class="note"><strong>分数の計算ルール</strong><br>足し算・引き算は通分してから分子を計算／かけ算は分子どうし・分母どうし／割り算は逆数をかける。最後に最大公約数で約分します。</div>
+    <h2>分数の計算のしかた</h2>
+    <p>分数の足し算・引き算は、分母をそろえる「通分」が必要です。かけ算は分子どうし・分母どうしをかけ、割り算は2つ目の分数をひっくり返して（逆数にして）かけます。答えは必ず「これ以上割り切れない形」まで約分します。この計算機はそれを自動で行います。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>帯分数も計算できる？</dt><dd>分子・分母に直して入力してください（例：1と1/2なら 3/2）。</dd><dt>約分はどうやってる？</dt><dd>分子と分母の最大公約数（ユークリッドの互除法）で割っています。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../percent-keisan/index.html"><span class="e">％</span><span>パーセント計算機</span></a><a class="related-card" href="../jikan-keisan/index.html"><span class="e">⏱️</span><span>時間計算機（経過時間）</span></a><a class="related-card" href="../shinsu-henkan/index.html"><span class="e">🔢</span><span>進数変換ツール（2進・8進・10進・16進）</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなツールも欲しい？</h2>
+    <p>あなたの「これ計算したい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => (Math.round(n*100)/100).toLocaleString('ja-JP');
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const clamp = (v,a,b) => Math.max(a,Math.min(b,v));
+  let SHARE = '', raf = 0;
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function gcd(x,y){x=Math.abs(x);y=Math.abs(y);while(y){[x,y]=[y,x%y];}return x||1;}
+  function calc(){let a=Math.trunc(+$('a').value||0),b=Math.trunc(+$('b').value||1),c=Math.trunc(+$('c').value||0),d=Math.trunc(+$('d').value||1),op=$('op').value;
+    if(b===0||d===0){$('big').textContent='分母に0は不可';$('sub').textContent='—';$('dec').textContent='—';$('mixed').textContent='—';show();return;}
+    let n,m;
+    if(op==='+'){n=a*d+c*b;m=b*d;}else if(op==='-'){n=a*d-c*b;m=b*d;}else if(op==='*'){n=a*c;m=b*d;}else{n=a*d;m=b*c;}
+    if(m===0){$('big').textContent='計算できません';show();return;}
+    if(m<0){n=-n;m=-m;}const g=gcd(n,m);n/=g;m/=g;
+    const opl={'+':'＋','-':'−','*':'×','/':'÷'}[op];
+    $('big').textContent=(m===1?String(n):n+' / '+m);
+    $('sub').textContent=`${a}/${b} ${opl} ${c}/${d}`;
+    $('dec').textContent=num(n/m);
+    if(m!==1&&Math.abs(n)>=m){const w=Math.trunc(n/m),r=Math.abs(n%m);$('mixed').textContent=(w+' と '+r+'/'+m);}else{$('mixed').textContent='—';}
+    SHARE=`分数計算機：${a}/${b} ${opl} ${c}/${d} ＝ ${m===1?n:n+'/'+m} でした`;show();}
+  const cb=$('calcBtn'); if(cb) cb.addEventListener('click', calc);
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  const cp=$('copyBtn'); if(cp) cp.addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'bunsuu-keisan', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/moji-count/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/moji-count.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/moji-count.png">
+<title>文字数カウントツール｜文字数・原稿用紙・ツイート数を即カウント｜シミュラボ</title>
+<meta name="description" content="文章を貼り付けるだけで、文字数（空白あり/なし）・行数・段落数・原稿用紙の枚数・X(Twitter)の投稿可否・読了時間をリアルタイムでカウントする無料ツール。">
+<meta property="og:title" content="文字数カウントツール｜文字数・原稿用紙を即カウント">
+<meta property="og:description" content="貼り付けるだけで文字数・原稿用紙・ツイート数・読了時間をカウント。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/moji-count/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "文字数カウントツール", "url": "https://shimulabo.com/sims/moji-count/", "description": "文章を貼り付けるだけで、文字数（空白あり/なし）・行数・段落数・原稿用紙の枚数・X(Twitter)の投稿可否・読了時間をリアルタイムでカウントする無料ツール。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "文字数カウントツール", "item": "https://shimulabo.com/sims/moji-count/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "全角・半角は区別する？", "acceptedAnswer": {"@type": "Answer", "text": "文字数は1文字＝1としてカウントします（全角半角の重み付けはしません）。"}}, {"@type": "Question", "name": "入力した文章は保存される？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で処理され、どこにも送信・保存されません。"}}, {"@type": "Question", "name": "Xの文字数は？", "acceptedAnswer": {"@type": "Answer", "text": "本ツールは日本語の目安として140字で判定します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>便利ツール<span>›</span><span class="cur">文字数カウントツール</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">便利ツール</div>
+    <h1>文字数カウントツール</h1>
+    <p class="lead">文章を貼り付けるだけで、文字数（空白あり・なし）、行数、段落数、原稿用紙の枚数、X(旧Twitter)に収まるか、読むのにかかる時間をリアルタイムで表示します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>✍️ 文章を貼り付ける</h2>
+    <textarea id="txt" rows="7" placeholder="ここに文章を入力・貼り付け" style="width:100%;font-size:15px;padding:12px;border:1.5px solid var(--line);border-radius:10px;line-height:1.7;"></textarea>
+    <button class="btn btn-primary" id="calcBtn" style="margin-top:10px;">カウントする</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">文字数（空白含む）</div>
+      <div class="big"><span id="big">0</span><span class="unit">字</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">空白・改行なし</div><div class="v accent" id="nospace">—</div></div>
+      <div class="stat"><div class="k">行数 / 段落</div><div class="v" id="lines">—</div></div>
+      <div class="stat"><div class="k">原稿用紙(400字)</div><div class="v" id="genko">—</div></div>
+      <div class="stat"><div class="k">X(140字)</div><div class="v" id="tw">—</div></div>
+      <div class="stat"><div class="k">読了時間(400字/分)</div><div class="v" id="read">—</div></div></div>
+      <div class="viz-wrap" style="margin-top:14px;"></div>
+      <div style="text-align:center;margin-top:12px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 でシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <div class="note"><strong>こんなときに</strong><br>レポート・小論文の字数チェック、ブログ・記事の文字数、X(Twitter)の投稿可否、原稿用紙の枚数換算などに。入力中もリアルタイムで更新されます。</div>
+    <h2>文字数カウントの使い方</h2>
+    <p>テキストエリアに文章を貼り付けるだけ。空白・改行を含む文字数と、含まない文字数の両方を表示します。「400字以内」「2000字以上」といった指定のある課題や、SNS投稿の字数管理に便利です。入力はすべて手元のブラウザ内で処理され、外部に送信されません。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>全角・半角は区別する？</dt><dd>文字数は1文字＝1としてカウントします（全角半角の重み付けはしません）。</dd><dt>入力した文章は保存される？</dt><dd>いいえ。すべてブラウザ内で処理され、どこにも送信・保存されません。</dd><dt>Xの文字数は？</dt><dd>本ツールは日本語の目安として140字で判定します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../percent-keisan/index.html"><span class="e">％</span><span>パーセント計算機</span></a><a class="related-card" href="../bunsuu-keisan/index.html"><span class="e">½</span><span>分数計算機</span></a><a class="related-card" href="../jikan-keisan/index.html"><span class="e">⏱️</span><span>時間計算機（経過時間）</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなツールも欲しい？</h2>
+    <p>あなたの「これ計算したい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => (Math.round(n*100)/100).toLocaleString('ja-JP');
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const clamp = (v,a,b) => Math.max(a,Math.min(b,v));
+  let SHARE = '', raf = 0;
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){const t=$('txt').value||'';
+    const all=Array.from(t).length;
+    const nospace=Array.from(t.replace(/\s/g,'')).length;
+    const lines=t===''?0:t.split(/\n/).length;
+    const paras=t.trim()===''?0:t.trim().split(/\n\s*\n/).length;
+    $('big').textContent=num(all);$('sub').textContent=all===0?'文章を入力してください':'リアルタイムで更新されます';
+    $('nospace').textContent=num(nospace)+'字';$('lines').textContent=lines+' / '+paras;
+    $('genko').textContent=num(Math.ceil(all/400))+'枚';
+    $('tw').textContent=all<=140?('OK（あと'+(140-all)+'）'):('超過 '+(all-140));
+    $('read').textContent=num(Math.ceil(all/400))+'分';
+    SHARE=`文字数カウント：${num(all)}字（空白なし${num(nospace)}字）でした✍️`;
+    if($('resultPanel').style.display==='none')show();}
+  $('txt').addEventListener('input',calc);
+  const cb=$('calcBtn'); if(cb) cb.addEventListener('click', calc);
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  const cp=$('copyBtn'); if(cp) cp.addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'moji-count', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>
