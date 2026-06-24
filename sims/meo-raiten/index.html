@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/meo-raiten/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/meo-raiten.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/meo-raiten.png">
+<title>MEO来店効果シミュレーター｜地図検索からの来店数を試算｜シミュラボ</title>
+<meta name="description" content="地域の月間検索数・地図での表示率・来店率から、MEO（Googleマップ対策）による月間の来店数を試算し、上位表示で表示率が上がったときの来店増も計算する無料シミュレーター。">
+<meta property="og:title" content="MEO来店効果シミュレーター｜地図検索からの来店">
+<meta property="og:description" content="地域検索数・表示率・来店率からMEOの来店数を試算。改善効果も。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/meo-raiten/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "MEO来店効果シミュレーター", "url": "https://shimulabo.com/sims/meo-raiten/", "description": "地域の月間検索数・地図での表示率・来店率から、MEO（Googleマップ対策）による月間の来店数を試算し、上位表示で表示率が上がったときの来店増も計算する無料シミュレーター。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "MEO来店効果シミュレーター", "item": "https://shimulabo.com/sims/meo-raiten/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "表示率はどう上げる？", "acceptedAnswer": {"@type": "Answer", "text": "Googleビジネスプロフィールの最新化、写真・投稿の更新、口コミ獲得と返信、NAP情報の統一などが基本です。"}}, {"@type": "Question", "name": "LLMOとの関係は？", "acceptedAnswer": {"@type": "Answer", "text": "地図やAI（ChatGPT等）に正しく情報を伝える土台づくりは共通します。AIに選ばれる店づくり（LLMO）として一体で取り組むと効果的です。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>マーケティング<span>›</span><span class="cur">MEO来店効果シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">マーケティング</div>
+    <h1>MEO来店効果シミュレーター</h1>
+    <p class="lead">「地域名＋業種」の月間検索数・地図での表示率・来店率を入れると、MEO（マップ対策）からの月間来店数を試算します。上位表示で表示率が上がると来店がどれだけ増えるかも。</p>
+  </div>
+
+  <section class="panel">
+    <h2>📍 条件を入れる</h2>
+    <div class="row"><div class="field"><label>月間の地域検索数 <span class="hint">（地域名＋業種）</span></label><input type="number" id="search" value="3000" min="0" inputmode="numeric"></div>
+    <div class="field"><label>地図での表示率 <span class="hint">（％・自店が表示される割合）</span></label><input type="number" id="view" value="20" min="0" max="100" inputmode="numeric"></div></div>
+    <div class="field"><label>表示からの来店・連絡率 <span class="hint">（％）</span></label><input type="number" id="visit" value="6" min="0" max="100" step="any" inputmode="decimal"></div>
+    <button class="btn btn-primary" id="calcBtn">来店数を試算</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">MEO経由の月間来店数（目安）</div>
+      <div class="big"><span id="big">0</span><span class="unit">件</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">月間の地図表示回数</div><div class="v accent" id="views">—</div></div>
+      <div class="stat"><div class="k">表示率を+20ptにすると</div><div class="v" id="up">—</div></div>
+      <div class="stat"><div class="k">年間の来店数</div><div class="v" id="year">—</div></div></div>
+      <div class="viz-wrap" style="margin-top:14px;"></div>
+      <div style="text-align:center;margin-top:12px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 でシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <div class="note"><strong>計算式</strong><br>地図表示回数 ＝ 地域検索数 × 表示率／来店数 ＝ 地図表示回数 × 来店率</div>
+    <h2>MEOの来店効果</h2>
+    <p>MEO（Map Engine Optimization＝Googleマップ対策）は、「地域名＋業種」で検索したユーザーに、地図の上位で自店を表示させる施策です。上位に表示されるほど見られる回数（表示率）が増え、来店・電話・経路検索につながります。表示率を上げることが来店増に直結します。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>表示率はどう上げる？</dt><dd>Googleビジネスプロフィールの最新化、写真・投稿の更新、口コミ獲得と返信、NAP情報の統一などが基本です。</dd><dt>LLMOとの関係は？</dt><dd>地図やAI（ChatGPT等）に正しく情報を伝える土台づくりは共通します。AIに選ばれる店づくり（LLMO）として一体で取り組むと効果的です。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../influencer-soroban/index.html"><span class="e">🦝</span><span>インフルエンサー皮算用シミュレーター</span></a><a class="related-card" href="../catchcopy/index.html"><span class="e">🪧</span><span>うさんくさいキャッチコピー製造機</span></a><a class="related-card" href="../if-company/index.html"><span class="e">🏢</span><span>もしあなたが会社だったら</span></a></div>
+  </nav>
+
+  <!-- llmo-cta -->
+  <aside class="llmo-cta" style="margin:22px 0 0;padding:18px;background:linear-gradient(135deg,#eef2ff,#faf5ff);border:1.5px solid #a5b4fc;border-radius:16px;position:relative;">
+    <div style="font-weight:900;color:#4338ca;font-size:15.5px;line-height:1.5;">📣 店舗のLLMOで集客するなら「AIMA5（実行型LLMOサービス）」</div>
+    <p style="font-size:13px;color:var(--ink-2);line-height:1.85;margin:9px 0 0;">ChatGPTなどの生成AIや地図検索に「選ばれる店」になるための対策が<strong>LLMO</strong>です。株式会社トリニアスの<strong>AIMA5</strong>は、Googleビジネスプロフィール（MEO）やNAP情報・サイテーションの整備といったLLMO施策を、提案だけで終わらせず<strong>実行まで代行</strong>する“実行型”のサービス。AI時代に来店・問い合わせを増やしたい店舗・多店舗チェーンにおすすめです。</p>
+    <img src="https://www.rentracks.jp/adx/p.gifx?idx=0.43344.383142.10951.15657&dna=177436" alt="" width="1" height="1" border="0" style="position:absolute;left:-9999px;width:1px;height:1px;">
+    <a href="https://www.rentracks.jp/adx/r.html?idx=0.43344.383142.10951.15657&dna=177436" rel="sponsored nofollow noopener" target="_blank" style="display:inline-flex;align-items:center;gap:8px;margin-top:13px;background:#4f46e5;color:#fff;font-weight:800;font-size:14px;padding:11px 24px;border-radius:999px;text-decoration:none;">実行型LLMOサービス（AIMA5）を見る →</a>
+    <div style="font-size:11px;color:var(--ink-2);margin-top:9px;">※広告（アフィリエイト）｜サービス内容・料金は遷移先の公式情報をご確認ください。</div>
+  </aside>
+
+  <section class="req-banner">
+    <h2>💡 こんなツールも欲しい？</h2>
+    <p>あなたの「これ計算したい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => (Math.round(n*100)/100).toLocaleString('ja-JP');
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const clamp = (v,a,b) => Math.max(a,Math.min(b,v));
+  let SHARE = '', raf = 0;
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){const se=Math.max(0,+$('search').value||0),vw=clamp(+$('view').value||0,0,100),vi=clamp(+$('visit').value||0,0,100);
+    const views=se*vw/100,visits=views*vi/100;const up=se*Math.min(100,vw+20)/100*vi/100;
+    $('sub').textContent=`検索${num(se)} × 表示率${num(vw)}％ × 来店率${num(vi)}％`;
+    $('views').textContent=num(views)+'回';$('up').textContent=num(up)+'件（+'+num(up-visits)+'）';$('year').textContent=num(visits*12)+'件';
+    SHARE=`MEO来店効果シミュ、地図検索からの月間来店は 約${num(visits)}件。表示率+20ptで +${num(up-visits)}件📍`;show();anim(visits);}
+  function anim(v){const el=$('big'),t0=performance.now();(function s(n){const p=Math.min(1,(n-t0)/700),e=1-Math.pow(1-p,3);el.textContent=Math.round(v*e).toLocaleString('ja-JP');if(p<1)requestAnimationFrame(s);})(performance.now());}
+  const cb=$('calcBtn'); if(cb) cb.addEventListener('click', calc);
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  const cp=$('copyBtn'); if(cp) cp.addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'meo-raiten', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

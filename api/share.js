@@ -67,7 +67,8 @@ const ALLOW = new Set([
   'stress-check', 'hsp-shindan', 'eq-shindan', 'anger-type', 'kanpeki-do', 'kizukare', 'shinpaisei', 'nou-nenrei', 'suuji-kioku', 'stroop-test',
   'soinsu-bunkai', 'password-gen', 'koubaisu-yakusu', 'ondo-henkan', 'aspect-keisan', 'romaji-henkan', 'heikin-keisan', 'jikyu-keisan', 'zenkaku-hankaku', 'menseki-keisan',
   'naikou-gaikou', 'negative-shikou', 'smartphone-izon', 'rakkan-hikan', 'kyoukan-ryoku', 'kichoumen-zubora', 'ankan-flash', 'doutai-shiryoku', 'keisanryoku', 'chuuiryoku',
-  'pet-yobou-hiyou'
+  'pet-yobou-hiyou',
+  'cvr-keisan', 'cpa-keisan', 'cpc-keisan', 'cpm-keisan', 'churn-keisan', 'kyakutanka-keisan', 'listing-hiyou', 'funnel-cv', 'meo-raiten', 'kokoku-yosan', 'llmo-check'
 ]);
 
 export default async function handler(req, res) {
