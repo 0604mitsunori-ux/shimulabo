@@ -68,7 +68,8 @@ const ALLOW = new Set([
   'soinsu-bunkai', 'password-gen', 'koubaisu-yakusu', 'ondo-henkan', 'aspect-keisan', 'romaji-henkan', 'heikin-keisan', 'jikyu-keisan', 'zenkaku-hankaku', 'menseki-keisan',
   'naikou-gaikou', 'negative-shikou', 'smartphone-izon', 'rakkan-hikan', 'kyoukan-ryoku', 'kichoumen-zubora', 'ankan-flash', 'doutai-shiryoku', 'keisanryoku', 'chuuiryoku',
   'pet-yobou-hiyou',
-  'cvr-keisan', 'cpa-keisan', 'cpc-keisan', 'cpm-keisan', 'churn-keisan', 'kyakutanka-keisan', 'listing-hiyou', 'funnel-cv', 'meo-raiten', 'kokoku-yosan', 'llmo-check'
+  'cvr-keisan', 'cpa-keisan', 'cpc-keisan', 'cpm-keisan', 'churn-keisan', 'kyakutanka-keisan', 'listing-hiyou', 'funnel-cv', 'meo-raiten', 'kokoku-yosan', 'llmo-check',
+  'wedding-style', 'venue-type', 'enshutsu-type', 'wedding-theme', 'kekkon-jikofutan', 'kekkon-junbi'
 ]);
 
 export default async function handler(req, res) {
