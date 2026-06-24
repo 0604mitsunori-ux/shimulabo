@@ -153,6 +153,9 @@ add(id='kodomo-himan', emoji='👶', cat='子ども・育児',
     SHARE='子供の肥満度チェック、指数'+idx+'（'+judge+'）でした👶';show();anim(idx);}
 '''+ANIM)
 
+# 既存simと重複のため除外（pet-age=犬猫年齢換算, shinchou=身長予測 が既存）
+SIMS[:] = [s for s in SIMS if s['id'] not in {'inu-nenrei','neko-nenrei','kodomo-shincho'}]
+
 if __name__=='__main__':
     render()
     print(f'petkids done. {len(SIMS)} sims.')

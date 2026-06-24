@@ -184,6 +184,9 @@ add(id='biyo-taiju', emoji='💃', cat='美容・ファッション',
     SHARE='美容体重・モデル体重、身長'+($('h').value)+'cmなら美容体重'+w(20)+'kg（標準'+w(22)+'/モデル'+w(19)+'）でした💃';show();anim(w(20));}
 '''+ANIM)
 
+# 既存simと重複のため除外（taishibo=体脂肪率, shinpaku-zone=心拍ゾーン が既存）
+SIMS[:] = [s for s in SIMS if s['id'] not in {'taishibo-keisan','saidai-shinpaku'}]
+
 if __name__=='__main__':
     render()
     print(f'karada done. {len(SIMS)} sims.')

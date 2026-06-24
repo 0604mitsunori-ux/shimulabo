@@ -254,6 +254,9 @@ add(id='jidoshazei', emoji='🚙', cat='クルマ・乗り物',
     SHARE='自動車税の早見、'+sel('cc').text+'なら年額 約'+yen(tax)+'でした🚙';show();anim(tax);}
 '''+ANIM)
 
+# 既存simと重複のため除外（naishin/naishin-keisan=内申点, jidousha-zei=自動車税 が既存）
+SIMS[:] = [s for s in SIMS if s['id'] not in {'naishinten','jidoshazei'}]
+
 if __name__=='__main__':
     render()
     print(f'keisan2 done. {len(SIMS)} sims.')

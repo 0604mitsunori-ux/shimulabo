@@ -168,6 +168,122 @@ add(id='kiso-taion', emoji='🌡️',
     SHARE='基礎体温の判定、今日は「'+head+'」でした🌡️';show();}
 ''')
 
+# ============================================================
+# 5. 産休・育休 期間計算（産休 いつから 18000/KD4/TP79000）★★★
+# ============================================================
+add(id='sankyu-ikukyu', emoji='🗓️',
+  title='産休・育休の期間計算機｜出産予定日から産休はいつから？育休いつまで？｜シミュラボ',
+  desc='出産予定日を入れるだけで、産前・産後休業の期間と、育児休業の開始日・原則の終了日（子が1歳）・延長の目安が分かる無料ツール。仕事の引き継ぎや復帰計画に。',
+  ogtitle='産休・育休の期間計算機｜いつからいつまで？', ogdesc='出産予定日から産前産後休業・育休の期間を計算。',
+  h1='産休・育休の期間計算機',
+  lead='産休っていつから?育休はいつまで?出産予定日を入れると、産前・産後休業と育児休業の期間の目安を表示します。職場への相談や復帰計画に。',
+  inputs='''    <h2>🗓️ 出産予定日を入れる</h2>
+    <div class="field"><label>出産予定日</label><input type="date" id="due" value="2026-10-01"></div>
+    <button class="btn btn-primary" id="calcBtn">産休・育休の期間を見る</button>''',
+  result='''      <div class="label">産前休業の開始日（目安）</div>
+      <div class="big" style="font-size:26px;"><span id="big">—</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">産後休業の終了</div><div class="v" id="ago">—</div></div>
+      <div class="stat"><div class="k">育休 開始</div><div class="v accent" id="ikustart">—</div></div>
+      <div class="stat"><div class="k">育休 終了（原則・子が1歳）</div><div class="v" id="ikuend">—</div></div></div>''',
+  article='''    <div class="note"><strong>期間の考え方</strong><br>産前休業：出産予定日の6週間前（42日前）から取得可／産後休業：出産日の翌日から8週間（56日）※原則／育児休業：産後休業の翌日〜原則子が1歳になる前日（保育園に入れない等で1歳6か月・最長2歳まで延長可）</div>
+    <h2>産休・育休の期間</h2>
+    <p>産前休業は出産予定日の6週間前から、産後休業は出産日の翌日から8週間です（産後6週間は就業不可、その後は本人が希望し医師が認めれば就業可）。育児休業はその後、原則として子が1歳になる前日まで取得できます。保育園に入れないなどの事情があれば1歳6か月、さらに2歳まで延長が可能です。本ツールは出産予定日をもとにした目安で、実際の出産日でずれます。'''+'※制度の詳細・延長要件は勤務先や役所でご確認ください。'+'''</p>
+    <h2>よくある質問</h2>'''+faq([
+      ('予定日とずれたら？','実際の出産日を基準に産後休業・育休が決まります。出産後に再確認しましょう。'),
+      ('男性も育休を取れる？','取れます。「産後パパ育休」など男性向けの制度もあります。'),
+      ('データは送信されますか？','いいえ。計算はすべてブラウザ内で完結します。')]),
+  js=r'''  function fmt(d){return d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日';}
+  function calc(){const dv=$('due').value;if(!dv){$('big').textContent='—';$('sub').textContent='出産予定日を入れてね';show();return;}
+    const due=new Date(dv);
+    const sanzen=new Date(due);sanzen.setDate(due.getDate()-42);
+    const sango=new Date(due);sango.setDate(due.getDate()+56);
+    const iku=new Date(sango);iku.setDate(sango.getDate()+1);
+    const ikuend=new Date(due);ikuend.setFullYear(due.getFullYear()+1);ikuend.setDate(ikuend.getDate()-1);
+    $('big').textContent=fmt(sanzen);$('sub').textContent='出産予定日 '+fmt(due)+' の6週間前';
+    $('ago').textContent=fmt(sango);$('ikustart').textContent=fmt(iku);$('ikuend').textContent=fmt(ikuend);
+    SHARE='産休・育休の期間計算、産休は '+fmt(sanzen)+' から・育休は子が1歳になる '+fmt(ikuend)+' まで（目安）でした🗓️';show();}
+''')
+
+# ============================================================
+# 6. 陣痛間隔タイマー（陣痛 間隔 3500/KD2/TP11000）★★
+# ============================================================
+add(id='jintsuu-kankaku', emoji='⏱️',
+  title='陣痛間隔タイマー｜タップで陣痛の間隔を計測・病院連絡の目安｜シミュラボ',
+  desc='陣痛がくるたびにボタンをタップするだけで、陣痛の間隔（分）を自動で計測・記録する無料タイマー。初産・経産別に、病院へ連絡する目安もお知らせします。',
+  ogtitle='陣痛間隔タイマー｜間隔を計測・病院連絡の目安', ogdesc='タップで陣痛の間隔を計測。病院連絡の目安も表示。',
+  h1='陣痛間隔タイマー',
+  lead='陣痛がきたらタップするだけ!間隔（分）を自動で計測・記録します。初産・経産別に、病院へ連絡する目安もお知らせ。落ち着いて測りましょう。',
+  inputs='''    <h2>⏱️ 陣痛がきたらタップ</h2>
+    <div class="field"><label>お産の回数</label><select id="kaisu"><option value="10" selected>初産（はじめての出産）</option><option value="15">経産（出産経験あり）</option></select></div>
+    <div id="jlist" style="margin:8px 0;font-size:14px;color:var(--ink-2);min-height:24px;"></div>
+    <button class="btn btn-primary" id="calcBtn" style="font-size:18px;padding:16px;">🔴 陣痛がきた（タップ）</button>
+    <button class="btn btn-ghost" id="reset" style="margin-top:8px;">リセット</button>''',
+  result='''      <div class="label">直近の陣痛間隔（平均）</div>
+      <div class="big"><span id="big">—</span><span class="unit">分</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="alert good" id="advice" style="text-align:left;margin-top:12px;">—</div>''',
+  article='''    <div class="note"><strong>使い方</strong><br>陣痛（おなかの張り）が始まった瞬間に「陣痛がきた」をタップ。次の陣痛でまたタップすると、その間隔が記録されます。<br><b>※規則的な間隔・破水・出血などがあれば、本ツールの数値にかかわらず産院に連絡してください。</b></div>
+    <h2>陣痛の間隔と病院へ行くタイミング</h2>
+    <p>陣痛は、子宮が収縮しておなかが張る痛みで、お産が近づくと間隔が短く・規則的になっていきます。一般的に、初産では陣痛が<b>10分間隔</b>（または1時間に6回）になったら、経産婦では<b>15分間隔</b>になったら産院に連絡する目安とされます。ただし、破水した・出血が多い・痛みが強く不安なときは、間隔に関わらずすぐ連絡を。本ツールは間隔を測る補助です。'''+'※医療行為ではありません。気になる症状があれば必ず産院・医療機関にご連絡ください。'+'''</p>
+    <h2>よくある質問</h2>'''+faq([
+      ('間隔はどこからどこまで？','一般に「陣痛の始まり」から「次の陣痛の始まり」までを1回の間隔として測ります。'),
+      ('破水したら？','間隔に関わらず、すぐに産院へ連絡してください。'),
+      ('データは送信されますか？','いいえ。計測はすべてブラウザ内で完結します。')]),
+  js=r'''  let times=[];const list=$('jlist');
+  function fmtT(d){return d.getHours()+':'+('0'+d.getMinutes()).slice(-2)+':'+('0'+d.getSeconds()).slice(-2);}
+  function render(){if(times.length===0){list.textContent='まだ記録がありません。陣痛がきたらタップしてね。';return;}
+    let h='記録：';const last=times.slice(-6);
+    for(let i=0;i<last.length;i++){h+='<span style="display:inline-block;margin:2px 6px 2px 0">'+fmtT(new Date(last[i].t))+(last[i].iv!=null?('（'+last[i].iv.toFixed(1)+'分）'):'' )+'</span>';}
+    list.innerHTML=h;}
+  function calc(){const now=Date.now();const prev=times.length?times[times.length-1].t:null;
+    const iv=prev!=null?(now-prev)/60000:null;times.push({t:now,iv:iv});render();
+    const ivs=times.filter(x=>x.iv!=null).map(x=>x.iv);
+    if(ivs.length===0){$('big').textContent='—';$('sub').textContent='次の陣痛でタップすると間隔が出ます';$('advice').className='alert good';$('advice').textContent='⏱️ 1回目を記録しました。次の陣痛がきたら、またタップしてね。';show();return;}
+    const recent=ivs.slice(-3);const avg=recent.reduce((a,b)=>a+b,0)/recent.length;
+    const th=+$('kaisu').value;$('big').textContent=avg.toFixed(1);$('sub').textContent='直近'+recent.length+'回の平均（記録'+ivs.length+'回）';
+    if(avg<=th){$('advice').className='alert warn';$('advice').textContent='🏥 間隔が'+th+'分以下になっています（'+( $('kaisu').value=='10'?'初産':'経産')+'の連絡目安）。産院に連絡しましょう。※破水・出血・強い痛みがあれば間隔に関わらずすぐ連絡を。';}
+    else{$('advice').className='alert good';$('advice').textContent='🤰 まだ間隔があります。落ち着いて記録を続けましょう。'+th+'分間隔が連絡の目安です（破水等があればすぐ連絡を）。';}
+    show();}
+  const rs=$('reset');if(rs)rs.addEventListener('click',()=>{times=[];render();$('resultPanel').style.display='none';});
+  render();
+''')
+
+# ============================================================
+# 7. 出産費用・自己負担シミュ（出産費用 7500 + 出産育児一時金 7200/TP21000）★★
+# ============================================================
+add(id='shussan-hiyou', emoji='💰',
+  title='出産費用シミュレーター｜出産育児一時金を引いた自己負担はいくら？｜シミュラボ',
+  desc='分娩・入院費から出産育児一時金（原則50万円）を差し引いた、出産費用の自己負担の目安を計算する無料ツール。正常分娩・帝王切開の選択や、地域差も考慮。',
+  ogtitle='出産費用シミュレーター｜自己負担はいくら？', ogdesc='分娩入院費から一時金50万を引いた自己負担を計算。',
+  h1='出産費用シミュレーター',
+  lead='出産って結局いくらかかる?分娩・入院費から、出産育児一時金（原則50万円）を引いた自己負担の目安を計算します。出産前の準備に。',
+  inputs='''    <h2>💰 条件を入れる</h2>
+    <div class="field"><label>出産方法・部屋</label><select id="type">
+      <option value="500000" selected>正常分娩（平均的な総額 約50万円）</option><option value="600000">正常分娩・個室など（約60万円）</option>
+      <option value="450000">里帰り・地方（約45万円）</option><option value="650000">帝王切開（自己負担分含む 約65万円）</option></select></div>
+    <div class="field"><label>出産育児一時金 <span class="hint">円（原則50万円）</span></label><input type="number" id="ichiji" value="500000" min="0" inputmode="numeric"></div>
+    <button class="btn btn-primary" id="calcBtn">自己負担を計算</button>''',
+  result='''      <div class="label">自己負担の目安</div>
+      <div class="big"><span id="big">0</span><span class="unit">円</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">分娩・入院費の目安</div><div class="v" id="total">—</div></div>
+      <div class="stat"><div class="k">出産育児一時金</div><div class="v accent" id="ichi">—</div></div></div>''',
+  article='''    <div class="note"><strong>計算の考え方</strong><br>自己負担 ＝ 分娩・入院費 − 出産育児一時金（2023年4月から原則50万円）<br>※多くは「直接支払制度」で、病院窓口での支払いは差額のみになります。</div>
+    <h2>出産費用と自己負担</h2>
+    <p>出産（正常分娩）は病気ではないため健康保険が使えず、費用は全額自己負担が原則ですが、加入している健康保険から「出産育児一時金」として原則50万円が支給されます。多くの病院では「直接支払制度」が使え、窓口での支払いは費用から一時金を引いた差額だけ。費用が一時金を下回れば、差額が後から支給されます。費用は地域差が大きく、首都圏や個室利用では高くなる傾向です。帝王切開は手術部分に保険が適用され、高額療養費の対象にもなります。'''+'※金額は目安です。実際の費用・制度は医療機関や加入保険でご確認ください。'+'''</p>
+    <h2>よくある質問</h2>'''+faq([
+      ('一時金はどうやってもらう？','多くは「直接支払制度」で病院へ直接支払われ、差額だけ窓口で精算します。'),
+      ('帝王切開は安くなる？','手術部分に保険が適用され、高額療養費制度の対象にもなります。'),
+      ('データは送信されますか？','いいえ。計算はすべてブラウザ内で完結します。')]),
+  js=r'''  function calc(){const total=+$('type').value||0,ichi=Math.max(0,+$('ichiji').value||0);
+    const jiko=Math.max(0,total-ichi);
+    $('sub').textContent=sel('type').text.split('（')[0]+' − 一時金'+num(ichi)+'円';
+    $('total').textContent=yen(total);$('ichi').textContent=yen(ichi);
+    SHARE='出産費用シミュ、自己負担の目安は約'+yen(jiko)+'（費用'+yen(total)+'−一時金'+yen(ichi)+'）でした💰';show();
+    const el=$('big'),t0=performance.now();(function s(n){const p=Math.min(1,(n-t0)/700);el.textContent=Math.round(jiko*p).toLocaleString('ja-JP');if(p<1)requestAnimationFrame(s);else el.textContent=jiko.toLocaleString('ja-JP');})(performance.now());}
+''')
+
 if __name__=='__main__':
     render()
     print(f'ninkatsu done. {len(SIMS)} sims.')
