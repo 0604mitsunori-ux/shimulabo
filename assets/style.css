@@ -46,7 +46,7 @@ body {
 a { color: var(--teal-d); }
 
 /* ====================== ロゴ ====================== */
-.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
+.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); flex: 0 0 auto; }
 .brand .mark {
   width: 34px; height: 34px; border-radius: 11px;
   background: linear-gradient(140deg, var(--teal) 0%, var(--indigo) 100%);
@@ -55,7 +55,7 @@ a { color: var(--teal-d); }
   flex: 0 0 auto;
 }
 .brand .mark svg { width: 20px; height: 20px; display: block; }
-.brand .name { font-weight: 900; font-size: 21px; letter-spacing: .01em; }
+.brand .name { font-weight: 900; font-size: 21px; letter-spacing: .01em; white-space: nowrap; }
 .brand .name b { color: var(--teal-d); }
 .brand .tag {
   font-size: 10px; font-weight: 800; color: #fff; letter-spacing: .08em;
@@ -88,6 +88,16 @@ a { color: var(--teal-d); }
   margin-right: 10px; white-space: nowrap; transition: .15s;
 }
 .site-header .lang-switch:hover { background: #e0e7ff; border-color: #a5b4fc; box-shadow: var(--shadow-sm); }
+.site-header .back { white-space: nowrap; min-width: 0; }
+/* スマホ：ヘッダーが詰まってもブランド「シミュラボ」を縦折れさせない */
+@media (max-width: 520px){
+  .site-header .inner { gap: 8px; padding: 11px 14px; }
+  .brand .name { font-size: 19px; }
+  .brand .mark { width: 30px; height: 30px; border-radius: 10px; }
+  .brand .mark svg { width: 18px; height: 18px; }
+  .site-header .back { font-size: 12px; padding: 7px 11px; flex: 0 1 auto; overflow: hidden; text-overflow: ellipsis; }
+  .site-header .lang-switch { margin-right: 6px; padding: 7px 10px; }
+}
 .lang-banner {
   position: fixed; left: 50%; bottom: 16px; transform: translateX(-50%); z-index: 9999;
   display: flex; align-items: center; gap: 12px; max-width: 92vw;
