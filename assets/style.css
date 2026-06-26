@@ -595,6 +595,13 @@ a { color: var(--teal-d); }
 @keyframes stamp { 0%{opacity:0; transform:scale(1.8) rotate(-12deg);} 60%{opacity:1; transform:scale(.92) rotate(-6deg);} 100%{opacity:1; transform:scale(1) rotate(-6deg);} }
 .coin-fall { position: absolute; top: -8px; font-size: 20px; pointer-events: none; animation: coinFall 1.5s ease-in forwards; }
 @keyframes coinFall { 0%{opacity:0; transform:translateY(-8px) rotate(0);} 12%{opacity:1;} 100%{opacity:.15; transform:translateY(92px) rotate(220deg);} }
+.yaku-steps { display: flex; gap: 8px; margin: 18px 0 4px; }
+.yaku-step { flex: 1; text-align: center; padding: 12px 6px; border-radius: 12px; background: #f3f5f7; border: 1.5px solid var(--line); transition: .25s; }
+.yaku-step.on { background: linear-gradient(135deg, var(--accent), var(--accent-d)); border-color: transparent; color: #fff; box-shadow: var(--shadow-sm); transform: translateY(-3px); }
+.yaku-step .lab { font-size: 13.5px; font-weight: 900; }
+.yaku-step .age { font-size: 12px; font-weight: 700; opacity: .85; margin-top: 2px; }
+.pop-emoji { font-size: 46px; line-height: 1; opacity: 0; }
+.pop-emoji.on { animation: babyPop .7s cubic-bezier(.2,1.4,.4,1) forwards; }
 
 .faq dt { font-weight: 900; margin-top: 16px; }
 .faq dd { margin: 4px 0 0; color: var(--ink-2); }

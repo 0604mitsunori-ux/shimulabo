@@ -254,7 +254,7 @@ SIMS = [
     ("kokoro-yoyuu", "心の余裕度チェック", "🍃", "メンタル・自己分析", "5問で今の心の余裕度をチェック。"),
 ]
 # --- 全カテゴリ3本ずつ補充分(gen_sims22〜26)を自動取り込み ---
-for _m in ('gen_sims22','gen_sims23','gen_sims24','gen_sims25','gen_sims26','gen_sims_teacher','gen_sims27','gen_sims28','gen_sims29','gen_sims30','gen_sims_voice','gen_sims_seo3','gen_sims_visual','gen_sims_typeless','gen_sims_type16','gen_sims_tool','gen_sims_brain','gen_sims_tool2','gen_sims_brain2','gen_sims_petmed','gen_sims_webmkt','gen_sims_wedding','gen_sims_uranai2','gen_sims_match','gen_sims_tantei','gen_sims_kidedu','gen_sims_hikari','gen_sims_manner','gen_sims_tool3','gen_sims_brain3','gen_sims_test3','gen_sims_karada','gen_sims_ninkatsu','gen_sims_petkids','gen_sims_keisan2','gen_sims_wedding2'):
+for _m in ('gen_sims22','gen_sims23','gen_sims24','gen_sims25','gen_sims26','gen_sims_teacher','gen_sims27','gen_sims28','gen_sims29','gen_sims30','gen_sims_voice','gen_sims_seo3','gen_sims_visual','gen_sims_typeless','gen_sims_type16','gen_sims_tool','gen_sims_brain','gen_sims_tool2','gen_sims_brain2','gen_sims_petmed','gen_sims_webmkt','gen_sims_wedding','gen_sims_uranai2','gen_sims_match','gen_sims_tantei','gen_sims_kidedu','gen_sims_hikari','gen_sims_manner','gen_sims_tool3','gen_sims_brain3','gen_sims_test3','gen_sims_karada','gen_sims_ninkatsu','gen_sims_petkids','gen_sims_keisan2','gen_sims_wedding2','gen_sims_seo4'):
     try:
         _mod = __import__(_m)
         for _s in _mod.SIMS:

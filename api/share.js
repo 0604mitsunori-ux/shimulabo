@@ -83,7 +83,8 @@ const ALLOW = new Set([
   'hairan-keisan', 'ninshin-shusu', 'seiri-cycle', 'kiso-taion',
   'kodomo-himan',
   'root-keisan', 'nijihoteishiki', 'en-menseki', 'hikkoshi-hiyou', 'shoki-hiyou',
-  'sankyu-ikukyu', 'jintsuu-kankaku', 'shussan-hiyou', 'yubiwa-yosan', 'nijikai-kaihi', 'honeymoon-hiyou'
+  'sankyu-ikukyu', 'jintsuu-kankaku', 'shussan-hiyou', 'yubiwa-yosan', 'nijikai-kaihi', 'honeymoon-hiyou',
+  'yakudoshi', 'shitsugyo-hoken', 'kariire-kanou'
 ]);
 
 export default async function handler(req, res) {
