@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/kotei-shisanzei/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/kotei-shisanzei.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/kotei-shisanzei.png">
+<title>固定資産税 計算｜評価額から年間の税額をシミュレーション｜シミュラボ</title>
+<meta name="description" content="土地・建物の固定資産税評価額から、固定資産税・都市計画税の年額や住宅用地の軽減後の税額を概算する無料シミュレーター。">
+<meta property="og:title" content="固定資産税 計算｜評価額から年税額は？">
+<meta property="og:description" content="評価額から固定資産税・都市計画税の年額を概算（住宅用地軽減対応）。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/kotei-shisanzei/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "固定資産税 計算シミュレーター", "url": "https://shimulabo.com/sims/kotei-shisanzei/", "description": "土地・建物の固定資産税評価額から、固定資産税・都市計画税の年額や住宅用地の軽減後の税額を概算する無料シミュレーター。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "固定資産税 計算シミュレーター", "item": "https://shimulabo.com/sims/kotei-shisanzei/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "評価額はどこで分かる？", "acceptedAnswer": {"@type": "Answer", "text": "毎年送られる「課税明細書」や、市区町村の固定資産課税台帳で確認できます。"}}, {"@type": "Question", "name": "いつ払う？", "acceptedAnswer": {"@type": "Answer", "text": "多くの自治体で年4回（6月・9月・12月・翌2月ごろ）の分割納付です。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>マネー・保険・不動産<span>›</span><span class="cur">固定資産税 計算シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">マネー・保険・不動産</div>
+    <h1>固定資産税 計算シミュレーター</h1>
+    <p class="lead">土地・建物の評価額から、毎年かかる固定資産税の目安を計算します。住宅用地の軽減（1/6）にも対応した概算ツールです。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🏘️ 評価額を入れる</h2>
+    <div class="row"><div class="field"><label>土地の評価額 <span class="hint">（万円）</span></label><input type="number" id="land" value="1200" min="0" inputmode="numeric"></div>
+    <div class="field"><label>建物の評価額 <span class="hint">（万円）</span></label><input type="number" id="bld" value="800" min="0" inputmode="numeric"></div></div>
+    <div class="field"><label>土地の種類</label><select id="kind"><option value="1" selected>住宅用地（小規模・1/6軽減）</option><option value="0">非住宅・更地</option></select></div>
+    <button class="btn btn-primary" id="calcBtn">固定資産税を計算する</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">固定資産税（年・目安）</div>
+      <div class="big"><span id="big">0</span><span class="unit">円</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">うち都市計画税</div><div class="v" id="toshi">—</div></div>
+      <div class="stat"><div class="k">1期あたり(÷4)</div><div class="v accent" id="ki">—</div></div>
+      <div class="stat"><div class="k">課税標準(土地)</div><div class="v" id="hyo">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+<div class="note" style="border-left:4px solid var(--teal)"><strong>結論</strong>：固定資産税は <b>課税標準額 × 1.4%</b>。住宅用地は課税標準が <b>1/6</b>（小規模住宅用地）に軽減され、税額が大きく下がります。</div>
+    <h2>固定資産税の計算方法</h2>
+    <p>固定資産税は、土地・家屋の「固定資産税評価額」をもとに計算され、毎年1月1日時点の所有者に課税されます。標準税率は1.4%。あわせて市街化区域では都市計画税（最大0.3%）もかかります。住宅が建つ土地（住宅用地）は税負担が軽くなる特例があります。</p>
+    <div class="note"><strong>計算式</strong><br>固定資産税 ＝ 課税標準額 × 1.4%<br>都市計画税 ＝ 課税標準額 × 0.3%<br>住宅用地（200㎡まで）は課税標準が固定資産税1/6・都市計画税1/3</div>
+    <h2>軽減のポイント</h2>
+    <table class="seo-table"><tr><th>区分</th><th>固定資産税</th><th>都市計画税</th></tr>
+    <tr><td>小規模住宅用地(〜200㎡)</td><td>1/6</td><td>1/3</td></tr>
+    <tr><td>一般住宅用地(200㎡超)</td><td>1/3</td><td>2/3</td></tr>
+    <tr><td>非住宅・更地</td><td>軽減なし</td><td>軽減なし</td></tr></table>
+    <p>新築住宅は一定期間、建物分の税額が1/2に減額される特例もあります。本ツールは概算で、実際は自治体の評価・負担調整措置で変わります。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>評価額はどこで分かる？</dt><dd>毎年送られる「課税明細書」や、市区町村の固定資産課税台帳で確認できます。</dd><dt>いつ払う？</dt><dd>多くの自治体で年4回（6月・9月・12月・翌2月ごろ）の分割納付です。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl><h2>参考</h2><ul class="seo-refs"><li>総務省「固定資産税」</li><li>各自治体の住宅用地特例</li></ul>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../jutaku-loan/index.html"><span class="e">🏠</span><span>住宅ローン返済シミュレーター</span></a><a class="related-card" href="../kuriage/index.html"><span class="e">💴</span><span>繰上返済 効果シミュレーター</span></a><a class="related-card" href="../hosho/index.html"><span class="e">🛡️</span><span>必要保障額シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const hash = (s) => { let h=2166136261; for(let i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h,16777619); } return (h>>>0); };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){const land=Math.max(0,+$('land').value||0)*10000,bld=Math.max(0,+$('bld').value||0)*10000,res=$('kind').value==='1';
+    const landBase=res?land/6:land, toshiLand=res?land/3:land;
+    const koteichi=(landBase+bld)*0.014, toshi=(toshiLand+bld)*0.003, total=koteichi+toshi;
+    $('sub').textContent=`土地${num(land/10000)}万・建物${num(bld/10000)}万・${res?'住宅用地':'非住宅'}`;
+    $('toshi').textContent=yen(toshi);$('ki').textContent=yen(total/4);$('hyo').textContent=yen(landBase);
+    show();anim($('big'),0,total,800);
+    SHARE=`固定資産税シミュ、年 約${yen(total)}（1期${yen(total/4)}）の計算でした🏘️`;}
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'kotei-shisanzei', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js"></script>
+</body>
+</html>

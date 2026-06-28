@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/inshizei/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/inshizei.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/inshizei.png">
+<title>印紙税 計算｜契約書・領収書の収入印紙はいくら？｜シミュラボ</title>
+<meta name="description" content="契約金額と文書の種類（不動産売買・工事請負・領収書）から、必要な収入印紙の金額を調べる無料ツール。軽減税率にも対応。">
+<meta property="og:title" content="印紙税 計算｜収入印紙はいくら？">
+<meta property="og:description" content="契約金額と文書種類から必要な収入印紙額を判定。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/inshizei/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "印紙税 計算ツール", "url": "https://shimulabo.com/sims/inshizei/", "description": "契約金額と文書の種類（不動産売買・工事請負・領収書）から、必要な収入印紙の金額を調べる無料ツール。軽減税率にも対応。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "印紙税 計算ツール", "item": "https://shimulabo.com/sims/inshizei/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "電子契約なら印紙不要？", "acceptedAnswer": {"@type": "Answer", "text": "はい。紙の文書でなく電子データのみなら印紙税はかかりません。"}}, {"@type": "Question", "name": "貼り忘れたら？", "acceptedAnswer": {"@type": "Answer", "text": "過怠税として本来の3倍が課されることがあります。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>税金・確定申告<span>›</span><span class="cur">印紙税 計算ツール</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">税金・確定申告</div>
+    <h1>印紙税 計算ツール</h1>
+    <p class="lead">契約書や領収書に貼る収入印紙はいくら？契約金額と文書の種類から、必要な印紙税額を判定します（主要文書・概算）。</p>
+  </div>
+
+  <section class="panel">
+    <h2>📜 条件を入れる</h2>
+    <div class="row"><div class="field"><label>契約金額・記載金額 <span class="hint">（万円）</span></label><input type="number" id="amt" value="3000" min="0" inputmode="numeric"></div>
+    <div class="field"><label>文書の種類</label><select id="kind"><option value="estate" selected>不動産売買契約書</option><option value="work">工事請負契約書</option><option value="receipt">領収書(売上代金)</option></select></div></div>
+    <button class="btn btn-primary" id="calcBtn">印紙税を調べる</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">必要な収入印紙</div>
+      <div class="big"><span id="big">0</span><span class="unit">円</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">文書の種類</div><div class="v accent" id="kn">—</div></div>
+      <div class="stat"><div class="k">記載金額</div><div class="v" id="am">—</div></div>
+      <div class="stat"><div class="k">区分</div><div class="v" id="band">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+<div class="note" style="border-left:4px solid var(--teal)"><strong>結論</strong>：印紙税は契約金額の<b>段階</b>で決まる定額です。不動産売買・建設工事の契約書は<b>軽減税率</b>が適用されます（領収書は5万円未満なら非課税）。</div>
+    <h2>印紙税とは</h2>
+    <p>契約書や領収書など、決められた「課税文書」を作成すると印紙税がかかり、収入印紙を貼って納めます。金額は契約金額の段階ごとの定額で、不動産の譲渡・建設工事の請負契約書には軽減措置があります。</p>
+    <h2>主な印紙税額（軽減後・抜粋）</h2>
+    <table class="seo-table"><tr><th>契約金額</th><th>不動産売買/工事請負</th><th>領収書</th></tr>
+    <tr><td>100万〜500万</td><td>1,000円</td><td>200円</td></tr>
+    <tr><td>500万〜1,000万</td><td>5,000円</td><td>200円</td></tr>
+    <tr><td>1,000万〜5,000万</td><td>10,000円</td><td>200円</td></tr>
+    <tr><td>5,000万〜1億</td><td>30,000円</td><td>200円</td></tr></table>
+    <p>領収書は記載金額5万円未満なら非課税。電子契約（電子データ）には印紙税がかからないため、電子化で節約できます。本ツールは主要文書の概算です。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>電子契約なら印紙不要？</dt><dd>はい。紙の文書でなく電子データのみなら印紙税はかかりません。</dd><dt>貼り忘れたら？</dt><dd>過怠税として本来の3倍が課されることがあります。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl><h2>参考</h2><ul class="seo-refs"><li>国税庁「印紙税額一覧表」</li></ul>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../juuminzei/index.html"><span class="e">🧾</span><span>住民税シミュレーター</span></a><a class="related-card" href="../shotokuzei/index.html"><span class="e">💴</span><span>所得税シミュレーター</span></a><a class="related-card" href="../iryouhi-koujo/index.html"><span class="e">🩹</span><span>医療費控除シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const hash = (s) => { let h=2166136261; for(let i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h,16777619); } return (h>>>0); };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){const a=Math.max(0,+$('amt').value||0)*10000,kind=$('kind').value;
+    let tax=0,band='';
+    if(kind==='receipt'){ if(a<50000){tax=0;band='5万未満(非課税)';}else if(a<=1000000){tax=200;band='〜100万';}else if(a<=2000000){tax=400;band='〜200万';}else if(a<=3000000){tax=600;band='〜300万';}else{tax=1000;band='300万超';} }
+    else { // 不動産/工事 軽減
+      if(a<=1000000){tax=500;band='〜100万';}else if(a<=5000000){tax=1000;band='〜500万';}else if(a<=10000000){tax=5000;band='〜1000万';}else if(a<=50000000){tax=10000;band='〜5000万';}else if(a<=100000000){tax=30000;band='〜1億';}else{tax=60000;band='1億超';}
+    }
+    const kn={estate:'不動産売買',work:'工事請負',receipt:'領収書'}[kind];
+    $('sub').textContent=`${kn}・記載金額${num(a)}円`;$('kn').textContent=kn;$('am').textContent=yen(a);$('band').textContent=band;
+    show();anim($('big'),0,tax,700);
+    SHARE=`印紙税シミュ、${kn}（${num(a/10000)}万円）の収入印紙は ${yen(tax)} でした📜`;}
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'inshizei', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js"></script>
+</body>
+</html>

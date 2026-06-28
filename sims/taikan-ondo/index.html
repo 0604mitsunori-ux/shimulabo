@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/taikan-ondo/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/taikan-ondo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/taikan-ondo.png">
+<title>体感温度 計算｜湿度・風速から「暑い/寒い」体感を計算｜シミュラボ</title>
+<meta name="description" content="夏は湿度（蒸し暑さ）、冬は風速（風の冷たさ）から、実際に感じる体感温度の目安を計算する無料シミュレーター。">
+<meta property="og:title" content="体感温度 計算｜湿度・風で何℃に感じる？">
+<meta property="og:description" content="夏は湿度、冬は風速から体感温度の目安を計算。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/taikan-ondo/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "体感温度 計算シミュレーター", "url": "https://shimulabo.com/sims/taikan-ondo/", "description": "夏は湿度（蒸し暑さ）、冬は風速（風の冷たさ）から、実際に感じる体感温度の目安を計算する無料シミュレーター。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "体感温度 計算シミュレーター", "item": "https://shimulabo.com/sims/taikan-ondo/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "湿度が高いとなぜ暑い？", "acceptedAnswer": {"@type": "Answer", "text": "汗が蒸発するときに体の熱を奪いますが、湿度が高いと汗が蒸発しにくく、熱がこもって暑く感じます。"}}, {"@type": "Question", "name": "風速1mで何℃下がる？", "acceptedAnswer": {"@type": "Answer", "text": "体感温度はおおむね風速1m/sにつき約1℃低く感じるとされます。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>健康・カラダ<span>›</span><span class="cur">体感温度 計算シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">健康・カラダ</div>
+    <h1>体感温度 計算シミュレーター</h1>
+    <p class="lead">同じ気温でも、湿度が高いと蒸し暑く、風が強いと寒く感じます。夏は湿度、冬は風速から「体感温度」の目安を計算します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🌡️ 条件を入れる</h2>
+    <div class="field"><label>季節モード</label><select id="mode"><option value="summer" selected>夏（湿度で計算）</option><option value="winter">冬（風速で計算）</option></select></div>
+    <div class="row"><div class="field"><label>気温 <span class="hint">（℃）</span></label><input type="number" id="t" value="30" min="-20" max="50" inputmode="numeric"></div>
+    <div class="field"><label id="lab2">湿度（%）</label><input type="number" id="x" value="80" min="0" max="100" inputmode="numeric"></div></div>
+    <button class="btn btn-primary" id="calcBtn">体感温度を見る</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">体感温度（目安）</div>
+      <div class="big"><span id="big">0</span><span class="unit">℃</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">実際の気温</div><div class="v" id="real">—</div></div>
+      <div class="stat"><div class="k">気温との差</div><div class="v accent" id="diff">—</div></div>
+      <div class="stat"><div class="k">体感</div><div class="v" id="feel">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+<div class="note" style="border-left:4px solid var(--teal)"><strong>結論</strong>：体感温度は、夏は<b>湿度</b>（汗が蒸発しにくいと暑い）、冬は<b>風速</b>（風が体温を奪う）で変わります。風速1m/sにつき体感は約1℃下がるとされます。</div>
+    <h2>体感温度のしくみ</h2>
+    <p>気温が同じでも、人が感じる暑さ・寒さは湿度や風で変わります。夏は湿度が高いと汗が蒸発できず暑く感じ（ミスナールの式）、冬は風が強いと体の熱が奪われて寒く感じます（ウインドチル）。</p>
+    <div class="note"><strong>計算式（目安）</strong><br>夏（湿度）：体感 ＝ 気温 − 1/2.3 ×（気温−10）×（0.8 − 湿度/100）<br>冬（風速）：風速1m/sごとに体感が約1℃低下</div>
+    <p>蒸し暑い日は熱中症に、風の強い寒い日は低体温・凍傷に注意。体感に合わせた服装・冷暖房を心がけましょう。本ツールは目安です。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>湿度が高いとなぜ暑い？</dt><dd>汗が蒸発するときに体の熱を奪いますが、湿度が高いと汗が蒸発しにくく、熱がこもって暑く感じます。</dd><dt>風速1mで何℃下がる？</dt><dd>体感温度はおおむね風速1m/sにつき約1℃低く感じるとされます。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl><h2>参考</h2><ul class="seo-refs"><li>ミスナールの体感温度式</li><li>気象庁 ウインドチル（風冷)</li></ul>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../bmi/index.html"><span class="e">⚖️</span><span>BMI・適正体重シミュレーター</span></a><a class="related-card" href="../kiso-taisha/index.html"><span class="e">🔥</span><span>基礎代謝＆必要カロリー計算</span></a><a class="related-card" href="../tainai-nenrei/index.html"><span class="e">🫀</span><span>体内年齢診断</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const hash = (s) => { let h=2166136261; for(let i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h,16777619); } return (h>>>0); };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  document.getElementById('mode').addEventListener('change',function(){$('lab2').textContent=this.value==='summer'?'湿度（%）':'風速（m/s）';$('x').value=this.value==='summer'?80:5;});
+  function calc(){const mode=$('mode').value,t=+$('t').value||0,x=Math.max(0,+$('x').value||0);
+    let feel; if(mode==='summer'){feel=t-1/2.3*(t-10)*(0.8-x/100);}else{feel=t-x;}
+    feel=Math.round(feel*10)/10; const diff=Math.round((feel-t)*10)/10;
+    let f; if(feel>=30)f='かなり暑い'; else if(feel>=25)f='暑い'; else if(feel>=15)f='快適'; else if(feel>=5)f='肌寒い'; else f='寒い';
+    $('sub').textContent=mode==='summer'?`気温${t}℃・湿度${x}%`:`気温${t}℃・風速${x}m/s`;
+    $('real').textContent=t+'℃';$('diff').textContent=(diff>=0?'+':'')+diff+'℃';$('feel').textContent=f;
+    show();anim($('big'),0,feel,800,1);
+    SHARE=`体感温度シミュ、気温${t}℃でも体感は ${feel}℃（${f}）でした🌡️`;}
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'taikan-ondo', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js"></script>
+</body>
+</html>
