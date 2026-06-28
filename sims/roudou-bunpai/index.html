@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/roudou-bunpai/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/roudou-bunpai.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/roudou-bunpai.png">
+<title>労働分配率 計算｜人件費は適正？粗利からの割合を計算｜シミュラボ</title>
+<meta name="description" content="粗利益（売上総利益）と人件費から、労働分配率を計算し、業種別の目安と比べて人件費が適正かを判定する無料シミュレーター。">
+<meta property="og:title" content="労働分配率 計算｜人件費は適正？">
+<meta property="og:description" content="粗利と人件費から労働分配率を計算し目安と比較。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/roudou-bunpai/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "労働分配率 計算シミュレーター", "url": "https://shimulabo.com/sims/roudou-bunpai/", "description": "粗利益（売上総利益）と人件費から、労働分配率を計算し、業種別の目安と比べて人件費が適正かを判定する無料シミュレーター。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "労働分配率 計算シミュレーター", "item": "https://shimulabo.com/sims/roudou-bunpai/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "高いと悪い？", "acceptedAnswer": {"@type": "Answer", "text": "高すぎると利益を圧迫しますが、低すぎても人材定着に問題が出ます。バランスが大切です。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>店舗・ビジネス<span>›</span><span class="cur">労働分配率 計算シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">店舗・ビジネス</div>
+    <h1>労働分配率 計算シミュレーター</h1>
+    <p class="lead">人件費は適正？粗利益に対して人件費がどれくらいかを示す「労働分配率」を計算し、業種の目安と比べます。経営・採用の判断に。</p>
+  </div>
+
+  <section class="panel">
+    <h2>📊 条件を入れる</h2>
+    <div class="row"><div class="field"><label>粗利益（売上総利益） <span class="hint">（万円/年）</span></label><input type="number" id="g" value="5000" min="0" inputmode="numeric"></div>
+    <div class="field"><label>人件費（年・総額） <span class="hint">（万円/年）</span></label><input type="number" id="p" value="2500" min="0" inputmode="numeric"></div></div>
+    <button class="btn btn-primary" id="calcBtn">労働分配率を計算する</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">労働分配率</div>
+      <div class="big"><span id="big">0</span><span class="unit">%</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">判定</div><div class="v accent" id="judge">—</div></div>
+      <div class="stat"><div class="k">1人増やすと</div><div class="v" id="add">—</div></div>
+      <div class="stat"><div class="k">粗利</div><div class="v" id="gv">—</div></div></div>
+      <div class="anim-bar" id="bw"><span id="bar"></span><b id="bl"></b></div>
+      <div class="anim-cap">労働分配率（目安50%前後）</div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+<div class="note" style="border-left:4px solid var(--teal)"><strong>結論</strong>：労働分配率 ＝ <b>人件費 ÷ 粗利益 × 100</b>。一般に <b>50%前後</b> が目安で、高すぎると利益を圧迫、低すぎると待遇不足のサインです。</div>
+    <h2>労働分配率とは</h2>
+    <p>労働分配率は、企業が生み出した付加価値（粗利益）のうち、どれだけを人件費に充てているかを示す指標です。高いほど従業員に還元している一方、利益は出にくくなります。採用や昇給の判断、自社の健全性チェックに使われます。</p>
+    <div class="note"><strong>計算式</strong><br>労働分配率(%) ＝ 人件費 ÷ 粗利益（売上総利益）× 100</div>
+    <h2>業種別の目安</h2>
+    <table class="seo-table"><tr><th>業種</th><th>目安</th></tr>
+    <tr><td>飲食・サービス業</td><td>50〜60%</td></tr>
+    <tr><td>小売業</td><td>40〜50%</td></tr>
+    <tr><td>製造業</td><td>45〜55%</td></tr></table>
+    <h2>よくある質問</h2><dl class="faq"><dt>高いと悪い？</dt><dd>高すぎると利益を圧迫しますが、低すぎても人材定着に問題が出ます。バランスが大切です。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl><h2>参考</h2><ul class="seo-refs"><li>中小企業庁「中小企業実態基本調査」</li></ul>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../kuchikomi-hakyu/index.html"><span class="e">📈</span><span>口コミ波及シミュレーター</span></a><a class="related-card" href="../shutten/index.html"><span class="e">🏪</span><span>出店集客シミュレーター</span></a><a class="related-card" href="../neage/index.html"><span class="e">🏷️</span><span>値上げ客数シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const hash = (s) => { let h=2166136261; for(let i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h,16777619); } return (h>>>0); };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){const g=Math.max(0,+$('g').value||0),p=Math.max(0,+$('p').value||0);
+    const r=g>0?p/g*100:0; let judge; if(r<40)judge='低め(余力あり)';else if(r<=60)judge='適正の範囲';else judge='高め(要注意)';
+    $('sub').textContent=`粗利${num(g)}万・人件費${num(p)}万`;
+    $('judge').textContent=judge;$('add').textContent=g>0?('+'+(400/g*100).toFixed(1)+'pt/年400万'):'—';$('gv').textContent=num(g)+'万';
+    const pct=Math.min(100,Math.round(r));$('bar').style.width='0%';setTimeout(()=>{$('bar').style.width=pct+'%';},40);$('bl').textContent=r.toFixed(1)+'%';
+    show();anim($('big'),0,r,800,1);
+    SHARE=`労働分配率シミュ、${r.toFixed(1)}%（${judge}）でした📊`;}
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'roudou-bunpai', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js"></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/pfc-balance/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/pfc-balance.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/pfc-balance.png">
+<title>PFCバランス 計算｜目標カロリーから三大栄養素のグラムは？｜シミュラボ</title>
+<meta name="description" content="1日の目標カロリーとPFCの比率から、タンパク質・脂質・炭水化物それぞれの必要グラム数を計算する無料ツール。ダイエット・筋トレに。">
+<meta property="og:title" content="PFCバランス 計算｜P/F/Cのグラムは？">
+<meta property="og:description" content="目標カロリーとPFC比率から三大栄養素のグラムを計算。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/pfc-balance/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "PFCバランス 計算ツール", "url": "https://shimulabo.com/sims/pfc-balance/", "description": "1日の目標カロリーとPFCの比率から、タンパク質・脂質・炭水化物それぞれの必要グラム数を計算する無料ツール。ダイエット・筋トレに。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "PFCバランス 計算ツール", "item": "https://shimulabo.com/sims/pfc-balance/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "まず何を意識する？", "acceptedAnswer": {"@type": "Answer", "text": "タンパク質を体重×1.5〜2g確保するのが基本。残りを脂質・炭水化物で配分します。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>健康・カラダ<span>›</span><span class="cur">PFCバランス 計算ツール</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">健康・カラダ</div>
+    <h1>PFCバランス 計算ツール</h1>
+    <p class="lead">1日の目標カロリーを、タンパク質・脂質・炭水化物（PFC）に振り分けると何グラム？目的別の比率でPFCのグラム数を計算します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🍱 条件を入れる</h2>
+    <div class="row"><div class="field"><label>1日の目標カロリー <span class="hint">（kcal）</span></label><input type="number" id="cal" value="2000" min="0" inputmode="numeric"></div>
+    <div class="field"><label>目的（PFC比率）</label><select id="mode"><option value="standard" selected>標準(P15:F25:C60)</option><option value="diet">ダイエット(P30:F20:C50)</option><option value="muscle">筋肥大(P30:F25:C45)</option><option value="lowcarb">低糖質(P30:F40:C30)</option></select></div></div>
+    <button class="btn btn-primary" id="calcBtn">PFCを計算する</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">タンパク質(P)</div>
+      <div class="big"><span id="big">0</span><span class="unit">g</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">脂質(F)</div><div class="v accent" id="f">—</div></div>
+      <div class="stat"><div class="k">炭水化物(C)</div><div class="v" id="c">—</div></div>
+      <div class="stat"><div class="k">総カロリー</div><div class="v" id="calv">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+<div class="note" style="border-left:4px solid var(--teal)"><strong>結論</strong>：PFCのグラムは「カロリー × 各比率 ÷ そのkcal」で計算。<b>タンパク質4kcal/g・脂質9kcal/g・炭水化物4kcal/g</b>です。</div>
+    <h2>PFCバランスとは</h2>
+    <p>PFCは三大栄養素（Protein＝タンパク質、Fat＝脂質、Carbohydrate＝炭水化物）。同じカロリーでも、この配分で体づくりの結果が変わります。ダイエットや筋トレでは、まずタンパク質を確保するのが基本です。</p>
+    <div class="note"><strong>計算式</strong><br>P(g) ＝ カロリー×P比率 ÷ 4<br>F(g) ＝ カロリー×F比率 ÷ 9<br>C(g) ＝ カロリー×C比率 ÷ 4</div>
+    <h2>目的別のPFC比率の目安</h2>
+    <table class="seo-table"><tr><th>目的</th><th>P:F:C</th></tr>
+    <tr><td>標準・維持</td><td>15:25:60</td></tr>
+    <tr><td>ダイエット</td><td>30:20:50</td></tr>
+    <tr><td>筋肥大</td><td>30:25:45</td></tr>
+    <tr><td>低糖質</td><td>30:40:30</td></tr></table>
+    <h2>よくある質問</h2><dl class="faq"><dt>まず何を意識する？</dt><dd>タンパク質を体重×1.5〜2g確保するのが基本。残りを脂質・炭水化物で配分します。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl><h2>参考</h2><ul class="seo-refs"><li>厚生労働省「エネルギー産生栄養素バランス」</li></ul>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../bmi/index.html"><span class="e">⚖️</span><span>BMI・適正体重シミュレーター</span></a><a class="related-card" href="../kiso-taisha/index.html"><span class="e">🔥</span><span>基礎代謝＆必要カロリー計算</span></a><a class="related-card" href="../tainai-nenrei/index.html"><span class="e">🫀</span><span>体内年齢診断</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const hash = (s) => { let h=2166136261; for(let i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h,16777619); } return (h>>>0); };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  const M={standard:[15,25,60],diet:[30,20,50],muscle:[30,25,45],lowcarb:[30,40,30]};
+  function calc(){const cal=Math.max(0,+$('cal').value||0),m=M[$('mode').value]||M.standard;
+    const p=cal*m[0]/100/4, f=cal*m[1]/100/9, c=cal*m[2]/100/4;
+    $('sub').textContent=`${num(cal)}kcal・P${m[0]}:F${m[1]}:C${m[2]}`;
+    $('f').textContent=num(f)+'g';$('c').textContent=num(c)+'g';$('calv').textContent=num(cal)+'kcal';
+    show();anim($('big'),0,p,800);
+    SHARE=`PFCバランス、${num(cal)}kcalならP${num(p)}g・F${num(f)}g・C${num(c)}gでした🍱`;}
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'pfc-balance', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js"></script>
+</body>
+</html>

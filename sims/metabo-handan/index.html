@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/metabo-handan/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/metabo-handan.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/metabo-handan.png">
+<title>メタボ判定 計算｜腹囲とBMIでメタボリスクをチェック｜シミュラボ</title>
+<meta name="description" content="腹囲・身長・体重から、BMIとメタボリックシンドロームの基準（腹囲 男性85cm・女性90cm以上）に照らしてリスクの目安を判定する無料ツール。">
+<meta property="og:title" content="メタボ判定｜腹囲とBMIでチェック">
+<meta property="og:description" content="腹囲とBMIからメタボリスクの目安を判定。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/metabo-handan/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "メタボ判定 計算ツール", "url": "https://shimulabo.com/sims/metabo-handan/", "description": "腹囲・身長・体重から、BMIとメタボリックシンドロームの基準（腹囲 男性85cm・女性90cm以上）に照らしてリスクの目安を判定する無料ツール。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "メタボ判定 計算ツール", "item": "https://shimulabo.com/sims/metabo-handan/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "腹囲はどこを測る？", "acceptedAnswer": {"@type": "Answer", "text": "立った状態で、へその高さの胴回りを測ります。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>健康・カラダ<span>›</span><span class="cur">メタボ判定 計算ツール</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">健康・カラダ</div>
+    <h1>メタボ判定 計算ツール</h1>
+    <p class="lead">お腹まわり、大丈夫？腹囲・身長・体重から、BMIとメタボの基準（腹囲 男85cm・女90cm）でリスクの目安を判定します（医療判断は受診を）。</p>
+  </div>
+
+  <section class="panel">
+    <h2>📏 条件を入れる</h2>
+    <div class="row"><div class="field"><label>性別</label><select id="sex"><option value="m">男性</option><option value="f">女性</option></select></div>
+    <div class="field"><label>腹囲 <span class="hint">（cm・へそ周り）</span></label><input type="number" id="w2" value="85" min="40" max="200" inputmode="numeric"></div></div>
+    <div class="row"><div class="field"><label>身長 <span class="hint">（cm）</span></label><input type="number" id="h" value="170" min="100" max="230" inputmode="numeric"></div>
+    <div class="field"><label>体重 <span class="hint">（kg）</span></label><input type="number" id="w" value="68" min="20" max="250" step="0.1" inputmode="decimal"></div></div>
+    <button class="btn btn-primary" id="calcBtn">メタボ判定する</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">あなたのBMI</div>
+      <div class="big"><span id="big">0</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">腹囲判定</div><div class="v accent" id="fukui">—</div></div>
+      <div class="stat"><div class="k">肥満判定</div><div class="v" id="himan">—</div></div>
+      <div class="stat"><div class="k">メタボ傾向</div><div class="v" id="meta">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+<div class="note" style="border-left:4px solid var(--teal)"><strong>結論</strong>：メタボの基準は <b>腹囲 男性85cm・女性90cm以上</b>。これに高血圧・高血糖・脂質異常のうち2つ以上が重なると「メタボリックシンドローム」と判定されます。</div>
+    <h2>メタボリックシンドロームとは</h2>
+    <p>内臓脂肪型肥満（腹囲が基準以上）に加え、血圧・血糖・脂質の異常が複数重なった状態です。本ツールは腹囲とBMIから「内臓脂肪の目安」をチェックするもので、血圧などの数値は含みません。</p>
+    <div class="note"><strong>基準</strong><br>腹囲：男性85cm以上／女性90cm以上<br>BMI：体重(kg)÷身長(m)²、25以上で肥満</div>
+    <p>正確な診断は健康診断・医療機関で。腹囲が気になる方は食事と運動の見直しを。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>腹囲はどこを測る？</dt><dd>立った状態で、へその高さの胴回りを測ります。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl><h2>参考</h2><ul class="seo-refs"><li>厚生労働省 e-ヘルスネット「メタボリックシンドローム」</li></ul>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../bmi/index.html"><span class="e">⚖️</span><span>BMI・適正体重シミュレーター</span></a><a class="related-card" href="../kiso-taisha/index.html"><span class="e">🔥</span><span>基礎代謝＆必要カロリー計算</span></a><a class="related-card" href="../tainai-nenrei/index.html"><span class="e">🫀</span><span>体内年齢診断</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const hash = (s) => { let h=2166136261; for(let i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h,16777619); } return (h>>>0); };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){const sex=$('sex').value,fw=Math.max(0,+$('w2').value||0),h=Math.max(1,+$('h').value||1)/100,w=Math.max(0,+$('w').value||0);
+    const bmi=w/(h*h), lim=sex==='m'?85:90, over=fw>=lim;
+    let hi; if(bmi<18.5)hi='低体重';else if(bmi<25)hi='普通';else hi='肥満';
+    let meta; if(over&&bmi>=25)meta='要注意';else if(over||bmi>=25)meta='予備軍の可能性';else meta='基準内';
+    $('sub').textContent=`${sex==='m'?'男性':'女性'}・腹囲${fw}cm・${$('h').value}cm/${w}kg`;
+    $('fukui').textContent=over?('基準超('+lim+'cm)'):'基準内';$('himan').textContent=hi;$('meta').textContent=meta;
+    show();anim($('big'),0,bmi,800,1);
+    SHARE=`メタボ判定、BMI${bmi.toFixed(1)}・腹囲${fw}cm→「${meta}」でした📏`;}
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'metabo-handan', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js"></script>
+</body>
+</html>

@@ -88,7 +88,15 @@ const ALLOW = new Set([
   'kotei-shisanzei', 'loan-koujo', 'yokin-risoku', 'credit-bunkatsu', 'koteihi',
   'seiho-koujo', 'inshizei', 'shakaihoken-ryou', 'shoubyo-teate', 'koyouhoken',
   'junalcohol', 'necchusho', 'taikan-ondo', 'tanpaku', 'jidoshahoken',
-  'chushajo', 'teikidai', 'youbi-keisan', 'chugen-seibo', 'shichigosan'
+  'chushajo', 'teikidai', 'youbi-keisan', 'chugen-seibo', 'shichigosan',
+  'tdee-keisan', 'shussan-teate', 'haigusha-koujo', 'saishushoku-teate', 'pfc-balance',
+  'mental-leap', 'kaigohoken-ryou', 'tekika-keisan', 'koutsuhi-hikazei', 'nenshu-keisan',
+  'roudou-bunpai', 'metabo-handan', 'sake-type', 'maegami-shindan', 'mote-type',
+  'tsundere-shindan', 'aichaku-style', 'kaiwai-shindan', 'personal-color', 'niau-kamigata',
+  'kamiiro-shindan', 'motedo-shindan', 'inkya-shindan', 'tennen-do', 'yandere-shindan',
+  'doubutsu-kao', 'kokkaku-shindan', 'rolemodel-shindan', 'tsuinrei-shindan', 'goiryoku-shindan',
+  'moji-jikan', 'voicememo-okoshi', 'youtube-moji', 'flick-voice', 'typing-kotsu',
+  'fukugyo-okoshi', 'ronbun-voice', 'nippou-voice', 'zoom-gijiroku', 'shukatsu-voice'
 ]);
 
 export default async function handler(req, res) {

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/flick-voice/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/flick-voice.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/flick-voice.png">
+<title>音声入力 vs フリック入力 速度｜スマホ入力どっちが速い？｜シミュラボ</title>
+<meta name="description" content="1日のスマホ文字入力量から、フリック入力と音声入力の所要時間を比較し、音声入力で浮く時間を計算する無料シミュレーター。">
+<meta property="og:title" content="音声入力 vs フリック｜どっちが速い？">
+<meta property="og:description" content="スマホの入力量からフリックと音声入力の時間差を計算。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/flick-voice/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "音声入力 vs フリック入力 速度シミュレーター", "url": "https://shimulabo.com/sims/flick-voice/", "description": "1日のスマホ文字入力量から、フリック入力と音声入力の所要時間を比較し、音声入力で浮く時間を計算する無料シミュレーター。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "音声入力 vs フリック入力 速度シミュレーター", "item": "https://shimulabo.com/sims/flick-voice/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "外で使いづらい？", "acceptedAnswer": {"@type": "Answer", "text": "小声入力やイヤホンマイク対応のツールも。自宅・移動中だけでも効果的です。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>音声入力・時短<span>›</span><span class="cur">音声入力 vs フリック入力 速度シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">音声入力・時短</div>
+    <h1>音声入力 vs フリック入力 速度シミュレーター</h1>
+    <p class="lead">スマホの入力、フリックと音声でどれだけ違う？1日の入力文字数から、音声入力で浮く時間を計算します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>📱 条件を入れる</h2>
+    <div class="row"><div class="field"><label>1日のスマホ入力量 <span class="hint">（文字）</span></label><input type="number" id="ch" value="2000" min="0" inputmode="numeric"></div>
+    <div class="field"><label>フリック速度 <span class="hint">（文字/分）</span></label><input type="number" id="fl" value="60" min="10" inputmode="numeric"></div></div>
+    <button class="btn btn-primary" id="calcBtn">速度を比べる</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">音声入力で1日に浮く時間</div>
+      <div class="big"><span id="big">0</span><span class="unit">分</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">フリック</div><div class="v" id="flv">—</div></div>
+      <div class="stat"><div class="k">音声入力</div><div class="v accent" id="vo">—</div></div>
+      <div class="stat"><div class="k">年間の時短</div><div class="v" id="yr">—</div></div></div>
+      <a class="cta-box" href="https://www.typeless.com/?via=44144c" target="_blank" rel="noopener" style="display:block;text-decoration:none;text-align:left;margin-top:20px;background:linear-gradient(135deg,#eef2ff,#f5f3ff);border:1.5px solid #a5b4fc;border-radius:14px;padding:18px;">
+        <div style="font-weight:900;color:#4f46e5;font-size:15px;">🎙️ その時短、「音声入力」で本当に実現できます。</div>
+        <div style="font-size:13px;color:var(--ink-2);margin-top:6px;line-height:1.7;">話すだけで文章が完成する時代。中でも<strong>今いちばんおすすめなのが「Typeless」</strong>です。AIが「えーと」などの言い淀みも自動で整え、議事録・メール・記事を一気に仕上げます。タイピングに戻れなくなる人が続出。</div>
+        <div style="margin-top:12px;display:inline-flex;align-items:center;gap:8px;background:#4f46e5;color:#fff;font-weight:800;font-size:14px;padding:11px 22px;border-radius:999px;">Typeless を無料で試す →</div>
+      </a>
+      <div style="text-align:center;margin-top:14px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+<div class="note" style="border-left:4px solid var(--teal)"><strong>結論</strong>：音声入力は約300字/分。フリックが60字/分なら、音声は <b>約5倍速</b>。スマホ入力ほど差が出ます。</div>
+    <h2>スマホ入力こそ音声が効く</h2>
+    <p>フリック入力は速い人でも60〜80字/分ほど。一方、話す速さは約300字/分です。チャットやメモ、SNS投稿など、スマホでの文字入力を音声に変えると、毎日まとまった時間が浮きます。</p>
+    <div class="note"><strong>計算式</strong><br>フリック時間 ＝ 文字数 ÷ フリック速度<br>音声時間 ＝ 文字数 ÷ 300<br>差 × 365 ＝ 年間の時短</div><div class="note" style="margin-top:14px;"><strong>結論：今いちばんおすすめの音声入力ツールは「Typeless」</strong><br>音声入力ツールは数あれど、精度・整文（言い淀みの自動カット）・日本語の自然さで頭ひとつ抜けているのがTypelessです。上の試算ぶんの時短を、現実のものにしてくれます。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>外で使いづらい？</dt><dd>小声入力やイヤホンマイク対応のツールも。自宅・移動中だけでも効果的です。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../input-jitan/index.html"><span class="e">🎙️</span><span>音声入力 時短シミュレーター</span></a><a class="related-card" href="../gijiroku-jitan/index.html"><span class="e">📝</span><span>議事録 音声入力シミュレーター</span></a><a class="related-card" href="../mail-jitan/index.html"><span class="e">✉️</span><span>メール作成 音声入力シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){const ch=Math.max(0,+$('ch').value||0),fl=Math.max(1,+$('fl').value||60);
+    const flm=ch/fl, vom=ch/300, day=flm-vom, yr=day*365/60;
+    $('sub').textContent=`1日${num(ch)}字・フリック${fl}字/分`;
+    $('flv').textContent=num(flm)+'分';$('vo').textContent=num(vom)+'分';$('yr').textContent=num(yr)+'時間';
+    show();anim($('big'),0,day,800);
+    SHARE=`音声入力vsフリック、音声で1日約${num(day)}分・年${num(yr)}時間も浮く計算でした📱`;}
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ,音声入力'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'flick-voice', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js"></script>
+</body>
+</html>

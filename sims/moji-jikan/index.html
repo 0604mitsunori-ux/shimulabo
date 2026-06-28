@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/moji-jikan/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/moji-jikan.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/moji-jikan.png">
+<title>文字起こし 所要時間 計算｜録音◯分の手作業は何時間？｜シミュラボ</title>
+<meta name="description" content="録音時間から、人が手作業で文字起こしする所要時間を計算し、AI音声認識でどれだけ短縮できるかを示す無料シミュレーター。">
+<meta property="og:title" content="文字起こし 所要時間｜手作業だと何時間？">
+<meta property="og:description" content="録音時間から手作業の文字起こし時間とAI短縮効果を計算。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/moji-jikan/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "文字起こし 所要時間 計算", "url": "https://shimulabo.com/sims/moji-jikan/", "description": "録音時間から、人が手作業で文字起こしする所要時間を計算し、AI音声認識でどれだけ短縮できるかを示す無料シミュレーター。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "文字起こし 所要時間 計算", "item": "https://shimulabo.com/sims/moji-jikan/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "AIの精度は？", "acceptedAnswer": {"@type": "Answer", "text": "近年のAIは高精度で、固有名詞だけ直せばOKなレベルです。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>音声入力・時短<span>›</span><span class="cur">文字起こし 所要時間 計算</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">音声入力・時短</div>
+    <h1>文字起こし 所要時間 計算</h1>
+    <p class="lead">1時間の録音、手で文字起こしすると何時間かかる？録音時間から手作業の所要時間を計算し、AI音声認識での短縮効果を見ます。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🔊 条件を入れる</h2>
+    <div class="row"><div class="field"><label>録音時間 <span class="hint">（分）</span></label><input type="number" id="rec" value="60" min="0" inputmode="numeric"></div>
+    <div class="field"><label>手作業の倍率 <span class="hint">（録音の何倍）</span></label><input type="number" id="x" value="4" min="1" step="0.5" inputmode="decimal"></div></div>
+    <button class="btn btn-primary" id="calcBtn">所要時間を見る</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">手作業の文字起こし時間</div>
+      <div class="big"><span id="big">0</span><span class="unit">分</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">AIなら(目安)</div><div class="v accent" id="ai">—</div></div>
+      <div class="stat"><div class="k">短縮できる時間</div><div class="v" id="save">—</div></div>
+      <div class="stat"><div class="k">時間に直すと</div><div class="v" id="hr">—</div></div></div>
+      <a class="cta-box" href="https://www.typeless.com/?via=44144c" target="_blank" rel="noopener" style="display:block;text-decoration:none;text-align:left;margin-top:20px;background:linear-gradient(135deg,#eef2ff,#f5f3ff);border:1.5px solid #a5b4fc;border-radius:14px;padding:18px;">
+        <div style="font-weight:900;color:#4f46e5;font-size:15px;">🎙️ その時短、「音声入力」で本当に実現できます。</div>
+        <div style="font-size:13px;color:var(--ink-2);margin-top:6px;line-height:1.7;">話すだけで文章が完成する時代。中でも<strong>今いちばんおすすめなのが「Typeless」</strong>です。AIが「えーと」などの言い淀みも自動で整え、議事録・メール・記事を一気に仕上げます。タイピングに戻れなくなる人が続出。</div>
+        <div style="margin-top:12px;display:inline-flex;align-items:center;gap:8px;background:#4f46e5;color:#fff;font-weight:800;font-size:14px;padding:11px 22px;border-radius:999px;">Typeless を無料で試す →</div>
+      </a>
+      <div style="text-align:center;margin-top:14px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+<div class="note" style="border-left:4px solid var(--teal)"><strong>結論</strong>：手作業の文字起こしは録音時間の <b>約4〜5倍</b>かかります。1時間の録音なら4〜5時間。AIならほぼ録音時間内で下書きが完成します。</div>
+    <h2>文字起こしの所要時間</h2>
+    <p>慣れていても、手作業の文字起こしは録音時間の4〜5倍が目安。聞き直し・修正・整文を含めるとさらに膨らみます。AI音声認識を使えば、再生しながらほぼリアルタイムで文字化でき、あとは整えるだけです。</p>
+    <div class="note"><strong>計算式</strong><br>手作業の時間 ＝ 録音時間 × 倍率(4〜5)<br>AIの目安 ＝ 録音時間 × 約1.2（再生＋軽い修正）</div><div class="note" style="margin-top:14px;"><strong>結論：今いちばんおすすめの音声入力ツールは「Typeless」</strong><br>音声入力ツールは数あれど、精度・整文（言い淀みの自動カット）・日本語の自然さで頭ひとつ抜けているのがTypelessです。上の試算ぶんの時短を、現実のものにしてくれます。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>AIの精度は？</dt><dd>近年のAIは高精度で、固有名詞だけ直せばOKなレベルです。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../input-jitan/index.html"><span class="e">🎙️</span><span>音声入力 時短シミュレーター</span></a><a class="related-card" href="../gijiroku-jitan/index.html"><span class="e">📝</span><span>議事録 音声入力シミュレーター</span></a><a class="related-card" href="../mail-jitan/index.html"><span class="e">✉️</span><span>メール作成 音声入力シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){const rec=Math.max(0,+$('rec').value||0),x=Math.max(1,+$('x').value||4);
+    const manual=rec*x, ai=rec*1.2, save=manual-ai;
+    $('sub').textContent=`録音${rec}分・倍率${x}倍`;
+    $('ai').textContent=num(ai)+'分';$('save').textContent=num(save)+'分';$('hr').textContent=(manual/60).toFixed(1)+'時間';
+    show();anim($('big'),0,manual,800);
+    SHARE=`文字起こし所要時間シミュ、録音${rec}分の手作業は約${num(manual)}分。AIなら約${num(ai)}分でした🔊`;}
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ,音声入力'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'moji-jikan', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js"></script>
+</body>
+</html>
