@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/nikuryo-ninzu/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/nikuryo-ninzu.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/nikuryo-ninzu.png">
+<title>肉・魚の量 計算｜何人前は何グラム？焼肉・鍋・カレー｜シミュラボ</title>
+<meta name="description" content="人数と料理から、必要な肉・魚の量（グラム）の目安を計算する無料ツール。買い物・献立に。">
+<meta property="og:title" content="肉の量 計算｜何人前は何g？">
+<meta property="og:description" content="人数と料理から肉・魚の必要量の目安を計算。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/nikuryo-ninzu/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "肉・魚の量 計算ツール", "url": "https://shimulabo.com/sims/nikuryo-ninzu/", "description": "人数と料理から、必要な肉・魚の量（グラム）の目安を計算する無料ツール。買い物・献立に。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "肉・魚の量 計算ツール", "item": "https://shimulabo.com/sims/nikuryo-ninzu/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "子どもがいる場合は？", "acceptedAnswer": {"@type": "Answer", "text": "子どもは大人の半分〜2/3が目安。よく食べる家庭は1.2倍ほど見ておくと安心です。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>料理・キッチン<span>›</span><span class="cur">肉・魚の量 計算ツール</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">料理・キッチン</div>
+    <h1>肉・魚の量 計算ツール</h1>
+    <p class="lead">「何人前で肉は何グラム？」を計算。人数と料理から、買うべき肉・魚の量の目安を出します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🍖 条件を入れる</h2>
+    <div class="row"><div class="field"><label>人数</label><input type="number" id="n" value="4" min="1" inputmode="numeric"></div>
+    <div class="field"><label>料理</label><select id="r"><option value="150" selected>焼肉・すき焼き</option><option value="100">カレー・シチュー</option><option value="200">鍋</option><option value="180">ステーキ</option><option value="120">から揚げ</option><option value="80">炒め物</option><option value="100">魚(切り身)</option></select></div></div>
+    <button class="btn btn-primary" id="calcBtn">必要量を見る</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">必要な量（目安）</div>
+      <div class="big"><span id="big">0</span><span class="unit">g</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">1人分</div><div class="v accent" id="one">—</div></div>
+      <div class="stat"><div class="k">100gパック</div><div class="v" id="pack">—</div></div>
+      <div class="stat"><div class="k">kg換算</div><div class="v" id="kg">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+<div class="note" style="border-left:4px solid var(--teal)"><strong>結論</strong>：肉の量は料理で変わり、<b>1人前の目安は炒め物80g・カレー100g・焼肉150g・鍋200g</b>。よく食べる人や成長期は多めに。</div>
+    <h2>料理別 1人前の肉の量</h2>
+    <table class="seo-table"><tr><th>料理</th><th>1人前</th></tr>
+    <tr><td>炒め物</td><td>約80g</td></tr><tr><td>カレー・シチュー</td><td>約100g</td></tr>
+    <tr><td>から揚げ</td><td>約120g</td></tr><tr><td>焼肉・すき焼き</td><td>約150g</td></tr>
+    <tr><td>鍋</td><td>約200g</td></tr></table>
+    <h2>よくある質問</h2><dl class="faq"><dt>子どもがいる場合は？</dt><dd>子どもは大人の半分〜2/3が目安。よく食べる家庭は1.2倍ほど見ておくと安心です。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl><h2>参考</h2><ul class="seo-refs"><li>1人前の分量（一般的な目安）</li></ul>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../chomiryo-gram/index.html"><span class="e">🥄</span><span>調味料 大さじ・小さじ→グラム換算</span></a><a class="related-card" href="../kome-mizu/index.html"><span class="e">🍚</span><span>米の水加減 計算ツール</span></a><a class="related-card" href="../onsu-gram/index.html"><span class="e">⚖️</span><span>オンス⇔グラム 換算ツール</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const hash = (s) => { let h=2166136261; for(let i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h,16777619); } return (h>>>0); };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){const n=Math.max(1,+$('n').value||1),r=+$('r').value||150;const g=n*r;
+    $('sub').textContent=`${n}人前・${sel('r').text}`;$('one').textContent=r+'g';$('pack').textContent=(g/100).toFixed(1)+'パック';$('kg').textContent=(g/1000).toFixed(2)+'kg';
+    show();anim($('big'),0,g,600);
+    SHARE=`肉の量、${n}人前の${sel('r').text}＝約${num(g)}gでした🍖`;}
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'nikuryo-ninzu', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js"></script>
+</body>
+</html>

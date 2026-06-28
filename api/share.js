@@ -101,7 +101,11 @@ const ALLOW = new Set([
   'shitto-do', 'renai-taishitsu', 'soushoku-nikushoku', 'myakuari-shindan', 'kekkon-ganbou',
   'kaotype-shindan', 'make-type', 'fashion-type', 'akanuke-do', 'niau-megane',
   'kyuryo-tedori', 'riekiritsu', 'kinmu-jikan', 'kakeibo-wari', 'tekishoku',
-  'kinsen-kankaku', 'chokin-type', 'hougen-shindan', 'otaku-do', 'undou-shinkei'
+  'kinsen-kankaku', 'chokin-type', 'hougen-shindan', 'otaku-do', 'undou-shinkei',
+  'chomiryo-gram', 'kome-mizu', 'onsu-gram', 'ml-gram', 'ninzu-bunryo',
+  'cup-kanzan', 'shokuzai-omosa', 'oven-ondo', 'age-abura', 'pasta-ryou',
+  'gohan-cal', 'dashi-wari', 'atsuryoku-jikan', 'hgm-daiyo', 'enbun-chomiryo',
+  'kaitou-jikan', 'kome-shinsui', 'suihan-denki', 'nikuryo-ninzu', 'tamago-size'
 ]);
 
 export default async function handler(req, res) {

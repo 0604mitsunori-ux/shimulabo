@@ -299,6 +299,7 @@
 
   // カテゴリ別のテーマ演出
   var CATFX = {
+    '料理・キッチン': { emojis: ['🍳', '🍚', '🥄', '✨'], mode: 'up', count: 40 },
     '恋愛・婚活': { emojis: ['💕', '💗', '💖', '💞'], mode: 'up', count: 42 },
     'ペット': { emojis: ['🐾', '🐶', '🐱', '🦴'], mode: 'up', count: 36 },
     'お金・時間': { emojis: ['🪙', '💴', '💰'], mode: 'rain', count: 48 },

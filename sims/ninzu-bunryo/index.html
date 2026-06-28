@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/ninzu-bunryo/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/ninzu-bunryo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/ninzu-bunryo.png">
+<title>レシピ 人数分 換算｜2人分を4人分にする分量は？｜シミュラボ</title>
+<meta name="description" content="元のレシピの人数と作りたい人数から、材料の分量を自動で増減換算する無料ツール。">
+<meta property="og:title" content="レシピ 人数分 換算｜分量を自動計算">
+<meta property="og:description" content="元の人数と作りたい人数から材料の分量を換算。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/ninzu-bunryo/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "レシピ 人数分 換算ツール", "url": "https://shimulabo.com/sims/ninzu-bunryo/", "description": "元のレシピの人数と作りたい人数から、材料の分量を自動で増減換算する無料ツール。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "レシピ 人数分 換算ツール", "item": "https://shimulabo.com/sims/ninzu-bunryo/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "調味料も同じ倍率？", "acceptedAnswer": {"@type": "Answer", "text": "基本は同じですが、塩・香辛料は少し控えめにして味見しながら足すと失敗しません。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>料理・キッチン<span>›</span><span class="cur">レシピ 人数分 換算ツール</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">料理・キッチン</div>
+    <h1>レシピ 人数分 換算ツール</h1>
+    <p class="lead">「2人分のレシピを4人分にしたい」を一発換算。元の人数・作りたい人数・材料の量から、必要な分量を計算します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>👨‍👩‍👧‍👦 条件を入れる</h2>
+    <div class="row"><div class="field"><label>元のレシピ</label><input type="number" id="from" value="2" min="1" inputmode="numeric"><span class="hint">人分</span></div>
+    <div class="field"><label>作りたい</label><input type="number" id="to" value="4" min="1" inputmode="numeric"><span class="hint">人分</span></div></div>
+    <div class="field"><label>材料の元の量 <span class="hint">（数値）</span></label><input type="number" id="amt" value="200" min="0" step="0.1" inputmode="decimal"></div>
+    <button class="btn btn-primary" id="calcBtn">分量を換算する</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">必要な分量</div>
+      <div class="big"><span id="big">0</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">倍率</div><div class="v accent" id="bai">—</div></div>
+      <div class="stat"><div class="k">元の量</div><div class="v" id="moto">—</div></div>
+      <div class="stat"><div class="k">作る人数</div><div class="v" id="ninzu">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+<div class="note" style="border-left:4px solid var(--teal)"><strong>結論</strong>：人数分の換算は <b>新しい量 ＝ 元の量 ×（作りたい人数 ÷ 元の人数）</b>。すべての材料に同じ倍率をかけます。</div>
+    <h2>分量換算のコツ</h2>
+    <div class="note"><strong>計算式</strong><br>倍率 ＝ 作りたい人数 ÷ 元の人数<br>新しい分量 ＝ 元の分量 × 倍率</div>
+    <p>塩・スパイスなどの調味料は、倍率どおりだと濃くなりがち。控えめにして味を見ながら調整するのがおすすめです。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>調味料も同じ倍率？</dt><dd>基本は同じですが、塩・香辛料は少し控えめにして味見しながら足すと失敗しません。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl><h2>参考</h2><ul class="seo-refs"><li>レシピのスケーリング（一般的な考え方）</li></ul>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../chomiryo-gram/index.html"><span class="e">🥄</span><span>調味料 大さじ・小さじ→グラム換算</span></a><a class="related-card" href="../kome-mizu/index.html"><span class="e">🍚</span><span>米の水加減 計算ツール</span></a><a class="related-card" href="../onsu-gram/index.html"><span class="e">⚖️</span><span>オンス⇔グラム 換算ツール</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const hash = (s) => { let h=2166136261; for(let i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h,16777619); } return (h>>>0); };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){const f=Math.max(1,+$('from').value||1),t=Math.max(1,+$('to').value||1),a=Math.max(0,+$('amt').value||0);
+    const bai=t/f, out=a*bai;
+    $('sub').textContent=`${f}人分 → ${t}人分`;$('bai').textContent=bai.toFixed(2)+'倍';$('moto').textContent=num(a);$('ninzu').textContent=t+'人分';
+    show();anim($('big'),0,out,600,1);
+    SHARE=`レシピ人数分換算、${f}人分→${t}人分で材料は${bai.toFixed(2)}倍（${num(a)}→${out.toFixed(0)}）でした👨‍👩‍👧‍👦`;}
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'ninzu-bunryo', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js"></script>
+</body>
+</html>
