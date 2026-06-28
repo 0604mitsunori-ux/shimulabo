@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/kakeibo-wari/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/kakeibo-wari.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/kakeibo-wari.png">
+<title>家計の黄金比 計算｜手取りから理想の支出割合は？｜シミュラボ</title>
+<meta name="description" content="手取り月収から、住居・食費・貯蓄など理想的な家計の支出割合（黄金比）に当てはめた金額の目安を計算する無料シミュレーター。">
+<meta property="og:title" content="家計の黄金比｜理想の支出割合は？">
+<meta property="og:description" content="手取りから理想の家計バランス(各費目の目安額)を計算。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/kakeibo-wari/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "家計の黄金比 計算シミュレーター", "url": "https://shimulabo.com/sims/kakeibo-wari/", "description": "手取り月収から、住居・食費・貯蓄など理想的な家計の支出割合（黄金比）に当てはめた金額の目安を計算する無料シミュレーター。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "家計の黄金比 計算シミュレーター", "item": "https://shimulabo.com/sims/kakeibo-wari/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "貯蓄20%は難しい", "acceptedAnswer": {"@type": "Answer", "text": "まず10%からでもOK。固定費（住居・通信・保険）の見直しが効果的です。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>お金・時間<span>›</span><span class="cur">家計の黄金比 計算シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">お金・時間</div>
+    <h1>家計の黄金比 計算シミュレーター</h1>
+    <p class="lead">手取りから、理想の家計バランスは？住居・食費・貯蓄などの「黄金比」に当てはめて、各費目の目安額を計算します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🥧 条件を入れる</h2>
+    <div class="field"><label>手取りの月収 <span class="hint">（万円）</span></label><input type="number" id="m" value="25" min="0" inputmode="numeric"></div>
+    <button class="btn btn-primary" id="calcBtn">理想の家計を見る</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">理想の貯蓄・投資（月）</div>
+      <div class="big"><span id="big">0</span><span class="unit">円</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">住居(25%)</div><div class="v accent" id="ie">—</div></div>
+      <div class="stat"><div class="k">食費(15%)</div><div class="v" id="shoku">—</div></div>
+      <div class="stat"><div class="k">自由に使える</div><div class="v" id="free">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+<div class="note" style="border-left:4px solid var(--teal)"><strong>結論</strong>：家計の黄金比は <b>住居25%・食費15%・貯蓄20%</b> が目安。手取りに対する割合で考えると、使いすぎを防げます。</div>
+    <h2>理想の家計バランス（黄金比）</h2>
+    <p>収入が増えても支出も膨らむと貯まりません。手取りに対する費目ごとの「割合」で管理すると、ムダが見えやすくなります。下表は一般的な目安です（家族構成・地域で調整を）。</p>
+    <table class="seo-table"><tr><th>費目</th><th>理想割合</th></tr>
+    <tr><td>住居（家賃・ローン）</td><td>25%</td></tr><tr><td>食費</td><td>15%</td></tr>
+    <tr><td>水道光熱</td><td>6%</td></tr><tr><td>通信</td><td>5%</td></tr>
+    <tr><td>保険</td><td>4%</td></tr><tr><td>趣味・娯楽・交際</td><td>15%</td></tr>
+    <tr><td>日用品・その他</td><td>10%</td></tr><tr><td>貯蓄・投資</td><td>20%</td></tr></table>
+    <p>まず「貯蓄20%を先取り」してから残りで生活するのが貯まる家計のコツです。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>貯蓄20%は難しい</dt><dd>まず10%からでもOK。固定費（住居・通信・保険）の見直しが効果的です。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl><h2>参考</h2><ul class="seo-refs"><li>家計管理の一般的な黄金比</li></ul>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../kaigi-cost/index.html"><span class="e">🔥</span><span>会議コストシミュレーター</span></a><a class="related-card" href="../subsc/index.html"><span class="e">💸</span><span>サブスク墓場シミュレーター</span></a><a class="related-card" href="../warikan/index.html"><span class="e">🍻</span><span>割り勘の不公平シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const hash = (s) => { let h=2166136261; for(let i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h,16777619); } return (h>>>0); };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){const m=Math.max(0,+$('m').value||0)*10000;
+    const chochiku=m*0.20, ie=m*0.25, shoku=m*0.15, free=m*0.15;
+    $('sub').textContent=`手取り月収 ${num(m/10000)}万円`;
+    $('ie').textContent=yen(ie);$('shoku').textContent=yen(shoku);$('free').textContent=yen(free);
+    show();anim($('big'),0,chochiku,800);
+    SHARE=`家計の黄金比シミュ、手取り${num(m/10000)}万円なら貯蓄は月${yen(chochiku)}・住居${yen(ie)}が目安でした🥧`;}
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'kakeibo-wari', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js"></script>
+</body>
+</html>

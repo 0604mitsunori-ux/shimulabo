@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/riekiritsu/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/riekiritsu.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/riekiritsu.png">
+<title>利益率 計算｜売価と原価から粗利率・原価率・値入率を計算｜シミュラボ</title>
+<meta name="description" content="売価と原価から、粗利益・利益率（粗利率）・原価率・値入率を一発で計算する無料ツール。物販・飲食の価格設定に。">
+<meta property="og:title" content="利益率 計算｜粗利率・原価率は？">
+<meta property="og:description" content="売価と原価から粗利率・原価率・値入率を計算。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/riekiritsu/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "利益率 計算ツール", "url": "https://shimulabo.com/sims/riekiritsu/", "description": "売価と原価から、粗利益・利益率（粗利率）・原価率・値入率を一発で計算する無料ツール。物販・飲食の価格設定に。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "利益率 計算ツール", "item": "https://shimulabo.com/sims/riekiritsu/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "利益率30%にするには？", "acceptedAnswer": {"@type": "Answer", "text": "売価の30%が粗利になる価格設定＝原価率70%。原価÷0.7が売価の目安です。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>店舗・ビジネス<span>›</span><span class="cur">利益率 計算ツール</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">店舗・ビジネス</div>
+    <h1>利益率 計算ツール</h1>
+    <p class="lead">売価と原価を入れるだけで、粗利益・利益率（粗利率）・原価率・値入率を一発計算。価格設定や仕入れ判断に。</p>
+  </div>
+
+  <section class="panel">
+    <h2>📈 条件を入れる</h2>
+    <div class="row"><div class="field"><label>売価（販売価格） <span class="hint">（円）</span></label><input type="number" id="p" value="1000" min="0" inputmode="numeric"></div>
+    <div class="field"><label>原価（仕入れ） <span class="hint">（円）</span></label><input type="number" id="c" value="400" min="0" inputmode="numeric"></div></div>
+    <button class="btn btn-primary" id="calcBtn">利益率を計算する</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">利益率（粗利率・対売価）</div>
+      <div class="big"><span id="big">0</span><span class="unit">%</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">粗利益</div><div class="v accent" id="gross">—</div></div>
+      <div class="stat"><div class="k">原価率</div><div class="v" id="genka">—</div></div>
+      <div class="stat"><div class="k">値入率(対原価)</div><div class="v" id="neire">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+<div class="note" style="border-left:4px solid var(--teal)"><strong>結論</strong>：利益率（粗利率）＝ <b>粗利益 ÷ 売価 × 100</b>。原価率＝原価÷売価。値入率は原価に対する利益の割合で、利益率とは別物です。</div>
+    <h2>利益率・原価率・値入率の違い</h2>
+    <p>同じ「もうけ」でも、何を基準にするかで率が変わります。利益率（粗利率）は売価基準、値入率は原価基準。混同すると価格設定を誤るので注意。</p>
+    <div class="note"><strong>計算式</strong><br>粗利益 ＝ 売価 − 原価<br>利益率(粗利率) ＝ 粗利益 ÷ 売価 ×100<br>原価率 ＝ 原価 ÷ 売価 ×100<br>値入率 ＝ 粗利益 ÷ 原価 ×100</div>
+    <h2>業種別の原価率の目安</h2>
+    <table class="seo-table"><tr><th>業種</th><th>原価率の目安</th></tr>
+    <tr><td>飲食店</td><td>30%前後</td></tr><tr><td>小売（物販）</td><td>50〜70%</td></tr><tr><td>カフェ・ドリンク</td><td>10〜20%</td></tr></table>
+    <h2>よくある質問</h2><dl class="faq"><dt>利益率30%にするには？</dt><dd>売価の30%が粗利になる価格設定＝原価率70%。原価÷0.7が売価の目安です。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl><h2>参考</h2><ul class="seo-refs"><li>原価管理・価格設定の基礎</li></ul>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../kuchikomi-hakyu/index.html"><span class="e">📈</span><span>口コミ波及シミュレーター</span></a><a class="related-card" href="../shutten/index.html"><span class="e">🏪</span><span>出店集客シミュレーター</span></a><a class="related-card" href="../neage/index.html"><span class="e">🏷️</span><span>値上げ客数シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const hash = (s) => { let h=2166136261; for(let i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h,16777619); } return (h>>>0); };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){const p=Math.max(0,+$('p').value||0),c=Math.max(0,+$('c').value||0);
+    const gross=p-c, rate=p>0?gross/p*100:0, genka=p>0?c/p*100:0, neire=c>0?gross/c*100:0;
+    $('sub').textContent=`売価${num(p)}円・原価${num(c)}円`;
+    $('gross').textContent=yen(gross);$('genka').textContent=genka.toFixed(1)+'%';$('neire').textContent=neire.toFixed(1)+'%';
+    show();anim($('big'),0,rate,800,1);
+    SHARE=`利益率シミュ、売価${num(p)}円・原価${num(c)}円→利益率${rate.toFixed(1)}%（粗利${yen(gross)}）でした📈`;}
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'riekiritsu', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js"></script>
+</body>
+</html>
