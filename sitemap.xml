@@ -418,7 +418,7 @@
   <url><loc>https://shimulabo.com/sims/hayasa-keisan/</loc><lastmod>2026-06-26</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shimulabo.com/sims/moji-count/</loc><lastmod>2026-06-26</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shimulabo.com/sims/stress-check/</loc><lastmod>2026-06-26</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/hsp-shindan/</loc><lastmod>2026-06-26</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/hsp-shindan/</loc><lastmod>2026-06-29</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shimulabo.com/sims/eq-shindan/</loc><lastmod>2026-06-26</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shimulabo.com/sims/anger-type/</loc><lastmod>2026-06-26</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shimulabo.com/sims/kanpeki-do/</loc><lastmod>2026-06-26</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
@@ -471,7 +471,7 @@
   <url><loc>https://shimulabo.com/sims/shugorei/</loc><lastmod>2026-06-26</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shimulabo.com/sims/deai-uranai/</loc><lastmod>2026-06-26</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shimulabo.com/sims/renai-shindan/</loc><lastmod>2026-06-26</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/renai-type/</loc><lastmod>2026-06-26</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/renai-type/</loc><lastmod>2026-06-29</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shimulabo.com/sims/renai-hensachi/</loc><lastmod>2026-06-26</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shimulabo.com/sims/mote-do/</loc><lastmod>2026-06-26</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shimulabo.com/sims/risou-aite/</loc><lastmod>2026-06-26</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
@@ -632,6 +632,21 @@
   <url><loc>https://shimulabo.com/sims/nippou-voice/</loc><lastmod>2026-06-29</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shimulabo.com/sims/zoom-gijiroku/</loc><lastmod>2026-06-29</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shimulabo.com/sims/shukatsu-voice/</loc><lastmod>2026-06-29</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/kanpeki-shugi/</loc><lastmod>2026-06-29</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/shinri-kinou/</loc><lastmod>2026-06-29</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/psychopath-shindan/</loc><lastmod>2026-06-29</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/menhera-shindan/</loc><lastmod>2026-06-29</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/kyokan-shindan/</loc><lastmod>2026-06-29</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/shitto-do/</loc><lastmod>2026-06-29</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/renai-taishitsu/</loc><lastmod>2026-06-29</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/soushoku-nikushoku/</loc><lastmod>2026-06-29</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/myakuari-shindan/</loc><lastmod>2026-06-29</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/kekkon-ganbou/</loc><lastmod>2026-06-29</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/kaotype-shindan/</loc><lastmod>2026-06-29</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/make-type/</loc><lastmod>2026-06-29</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/fashion-type/</loc><lastmod>2026-06-29</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/akanuke-do/</loc><lastmod>2026-06-29</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/niau-megane/</loc><lastmod>2026-06-29</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shimulabo.com/contact/</loc><lastmod>2026-06-23</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://shimulabo.com/request/</loc><lastmod>2026-06-23</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://shimulabo.com/board/</loc><lastmod>2026-06-23</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
