@@ -25,10 +25,7 @@
     <meta name="robots" content="index,follow">
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "出席率シミュレーター", "url": "https://shimulabo.com/sims/shusseki-ritsu/", "description": "授業日数と欠席日数から、出席率と「皆勤まであと何日休めるか」の目安を計算する先生・保護者向け無料ツール。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "出席率シミュレーター", "item": "https://shimulabo.com/sims/shusseki-ritsu/"}]}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "遅刻は？", "acceptedAnswer": {"@type": "Answer", "text": "本ツールは欠席日数のみで計算します。遅刻・早退の換算は校則に従ってください。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
-    <!-- ga4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
-    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "出席率は何％あればいい？", "acceptedAnswer": {"@type": "Answer", "text": "学校段階や学校の規定によって異なります。高校・大学では「3分の2以上（約66.7％以上）」を単位・進級の要件とすることが多いですが、必ず在籍校の規定をご確認ください。"}}, {"@type": "Question", "name": "遅刻・早退はどう数える？", "acceptedAnswer": {"@type": "Answer", "text": "本ツールは欠席日数のみで計算します。遅刻・早退を欠席に換算したい場合は、遅刻・早退→欠席換算ツールをご利用ください。換算ルールは校則に従ってください。"}}, {"@type": "Question", "name": "欠席が何日まで大丈夫か知りたい", "acceptedAnswer": {"@type": "Answer", "text": "年間授業日数を入れると「9割維持まであと何日休めるか」の目安を表示します。目標出席率で細かく計算したい場合は皆勤・精勤 判定や必要出席日数 計算もどうぞ。"}}, {"@type": "Question", "name": "出席停止（インフルエンザ等）は欠席になる？", "acceptedAnswer": {"@type": "Answer", "text": "学校保健安全法に基づく出席停止や忌引きは「欠席日数」に含めない扱いが一般的ですが、記録の仕方は学校によります。詳しくは学校にご確認ください。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてあなたのブラウザ内で完結します。"}}]}</script>
     <!-- adsense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
          crossorigin="anonymous"></script>
@@ -93,10 +90,40 @@
   </section>
 
   <article class="article">
-    <h2>出席率の計算</h2>
-    <div class="note"><strong>計算式</strong><br>出席率 ＝（授業日数 − 欠席日数）÷ 授業日数 ×100</div>
-    <p>進級・進学・皆勤の基準は学校により異なります。本ツールは目安です。気になる場合は学校の規定をご確認ください。遅刻・早退の扱いも学校ごとに異なります。</p>
-    <h2>よくある質問</h2><dl class="faq"><dt>遅刻は？</dt><dd>本ツールは欠席日数のみで計算します。遅刻・早退の換算は校則に従ってください。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+    <h2>出席率の計算方法</h2>
+    <div class="note"><strong>計算式</strong><br>出席率（％）＝（授業日数 − 欠席日数）÷ 授業日数 × 100</div>
+    <p>出席率は「これまでの授業日数のうち、実際に出席した日数の割合」です。たとえば授業日数120日で欠席が5日なら、出席率は (120−5)÷120×100 ＝ <b>約95.8％</b> になります。進級・進学・皆勤の判定、保護者面談の資料づくりなどに使われる基本の数字です。</p>
+    <h2>出席率の早見表（年間200日の場合）</h2>
+    <p>年間授業日数を200日としたときの、欠席日数ごとの出席率の目安です。自分の状況に近いところを確認してみてください。</p>
+    <div style="overflow-x:auto;">
+    <table>
+    <thead><tr><th>欠席日数</th><th>出席率</th><th>目安</th></tr></thead>
+    <tbody>
+    <tr><td>0日</td><td>100%</td><td>皆勤</td></tr>
+    <tr><td>5日</td><td>97.5%</td><td>非常に良好</td></tr>
+    <tr><td>10日</td><td>95.0%</td><td>良好</td></tr>
+    <tr><td>20日</td><td>90.0%</td><td>ひとつの目安ライン</td></tr>
+    <tr><td>40日</td><td>80.0%</td><td>注意（要件に注意）</td></tr>
+    <tr><td>60日</td><td>70.0%</td><td>進級・単位に影響も</td></tr>
+    </tbody>
+    </table>
+    </div>
+    <h2>学校段階別・出席率の考え方</h2>
+    <p>出席日数・出席率の「基準」は学校や自治体、大学の学部によって大きく異なります。あくまで一般的な傾向として、次のような違いがあります（正確な基準は必ず在籍校の規定をご確認ください）。</p>
+    <ul>
+    <li><b>小学校・中学校</b>……義務教育のため出席率だけで留年になることは通常ありませんが、欠席が続くと「欠席日数」が指導要録に記録されます。年間30日以上の欠席は「不登校」の目安とされます。</li>
+    <li><b>高校</b>……多くの学校で、各科目の「出席時数が規定の3分の2以上（欠席が3分の1を超えない）」などの要件があり、満たさないと単位が認定されず進級・卒業に影響することがあります。</li>
+    <li><b>大学</b>……科目ごとに「全授業回数の3分の2以上の出席」を単位認定の条件とすることが一般的です。</li>
+    </ul>
+    <h2>関連する出席の計算ツール</h2>
+    <p>目的に合わせて、次のツールもあわせてご利用ください。</p>
+    <ul>
+    <li><a href="/sims/hisho-nissu/">必要出席日数 計算</a>……目標の出席率まで「あと何日出席が必要か」を計算</li>
+    <li><a href="/sims/kaikin-hantei/">皆勤・精勤 判定</a>……欠席・遅刻の数から皆勤／精勤を判定</li>
+    <li><a href="/sims/shinkyu-hantei/">進級・卒業の出席条件 判定</a>……「3分の2以上」などの出席要件を満たしているかチェック</li>
+    <li><a href="/sims/chiko-soutai/">遅刻・早退→欠席換算</a>……遅刻・早退を欠席に換算して実質出席率を計算</li>
+    </ul>
+    <h2>よくある質問</h2><dl class="faq"><dt>出席率は何％あればいい？</dt><dd>学校段階や学校の規定によって異なります。高校・大学では「3分の2以上（約66.7％以上）」を単位・進級の要件とすることが多いですが、必ず在籍校の規定をご確認ください。</dd><dt>遅刻・早退はどう数える？</dt><dd>本ツールは欠席日数のみで計算します。遅刻・早退を欠席に換算したい場合は、<a href="/sims/chiko-soutai/">遅刻・早退→欠席換算</a>ツールをご利用ください。換算ルールは校則に従ってください。</dd><dt>欠席が何日まで大丈夫か知りたい</dt><dd>年間授業日数を入れると「9割維持まであと何日休めるか」の目安を表示します。目標出席率で細かく計算したい場合は<a href="/sims/kaikin-hantei/">皆勤・精勤 判定</a>や<a href="/sims/hisho-nissu/">必要出席日数 計算</a>もどうぞ。</dd><dt>出席停止（インフルエンザ等）は欠席になる？</dt><dd>学校保健安全法に基づく出席停止や忌引きは「欠席日数」に含めない扱いが一般的ですが、記録の仕方は学校によります。詳しくは学校にご確認ください。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてあなたのブラウザ内で完結します。</dd></dl>
   </article>
 
   <nav class="related" aria-label="related">

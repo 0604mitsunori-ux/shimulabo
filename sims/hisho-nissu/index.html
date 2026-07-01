@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/hisho-nissu/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/hisho-nissu.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/hisho-nissu.png">
+<title>必要出席日数 計算｜目標の出席率まであと何日出席が必要？｜シミュラボ</title>
+<meta name="description" content="今までの授業日数・欠席日数と、目標の出席率から「年間であと何日出席が必要か」「あと何日休めるか」を計算する先生・生徒・保護者向け無料ツール。">
+<meta property="og:title" content="必要出席日数 計算｜あと何日出席が必要？">
+<meta property="og:description" content="目標出席率まで、あと何日出席が必要か・あと何日休めるかを計算。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/hisho-nissu/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "必要出席日数 計算", "url": "https://shimulabo.com/sims/hisho-nissu/", "description": "今までの授業日数・欠席日数と、目標の出席率から「年間であと何日出席が必要か」「あと何日休めるか」を計算する先生・生徒・保護者向け無料ツール。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "必要出席日数 計算", "item": "https://shimulabo.com/sims/hisho-nissu/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "目標出席率は何％にすべき？", "acceptedAnswer": {"@type": "Answer", "text": "高校・大学では「3分の2以上（約66.7％）」や「4分の3以上（75％）」を要件とすることが多いです。正確な数値は在籍校の規定をご確認ください。"}}, {"@type": "Question", "name": "「あと休める日数」がマイナスになった", "acceptedAnswer": {"@type": "Answer", "text": "すでに目標の出席率を保てない欠席数に達している可能性があります。学校・大学の窓口に早めに相談してください。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>教員・先生<span>›</span><span class="cur">必要出席日数 計算</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">教員・先生</div>
+    <h1>必要出席日数 計算</h1>
+    <p class="lead">目標の出席率を保つには、年間であと何日出席が必要か・あと何日まで休めるかを計算します。進級や単位の出席要件の逆算に。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🎯 条件を入れる</h2>
+    <div class="row"><div class="field"><label>年間の授業日数 <span class="hint">（日）</span></label><input type="number" id="year" value="200" min="1" inputmode="numeric"></div>
+    <div class="field"><label>目標の出席率 <span class="hint">（％）</span></label><input type="number" id="goal" value="90" min="1" max="100" inputmode="numeric"></div></div>
+    <div class="row"><div class="field"><label>これまでの授業日数 <span class="hint">（日）</span></label><input type="number" id="total" value="120" min="0" inputmode="numeric"></div>
+    <div class="field"><label>これまでの欠席日数 <span class="hint">（日）</span></label><input type="number" id="abs" value="10" min="0" inputmode="numeric"></div></div>
+    <button class="btn btn-primary" id="calcBtn">必要な出席日数を見る</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">あと何日 出席が必要</div>
+      <div class="big"><span id="big">0</span><span class="unit">日</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">年間で許される欠席</div><div class="v accent" id="allow">—</div></div>
+      <div class="stat"><div class="k">あと休める日数</div><div class="v" id="left">—</div></div>
+      <div class="stat"><div class="k">残りの授業日数</div><div class="v" id="rem">—</div></div></div>
+      <a class="cta-box" href="https://piyopiyo-teacher.com/?page_id=1103" target="_blank" rel="noopener" style="display:block;text-decoration:none;text-align:left;margin-top:20px;background:linear-gradient(135deg,#fff7ed,#ffedd5);border:1.5px solid #fcd34d;border-radius:14px;padding:16px 18px;">
+        <div style="font-weight:900;color:#b45309;font-size:15px;">📝 通知表の所見づくり、もっとラクに。</div>
+        <div style="font-size:13px;color:var(--ink-2);margin-top:5px;line-height:1.6;">観点を選ぶだけで自然な所見文が完成。先生のための「通知表 所見作成ツール」を無料で試せます。</div>
+        <div style="margin-top:10px;font-weight:800;color:#b45309;font-size:13px;">所見作成ツールを使ってみる →</div>
+      </a>
+      <div style="text-align:center;margin-top:14px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>必要出席日数の計算方法</h2>
+    <div class="note"><strong>計算式</strong><br>年間で必要な出席日数 ＝ 年間授業日数 × 目標出席率<br>年間で許される欠席日数 ＝ 年間授業日数 −（年間で必要な出席日数）<br>あと休める日数 ＝ 許される欠席日数 − これまでの欠席日数</div>
+    <p>「目標の出席率を保つには、残りをどれだけ出席すればいいか」を逆算するツールです。高校・大学では出席率が単位・進級の要件になることが多いため、早めに逆算しておくと安心です。まず<a href="/sims/shusseki-ritsu/">出席率シミュレーター</a>で現在の出席率を確認し、こちらで必要日数を計算するのがおすすめです。</p>
+    <h2>関連ツール</h2>
+    <ul>
+    <li><a href="/sims/shusseki-ritsu/">出席率シミュレーター</a>……現在の出席率を計算</li>
+    <li><a href="/sims/shinkyu-hantei/">進級・卒業の出席条件 判定</a>……「3分の2以上」などの要件チェック</li>
+    <li><a href="/sims/kaikin-hantei/">皆勤・精勤 判定</a></li>
+    </ul>
+    <h2>よくある質問</h2><dl class="faq"><dt>目標出席率は何％にすべき？</dt><dd>高校・大学では「3分の2以上（約66.7％）」や「4分の3以上（75％）」を要件とすることが多いです。正確な数値は在籍校の規定をご確認ください。</dd><dt>「あと休める日数」がマイナスになった</dt><dd>すでに目標の出席率を保てない欠席数に達している可能性があります。学校・大学の窓口に早めに相談してください。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../seiseki-hyotei/index.html"><span class="e">📊</span><span>観点別評価→評定シミュレーター</span></a><a class="related-card" href="../test-toukei/index.html"><span class="e">📈</span><span>テスト統計シミュレーター</span></a><a class="related-card" href="../naishin-keisan/index.html"><span class="e">🎯</span><span>内申点 計算シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){
+    const year=Math.max(1,+$('year').value||1), goal=Math.min(100,Math.max(1,+$('goal').value||90));
+    const total=Math.max(0,+$('total').value||0), abs=Math.max(0,+$('abs').value||0);
+    const needAtt=Math.ceil(year*goal/100);
+    const allowAbs=year-needAtt;
+    const att=Math.max(0,total-abs);
+    const remainDays=Math.max(0,year-total);
+    const needMore=Math.max(0,needAtt-att);
+    const leftAbs=allowAbs-abs;
+    $('sub').textContent=`目標 出席率${goal}%（年間${year}日）`;
+    $('allow').textContent=allowAbs+'日まで';
+    $('left').textContent=(leftAbs>=0?'あと'+leftAbs+'日':'超過'+(-leftAbs)+'日');
+    $('rem').textContent=remainDays+'日';
+    SHARE=`必要出席日数 計算、目標${goal}%まであと${needMore}日の出席が必要でした🎯`;
+    show(); anim($('big'),0,needMore,800);
+  }
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ,教員'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'hisho-nissu', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js"></script>
+</body>
+</html>

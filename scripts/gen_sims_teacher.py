@@ -379,10 +379,45 @@ add(id='shusseki-ritsu', cat=T, emoji='📅',
       <div class="statline"><div class="stat"><div class="k">出席日数</div><div class="v" id="att">—</div></div>
       <div class="stat"><div class="k">年間で9割維持には</div><div class="v accent" id="keep">—</div></div>
       <div class="stat"><div class="k">欠席日数</div><div class="v" id="absv">—</div></div></div>''',
-  article='''    <h2>出席率の計算</h2>
-    <div class="note"><strong>計算式</strong><br>出席率 ＝（授業日数 − 欠席日数）÷ 授業日数 ×100</div>
-    <p>進級・進学・皆勤の基準は学校により異なります。本ツールは目安です。気になる場合は学校の規定をご確認ください。遅刻・早退の扱いも学校ごとに異なります。</p>
-    <h2>よくある質問</h2>'''+faq([('遅刻は？','本ツールは欠席日数のみで計算します。遅刻・早退の換算は校則に従ってください。'),('データは送信されますか？','いいえ。計算はすべてブラウザ内で完結します。')]),
+  article='''    <h2>出席率の計算方法</h2>
+    <div class="note"><strong>計算式</strong><br>出席率（％）＝（授業日数 − 欠席日数）÷ 授業日数 × 100</div>
+    <p>出席率は「これまでの授業日数のうち、実際に出席した日数の割合」です。たとえば授業日数120日で欠席が5日なら、出席率は (120−5)÷120×100 ＝ <b>約95.8％</b> になります。進級・進学・皆勤の判定、保護者面談の資料づくりなどに使われる基本の数字です。</p>
+    <h2>出席率の早見表（年間200日の場合）</h2>
+    <p>年間授業日数を200日としたときの、欠席日数ごとの出席率の目安です。自分の状況に近いところを確認してみてください。</p>
+    <div style="overflow-x:auto;">
+    <table>
+    <thead><tr><th>欠席日数</th><th>出席率</th><th>目安</th></tr></thead>
+    <tbody>
+    <tr><td>0日</td><td>100%</td><td>皆勤</td></tr>
+    <tr><td>5日</td><td>97.5%</td><td>非常に良好</td></tr>
+    <tr><td>10日</td><td>95.0%</td><td>良好</td></tr>
+    <tr><td>20日</td><td>90.0%</td><td>ひとつの目安ライン</td></tr>
+    <tr><td>40日</td><td>80.0%</td><td>注意（要件に注意）</td></tr>
+    <tr><td>60日</td><td>70.0%</td><td>進級・単位に影響も</td></tr>
+    </tbody>
+    </table>
+    </div>
+    <h2>学校段階別・出席率の考え方</h2>
+    <p>出席日数・出席率の「基準」は学校や自治体、大学の学部によって大きく異なります。あくまで一般的な傾向として、次のような違いがあります（正確な基準は必ず在籍校の規定をご確認ください）。</p>
+    <ul>
+    <li><b>小学校・中学校</b>……義務教育のため出席率だけで留年になることは通常ありませんが、欠席が続くと「欠席日数」が指導要録に記録されます。年間30日以上の欠席は「不登校」の目安とされます。</li>
+    <li><b>高校</b>……多くの学校で、各科目の「出席時数が規定の3分の2以上（欠席が3分の1を超えない）」などの要件があり、満たさないと単位が認定されず進級・卒業に影響することがあります。</li>
+    <li><b>大学</b>……科目ごとに「全授業回数の3分の2以上の出席」を単位認定の条件とすることが一般的です。</li>
+    </ul>
+    <h2>関連する出席の計算ツール</h2>
+    <p>目的に合わせて、次のツールもあわせてご利用ください。</p>
+    <ul>
+    <li><a href="/sims/hisho-nissu/">必要出席日数 計算</a>……目標の出席率まで「あと何日出席が必要か」を計算</li>
+    <li><a href="/sims/kaikin-hantei/">皆勤・精勤 判定</a>……欠席・遅刻の数から皆勤／精勤を判定</li>
+    <li><a href="/sims/shinkyu-hantei/">進級・卒業の出席条件 判定</a>……「3分の2以上」などの出席要件を満たしているかチェック</li>
+    <li><a href="/sims/chiko-soutai/">遅刻・早退→欠席換算</a>……遅刻・早退を欠席に換算して実質出席率を計算</li>
+    </ul>
+    <h2>よくある質問</h2>'''+faq([
+    ('出席率は何％あればいい？','学校段階や学校の規定によって異なります。高校・大学では「3分の2以上（約66.7％以上）」を単位・進級の要件とすることが多いですが、必ず在籍校の規定をご確認ください。'),
+    ('遅刻・早退はどう数える？','本ツールは欠席日数のみで計算します。遅刻・早退を欠席に換算したい場合は、'+'<a href="/sims/chiko-soutai/">遅刻・早退→欠席換算</a>ツールをご利用ください。換算ルールは校則に従ってください。'),
+    ('欠席が何日まで大丈夫か知りたい','年間授業日数を入れると「9割維持まであと何日休めるか」の目安を表示します。目標出席率で細かく計算したい場合は'+'<a href="/sims/kaikin-hantei/">皆勤・精勤 判定</a>や'+'<a href="/sims/hisho-nissu/">必要出席日数 計算</a>もどうぞ。'),
+    ('出席停止（インフルエンザ等）は欠席になる？','学校保健安全法に基づく出席停止や忌引きは「欠席日数」に含めない扱いが一般的ですが、記録の仕方は学校によります。詳しくは学校にご確認ください。'),
+    ('データは送信されますか？','いいえ。計算はすべてあなたのブラウザ内で完結します。')]),
   js='''  function calc(){
     const t=Math.max(1,+$('total').value||1),a=Math.max(0,+$('abs').value||0),y=Math.max(1,+$('year').value||1);
     const rate=(t-a)/t*100, canAbs=Math.floor(y*0.1)-a;
@@ -792,6 +827,176 @@ add(id='gakkyu-hensei', cat=T, emoji='🏫',
     $('avg').textContent=avg.toFixed(1)+'人'; $('next').textContent='あと'+toNext+'人'; $('cap').textContent=cap+'人';
     SHARE=`学級編成シミュ、${n}人なら${classes}クラス（1クラス平均${avg.toFixed(1)}人）でした🏫`;
     show(); anim($('big'),0,classes,800);
+  }''')
+
+# ============================================================
+# 出席率クラスタ（shusseki-ritsu の関連ツール）
+# ============================================================
+add(id='hisho-nissu', cat=T, emoji='🎯',
+  title='必要出席日数 計算｜目標の出席率まであと何日出席が必要？｜シミュラボ',
+  desc='今までの授業日数・欠席日数と、目標の出席率から「年間であと何日出席が必要か」「あと何日休めるか」を計算する先生・生徒・保護者向け無料ツール。',
+  ogtitle='必要出席日数 計算｜あと何日出席が必要？', ogdesc='目標出席率まで、あと何日出席が必要か・あと何日休めるかを計算。',
+  h1='必要出席日数 計算',
+  lead='目標の出席率を保つには、年間であと何日出席が必要か・あと何日まで休めるかを計算します。進級や単位の出席要件の逆算に。',
+  inputs='''    <h2>🎯 条件を入れる</h2>
+    <div class="row"><div class="field"><label>年間の授業日数 <span class="hint">（日）</span></label><input type="number" id="year" value="200" min="1" inputmode="numeric"></div>
+    <div class="field"><label>目標の出席率 <span class="hint">（％）</span></label><input type="number" id="goal" value="90" min="1" max="100" inputmode="numeric"></div></div>
+    <div class="row"><div class="field"><label>これまでの授業日数 <span class="hint">（日）</span></label><input type="number" id="total" value="120" min="0" inputmode="numeric"></div>
+    <div class="field"><label>これまでの欠席日数 <span class="hint">（日）</span></label><input type="number" id="abs" value="10" min="0" inputmode="numeric"></div></div>
+    <button class="btn btn-primary" id="calcBtn">必要な出席日数を見る</button>''',
+  result='''      <div class="label">あと何日 出席が必要</div>
+      <div class="big"><span id="big">0</span><span class="unit">日</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">年間で許される欠席</div><div class="v accent" id="allow">—</div></div>
+      <div class="stat"><div class="k">あと休める日数</div><div class="v" id="left">—</div></div>
+      <div class="stat"><div class="k">残りの授業日数</div><div class="v" id="rem">—</div></div></div>''',
+  article='''    <h2>必要出席日数の計算方法</h2>
+    <div class="note"><strong>計算式</strong><br>年間で必要な出席日数 ＝ 年間授業日数 × 目標出席率<br>年間で許される欠席日数 ＝ 年間授業日数 −（年間で必要な出席日数）<br>あと休める日数 ＝ 許される欠席日数 − これまでの欠席日数</div>
+    <p>「目標の出席率を保つには、残りをどれだけ出席すればいいか」を逆算するツールです。高校・大学では出席率が単位・進級の要件になることが多いため、早めに逆算しておくと安心です。まず<a href="/sims/shusseki-ritsu/">出席率シミュレーター</a>で現在の出席率を確認し、こちらで必要日数を計算するのがおすすめです。</p>
+    <h2>関連ツール</h2>
+    <ul>
+    <li><a href="/sims/shusseki-ritsu/">出席率シミュレーター</a>……現在の出席率を計算</li>
+    <li><a href="/sims/shinkyu-hantei/">進級・卒業の出席条件 判定</a>……「3分の2以上」などの要件チェック</li>
+    <li><a href="/sims/kaikin-hantei/">皆勤・精勤 判定</a></li>
+    </ul>
+    <h2>よくある質問</h2>'''+faq([
+    ('目標出席率は何％にすべき？','高校・大学では「3分の2以上（約66.7％）」や「4分の3以上（75％）」を要件とすることが多いです。正確な数値は在籍校の規定をご確認ください。'),
+    ('「あと休める日数」がマイナスになった','すでに目標の出席率を保てない欠席数に達している可能性があります。学校・大学の窓口に早めに相談してください。'),
+    ('データは送信されますか？','いいえ。計算はすべてブラウザ内で完結します。')]),
+  js='''  function calc(){
+    const year=Math.max(1,+$('year').value||1), goal=Math.min(100,Math.max(1,+$('goal').value||90));
+    const total=Math.max(0,+$('total').value||0), abs=Math.max(0,+$('abs').value||0);
+    const needAtt=Math.ceil(year*goal/100);
+    const allowAbs=year-needAtt;
+    const att=Math.max(0,total-abs);
+    const remainDays=Math.max(0,year-total);
+    const needMore=Math.max(0,needAtt-att);
+    const leftAbs=allowAbs-abs;
+    $('sub').textContent=`目標 出席率${goal}%（年間${year}日）`;
+    $('allow').textContent=allowAbs+'日まで';
+    $('left').textContent=(leftAbs>=0?'あと'+leftAbs+'日':'超過'+(-leftAbs)+'日');
+    $('rem').textContent=remainDays+'日';
+    SHARE=`必要出席日数 計算、目標${goal}%まであと${needMore}日の出席が必要でした🎯`;
+    show(); anim($('big'),0,needMore,800);
+  }''')
+
+add(id='kaikin-hantei', cat=T, emoji='🏅',
+  title='皆勤・精勤 判定｜欠席・遅刻から皆勤賞・精勤賞をチェック｜シミュラボ',
+  desc='欠席日数と遅刻・早退の回数から、皆勤・精勤に当てはまるかを判定する先生・生徒・保護者向け無料ツール。精勤の基準（欠席の許容日数）も選べます。',
+  ogtitle='皆勤・精勤 判定｜皆勤賞・精勤賞をチェック', ogdesc='欠席・遅刻の回数から皆勤・精勤に当てはまるか判定。',
+  h1='皆勤・精勤 判定',
+  lead='欠席日数と遅刻・早退の回数から、皆勤・精勤に当てはまるかを判定します。精勤の許容日数も選べます（基準は学校により異なります）。',
+  inputs='''    <h2>🏅 条件を入れる</h2>
+    <div class="row"><div class="field"><label>欠席日数 <span class="hint">（日）</span></label><input type="number" id="abs" value="0" min="0" inputmode="numeric"></div>
+    <div class="field"><label>遅刻・早退の合計 <span class="hint">（回）</span></label><input type="number" id="late" value="0" min="0" inputmode="numeric"></div></div>
+    <div class="field"><label>精勤とみなす欠席の上限</label><select id="rule"><option value="1">欠席1日まで精勤</option><option value="3" selected>欠席3日まで精勤</option><option value="5">欠席5日まで精勤</option></select></div>
+    <button class="btn btn-primary" id="calcBtn">判定する</button>''',
+  result='''      <div class="label">判定</div>
+      <div class="big" style="font-size:30px;"><span id="big">—</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">欠席</div><div class="v" id="av">—</div></div>
+      <div class="stat"><div class="k">遅刻・早退</div><div class="v" id="lv">—</div></div>
+      <div class="stat"><div class="k">精勤の基準</div><div class="v accent" id="rv">—</div></div></div>''',
+  article='''    <h2>皆勤・精勤の考え方</h2>
+    <div class="note"><strong>判定の目安</strong><br>皆勤＝欠席0日・遅刻早退0回<br>精勤＝欠席が「精勤とみなす上限」以内（遅刻・早退の扱いは学校による）</div>
+    <p>「皆勤（かいきん）」は一年間まったく休まなかったこと、「精勤（せいきん）」はごくわずかな欠席にとどまったことを指すのが一般的です。ただし、遅刻・早退を欠席として数えるか、精勤の許容日数を何日にするかは学校によって大きく異なります。本ツールはあくまで目安です。</p>
+    <p>出席率そのものを知りたい場合は<a href="/sims/shusseki-ritsu/">出席率シミュレーター</a>、遅刻・早退を欠席に換算したい場合は<a href="/sims/chiko-soutai/">遅刻・早退→欠席換算</a>もご利用ください。</p>
+    <h2>よくある質問</h2>'''+faq([
+    ('遅刻は皆勤に影響する？','学校によります。遅刻・早退があっても皆勤とする学校もあれば、精勤扱いにする学校もあります。本ツールは遅刻・早退が1回でもあれば皆勤にはしない設定です。'),
+    ('精勤の日数は正しい？','精勤の基準は学校ごとに異なります。選択式の目安ですので、正確な基準は在籍校にご確認ください。'),
+    ('データは送信されますか？','いいえ。計算はすべてブラウザ内で完結します。')]),
+  js='''  function calc(){
+    const abs=Math.max(0,+$('abs').value||0), late=Math.max(0,+$('late').value||0), rule=+$('rule').value||3;
+    let res,detail;
+    if(abs===0&&late===0){res='🏅 皆勤';detail='一度も休まず、遅刻・早退もありません。';}
+    else if(abs===0&&late>0){res='✨ 精勤（皆勤惜しい）';detail='欠席はありませんが、遅刻・早退があります。';}
+    else if(abs<=rule){res='✨ 精勤';detail=`欠席${abs}日は精勤の目安（${rule}日以内）です。`;}
+    else{res='該当なし';detail=`欠席${abs}日は精勤の目安（${rule}日以内）を超えています。`;}
+    $('big').textContent=res;
+    $('sub').textContent=detail;
+    $('av').textContent=abs+'日'; $('lv').textContent=late+'回'; $('rv').textContent='欠席'+rule+'日まで';
+    SHARE=`皆勤・精勤 判定、結果は「${res}」でした🏅`;
+    show();
+  }''')
+
+add(id='shinkyu-hantei', cat=T, emoji='✅',
+  title='進級・卒業の出席条件 判定｜出席率が3分の2以上あるかチェック｜シミュラボ',
+  desc='全授業回数と欠席回数から出席率を計算し、「3分の2以上」「4分の3以上」などの出席要件を満たしているか、あと何回休めるかを判定する高校生・大学生向け無料ツール。',
+  ogtitle='進級・卒業の出席条件 判定｜出席要件チェック', ogdesc='出席率が3分の2以上あるか・あと何回休めるかを判定。',
+  h1='進級・卒業の出席条件 判定',
+  lead='全授業回数と欠席回数から、「3分の2以上」などの出席要件を満たしているかを判定します。単位・進級・卒業の出席条件の確認に。',
+  inputs='''    <h2>✅ 条件を入れる</h2>
+    <div class="row"><div class="field"><label>全授業回数 <span class="hint">（回・予定含む）</span></label><input type="number" id="total" value="30" min="1" inputmode="numeric"></div>
+    <div class="field"><label>これまでの欠席回数 <span class="hint">（回）</span></label><input type="number" id="abs" value="6" min="0" inputmode="numeric"></div></div>
+    <div class="field"><label>必要な出席の基準</label><select id="req"><option value="0.6667" selected>3分の2以上（約66.7%）</option><option value="0.75">4分の3以上（75%）</option><option value="0.8">80%以上</option><option value="0.9">90%以上</option></select></div>
+    <button class="btn btn-primary" id="calcBtn">判定する</button>''',
+  result='''      <div class="label">現時点の出席率</div>
+      <div class="big"><span id="big">0</span><span class="unit">%</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">判定</div><div class="v accent" id="ok">—</div></div>
+      <div class="stat"><div class="k">あと休める回数</div><div class="v" id="left">—</div></div>
+      <div class="stat"><div class="k">必要な最低出席</div><div class="v" id="need">—</div></div></div>''',
+  article='''    <h2>出席条件の判定方法</h2>
+    <div class="note"><strong>計算式</strong><br>出席率 ＝（全授業回数 − 欠席回数）÷ 全授業回数 × 100<br>許される欠席回数 ＝ 全授業回数 ×（1 − 必要な出席の基準）<br>あと休める回数 ＝ 許される欠席回数 − これまでの欠席回数</div>
+    <p>高校・大学では、科目ごとに「全授業回数の3分の2以上の出席」を単位認定・進級・卒業の条件とすることが一般的です。本ツールは、いまの欠席回数で要件を満たしているか、あと何回まで休めるかの目安を示します。正確な基準は在籍校のシラバス・学則をご確認ください。</p>
+    <p>出席率の基本計算は<a href="/sims/shusseki-ritsu/">出席率シミュレーター</a>、目標からの逆算は<a href="/sims/hisho-nissu/">必要出席日数 計算</a>もどうぞ。</p>
+    <h2>よくある質問</h2>'''+faq([
+    ('「3分の2以上」ってどういう意味？','全授業回数の3分の2以上に出席するという意味で、言い換えると欠席が全体の3分の1を超えるとアウト、ということです。30回なら欠席10回まで（＝出席20回以上）が目安になります。'),
+    ('遅刻は欠席になる？','学校・科目によります。遅刻数回で1欠席とみなす場合は、'+'<a href="/sims/chiko-soutai/">遅刻・早退→欠席換算</a>で実質の欠席回数を出してから入力してください。'),
+    ('データは送信されますか？','いいえ。計算はすべてブラウザ内で完結します。')]),
+  js='''  function calc(){
+    const total=Math.max(1,+$('total').value||1), abs=Math.max(0,+$('abs').value||0), req=+$('req').value||0.6667;
+    const att=Math.max(0,total-abs), rate=att/total*100;
+    const needAtt=Math.ceil(total*req);
+    const allowAbs=total-needAtt;
+    const left=allowAbs-abs;
+    const ok=att>=needAtt;
+    $('sub').textContent=`全${total}回中 ${abs}回欠席`;
+    $('ok').textContent=ok?'✅ 満たしている':'⚠️ 要注意';
+    $('left').textContent=(left>=0?'あと'+left+'回':'超過'+(-left)+'回');
+    $('need').textContent=needAtt+'回以上';
+    SHARE=`進級・卒業の出席条件 判定、出席率${rate.toFixed(1)}%で${ok?'要件クリア✅':'要注意⚠️'}でした`;
+    show(); anim($('big'),0,rate,800,1);
+  }''')
+
+add(id='chiko-soutai', cat=T, emoji='⏰',
+  title='遅刻・早退→欠席換算｜遅刻早退を欠席に直して実質出席率を計算｜シミュラボ',
+  desc='遅刻・早退の回数を「○回で欠席1回」の換算ルールで欠席に直し、実質の欠席数と実質出席率を計算する高校生・大学生・先生向け無料ツール。',
+  ogtitle='遅刻・早退→欠席換算｜実質出席率を計算', ogdesc='遅刻・早退を欠席に換算して実質の出席率を計算。',
+  h1='遅刻・早退→欠席換算',
+  lead='遅刻・早退を「○回で欠席1回」のルールで欠席に換算し、実質の欠席数と実質出席率を計算します。出席要件の確認に（換算ルールは校則に従ってください）。',
+  inputs='''    <h2>⏰ 条件を入れる</h2>
+    <div class="row"><div class="field"><label>全授業日数（回） <span class="hint">（日・回）</span></label><input type="number" id="total" value="120" min="1" inputmode="numeric"></div>
+    <div class="field"><label>欠席日数 <span class="hint">（日）</span></label><input type="number" id="abs" value="3" min="0" inputmode="numeric"></div></div>
+    <div class="row"><div class="field"><label>遅刻の回数 <span class="hint">（回）</span></label><input type="number" id="late" value="6" min="0" inputmode="numeric"></div>
+    <div class="field"><label>早退の回数 <span class="hint">（回）</span></label><input type="number" id="early" value="2" min="0" inputmode="numeric"></div></div>
+    <div class="field"><label>換算ルール</label><select id="ratio"><option value="3" selected>遅刻・早退3回で欠席1回</option><option value="2">2回で欠席1回</option><option value="4">4回で欠席1回</option></select></div>
+    <button class="btn btn-primary" id="calcBtn">実質出席率を見る</button>''',
+  result='''      <div class="label">実質の出席率</div>
+      <div class="big"><span id="big">0</span><span class="unit">%</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">換算された欠席</div><div class="v accent" id="conv">—</div></div>
+      <div class="stat"><div class="k">実質の欠席合計</div><div class="v" id="tot">—</div></div>
+      <div class="stat"><div class="k">見かけの出席率</div><div class="v" id="raw">—</div></div></div>''',
+  article='''    <h2>遅刻・早退の欠席換算とは</h2>
+    <div class="note"><strong>計算式</strong><br>換算欠席 ＝（遅刻＋早退）÷ 換算ルール（切り捨て）<br>実質欠席 ＝ 欠席日数 ＋ 換算欠席<br>実質出席率 ＝（全授業日数 − 実質欠席）÷ 全授業日数 × 100</div>
+    <p>多くの学校・大学では、遅刻や早退が一定回数たまると欠席1回分として扱われます（例：遅刻3回で欠席1回）。このツールは、そのルールで遅刻・早退を欠席に換算し、「見かけの出席率」ではなく「実質の出席率」を計算します。出席要件ギリギリの人ほど、換算後の数字で確認しておくと安心です。</p>
+    <p>換算後の欠席回数が出たら、<a href="/sims/shinkyu-hantei/">進級・卒業の出席条件 判定</a>で要件を満たすかチェックしてみてください。基本の出席率は<a href="/sims/shusseki-ritsu/">出席率シミュレーター</a>で確認できます。</p>
+    <h2>よくある質問</h2>'''+faq([
+    ('換算ルールは学校で違う？','はい。遅刻3回で欠席1回、2回で1回など学校・科目でさまざまです。本ツールは代表的な例を選べますが、正確なルールは校則・シラバスをご確認ください。'),
+    ('遅刻と早退は同じ扱い？','本ツールは遅刻と早退を合算して換算します。別ルールの場合は、合計回数を調整して入力してください。'),
+    ('データは送信されますか？','いいえ。計算はすべてブラウザ内で完結します。')]),
+  js='''  function calc(){
+    const total=Math.max(1,+$('total').value||1), abs=Math.max(0,+$('abs').value||0);
+    const late=Math.max(0,+$('late').value||0), early=Math.max(0,+$('early').value||0), ratio=Math.max(1,+$('ratio').value||3);
+    const conv=Math.floor((late+early)/ratio);
+    const realAbs=abs+conv;
+    const rawRate=Math.max(0,(total-abs)/total*100);
+    const realRate=Math.max(0,(total-realAbs)/total*100);
+    $('sub').textContent=`遅刻${late}・早退${early}回を${ratio}回=欠席1で換算`;
+    $('conv').textContent='＋'+conv+'日'; $('tot').textContent=realAbs+'日'; $('raw').textContent=rawRate.toFixed(1)+'%';
+    SHARE=`遅刻・早退→欠席換算、実質の出席率は${realRate.toFixed(1)}%でした⏰`;
+    show(); anim($('big'),0,realRate,800,1);
   }''')
 
 def render():

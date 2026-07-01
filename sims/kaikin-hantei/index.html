@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/kaikin-hantei/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/kaikin-hantei.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/kaikin-hantei.png">
+<title>皆勤・精勤 判定｜欠席・遅刻から皆勤賞・精勤賞をチェック｜シミュラボ</title>
+<meta name="description" content="欠席日数と遅刻・早退の回数から、皆勤・精勤に当てはまるかを判定する先生・生徒・保護者向け無料ツール。精勤の基準（欠席の許容日数）も選べます。">
+<meta property="og:title" content="皆勤・精勤 判定｜皆勤賞・精勤賞をチェック">
+<meta property="og:description" content="欠席・遅刻の回数から皆勤・精勤に当てはまるか判定。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/kaikin-hantei/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "皆勤・精勤 判定", "url": "https://shimulabo.com/sims/kaikin-hantei/", "description": "欠席日数と遅刻・早退の回数から、皆勤・精勤に当てはまるかを判定する先生・生徒・保護者向け無料ツール。精勤の基準（欠席の許容日数）も選べます。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "皆勤・精勤 判定", "item": "https://shimulabo.com/sims/kaikin-hantei/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "遅刻は皆勤に影響する？", "acceptedAnswer": {"@type": "Answer", "text": "学校によります。遅刻・早退があっても皆勤とする学校もあれば、精勤扱いにする学校もあります。本ツールは遅刻・早退が1回でもあれば皆勤にはしない設定です。"}}, {"@type": "Question", "name": "精勤の日数は正しい？", "acceptedAnswer": {"@type": "Answer", "text": "精勤の基準は学校ごとに異なります。選択式の目安ですので、正確な基準は在籍校にご確認ください。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>教員・先生<span>›</span><span class="cur">皆勤・精勤 判定</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">教員・先生</div>
+    <h1>皆勤・精勤 判定</h1>
+    <p class="lead">欠席日数と遅刻・早退の回数から、皆勤・精勤に当てはまるかを判定します。精勤の許容日数も選べます（基準は学校により異なります）。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🏅 条件を入れる</h2>
+    <div class="row"><div class="field"><label>欠席日数 <span class="hint">（日）</span></label><input type="number" id="abs" value="0" min="0" inputmode="numeric"></div>
+    <div class="field"><label>遅刻・早退の合計 <span class="hint">（回）</span></label><input type="number" id="late" value="0" min="0" inputmode="numeric"></div></div>
+    <div class="field"><label>精勤とみなす欠席の上限</label><select id="rule"><option value="1">欠席1日まで精勤</option><option value="3" selected>欠席3日まで精勤</option><option value="5">欠席5日まで精勤</option></select></div>
+    <button class="btn btn-primary" id="calcBtn">判定する</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">判定</div>
+      <div class="big" style="font-size:30px;"><span id="big">—</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">欠席</div><div class="v" id="av">—</div></div>
+      <div class="stat"><div class="k">遅刻・早退</div><div class="v" id="lv">—</div></div>
+      <div class="stat"><div class="k">精勤の基準</div><div class="v accent" id="rv">—</div></div></div>
+      <a class="cta-box" href="https://piyopiyo-teacher.com/?page_id=1103" target="_blank" rel="noopener" style="display:block;text-decoration:none;text-align:left;margin-top:20px;background:linear-gradient(135deg,#fff7ed,#ffedd5);border:1.5px solid #fcd34d;border-radius:14px;padding:16px 18px;">
+        <div style="font-weight:900;color:#b45309;font-size:15px;">📝 通知表の所見づくり、もっとラクに。</div>
+        <div style="font-size:13px;color:var(--ink-2);margin-top:5px;line-height:1.6;">観点を選ぶだけで自然な所見文が完成。先生のための「通知表 所見作成ツール」を無料で試せます。</div>
+        <div style="margin-top:10px;font-weight:800;color:#b45309;font-size:13px;">所見作成ツールを使ってみる →</div>
+      </a>
+      <div style="text-align:center;margin-top:14px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>皆勤・精勤の考え方</h2>
+    <div class="note"><strong>判定の目安</strong><br>皆勤＝欠席0日・遅刻早退0回<br>精勤＝欠席が「精勤とみなす上限」以内（遅刻・早退の扱いは学校による）</div>
+    <p>「皆勤（かいきん）」は一年間まったく休まなかったこと、「精勤（せいきん）」はごくわずかな欠席にとどまったことを指すのが一般的です。ただし、遅刻・早退を欠席として数えるか、精勤の許容日数を何日にするかは学校によって大きく異なります。本ツールはあくまで目安です。</p>
+    <p>出席率そのものを知りたい場合は<a href="/sims/shusseki-ritsu/">出席率シミュレーター</a>、遅刻・早退を欠席に換算したい場合は<a href="/sims/chiko-soutai/">遅刻・早退→欠席換算</a>もご利用ください。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>遅刻は皆勤に影響する？</dt><dd>学校によります。遅刻・早退があっても皆勤とする学校もあれば、精勤扱いにする学校もあります。本ツールは遅刻・早退が1回でもあれば皆勤にはしない設定です。</dd><dt>精勤の日数は正しい？</dt><dd>精勤の基準は学校ごとに異なります。選択式の目安ですので、正確な基準は在籍校にご確認ください。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../seiseki-hyotei/index.html"><span class="e">📊</span><span>観点別評価→評定シミュレーター</span></a><a class="related-card" href="../test-toukei/index.html"><span class="e">📈</span><span>テスト統計シミュレーター</span></a><a class="related-card" href="../naishin-keisan/index.html"><span class="e">🎯</span><span>内申点 計算シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){
+    const abs=Math.max(0,+$('abs').value||0), late=Math.max(0,+$('late').value||0), rule=+$('rule').value||3;
+    let res,detail;
+    if(abs===0&&late===0){res='🏅 皆勤';detail='一度も休まず、遅刻・早退もありません。';}
+    else if(abs===0&&late>0){res='✨ 精勤（皆勤惜しい）';detail='欠席はありませんが、遅刻・早退があります。';}
+    else if(abs<=rule){res='✨ 精勤';detail=`欠席${abs}日は精勤の目安（${rule}日以内）です。`;}
+    else{res='該当なし';detail=`欠席${abs}日は精勤の目安（${rule}日以内）を超えています。`;}
+    $('big').textContent=res;
+    $('sub').textContent=detail;
+    $('av').textContent=abs+'日'; $('lv').textContent=late+'回'; $('rv').textContent='欠席'+rule+'日まで';
+    SHARE=`皆勤・精勤 判定、結果は「${res}」でした🏅`;
+    show();
+  }
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ,教員'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'kaikin-hantei', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js"></script>
+</body>
+</html>

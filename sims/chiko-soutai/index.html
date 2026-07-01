@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/chiko-soutai/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/chiko-soutai.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/chiko-soutai.png">
+<title>遅刻・早退→欠席換算｜遅刻早退を欠席に直して実質出席率を計算｜シミュラボ</title>
+<meta name="description" content="遅刻・早退の回数を「○回で欠席1回」の換算ルールで欠席に直し、実質の欠席数と実質出席率を計算する高校生・大学生・先生向け無料ツール。">
+<meta property="og:title" content="遅刻・早退→欠席換算｜実質出席率を計算">
+<meta property="og:description" content="遅刻・早退を欠席に換算して実質の出席率を計算。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/chiko-soutai/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "遅刻・早退→欠席換算", "url": "https://shimulabo.com/sims/chiko-soutai/", "description": "遅刻・早退の回数を「○回で欠席1回」の換算ルールで欠席に直し、実質の欠席数と実質出席率を計算する高校生・大学生・先生向け無料ツール。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "遅刻・早退→欠席換算", "item": "https://shimulabo.com/sims/chiko-soutai/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "換算ルールは学校で違う？", "acceptedAnswer": {"@type": "Answer", "text": "はい。遅刻3回で欠席1回、2回で1回など学校・科目でさまざまです。本ツールは代表的な例を選べますが、正確なルールは校則・シラバスをご確認ください。"}}, {"@type": "Question", "name": "遅刻と早退は同じ扱い？", "acceptedAnswer": {"@type": "Answer", "text": "本ツールは遅刻と早退を合算して換算します。別ルールの場合は、合計回数を調整して入力してください。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>教員・先生<span>›</span><span class="cur">遅刻・早退→欠席換算</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">教員・先生</div>
+    <h1>遅刻・早退→欠席換算</h1>
+    <p class="lead">遅刻・早退を「○回で欠席1回」のルールで欠席に換算し、実質の欠席数と実質出席率を計算します。出席要件の確認に（換算ルールは校則に従ってください）。</p>
+  </div>
+
+  <section class="panel">
+    <h2>⏰ 条件を入れる</h2>
+    <div class="row"><div class="field"><label>全授業日数（回） <span class="hint">（日・回）</span></label><input type="number" id="total" value="120" min="1" inputmode="numeric"></div>
+    <div class="field"><label>欠席日数 <span class="hint">（日）</span></label><input type="number" id="abs" value="3" min="0" inputmode="numeric"></div></div>
+    <div class="row"><div class="field"><label>遅刻の回数 <span class="hint">（回）</span></label><input type="number" id="late" value="6" min="0" inputmode="numeric"></div>
+    <div class="field"><label>早退の回数 <span class="hint">（回）</span></label><input type="number" id="early" value="2" min="0" inputmode="numeric"></div></div>
+    <div class="field"><label>換算ルール</label><select id="ratio"><option value="3" selected>遅刻・早退3回で欠席1回</option><option value="2">2回で欠席1回</option><option value="4">4回で欠席1回</option></select></div>
+    <button class="btn btn-primary" id="calcBtn">実質出席率を見る</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">実質の出席率</div>
+      <div class="big"><span id="big">0</span><span class="unit">%</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">換算された欠席</div><div class="v accent" id="conv">—</div></div>
+      <div class="stat"><div class="k">実質の欠席合計</div><div class="v" id="tot">—</div></div>
+      <div class="stat"><div class="k">見かけの出席率</div><div class="v" id="raw">—</div></div></div>
+      <a class="cta-box" href="https://piyopiyo-teacher.com/?page_id=1103" target="_blank" rel="noopener" style="display:block;text-decoration:none;text-align:left;margin-top:20px;background:linear-gradient(135deg,#fff7ed,#ffedd5);border:1.5px solid #fcd34d;border-radius:14px;padding:16px 18px;">
+        <div style="font-weight:900;color:#b45309;font-size:15px;">📝 通知表の所見づくり、もっとラクに。</div>
+        <div style="font-size:13px;color:var(--ink-2);margin-top:5px;line-height:1.6;">観点を選ぶだけで自然な所見文が完成。先生のための「通知表 所見作成ツール」を無料で試せます。</div>
+        <div style="margin-top:10px;font-weight:800;color:#b45309;font-size:13px;">所見作成ツールを使ってみる →</div>
+      </a>
+      <div style="text-align:center;margin-top:14px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>遅刻・早退の欠席換算とは</h2>
+    <div class="note"><strong>計算式</strong><br>換算欠席 ＝（遅刻＋早退）÷ 換算ルール（切り捨て）<br>実質欠席 ＝ 欠席日数 ＋ 換算欠席<br>実質出席率 ＝（全授業日数 − 実質欠席）÷ 全授業日数 × 100</div>
+    <p>多くの学校・大学では、遅刻や早退が一定回数たまると欠席1回分として扱われます（例：遅刻3回で欠席1回）。このツールは、そのルールで遅刻・早退を欠席に換算し、「見かけの出席率」ではなく「実質の出席率」を計算します。出席要件ギリギリの人ほど、換算後の数字で確認しておくと安心です。</p>
+    <p>換算後の欠席回数が出たら、<a href="/sims/shinkyu-hantei/">進級・卒業の出席条件 判定</a>で要件を満たすかチェックしてみてください。基本の出席率は<a href="/sims/shusseki-ritsu/">出席率シミュレーター</a>で確認できます。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>換算ルールは学校で違う？</dt><dd>はい。遅刻3回で欠席1回、2回で1回など学校・科目でさまざまです。本ツールは代表的な例を選べますが、正確なルールは校則・シラバスをご確認ください。</dd><dt>遅刻と早退は同じ扱い？</dt><dd>本ツールは遅刻と早退を合算して換算します。別ルールの場合は、合計回数を調整して入力してください。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../seiseki-hyotei/index.html"><span class="e">📊</span><span>観点別評価→評定シミュレーター</span></a><a class="related-card" href="../test-toukei/index.html"><span class="e">📈</span><span>テスト統計シミュレーター</span></a><a class="related-card" href="../naishin-keisan/index.html"><span class="e">🎯</span><span>内申点 計算シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){
+    const total=Math.max(1,+$('total').value||1), abs=Math.max(0,+$('abs').value||0);
+    const late=Math.max(0,+$('late').value||0), early=Math.max(0,+$('early').value||0), ratio=Math.max(1,+$('ratio').value||3);
+    const conv=Math.floor((late+early)/ratio);
+    const realAbs=abs+conv;
+    const rawRate=Math.max(0,(total-abs)/total*100);
+    const realRate=Math.max(0,(total-realAbs)/total*100);
+    $('sub').textContent=`遅刻${late}・早退${early}回を${ratio}回=欠席1で換算`;
+    $('conv').textContent='＋'+conv+'日'; $('tot').textContent=realAbs+'日'; $('raw').textContent=rawRate.toFixed(1)+'%';
+    SHARE=`遅刻・早退→欠席換算、実質の出席率は${realRate.toFixed(1)}%でした⏰`;
+    show(); anim($('big'),0,realRate,800,1);
+  }
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ,教員'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'chiko-soutai', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js"></script>
+</body>
+</html>
