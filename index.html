@@ -57,7 +57,7 @@
   <h1>その<span class="mark-accent">「なんとなく」</span>、<br><span class="grad">数字にすると面白い。</span></h1>
   <p class="lead">身近なギモンや世界のふしぎを、入力するだけで数字とアニメで体感。<br>眺めるだけで「なるほど」が手に入るシミュレーター集です。</p>
   <div class="meta-strip">
-    <span><b>686</b>本 公開中</span>
+    <span><b>691</b>本 公開中</span>
     <span class="sep"></span>
     <span>🔓 登録不要</span>
     <span class="sep"></span>
@@ -3590,6 +3590,31 @@
       <div class="body"><div class="cat">教員・先生</div><h3>遅刻・早退→欠席換算</h3><p>遅刻・早退を欠席に換算して実質の出席率を計算。</p><span class="go">触ってみる →</span></div>
     </a>
 
+    <a class="sim-card" data-cat="kakei" href="sims/senzo-ninzu/index.html">
+      <div class="thumb" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7)"><span class="emoji">🌳</span></div>
+      <div class="body"><div class="cat">家系・ルーツ</div><h3>先祖の人数 計算</h3><p>◯代前のご先祖の人数と、繋がった命の総数を計算。</p><span class="go">触ってみる →</span></div>
+    </a>
+
+    <a class="sim-card" data-cat="kakei" href="sims/shinto-keisan/index.html">
+      <div class="thumb" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7)"><span class="emoji">📐</span></div>
+      <div class="body"><div class="cat">家系・ルーツ</div><h3>親等 計算ツール</h3><p>続柄から親等・直系傍系・婚姻の可否を早見。</p><span class="go">触ってみる →</span></div>
+    </a>
+
+    <a class="sim-card" data-cat="kakei" href="sims/ketsuen/index.html">
+      <div class="thumb" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7)"><span class="emoji">🩸</span></div>
+      <div class="body"><div class="cat">家系・ルーツ</div><h3>血のつながり（血縁度）計算</h3><p>続柄ごとの血縁度（血のつながりの濃さ）を％で表示。</p><span class="go">触ってみる →</span></div>
+    </a>
+
+    <a class="sim-card" data-cat="kakei" href="sims/shison-sim/index.html">
+      <div class="thumb" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7)"><span class="emoji">👶</span></div>
+      <div class="body"><div class="cat">家系・ルーツ</div><h3>子孫シミュレーター</h3><p>子の数と世代数から、未来の子孫の人数を計算。</p><span class="go">触ってみる →</span></div>
+    </a>
+
+    <a class="sim-card" data-cat="kakei" href="sims/oitoko/index.html">
+      <div class="thumb" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7)"><span class="emoji">👨‍👩‍👧‍👦</span></div>
+      <div class="body"><div class="cat">家系・ルーツ</div><h3>続柄・呼び方 判定</h3><p>分かりにくい親戚の正しい呼び方・親等・血縁度を表示。</p><span class="go">触ってみる →</span></div>
+    </a>
+
     <a class="req-card" href="request/index.html">
       <span class="plus">＋💡</span>
       <h3>作ってほしいシミュを送る</h3>
@@ -4252,7 +4277,12 @@
     { href: 'sims/hisho-nissu/index.html', emoji: '🎯', title: '必要出席日数 計算', cat: '教員・先生', score: 62 },
     { href: 'sims/kaikin-hantei/index.html', emoji: '🏅', title: '皆勤・精勤 判定', cat: '教員・先生', score: 61 },
     { href: 'sims/shinkyu-hantei/index.html', emoji: '✅', title: '進級・卒業の出席条件 判定', cat: '教員・先生', score: 60 },
-    { href: 'sims/chiko-soutai/index.html', emoji: '⏰', title: '遅刻・早退→欠席換算', cat: '教員・先生', score: 59 }
+    { href: 'sims/chiko-soutai/index.html', emoji: '⏰', title: '遅刻・早退→欠席換算', cat: '教員・先生', score: 59 },
+    { href: 'sims/senzo-ninzu/index.html', emoji: '🌳', title: '先祖の人数 計算', cat: '家系・ルーツ', score: 64 },
+    { href: 'sims/shinto-keisan/index.html', emoji: '📐', title: '親等 計算ツール', cat: '家系・ルーツ', score: 63 },
+    { href: 'sims/ketsuen/index.html', emoji: '🩸', title: '血のつながり（血縁度）計算', cat: '家系・ルーツ', score: 62 },
+    { href: 'sims/shison-sim/index.html', emoji: '👶', title: '子孫シミュレーター', cat: '家系・ルーツ', score: 61 },
+    { href: 'sims/oitoko/index.html', emoji: '👨‍👩‍👧‍👦', title: '続柄・呼び方 判定', cat: '家系・ルーツ', score: 60 }
   ];
 
   (async function renderRanking(){
@@ -4329,6 +4359,7 @@
     ['manner','冠婚葬祭・贈り物','🎁'],
     ['ninkatsu','妊娠・出産・妊活','🤰'],
     ['cook','料理・キッチン','🍳'],
+    ['kakei','家系・ルーツ','🌳'],
   ];
   const PREVIEW = 6;
   const grid = document.getElementById('grid');
@@ -4395,7 +4426,7 @@
     { key: 'health', cats: ['health', 'sports', 'beauty', 'mental', 'ninkatsu'] },
     { key: 'fun',    cats: ['love', 'uranai', 'oshi', 'play', 'wonder', 'type16', 'brain', 'wedding', 'match'] },
     { key: 'living', cats: ['home', 'food', 'cook', 'travel', 'car', 'pet', 'season', 'hikari', 'manner'] },
-    { key: 'life',   cats: ['life', 'senior', 'tantei'] },
+    { key: 'life',   cats: ['life', 'senior', 'tantei', 'kakei'] },
   ];
   const groupChips = document.getElementById('groupChips');
   const subChips = document.getElementById('subChips');

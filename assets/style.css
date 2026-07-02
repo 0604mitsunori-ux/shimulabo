@@ -327,6 +327,8 @@ a { color: var(--teal-d); }
 .sim-card[data-cat="food"]::before       { background: linear-gradient(90deg, #fb923c, #f43f5e); }
 .sim-card[data-cat="cook"]::before       { background: linear-gradient(90deg, #f59e0b, #ef4444); }
 .sim-card[data-cat="cook"]    .cat { color: #c2410c; }
+.sim-card[data-cat="kakei"]::before      { background: linear-gradient(90deg, #16a34a, #84cc16); }
+.sim-card[data-cat="kakei"]   .cat { color: #15803d; }
 .sim-card[data-cat="play"]::before       { background: linear-gradient(90deg, #06b6d4, #8b5cf6); }
 .sim-card[data-cat="teacher"]::before    { background: linear-gradient(90deg, #fbbf24, #d97706); }
 .sim-card[data-cat="senior"]::before     { background: linear-gradient(90deg, #34d399, #0f766e); }

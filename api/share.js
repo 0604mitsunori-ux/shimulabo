@@ -73,6 +73,7 @@ const ALLOW = new Set([
   'twinray', 'unmei-hito', 'aite-kimochi', 'shugorei', 'deai-uranai',
   'shugoshin', 'shugo-tenshi', 'aura-color', 'reikan', 'soulmate', 'ryujin',
   'hisho-nissu', 'kaikin-hantei', 'shinkyu-hantei', 'chiko-soutai',
+  'senzo-ninzu', 'shinto-keisan', 'ketsuen', 'shison-sim', 'oitoko',
   'renai-shindan', 'renai-type', 'renai-hensachi', 'mote-do', 'risou-aite', 'renai-kachikan', 'kakehiki-type', 'matchapp-aisho', 'kekkon-tekireiki', 'koibito-itsu',
   'uwaki-do', 'uwaki-sign', 'isharyo-furin', 'tantei-hiyou', 'youikuhi', 'zaisan-bunyo', 'shouko-check', 'shinrai-do', 'kentaiki', 'uwaki-nayami',
   'kid-eigo-type', 'kid-eigo-itsukara', 'kid-tablet-muki', 'kid-gakushu-type', 'kid-yaruki', 'kid-kyozai-hiyou', 'kid-eigomimi', 'kid-jitaku', 'kid-gakushu-jikan', 'kid-naraigoto',
