@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/daigaku-shusseki/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/daigaku-shusseki.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/daigaku-shusseki.png">
+<title>大学 出席率 計算｜全15回で単位が取れる？出席何回で認定？｜シミュラボ</title>
+<meta name="description" content="大学の1科目（全15回など）の出席回数・欠席回数から、出席率と単位認定ライン（3分の2以上など）を満たすか、あと何回休めるかを計算する大学生向け無料ツール。">
+<meta property="og:title" content="大学 出席率 計算｜単位は取れる？">
+<meta property="og:description" content="全授業回数と欠席から出席率・単位認定・あと何回休めるかを計算。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/daigaku-shusseki/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "大学 出席率 計算", "url": "https://shimulabo.com/sims/daigaku-shusseki/", "description": "大学の1科目（全15回など）の出席回数・欠席回数から、出席率と単位認定ライン（3分の2以上など）を満たすか、あと何回休めるかを計算する大学生向け無料ツール。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "大学 出席率 計算", "item": "https://shimulabo.com/sims/daigaku-shusseki/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "大学は何回まで休める？", "acceptedAnswer": {"@type": "Answer", "text": "全15回なら、3分の2出席（10回）を満たすには欠席5回までが目安です。ただし科目により基準は異なります。"}}, {"@type": "Question", "name": "出席点はどう影響する？", "acceptedAnswer": {"@type": "Answer", "text": "出席が成績評価に含まれる科目も多く、その場合は休むほど成績も下がります。シラバスで配点を確認しましょう。"}}, {"@type": "Question", "name": "公欠（大学が認める欠席）は？", "acceptedAnswer": {"@type": "Answer", "text": "忌引きや大学行事などの公欠は欠席に数えない扱いが一般的ですが、手続きが必要です。学生課にご確認ください。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../index.html">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../index.html">ホーム</a><span>›</span>教員・先生<span>›</span><span class="cur">大学 出席率 計算</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">教員・先生</div>
+    <h1>大学 出席率 計算</h1>
+    <p class="lead">大学の1科目について、出席率と「単位認定ラインを満たしているか」「あと何回休めるか」を計算します。全15回など授業回数を入れて、欠席のリスクをチェック。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🎓 条件を入れる</h2>
+    <div class="row"><div class="field"><label>全授業回数 <span class="hint">（回・予定含む）</span></label><input type="number" id="total" value="15" min="1" inputmode="numeric"></div>
+    <div class="field"><label>これまでの欠席回数 <span class="hint">（回）</span></label><input type="number" id="abs" value="3" min="0" inputmode="numeric"></div></div>
+    <div class="field"><label>単位認定に必要な出席</label><select id="line"><option value="2/3" selected>3分の2以上（約66.7%）</option><option value="3/4">4分の3以上（75%）</option><option value="4/5">80%以上</option></select></div>
+    <button class="btn btn-primary" id="calcBtn">出席率を計算する</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">現時点の出席率</div>
+      <div class="big"><span id="big">0</span><span class="unit">%</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">単位認定</div><div class="v accent" id="hantei">—</div></div>
+      <div class="stat"><div class="k">あと休める回数</div><div class="v" id="left">—</div></div>
+      <div class="stat"><div class="k">必要な最低出席</div><div class="v" id="need">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+<div class="note" style="border-left:4px solid var(--teal)"><strong>ポイント</strong>：大学の多くの科目は<b>全15回で構成され、3分の2以上（＝10回以上）の出席</b>を単位認定の条件とするのが一般的です。欠席が全体の3分の1（15回なら5回）を超えると、試験を受けても単位が認定されないことがあります。</div>
+    <h2>全15回・3分の2の目安</h2>
+    <table class="seo-table"><tr><th>欠席回数</th><th>出席率</th><th>単位認定（3分の2）</th></tr>
+    <tr><td>0〜3回</td><td>80%以上</td><td>◎ 問題なし</td></tr>
+    <tr><td>4回</td><td>約73%</td><td>○ ギリギリ圏内</td></tr>
+    <tr><td>5回</td><td>約67%</td><td>△ ボーダー</td></tr>
+    <tr><td>6回以上</td><td>60%以下</td><td>× 認定されない恐れ</td></tr></table>
+    <p>正確な基準は各科目のシラバス・大学の学則をご確認ください。遅刻を欠席に換算する場合は <a href="/sims/chiko-soutai/">遅刻・早退→欠席換算</a>、目標からの逆算は <a href="/sims/hisho-nissu/">必要出席日数 計算</a>、要件チェックは <a href="/sims/shinkyu-hantei/">進級・卒業の出席条件 判定</a>、卒業単位は <a href="/sims/sotsugyo-tani/">卒業単位 計算</a> もどうぞ。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>大学は何回まで休める？</dt><dd>全15回なら、3分の2出席（10回）を満たすには欠席5回までが目安です。ただし科目により基準は異なります。</dd><dt>出席点はどう影響する？</dt><dd>出席が成績評価に含まれる科目も多く、その場合は休むほど成績も下がります。シラバスで配点を確認しましょう。</dd><dt>公欠（大学が認める欠席）は？</dt><dd>忌引きや大学行事などの公欠は欠席に数えない扱いが一般的ですが、手続きが必要です。学生課にご確認ください。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl><h2>参考</h2><ul class="seo-refs"><li>大学の単位認定における出席要件（一般的な目安）</li></ul>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../seiseki-hyotei/index.html"><span class="e">📊</span><span>観点別評価→評定シミュレーター</span></a><a class="related-card" href="../test-toukei/index.html"><span class="e">📈</span><span>テスト統計シミュレーター</span></a><a class="related-card" href="../naishin-keisan/index.html"><span class="e">🎯</span><span>内申点 計算シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/index.html">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/index.html" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../index.html">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const hash = (s) => { let h=2166136261; for(let i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h,16777619); } return (h>>>0); };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){
+    const t=Math.max(1,+$('total').value||15), a=Math.max(0,+$('abs').value||0);
+    const fr=($('line').value||'2/3').split('/'), nu=+fr[0]||2, de=+fr[1]||3;
+    const out=Math.max(0,t-a), rate=out/t*100;
+    const need=Math.ceil(t*nu/de - 1e-9), allow=t-need, left=allow-a, ok=out>=need;
+    $('sub').textContent=`全${t}回中 ${a}回欠席`;
+    $('hantei').textContent=ok?'✅ 認定圏内':'⚠️ 危険';
+    $('left').textContent=(left>=0?'あと'+left+'回':'超過'+(-left)+'回');
+    $('need').textContent=need+'回以上';
+    show();anim($('big'),0,rate,800,1);
+    SHARE=`大学 出席率 計算、出席率${rate.toFixed(1)}%で${ok?'単位認定圏内✅':'危険⚠️'}でした🎓`;
+  }
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js"></script>
+<script src="../../assets/share-counter.js"></script>
+<script>ShareCounter.initSim({ simId:'daigaku-shusseki', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js"></script>
+</body>
+</html>

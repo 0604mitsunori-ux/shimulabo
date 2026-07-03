@@ -19,6 +19,9 @@
 <meta property="og:description" content="新車価格と値落ち率から、数年後の予想価格を試算。">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
     <!-- seo-internal -->
     <link rel="canonical" href="https://shimulabo.com/sims/chuko-nedan/">
     <meta property="og:locale" content="ja_JP">
@@ -26,12 +29,6 @@
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "中古車 値落ちシミュレーター", "url": "https://shimulabo.com/sims/chuko-nedan/", "description": "新車価格と値落ち率から数年後の予想価格を試算。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "中古車 値落ちシミュレーター", "item": "https://shimulabo.com/sims/chuko-nedan/"}]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "車種で変わりますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい。人気車種ほど値落ちが緩やかです。値落ち率を調整して試してください。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
-    <!-- ga4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
-    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
-    <!-- adsense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
-         crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -139,9 +136,9 @@
   $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
 })();
 </script>
+<script src="../../assets/result-fx.js"></script>
 <script src="../../assets/share-counter.js"></script>
 <script>ShareCounter.initSim({ simId:'chuko-nedan', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
-<script src="../../assets/result-fx.js"></script>
 <script src="../../assets/lang-toggle.js"></script>
 </body>
 </html>

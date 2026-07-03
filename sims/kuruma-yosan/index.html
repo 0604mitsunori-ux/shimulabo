@@ -19,6 +19,9 @@
 <meta property="og:description" content="年収・頭金・月々の支払いから、無理のない車予算を試算。">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="../../assets/style.css">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
     <!-- seo-internal -->
     <link rel="canonical" href="https://shimulabo.com/sims/kuruma-yosan/">
     <meta property="og:locale" content="ja_JP">
@@ -26,12 +29,6 @@
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "車購入予算シミュレーター", "url": "https://shimulabo.com/sims/kuruma-yosan/", "description": "年収・頭金・月々の支払いから無理のない車予算を試算。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "車購入予算シミュレーター", "item": "https://shimulabo.com/sims/kuruma-yosan/"}]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "金利は含まれますか？", "acceptedAnswer": {"@type": "Answer", "text": "本ツールは無金利の概算です。実際はローン金利が上乗せされます。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
-    <!-- ga4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
-    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
-    <!-- adsense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
-         crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -139,9 +136,9 @@
   $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
 })();
 </script>
+<script src="../../assets/result-fx.js"></script>
 <script src="../../assets/share-counter.js"></script>
 <script>ShareCounter.initSim({ simId:'kuruma-yosan', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
-<script src="../../assets/result-fx.js"></script>
 <script src="../../assets/lang-toggle.js"></script>
 </body>
 </html>

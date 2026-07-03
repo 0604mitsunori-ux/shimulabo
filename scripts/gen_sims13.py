@@ -276,10 +276,25 @@ SIMS.append(dict(id='tsukin-car', cat=CAR, emoji='🚉',
       <div class="statline"><div class="stat"><div class="k">車通勤(月)</div><div class="v" id="car">—</div></div>
       <div class="stat"><div class="k">電車通勤(月)</div><div class="v" id="train">—</div></div>
       <div class="stat"><div class="k">年間の差</div><div class="v accent" id="year">—</div></div></div>''',
-  article='''    <h2>計算方法</h2>
-    <div class="note"><strong>計算式</strong><br>車：往復ガソリン代 × 出勤日数 ＋ 駐車場代<br>電車：定期代（月）</div>
-    <p>車通勤はガソリン以外にも、駐車場・保険・車検・税金がかかります（本ツールはガソリン＋駐車場で比較）。総合的には電車のほうが安いことも多いので、トータルで判断を。</p>
-    <h2>よくある質問</h2>'''+faq([('車の維持費は含まれますか？','駐車場代のみ含みます。保険・車検・税金は別途考慮してください。'),('データは送信されますか？','いいえ。計算はすべてブラウザ内で完結します。')]),
+  article='''    <h2>車通勤と電車通勤、どっちが安い？</h2>
+    <div class="note"><strong>計算式</strong><br>車：片道距離 × 2 ÷ 燃費 × ガソリン単価 × 出勤日数 ＋ 駐車場代<br>電車：定期代（月）</div>
+    <p>通勤コストは「ガソリン代」だけで比べると車が安く見えますが、車には見えないコストが多くあります。片道の距離が短く駐車場代が安いなら車、距離が長い・都市部で駐車場代が高いなら電車が有利になりやすい傾向です。</p>
+    <h2>車通勤にかかる「見えないコスト」</h2>
+    <p>本ツールはガソリン＋駐車場で比較していますが、実際の車の維持には次の費用もかかります。総額で判断しましょう。</p>
+    <table class="seo-table"><tr><th>項目</th><th>年間の目安</th></tr>
+    <tr><td>自動車税</td><td>約3〜5万円（排気量による）</td></tr>
+    <tr><td>車検・整備</td><td>約5〜10万円（2年で10〜20万を按分）</td></tr>
+    <tr><td>任意保険</td><td>約5〜10万円</td></tr>
+    <tr><td>タイヤ・消耗品</td><td>約2〜4万円</td></tr></table>
+    <p>これらを月割りすると、車は月1.5〜2.5万円ほどの固定費が別途かかる計算です。<a href="/sims/kuruma-yosan/index.html">車の維持費シミュレーター</a>で年間・生涯の総額も確認できます。</p>
+    <h2>距離・目的別の関連ツール</h2>
+    <ul>
+    <li><a href="/sims/teiki-kaisu/">定期券 vs 都度払い</a>……テレワークで出社が少ないなら都度払いが得なことも</li>
+    <li><a href="/sims/shinkansen-car/">新幹線 vs 車</a>……帰省・長距離は人数で分岐</li>
+    <li><a href="/sims/taxi-densha/">タクシー vs 電車</a>……短距離・複数人はタクシーが得なことも</li>
+    <li><a href="/sims/gasolinedai/index.html">ガソリン代計算</a>……走行距離と燃費からガソリン代を計算</li>
+    </ul>
+    <h2>よくある質問</h2>'''+faq([('車の維持費は含まれますか？','本ツールはガソリン＋駐車場のみです。保険・車検・税金は別途、車の維持費シミュレーターで確認してください。'),('片道何km以上なら電車が得？','駐車場代と定期代しだいですが、都市部で駐車場代が高い場合は短距離でも電車が有利になりがちです。実際の数値を入れて比較してください。'),('ガソリン単価はどう決める？','直近の給油時の単価を入れるのが正確です。全国平均はおおむね170〜180円/L前後で推移しています。'),('データは送信されますか？','いいえ。計算はすべてブラウザ内で完結します。')]),
   js='''  function calc(){
     const dist=Math.max(0,+$('dist').value||0), nenpi=Math.max(0.1,+$('nenpi').value||0.1), price=Math.max(0,+$('price').value||0), days=Math.max(0,+$('days').value||0), park=Math.max(0,+$('park').value||0), teiki=Math.max(0,+$('teiki').value||0);
     const carMonth=(dist*2/nenpi*price)*days+park, diff=teiki-carMonth;
