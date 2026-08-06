@@ -145,17 +145,22 @@ a { color: var(--teal-d); text-underline-offset: .18em; }
 .wrap { max-width: var(--maxw); margin: 0 auto; padding: 28px 20px 90px; }
 
 /* ====================== HERO ====================== */
+/* 段組みは .hero 自身の左右パディングで作る。
+   （子要素側で margin:auto にすると、後続ルールの margin 指定で簡単に壊れるため） */
 .hero {
   position: relative;
-  padding: 64px 20px 40px;
+  padding-top: 64px; padding-bottom: 40px;
+  /* .wrap（max-width:980px＋左右padding20px）と文字の開始位置をぴったり揃える */
+  padding-left: max(20px, calc((100% - var(--maxw)) / 2 + 20px));
+  padding-right: max(20px, calc((100% - var(--maxw)) / 2 + 20px));
   border-bottom: 1px solid var(--line);
 }
-.hero > * { max-width: var(--maxw); margin-left: auto; margin-right: auto; }
+.hero > * { max-width: calc(var(--maxw) - 40px); margin-left: 0; margin-right: 0; }
 /* 罫線＋小見出し：雑誌の柱（つづき）の見せ方 */
 .hero .kicker {
   display: flex; align-items: center; gap: 9px;
   font-size: 12px; font-weight: 700; color: var(--ink-2); letter-spacing: .12em;
-  margin: 0 auto 20px; padding-bottom: 12px;
+  margin: 0 0 20px; padding-bottom: 12px;
   border-bottom: 1px solid var(--line);
 }
 .hero .kicker .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex: 0 0 auto; }
@@ -176,10 +181,10 @@ a { color: var(--teal-d); text-underline-offset: .18em; }
   text-emphasis-position: over right;
   -webkit-text-emphasis-position: over right;
 }
-.hero .lead { color: var(--ink-2); font-size: clamp(14.5px,1.6vw,16px); margin: 0 auto; max-width: 640px; line-height: 1.95; }
+.hero .lead { color: var(--ink-2); font-size: clamp(14.5px,1.6vw,16px); margin: 0; max-width: 640px; line-height: 1.95; }
 .hero .meta-strip {
   display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
-  margin: 26px auto 0; padding-top: 16px; border-top: 1px solid var(--line);
+  margin: 26px 0 0; padding-top: 16px; border-top: 1px solid var(--line);
 }
 .hero .meta-strip span { font-size: 12.5px; font-weight: 600; color: var(--ink-2); display: inline-flex; align-items: baseline; gap: 6px; }
 .hero .meta-strip b {
@@ -187,13 +192,14 @@ a { color: var(--teal-d); text-underline-offset: .18em; }
   font-variant-numeric: tabular-nums; letter-spacing: -.01em;
 }
 .hero .meta-strip .sep { width: 1px; height: 12px; background: var(--line); align-self: center; }
-@media (max-width: 520px){ .hero { padding: 40px 16px 28px; } }
+@media (max-width: 520px){ .hero { padding-top: 40px; padding-bottom: 28px; } }
 
 /* ====================== 人気ランキング ====================== */
-.rank-wrap { max-width: 720px; margin: 6px auto 10px; }
-.rank-head { display: flex; align-items: baseline; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 18px; }
-.rank-head h2 { font-size: 22px; margin: 0; display: inline-flex; align-items: center; gap: 8px; }
-.rank-head .note { font-size: 12px; color: var(--ink-2); }
+/* カテゴリ見出し（左・罫線）と体裁を揃える。中央寄せ＋720px幅だと浮いてしまうため */
+.rank-wrap { max-width: none; margin: 6px 0 10px; }
+.rank-head { display: flex; align-items: baseline; gap: 10px; justify-content: flex-start; flex-wrap: wrap; margin-bottom: 6px; padding-bottom: 12px; border-bottom: 1px solid var(--ink); }
+.rank-head h2 { font-size: 18px; margin: 0; display: inline-flex; align-items: center; gap: 8px; font-weight: 600; }
+.rank-head .note { font-size: 11.5px; color: var(--ink-3); margin-left: auto; }
 .rank-list { display: flex; flex-direction: column; gap: 10px; }
 /* v3：カードの寄せ集めではなく、罫線で区切った「番付」の組版に */
 .rank-row {
