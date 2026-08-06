@@ -110,7 +110,17 @@ const ALLOW = new Set([
   'chomiryo-gram', 'kome-mizu', 'onsu-gram', 'ml-gram', 'ninzu-bunryo',
   'cup-kanzan', 'shokuzai-omosa', 'oven-ondo', 'age-abura', 'pasta-ryou',
   'gohan-cal', 'dashi-wari', 'atsuryoku-jikan', 'hgm-daiyo', 'enbun-chomiryo',
-  'kaitou-jikan', 'kome-shinsui', 'suihan-denki', 'nikuryo-ninzu', 'tamago-size'
+  'kaitou-jikan', 'kome-shinsui', 'suihan-denki', 'nikuryo-ninzu', 'tamago-size',
+  'kisei-total', 'chintai-shoki', 'menkyo-hiyou', 'soshiki-hiyou', 'seijinshiki',
+  'syukatsu-hiyou', 'kaigai-ryoko', 'sotsugyo-ryoko', 'ie-kau', 'reform-hiyou',
+  'shaken-hiyou', 'baiku-hiyou', 'zaitaku-cost', 'dousei-hiyou', 'omiyamairi',
+  'pet-kasou', 'themepark-1day', 'diet-cost', 'biyou-iji', 'smartphone-sougaku',
+  'bento-jisan', 'mybottle', 'gaishoku-nenkan', 'gacha-cost', 'denki-norikae',
+  'furusato-otoku', 'taiyoukou', 'contact-cost', 'lasik-cost', 'protein-nenkan',
+  'nenmatsu-nenshi', 'juku-nenkan', 'naraigoto-cost', 'nyugaku-junbi', 'bukatsu-cost',
+  'daigaku-4nen', 'haka-jimai', 'souzoku-hiyou', 'pet-shoki', 'hitori-shoki',
+  'camp-gear', 'golf-hajime', 'gakki-hajime', 'shikaku-cost', 'ryugaku-cost',
+  'kafun-cost', 'suit-shakaijin', 'shokusenki-motodori', 'water-server', 'hoken-minaoshi'
 ]);
 
 export default async function handler(req, res) {

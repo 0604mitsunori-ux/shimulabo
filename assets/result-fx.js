@@ -262,39 +262,98 @@
     partyFor(panel, pick[0].emoji, power);
   }
 
-  // ===== 汎用パーティクルエンジン（紙吹雪/絵文字 rain・up・burst） =====
+  // ===== パーティクルエンジン v3 =====
+  // 主な改善: ①devicePixelRatio対応（Retinaでのボケを解消）②紙のヒラつき（3D回転）
+  // ③空気抵抗・風・個体差 ④フェードイン/アウト ⑤奥行き ⑥低スペック/reduced-motion配慮
+  var EMOJI_FONT = '"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif';
+  function prefersReducedMotion() {
+    return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
   function fxParticles(opts) {
     opts = opts || {};
-    var emojis = opts.emojis || [], n = opts.count || 60, mode = opts.mode || 'burst', dur = opts.duration || 1500;
-    var cols = opts.colors || ['#f43f5e', '#0fb5c4', '#6366f1', '#f59e0b', '#8b5cf6', '#22c55e'];
+    if (prefersReducedMotion()) return;           // 動きを減らす設定なら演出しない
+    var emojis = opts.emojis || [], mode = opts.mode || 'burst', dur = opts.duration || 1500;
+    // 墨・藍・朱のパレット（サイトのデザイントークンと揃える）
+    var cols = opts.colors || ['#c4442b', '#2c6b86', '#1b4a63', '#a97a24', '#6a5c82', '#4a7c59'];
+    var W = innerWidth, H = innerHeight;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2.5);   // 高解像度で描く（上限2.5でGPU負荷を抑制）
+    var n = opts.count || 60;
+    if (W < 480) n = Math.round(n * 0.62);                    // スマホは間引いて滑らかさを優先
+
     var cv = document.createElement('canvas');
+    cv.setAttribute('aria-hidden', 'true');
     cv.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9999';
-    cv.width = innerWidth; cv.height = innerHeight;
+    cv.width = Math.floor(W * dpr); cv.height = Math.floor(H * dpr);
     document.body.appendChild(cv);
     var x = cv.getContext('2d');
-    var P = [], cx = innerWidth / 2, cy = innerHeight * 0.32, t0 = performance.now();
+    x.scale(dpr, dpr);                                        // 以降はCSSピクセルで座標を扱える
+    x.textAlign = 'center'; x.textBaseline = 'middle';
+
+    var P = [], cx = W / 2, cy = H * 0.32, t0 = performance.now();
+    var pw = opts.power != null ? opts.power : 0.55, boost = 0.7 + pw * 0.7;
+    var wind = (Math.random() - 0.5) * 0.5;                   // 毎回わずかに違う風向き
     for (var i = 0; i < n; i++) {
-      var p = { rot: Math.random() * 6, vr: (Math.random() - 0.5) * 0.34, c: cols[i % cols.length], r: 4 + Math.random() * 4, sz: 18 + Math.random() * 14 };
-      var pw = opts.power != null ? opts.power : 0.55, boost = 0.7 + pw * 0.7;
-      if (mode === 'rain') { p.x = Math.random() * innerWidth; p.y = -20 - Math.random() * innerHeight * 0.4; p.vx = (Math.random() - 0.5) * 1.6; p.vy = (3 + Math.random() * 4.5) * (0.85 + pw * 0.5); p.g = 0.10; }
-      else if (mode === 'up') { p.x = cx + (Math.random() - 0.5) * innerWidth * 0.6; p.y = innerHeight * 0.62 + Math.random() * 90; p.vx = (Math.random() - 0.5) * 1.4; p.vy = -(2.2 + Math.random() * 3.4) * boost; p.g = -0.015; }
-      else { var a = Math.random() * 6.283, sp = (4 + Math.random() * 9.5) * boost; p.x = cx; p.y = cy; p.vx = Math.cos(a) * sp; p.vy = Math.sin(a) * sp - 3.5; p.g = 0.22; }
+      var depth = 0.65 + Math.random() * 0.55;                // 奥行き：手前ほど大きく速い
+      var p = {
+        rot: Math.random() * 6.283,
+        vr: (Math.random() - 0.5) * 0.26,
+        flut: Math.random() * 6.283,                          // ヒラつきの位相
+        fs: 0.09 + Math.random() * 0.11,                      // ヒラつきの速さ
+        c: cols[(Math.random() * cols.length) | 0],
+        r: (3.5 + Math.random() * 4) * depth,
+        sz: (17 + Math.random() * 13) * depth,
+        d: depth,
+        life: 0.82 + Math.random() * 0.18                     // 個体ごとの寿命差
+      };
+      if (mode === 'rain') {
+        p.x = Math.random() * W; p.y = -24 - Math.random() * H * 0.45;
+        p.vx = (Math.random() - 0.5) * 1.5; p.vy = (2.6 + Math.random() * 4.2) * (0.85 + pw * 0.5) * depth; p.g = 0.085;
+      } else if (mode === 'up') {
+        p.x = cx + (Math.random() - 0.5) * W * 0.66; p.y = H * 0.64 + Math.random() * 90;
+        p.vx = (Math.random() - 0.5) * 1.3; p.vy = -(2.1 + Math.random() * 3.2) * boost * depth; p.g = -0.012;
+      } else {
+        var a = Math.random() * 6.283, sp = (3.6 + Math.random() * 9) * boost * depth;
+        p.x = cx; p.y = cy; p.vx = Math.cos(a) * sp; p.vy = Math.sin(a) * sp - 3.4; p.g = 0.21;
+      }
       p.em = emojis.length ? ((mode === 'burst') ? (i % 2 === 0 ? emojis[(i / 2 | 0) % emojis.length] : null) : emojis[i % emojis.length]) : null;
       P.push(p);
     }
+
+    var raf = 0;
     function frame(now) {
-      var el = now - t0; x.clearRect(0, 0, cv.width, cv.height);
-      var al = Math.max(0, 1 - el / dur);
-      P.forEach(function (p) {
-        p.vy += p.g; p.vx *= 0.995; p.x += p.vx; p.y += p.vy; p.rot += p.vr;
-        x.globalAlpha = al;
-        if (p.em) { x.font = p.sz + 'px serif'; x.textAlign = 'center'; x.fillText(p.em, p.x, p.y); }
-        else { x.save(); x.translate(p.x, p.y); x.rotate(p.rot); x.fillStyle = p.c; x.fillRect(-p.r, -p.r / 2, p.r * 2, p.r); x.restore(); }
-      });
+      var t = (now - t0) / dur;                               // 0→1
+      x.clearRect(0, 0, W, H);
+      for (var i = 0; i < P.length; i++) {
+        var p = P[i];
+        p.vy += p.g;
+        p.vx = p.vx * 0.992 + wind * 0.02;                    // 空気抵抗＋横風
+        p.x += p.vx; p.y += p.vy;
+        p.rot += p.vr; p.flut += p.fs;
+        // フェードイン(最初の10%)→保持→フェードアウト(後半35%)
+        var lt = t / p.life;
+        var al = lt < 0.1 ? lt / 0.1 : (lt > 0.65 ? Math.max(0, 1 - (lt - 0.65) / 0.35) : 1);
+        if (al <= 0) continue;
+        x.globalAlpha = al * (0.72 + p.d * 0.28);
+        if (p.em) {
+          x.font = p.sz + 'px ' + EMOJI_FONT;
+          x.save(); x.translate(p.x, p.y); x.rotate(p.rot * 0.5); x.fillText(p.em, 0, 0); x.restore();
+        } else {
+          // 紙片：scaleXを揺らして「ひらひら裏返る」動きを出す
+          var fl = Math.cos(p.flut);
+          x.save(); x.translate(p.x, p.y); x.rotate(p.rot); x.scale(fl, 1);
+          x.fillStyle = p.c;
+          x.globalAlpha *= (0.55 + Math.abs(fl) * 0.45);      // 裏返った瞬間は暗く見える
+          x.fillRect(-p.r, -p.r * 0.62, p.r * 2, p.r * 1.24);
+          x.restore();
+        }
+      }
       x.globalAlpha = 1;
-      if (el < dur) requestAnimationFrame(frame); else cv.remove();
+      if (t < 1) raf = requestAnimationFrame(frame);
+      else cv.remove();
     }
-    requestAnimationFrame(frame);
+    raf = requestAnimationFrame(frame);
+    // 保険：タブ復帰などで長時間残らないよう必ず片付ける
+    setTimeout(function () { if (cv.parentNode) { cancelAnimationFrame(raf); cv.remove(); } }, dur + 2500);
   }
 
   // カテゴリ別のテーマ演出

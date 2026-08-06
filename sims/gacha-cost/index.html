@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/gacha-cost/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/gacha-cost.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/gacha-cost.png">
+<title>ソシャゲ課金 生涯コスト計算｜毎月の課金、続けると総額いくら？｜シミュラボ</title>
+<meta name="description" content="毎月のゲーム課金、続けると総額いくら？月の課金額と継続年数から累計課金額を自動計算して見える化する無料ツール。1日あたりも表示。">
+<meta property="og:title" content="ソシャゲ課金の総額｜続けるといくら？">
+<meta property="og:description" content="毎月の課金額×継続で累計コストを見える化。1日あたりも。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css?v=3">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/gacha-cost/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "ソシャゲ課金 生涯コスト計算機", "url": "https://shimulabo.com/sims/gacha-cost/", "description": "毎月のゲーム課金、続けると総額いくら？月の課金額と継続年数から累計課金額を自動計算して見える化する無料ツール。1日あたりも表示。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ソシャゲ課金 生涯コスト計算機", "item": "https://shimulabo.com/sims/gacha-cost/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "課金は悪いこと？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。趣味への支出として納得できているなら問題ありません。把握が大切です。"}}, {"@type": "Question", "name": "使いすぎを防ぐには？", "acceptedAnswer": {"@type": "Answer", "text": "月の上限額を決める、課金前に一晩置く、家計簿アプリで可視化するのが有効です。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span>コスト・費用<span>›</span><span class="cur">ソシャゲ課金 生涯コスト計算機</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">コスト・費用</div>
+    <h1>ソシャゲ課金 生涯コスト計算機</h1>
+    <p class="lead">毎月のゲーム課金、続けると総額いくらになる?月の課金額と続ける年数を入れると、累計の課金額を見える化します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🎮 条件を入れる</h2>
+    <div class="field"><label>1ヶ月の課金額 <span class="hint">円</span></label><input type="number" id="tsuki" value="5000" min="0" inputmode="numeric"></div>
+    <div class="field"><label>続ける年数 <span class="hint">年</span></label><input type="number" id="year" value="3" min="0" inputmode="decimal"></div>
+    <button class="btn btn-primary" id="calcBtn">総額を見える化</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">累計の課金額</div>
+      <div class="big"><span id="big">0</span><span class="unit">円</span></div>
+      <div class="sub" id="sub">内訳を入力してください</div>
+      <div id="bd" style="margin-top:14px;text-align:left;"></div>
+      <div class="viz-wrap" style="margin-top:14px;"></div>
+      <div style="text-align:center;margin-top:12px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 でシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <div class="note"><strong>計算式</strong><br>累計課金額 ＝ 月の課金額 × 12ヶ月 × 続ける年数</div>
+    <h2>毎月の課金、積み上げるといくら？</h2>
+    <p>ソシャゲの課金は1回ずつは数百〜数千円でも、毎月続けると大きな金額になります。月5,000円でも3年で18万円、5年なら30万円。趣味として納得して使うなら問題ありませんが、「気づいたらこんなに」を防ぐには、累計を見える化するのが有効です。月の上限を決める、無料分で楽しむ、課金は本当に欲しいときだけにする、といったルールを作ると、罪悪感なく楽しめます。このツールは否定のためではなく、自分の使い方を客観的に把握するためのものです。※金額は一般的な目安です。地域・時期・条件で実際の費用は変わります。ご自身の数字を入れて概算にお使いください。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>課金は悪いこと？</dt><dd>いいえ。趣味への支出として納得できているなら問題ありません。把握が大切です。</dd><dt>使いすぎを防ぐには？</dt><dd>月の上限額を決める、課金前に一晩置く、家計簿アプリで可視化するのが有効です。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../kisei-total/"><span class="e">🧳</span><span>帰省の総コスト計算機</span></a><a class="related-card" href="../chintai-shoki/"><span class="e">🔑</span><span>賃貸の初期費用シミュレーター</span></a><a class="related-card" href="../menkyo-hiyou/"><span class="e">🚗</span><span>運転免許取得の費用シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなツールも欲しい？</h2>
+    <p>あなたの「これ計算したい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => (Math.round(n*100)/100).toLocaleString('ja-JP');
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const clamp = (v,a,b) => Math.max(a,Math.min(b,v));
+  let SHARE = '', raf = 0;
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){const t=Math.max(0,+$('tsuki').value||0),y=Math.max(0,+$('year').value||0);
+    const year1=t*12, tot=year1*y, day=tot/(365*Math.max(y,0.001));
+    const L=[['1年あたり',year1],['累計（'+num(y)+'年）',tot]];
+    $('bd').innerHTML=BD(L)+`<div style="display:flex;justify-content:space-between;gap:12px;padding:12px 2px 2px;font-size:15px;"><span style="font-weight:800">1日あたり換算</span><b>${yen(day)}</b></div>`;
+    $('sub').textContent=`月${yen(t)} × 12ヶ月 × ${num(y)}年`;
+    SHARE=`ソシャゲ課金の累計、${num(y)}年で約${yen(tot)}でした🎮（1日${yen(day)}換算）#シミュラボ`;show();anim(tot);}
+  function anim(v){const el=$('big'),t0=performance.now();(function s(n){const p=Math.min(1,(n-t0)/800),e=1-Math.pow(1-p,3);el.textContent=Math.round(v*e).toLocaleString('ja-JP');if(p<1)requestAnimationFrame(s);})(performance.now());}
+  const BD=(L)=>L.filter(x=>x[1]>0).map(x=>`<div style="display:flex;justify-content:space-between;gap:12px;padding:10px 2px;border-bottom:1px dashed rgba(148,163,184,.4);font-size:14px;"><span style="color:var(--ink-2,#475569)">${x[0]}</span><b style="white-space:nowrap">${yen(x[1])}</b></div>`).join('');
+
+  const cb=$('calcBtn'); if(cb) cb.addEventListener('click', calc);
+  const sb=$('shareBtn'); if(sb) sb.addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  const cp=$('copyBtn'); if(cp) cp.addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js?v=3"></script>
+<script src="../../assets/share-counter.js?v=3"></script>
+<script>ShareCounter.initSim({ simId:'gacha-cost', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+</body>
+</html>

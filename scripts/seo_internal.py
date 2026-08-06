@@ -254,7 +254,7 @@ SIMS = [
     ("kokoro-yoyuu", "心の余裕度チェック", "🍃", "メンタル・自己分析", "5問で今の心の余裕度をチェック。"),
 ]
 # --- 全カテゴリ3本ずつ補充分(gen_sims22〜26)を自動取り込み ---
-for _m in ('gen_sims22','gen_sims23','gen_sims24','gen_sims25','gen_sims26','gen_sims_teacher','gen_sims27','gen_sims28','gen_sims29','gen_sims30','gen_sims_voice','gen_sims_seo3','gen_sims_visual','gen_sims_typeless','gen_sims_type16','gen_sims_tool','gen_sims_brain','gen_sims_tool2','gen_sims_brain2','gen_sims_petmed','gen_sims_webmkt','gen_sims_wedding','gen_sims_uranai2','gen_sims_match','gen_sims_tantei','gen_sims_kidedu','gen_sims_hikari','gen_sims_manner','gen_sims_tool3','gen_sims_brain3','gen_sims_test3','gen_sims_karada','gen_sims_ninkatsu','gen_sims_petkids','gen_sims_keisan2','gen_sims_wedding2','gen_sims_seo4','gen_sims_seo5','gen_sims_seo6','gen_sims_voice2','gen_sims_seo7','gen_sims_seo8','gen_sims_cook','gen_sims_kakei','gen_sims_kakei2','gen_sims_boost'):
+for _m in ('gen_sims22','gen_sims23','gen_sims24','gen_sims25','gen_sims26','gen_sims_teacher','gen_sims27','gen_sims28','gen_sims29','gen_sims30','gen_sims_voice','gen_sims_seo3','gen_sims_visual','gen_sims_typeless','gen_sims_type16','gen_sims_tool','gen_sims_brain','gen_sims_tool2','gen_sims_brain2','gen_sims_petmed','gen_sims_webmkt','gen_sims_wedding','gen_sims_uranai2','gen_sims_match','gen_sims_tantei','gen_sims_kidedu','gen_sims_hikari','gen_sims_manner','gen_sims_tool3','gen_sims_brain3','gen_sims_test3','gen_sims_karada','gen_sims_ninkatsu','gen_sims_petkids','gen_sims_keisan2','gen_sims_wedding2','gen_sims_seo4','gen_sims_seo5','gen_sims_seo6','gen_sims_voice2','gen_sims_seo7','gen_sims_seo8','gen_sims_cook','gen_sims_kakei','gen_sims_kakei2','gen_sims_boost','gen_sims_cost','gen_sims_cost2'):
     try:
         _mod = __import__(_m)
         for _s in _mod.SIMS:
@@ -357,7 +357,7 @@ def head_block(meta, htmltext):
     return "\n".join("    " + l for l in lines) + "\n" + "\n".join("    " + b for b in blocks)
 
 def breadcrumb_html(meta):
-    home = meta["prefix"] + "index.html"
+    home = meta["prefix"] or "./"   # canonical形（ディレクトリ）で出す
     if meta["kind"] == "sim":
         _, title, _, cat, _ = SIM_BY_ID[meta["id"]]
         mid = f'{htmllib.escape(cat)}<span>›</span>'
@@ -376,7 +376,7 @@ def related_html(sid):
     other = [s for s in SIMS if s[0] != sid and s[3] != cur[3]]
     picks = (same + other)[:3]
     cards = "".join(
-        f'<a class="related-card" href="../{s[0]}/index.html"><span class="e">{s[2]}</span><span>{htmllib.escape(s[1])}</span></a>'
+        f'<a class="related-card" href="../{s[0]}/"><span class="e">{s[2]}</span><span>{htmllib.escape(s[1])}</span></a>'
         for s in picks
     )
     return ('  <nav class="related" aria-label="related">\n'
@@ -406,9 +406,17 @@ for path in glob.glob(os.path.join(ROOT, "**", "index.html"), recursive=True):
             changed = True
 
     if meta["kind"] == "sim" and REL_MARK not in html:
+        # 旧実装は '</article>\n\n<section class="req-banner">' の完全一致だったため、
+        # 記事とバナーの間にCTA（例: patch_urana_cta）が入ると関連リンクが入らず、
+        # 占い系14ページが内部リンクなしで放置されていた。
+        # → req-banner の直前に入れる方式にして、間に何が挟まっても必ず挿入されるようにする。
         anchor = '  </article>\n\n  <section class="req-banner">'
+        banner = '  <section class="req-banner">'
         if anchor in html:
-            html = html.replace(anchor, '  </article>\n\n' + related_html(meta["id"]) + '  <section class="req-banner">', 1)
+            html = html.replace(anchor, '  </article>\n\n' + related_html(meta["id"]) + banner, 1)
+            changed = True
+        elif banner in html:
+            html = html.replace(banner, related_html(meta["id"]) + banner, 1)
             changed = True
 
     if changed:
