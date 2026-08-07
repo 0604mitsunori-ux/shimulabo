@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/hinan-crowd/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/hinan-crowd.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/hinan-crowd.png">
+<title>群衆避難シミュレーター｜焦るほど遅くなる？避難タイムを実測する実験室｜シミュラボ</title>
+<meta name="description" content="130人が1つの出口から避難するとき、何が起きる？「焦り」を上げると出口で人が詰まってかえって遅くなる faster-is-slower 効果を、避難タイムの実測つきで体感できる無料シミュレーター。出口の幅・焦り度を変えて何度も実験できます。">
+<meta property="og:title" content="群衆避難シミュレーター｜焦るほど遅くなる？">
+<meta property="og:description" content="130人の避難をシミュレーション。焦り・出口の幅を変えてタイムを競う実験室。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/hinan-crowd/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "群衆避難シミュレーター", "url": "https://shimulabo.com/sims/hinan-crowd/", "description": "130人が1つの出口から避難する様子をシミュレーション。焦りを上げると出口で詰まってかえって遅くなる現象を避難タイム実測つきで体感できる。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "群衆避難シミュレーター", "item": "https://shimulabo.com/sims/hinan-crowd/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "焦ると本当に避難が遅くなるの？", "acceptedAnswer": {"@type": "Answer", "text": "群衆シミュレーション研究で知られる「faster-is-slower効果」です。一人ひとりが速く出ようと押し合うほど出口でアーチ状の詰まりができ、全体の流れはかえって遅くなることが数値実験で示されています。"}}, {"@type": "Question", "name": "実際の避難でも役に立つ知識？", "acceptedAnswer": {"@type": "Answer", "text": "「押さない・駆けない」という避難の基本は、この現象の裏返しです。ただし本シミュレーターは簡略モデルによる実験装置であり、実際の避難計画は専門的な避難シミュレーションと訓練に基づいて行われます。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span>ふしぎ・現象<span>›</span><span class="cur">群衆避難シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ふしぎ・現象</div>
+    <h1>群衆避難シミュレーター</h1>
+    <p class="lead">130人が、ひとつの出口から避難します。<b>「焦り」を上げると、避難は速くなるでしょうか？</b>——結果はタイムで出ます。条件を変えて、前回の記録と比べてみてください。急ぐほど遅くなる不思議「faster-is-slower効果」の実験室です。</p>
+  </div>
+
+  <section class="panel">
+    <canvas id="cv" style="width:100%;height:auto;display:block;background:#fdfcf8;border:1px solid var(--line);border-radius:8px;touch-action:manipulation;"></canvas>
+    <div class="statline" style="margin-top:18px;">
+      <div class="stat"><div class="k">経過タイム</div><div class="v accent" id="stT">0.0<span style="font-size:13px;font-weight:600;"> 秒</span></div></div>
+      <div class="stat"><div class="k">避難できた人</div><div class="v" id="stOut">0 / 130</div></div>
+      <div class="stat"><div class="k">前回の記録</div><div class="v" id="stPrev">—</div></div>
+    </div>
+    <div class="row" style="margin-top:18px;">
+      <div class="field" style="margin-bottom:0;">
+        <div class="slider-head"><label style="margin:0;">みんなの焦り</label><span class="val" id="pL">落ち着き</span></div>
+        <input type="range" id="p" min="10" max="30" value="14" step="1" style="width:100%;">
+      </div>
+      <div class="field" style="margin-bottom:0;">
+        <div class="slider-head"><label style="margin:0;">出口の幅</label><span class="val" id="dL">ふつう</span></div>
+        <input type="range" id="d" min="24" max="64" value="24" step="2" style="width:100%;">
+      </div>
+    </div>
+    <div class="share-row" style="margin-top:16px;">
+      <button class="btn btn-primary" id="startBtn" type="button" style="width:auto;padding:14px 34px;">▶ 避難開始</button>
+    </div>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row"><button class="btn btn-x" id="shareBtn">𝕏 でシェア</button></div>
+  </section>
+
+  <article class="article">
+    <h2>急ぐほど、遅くなる</h2>
+    <p>非常時、一人ひとりが「速く出よう」とするほど、全体の避難はかえって遅くなることがあります。群衆研究では<b>「faster-is-slower効果」</b>として知られる現象です。出口の前で人同士が押し合うと、ちょうど砂時計の砂が詰まるように<b>アーチ状のつっかえ</b>ができ、流れが断続的に止まってしまうのです。物理学者ヘルビングらが2000年に発表した避難パニックのシミュレーション研究で広く知られるようになりました。</p>
+    <div class="note"><strong>このシミュの仕組み（ソーシャルフォースモデル）</strong><br>一人ひとりを「出口へ向かう力」「他人と押し合う反発力」「壁からの反発力」を受ける粒子として毎フレーム計算しています。「焦り」スライダーは各自の希望速度を変えるもので、速いほど押し合いが強くなり、接触時の摩擦で流れが乱れます。実際の研究で使われるモデルの簡略版です。</div>
+    <h2>実験してみよう</h2>
+    <ul>
+    <li><b>実験1：焦りを比べる</b>……「落ち着き」でタイムを測ったあと、「パニック」にして再挑戦。出口の前にできる扇形の団子と、タイムの変化に注目してください。</li>
+    <li><b>実験2：出口の幅</b>……幅を2倍にするとタイムは半分になるでしょうか？ 実は詰まりが消えると、幅の効果は倍以上に効くことがあります。</li>
+    <li><b>実験3：同じ条件で2回</b>……まったく同じ設定でも、タイムは毎回すこし違います。群衆の流れには偶然の詰まり（確率的なアーチ形成）が影響するためです。</li>
+    </ul>
+    <h2>「押さない・駆けない」は物理的に正しい</h2>
+    <p>学校の避難訓練で習う「お・は・し（押さない・走らない・しゃべらない）」は、精神論ではなく群衆物理の知恵です。一人ひとりがすこし譲ると、出口のアーチが崩れて流れが途切れなくなり、<b>全員が出るまでの時間はむしろ短くなります</b>。また、興味深い研究として「出口の少し手前に柱などの障害物を置くと、押し合いが分散されて流れがスムーズになる場合がある」という報告もあり、群衆の流れの設計（クラウドマネジメント）は駅やスタジアムの設計で実際に使われています。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>焦ると本当に避難が遅くなるの？</dt><dd>群衆シミュレーション研究で知られる現象です。押し合いで出口にアーチ状の詰まりができ、全体の流れが断続的に止まるためです。</dd><dt>実際の避難でも役に立つ？</dt><dd>「押さない・駆けない」という避難の基本は、この現象の裏返しです。ただし本シミュは簡略モデルの実験装置で、実際の避難計画は専門のシミュレーションと訓練に基づきます。</dd><dt>タイムが毎回違うのはなぜ？</dt><dd>初期配置と押し合いの偶然で、詰まりの起き方が毎回変わるためです。現実の群衆にも同じゆらぎがあります。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+    <h2>参考</h2><ul class="seo-refs"><li>Helbing, Farkas &amp; Vicsek, "Simulating dynamical features of escape panic"（Nature, 2000）</li><li>ソーシャルフォースモデル（Helbing &amp; Molnár, 1995）</li></ul>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../jutai/"><span class="e">🚗</span><span>渋滞は勝手に生まれる</span></a><a class="related-card" href="../life/"><span class="e">🦠</span><span>ライフゲーム</span></a><a class="related-card" href="../forest-fire/"><span class="e">🔥</span><span>森林火災シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ見てみたい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = '群衆避難シミュレーター、焦りを上げたら出口で詰まってタイムが悪化した🚪 「押さない」は物理的に正しい';
+  try {
+  const cv = $('cv');
+  let X, W, H, dpr, N = 130;
+  function fit() {
+    W = Math.min(cv.parentElement.clientWidth, 920);
+    H = Math.round(W * (W < 560 ? 0.85 : 0.55));
+    N = W < 560 ? 90 : 130;
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    cv.width = Math.floor(W * dpr); cv.height = Math.floor(H * dpr);
+    cv.style.height = H + 'px';
+    X = cv.getContext('2d'); X.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  const M = 16;                       // 壁の内側マージン
+  let ags, out, ticks, running, finished, prev = null;
+
+  function build() {
+    ags = []; out = 0; ticks = 0; running = false; finished = false;
+    for (let i = 0; i < N; i++) {
+      ags.push({
+        x: M + 14 + Math.random() * (W * 0.55),
+        y: M + 14 + Math.random() * (H - M * 2 - 28),
+        r: 3.6 + Math.random() * 1.5, vx: 0, vy: 0
+      });
+    }
+    // 重なり解消を数回
+    for (let k = 0; k < 6; k++) separate();
+    draw();
+    updStat();
+  }
+
+  function doorHalf() { return (+$('d').value) / 2; }
+  function panic() { return (+$('p').value) / 10; }
+
+  function separate() {
+    for (let i = 0; i < ags.length; i++) {
+      for (let j = i + 1; j < ags.length; j++) {
+        const a = ags[i], b = ags[j];
+        const dx = b.x - a.x, dy = b.y - a.y;
+        const d = Math.hypot(dx, dy) || 0.01, min = a.r + b.r;
+        if (d < min) {
+          const push = (min - d) * 0.21, ux = dx / d, uy = dy / d;
+          a.x -= ux * push; a.y -= uy * push;
+          b.x += ux * push; b.y += uy * push;
+        }
+      }
+    }
+  }
+
+  function step() {
+    if (!running) return;
+    ticks++;
+    const v0 = panic(), dh = doorHalf(), cy = H / 2;
+    const tau = 0.42;
+    for (const a of ags) {
+      let ax = 0, ay = 0, contacts = 0;
+      // 他者反発（接触数を数える）
+      for (const b of ags) {
+        if (b === a) continue;
+        const dx2 = a.x - b.x, dy2 = a.y - b.y;
+        const d = Math.hypot(dx2, dy2) || 0.01, min = a.r + b.r;
+        if (d < min + 6) {
+          const f = 0.85 * Math.exp((min - d) / 4.5);
+          ax += f * dx2 / d; ay += f * dy2 / d;
+          if (d < min + 0.4) contacts++;
+        }
+      }
+      // 出口へ（出口の外の点を目標に）。
+      // faster-is-slower の核：接触して押し合うほど駆動が空回りする。
+      // 焦り(v0)が強いほどペナルティが増え、体圧で前に進めなくなる。
+      const jam = 1 / (1 + contacts * Math.max(0, v0 - 1.0) * 1.15);
+      const inDoorBand = Math.abs(a.y - cy) < dh - a.r;
+      const tx = W - M + 20, ty = a.x > W - M - 60 && !inDoorBand ? cy : (inDoorBand ? a.y : cy);
+      const dx = tx - a.x, dy = ty - a.y;
+      const dl = Math.hypot(dx, dy) || 1;
+      ax += (v0 * jam * dx / dl - a.vx) / tau;
+      ay += (v0 * jam * dy / dl - a.vy) / tau;
+      // 壁反発（右壁は出口帯を除く）
+      const wf = (dd) => 1.4 * Math.exp((a.r + 2 - dd) / 3.2);
+      if (a.y - M < a.r + 8) ay += wf(a.y - M);
+      if (H - M - a.y < a.r + 8) ay -= wf(H - M - a.y);
+      if (a.x - M < a.r + 8) ax += wf(a.x - M);
+      const distR = W - M - a.x;
+      if (distR < a.r + 8 && !(Math.abs(a.y - cy) < dh - 1)) {
+        ax -= wf(distR);
+        // 出口の縁（角）でひっかかる感じ
+        const edgeY = a.y < cy ? cy - dh : cy + dh;
+        const ex = (W - M) - a.x, ey = edgeY - a.y, ed = Math.hypot(ex, ey) || 0.01;
+        if (ed < a.r + 5) { const f = 1.6 * Math.exp((a.r + 1 - ed) / 2.6); ax -= f * ex / ed; ay -= f * ey / ed; }
+      }
+      // ゆらぎ（デッドロック防止）
+      ax += (Math.random() - 0.5) * 0.12; ay += (Math.random() - 0.5) * 0.12;
+      a.vx += ax; a.vy += ay;
+      // 体圧グリップ：3人以上に挟まれると、焦りが強いほど身動きが取れない
+      // （出口前のアーチが焦り時ほど固まる＝faster-is-slower の正体）
+      if (contacts >= 2) {
+        const grip = Math.min(0.93, 0.3 * Math.max(0, v0 - 1.0) * contacts);
+        a.vx *= (1 - grip); a.vy *= (1 - grip);
+      }
+      const sp = Math.hypot(a.vx, a.vy), mx = v0 * 1.35;
+      if (sp > mx) { a.vx = a.vx / sp * mx; a.vy = a.vy / sp * mx; }
+      a.x += a.vx; a.y += a.vy;
+    }
+    separate();
+    // 退出判定
+    for (let i = ags.length - 1; i >= 0; i--) {
+      if (ags[i].x > W - M + 4) { ags.splice(i, 1); out++; }
+    }
+    if (!ags.length && !finished) {
+      finished = true; running = false;
+      const t = (ticks / 60);
+      const tt = t.toFixed(1);
+      SHARE = `群衆避難シミュレーター、${N}人の避難タイムは ${tt}秒 だった🚪（焦り:${$('pL').textContent}・出口:${$('dL').textContent}）あなたは縮められる？`;
+      $('stPrev').textContent = prev != null ? prev.toFixed(1) + ' 秒' : '—';
+      prev = t;
+      $('startBtn').textContent = '↺ もう一度（条件を変えて比較）';
+    }
+    if (ticks > 60 * 99) { running = false; }   // 保険
+  }
+
+  function draw() {
+    X.fillStyle = '#fdfcf8'; X.fillRect(0, 0, W, H);
+    X.strokeStyle = 'rgba(20,24,29,0.045)';
+    for (let x = 0; x < W; x += 26) { X.beginPath(); X.moveTo(x, 0); X.lineTo(x, H); X.stroke(); }
+    for (let y = 0; y < H; y += 26) { X.beginPath(); X.moveTo(0, y); X.lineTo(W, y); X.stroke(); }
+    const dh = doorHalf(), cy = H / 2;
+    // 壁
+    X.strokeStyle = '#14181d'; X.lineWidth = 3; X.lineCap = 'butt';
+    X.beginPath();
+    X.moveTo(M, M); X.lineTo(W - M, M);                    // 上
+    X.moveTo(M, H - M); X.lineTo(W - M, H - M);            // 下
+    X.moveTo(M, M); X.lineTo(M, H - M);                    // 左
+    X.moveTo(W - M, M); X.lineTo(W - M, cy - dh);          // 右上
+    X.moveTo(W - M, cy + dh); X.lineTo(W - M, H - M);      // 右下
+    X.stroke();
+    // 出口マーク
+    X.fillStyle = '#c4442b';
+    X.fillRect(W - M - 1.5, cy - dh, 3, 3);
+    X.fillRect(W - M - 1.5, cy + dh - 3, 3, 3);
+    X.font = '600 11px system-ui,sans-serif';
+    X.fillStyle = 'rgba(196,68,43,.85)';
+    X.save(); X.translate(W - M + 11, cy); X.rotate(Math.PI / 2); X.textAlign = 'center'; X.fillText('EXIT →', 0, 0); X.restore();
+    // 人
+    for (const a of ags) {
+      const sp = Math.hypot(a.vx, a.vy);
+      const hue = 210 - Math.min(1, sp / 3) * 190;         // 速いほど暖色
+      X.fillStyle = running ? 'hsla(' + hue + ',45%,38%,.92)' : 'rgba(43,58,74,.9)';
+      X.beginPath(); X.arc(a.x, a.y, a.r, 0, 6.283); X.fill();
+    }
+    // 結果オーバーレイ
+    if (finished) {
+      X.fillStyle = 'rgba(253,252,248,.82)'; X.fillRect(0, 0, W, H);
+      X.fillStyle = '#14181d'; X.textAlign = 'center';
+      X.font = '600 15px system-ui,sans-serif';
+      X.fillText('全員避難完了', W / 2, H / 2 - 30);
+      X.font = '700 44px system-ui,sans-serif';
+      X.fillStyle = '#c4442b';
+      X.fillText((ticks / 60).toFixed(1) + ' 秒', W / 2, H / 2 + 14);
+      if (prev != null && Math.abs(prev - ticks / 60) > 0.01) { /* prevは今回値に更新済み */ }
+      X.font = '12.5px system-ui,sans-serif'; X.fillStyle = 'rgba(20,24,29,.6)';
+      X.fillText('焦りや出口の幅を変えて、もう一度試してみてください', W / 2, H / 2 + 44);
+      X.textAlign = 'start';
+    }
+  }
+
+  function updStat() {
+    $('stT').innerHTML = (ticks / 60).toFixed(1) + '<span style="font-size:13px;font-weight:600;"> 秒</span>';
+    $('stOut').textContent = out + ' / ' + N;
+    $('stPrev').textContent = prev != null ? prev.toFixed(1) + ' 秒' : '—';
+  }
+
+  function loop() { step(); if (running || finished || ticks === 0) { draw(); updStat(); } requestAnimationFrame(loop); }
+
+  const pW = v => v <= 13 ? '落ち着き' : v <= 19 ? 'やや急ぎ' : v <= 25 ? 'かなり焦り' : 'パニック';
+  const dW = v => v <= 26 ? 'せまい' : v <= 40 ? 'ふつう' : '広い';
+  $('p').addEventListener('input', () => { $('pL').textContent = pW(+$('p').value); });
+  $('d').addEventListener('input', () => { $('dL').textContent = dW(+$('d').value); if (!running) { build(); } });
+  $('startBtn').addEventListener('click', () => {
+    if (running) return;
+    if (finished || ticks > 0) { const keep = prev; build(); prev = keep; }
+    running = true; finished = false;
+    $('startBtn').textContent = '避難中…';
+  });
+
+  let rt;
+  addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { const keep = prev; fit(); build(); prev = keep; }, 250); });
+
+  fit(); build();
+  $('pL').textContent = pW(+$('p').value);
+  $('dL').textContent = dW(+$('d').value);
+  loop();
+  } catch (e) { console.error(e); }
+  const sb = $('shareBtn');
+  if (sb) sb.addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(SHARE) + '&url=' + encodeURIComponent(location.href) + '&hashtags=' + encodeURIComponent('シミュラボ'), '_blank', 'noopener'));
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'hinan-crowd', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

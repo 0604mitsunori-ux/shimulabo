@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/element-sandbox/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/element-sandbox.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/element-sandbox.png">
+<title>粉と水のサンドボックス｜砂・水・火・草を指で描いて遊ぶ物理箱庭｜シミュラボ</title>
+<meta name="description" content="砂はさらさら積もり、水は低きに流れ、火は草を燃やし、水に触れると消える。1万7千個のマス目ひとつひとつが物理ルールで動く「落下砂」箱庭を、指やマウスで自由に描いて遊べる無料シミュレーター。砂時計やダムを作ってみよう。">
+<meta property="og:title" content="粉と水のサンドボックス｜指で描いて遊ぶ物理箱庭">
+<meta property="og:description" content="砂・水・壁・火・草。描いたそばから物理法則で動き出す落下砂シミュレーター。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/element-sandbox/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "粉と水のサンドボックス", "url": "https://shimulabo.com/sims/element-sandbox/", "description": "砂・水・壁・火・草を指やマウスで描いて遊べる落下砂（falling sand）物理シミュレーター。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "粉と水のサンドボックス", "item": "https://shimulabo.com/sims/element-sandbox/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "これは何のシミュレーション？", "acceptedAnswer": {"@type": "Answer", "text": "「落下砂（falling sand）」と呼ばれるセルオートマトンです。マス目ひとつひとつが「下が空いていれば落ちる」「水は横に流れる」といった単純なルールに従うだけで、砂山や水たまりのようなリアルな振る舞いが生まれます。"}}, {"@type": "Question", "name": "うまく遊ぶコツは？", "acceptedAnswer": {"@type": "Answer", "text": "まず壁で器や坂を描いてから、砂や水を注ぐのがおすすめです。砂時計・ダム決壊・水をせき止める堤防・火事から草原を守る防火帯など、テーマを決めて作ると楽しめます。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動作します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span>ふしぎ・現象<span>›</span><span class="cur">粉と水のサンドボックス</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ふしぎ・現象</div>
+    <h1>粉と水のサンドボックス</h1>
+    <p class="lead">砂はさらさらと積もり、水は低きに流れ、火は草に燃え移り、水に触れるとじゅっと消える。<b>指（マウス）でキャンバスに直接描いてください。</b>描いたそばから、1万7千個のマス目が物理ルールで動き出します。</p>
+  </div>
+
+  <section class="panel">
+    <div class="field" style="margin-bottom:12px;">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;" id="palette">
+        <button class="chip is-on" data-el="2" type="button">🏖️ 砂</button>
+        <button class="chip" data-el="3" type="button">💧 水</button>
+        <button class="chip" data-el="1" type="button">🧱 壁</button>
+        <button class="chip" data-el="4" type="button">🔥 火</button>
+        <button class="chip" data-el="5" type="button">🌿 草</button>
+        <button class="chip" data-el="0" type="button">⬜ 消す</button>
+      </div>
+    </div>
+    <canvas id="cv" style="width:100%;height:auto;display:block;background:#12151a;border:1px solid var(--line);border-radius:8px;touch-action:none;cursor:crosshair;"></canvas>
+    <div class="row" style="margin-top:16px;">
+      <div class="field" style="margin-bottom:0;">
+        <div class="slider-head"><label style="margin:0;">筆の太さ</label><span class="val" id="bL">3</span></div>
+        <input type="range" id="b" min="1" max="7" value="3" step="1" style="width:100%;">
+      </div>
+      <div class="field" style="margin-bottom:0;">
+        <label style="visibility:hidden;">操作</label>
+        <div style="display:flex;gap:8px;">
+          <button class="btn btn-ghost" id="pauseBtn" type="button" style="flex:1;">⏸ 時を止める</button>
+          <button class="btn btn-ghost" id="clearBtn" type="button" style="flex:1;">↺ まっさらに</button>
+        </div>
+      </div>
+    </div>
+    <div class="statline" style="margin-top:16px;">
+      <div class="stat"><div class="k">動いている粒</div><div class="v" id="stN">—</div></div>
+      <div class="stat"><div class="k">水</div><div class="v" id="stW">—</div></div>
+      <div class="stat"><div class="k">燃えている火</div><div class="v accent" id="stF">—</div></div>
+    </div>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row"><button class="btn btn-x" id="shareBtn">𝕏 でシェア</button></div>
+  </section>
+
+  <article class="article">
+    <h2>単純なルールから、本物みたいな世界が生まれる</h2>
+    <p>この箱庭は「落下砂（falling sand）」と呼ばれる古典的なセルオートマトンです。画面は1万7千個あまりの小さなマス目でできていて、それぞれのマスは、自分のまわりのマスしか見ていません。</p>
+    <div class="note"><strong>全ルールはこれだけ</strong><br>・<b>砂</b>：真下が空いていれば落ちる。ふさがっていれば斜め下へ滑る（水の中では沈む）<br>・<b>水</b>:落ちられなければ横に流れる<br>・<b>火</b>：隣の草に燃え移る。水に触れると煙になって消える<br>・<b>草</b>：水が近くにあると、ゆっくり育つ<br>・<b>煙</b>：ゆらゆらと上っていき、やがて消える</div>
+    <p>どのマスも全体の地形を知らないのに、砂を注げば安息角をもつ<b>砂山</b>ができ、水を注げば水平な<b>水面</b>ができます。全体を設計する者がいなくても、局所ルールの繰り返しから秩序が生まれる——ライフゲームや鳥の群れ（ボイド）と同じ「創発」の実験場です。</p>
+    <h2>遊びかたレシピ</h2>
+    <ul>
+    <li><b>⏳ 砂時計</b>……壁でくびれた漏斗を描いて、上に砂をたっぷり。真ん中の細さで落ちる速さが変わります。砂が詰まって流れが止まる「アーチ」ができたら、それは本物の砂時計でも起きる現象です。</li>
+    <li><b>🌊 ダム決壊</b>……壁で堤防を作って水を溜め、堤防の一部を「消す」で崩すと、鉄砲水が谷を駆け下ります。</li>
+    <li><b>🔥 防火帯の実験</b>……草原を広く育てて片端に火を放ち、燃え広がる前に「消す」や水路で防火帯を作って延焼を食い止める——現実の山火事対策と同じ理屈です。</li>
+    <li><b>🏝️ 水没都市</b>……壁でビル群を建てて、上から雨（水）をたっぷり。どこに水が溜まるかは、描いた地形しだいです。</li>
+    </ul>
+    <h2>ゲームの物理エンジンの原点</h2>
+    <p>落下砂シミュレーターは2000年代からブラウザ遊びの定番で、この仕組みを進化させたゲーム（Noitaなど）は「世界のすべてのピクセルが物理で動く」ことを売りにしています。粉と水の一粒一粒に見入ってしまう気持ちよさは、単純なルールが生む複雑さそのものの魅力です。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>これは何のシミュレーション？</dt><dd>「落下砂（falling sand）」と呼ばれるセルオートマトンです。単純な局所ルールだけで、砂山や水面のリアルな振る舞いが生まれます。</dd><dt>うまく遊ぶコツは？</dt><dd>まず壁で器や坂を描いてから砂・水を注ぐのがおすすめ。砂時計やダム決壊など、テーマを決めて作ると楽しめます。</dd><dt>重くなってきたら？</dt><dd>「↺ まっさらに」でリセットするか、不要な粒を「⬜ 消す」で減らしてください。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動作します。</dd></dl>
+    <h2>参考</h2><ul class="seo-refs"><li>セルオートマトンによる粒状物質の簡易モデル（falling sand game の一般的な実装）</li><li>砂の安息角・アーチ効果（粉粒体物理の入門的話題）</li></ul>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../jutai/"><span class="e">🚗</span><span>渋滞は勝手に生まれる</span></a><a class="related-card" href="../life/"><span class="e">🦠</span><span>ライフゲーム</span></a><a class="related-card" href="../forest-fire/"><span class="e">🔥</span><span>森林火災シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ見てみたい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = '粉と水のサンドボックス、砂と水と火で箱庭を作って遊んでる🏖️ 全ピクセルが物理で動く';
+  try {
+  const cv = $('cv');
+  const COLS = 168, ROWS = 104;
+  const E = 0, WALL = 1, SAND = 2, WATER = 3, FIRE = 4, PLANT = 5, SMOKE = 6;
+  let grid = new Uint8Array(COLS * ROWS);
+  let life = new Uint8Array(COLS * ROWS);      // 火・煙の寿命
+  let moved = new Uint8Array(COLS * ROWS);
+  const off = document.createElement('canvas');
+  off.width = COLS; off.height = ROWS;
+  const ox = off.getContext('2d');
+  const img = ox.createImageData(COLS, ROWS);
+  let X, W, H, dpr, paused = false, frame = 0;
+
+  function fit() {
+    W = Math.min(cv.parentElement.clientWidth, 920);
+    H = Math.round(W * ROWS / COLS);
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    cv.width = Math.floor(W * dpr); cv.height = Math.floor(H * dpr);
+    cv.style.height = H + 'px';
+    X = cv.getContext('2d');
+    X.setTransform(dpr, 0, 0, dpr, 0, 0);
+    X.imageSmoothingEnabled = false;
+  }
+
+  const I = (x, y) => y * COLS + x;
+  const inb = (x, y) => x >= 0 && x < COLS && y >= 0 && y < ROWS;
+
+  function scene() {
+    grid.fill(E); life.fill(0);
+    // 床
+    for (let x = 0; x < COLS; x++) for (let y = ROWS - 3; y < ROWS; y++) grid[I(x, y)] = WALL;
+    // 左：砂の山
+    const sx = COLS * 0.22, sw = COLS * 0.15;
+    for (let x = 0; x < COLS; x++) {
+      const h = Math.max(0, 26 - Math.abs(x - sx) / sw * 26);
+      for (let y = 0; y < h; y++) grid[I(x, ROWS - 4 - y)] = SAND;
+    }
+    // 中央：壁の器＋水
+    const bx = Math.floor(COLS * 0.5), bw = 22, bd = 18, by = ROWS - 4;
+    for (let y = 0; y < bd; y++) { grid[I(bx - bw, by - y)] = WALL; grid[I(bx + bw, by - y)] = WALL; }
+    for (let x = bx - bw; x <= bx + bw; x++) grid[I(x, by - 0)] = WALL;
+    for (let x = bx - bw + 1; x < bx + bw; x++) for (let y = 1; y < 12; y++) grid[I(x, by - y)] = WATER;
+    // 右：草の丘
+    for (let x = Math.floor(COLS * 0.78); x < COLS - 2; x++) {
+      const h = 6 + Math.round(Math.sin((x - COLS * 0.78) * 0.4) * 2 + 4);
+      for (let y = 0; y < h; y++) grid[I(x, ROWS - 4 - y)] = x % 3 ? PLANT : SAND;
+    }
+    // 空から砂をひとつかみ（開幕の動き）
+    for (let i = 0; i < 260; i++) {
+      const x = 8 + Math.floor(Math.random() * (COLS - 16)), y = Math.floor(Math.random() * 18);
+      grid[I(x, y)] = Math.random() < 0.7 ? SAND : WATER;
+    }
+  }
+
+  function swap(a, b) { const t = grid[a]; grid[a] = grid[b]; grid[b] = t; const tl = life[a]; life[a] = life[b]; life[b] = tl; moved[a] = moved[b] = 1; }
+
+  function step() {
+    frame++; moved.fill(0);
+    const ltr = frame & 1;
+    for (let y = ROWS - 1; y >= 0; y--) {
+      for (let i = 0; i < COLS; i++) {
+        const x = ltr ? i : COLS - 1 - i;
+        const p = I(x, y), t = grid[p];
+        if (!t || t === WALL || moved[p]) continue;
+
+        if (t === SAND) {
+          const d = inb(x, y + 1) ? I(x, y + 1) : -1;
+          if (d >= 0 && (grid[d] === E || grid[d] === WATER || grid[d] === SMOKE)) { swap(p, d); continue; }
+          const s = Math.random() < 0.5 ? 1 : -1;
+          for (const dx of [s, -s]) {
+            if (inb(x + dx, y + 1)) { const q = I(x + dx, y + 1); if (grid[q] === E || grid[q] === WATER) { swap(p, q); break; } }
+          }
+
+        } else if (t === WATER) {
+          const d = inb(x, y + 1) ? I(x, y + 1) : -1;
+          if (d >= 0 && (grid[d] === E || grid[d] === SMOKE)) { swap(p, d); continue; }
+          const s = Math.random() < 0.5 ? 1 : -1;
+          let done = false;
+          for (const dx of [s, -s]) {
+            if (inb(x + dx, y + 1)) { const q = I(x + dx, y + 1); if (grid[q] === E) { swap(p, q); done = true; break; } }
+          }
+          if (done) continue;
+          for (const dx of [s, -s]) {
+            if (inb(x + dx, y)) { const q = I(x + dx, y); if (grid[q] === E) { swap(p, q); break; } }
+          }
+
+        } else if (t === FIRE) {
+          if (!life[p]) life[p] = 14 + (Math.random() * 18 | 0);
+          // 水に接したら消える
+          let wet = false;
+          for (const [dx, dy] of [[0, 1], [0, -1], [1, 0], [-1, 0]]) {
+            if (inb(x + dx, y + dy) && grid[I(x + dx, y + dy)] === WATER) { wet = true; break; }
+          }
+          if (wet) { grid[p] = SMOKE; life[p] = 30; continue; }
+          // 草に燃え移る
+          for (const [dx, dy] of [[0, 1], [0, -1], [1, 0], [-1, 0], [1, 1], [-1, 1], [1, -1], [-1, -1]]) {
+            if (inb(x + dx, y + dy)) {
+              const q = I(x + dx, y + dy);
+              if (grid[q] === PLANT && Math.random() < 0.3) { grid[q] = FIRE; life[q] = 14 + (Math.random() * 18 | 0); }
+            }
+          }
+          // 揺らめき（上へ）
+          if (inb(x, y - 1) && grid[I(x, y - 1)] === E && Math.random() < 0.22) { swap(p, I(x, y - 1)); }
+          if (--life[p] <= 0) { grid[p] = Math.random() < 0.5 ? SMOKE : E; life[p] = 26; }
+
+        } else if (t === SMOKE) {
+          if (!life[p]) life[p] = 30;
+          if (--life[p] <= 0) { grid[p] = E; continue; }
+          const dirs = Math.random() < 0.5 ? [[0, -1], [1, -1], [-1, -1], [1, 0]] : [[0, -1], [-1, -1], [1, -1], [-1, 0]];
+          for (const [dx, dy] of dirs) {
+            if (inb(x + dx, y + dy) && grid[I(x + dx, y + dy)] === E) { swap(p, I(x + dx, y + dy)); break; }
+          }
+
+        } else if (t === PLANT) {
+          // 近くに水があれば、たまに育つ（水をわずかに消費）
+          if (Math.random() < 0.02) {
+            let wq = -1;
+            for (const [dx, dy] of [[0, 1], [0, -1], [1, 0], [-1, 0], [1, 1], [-1, 1]]) {
+              if (inb(x + dx, y + dy) && grid[I(x + dx, y + dy)] === WATER) { wq = I(x + dx, y + dy); break; }
+            }
+            if (wq >= 0) {
+              for (const [dx, dy] of [[0, -1], [1, 0], [-1, 0]]) {
+                if (inb(x + dx, y + dy) && grid[I(x + dx, y + dy)] === E && Math.random() < 0.5) {
+                  grid[I(x + dx, y + dy)] = PLANT;
+                  if (Math.random() < 0.35) grid[wq] = E;   // 水を吸う
+                  break;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  function draw() {
+    const d = img.data;
+    let nMove = 0, nW = 0, nF = 0;
+    for (let y = 0; y < ROWS; y++) {
+      for (let x = 0; x < COLS; x++) {
+        const p = I(x, y), t = grid[p], o = p * 4;
+        const sh = (x * 7 + y * 13) % 3;  // 静的な色むら（質感）
+        let r = 18, g = 21, b = 26;
+        if (t === WALL) { r = 104 + sh * 5; g = 96 + sh * 5; b = 86 + sh * 4; }
+        else if (t === SAND) { r = 206 + sh * 10; g = 169 + sh * 9; b = 99 + sh * 8; nMove++; }
+        else if (t === WATER) { r = 52 + sh * 5; g = 116 + sh * 6; b = 172 + sh * 6; nW++; nMove++; }
+        else if (t === FIRE) { const f = Math.random(); r = 255; g = 120 + f * 100 | 0; b = 40 + f * 40 | 0; nF++; nMove++; }
+        else if (t === PLANT) { r = 68 + sh * 6; g = 138 + sh * 7; b = 74 + sh * 5; }
+        else if (t === SMOKE) { const a = life[p] / 30; r = 60 + a * 40; g = 64 + a * 42; b = 74 + a * 44; nMove++; }
+        d[o] = r; d[o + 1] = g; d[o + 2] = b; d[o + 3] = 255;
+      }
+    }
+    ox.putImageData(img, 0, 0);
+    X.drawImage(off, 0, 0, COLS, ROWS, 0, 0, W, H);
+    $('stN').textContent = nMove.toLocaleString('ja-JP') + ' 粒';
+    $('stW').textContent = nW.toLocaleString('ja-JP') + ' 粒';
+    $('stF').textContent = nF.toLocaleString('ja-JP') + ' 粒';
+  }
+
+  function loop() { if (!paused) { step(); draw(); } requestAnimationFrame(loop); }
+
+  // ---- 描画入力 ----
+  let el = SAND, drawing = false, last = null;
+  function cell(e) {
+    const r = cv.getBoundingClientRect();
+    return [Math.floor((e.clientX - r.left) / r.width * COLS), Math.floor((e.clientY - r.top) / r.height * ROWS)];
+  }
+  function paint(cx, cy) {
+    const br = +$('b').value;
+    for (let dy = -br; dy <= br; dy++) for (let dx = -br; dx <= br; dx++) {
+      if (dx * dx + dy * dy > br * br) continue;
+      const x = cx + dx, y = cy + dy;
+      if (!inb(x, y)) continue;
+      const p = I(x, y);
+      if (el === E) { grid[p] = E; life[p] = 0; }
+      else if (grid[p] === E || el === WALL || (el === FIRE && grid[p] === PLANT)) {
+        if (el === SAND || el === WATER) { if (Math.random() < 0.75) { grid[p] = el; } }
+        else { grid[p] = el; if (el === FIRE) life[p] = 14 + (Math.random() * 18 | 0); }
+      }
+    }
+  }
+  function lineTo(a, b) {
+    const n = Math.max(Math.abs(b[0] - a[0]), Math.abs(b[1] - a[1]), 1);
+    for (let i = 0; i <= n; i++) paint(Math.round(a[0] + (b[0] - a[0]) * i / n), Math.round(a[1] + (b[1] - a[1]) * i / n));
+  }
+  cv.addEventListener('pointerdown', e => { e.preventDefault(); drawing = true; last = cell(e); paint(last[0], last[1]); try { cv.setPointerCapture(e.pointerId); } catch (_) {} if (paused) draw(); });
+  cv.addEventListener('pointermove', e => { if (!drawing) return; const c = cell(e); lineTo(last, c); last = c; if (paused) draw(); });
+  addEventListener('pointerup', () => { drawing = false; last = null; });
+
+  const NAMES = { 2: '砂', 3: '水', 1: '壁', 4: '火', 5: '草', 0: '消しゴム' };
+  document.querySelectorAll('#palette .chip').forEach(b => {
+    b.addEventListener('click', () => {
+      document.querySelectorAll('#palette .chip').forEach(x => x.classList.remove('is-on'));
+      b.classList.add('is-on');
+      el = +b.dataset.el;
+      if (el === FIRE) SHARE = '粉と水のサンドボックス、草原に火を放ったら水路で消し止めた🔥 全ピクセルが物理で動く';
+    });
+  });
+  $('b').addEventListener('input', () => $('bL').textContent = $('b').value);
+  $('pauseBtn').addEventListener('click', () => { paused = !paused; $('pauseBtn').textContent = paused ? '▶ 時を動かす' : '⏸ 時を止める'; });
+  $('clearBtn').addEventListener('click', () => { grid.fill(E); life.fill(0); for (let x = 0; x < COLS; x++) for (let y = ROWS - 3; y < ROWS; y++) grid[I(x, y)] = WALL; draw(); });
+
+  let rt;
+  addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(fit, 250); });
+
+  fit(); scene(); draw();
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    paused = true; $('pauseBtn').textContent = '▶ 時を動かす';
+  }
+  loop();
+  } catch (e) { console.error(e); }
+  const sb = $('shareBtn');
+  if (sb) sb.addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(SHARE) + '&url=' + encodeURIComponent(location.href) + '&hashtags=' + encodeURIComponent('シミュラボ'), '_blank', 'noopener'));
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'element-sandbox', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

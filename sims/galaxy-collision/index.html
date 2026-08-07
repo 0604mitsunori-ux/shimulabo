@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/galaxy-collision/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/galaxy-collision.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/galaxy-collision.png">
+<title>銀河衝突シミュレーター｜4000個の星で見る、数十億年の宇宙のダンス｜シミュラボ</title>
+<meta name="description" content="2つの銀河が衝突すると何が起きる？4,000個の星をブラウザ上で重力計算し、潮汐で伸びる「星の尾」や銀河のすれ違いを数十億年分早送りで体感できる無料シミュレーター。天の川銀河とアンドロメダ銀河の衝突の話も解説。">
+<meta property="og:title" content="銀河衝突シミュレーター｜数十億年の宇宙のダンス">
+<meta property="og:description" content="4,000個の星の重力計算で、銀河衝突と潮汐の尾を体感。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/galaxy-collision/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "銀河衝突シミュレーター", "url": "https://shimulabo.com/sims/galaxy-collision/", "description": "4,000個の星の重力計算で、銀河衝突と潮汐の尾を数十億年分早送りで体感できる無料シミュレーター。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "銀河衝突シミュレーター", "item": "https://shimulabo.com/sims/galaxy-collision/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "天の川銀河も衝突するの？", "acceptedAnswer": {"@type": "Answer", "text": "私たちの天の川銀河は、隣のアンドロメダ銀河と秒速約110kmで近づいており、約40億年後に衝突・合体すると予測されています。"}}, {"@type": "Question", "name": "銀河が衝突したら星もぶつかる？", "acceptedAnswer": {"@type": "Answer", "text": "ほとんどぶつかりません。星と星の間は途方もなくスカスカなため、銀河同士は幽霊のようにすり抜けながら、重力だけで互いの形を崩し合います。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span>ふしぎ・現象<span>›</span><span class="cur">銀河衝突シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ふしぎ・現象</div>
+    <h1>銀河衝突シミュレーター</h1>
+    <p class="lead">2つの銀河がぶつかると、何が起きるのか。4,000個の星ひとつひとつに重力を効かせて、数十億年分の宇宙のダンスを早送りで再生します。潮汐で伸びる「星の尾」に注目。</p>
+  </div>
+
+  <section class="panel">
+    <canvas id="cv" style="width:100%;height:auto;display:block;background:#06090f;border:1px solid var(--line);border-radius:8px;touch-action:manipulation;"></canvas>
+    <div class="statline" style="margin-top:18px;">
+      <div class="stat"><div class="k">経過時間</div><div class="v accent" id="stTime">0.0<span style="font-size:13px;font-weight:600;"> 億年</span></div></div>
+      <div class="stat"><div class="k">星の数</div><div class="v" id="stN">—</div></div>
+      <div class="stat"><div class="k">銀河の間隔</div><div class="v" id="stD">—</div></div>
+    </div>
+    <div class="row" style="margin-top:18px;">
+      <div class="field" style="margin-bottom:0;">
+        <label>衝突のしかた</label>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <button class="chip is-on" data-preset="graze" type="button">かすめる衝突</button>
+          <button class="chip" data-preset="headon" type="button">正面衝突</button>
+          <button class="chip" data-preset="binary" type="button">連星ダンス</button>
+        </div>
+      </div>
+      <div class="field" style="margin-bottom:0;">
+        <div class="slider-head"><label style="margin:0;">星の数</label><span class="val" id="nL">4000</span></div>
+        <input type="range" id="n" min="1000" max="6000" value="4000" step="500" style="width:100%;">
+      </div>
+    </div>
+    <div class="share-row" style="margin-top:16px;">
+      <button class="btn btn-ghost" id="pauseBtn" type="button">⏸ 一時停止</button>
+      <button class="btn btn-ghost" id="resetBtn" type="button">↺ 最初から</button>
+    </div>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row"><button class="btn btn-x" id="shareBtn">𝕏 でシェア</button></div>
+  </section>
+
+  <article class="article">
+    <h2>銀河が衝突しても、星はぶつからない</h2>
+    <p>意外に思えますが、銀河同士が衝突しても<b>星と星が直接ぶつかることは、ほぼありません</b>。太陽をビー玉の大きさに縮めても、いちばん近い星までは数百km先——それくらい、銀河の中はスカスカだからです。では何が起きるのかというと、<b>重力</b>です。互いの重力が相手の銀河の星々を引きずり、円盤をゆがめ、長く伸びた「潮汐の尾（tidal tail）」を作ります。このシミュレーターで再現しているのは、まさにその重力のダンスです。</p>
+    <div class="note"><strong>このシミュの仕組み</strong><br>2つの銀河の中心核を質点として相互に重力計算し、各銀河のまわりに円盤状に配置した数千個の星（テスト粒子）が、2つの核から受ける重力だけで運動します（制限多体問題）。運動方程式 a = GM/r² を毎フレーム数値積分しています。</div>
+    <h2>見どころ：3つの瞬間</h2>
+    <ul>
+    <li><b>すれ違いの直後</b>……相手の重力に引きずられた星が、弧を描いて外へ投げ出され「潮汐の尾」になります。実在の「アンテナ銀河」や「マウス銀河」で観測される尾と同じ仕組みです。</li>
+    <li><b>2回目の接近</b>……一度すれ違った銀河は、重力で引き戻されてまた近づきます。衝突→離脱→再衝突を繰り返しながら、だんだんひとつに混ざっていきます。</li>
+    <li><b>連星ダンス</b>……ぶつからない距離で回り合うと、互いの円盤がゆっくり波打ちます。渦巻銀河の腕の乱れは、こうした近接遭遇の名残と考えられることもあります。</li>
+    </ul>
+    <h2>天の川銀河も、いつか衝突する</h2>
+    <p>私たちの天の川銀河は、お隣のアンドロメダ銀河と<b>秒速およそ110km</b>で近づいていて、<b>約40億年後に衝突・合体する</b>と予測されています。合体後の銀河には「ミルコメダ」という愛称もあります。ただし星同士はぶつからないため、そのとき地球の夜空に起きるのは大災害ではなく、空いっぱいに広がるアンドロメダの光——数十億年がかりの、静かな合体です。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>天の川銀河も衝突するの？</dt><dd>はい。隣のアンドロメダ銀河と秒速約110kmで近づいており、約40億年後に衝突・合体すると予測されています。</dd><dt>銀河が衝突したら星もぶつかる？</dt><dd>ほとんどぶつかりません。星と星の間は途方もなく空いているため、銀河は互いをすり抜けながら、重力だけで形を崩し合います。</dd><dt>「経過時間」の億年は本当？</dt><dd>実際の銀河衝突が数億〜数十億年かけて進むことに合わせた目安の換算です。縮尺・時間はデフォルメしています。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
+    <h2>参考</h2><ul class="seo-refs"><li>NASA: The Milky Way–Andromeda collision（約40億年後の衝突予測）</li><li>潮汐相互作用による銀河の尾（Toomre &amp; Toomre, 1972 の古典的シミュレーション）</li></ul>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../jutai/"><span class="e">🚗</span><span>渋滞は勝手に生まれる</span></a><a class="related-card" href="../life/"><span class="e">🦠</span><span>ライフゲーム</span></a><a class="related-card" href="../forest-fire/"><span class="e">🔥</span><span>森林火災シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ見てみたい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = '銀河衝突シミュレーター、4000個の星が潮汐で尾を引いた🌌 数十億年の宇宙のダンスをブラウザで';
+  try {
+  const cv = $('cv');
+  let X, W, H, dpr;
+  function fit() {
+    W = Math.min(cv.parentElement.clientWidth - 0, 920);
+    H = Math.round(W * (W < 560 ? 0.92 : 0.62));
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    cv.width = Math.floor(W * dpr); cv.height = Math.floor(H * dpr);
+    cv.style.height = H + 'px';
+    X = cv.getContext('2d');
+    X.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  // ---- 物理 ----
+  const GM = 1400, EPS2 = 500;        // 核の重力・ソフトニング
+  let cores, stars, frames, preset = 'graze', paused = false;
+
+  function diskStars(core, n, dir) {
+    const Rd = Math.min(W, H) * 0.30;
+    const out = [];
+    for (let i = 0; i < n; i++) {
+      const r = 13 + (Rd - 13) * Math.pow(Math.random(), 0.62);
+      const a = Math.random() * 6.28318;
+      const v = Math.sqrt(GM / r) * (0.96 + Math.random() * 0.08) * dir;
+      out.push({
+        x: core.x + Math.cos(a) * r, y: core.y + Math.sin(a) * r,
+        vx: core.vx - Math.sin(a) * v, vy: core.vy + Math.cos(a) * v,
+        g: core.id
+      });
+    }
+    return out;
+  }
+
+  function build() {
+    frames = 0;
+    const n = +$('n').value; $('nL').textContent = n;
+    const cx = W / 2, cy = H / 2;
+    if (preset === 'headon') {
+      cores = [
+        { id: 0, x: cx - W * 0.34, y: cy, vx: 1.15, vy: 0 },
+        { id: 1, x: cx + W * 0.34, y: cy, vx: -1.15, vy: 0 }];
+    } else if (preset === 'binary') {
+      const d = W * 0.17, v = Math.sqrt(GM / (4 * d)) * 1.05;
+      cores = [
+        { id: 0, x: cx - d, y: cy, vx: 0, vy: v },
+        { id: 1, x: cx + d, y: cy, vx: 0, vy: -v }];
+    } else { // graze（かすめる）
+      cores = [
+        { id: 0, x: cx - W * 0.33, y: cy - H * 0.17, vx: 1.05, vy: 0.22 },
+        { id: 1, x: cx + W * 0.33, y: cy + H * 0.17, vx: -1.05, vy: -0.22 }];
+    }
+    stars = diskStars(cores[0], n >> 1, 1).concat(diskStars(cores[1], n - (n >> 1), 1));
+    $('stN').textContent = n.toLocaleString('ja-JP') + ' 個';
+    X.fillStyle = '#06090f'; X.fillRect(0, 0, W, H);
+  }
+
+  function step() {
+    const dt = 0.5;
+    for (let s = 0; s < 2; s++) {          // サブステップで安定化
+      // 核どうしの相互重力
+      const [A, B] = cores;
+      let dx = B.x - A.x, dy = B.y - A.y, d2 = dx * dx + dy * dy + EPS2;
+      let inv = 1 / Math.sqrt(d2), f = GM / d2;
+      A.vx += f * dx * inv * dt; A.vy += f * dy * inv * dt;
+      B.vx -= f * dx * inv * dt; B.vy -= f * dy * inv * dt;
+      A.x += A.vx * dt; A.y += A.vy * dt;
+      B.x += B.vx * dt; B.y += B.vy * dt;
+      // 星は2つの核から重力を受ける
+      for (const p of stars) {
+        for (const c of cores) {
+          dx = c.x - p.x; dy = c.y - p.y; d2 = dx * dx + dy * dy + EPS2;
+          inv = 1 / Math.sqrt(d2); f = GM / d2;
+          p.vx += f * dx * inv * dt; p.vy += f * dy * inv * dt;
+        }
+        p.x += p.vx * dt; p.y += p.vy * dt;
+      }
+    }
+    frames++;
+  }
+
+  const COL = ['#8fc2ff', '#ffc08a'];
+  function draw() {
+    X.globalCompositeOperation = 'source-over';
+    X.fillStyle = 'rgba(6,9,15,0.16)'; X.fillRect(0, 0, W, H);
+    X.globalCompositeOperation = 'lighter';
+    for (let g = 0; g < 2; g++) {
+      X.fillStyle = COL[g];
+      X.globalAlpha = 0.6;
+      for (const p of stars) {
+        if (p.g !== g) continue;
+        X.fillRect(p.x, p.y, 1.3, 1.3);
+      }
+    }
+    X.globalAlpha = 1;
+    for (const c of cores) {
+      const grad = X.createRadialGradient(c.x, c.y, 0, c.x, c.y, 16);
+      grad.addColorStop(0, 'rgba(255,255,255,.9)');
+      grad.addColorStop(0.35, c.id === 0 ? 'rgba(143,194,255,.5)' : 'rgba(255,192,138,.5)');
+      grad.addColorStop(1, 'rgba(0,0,0,0)');
+      X.fillStyle = grad;
+      X.beginPath(); X.arc(c.x, c.y, 16, 0, 6.283); X.fill();
+    }
+    X.globalCompositeOperation = 'source-over';
+    // 統計
+    $('stTime').innerHTML = (frames * 0.02).toFixed(1) + '<span style="font-size:13px;font-weight:600;"> 億年</span>';
+    const dd = Math.hypot(cores[0].x - cores[1].x, cores[0].y - cores[1].y);
+    $('stD').textContent = (dd / Math.min(W, H) * 10).toFixed(1) + ' 万光年';
+  }
+
+  function loop() {
+    if (!paused) { step(); draw(); }
+    requestAnimationFrame(loop);
+  }
+
+  // ---- UI ----
+  document.querySelectorAll('[data-preset]').forEach(b => {
+    b.addEventListener('click', () => {
+      document.querySelectorAll('[data-preset]').forEach(x => x.classList.remove('is-on'));
+      b.classList.add('is-on');
+      preset = b.dataset.preset;
+      const name = { graze: 'かすめる衝突', headon: '正面衝突', binary: '連星ダンス' }[preset];
+      SHARE = `銀河衝突シミュレーター「${name}」で潮汐の尾ができた🌌 数十億年の宇宙のダンスをブラウザで`;
+      build();
+    });
+  });
+  $('n').addEventListener('change', build);
+  $('n').addEventListener('input', () => { $('nL').textContent = $('n').value; });
+  $('resetBtn').addEventListener('click', build);
+  $('pauseBtn').addEventListener('click', () => {
+    paused = !paused;
+    $('pauseBtn').textContent = paused ? '▶ 再生' : '⏸ 一時停止';
+  });
+
+  let rt;
+  addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { fit(); build(); }, 250); });
+
+  fit(); build();
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    paused = true; $('pauseBtn').textContent = '▶ 再生';
+    draw();
+  }
+  loop();
+  } catch (e) { console.error(e); }
+  const sb = $('shareBtn');
+  if (sb) sb.addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(SHARE) + '&url=' + encodeURIComponent(location.href) + '&hashtags=' + encodeURIComponent('シミュラボ'), '_blank', 'noopener'));
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'galaxy-collision', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

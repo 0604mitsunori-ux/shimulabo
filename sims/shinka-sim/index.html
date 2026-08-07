@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/shinka-sim/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/shinka-sim.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/shinka-sim.png">
+<title>進化シミュレーター｜食べて、増えて、突然変異。生き物が勝手に進化する箱｜シミュラボ</title>
+<meta name="description" content="自然選択をブラウザで再現する無料シミュレーター。生き物たちが食べて増えて突然変異するうち、「速さ」「大きさ」「感知力」が勝手に進化していきます。エサを減らすと進化はどう変わる？ダーウィンの自然選択をゲーム感覚で体感。">
+<meta property="og:title" content="進化シミュレーター｜生き物が勝手に進化する箱">
+<meta property="og:description" content="食べて、増えて、突然変異。自然選択で「速さ」が進化していく様子を観察。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/shinka-sim/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "進化シミュレーター", "url": "https://shimulabo.com/sims/shinka-sim/", "description": "生き物たちが食べて増えて突然変異するうち、速さ・大きさ・感知力が勝手に進化していく自然選択シミュレーター。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "進化シミュレーター", "item": "https://shimulabo.com/sims/shinka-sim/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "これは本当の進化と同じ？", "acceptedAnswer": {"@type": "Answer", "text": "原理は同じです。変異・遺伝・選択という自然選択の3要素をそのまま実装しており、生物学の教育用モデルと同じ考え方です。実際の生物はもっと多くの遺伝子と環境要因を持ちます。"}}, {"@type": "Question", "name": "だれかが進化の方向を決めているの？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。プログラムは「良い遺伝子」を知りません。生き残って子を残した個体の遺伝子が自然と増える——それだけで方向が生まれるのが自然選択です。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。シミュレーションはすべてブラウザ内で完結します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span>ふしぎ・現象<span>›</span><span class="cur">進化シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ふしぎ・現象</div>
+    <h1>進化シミュレーター</h1>
+    <p class="lead">この箱の中の生き物は、エサを食べ、エネルギーが貯まると分裂し、子はほんの少しだけ親と違う——それだけのルールで生きています。誰も命令していないのに、群れの「速さ」や「大きさ」が世代を重ねるごとに変わっていく＝進化する様子を観察できます。<b>エサを減らして「氷河期」を起こすと、進化はどう動くでしょうか。</b></p>
+  </div>
+
+  <section class="panel">
+    <canvas id="cv" style="width:100%;height:auto;display:block;background:#fdfcf8;border:1px solid var(--line);border-radius:8px;touch-action:manipulation;"></canvas>
+    <div class="statline" style="margin-top:18px;">
+      <div class="stat"><div class="k">個体数</div><div class="v" id="stPop">—</div></div>
+      <div class="stat"><div class="k">世代</div><div class="v" id="stGen">—</div></div>
+      <div class="stat"><div class="k">平均の速さ</div><div class="v accent" id="stSpd">—</div></div>
+      <div class="stat"><div class="k">平均の大きさ</div><div class="v" id="stSize">—</div></div>
+    </div>
+    <canvas id="graph" height="72" style="width:100%;height:72px;display:block;margin-top:14px;border:1px solid var(--line-2);border-radius:6px;background:#fff;"></canvas>
+    <p style="font-size:11.5px;color:var(--ink-3);margin:6px 0 0;">個体数（墨）と平均の速さ（朱）の推移。速さの線が上がっていけば「足の速さが進化している」ということ。</p>
+    <div class="row" style="margin-top:18px;">
+      <div class="field" style="margin-bottom:0;">
+        <div class="slider-head"><label style="margin:0;">エサの豊富さ</label><span class="val" id="fL">ふつう</span></div>
+        <input type="range" id="f" min="4" max="30" value="17" step="1" style="width:100%;">
+      </div>
+      <div class="field" style="margin-bottom:0;">
+        <div class="slider-head"><label style="margin:0;">突然変異の大きさ</label><span class="val" id="muL">ふつう</span></div>
+        <input type="range" id="mu" min="2" max="20" value="8" step="1" style="width:100%;">
+      </div>
+    </div>
+    <div class="share-row" style="margin-top:16px;">
+      <button class="btn btn-ghost" id="iceBtn" type="button">🧊 氷河期を起こす</button>
+      <button class="btn btn-ghost" id="pauseBtn" type="button">⏸ 一時停止</button>
+      <button class="btn btn-ghost" id="resetBtn" type="button">↺ 最初から</button>
+    </div>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row"><button class="btn btn-x" id="shareBtn">𝕏 でシェア</button></div>
+  </section>
+
+  <article class="article">
+    <h2>進化に「意思」はいらない</h2>
+    <p>このシミュレーターのプログラムは、どの遺伝子が「良い」かをいっさい知りません。実装されているのは、ダーウィンが見抜いた自然選択の3つの要素だけです。</p>
+    <div class="note"><strong>自然選択の3要素（このシミュの全ルール）</strong><br>①<b>変異</b>：子の遺伝子（速さ・大きさ・感知力）は、親からほんの少しランダムにズレる<br>②<b>遺伝</b>：そのズレは子に受け継がれる<br>③<b>選択</b>：エサを見つけられない個体はエネルギーが尽きて死に、子を残せない</p>
+    <p>たったこれだけで、環境に合った特徴が世代を追うごとに「勝手に」増えていきます。上の朱色のグラフが上がっていくなら、それは誰も設計していない進化が、いまあなたのブラウザの中で起きているということです。</p>
+    <h2>観察実験のすすめ</h2>
+    <ul>
+    <li><b>🧊 氷河期ボタン</b>……エサが激減すると、遠くのエサに先にたどり着ける「速い個体」だけが生き残りやすくなり、平均の速さがぐっと上がります。ただし速さはエネルギーを激しく消費する諸刃の剣。エサを戻すと、今度はゆっくりな個体が盛り返すこともあります。</li>
+    <li><b>大きさはどうなる？</b>……この世界には天敵がいないため、大きさはコスト（燃費の悪さ）でしかありません。放っておくと、群れは少しずつ小型化していきます。「進化＝強く大きくなること」ではない、の好例です。</li>
+    <li><b>突然変異を最大に</b>……変異が大きいと環境変化には素早く適応しますが、ハズレの子も増えます。変異が小さいと安定する代わりに、環境が変わったとき絶滅しやすくなります。</li>
+    </ul>
+    <h2>本物の進化も、これと同じ</h2>
+    <p>抗生物質が効かない耐性菌、農薬に強い害虫、都市の騒音で鳴き声が高くなった鳥——現実の進化も「変異・遺伝・選択」の積み重ねで、人間の観察できる速さで起きています。進化は大昔の出来事ではなく、いまも続く現在進行形の現象です。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>これは本当の進化と同じ？</dt><dd>原理は同じです。変異・遺伝・選択をそのまま実装した、生物学の教育用モデルと同じ考え方です。実際の生物はもっと多くの遺伝子と環境要因を持ちます。</dd><dt>絶滅してしまったら？</dt><dd>それも自然選択の結果のひとつです。「↺ 最初から」で新しい群れをまき直せます。エサを増やしてから再挑戦を。</dd><dt>色の違いは何？</dt><dd>体の色は「速さ」の遺伝子を表します。青緑＝ゆっくり、赤っぽい＝速い。群れ全体の色が変わっていけば、それが進化です。</dd><dt>データは送信されますか？</dt><dd>いいえ。シミュレーションはすべてブラウザ内で完結します。</dd></dl>
+    <h2>参考</h2><ul class="seo-refs"><li>ダーウィン『種の起源』（1859、自然選択説）</li><li>個体ベースモデル（agent-based model）による自然選択の教育シミュレーション</li></ul>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../jutai/"><span class="e">🚗</span><span>渋滞は勝手に生まれる</span></a><a class="related-card" href="../life/"><span class="e">🦠</span><span>ライフゲーム</span></a><a class="related-card" href="../forest-fire/"><span class="e">🔥</span><span>森林火災シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ見てみたい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = '進化シミュレーター、氷河期を起こしたら生き物の「速さ」が勝手に進化した🧬 自然選択をブラウザで';
+  try {
+  const cv = $('cv'), gv = $('graph');
+  let X, GX, W, H, GW, GH, dpr;
+  function fit() {
+    W = Math.min(cv.parentElement.clientWidth, 920);
+    H = Math.round(W * (W < 560 ? 0.85 : 0.56));
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    cv.width = Math.floor(W * dpr); cv.height = Math.floor(H * dpr);
+    cv.style.height = H + 'px';
+    X = cv.getContext('2d'); X.setTransform(dpr, 0, 0, dpr, 0, 0);
+    GW = Math.min(gv.parentElement.clientWidth, 920); GH = 72;
+    gv.width = Math.floor(GW * dpr); gv.height = Math.floor(GH * dpr);
+    GX = gv.getContext('2d'); GX.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  let crea, foods, hist, ice = false, paused = false, tick = 0;
+
+  function newCrea(x, y, spd, size, sense, e, g) {
+    return { x, y, spd, size, sense, e, g: g || 1, dir: Math.random() * 6.283 };
+  }
+  function build() {
+    tick = 0; hist = [];
+    crea = [];
+    for (let i = 0; i < 55; i++) {
+      crea.push(newCrea(Math.random() * W, Math.random() * H, 1, 1, 42, 34));
+    }
+    foods = [];
+    for (let i = 0; i < 150; i++) foods.push({ x: Math.random() * W, y: Math.random() * H });
+    ice = false; $('iceBtn').classList.remove('is-on'); $('iceBtn').textContent = '🧊 氷河期を起こす';
+  }
+
+  function step() {
+    tick++;
+    // エサの発生
+    const rate = (+$('f').value / 20) * (ice ? 0.32 : 1);
+    let acc = rate;
+    while (acc >= 1) { if (foods.length < 380) foods.push({ x: Math.random() * W, y: Math.random() * H }); acc--; }
+    if (Math.random() < acc && foods.length < 380) foods.push({ x: Math.random() * W, y: Math.random() * H });
+
+    const mut = +$('mu').value / 100;
+    for (let i = crea.length - 1; i >= 0; i--) {
+      const c = crea[i];
+      // 最寄りのエサ（感知範囲内）
+      let best = -1, bd = c.sense * c.sense;
+      for (let j = 0; j < foods.length; j++) {
+        const dx = foods[j].x - c.x, dy = foods[j].y - c.y, d2 = dx * dx + dy * dy;
+        if (d2 < bd) { bd = d2; best = j; }
+      }
+      if (best >= 0) {
+        c.dir = Math.atan2(foods[best].y - c.y, foods[best].x - c.x);
+      } else {
+        c.dir += (Math.random() - 0.5) * 0.5;
+      }
+      const v = 1.15 * c.spd;
+      c.x += Math.cos(c.dir) * v; c.y += Math.sin(c.dir) * v;
+      if (c.x < 0) { c.x = 0; c.dir = Math.PI - c.dir; }
+      if (c.x > W) { c.x = W; c.dir = Math.PI - c.dir; }
+      if (c.y < 0) { c.y = 0; c.dir = -c.dir; }
+      if (c.y > H) { c.y = H; c.dir = -c.dir; }
+      // 食べる
+      const rr = (3 + c.size * 2.6) + 2.5;
+      if (best >= 0 && bd < rr * rr) { foods.splice(best, 1); c.e += 13; }
+      // エネルギー収支（速さ²×大きさ³＋感知コスト＋基礎代謝）
+      c.e -= 0.032 * Math.pow(c.size, 3) * Math.pow(c.spd, 2) + 0.004 * (c.sense / 42) + 0.03;
+      // 分裂
+      if (c.e > 60 && crea.length < 240) {
+        c.e -= 32;
+        const m = (g) => Math.max(0.35, g * (1 + (Math.random() * 2 - 1) * mut));
+        crea.push(newCrea(c.x + 4, c.y + 4, m(c.spd), m(c.size), Math.max(14, c.sense * (1 + (Math.random() * 2 - 1) * mut)), 30, c.g + 1));
+      }
+      // 死
+      if (c.e <= 0) crea.splice(i, 1);
+    }
+    // 統計履歴
+    if (tick % 10 === 0) {
+      const n = crea.length || 1;
+      const aS = crea.reduce((a, c) => a + c.spd, 0) / n;
+      hist.push({ pop: crea.length, spd: aS });
+      if (hist.length > 300) hist.shift();
+    }
+  }
+
+  function draw() {
+    X.fillStyle = '#fdfcf8'; X.fillRect(0, 0, W, H);
+    // 方眼
+    X.strokeStyle = 'rgba(20,24,29,0.045)'; X.lineWidth = 1;
+    for (let x = 0; x < W; x += 26) { X.beginPath(); X.moveTo(x, 0); X.lineTo(x, H); X.stroke(); }
+    for (let y = 0; y < H; y += 26) { X.beginPath(); X.moveTo(0, y); X.lineTo(W, y); X.stroke(); }
+    // エサ
+    X.fillStyle = '#4a8f4e';
+    for (const f of foods) { X.fillRect(f.x - 1.6, f.y - 1.6, 3.2, 3.2); }
+    // 生き物
+    for (const c of crea) {
+      const hue = Math.max(0, Math.min(200, 200 - (c.spd - 0.5) * 130));
+      const r = 3 + c.size * 2.6;
+      X.fillStyle = 'hsla(' + hue + ',52%,45%,.92)';
+      X.beginPath(); X.arc(c.x, c.y, r, 0, 6.283); X.fill();
+      // 進行方向の目
+      X.fillStyle = 'rgba(255,255,255,.85)';
+      X.beginPath(); X.arc(c.x + Math.cos(c.dir) * r * 0.45, c.y + Math.sin(c.dir) * r * 0.45, Math.max(1.1, r * 0.22), 0, 6.283); X.fill();
+    }
+    // 絶滅表示
+    if (!crea.length) {
+      X.fillStyle = 'rgba(20,24,29,.78)';
+      X.font = '600 20px "Hiragino Mincho ProN","Yu Mincho",serif';
+      X.textAlign = 'center';
+      X.fillText('絶滅——環境が厳しすぎたようです', W / 2, H / 2 - 8);
+      X.font = '13px system-ui,sans-serif';
+      X.fillText('エサを増やして「↺ 最初から」でやり直せます', W / 2, H / 2 + 18);
+      X.textAlign = 'start';
+    }
+    // グラフ
+    GX.fillStyle = '#fff'; GX.fillRect(0, 0, GW, GH);
+    if (hist.length > 1) {
+      const maxP = Math.max(60, ...hist.map(h => h.pop));
+      const maxS = Math.max(1.6, ...hist.map(h => h.spd));
+      GX.lineWidth = 1.4;
+      GX.strokeStyle = 'rgba(20,24,29,.75)';
+      GX.beginPath();
+      hist.forEach((h, i) => { const x = i / (hist.length - 1) * GW, y = GH - 6 - (h.pop / maxP) * (GH - 14); i ? GX.lineTo(x, y) : GX.moveTo(x, y); });
+      GX.stroke();
+      GX.strokeStyle = '#c4442b';
+      GX.beginPath();
+      hist.forEach((h, i) => { const x = i / (hist.length - 1) * GW, y = GH - 6 - (h.spd / maxS) * (GH - 14); i ? GX.lineTo(x, y) : GX.moveTo(x, y); });
+      GX.stroke();
+    }
+    // 統計
+    const n = crea.length || 1;
+    $('stPop').textContent = crea.length + ' 匹';
+    $('stGen').textContent = '第 ' + Math.round(crea.reduce((a, c) => a + (c.g || 1), 0) / n) + ' 世代';
+    $('stSpd').textContent = '×' + (crea.reduce((a, c) => a + c.spd, 0) / n).toFixed(2);
+    $('stSize').textContent = '×' + (crea.reduce((a, c) => a + c.size, 0) / n).toFixed(2);
+  }
+
+  function loop() { if (!paused) { step(); draw(); } requestAnimationFrame(loop); }
+
+  const fWords = v => v <= 8 ? '少ない' : v <= 13 ? 'やや少ない' : v <= 21 ? 'ふつう' : '豊富';
+  $('f').addEventListener('input', () => $('fL').textContent = fWords(+$('f').value));
+  $('mu').addEventListener('input', () => { const v = +$('mu').value; $('muL').textContent = v <= 5 ? '小さい' : v <= 12 ? 'ふつう' : '大きい'; });
+  $('iceBtn').addEventListener('click', () => {
+    ice = !ice;
+    $('iceBtn').classList.toggle('is-on', ice);
+    $('iceBtn').textContent = ice ? '🌤 氷河期を終わらせる' : '🧊 氷河期を起こす';
+    if (ice) SHARE = '進化シミュレーターで氷河期を起こしたら、生き残りをかけて「速さ」が進化し始めた🧬';
+  });
+  $('pauseBtn').addEventListener('click', () => { paused = !paused; $('pauseBtn').textContent = paused ? '▶ 再生' : '⏸ 一時停止'; });
+  $('resetBtn').addEventListener('click', build);
+
+  let rt;
+  addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { fit(); build(); }, 250); });
+
+  fit(); build();
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    paused = true; $('pauseBtn').textContent = '▶ 再生'; draw();
+  }
+  loop();
+  } catch (e) { console.error(e); }
+  const sb = $('shareBtn');
+  if (sb) sb.addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(SHARE) + '&url=' + encodeURIComponent(location.href) + '&hashtags=' + encodeURIComponent('シミュラボ'), '_blank', 'noopener'));
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'shinka-sim', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>
