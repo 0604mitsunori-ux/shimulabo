@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url><loc>https://shimulabo.com/</loc><lastmod>2026-08-07</lastmod><xhtml:link rel="alternate" hreflang="ja" href="https://shimulabo.com/"/><xhtml:link rel="alternate" hreflang="en" href="https://shimulabo.com/en/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://shimulabo.com/"/><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://shimulabo.com/</loc><lastmod>2026-08-08</lastmod><xhtml:link rel="alternate" hreflang="ja" href="https://shimulabo.com/"/><xhtml:link rel="alternate" hreflang="en" href="https://shimulabo.com/en/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://shimulabo.com/"/><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://shimulabo.com/sims/kaigi-cost/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shimulabo.com/sims/kuchikomi-hakyu/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shimulabo.com/sims/jutai/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
@@ -719,56 +719,66 @@
   <url><loc>https://shimulabo.com/sims/ojisan-do/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shimulabo.com/sims/obasan-do/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shimulabo.com/sims/wakamono-do/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/kisei-total/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/chintai-shoki/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/menkyo-hiyou/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/soshiki-hiyou/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/seijinshiki/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/syukatsu-hiyou/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/kaigai-ryoko/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/sotsugyo-ryoko/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/ie-kau/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/reform-hiyou/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/shaken-hiyou/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/baiku-hiyou/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/zaitaku-cost/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/dousei-hiyou/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/omiyamairi/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/pet-kasou/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/themepark-1day/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/diet-cost/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/biyou-iji/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/smartphone-sougaku/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/bento-jisan/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/mybottle/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/gaishoku-nenkan/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/gacha-cost/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/denki-norikae/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/furusato-otoku/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/taiyoukou/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/contact-cost/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/lasik-cost/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/protein-nenkan/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/nenmatsu-nenshi/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/juku-nenkan/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/naraigoto-cost/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/nyugaku-junbi/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/bukatsu-cost/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/daigaku-4nen/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/haka-jimai/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/souzoku-hiyou/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/pet-shoki/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/hitori-shoki/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/camp-gear/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/golf-hajime/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/gakki-hajime/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/shikaku-cost/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/ryugaku-cost/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/kafun-cost/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/suit-shakaijin/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/shokusenki-motodori/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/water-server/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/hoken-minaoshi/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/kisei-total/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/chintai-shoki/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/menkyo-hiyou/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/soshiki-hiyou/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/seijinshiki/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/syukatsu-hiyou/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/kaigai-ryoko/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/sotsugyo-ryoko/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/ie-kau/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/reform-hiyou/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/shaken-hiyou/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/baiku-hiyou/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/zaitaku-cost/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/dousei-hiyou/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/omiyamairi/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/pet-kasou/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/themepark-1day/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/diet-cost/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/biyou-iji/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/smartphone-sougaku/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/bento-jisan/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/mybottle/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/gaishoku-nenkan/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/gacha-cost/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/denki-norikae/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/furusato-otoku/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/taiyoukou/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/contact-cost/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/lasik-cost/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/protein-nenkan/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/nenmatsu-nenshi/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/juku-nenkan/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/naraigoto-cost/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/nyugaku-junbi/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/bukatsu-cost/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/daigaku-4nen/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/haka-jimai/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/souzoku-hiyou/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/pet-shoki/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/hitori-shoki/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/camp-gear/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/golf-hajime/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/gakki-hajime/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/shikaku-cost/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/ryugaku-cost/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/kafun-cost/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/suit-shakaijin/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/shokusenki-motodori/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/water-server/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/hoken-minaoshi/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/yukyu-fuyo/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/bonus-heikin/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/nyuen-nenrei/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/koreisha-itsu/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/junior-seat/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/dokushin-zei/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/bust-size/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/myakuhaku-heikin/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/akuryoku-heikin/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/arasa-hantei/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shimulabo.com/contact/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://shimulabo.com/request/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://shimulabo.com/board/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>

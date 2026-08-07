@@ -77,6 +77,7 @@ const ALLOW = new Set([
   'kibiki', 'shijukunichi', 'kaiki', 'niibon', 'ketsueki-iden', 'quarter-blood', 'shinzoku-hani', 'sonzoku-yobi', 'sedai-sakanobori', 'shinseki-count',
   'daigaku-shusseki', 'sotsugyo-tani', 'ryunen-tani', 'shugo-animal', 'shugorei-level', 'power-stone', 'shinkansen-car', 'teiki-kaisu', 'taxi-densha', 'ojisan-do', 'obasan-do', 'wakamono-do',
   'galaxy-collision', 'black-hole', 'shinka-sim', 'hinan-crowd', 'element-sandbox',
+  'yukyu-fuyo', 'bonus-heikin', 'nyuen-nenrei', 'koreisha-itsu', 'junior-seat', 'dokushin-zei', 'bust-size', 'myakuhaku-heikin', 'akuryoku-heikin', 'arasa-hantei',
   'renai-shindan', 'renai-type', 'renai-hensachi', 'mote-do', 'risou-aite', 'renai-kachikan', 'kakehiki-type', 'matchapp-aisho', 'kekkon-tekireiki', 'koibito-itsu',
   'uwaki-do', 'uwaki-sign', 'isharyo-furin', 'tantei-hiyou', 'youikuhi', 'zaisan-bunyo', 'shouko-check', 'shinrai-do', 'kentaiki', 'uwaki-nayami',
   'kid-eigo-type', 'kid-eigo-itsukara', 'kid-tablet-muki', 'kid-gakushu-type', 'kid-yaruki', 'kid-kyozai-hiyou', 'kid-eigomimi', 'kid-jitaku', 'kid-gakushu-jikan', 'kid-naraigoto',

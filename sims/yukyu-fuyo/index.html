@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/yukyu-fuyo/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/yukyu-fuyo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/yukyu-fuyo.png">
+<title>有給休暇 付与日数 計算|勤続年数で何日もらえる？パート比例付与も対応|シミュラボ</title>
+<meta name="description" content="勤続年数と週の労働日数を選ぶだけで、労働基準法どおりの有給休暇の付与日数を表示する無料ツール。フルタイムは半年で10日、パート・アルバイトの比例付与（週1〜4日勤務）にも対応。年5日の取得義務も解説。">
+<meta property="og:title" content="有給休暇 付与日数 計算|何日もらえる？">
+<meta property="og:description" content="勤続年数と週の労働日数から法定の有給付与日数を表示。パート比例付与対応。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/yukyu-fuyo/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "有給休暇 付与日数 計算", "url": "https://shimulabo.com/sims/yukyu-fuyo/", "description": "勤続年数と週の労働日数を選ぶだけで、労働基準法どおりの有給休暇の付与日数を表示する無料ツール。フルタイムは半年で10日、パート・アルバイトの比例付与（週1〜4日勤務）にも対応。年5日の取得義務も解説。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "有給休暇 付与日数 計算", "item": "https://shimulabo.com/sims/yukyu-fuyo/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "パート・アルバイトにも有給はある？", "acceptedAnswer": {"@type": "Answer", "text": "あります。週1日勤務でも勤続半年で1日付与されます（比例付与）。「パートだから無い」は誤りです。"}}, {"@type": "Question", "name": "繰り越しはできる？", "acceptedAnswer": {"@type": "Answer", "text": "できます。時効は2年なので、昨年の残りと今年の付与分を合わせて保有できます。"}}, {"@type": "Question", "name": "週30時間以上働くパートは？", "acceptedAnswer": {"@type": "Answer", "text": "週の日数が4日以下でも、週30時間以上ならフルタイムと同じ日数（初回10日）が付与されます。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span>仕事・働き方<span>›</span><span class="cur">有給休暇 付与日数 計算</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">仕事・働き方</div>
+    <h1>有給休暇 付与日数 計算</h1>
+    <p class="lead">「自分の有給って何日あるの？」を一発確認。勤続年数と週の労働日数を選ぶと、労働基準法で決まっている付与日数を表示します。パート・アルバイト（週1〜4日勤務）の比例付与にも対応。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🏖️ 働き方を選ぶ</h2>
+    <div class="field"><label>勤続年数</label><select id="y">
+      <option value="0">半年未満（付与前）</option>
+      <option value="1" selected>半年〜1年半</option>
+      <option value="2">1年半〜2年半</option>
+      <option value="3">2年半〜3年半</option>
+      <option value="4">3年半〜4年半</option>
+      <option value="5">4年半〜5年半</option>
+      <option value="6">5年半〜6年半</option>
+      <option value="7">6年半以上</option>
+    </select></div>
+    <div class="field"><label>週の労働日数</label><select id="d">
+      <option value="5" selected>週5日以上（または週30時間以上）</option>
+      <option value="4">週4日</option>
+      <option value="3">週3日</option>
+      <option value="2">週2日</option>
+      <option value="1">週1日</option>
+    </select></div>
+    <button class="btn btn-primary" id="calcBtn">付与日数を見る</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">法定の有給付与日数</div>
+      <div class="big"><span id="big">0</span><span class="unit">日</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">区分</div><div class="v" id="kbn">—</div></div>
+      <div class="stat"><div class="k">取得義務</div><div class="v accent" id="gimu">—</div></div>
+      <div class="stat"><div class="k">次の付与</div><div class="v" id="next">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+<div class="note" style="border-left:4px solid var(--teal)"><strong>ポイント</strong>：有給休暇は<b>雇入れから6ヶ月</b>継続勤務し、全労働日の8割以上出勤すると付与されます。フルタイムなら初回10日。その後は1年ごとに増え、6年半で上限の<b>20日</b>に。パート・アルバイトでも週の労働日数に応じて必ず付与されます（比例付与）。</div>
+    <h2>有給休暇の付与日数 早見表（法定）</h2>
+    <div class="tbl-scroll"><table class="seo-table"><tr><th>勤続年数</th><th>週5日〜</th><th>週4日</th><th>週3日</th><th>週2日</th><th>週1日</th></tr>
+    <tr><td>半年</td><td>10日</td><td>7日</td><td>5日</td><td>3日</td><td>1日</td></tr>
+    <tr><td>1年半</td><td>11日</td><td>8日</td><td>6日</td><td>4日</td><td>2日</td></tr>
+    <tr><td>2年半</td><td>12日</td><td>9日</td><td>6日</td><td>4日</td><td>2日</td></tr>
+    <tr><td>3年半</td><td>14日</td><td>10日</td><td>8日</td><td>5日</td><td>2日</td></tr>
+    <tr><td>4年半</td><td>16日</td><td>12日</td><td>9日</td><td>6日</td><td>3日</td></tr>
+    <tr><td>5年半</td><td>18日</td><td>13日</td><td>10日</td><td>6日</td><td>3日</td></tr>
+    <tr><td>6年半〜</td><td>20日</td><td>15日</td><td>11日</td><td>7日</td><td>3日</td></tr></table></div>
+    <p>年10日以上付与される人は、<b>年5日の取得が会社の義務</b>です（2019年〜）。取らせなかった会社には罰則もあります。未消化分は翌年まで繰り越せますが、時効は2年。余らせている有給をお金に換算すると意外な金額になります——<a href="/sims/yukyu/">有給消化シミュレーター</a>で確かめてみてください。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>パート・アルバイトにも有給はある？</dt><dd>あります。週1日勤務でも勤続半年で1日付与されます（比例付与）。「パートだから無い」は誤りです。</dd><dt>繰り越しはできる？</dt><dd>できます。時効は2年なので、昨年の残りと今年の付与分を合わせて保有できます。</dd><dt>週30時間以上働くパートは？</dt><dd>週の日数が4日以下でも、週30時間以上ならフルタイムと同じ日数（初回10日）が付与されます。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl><h2>参考</h2><ul class="seo-refs"><li>労働基準法39条（年次有給休暇・比例付与）</li><li>働き方改革関連法（年5日の時季指定義務・2019年施行）</li></ul>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../tenshoku/"><span class="e">🔀</span><span>転職 年収ifシミュレーター</span></a><a class="related-card" href="../zangyo/"><span class="e">🕒</span><span>残業代シミュレーター</span></a><a class="related-card" href="../yukyu/"><span class="e">🏖️</span><span>有給消化シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const sel = (id) => { const e=$(id); return e.options[e.selectedIndex]; };
+  const hash = (s) => { let h=2166136261; for(let i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h,16777619); } return (h>>>0); };
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function calc(){
+    const T={5:[10,11,12,14,16,18,20],4:[7,8,9,10,12,13,15],3:[5,6,6,8,9,10,11],2:[3,4,4,5,6,6,7],1:[1,2,2,2,3,3,3]};
+    const y=+$('y').value, d=+$('d').value;
+    const days = y===0 ? 0 : T[d][Math.min(6,y-1)];
+    const full = d===5;
+    $('sub').textContent = y===0 ? '雇入れ半年後に最初の付与があります' : `${sel('y').text}・${sel('d').text}`;
+    $('kbn').textContent = full ? '通常の労働者' : '比例付与';
+    $('gimu').textContent = days>=10 ? '年5日 取得義務あり' : '義務対象外';
+    $('next').textContent = y===0 ? '半年後に'+T[d][0]+'日' : (y>=7 ? '上限です' : '1年後に'+T[d][Math.min(6,y)]+'日');
+    show(); anim($('big'),0,days,700);
+    SHARE=`有給休暇 付与日数、私は年${days}日でした🏖️ あなたは何日？`;
+  }
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/result-fx.js?v=4"></script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'yukyu-fuyo', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>
