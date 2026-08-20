@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/umi-mizuon/">
+<title>いま海、冷たい？水温チェッカー｜主要ビーチの海水温をライブ判定｜シミュラボ</title>
+<meta name="description" content="湘南・伊豆・沖縄など主要ビーチのいまの海水温を海洋データからライブ取得し、海水浴できる水温かを判定する無料ツール。">
+<meta property="og:title" content="いま海、冷たい？水温チェッカー">
+<meta property="og:description" content="主要ビーチのいまの海水温をライブ判定。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/umi-mizuon.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/umi-mizuon.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/umi-mizuon/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "いま海、冷たい？水温チェッカー", "url": "https://shimulabo.com/sims/umi-mizuon/", "description": "主要ビーチのいまの海水温をライブ判定。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ライブデータラボ", "item": "https://shimulabo.com/live/"}, {"@type": "ListItem", "position": 3, "name": "いま海、冷たい？水温チェッカー", "item": "https://shimulabo.com/sims/umi-mizuon/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "データの出典は？", "acceptedAnswer": {"@type": "Answer", "text": "海洋予報オープンデータAPI（Open-Meteo Marine）の海面水温（SST）を各ビーチ沖の座標で取得しています。"}}, {"@type": "Question", "name": "実際の水温と違う？", "acceptedAnswer": {"@type": "Answer", "text": "沖合モデルの推定のため、浅瀬や湾奥の実測とは1〜3℃程度ずれることがあります。傾向の目安としてご利用ください。"}}, {"@type": "Question", "name": "入力データは送信される？", "acceptedAnswer": {"@type": "Answer", "text": "ビーチの選択のみを使います。個人情報は一切送信されません。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../live/">⚡ ライブデータ一覧</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../live/">ライブデータラボ</a><span>›</span><span class="cur">いま海、冷たい？水温チェッカー</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">季節・行事</div>
+    <h1>いま海、冷たい？水温チェッカー</h1>
+    <p class="lead">気温は真夏でも、海の中はワンテンポ遅れています。主要ビーチのいまの海水温を取得して、泳げる水かを判定します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🏖️ ビーチ</h2>
+    <div class="field"><label>ビーチ</label>
+      <select id="spot">
+        <option value="35.30,139.48" selected>湘南（片瀬・由比ヶ浜）</option>
+        <option value="34.80,138.95">伊豆・白浜</option>
+        <option value="35.28,140.40">千葉・九十九里</option>
+        <option value="33.68,135.35">和歌山・白良浜</option>
+        <option value="34.25,133.20">瀬戸内・しまなみ</option>
+        <option value="33.90,130.60">福岡・芦屋</option>
+        <option value="37.30,138.80">新潟・柏崎</option>
+        <option value="26.44,127.79">沖縄・恩納村</option>
+      </select>
+    </div>
+    <button class="btn btn-primary" id="calcBtn">いまの水温を見る</button>
+    <div class="hint" id="state" style="margin-top:8px;"></div>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">いまの海水温は</div>
+      <div class="big"><span id="big">0</span><span class="unit">℃</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">判定</div><div class="v" id="judge">—</div></div>
+      <div class="stat"><div class="k">気温との差</div><div class="v" id="gap">—</div></div>
+      <div class="stat"><div class="k">明日の水温</div><div class="v accent" id="tomorrow">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>このチェッカーについて</h2>
+    <p>海水温は気温より1〜2ヶ月遅れて変化します。7月頭の海がまだ冷たく、9月の海が意外と温かいのはこのためです。このチェッカーは海洋予報オープンデータAPI（Open-Meteo Marine）から各ビーチ沖の海面水温を取得します。目安は26℃以上=extended快適、23℃=快適、20℃前後=ひんやり、17℃以下=ウェットスーツ域です。</p>
+    <div class="note">沖合モデルの推定値のため、浅瀬の実際の水温とは差があります。子どもは大人より体温を奪われやすいので、唇が紫になったら休憩を。</div>
+    <h2>引用・転載について</h2>
+    <p>本ページの計算結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「いま海、冷たい？水温チェッカー」 https://shimulabo.com/sims/umi-mizuon/</code><br>Webでご利用の際は上記URLへのリンク設置をお願いします。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>データの出典は？</dt><dd>海洋予報オープンデータAPI（Open-Meteo Marine）の海面水温（SST）を各ビーチ沖の座標で取得しています。</dd><dt>実際の水温と違う？</dt><dd>沖合モデルの推定のため、浅瀬や湾奥の実測とは1〜3℃程度ずれることがあります。傾向の目安としてご利用ください。</dd><dt>入力データは送信される？</dt><dd>ビーチの選択のみを使います。個人情報は一切送信されません。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../naminori-biyori/"><span class="e">🏄</span><span>波乗り日和チェッカー</span></a><a class="related-card" href="../shio-live/"><span class="e">🌊</span><span>今日の潮、いつ満ちる？</span></a><a class="related-card" href="../hiyake-timer/"><span class="e">☀️</span><span>日焼けタイマー</span></a><a class="related-card" href="../atsusa-ranking/"><span class="e">🌡️</span><span>全国いま暑いランキング</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../live/">⚡ ライブデータラボ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function bindShare(){
+    $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+    $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+  }
+  async function calc(){
+    const [lat, lon] = $('spot').value.split(',');
+    const name = $('spot').selectedOptions[0].textContent;
+    $('state').textContent = '海水温を取得中…';
+    try{
+      const [m, w] = await Promise.all([
+        fetch('https://marine-api.open-meteo.com/v1/marine?latitude=' + lat + '&longitude=' + lon + '&hourly=sea_surface_temperature&forecast_days=2&timezone=Asia%2FTokyo').then(r => r.json()),
+        fetch('https://api.open-meteo.com/v1/forecast?latitude=' + lat + '&longitude=' + lon + '&current=temperature_2m').then(r => r.json()),
+      ]);
+      const H = new Date().getHours();
+      const sst = m.hourly.sea_surface_temperature[H];
+      const sstT = m.hourly.sea_surface_temperature[H + 24];
+      const air = w.current.temperature_2m;
+      const judge = sst >= 27 ? '🏖️ 極楽。ずっと入ってられる' : sst >= 24 ? '😊 快適に泳げる' : sst >= 21 ? '🥶 最初ヒヤッと。慣れれば' : sst >= 18 ? '🧊 ウェットスーツ推奨' : '⛔ 遊泳には冷たすぎ';
+      $('state').textContent = '';
+      $('sub').textContent = name + '沖の海面水温（モデル推定）｜' + judge;
+      $('judge').textContent = judge.replace(/^[^ ]+ /, '');
+      $('gap').textContent = '気温' + air.toFixed(0) + '℃より' + Math.abs(air - sst).toFixed(0) + '℃' + (air > sst ? '冷たい' : '温かい');
+      $('tomorrow').textContent = sstT != null ? sstT.toFixed(1) + '℃' : '—';
+      SHARE = 'いまの' + name.split('（')[0] + 'の海水温は' + sst.toFixed(1) + '℃🏖️（' + judge.replace(/^[^ ]+ /,'') + '）\n海に行く前の答え合わせ👇';
+      show(); anim($('big'), 0, Math.round(sst * 10) / 10, 900, 1);
+    }catch{ $('state').textContent = '⚠️ 取得に失敗しました。時間をおいて再度お試しください。'; }
+  }
+  $('calcBtn').addEventListener('click', calc);
+  bindShare();
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'umi-mizuon', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/result-fx.js?v=4"></script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

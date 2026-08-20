@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/kotoba-trend/">
+<title>その言葉、まだ流行ってる？｜半年の閲覧数データでトレンド判定｜シミュラボ</title>
+<meta name="description" content="言葉・人物・作品名を入れると、直近半年のWikipedia閲覧数の推移から「上昇中か下火か」を判定する無料ツール。企画・ネタ選び・トレンド調査の一次データに。">
+<meta property="og:title" content="その言葉、まだ流行ってる？">
+<meta property="og:description" content="半年の閲覧数推移でトレンドの生死を判定。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/kotoba-trend.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/kotoba-trend.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/kotoba-trend/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "その言葉、まだ流行ってる？", "url": "https://shimulabo.com/sims/kotoba-trend/", "description": "半年の閲覧数推移でトレンドの生死を判定。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ライブデータラボ", "item": "https://shimulabo.com/live/"}, {"@type": "ListItem", "position": 3, "name": "その言葉、まだ流行ってる？", "item": "https://shimulabo.com/sims/kotoba-trend/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "データの出典は？", "acceptedAnswer": {"@type": "Answer", "text": "Wikimedia財団公式の閲覧統計API（Pageviews API）から、日本語版Wikipediaの記事別日次閲覧数を取得しています。"}}, {"@type": "Question", "name": "Googleトレンドとの違いは？", "acceptedAnswer": {"@type": "Answer", "text": "母数は違いますが傾向は概ね一致します。こちらはAPIで即取得でき、具体的な閲覧回数で比較できるのが利点です。"}}, {"@type": "Question", "name": "入力データは送信される？", "acceptedAnswer": {"@type": "Answer", "text": "入力した言葉はWikipedia統計APIへの問い合わせにだけ使われます。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../live/">⚡ ライブデータ一覧</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../live/">ライブデータラボ</a><span>›</span><span class="cur">その言葉、まだ流行ってる？</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">マーケティング</div>
+    <h1>その言葉、まだ流行ってる？</h1>
+    <p class="lead">「いま流行ってるらしい」の裏を取ります。言葉を入れると、半年分の閲覧数推移からトレンドが上昇中か下火かを判定します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>📈 調べる言葉</h2>
+    <div class="field"><label>言葉・人物・作品名 <span class="hint">（Wikipedia記事名と一致）</span></label><input type="text" id="w" placeholder="例: 生成的人工知能" autocomplete="off"></div>
+    <button class="btn btn-primary" id="calcBtn">トレンドの生死を判定</button>
+    <div class="hint" id="state" style="margin-top:8px;"></div>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label" id="topLabel">判定</div>
+      <div class="big" style="font-size:min(12vw,54px);"><span id="big">—</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">直近30日の平均/日</div><div class="v" id="recent">—</div></div>
+      <div class="stat"><div class="k">半年前の平均/日</div><div class="v" id="old">—</div></div>
+      <div class="stat"><div class="k">この半年のピーク</div><div class="v accent" id="peak">—</div></div></div>
+      <div id="chart" style="margin-top:14px;display:flex;align-items:flex-end;gap:1px;height:70px;"></div>
+      <div class="hint">▲ 直近180日の日次閲覧数</div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>この判定について</h2>
+    <p>マーケティングでも雑談でも、「流行っている」の根拠は大抵ふわっとしています。このツールはWikimedia公式統計から対象記事の約半年分の日次閲覧数を取得し、直近30日と半年前の水準を比較してトレンドを判定します。企画書に「まだ伸びている」「もうピークは過ぎた」の一次データを添えたいときにも。</p>
+    <div class="note">閲覧数はニュース露出で瞬間的に跳ねます。ピーク日が突出している場合は、一発ニュース型か定着型かをグラフの形で見分けてください。</div>
+    <h2>引用・転載について</h2>
+    <p>本ページの計算結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「その言葉、まだ流行ってる？」 https://shimulabo.com/sims/kotoba-trend/</code><br>Webでご利用の際は上記URLへのリンク設置をお願いします。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>データの出典は？</dt><dd>Wikimedia財団公式の閲覧統計API（Pageviews API）から、日本語版Wikipediaの記事別日次閲覧数を取得しています。</dd><dt>Googleトレンドとの違いは？</dt><dd>母数は違いますが傾向は概ね一致します。こちらはAPIで即取得でき、具体的な閲覧回数で比較できるのが利点です。</dd><dt>入力データは送信される？</dt><dd>入力した言葉はWikipedia統計APIへの問い合わせにだけ使われます。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../kyou-no-kanshin/"><span class="e">📰</span><span>きのう、日本人が一番調べたもの</span></a><a class="related-card" href="../docchi-yumei/"><span class="e">🥊</span><span>どっちが有名？対決</span></a><a class="related-card" href="../influencer-soroban/"><span class="e">📱</span><span>インフルエンサー皮算用</span></a><a class="related-card" href="../kuchikomi-hakyu/"><span class="e">📣</span><span>口コミ波及シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../live/">⚡ ライブデータラボ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function bindShare(){
+    $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+    $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+  }
+  const NG = ['メインページ','特別:','Wikipedia:','ファイル:','Help:','Portal:','テンプレート:','ノート:','プロジェクト:','Category:'];
+  const okTitle = (t) => t && !NG.some(n => t.startsWith(n));
+  const dstr = (d) => d.getFullYear() + '/' + String(d.getMonth()+1).padStart(2,'0') + '/' + String(d.getDate()).padStart(2,'0');
+  const dnum = (d) => d.getFullYear() + String(d.getMonth()+1).padStart(2,'0') + String(d.getDate()).padStart(2,'0');
+  async function calc(){
+    const w = $('w').value.trim();
+    if(!w){ $('w').focus(); return; }
+    $('state').textContent = '半年分の閲覧数を取得中…';
+    try{
+      const end = new Date(Date.now() - 3 * 86400000), start = new Date(Date.now() - 183 * 86400000);
+      const r = await fetch('https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/ja.wikipedia/all-access/all-agents/' + encodeURIComponent(w.replace(/ /g,'_')) + '/daily/' + dnum(start) + '/' + dnum(end));
+      if(!r.ok){ $('state').textContent = '⚠️「' + w + '」のWikipedia記事が見つかりません。正式名称でお試しください。'; return; }
+      const j = await r.json();
+      const vs = j.items.map(x => x.views);
+      const avg = (a) => a.reduce((x,y)=>x+y,0) / Math.max(1, a.length);
+      const recent = avg(vs.slice(-30)), old = avg(vs.slice(0, 30));
+      const chg = (recent / Math.max(1, old) - 1) * 100;
+      let peakI = 0; vs.forEach((v,i) => { if(v > vs[peakI]) peakI = i; });
+      const peakDate = j.items[peakI].timestamp;
+      const verdict = chg >= 100 ? '🔥 爆伸び中' : chg >= 25 ? '📈 上昇トレンド' : chg >= -25 ? '➡️ 横ばい（定着期）' : chg >= -60 ? '📉 下火になりつつある' : '🧊 ブーム終了…';
+      $('state').textContent = '';
+      $('big').textContent = verdict;
+      $('sub').textContent = '「' + w + '」半年前比 ' + (chg >= 0 ? '+' : '') + chg.toFixed(0) + '%（日本語版Wikipedia閲覧数）';
+      $('recent').textContent = Math.round(recent).toLocaleString('ja-JP') + '回';
+      $('old').textContent = Math.round(old).toLocaleString('ja-JP') + '回';
+      $('peak').textContent = peakDate.slice(4,6).replace(/^0/,'') + '/' + peakDate.slice(6,8).replace(/^0/,'') + '（' + (vs[peakI]/10000).toFixed(1) + '万回）';
+      const mx = Math.max(...vs);
+      $('chart').innerHTML = vs.map(v => '<div style="flex:1;background:linear-gradient(180deg,#6366f1,#818cf8);border-radius:1px 1px 0 0;height:' + Math.max(2, v / mx * 100) + '%"></div>').join('');
+      SHARE = '「' + w + '」のトレンド判定 → ' + verdict + '（半年前比' + (chg>=0?'+':'') + chg.toFixed(0) + '%）📈 Wikipedia閲覧数の一次データより\nあなたの気になる言葉は？👇';
+      show();
+    }catch{ $('state').textContent = '⚠️ 集計に失敗しました。時間をおいて再度お試しください。'; }
+  }
+  $('calcBtn').addEventListener('click', calc);
+  bindShare();
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'kotoba-trend', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/result-fx.js?v=4"></script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

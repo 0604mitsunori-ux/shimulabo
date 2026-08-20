@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/yohou-shinrai/">
+<title>週間予報、どこまで信じる？｜気象庁の信頼度A/B/Cを見える化｜シミュラボ</title>
+<meta name="description" content="気象庁が週間予報に付けている「信頼度（A/B/C）」を地域別に見える化する無料ツール。旅行や洗車の計画前に、予報の怪しい日をあぶり出せる。">
+<meta property="og:title" content="週間予報、どこまで信じる？">
+<meta property="og:description" content="気象庁の信頼度A/B/Cで怪しい日をあぶり出す。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/yohou-shinrai.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/yohou-shinrai.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/yohou-shinrai/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "週間予報、どこまで信じる？", "url": "https://shimulabo.com/sims/yohou-shinrai/", "description": "気象庁の信頼度A/B/Cで怪しい日をあぶり出す。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ライブデータラボ", "item": "https://shimulabo.com/live/"}, {"@type": "ListItem", "position": 3, "name": "週間予報、どこまで信じる？", "item": "https://shimulabo.com/sims/yohou-shinrai/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "データの出典は？", "acceptedAnswer": {"@type": "Answer", "text": "気象庁が公開している週間天気予報データ（信頼度・降水確率・天気コード）をそのまま取得しています。"}}, {"@type": "Question", "name": "信頼度A/B/Cの意味は？", "acceptedAnswer": {"@type": "Answer", "text": "降水の有無の予報の確からしさで、Aは適中率が高く予報が変わりにくい、Cは適中率が低く予報が変わりやすいことを示します。"}}, {"@type": "Question", "name": "入力データは送信される？", "acceptedAnswer": {"@type": "Answer", "text": "地域の選択のみを使います。個人情報は一切送信されません。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../live/">⚡ ライブデータ一覧</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../live/">ライブデータラボ</a><span>›</span><span class="cur">週間予報、どこまで信じる？</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">便利ツール</div>
+    <h1>週間予報、どこまで信じる？</h1>
+    <p class="lead">実は気象庁は、週間予報に自信度（信頼度A/B/C）を付けて発表しています。今週の「怪しい日」をあぶり出します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🔮 条件</h2>
+    <div class="field"><label>地域</label>
+      <select id="area">
+        <option value="016000">北海道（石狩）</option><option value="040000">宮城県</option><option value="150000">新潟県</option>
+        <option value="130000" selected>東京都</option><option value="230000">愛知県</option><option value="170000">石川県</option>
+        <option value="270000">大阪府</option><option value="340000">広島県</option><option value="390000">高知県</option>
+        <option value="400000">福岡県</option><option value="471000">沖縄本島</option>
+      </select>
+    </div>
+    <button class="btn btn-primary" id="calcBtn">今週の信頼度を見る</button>
+    <div class="hint" id="state" style="margin-top:8px;"></div>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">今週、予報が「怪しい日」は</div>
+      <div class="big"><span id="big">0</span><span class="unit">日</span></div>
+      <div class="sub" id="sub">—</div>
+      <div id="list" style="margin-top:14px;"></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>この見える化について</h2>
+    <p>気象庁の週間予報には、降水の有無の予報がどれだけ確からしいかを示す「信頼度」がA（確度高い）/B/C（確度低い）の3段階で付いています。天気マークは同じ「くもり時々雨」でも、AとCでは意味がまるで違う——このツールは気象庁の公開データから信頼度を取得してカレンダー化します。Cの日の予定は前日にもう一度確認を。</p>
+    <div class="note">信頼度は5日先以降の日に付与されます。直近の日に「—」が出るのは、確度が高く信頼度表示の対象外だからです。</div>
+    <h2>引用・転載について</h2>
+    <p>本ページの計算結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「週間予報、どこまで信じる？」 https://shimulabo.com/sims/yohou-shinrai/</code><br>Webでご利用の際は上記URLへのリンク設置をお願いします。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>データの出典は？</dt><dd>気象庁が公開している週間天気予報データ（信頼度・降水確率・天気コード）をそのまま取得しています。</dd><dt>信頼度A/B/Cの意味は？</dt><dd>降水の有無の予報の確からしさで、Aは適中率が高く予報が変わりにくい、Cは適中率が低く予報が変わりやすいことを示します。</dd><dt>入力データは送信される？</dt><dd>地域の選択のみを使います。個人情報は一切送信されません。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../shuumatsu-hare/"><span class="e">🌤️</span><span>今週末、晴れる？</span></a><a class="related-card" href="../kasa-iru/"><span class="e">☔</span><span>今日、傘いる？メーター</span></a><a class="related-card" href="../tsugi-renkyuu/"><span class="e">📅</span><span>次の3連休カウントダウン</span></a><a class="related-card" href="../amagumo-now/"><span class="e">🌧️</span><span>いまの雨雲マップ</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../live/">⚡ ライブデータラボ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function bindShare(){
+    $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+    $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+  }
+  const WD = ['日','月','火','水','木','金','土'];
+  async function calc(){
+    const code = $('area').value;
+    const name = $('area').selectedOptions[0].textContent;
+    $('state').textContent = '気象庁データを取得中…';
+    try{
+      const r = await fetch('https://www.jma.go.jp/bosai/forecast/data/forecast/' + code + '.json');
+      const j = await r.json();
+      const weekly = j[1];
+      const ts = weekly.timeSeries[0];
+      const area = ts.areas[0];
+      const rows = ts.timeDefines.map((t, i) => ({
+        d: new Date(t),
+        rel: (area.reliabilities || [])[i] || '',
+        pop: (area.pops || [])[i] || '',
+      }));
+      const shaky = rows.filter(x => x.rel === 'C').length;
+      $('state').textContent = '';
+      $('sub').textContent = name + '・気象庁週間予報の信頼度（A=確度高い / C=変わりやすい）';
+      $('list').innerHTML = rows.map(x => {
+        const badge = x.rel === 'A' ? '🟢 A' : x.rel === 'B' ? '🟡 B' : x.rel === 'C' ? '🔴 C' : '—';
+        return '<div style="display:flex;gap:8px;justify-content:space-between;padding:7px 10px;margin-bottom:5px;background:rgba(127,127,127,.07);border-radius:8px;font-size:12.5px;text-align:left;">'
+          + '<span>' + (x.d.getMonth()+1) + '/' + x.d.getDate() + '(' + WD[x.d.getDay()] + ')' + (x.pop !== '' ? '　降水確率' + x.pop + '%' : '') + '</span><span>信頼度 ' + badge + '</span></div>';
+      }).join('');
+      SHARE = '今週の' + name + 'の週間予報、確度が低い「信頼度C」の日は' + shaky + '日🔮 予定はその日だけ前日再確認が吉。\n気象庁の自信度、見える化はこちら👇';
+      show(); anim($('big'), 0, shaky, 800);
+    }catch{ $('state').textContent = '⚠️ 取得に失敗しました。時間をおいて再度お試しください。'; }
+  }
+  $('calcBtn').addEventListener('click', calc);
+  bindShare();
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'yohou-shinrai', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/result-fx.js?v=4"></script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/amagumo-now/">
+<title>いまの雨雲マップ｜日本列島の雨雲レーダーをさっと確認｜シミュラボ</title>
+<meta name="description" content="日本列島全体のいまの雨雲を、世界の気象レーダー合成データ（RainViewer）と国土地理院地図を重ねてさっと確認できる無料ツール。約10分ごとに更新。">
+<meta property="og:title" content="いまの雨雲マップ">
+<meta property="og:description" content="日本列島のいまの雨雲を1画面でさっと確認。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/amagumo-now.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/amagumo-now.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/amagumo-now/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "いまの雨雲マップ", "url": "https://shimulabo.com/sims/amagumo-now/", "description": "日本列島のいまの雨雲を1画面でさっと確認。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ライブデータラボ", "item": "https://shimulabo.com/live/"}, {"@type": "ListItem", "position": 3, "name": "いまの雨雲マップ", "item": "https://shimulabo.com/sims/amagumo-now/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "データの出典は？", "acceptedAnswer": {"@type": "Answer", "text": "雨雲はRainViewer（世界の気象レーダー合成・約10分更新）、背景地図は国土地理院の淡色地図タイルです。"}}, {"@type": "Question", "name": "色の意味は？", "acceptedAnswer": {"@type": "Answer", "text": "青→緑→黄→赤の順に降水が強くなります。赤はゲリラ豪雨クラスです。"}}, {"@type": "Question", "name": "入力データは送信される？", "acceptedAnswer": {"@type": "Answer", "text": "このページは何も入力せずに使えます。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../live/">⚡ ライブデータ一覧</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../live/">ライブデータラボ</a><span>›</span><span class="cur">いまの雨雲マップ</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">便利ツール</div>
+    <h1>いまの雨雲マップ</h1>
+    <p class="lead">アプリを開くまでもなく、雨雲の「いま」をさっと。世界の気象レーダー合成データを地理院地図に重ねて、日本列島をひと目で見わたします。</p>
+  </div>
+
+  <section class="panel" id="resultPanel">
+    <div class="result">
+      <div class="label">日本列島のいまの雨雲</div>
+      <div class="sub" id="sub">レーダーを読み込み中…</div>
+      <div id="map" style="position:relative;width:100%;max-width:512px;margin:12px auto 4px;aspect-ratio:2/3;border-radius:12px;overflow:hidden;background:#dde;"></div>
+      <div class="hint">🟦 弱い雨 → 🟩 → 🟨 → 🟥 強い雨｜約10分ごと更新</div>
+      <div class="statline" style="margin-top:10px;"><div class="stat"><div class="k">観測時刻</div><div class="v" id="obsTime">—</div></div>
+      <div class="stat"><div class="k">データ</div><div class="v">世界レーダー合成</div></div>
+      <div class="stat"><div class="k">背景地図</div><div class="v accent">国土地理院</div></div></div>
+      <button class="btn btn-ghost" id="reloadBtn" style="margin-top:10px;">🔄 最新に更新</button>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>このマップについて</h2>
+    <p>このマップは、世界中の気象レーダーを合成配信しているRainViewerの雨雲タイルを、国土地理院の淡色地図に重ねたものです。観測は約10分ごとに更新され、青→緑→黄→赤の順に雨が強くなります。全国を1枚で見わたす設計なので、「西からくる雨のかたまり」の把握に向いています。</p>
+    <div class="note">詳細なズームや予測アニメーションは気象庁「雨雲の動き」やお手元の天気アプリが得意です。ここは「開いた瞬間に全国が見える」ことに全振りしています。</div>
+    <h2>引用・転載について</h2>
+    <p>本ページの計算結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「いまの雨雲マップ」 https://shimulabo.com/sims/amagumo-now/</code><br>Webでご利用の際は上記URLへのリンク設置をお願いします。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>データの出典は？</dt><dd>雨雲はRainViewer（世界の気象レーダー合成・約10分更新）、背景地図は国土地理院の淡色地図タイルです。</dd><dt>色の意味は？</dt><dd>青→緑→黄→赤の順に降水が強くなります。赤はゲリラ豪雨クラスです。</dd><dt>入力データは送信される？</dt><dd>このページは何も入力せずに使えます。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../kasa-iru/"><span class="e">☔</span><span>今日、傘いる？メーター</span></a><a class="related-card" href="../kaminari-alert/"><span class="e">⚡</span><span>今日の雷ゴロゴロ度</span></a><a class="related-card" href="../kyou-kaze/"><span class="e">💨</span><span>今日、風ヤバい？チェッカー</span></a><a class="related-card" href="../shuumatsu-hare/"><span class="e">🌤️</span><span>今週末、晴れる？</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../live/">⚡ ライブデータラボ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function bindShare(){
+    $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+    $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+  }
+  const TILES = [];
+  for(let y = 11; y <= 13; y++){ for(let x = 27; x <= 28; x++){ TILES.push([x, y]); } }
+  async function load(){
+    $('sub').textContent = 'レーダーを読み込み中…';
+    try{
+      const r = await fetch('https://api.rainviewer.com/public/weather-maps.json');
+      const j = await r.json();
+      const frame = j.radar.past[j.radar.past.length - 1];
+      const map = $('map');
+      map.innerHTML = TILES.map(([x, y]) => {
+        const left = (x - 27) * 50, top = (y - 11) * (100 / 3);
+        const base = 'position:absolute;left:' + left + '%;top:' + top + '%;width:50%;height:' + (100/3) + '%;';
+        return '<img style="' + base + '" src="https://cyberjapandata.gsi.go.jp/xyz/pale/5/' + x + '/' + y + '.png" alt="">'
+             + '<img onerror="this.style.display=\'none\'" style="' + base + 'opacity:.65;" src="' + j.host + frame.path + '/256/5/' + x + '/' + y + '/2/1_1.png" alt="">';
+      }).join('');
+      const t = new Date(frame.time * 1000);
+      $('sub').textContent = '雨雲観測 ' + t.toLocaleTimeString('ja-JP', {hour:'2-digit',minute:'2-digit'}) + ' 時点';
+      $('obsTime').textContent = t.toLocaleTimeString('ja-JP', {hour:'2-digit',minute:'2-digit'});
+      SHARE = 'いまの日本列島の雨雲マップ🌧️（' + t.toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'}) + '観測）ワンタップで全国が見えるやつ👇';
+    }catch{ $('sub').textContent = '⚠️ レーダーの取得に失敗しました。時間をおいて再度お試しください。'; }
+  }
+  load();
+  $('reloadBtn').addEventListener('click', load);
+  bindShare();
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'amagumo-now', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/result-fx.js?v=4"></script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/shio-live/">
+<title>今日の潮、いつ満ちる？｜満潮・干潮の時刻をエリア別ライブ表示｜シミュラボ</title>
+<meta name="description" content="今日の満潮・干潮の時刻と潮位変化を、海洋予報データからエリア別に表示する無料ツール。釣り・潮干狩り・磯遊びの計画に。">
+<meta property="og:title" content="今日の潮、いつ満ちる？">
+<meta property="og:description" content="満潮・干潮の時刻をエリア別にライブ表示。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/shio-live.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/shio-live.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/shio-live/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "今日の潮、いつ満ちる？", "url": "https://shimulabo.com/sims/shio-live/", "description": "満潮・干潮の時刻をエリア別にライブ表示。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ライブデータラボ", "item": "https://shimulabo.com/live/"}, {"@type": "ListItem", "position": 3, "name": "今日の潮、いつ満ちる？", "item": "https://shimulabo.com/sims/shio-live/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "データの出典は？", "acceptedAnswer": {"@type": "Answer", "text": "海洋予報オープンデータAPI（Open-Meteo Marine）の潮位（海面高）予測値から満潮・干潮を算出しています。"}}, {"@type": "Question", "name": "公式の潮汐表と違う", "acceptedAnswer": {"@type": "Answer", "text": "モデル推定のため多少ずれます。レジャーの目安にはなりますが、航海用途は海上保安庁の潮汐表を使用してください。"}}, {"@type": "Question", "name": "入力データは送信される？", "acceptedAnswer": {"@type": "Answer", "text": "エリアの選択のみを使います。個人情報は一切送信されません。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../live/">⚡ ライブデータ一覧</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../live/">ライブデータラボ</a><span>›</span><span class="cur">今日の潮、いつ満ちる？</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">スポーツ・運動</div>
+    <h1>今日の潮、いつ満ちる？</h1>
+    <p class="lead">釣りも潮干狩りも、すべては潮まわりから。今日の満潮・干潮の時刻を、海洋予報データからエリア別に表示します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🌊 エリア</h2>
+    <div class="field"><label>海のエリア</label>
+      <select id="spot">
+        <option value="35.55,139.90" selected>東京湾（船橋・木更津方面）</option>
+        <option value="35.30,139.48">湘南・相模湾</option>
+        <option value="34.60,135.30">大阪湾</option>
+        <option value="34.35,132.40">広島湾</option>
+        <option value="33.60,130.30">博多湾</option>
+        <option value="32.95,130.40">有明海</option>
+        <option value="38.30,141.10">仙台湾</option>
+        <option value="26.30,127.85">沖縄本島（中部）</option>
+      </select>
+    </div>
+    <button class="btn btn-primary" id="calcBtn">今日の潮を見る</button>
+    <div class="hint" id="state" style="margin-top:8px;"></div>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">次の満潮は</div>
+      <div class="big" style="font-size:min(13vw,58px);"><span id="big">—</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">今日の満潮</div><div class="v" id="high">—</div></div>
+      <div class="stat"><div class="k">今日の干潮</div><div class="v" id="low">—</div></div>
+      <div class="stat"><div class="k">干満差</div><div class="v accent" id="range">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>この潮時表について</h2>
+    <p>このツールは海洋予報オープンデータAPI（Open-Meteo Marine）の潮位（海面高）予測から、今日の極大・極小＝満潮・干潮の時刻を割り出しています。潮が動く時間帯（満潮・干潮の前後）は魚の活性が上がり、干潮前後は潮干狩り・磯遊びの時間です。</p>
+    <div class="note">数値モデルの推定のため、公式の潮汐表と時刻が前後することがあります。航海・業務用途は海上保安庁の潮汐表を必ず使用してください。</div>
+    <h2>引用・転載について</h2>
+    <p>本ページの計算結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「今日の潮、いつ満ちる？」 https://shimulabo.com/sims/shio-live/</code><br>Webでご利用の際は上記URLへのリンク設置をお願いします。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>データの出典は？</dt><dd>海洋予報オープンデータAPI（Open-Meteo Marine）の潮位（海面高）予測値から満潮・干潮を算出しています。</dd><dt>公式の潮汐表と違う</dt><dd>モデル推定のため多少ずれます。レジャーの目安にはなりますが、航海用途は海上保安庁の潮汐表を使用してください。</dd><dt>入力データは送信される？</dt><dd>エリアの選択のみを使います。個人情報は一切送信されません。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../naminori-biyori/"><span class="e">🏄</span><span>波乗り日和チェッカー</span></a><a class="related-card" href="../umi-mizuon/"><span class="e">🏖️</span><span>いま海、冷たい？</span></a><a class="related-card" href="../hoshizora-shisu/"><span class="e">🔭</span><span>今夜の星空指数</span></a><a class="related-card" href="../gasolin-doko/"><span class="e">🛻</span><span>満タンでどこまで</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../live/">⚡ ライブデータラボ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function bindShare(){
+    $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+    $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+  }
+  async function calc(){
+    const [lat, lon] = $('spot').value.split(',');
+    const name = $('spot').selectedOptions[0].textContent;
+    $('state').textContent = '潮位データを取得中…';
+    try{
+      const r = await fetch('https://marine-api.open-meteo.com/v1/marine?latitude=' + lat + '&longitude=' + lon + '&hourly=sea_level_height_msl&forecast_days=2&timezone=Asia%2FTokyo');
+      const j = await r.json();
+      const S = j.hourly.sea_level_height_msl;
+      const highs = [], lows = [];
+      for(let h = 1; h < 47; h++){
+        if(S[h] == null) continue;
+        if(S[h] >= S[h-1] && S[h] > S[h+1]) highs.push(h);
+        if(S[h] <= S[h-1] && S[h] < S[h+1]) lows.push(h);
+      }
+      const H = new Date().getHours();
+      const fmtH = (h) => (h >= 24 ? '明日' + (h - 24) : h) + '時ごろ';
+      const nextHigh = highs.find(h => h >= H);
+      const todayHigh = highs.filter(h => h < 24), todayLow = lows.filter(h => h < 24);
+      const mx = Math.max(...S.slice(0, 24).filter(v => v != null));
+      const mn = Math.min(...S.slice(0, 24).filter(v => v != null));
+      $('state').textContent = '';
+      $('big').textContent = nextHigh != null ? fmtH(nextHigh) : '—';
+      $('sub').textContent = name + '沖の潮位モデル推定｜レジャー用の目安（公式は海保の潮汐表）';
+      $('high').textContent = todayHigh.length ? todayHigh.map(fmtH).join(' / ') : '—';
+      $('low').textContent = todayLow.length ? todayLow.map(fmtH).join(' / ') : '—';
+      $('range').textContent = '約' + Math.round((mx - mn) * 100) + 'cm';
+      SHARE = '今日の' + name.split('（')[0] + '、満潮は' + (todayHigh.map(fmtH).join('と') || '—') + '・干潮は' + (todayLow.map(fmtH).join('と') || '—') + '🌊\n釣り・潮干狩り前にチェック👇';
+      show();
+    }catch{ $('state').textContent = '⚠️ 取得に失敗しました。時間をおいて再度お試しください。'; }
+  }
+  $('calcBtn').addEventListener('click', calc);
+  bindShare();
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'shio-live', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/result-fx.js?v=4"></script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

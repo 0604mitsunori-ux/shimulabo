@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/crypto-zenbu/">
+<title>暗号資産、ぜんぶでいくら？｜世界の時価総額を国家予算と比較｜シミュラボ</title>
+<meta name="description" content="世界の暗号資産すべての時価総額をリアルタイム取得して、日本の国家予算・GDPと比較する無料ツール。ビットコインの占有率や銘柄数も表示。投資助言ではありません。">
+<meta property="og:title" content="暗号資産、ぜんぶでいくら？">
+<meta property="og:description" content="世界の時価総額をライブ取得して国家予算と比較。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/crypto-zenbu.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/crypto-zenbu.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/crypto-zenbu/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "暗号資産、ぜんぶでいくら？", "url": "https://shimulabo.com/sims/crypto-zenbu/", "description": "世界の時価総額をライブ取得して国家予算と比較。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ライブデータラボ", "item": "https://shimulabo.com/live/"}, {"@type": "ListItem", "position": 3, "name": "暗号資産、ぜんぶでいくら？", "item": "https://shimulabo.com/sims/crypto-zenbu/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "データの出典は？", "acceptedAnswer": {"@type": "Answer", "text": "公開の暗号資産データAPI（CoinGecko /global）から時価総額・BTC占有率・銘柄数を取得しています。"}}, {"@type": "Question", "name": "投資の参考になる？", "acceptedAnswer": {"@type": "Answer", "text": "規模の体感用です。投資判断には使わず、必要なら専門家にご相談ください。"}}, {"@type": "Question", "name": "入力データは送信される？", "acceptedAnswer": {"@type": "Answer", "text": "このページは何も入力せずに使えます。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../live/">⚡ ライブデータ一覧</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../live/">ライブデータラボ</a><span>›</span><span class="cur">暗号資産、ぜんぶでいくら？</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">お金・時間</div>
+    <h1>暗号資産、ぜんぶでいくら？</h1>
+    <p class="lead">世界中の暗号資産を全部かき集めたら、いくらになるのか。時価総額をライブ取得して、日本の国家予算と並べてみます。</p>
+  </div>
+
+  <section class="panel" id="resultPanel">
+    <div class="result">
+      <div class="label">世界の暗号資産、ぜんぶで</div>
+      <div class="big"><span id="big">–</span><span class="unit">兆円</span></div>
+      <div class="sub" id="sub">データを読み込み中…</div>
+      <div class="statline"><div class="stat"><div class="k">日本の国家予算（一般会計）なら</div><div class="v" id="budget">—</div></div>
+      <div class="stat"><div class="k">ビットコインの占有率</div><div class="v" id="btc">—</div></div>
+      <div class="stat"><div class="k">登録銘柄数</div><div class="v accent" id="coins">—</div></div></div>
+      <button class="btn btn-ghost" id="reloadBtn" style="margin-top:10px;">🔄 最新に更新</button>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>このメーターについて</h2>
+    <p>このメーターは公開の暗号資産データAPI（CoinGecko）から、世界の暗号資産すべての時価総額・ビットコインの占有率・登録銘柄数を取得しています。比較に使う日本の一般会計予算は約115兆円、名目GDPは約610兆円（いずれも2025年ごろの規模感）です。大きすぎる数字は、身近な物差しに換算してはじめて意味を持ちます。</p>
+    <div class="note">⚠️ これは規模を体感する娯楽ツールで、投資助言ではありません。暗号資産の価格・時価総額は激しく変動します。</div>
+    <h2>引用・転載について</h2>
+    <p>本ページの計算結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「暗号資産、ぜんぶでいくら？」 https://shimulabo.com/sims/crypto-zenbu/</code><br>Webでご利用の際は上記URLへのリンク設置をお願いします。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>データの出典は？</dt><dd>公開の暗号資産データAPI（CoinGecko /global）から時価総額・BTC占有率・銘柄数を取得しています。</dd><dt>投資の参考になる？</dt><dd>規模の体感用です。投資判断には使わず、必要なら専門家にご相談ください。</dd><dt>入力データは送信される？</dt><dd>このページは何も入力せずに使えます。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../btc-tara/"><span class="e">🪙</span><span>もしビットコイン買ってたら</span></a><a class="related-card" href="../enyasu-taikan/"><span class="e">💱</span><span>円安体感メーター</span></a><a class="related-card" href="../infure/"><span class="e">📉</span><span>物価2倍まで何年？</span></a><a class="related-card" href="../fire/"><span class="e">🔥</span><span>FIRE達成シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../live/">⚡ ライブデータラボ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function bindShare(){
+    $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+    $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+  }
+  async function load(){
+    $('sub').textContent = 'データを読み込み中…';
+    try{
+      const r = await fetch('https://api.coingecko.com/api/v3/global');
+      const j = await r.json();
+      const d = j.data;
+      const cho = d.total_market_cap.jpy / 1e12;
+      const chg = d.market_cap_change_percentage_24h_usd;
+      $('sub').textContent = '時価総額ライブ｜24時間で' + (chg >= 0 ? '+' : '') + chg.toFixed(1) + '%（CoinGecko）';
+      $('budget').textContent = '約' + (cho / 115).toFixed(1) + '年分';
+      $('btc').textContent = d.market_cap_percentage.btc.toFixed(1) + '%';
+      $('coins').textContent = d.active_cryptocurrencies.toLocaleString('ja-JP') + '銘柄';
+      SHARE = 'いま世界の暗号資産を全部売ると約' + Math.round(cho).toLocaleString('ja-JP') + '兆円🌍（日本の国家予算' + (cho/115).toFixed(1) + '年分・' + d.active_cryptocurrencies.toLocaleString('ja-JP') + '銘柄）\nライブの数字はこちら👇';
+      anim($('big'), 0, Math.round(cho), 1000);
+    }catch{ $('sub').textContent = '⚠️ 取得に失敗しました（混雑時は少し待つと通ります）。'; }
+  }
+  load();
+  $('reloadBtn').addEventListener('click', load);
+  bindShare();
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'crypto-zenbu', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/result-fx.js?v=4"></script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/nankyoku-ima/">
+<title>南極、いま何度？｜昭和基地・南極点の現在気温をライブ表示｜シミュラボ</title>
+<meta name="description" content="南極の昭和基地と南極点、北極圏のいまの気温をリアルタイム取得して東京と比較する無料ツール。冷凍庫より寒いのか、ペンギンは何を思うのか。">
+<meta property="og:title" content="南極、いま何度？">
+<meta property="og:description" content="昭和基地・南極点のいまの気温をライブ表示。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/nankyoku-ima.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/nankyoku-ima.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/nankyoku-ima/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "南極、いま何度？", "url": "https://shimulabo.com/sims/nankyoku-ima/", "description": "昭和基地・南極点のいまの気温をライブ表示。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ライブデータラボ", "item": "https://shimulabo.com/live/"}, {"@type": "ListItem", "position": 3, "name": "南極、いま何度？", "item": "https://shimulabo.com/sims/nankyoku-ima/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "データの出典は？", "acceptedAnswer": {"@type": "Answer", "text": "気象オープンデータAPI（Open-Meteo）から、昭和基地・南極点・スバールバル諸島の座標の現在気温を取得しています。"}}, {"@type": "Question", "name": "観測隊の実測値？", "acceptedAnswer": {"@type": "Answer", "text": "数値予報モデルの推定値です。実測は気象庁の昭和基地観測データで公開されています。"}}, {"@type": "Question", "name": "入力データは送信される？", "acceptedAnswer": {"@type": "Answer", "text": "このページは何も入力せずに使えます。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../live/">⚡ ライブデータ一覧</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../live/">ライブデータラボ</a><span>›</span><span class="cur">南極、いま何度？</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ふしぎ・現象</div>
+    <h1>南極、いま何度？</h1>
+    <p class="lead">あなたが暑い暑いと言っているいまこの瞬間、南極は極夜の真冬です。昭和基地と南極点の「いま」をライブで取得します。</p>
+  </div>
+
+  <section class="panel" id="resultPanel">
+    <div class="result">
+      <div class="label">昭和基地（南極）は、いま</div>
+      <div class="big"><span id="big">–</span><span class="unit">℃</span></div>
+      <div class="sub" id="sub">データを読み込み中…</div>
+      <div class="statline"><div class="stat"><div class="k">南極点</div><div class="v" id="pole">—</div></div>
+      <div class="stat"><div class="k">北極圏（スバールバル）</div><div class="v" id="arctic">—</div></div>
+      <div class="stat"><div class="k">東京との差</div><div class="v accent" id="tokyo">—</div></div></div>
+      <button class="btn btn-ghost" id="reloadBtn" style="margin-top:10px;">🔄 最新に更新</button>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>このメーターについて</h2>
+    <p>南半球の季節は日本と真逆で、日本の夏は南極の冬。特に内陸の南極点は冬に−60℃前後まで下がり、家庭の冷凍庫（−18℃）が暖かく感じるレベルになります。このメーターは気象オープンデータAPI（Open-Meteo）から昭和基地（東オングル島）・南極点・北極圏（スバールバル）の現在気温を取得し、東京と並べます。</p>
+    <div class="note">昭和基地には日本の南極地域観測隊が越冬しており、彼らは今日もこの気温の中で働いています。頭が下がります。</div>
+    <h2>引用・転載について</h2>
+    <p>本ページの計算結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「南極、いま何度？」 https://shimulabo.com/sims/nankyoku-ima/</code><br>Webでご利用の際は上記URLへのリンク設置をお願いします。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>データの出典は？</dt><dd>気象オープンデータAPI（Open-Meteo）から、昭和基地・南極点・スバールバル諸島の座標の現在気温を取得しています。</dd><dt>観測隊の実測値？</dt><dd>数値予報モデルの推定値です。実測は気象庁の昭和基地観測データで公開されています。</dd><dt>入力データは送信される？</dt><dd>このページは何も入力せずに使えます。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../sekai-kion/"><span class="e">🌏</span><span>世界の都市、いま何度？</span></a><a class="related-card" href="../aurora-yohou/"><span class="e">🌌</span><span>オーロラ予報メーター</span></a><a class="related-card" href="../gelande-yuki/"><span class="e">⛷️</span><span>ゲレンデ積雪ライブ</span></a><a class="related-card" href="../iss-doko/"><span class="e">🛰️</span><span>ISSはいまどこ？</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../live/">⚡ ライブデータラボ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function bindShare(){
+    $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+    $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+  }
+  async function load(){
+    $('sub').textContent = 'データを読み込み中…';
+    try{
+      const r = await fetch('https://api.open-meteo.com/v1/forecast?latitude=-69.00,-90.00,78.22,35.69&longitude=39.58,0.00,15.65,139.69&current=temperature_2m');
+      const j = await r.json();
+      const [showa, pole, sval, tokyo] = j.map(x => x.current.temperature_2m);
+      const freezer = showa < -18 ? '家庭の冷凍庫（−18℃）より寒い❄️' : '意外にも冷凍庫より暖かい';
+      $('sub').textContent = freezer + '｜モデル推定のライブ気温';
+      $('pole').textContent = pole.toFixed(1) + '℃';
+      $('arctic').textContent = sval.toFixed(1) + '℃';
+      $('tokyo').textContent = '東京' + tokyo.toFixed(1) + '℃と' + Math.abs(tokyo - showa).toFixed(0) + '℃差';
+      SHARE = 'いまの南極・昭和基地は' + showa.toFixed(1) + '℃、南極点は' + pole.toFixed(1) + '℃🐧 東京との差' + Math.abs(tokyo - showa).toFixed(0) + '℃。地球は広い。\n地球の裏側のいまはこちら👇';
+      anim($('big'), 0, Math.round(showa * 10) / 10, 1000, 1);
+    }catch{ $('sub').textContent = '⚠️ 取得に失敗しました。時間をおいて再度お試しください。'; }
+  }
+  load();
+  $('reloadBtn').addEventListener('click', load);
+  bindShare();
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'nankyoku-ima', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/result-fx.js?v=4"></script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>
