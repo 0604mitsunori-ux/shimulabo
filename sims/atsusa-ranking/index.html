@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/atsusa-ranking/">
+<title>全国いま暑いランキング｜47都道府県の現在気温をライブ順位表示｜シミュラボ</title>
+<meta name="description" content="47都道府県の現在気温をリアルタイムに一斉取得して、あなたの県が全国何位に暑いかをランキング表示する無料ツール。暑さ自慢・涼しさ自慢のお供に。">
+<meta property="og:title" content="全国いま暑いランキング｜あなたの県は何位？">
+<meta property="og:description" content="47都道府県の現在気温をライブで一斉計測。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/atsusa-ranking.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/atsusa-ranking.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/atsusa-ranking/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "全国いま暑いランキング", "url": "https://shimulabo.com/sims/atsusa-ranking/", "description": "47都道府県の現在気温をライブで一斉計測。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ライブデータラボ", "item": "https://shimulabo.com/live/"}, {"@type": "ListItem", "position": 3, "name": "全国いま暑いランキング", "item": "https://shimulabo.com/sims/atsusa-ranking/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "気温データの出典は？", "acceptedAnswer": {"@type": "Answer", "text": "気象オープンデータAPI（Open-Meteo）から、47都道府県の県庁所在地相当地点の現在気温を一括取得しています。"}}, {"@type": "Question", "name": "アメダスの実測値と違う？", "acceptedAnswer": {"@type": "Answer", "text": "数値予報モデルベースの推計のため、アメダス実測とは多少ズレることがあります。順位の目安としてお楽しみください。"}}, {"@type": "Question", "name": "入力データは送信される？", "acceptedAnswer": {"@type": "Answer", "text": "地域の選択のみを使います。個人情報は一切送信されません。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../live/">⚡ ライブデータ一覧</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../live/">ライブデータラボ</a><span>›</span><span class="cur">全国いま暑いランキング</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">季節・行事</div>
+    <h1>全国いま暑いランキング</h1>
+    <p class="lead">「うちの県が一番暑いって！」を数字で決着させます。47都道府県の現在気温を一斉取得して、いまこの瞬間の全国ランキングを作ります。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🌡️ あなたの県</h2>
+    <div class="field"><label>地域</label><select id="pref"></select></div>
+    <button class="btn btn-primary" id="calcBtn">いまの全国順位を見る</button>
+    <div class="hint" id="state" style="margin-top:8px;"></div>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label" id="topLabel">あなたの県はいま、全国で</div>
+      <div class="big"><span id="big">0</span><span class="unit">位に暑い</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">いまの気温</div><div class="v" id="temp">—</div></div>
+      <div class="stat"><div class="k">全国1位（暑い）</div><div class="v" id="hot1">—</div></div>
+      <div class="stat"><div class="k">全国47位（涼しい）</div><div class="v accent" id="cool1">—</div></div></div>
+      <div id="list" style="margin-top:14px;"></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>このランキングについて</h2>
+    <p>このランキングは気象オープンデータAPI（Open-Meteo）に47都道府県の県庁所在地の座標を一括で問い合わせ、現在気温を同時刻で取得して順位化しています。テレビの「今日の最高気温」と違い、<b>いまこの瞬間</b>の勝負なので、開くたびに順位が入れ替わります。夏は暑さ自慢、冬は寒さ自慢にどうぞ。</p>
+    <div class="note">観測点は県庁所在地相当の1地点です。同じ県内でも内陸や盆地はもっと極端な数字が出ます。</div>
+    <h2>引用・転載について</h2>
+    <p>本ページの計算結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「全国いま暑いランキング」 https://shimulabo.com/sims/atsusa-ranking/</code><br>Webでご利用の際は上記URLへのリンク設置をお願いします。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>気温データの出典は？</dt><dd>気象オープンデータAPI（Open-Meteo）から、47都道府県の県庁所在地相当地点の現在気温を一括取得しています。</dd><dt>アメダスの実測値と違う？</dt><dd>数値予報モデルベースの推計のため、アメダス実測とは多少ズレることがあります。順位の目安としてお楽しみください。</dd><dt>入力データは送信される？</dt><dd>地域の選択のみを使います。個人情報は一切送信されません。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../nettaiya-check/"><span class="e">🌙</span><span>今夜、熱帯夜？チェック</span></a><a class="related-card" href="../kion-kandansa/"><span class="e">🧣</span><span>寒暖差疲労チェッカー</span></a><a class="related-card" href="../sekai-kion/"><span class="e">🌏</span><span>世界の都市、いま何度？</span></a><a class="related-card" href="../kasa-iru/"><span class="e">☔</span><span>今日、傘いる？メーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../live/">⚡ ライブデータラボ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function bindShare(){
+    $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+    $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+  }
+  const PREFS = [
+    ['北海道(札幌)',43.06,141.35],
+    ['青森県',40.82,140.74],
+    ['岩手県',39.7,141.15],
+    ['宮城県(仙台)',38.27,140.87],
+    ['秋田県',39.72,140.1],
+    ['山形県',38.24,140.36],
+    ['福島県',37.75,140.47],
+    ['茨城県',36.34,140.45],
+    ['栃木県',36.57,139.88],
+    ['群馬県',36.39,139.06],
+    ['埼玉県',35.86,139.65],
+    ['千葉県',35.61,140.12],
+    ['東京都',35.69,139.69],
+    ['神奈川県(横浜)',35.45,139.64],
+    ['新潟県',37.9,139.02],
+    ['富山県',36.7,137.21],
+    ['石川県(金沢)',36.59,136.63],
+    ['福井県',36.07,136.22],
+    ['山梨県',35.66,138.57],
+    ['長野県',36.65,138.18],
+    ['岐阜県',35.39,136.72],
+    ['静岡県',34.98,138.38],
+    ['愛知県(名古屋)',35.18,136.91],
+    ['三重県',34.73,136.51],
+    ['滋賀県',35.0,135.87],
+    ['京都府',35.02,135.76],
+    ['大阪府',34.69,135.52],
+    ['兵庫県(神戸)',34.69,135.18],
+    ['奈良県',34.69,135.83],
+    ['和歌山県',34.23,135.17],
+    ['鳥取県',35.5,134.24],
+    ['島根県(松江)',35.47,133.05],
+    ['岡山県',34.66,133.93],
+    ['広島県',34.4,132.46],
+    ['山口県',34.19,131.47],
+    ['徳島県',34.07,134.56],
+    ['香川県(高松)',34.34,134.04],
+    ['愛媛県(松山)',33.84,132.77],
+    ['高知県',33.56,133.53],
+    ['福岡県',33.61,130.42],
+    ['佐賀県',33.25,130.3],
+    ['長崎県',32.74,129.87],
+    ['熊本県',32.79,130.74],
+    ['大分県',33.24,131.61],
+    ['宮崎県',31.91,131.42],
+    ['鹿児島県',31.56,130.56],
+    ['沖縄県(那覇)',26.21,127.68],
+  ];
+  $('pref').innerHTML = PREFS.map((p,i) => '<option value="' + i + '"' + (i===12?' selected':'') + '>' + p[0] + '</option>').join('');
+  async function calc(){
+    const sel = +$('pref').value;
+    $('state').textContent = '47都道府県の現在気温を一斉取得中…';
+    try{
+      const lats = PREFS.map(p => p[1]).join(',');
+      const lons = PREFS.map(p => p[2]).join(',');
+      const r = await fetch('https://api.open-meteo.com/v1/forecast?latitude=' + lats + '&longitude=' + lons + '&current=temperature_2m&timezone=Asia%2FTokyo');
+      const j = await r.json();
+      const rows = j.map((x, i) => ({ i, name: PREFS[i][0], t: x.current.temperature_2m })).sort((a,b) => b.t - a.t);
+      const rank = rows.findIndex(x => x.i === sel) + 1;
+      const me = rows[rank - 1];
+      $('state').textContent = '';
+      $('sub').textContent = new Date().toLocaleTimeString('ja-JP', {hour:'2-digit',minute:'2-digit'}) + ' 時点の現在気温で47都道府県を順位化';
+      $('temp').textContent = me.t.toFixed(1) + '℃';
+      $('hot1').textContent = rows[0].name + '（' + rows[0].t.toFixed(1) + '℃）';
+      $('cool1').textContent = rows[46].name + '（' + rows[46].t.toFixed(1) + '℃）';
+      $('list').innerHTML = '<div style="font-weight:800;font-size:13px;margin-bottom:8px;">🔥 いまのTOP5</div>' + rows.slice(0,5).map((x,k) =>
+        '<div style="display:flex;gap:8px;justify-content:space-between;padding:7px 10px;margin-bottom:5px;background:rgba(127,127,127,.07);border-radius:8px;font-size:12.5px;text-align:left;' + (x.i === sel ? 'outline:2px solid rgba(255,120,0,.5);' : '') + '">'
+        + '<span>' + (k+1) + '位　' + x.name + '</span><span>' + x.t.toFixed(1) + '℃</span></div>').join('');
+      SHARE = 'いま' + PREFS[sel][0].split('(')[0] + 'は全国' + rank + '位に暑い🌡️（' + me.t.toFixed(1) + '℃）全国1位は' + rows[0].name.split('(')[0] + 'の' + rows[0].t.toFixed(1) + '℃！\nあなたの県は何位？👇';
+      show(); anim($('big'), 0, rank, 900);
+    }catch{ $('state').textContent = '⚠️ 取得に失敗しました。時間をおいて再度お試しください。'; }
+  }
+  $('calcBtn').addEventListener('click', calc);
+  bindShare();
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'atsusa-ranking', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/result-fx.js?v=4"></script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

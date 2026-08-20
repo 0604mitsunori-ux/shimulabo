@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/live/">
+<title>ライブデータラボ｜リアルタイムAPIで動く無料シミュレーター25選｜シミュラボ</title>
+<meta name="description" content="気象庁・国土地理院・NOAA・ECBなど公的機関のオープンデータをリアルタイムに取得して動く無料シミュレーター25本を一覧掲載。地震・天気・為替・宇宙のいまを数字で体感。データ出典一覧つきで引用・転載も歓迎。">
+<meta property="og:title" content="ライブデータラボ｜リアルタイムAPIで動くシミュレーター25選">
+<meta property="og:description" content="公的オープンデータで動くライブシミュレーター集。引用・転載歓迎。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/live.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/live.png">
+<link rel="stylesheet" href="../assets/style.css?v=4">
+    <link rel="canonical" href="https://shimulabo.com/live/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "ライブデータラボ", "url": "https://shimulabo.com/live/", "description": "公的機関のオープンデータをリアルタイム取得して動く無料シミュレーター25本のコレクション。", "inLanguage": "ja", "isPartOf": {"@type": "WebSite", "name": "シミュラボ", "url": "https://shimulabo.com/"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ライブデータラボ", "item": "https://shimulabo.com/live/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "「ライブデータ搭載」とはどういう意味ですか？", "acceptedAnswer": {"@type": "Answer", "text": "ページを開いた瞬間に、気象庁・国土地理院・NOAA・欧州中央銀行などの公開APIから最新データを取得して計算するシミュレーターです。表示される数値は毎回「いま」のものです。"}}, {"@type": "Question", "name": "数値を記事やSNSで引用してもいいですか？", "acceptedAnswer": {"@type": "Answer", "text": "出典としてシミュラボの該当ページ名とURLを明記いただければ、引用・転載を歓迎します。事前連絡は不要です。"}}, {"@type": "Question", "name": "データの正確性は保証されますか？", "acceptedAnswer": {"@type": "Answer", "text": "各ページに記載の公的データ・オープンデータをそのまま、または明示した計算式で加工して表示しています。防災・投資・健康など重要な判断は必ず公式情報をご確認ください。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+<style>
+.live-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;margin:14px 0 6px;}
+.live-h2{margin:34px 0 4px;font-size:20px;}
+.src-table{width:100%;border-collapse:collapse;font-size:13px;margin:12px 0;}
+.src-table th,.src-table td{padding:8px 10px;border-bottom:1px solid rgba(127,127,127,.25);text-align:left;vertical-align:top;}
+.src-table th{font-size:12px;opacity:.75;white-space:nowrap;}
+.live-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;background:rgba(16,185,129,.12);color:#059669;}
+.live-badge .pulse{width:8px;height:8px;border-radius:50%;background:#10b981;animation:lp 1.6s infinite;}
+@keyframes lp{0%,100%{opacity:1}50%{opacity:.25}}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../">ホーム</a><span>›</span><span class="cur">ライブデータラボ</span></nav>
+
+  <div class="sim-head">
+    <span class="live-badge"><span class="pulse"></span>LIVE — 開いた瞬間の実データで動く</span>
+    <h1>ライブデータラボ</h1>
+    <p class="lead">気象庁・国土地理院・NOAA・欧州中央銀行——公的機関などが公開する<b>本物のリアルタイムデータ</b>をその場で取得して動くシミュレーターだけを集めました。表示される数字は、いまこの瞬間のものです。</p>
+  </div>
+
+  <h2 class="live-h2">☀️ 天気・気候のいま</h2>
+  <div class="live-grid">
+    <a class="sim-card" href="../sims/kasa-iru/"><div class="thumb" style="background:linear-gradient(135deg,#eff6ff,#e0f2fe)"><span class="emoji">☔</span></div><div class="body"><div class="cat">便利ツール</div><h3>今日、傘いる？メーター</h3><p>出がけの3秒判定。降水確率から「いらない/折りたたみ/ガチ傘」を即答。</p><span class="go">触ってみる →</span></div></a>
+    <a class="sim-card" href="../sims/atsusa-ranking/"><div class="thumb" style="background:linear-gradient(135deg,#fff7ed,#fce7f3)"><span class="emoji">🌡️</span></div><div class="body"><div class="cat">季節・行事</div><h3>全国いま暑いランキング</h3><p>あなたの県はいま全国何位に暑い？47都道府県をライブ一斉計測。</p><span class="go">触ってみる →</span></div></a>
+    <a class="sim-card" href="../sims/sekai-kion/"><div class="thumb" style="background:linear-gradient(135deg,#cffafe,#a5f3fc)"><span class="emoji">🌏</span></div><div class="body"><div class="cat">旅行・おでかけ</div><h3>世界の都市、いま何度？</h3><p>ホノルルは？パリは？世界13都市の現在気温をライブで一斉表示。</p><span class="go">触ってみる →</span></div></a>
+    <a class="sim-card" href="../sims/sentaku-kawaku/"><div class="thumb" style="background:linear-gradient(135deg,#ecfdf5,#d1fae5)"><span class="emoji">👕</span></div><div class="body"><div class="cat">住まい・暮らし</div><h3>洗濯物 乾く時間メーター</h3><p>今日干すと何時間で乾く？湿度・気温・風から干しどきを計算。</p><span class="go">触ってみる →</span></div></a>
+    <a class="sim-card" href="../sims/hiyake-timer/"><div class="thumb" style="background:linear-gradient(135deg,#fff1f2,#fce7f3)"><span class="emoji">☀️</span></div><div class="body"><div class="cat">美容・ファッション</div><h3>日焼けタイマー</h3><p>今日のUV指数から、あなたの肌だと何分で焼け始めるかを計算。</p><span class="go">触ってみる →</span></div></a>
+    <a class="sim-card" href="../sims/nettaiya-check/"><div class="thumb" style="background:linear-gradient(135deg,#fef2f2,#fee2e2)"><span class="emoji">🌙</span></div><div class="body"><div class="cat">健康・カラダ</div><h3>今夜、熱帯夜？チェック</h3><p>今夜の最低気温からエアコンつけっぱなし判定まで。</p><span class="go">触ってみる →</span></div></a>
+    <a class="sim-card" href="../sims/kion-kandansa/"><div class="thumb" style="background:linear-gradient(135deg,#fef2f2,#fee2e2)"><span class="emoji">🧣</span></div><div class="body"><div class="cat">健康・カラダ</div><h3>寒暖差疲労チェッカー</h3><p>今日の朝晩の気温差は何℃？7℃超えの体調リスクを判定。</p><span class="go">触ってみる →</span></div></a>
+    <a class="sim-card" href="../sims/hoshizora-shisu/"><div class="thumb" style="background:linear-gradient(135deg,#cffafe,#a5f3fc)"><span class="emoji">🔭</span></div><div class="body"><div class="cat">旅行・おでかけ</div><h3>今夜の星空指数</h3><p>雲量×月の明るさから、今夜星が見えるかを0〜100で採点。</p><span class="go">触ってみる →</span></div></a>
+    <a class="sim-card" href="../sims/yuyake-yohou/"><div class="thumb" style="background:linear-gradient(135deg,#eef2ff,#e0e7ff)"><span class="emoji">🌇</span></div><div class="body"><div class="cat">ふしぎ・現象</div><h3>今日の夕焼け予報</h3><p>日没時刻の雲量から「焼ける空」の当たり日を予測。</p><span class="go">触ってみる →</span></div></a>
+  </div>
+
+  <h2 class="live-h2">🌏 地球・宇宙のいま</h2>
+  <div class="live-grid">
+    <a class="sim-card" href="../sims/jishin-live/"><div class="thumb" style="background:linear-gradient(135deg,#eef2ff,#e0e7ff)"><span class="emoji">🗾</span></div><div class="body"><div class="cat">ふしぎ・現象</div><h3>日本はいまも揺れている</h3><p>直近24時間に日本で起きた地震をリアルタイム集計。</p><span class="go">触ってみる →</span></div></a>
+    <a class="sim-card" href="../sims/iss-doko/"><div class="thumb" style="background:linear-gradient(135deg,#eef2ff,#e0e7ff)"><span class="emoji">🛰️</span></div><div class="body"><div class="cat">ふしぎ・現象</div><h3>ISSはいまどこ？</h3><p>国際宇宙ステーションとあなたの距離をライブ計算。</p><span class="go">触ってみる →</span></div></a>
+    <a class="sim-card" href="../sims/rocket-uchiage/"><div class="thumb" style="background:linear-gradient(135deg,#eef2ff,#e0e7ff)"><span class="emoji">🚀</span></div><div class="body"><div class="cat">ふしぎ・現象</div><h3>次のロケット打ち上げまで</h3><p>人類の次の打ち上げを秒単位でライブカウントダウン。</p><span class="go">触ってみる →</span></div></a>
+    <a class="sim-card" href="../sims/aurora-yohou/"><div class="thumb" style="background:linear-gradient(135deg,#eef2ff,#e0e7ff)"><span class="emoji">🌌</span></div><div class="body"><div class="cat">ふしぎ・現象</div><h3>オーロラ予報メーター</h3><p>NOAAの宇宙天気データで、日本オーロラの可能性を判定。</p><span class="go">触ってみる →</span></div></a>
+    <a class="sim-card" href="../sims/kaibatsu-check/"><div class="thumb" style="background:linear-gradient(135deg,#ecfdf5,#d1fae5)"><span class="emoji">⛰️</span></div><div class="body"><div class="cat">住まい・暮らし</div><h3>うちの海抜チェッカー</h3><p>住所を入れるだけで国土地理院データから標高を即計算。</p><span class="go">触ってみる →</span></div></a>
+    <a class="sim-card" href="../sims/kuuki-kirei/"><div class="thumb" style="background:linear-gradient(135deg,#fef2f2,#fee2e2)"><span class="emoji">🍃</span></div><div class="body"><div class="cat">健康・カラダ</div><h3>空気きれいメーター</h3><p>いまのPM2.5・黄砂をリアルタイム取得して判定。</p><span class="go">触ってみる →</span></div></a>
+  </div>
+
+  <h2 class="live-h2">💴 お金のいま</h2>
+  <div class="live-grid">
+    <a class="sim-card" href="../sims/enyasu-taikan/"><div class="thumb" style="background:linear-gradient(135deg,#fff1f2,#ffe4e6)"><span class="emoji">💱</span></div><div class="body"><div class="cat">お金・時間</div><h3>円安体感メーター</h3><p>そのドル建て価格、超円高の2011年ならいくらだった？</p><span class="go">触ってみる →</span></div></a>
+    <a class="sim-card" href="../sims/btc-tara/"><div class="thumb" style="background:linear-gradient(135deg,#fff1f2,#ffe4e6)"><span class="emoji">🪙</span></div><div class="body"><div class="cat">お金・時間</div><h3>もしビットコイン買ってたら</h3><p>実際の価格データでタラレバを清算。増減は時期しだい。</p><span class="go">触ってみる →</span></div></a>
+    <a class="sim-card" href="../sims/genchi-ikura/"><div class="thumb" style="background:linear-gradient(135deg,#cffafe,#a5f3fc)"><span class="emoji">💴</span></div><div class="body"><div class="cat">旅行・おでかけ</div><h3>1万円、現地でいくら？</h3><p>旅行先の通貨に最新レートで即換算。1年前との比較つき。</p><span class="go">触ってみる →</span></div></a>
+  </div>
+
+  <h2 class="live-h2">📅 休みと暮らしのいま</h2>
+  <div class="live-grid">
+    <a class="sim-card" href="../sims/tsugi-renkyuu/"><div class="thumb" style="background:linear-gradient(135deg,#fff7ed,#fce7f3)"><span class="emoji">📅</span></div><div class="body"><div class="cat">季節・行事</div><h3>次の3連休カウントダウン</h3><p>次の3連休まであと何日？最新の祝日データで自動計算。</p><span class="go">触ってみる →</span></div></a>
+    <a class="sim-card" href="../sims/renkyuu-maker/"><div class="thumb" style="background:linear-gradient(135deg,#eff6ff,#dbeafe)"><span class="emoji">🏖️</span></div><div class="body"><div class="cat">仕事・働き方</div><h3>9連休メーカー</h3><p>有休を置くだけで連休が最大化する日を自動発見。</p><span class="go">触ってみる →</span></div></a>
+    <a class="sim-card" href="../sims/sekai-yasumi/"><div class="thumb" style="background:linear-gradient(135deg,#eff6ff,#dbeafe)"><span class="emoji">🌍</span></div><div class="body"><div class="cat">仕事・働き方</div><h3>今日、世界のどこが祝日？</h3><p>あなたが働いている今日、世界のどこかは休んでいる。</p><span class="go">触ってみる →</span></div></a>
+    <a class="sim-card" href="../sims/conbini-mitsudo/"><div class="thumb" style="background:linear-gradient(135deg,#ecfdf5,#d1fae5)"><span class="emoji">🏪</span></div><div class="body"><div class="cat">住まい・暮らし</div><h3>コンビニ密度チェッカー</h3><p>あなたの街、徒歩圏にコンビニ何軒？地図データでライブ集計。</p><span class="go">触ってみる →</span></div></a>
+    <a class="sim-card" href="../sims/tanjobi-jiken/"><div class="thumb" style="background:linear-gradient(135deg,#fefce8,#fef9c3)"><span class="emoji">🎂</span></div><div class="body"><div class="cat">人生・自分ごと</div><h3>あなたの誕生日、何が起きた日？</h3><p>その日に歴史が動いた回数をWikipediaから集計。</p><span class="go">触ってみる →</span></div></a>
+  </div>
+
+  <h2 class="live-h2">🌊 海と山のいま</h2>
+  <div class="live-grid">
+    <a class="sim-card" href="../sims/naminori-biyori/"><div class="thumb" style="background:linear-gradient(135deg,#ecfdf5,#d1fae5)"><span class="emoji">🏄</span></div><div class="body"><div class="cat">スポーツ・運動</div><h3>波乗り日和チェッカー</h3><p>明日の朝イチ、波ある？主要ポイントの波高・周期を判定。</p><span class="go">触ってみる →</span></div></a>
+    <a class="sim-card" href="../sims/gelande-yuki/"><div class="thumb" style="background:linear-gradient(135deg,#ecfdf5,#d1fae5)"><span class="emoji">⛷️</span></div><div class="body"><div class="cat">スポーツ・運動</div><h3>ゲレンデ積雪ライブ</h3><p>ニセコ・白馬・苗場…主要スキー場のいまの積雪をライブ表示。</p><span class="go">触ってみる →</span></div></a>
+  </div>
+
+  <article class="article">
+    <h2>「ライブデータ搭載」とは</h2>
+    <p>このページのシミュレーターは、開いた瞬間に公的機関などの公開API（オープンデータ）へ直接アクセスし、<b>いまこの瞬間の実データ</b>で計算します。昨日のデータの使い回しではなく、地震の回数も、為替レートも、ISSの位置も、あなたが開いた時刻のものです。入力内容はブラウザ内でのみ処理され、当サイトが保存することはありません。</p>
+
+    <h2>データ出典一覧</h2>
+    <p>各シミュレーターが利用しているデータソースの一覧です。記事等でデータの大元を参照する際にご利用ください。</p>
+    <table class="src-table">
+      <tr><th>データ提供元</th><th>データ内容</th><th>利用シミュレーター</th></tr>
+      <tr><td>Open-Meteo（気象オープンデータ）</td><td>天気予報・UV指数・大気質・海洋波浪・積雪</td><td>傘いる？/洗濯/日焼け/夕焼け/星空/熱帯夜/寒暖差/暑さランキング/世界気温/波乗り/ゲレンデ積雪</td></tr>
+      <tr><td>P2P地震情報（気象庁発表の中継）</td><td>地震情報（震度1以上）</td><td>日本はいまも揺れている</td></tr>
+      <tr><td>国土地理院</td><td>標高API・住所検索API</td><td>海抜チェッカー/コンビニ密度</td></tr>
+      <tr><td>OpenStreetMap（Overpass API）</td><td>店舗・地物の地図データ</td><td>コンビニ密度チェッカー</td></tr>
+      <tr><td>holidays-jp（内閣府発表の祝日）</td><td>日本の祝日</td><td>9連休メーカー</td></tr>
+      <tr><td>Nager.Date</td><td>世界の祝日・連休</td><td>世界のどこが祝日/次の3連休</td></tr>
+      <tr><td>欧州中央銀行（Frankfurter API）</td><td>為替レート（現在・過去）</td><td>円安体感メーター/1万円現地でいくら</td></tr>
+      <tr><td>CoinGecko</td><td>暗号資産の価格（過去1年）</td><td>もしビットコイン買ってたら</td></tr>
+      <tr><td>米海洋大気庁（NOAA SWPC）</td><td>宇宙天気（Kp指数）</td><td>オーロラ予報メーター</td></tr>
+      <tr><td>wheretheiss.at</td><td>ISSの現在位置</td><td>ISSはいまどこ？</td></tr>
+      <tr><td>The Space Devs（Launch Library 2）</td><td>世界のロケット打ち上げ予定</td><td>次のロケット打ち上げまで</td></tr>
+      <tr><td>Wikipedia日本語版（CC BY-SA）</td><td>日付ごとの歴史情報</td><td>誕生日、何が起きた日？</td></tr>
+    </table>
+
+    <h2>引用・転載について</h2>
+    <p>各シミュレーターの計算結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ ライブデータラボ https://shimulabo.com/live/</code>（個別ページの引用はそのページのURLをご利用ください）</div>
+
+    <h2>よくある質問</h2>
+    <dl class="faq">
+      <dt>「ライブデータ搭載」とはどういう意味ですか？</dt><dd>ページを開いた瞬間に、気象庁・国土地理院・NOAA・欧州中央銀行などの公開APIから最新データを取得して計算するシミュレーターです。表示される数値は毎回「いま」のものです。</dd>
+      <dt>数値を記事やSNSで引用してもいいですか？</dt><dd>出典としてシミュラボの該当ページ名とURLを明記いただければ、引用・転載を歓迎します。事前連絡は不要です。</dd>
+      <dt>データの正確性は保証されますか？</dt><dd>各ページに記載の公的データ・オープンデータをそのまま、または明示した計算式で加工して表示しています。防災・投資・健康など重要な判断は必ず公式情報をご確認ください。</dd>
+    </dl>
+  </article>
+
+  <section class="req-banner">
+    <h2>💡 「このデータで作ってほしい」ありますか？</h2>
+    <p>使ってほしい公開データ・見たい数字があれば送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../request/">リクエストする →</a>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+</body>
+</html>

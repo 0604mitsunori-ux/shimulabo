@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/gelande-yuki/">
+<title>ゲレンデ積雪ライブ｜主要スキー場のいまの積雪・新雪をチェック｜シミュラボ</title>
+<meta name="description" content="ニセコ・ルスツ・白馬・苗場・野沢温泉など主要スキー場の現在の積雪深と直近24時間・7日間の降雪量を気象データからライブ表示する無料ツール。遠征の判断に。">
+<meta property="og:title" content="ゲレンデ積雪ライブ">
+<meta property="og:description" content="主要スキー場のいまの積雪・新雪をライブ表示。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/gelande-yuki.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/gelande-yuki.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/gelande-yuki/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "ゲレンデ積雪ライブ", "url": "https://shimulabo.com/sims/gelande-yuki/", "description": "主要スキー場のいまの積雪・新雪をライブ表示。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ライブデータラボ", "item": "https://shimulabo.com/live/"}, {"@type": "ListItem", "position": 3, "name": "ゲレンデ積雪ライブ", "item": "https://shimulabo.com/sims/gelande-yuki/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "積雪データの出典は？", "acceptedAnswer": {"@type": "Answer", "text": "気象オープンデータAPI（Open-Meteo）の積雪深・降雪量の推計値を、各スキー場エリアの座標で取得しています。"}}, {"@type": "Question", "name": "スキー場公式の発表と違う", "acceptedAnswer": {"@type": "Answer", "text": "公式発表はコース上の実測、こちらは気象モデルの山域推計のため差が出ます。傾向（増えた/減った）の把握にお使いください。"}}, {"@type": "Question", "name": "入力データは送信される？", "acceptedAnswer": {"@type": "Answer", "text": "スキー場の選択のみを使います。個人情報は一切送信されません。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../live/">⚡ ライブデータ一覧</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../live/">ライブデータラボ</a><span>›</span><span class="cur">ゲレンデ積雪ライブ</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">スポーツ・運動</div>
+    <h1>ゲレンデ積雪ライブ</h1>
+    <p class="lead">遠征の判断は雪の量がすべて。主要スキー場の現在の積雪深と、直近の降雪をライブ表示します。夏は「まだ雪ある？」の答え合わせに。</p>
+  </div>
+
+  <section class="panel">
+    <h2>⛷️ ゲレンデ</h2>
+    <div class="field"><label>スキー場エリア</label>
+      <select id="spot">
+        <option value="42.86,140.70" selected>ニセコ（北海道）</option>
+        <option value="42.75,140.90">ルスツ（北海道）</option>
+        <option value="38.16,140.44">蔵王（山形）</option>
+        <option value="36.92,138.44">野沢温泉（長野）</option>
+        <option value="36.74,137.84">白馬八方尾根（長野）</option>
+        <option value="36.70,138.50">志賀高原（長野）</option>
+        <option value="36.85,138.79">苗場（新潟）</option>
+        <option value="36.88,138.16">妙高（新潟）</option>
+      </select>
+    </div>
+    <button class="btn btn-primary" id="calcBtn">いまの雪を見る</button>
+    <div class="hint" id="state" style="margin-top:8px;"></div>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">いまの積雪は</div>
+      <div class="big"><span id="big">0</span><span class="unit">cm</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">直近24時間の降雪</div><div class="v" id="new24">—</div></div>
+      <div class="stat"><div class="k">直近7日間の降雪</div><div class="v" id="new7">—</div></div>
+      <div class="stat"><div class="k">シーズン判定</div><div class="v accent" id="season">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>このライブについて</h2>
+    <p>このツールは気象オープンデータAPI（Open-Meteo）から、各スキー場エリアの積雪深（snow depth）と降雪量の推計値を取得しています。「昨晩どれだけ積もったか」はパウダー狙いの生命線、「7日間の降雪」はベースの底上げの目安です。オフシーズンは軒並み0cmになりますが、それもまた季節の観測です。</p>
+    <div class="note">数値は気象モデルによる山域の推計で、ゲレンデ整備後の実測とは差があります。遠征前はスキー場公式の積雪情報とライブカメラを必ず確認してください。</div>
+    <h2>引用・転載について</h2>
+    <p>本ページの計算結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「ゲレンデ積雪ライブ」 https://shimulabo.com/sims/gelande-yuki/</code><br>Webでご利用の際は上記URLへのリンク設置をお願いします。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>積雪データの出典は？</dt><dd>気象オープンデータAPI（Open-Meteo）の積雪深・降雪量の推計値を、各スキー場エリアの座標で取得しています。</dd><dt>スキー場公式の発表と違う</dt><dd>公式発表はコース上の実測、こちらは気象モデルの山域推計のため差が出ます。傾向（増えた/減った）の把握にお使いください。</dd><dt>入力データは送信される？</dt><dd>スキー場の選択のみを使います。個人情報は一切送信されません。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../naminori-biyori/"><span class="e">🏄</span><span>波乗り日和チェッカー</span></a><a class="related-card" href="../hoshizora-shisu/"><span class="e">🔭</span><span>今夜の星空指数</span></a><a class="related-card" href="../onsen-seiha/"><span class="e">♨️</span><span>全国制覇まで何年？</span></a><a class="related-card" href="../kisei-hiyou/"><span class="e">🚄</span><span>帰省費用シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../live/">⚡ ライブデータラボ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function bindShare(){
+    $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+    $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+  }
+  async function calc(){
+    const [lat, lon] = $('spot').value.split(',');
+    const name = $('spot').selectedOptions[0].textContent;
+    $('state').textContent = '雪のデータを取得中…';
+    try{
+      const r = await fetch('https://api.open-meteo.com/v1/forecast?latitude=' + lat + '&longitude=' + lon + '&hourly=snow_depth&daily=snowfall_sum&past_days=7&forecast_days=1&timezone=Asia%2FTokyo');
+      const j = await r.json();
+      const depths = j.hourly.snow_depth;
+      const nowIdx = 7 * 24 + new Date().getHours();
+      const depth = (depths[nowIdx] ?? depths.findLast(v => v != null) ?? 0) * 100;
+      const sf = j.daily.snowfall_sum;
+      const new24 = (sf[7] ?? 0);
+      const new7 = sf.slice(0, 8).reduce((a,b) => a + (b || 0), 0);
+      const season = depth >= 200 ? '❄️ 極上シーズン' : depth >= 80 ? '⛷️ 滑走OKレベル' : depth >= 20 ? '🌨️ シーズン序盤/終盤' : depth > 0 ? '🌿 うっすら残雪' : '🌿 雪なし（オフシーズン）';
+      $('state').textContent = '';
+      $('sub').textContent = name + ' エリアの気象モデル推計｜公式発表とあわせて確認を';
+      $('new24').textContent = new24.toFixed(1) + 'cm';
+      $('new7').textContent = new7.toFixed(0) + 'cm';
+      $('season').textContent = season;
+      SHARE = 'いまの' + name.split('（')[0] + '、積雪' + Math.round(depth) + 'cm⛷️（7日間降雪' + new7.toFixed(0) + 'cm・' + season.replace(/^[^ ]+ /,'') + '）\n主要ゲレンデのライブ積雪はこちら👇';
+      show(); anim($('big'), 0, Math.round(depth), 900);
+    }catch{ $('state').textContent = '⚠️ データの取得に失敗しました。時間をおいて再度お試しください。'; }
+  }
+  $('calcBtn').addEventListener('click', calc);
+  bindShare();
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'gelande-yuki', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/result-fx.js?v=4"></script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

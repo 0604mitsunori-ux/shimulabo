@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/sekai-kion/">
+<title>世界の都市、いま何度？｜13都市の現在気温ライブ一覧｜シミュラボ</title>
+<meta name="description" content="ホノルル・バンコク・パリ・ニューヨークなど世界13都市の現在気温をリアルタイムで一斉取得し、東京との差とあわせて表示する無料ツール。旅行の服装準備・海外との雑談に。">
+<meta property="og:title" content="世界の都市、いま何度？">
+<meta property="og:description" content="世界13都市の現在気温をライブで一斉表示。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/sekai-kion.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/sekai-kion.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/sekai-kion/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "世界の都市、いま何度？", "url": "https://shimulabo.com/sims/sekai-kion/", "description": "世界13都市の現在気温をライブで一斉表示。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ライブデータラボ", "item": "https://shimulabo.com/live/"}, {"@type": "ListItem", "position": 3, "name": "世界の都市、いま何度？", "item": "https://shimulabo.com/sims/sekai-kion/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "気温データの出典は？", "acceptedAnswer": {"@type": "Answer", "text": "気象オープンデータAPI（Open-Meteo）から、世界13都市の現在気温を一括取得しています。"}}, {"@type": "Question", "name": "都市は増やせる？", "acceptedAnswer": {"@type": "Answer", "text": "リクエストがあれば追加を検討します。トップページの「リクエスト」からどうぞ。"}}, {"@type": "Question", "name": "入力データは送信される？", "acceptedAnswer": {"@type": "Answer", "text": "このページは何も入力せずに使えます。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../live/">⚡ ライブデータ一覧</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../live/">ライブデータラボ</a><span>›</span><span class="cur">世界の都市、いま何度？</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">旅行・おでかけ</div>
+    <h1>世界の都市、いま何度？</h1>
+    <p class="lead">東京が猛暑のいま、シドニーは冬。世界13都市の「いまの気温」を一斉取得して、地球の広さを1画面で体感します。</p>
+  </div>
+
+  <section class="panel" id="resultPanel">
+    <div class="result">
+      <div class="label">いま世界でいちばん暑いのは（13都市中）</div>
+      <div class="big" style="font-size:min(11vw,52px);"><span id="big">–</span></div>
+      <div class="sub" id="sub">データを読み込み中…</div>
+      <div class="statline"><div class="stat"><div class="k">東京はいま</div><div class="v" id="tokyo">—</div></div>
+      <div class="stat"><div class="k">いちばん寒い都市</div><div class="v" id="coldest">—</div></div>
+      <div class="stat"><div class="k">最大気温差</div><div class="v accent" id="span">—</div></div></div>
+      <div id="list" style="margin-top:14px;"></div>
+      <button class="btn btn-ghost" id="reloadBtn" style="margin-top:10px;">🔄 最新に更新</button>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>この一覧について</h2>
+    <p>この一覧は気象オープンデータAPI（Open-Meteo）に世界13都市の座標を一括で問い合わせ、現在気温を同時刻で取得しています。北半球と南半球で季節が逆転していることや、同じ緯度でも海流で気温が全く違うことが、ニュースの天気図より直感的に分かります。旅行前の服装準備にもどうぞ。</p>
+    <div class="note">気温は現地の体感とは別物です。湿度が高いバンコクの30℃と、乾燥したロサンゼルスの30℃はまるで別の暑さです。</div>
+    <h2>引用・転載について</h2>
+    <p>本ページの計算結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「世界の都市、いま何度？」 https://shimulabo.com/sims/sekai-kion/</code><br>Webでご利用の際は上記URLへのリンク設置をお願いします。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>気温データの出典は？</dt><dd>気象オープンデータAPI（Open-Meteo）から、世界13都市の現在気温を一括取得しています。</dd><dt>都市は増やせる？</dt><dd>リクエストがあれば追加を検討します。トップページの「リクエスト」からどうぞ。</dd><dt>入力データは送信される？</dt><dd>このページは何も入力せずに使えます。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../genchi-ikura/"><span class="e">💴</span><span>1万円、現地でいくら？</span></a><a class="related-card" href="../atsusa-ranking/"><span class="e">🌡️</span><span>全国いま暑いランキング</span></a><a class="related-card" href="../jisa-boke/"><span class="e">🕐</span><span>時差ボケ回復</span></a><a class="related-card" href="../kaigai-iju/"><span class="e">🌏</span><span>海外移住の生活費</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../live/">⚡ ライブデータラボ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function bindShare(){
+    $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+    $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+  }
+  const CITIES = [
+    ['東京','🇯🇵',35.69,139.69],['ホノルル','🇺🇸',21.31,-157.86],['バンコク','🇹🇭',13.76,100.50],['シンガポール','🇸🇬',1.35,103.82],
+    ['ソウル','🇰🇷',37.57,126.98],['台北','🇹🇼',25.03,121.57],['ドバイ','🇦🇪',25.20,55.27],['パリ','🇫🇷',48.86,2.35],
+    ['ロンドン','🇬🇧',51.51,-0.13],['ニューヨーク','🇺🇸',40.71,-74.01],['ロサンゼルス','🇺🇸',34.05,-118.24],['シドニー','🇦🇺',-33.87,151.21],['ヘルシンキ','🇫🇮',60.17,24.94]
+  ];
+  async function load(){
+    $('sub').textContent = 'データを読み込み中…';
+    try{
+      const lats = CITIES.map(c => c[2]).join(',');
+      const lons = CITIES.map(c => c[3]).join(',');
+      const r = await fetch('https://api.open-meteo.com/v1/forecast?latitude=' + lats + '&longitude=' + lons + '&current=temperature_2m');
+      const j = await r.json();
+      const rows = j.map((x, i) => ({ name: CITIES[i][0], flag: CITIES[i][1], t: x.current.temperature_2m })).sort((a,b) => b.t - a.t);
+      const tokyo = rows.find(x => x.name === '東京');
+      $('sub').textContent = new Date().toLocaleTimeString('ja-JP', {hour:'2-digit',minute:'2-digit'}) + ' 時点（日本時間）の現在気温';
+      $('big').textContent = rows[0].flag + rows[0].name + ' ' + rows[0].t.toFixed(1) + '℃';
+      $('tokyo').textContent = tokyo.t.toFixed(1) + '℃';
+      $('coldest').textContent = rows[rows.length-1].flag + rows[rows.length-1].name + '（' + rows[rows.length-1].t.toFixed(1) + '℃）';
+      $('span').textContent = (rows[0].t - rows[rows.length-1].t).toFixed(1) + '℃';
+      $('list').innerHTML = rows.map(x =>
+        '<div style="display:flex;gap:8px;justify-content:space-between;padding:7px 10px;margin-bottom:5px;background:rgba(127,127,127,.07);border-radius:8px;font-size:12.5px;text-align:left;' + (x.name === '東京' ? 'outline:2px solid rgba(0,140,255,.4);' : '') + '">'
+        + '<span>' + x.flag + ' ' + x.name + '</span><span>' + x.t.toFixed(1) + '℃（東京' + (x.t - tokyo.t >= 0 ? '+' : '') + (x.t - tokyo.t).toFixed(1) + '）</span></div>').join('');
+      SHARE = 'いま世界でいちばん暑いのは' + rows[0].name + 'の' + rows[0].t.toFixed(1) + '℃🌏 東京は' + tokyo.t.toFixed(1) + '℃、いちばん寒い' + rows[rows.length-1].name + 'は' + rows[rows.length-1].t.toFixed(1) + '℃！\n世界のいまの気温はこちら👇';
+    }catch{ $('sub').textContent = '⚠️ 取得に失敗しました。時間をおいて再度お試しください。'; }
+  }
+  load();
+  $('reloadBtn').addEventListener('click', load);
+  bindShare();
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'sekai-kion', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/result-fx.js?v=4"></script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>
