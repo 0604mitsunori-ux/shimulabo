@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/yuyake-yohou/">
+<title>今日の夕焼け予報｜日没の雲量から「焼ける空」を予測｜シミュラボ</title>
+<meta name="description" content="今日の日没時刻とそのときの雲量予報から、夕焼けがきれいに焼けるかを0〜100点で予報する無料ツール。ベストな観賞タイミングも表示。写真好き・散歩好きに。">
+<meta property="og:title" content="今日の夕焼け予報｜今日の空、焼ける？">
+<meta property="og:description" content="日没時刻の雲量から夕焼けの当たり日を予測。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/yuyake-yohou.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/yuyake-yohou.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/yuyake-yohou/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "今日の夕焼け予報", "url": "https://shimulabo.com/sims/yuyake-yohou/", "description": "日没時刻の雲量から夕焼けの当たり日を予測。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "今日の夕焼け予報", "item": "https://shimulabo.com/sims/yuyake-yohou/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "データの出典は？", "acceptedAnswer": {"@type": "Answer", "text": "気象オープンデータAPI（Open-Meteo）から、選んだ地点の今日の日没時刻と雲量予報を取得しています。"}}, {"@type": "Question", "name": "なぜ雲があるほうが焼けるの？", "acceptedAnswer": {"@type": "Answer", "text": "沈んだ直後の太陽光は地平線の下から雲の底を赤く照らします。雲がないと光を受け止めるスクリーンがなく、グラデーションだけで終わります。"}}, {"@type": "Question", "name": "入力データは送信される？", "acceptedAnswer": {"@type": "Answer", "text": "地域の選択のみを気象APIへの問い合わせに使います。個人情報は一切送信されません。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span>ふしぎ・現象<span>›</span><span class="cur">今日の夕焼け予報</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ふしぎ・現象</div>
+    <h1>今日の夕焼け予報</h1>
+    <p class="lead">夕焼けの「当たり日」は、実は雲がゼロの日ではありません。今日の日没時刻とそのときの雲量から、空が焼ける可能性を予報します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🌇 条件</h2>
+    <div class="field"><label>地域</label><select id="pref"></select></div>
+    <button class="btn btn-primary" id="calcBtn">今日の焼け度を予報する</button>
+    <div class="hint" id="state" style="margin-top:8px;"></div>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">今日の夕焼け、焼け度は</div>
+      <div class="big"><span id="big">0</span><span class="unit">点</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">今日の日の入り</div><div class="v" id="sunset">—</div></div>
+      <div class="stat"><div class="k">日没時の雲量</div><div class="v" id="cloud">—</div></div>
+      <div class="stat"><div class="k">ベスト観賞タイム</div><div class="v accent" id="best">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>この予報について</h2>
+    <p>意外なことに、快晴の夕焼けは平凡です。空が燃えるように焼けるのは、上空に適度な雲（目安2〜6割）があって、沈んだ太陽の光を下から照らすとき。逆に雲が厚すぎると光が届かず、ただ暗くなります。この予報は気象オープンデータAPI（Open-Meteo）から今日の日没時刻とその時間帯の雲量を取得し、「焼け度」を0〜100点で表します。</p>
+    <div class="note">いちばん焼けるのは日没の5〜20分後、いわゆるマジックアワーです。太陽が沈んだからと帰るのは、いちばんおいしいところを捨てています。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>データの出典は？</dt><dd>気象オープンデータAPI（Open-Meteo）から、選んだ地点の今日の日没時刻と雲量予報を取得しています。</dd><dt>なぜ雲があるほうが焼けるの？</dt><dd>沈んだ直後の太陽光は地平線の下から雲の底を赤く照らします。雲がないと光を受け止めるスクリーンがなく、グラデーションだけで終わります。</dd><dt>入力データは送信される？</dt><dd>地域の選択のみを気象APIへの問い合わせに使います。個人情報は一切送信されません。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../hoshizora-shisu/"><span class="e">🔭</span><span>今夜の星空指数</span></a><a class="related-card" href="../iss-doko/"><span class="e">🛰️</span><span>ISSはいまどこ？</span></a><a class="related-card" href="../sakura-kaisu/"><span class="e">🌸</span><span>桜をあと何回見られるか</span></a><a class="related-card" href="../machi-jikan/"><span class="e">⏳</span><span>人生の「待ち時間」</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function bindShare(){
+    $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+    $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+  }
+  const PREFS = [
+    ['北海道(札幌)',43.06,141.35],['青森県',40.82,140.74],['岩手県',39.70,141.15],['宮城県(仙台)',38.27,140.87],
+    ['秋田県',39.72,140.10],['山形県',38.24,140.36],['福島県',37.75,140.47],['茨城県',36.34,140.45],
+    ['栃木県',36.57,139.88],['群馬県',36.39,139.06],['埼玉県',35.86,139.65],['千葉県',35.61,140.12],
+    ['東京都',35.69,139.69],['神奈川県(横浜)',35.45,139.64],['新潟県',37.90,139.02],['富山県',36.70,137.21],
+    ['石川県(金沢)',36.59,136.63],['福井県',36.07,136.22],['山梨県',35.66,138.57],['長野県',36.65,138.18],
+    ['岐阜県',35.39,136.72],['静岡県',34.98,138.38],['愛知県(名古屋)',35.18,136.91],['三重県',34.73,136.51],
+    ['滋賀県',35.00,135.87],['京都府',35.02,135.76],['大阪府',34.69,135.52],['兵庫県(神戸)',34.69,135.18],
+    ['奈良県',34.69,135.83],['和歌山県',34.23,135.17],['鳥取県',35.50,134.24],['島根県(松江)',35.47,133.05],
+    ['岡山県',34.66,133.93],['広島県',34.40,132.46],['山口県',34.19,131.47],['徳島県',34.07,134.56],
+    ['香川県(高松)',34.34,134.04],['愛媛県(松山)',33.84,132.77],['高知県',33.56,133.53],['福岡県',33.61,130.42],
+    ['佐賀県',33.25,130.30],['長崎県',32.74,129.87],['熊本県',32.79,130.74],['大分県',33.24,131.61],
+    ['宮崎県',31.91,131.42],['鹿児島県',31.56,130.56],['沖縄県(那覇)',26.21,127.68]
+  ];
+  $('pref').innerHTML = PREFS.map((p,i) => '<option value="' + i + '"' + (i===12?' selected':'') + '>' + p[0] + '</option>').join('');
+  async function calc(){
+    const p = PREFS[+$('pref').value];
+    $('state').textContent = '日没と雲の予報を取得中…';
+    try{
+      const r = await fetch('https://api.open-meteo.com/v1/forecast?latitude=' + p[1] + '&longitude=' + p[2] + '&daily=sunset&hourly=cloud_cover&forecast_days=1&timezone=Asia%2FTokyo');
+      const j = await r.json();
+      const sunset = j.daily.sunset[0];                  // "2026-08-20T18:23"
+      const hh = +sunset.slice(11,13), mm = +sunset.slice(14,16);
+      const cloud = j.hourly.cloud_cover[Math.min(23, hh + (mm >= 30 ? 1 : 0))] ?? j.hourly.cloud_cover[hh];
+      let score, label;
+      if(cloud <= 5){ score = 55; label = '快晴。焼けるけど、ちょっと平凡かも'; }
+      else if(cloud <= 15){ score = 70; label = 'きれいなグラデーション日和'; }
+      else if(cloud <= 40){ score = 88; label = '🔥燃える空の予感！カメラの準備を'; }
+      else if(cloud <= 65){ score = 74; label = '雲の切れ間しだいで大当たりも'; }
+      else if(cloud <= 85){ score = 40; label = '雲多め。ドラマチック狙いならワンチャン'; }
+      else { score = 15; label = '今日は厚い雲の向こう…'; }
+      const bestFrom = mm + 5, bestTo = mm + 20;
+      const fmtT = (h, m) => (h + Math.floor(m / 60)) + ':' + String(m % 60).padStart(2, '0');
+      $('state').textContent = '';
+      $('sub').textContent = p[0] + '｜' + label;
+      $('sunset').textContent = hh + ':' + String(mm).padStart(2,'0');
+      $('cloud').textContent = Math.round(cloud) + '%';
+      $('best').textContent = fmtT(hh, bestFrom) + '〜' + fmtT(hh, bestTo) + '（日没後のマジックアワー）';
+      SHARE = '今日の' + p[0] + 'の夕焼け予報、焼け度' + score + '点🌇 ' + label + '（日の入り' + hh + ':' + String(mm).padStart(2,'0') + '）\nあなたの街の空は？👇';
+      show(); anim($('big'), 0, score, 900);
+    }catch{ $('state').textContent = '⚠️ 予報の取得に失敗しました。時間をおいて再度お試しください。'; }
+  }
+  $('calcBtn').addEventListener('click', calc);
+  bindShare();
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'yuyake-yohou', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/result-fx.js?v=4"></script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

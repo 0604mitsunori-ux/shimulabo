@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/iss-doko/">
+<title>ISSはいまどこ？｜国際宇宙ステーションとの距離をライブ計算｜シミュラボ</title>
+<meta name="description" content="国際宇宙ステーション（ISS）のいまの位置をリアルタイム取得して、あなたの街からの距離・高度・速度をライブ表示する無料ツール。90分で地球を1周する速さを体感。">
+<meta property="og:title" content="ISSはいまどこ？｜あなたから何km？">
+<meta property="og:description" content="ISSの現在位置をライブ取得して距離を計算。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/iss-doko.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/iss-doko.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/iss-doko/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "ISSはいまどこ？", "url": "https://shimulabo.com/sims/iss-doko/", "description": "ISSの現在位置をライブ取得して距離を計算。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ISSはいまどこ？", "item": "https://shimulabo.com/sims/iss-doko/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "位置データの出典は？", "acceptedAnswer": {"@type": "Answer", "text": "公開の衛星位置API（wheretheiss.at）から、ISSの現在の緯度・経度・高度・速度を取得しています。"}}, {"@type": "Question", "name": "ISSは肉眼で見える？", "acceptedAnswer": {"@type": "Answer", "text": "見えます。日の出前・日没後の空が暗い時間に上空を通過すると、飛行機より速く動く明るい光点として数分間見えます。"}}, {"@type": "Question", "name": "入力データは送信される？", "acceptedAnswer": {"@type": "Answer", "text": "地域の選択は距離計算だけに使い、外部には送信されません。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span>ふしぎ・現象<span>›</span><span class="cur">ISSはいまどこ？</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ふしぎ・現象</div>
+    <h1>ISSはいまどこ？</h1>
+    <p class="lead">頭の上400kmを、時速約2万8千kmで飛んでいる国際宇宙ステーション。いまどこにいて、あなたから何km離れているのかをライブで計算します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🛰️ 条件</h2>
+    <div class="field"><label>あなたの地域</label><select id="pref"></select></div>
+    <button class="btn btn-primary" id="calcBtn">ISSの現在地を見る</button>
+    <div class="hint" id="state" style="margin-top:8px;"></div>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">ISSはいま、あなたから</div>
+      <div class="big"><span id="big">0</span><span class="unit">km</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">高度</div><div class="v" id="alt">—</div></div>
+      <div class="stat"><div class="k">速度</div><div class="v" id="vel">—</div></div>
+      <div class="stat"><div class="k">現在位置（緯度・経度）</div><div class="v accent" id="pos">—</div></div></div>
+      <button class="btn btn-ghost" id="reloadBtn" style="margin-top:10px;">🔄 いまの位置に更新</button>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>このメーターについて</h2>
+    <p>ISS（国際宇宙ステーション）は高度約400kmを秒速約7.7kmで飛行し、およそ90分で地球を1周しています。このメーターは公開の衛星位置API（wheretheiss.at）からISSの現在位置を取得し、あなたの選んだ地点との距離を球面距離で計算しています。「更新」を押すたびに位置が変わる＝それだけ速く動いている、ということです。</p>
+    <div class="note">距離が1,000km前後まで近づいた夜の時間帯は、条件がよければ「動く明るい星」として肉眼でも見えます（JAXAの目視予報「きぼうを見よう」が便利です）。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>位置データの出典は？</dt><dd>公開の衛星位置API（wheretheiss.at）から、ISSの現在の緯度・経度・高度・速度を取得しています。</dd><dt>ISSは肉眼で見える？</dt><dd>見えます。日の出前・日没後の空が暗い時間に上空を通過すると、飛行機より速く動く明るい光点として数分間見えます。</dd><dt>入力データは送信される？</dt><dd>地域の選択は距離計算だけに使い、外部には送信されません。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../hoshizora-shisu/"><span class="e">🔭</span><span>今夜の星空指数</span></a><a class="related-card" href="../jishin-live/"><span class="e">🗾</span><span>日本はいまも揺れている</span></a><a class="related-card" href="../galaxy-collision/"><span class="e">🌌</span><span>銀河衝突シミュレーター</span></a><a class="related-card" href="../black-hole/"><span class="e">🕳️</span><span>ブラックホール 光の曲がり</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function bindShare(){
+    $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+    $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+  }
+  const PREFS = [
+    ['北海道(札幌)',43.06,141.35],['青森県',40.82,140.74],['岩手県',39.70,141.15],['宮城県(仙台)',38.27,140.87],
+    ['秋田県',39.72,140.10],['山形県',38.24,140.36],['福島県',37.75,140.47],['茨城県',36.34,140.45],
+    ['栃木県',36.57,139.88],['群馬県',36.39,139.06],['埼玉県',35.86,139.65],['千葉県',35.61,140.12],
+    ['東京都',35.69,139.69],['神奈川県(横浜)',35.45,139.64],['新潟県',37.90,139.02],['富山県',36.70,137.21],
+    ['石川県(金沢)',36.59,136.63],['福井県',36.07,136.22],['山梨県',35.66,138.57],['長野県',36.65,138.18],
+    ['岐阜県',35.39,136.72],['静岡県',34.98,138.38],['愛知県(名古屋)',35.18,136.91],['三重県',34.73,136.51],
+    ['滋賀県',35.00,135.87],['京都府',35.02,135.76],['大阪府',34.69,135.52],['兵庫県(神戸)',34.69,135.18],
+    ['奈良県',34.69,135.83],['和歌山県',34.23,135.17],['鳥取県',35.50,134.24],['島根県(松江)',35.47,133.05],
+    ['岡山県',34.66,133.93],['広島県',34.40,132.46],['山口県',34.19,131.47],['徳島県',34.07,134.56],
+    ['香川県(高松)',34.34,134.04],['愛媛県(松山)',33.84,132.77],['高知県',33.56,133.53],['福岡県',33.61,130.42],
+    ['佐賀県',33.25,130.30],['長崎県',32.74,129.87],['熊本県',32.79,130.74],['大分県',33.24,131.61],
+    ['宮崎県',31.91,131.42],['鹿児島県',31.56,130.56],['沖縄県(那覇)',26.21,127.68]
+  ];
+  $('pref').innerHTML = PREFS.map((p,i) => '<option value="' + i + '"' + (i===12?' selected':'') + '>' + p[0] + '</option>').join('');
+  const R = 6371;
+  function hav(la1, lo1, la2, lo2){
+    const d = Math.PI / 180;
+    const a = Math.sin((la2-la1)*d/2)**2 + Math.cos(la1*d)*Math.cos(la2*d)*Math.sin((lo2-lo1)*d/2)**2;
+    return 2 * R * Math.asin(Math.sqrt(a));
+  }
+  async function calc(){
+    const p = PREFS[+$('pref').value];
+    $('state').textContent = 'ISSの現在位置を取得中…';
+    try{
+      const r = await fetch('https://api.wheretheiss.at/v1/satellites/25544');
+      const j = await r.json();
+      const ground = hav(p[1], p[2], j.latitude, j.longitude);
+      const dist = Math.round(Math.sqrt(ground*ground + j.altitude*j.altitude));
+      $('state').textContent = '';
+      const tokyoOsaka = (dist / 400).toFixed(1);
+      $('sub').textContent = p[0] + 'から直線距離｜東京-大阪間の約' + tokyoOsaka + '倍' + (ground < 1200 ? '｜🌟いまあなたの空のすぐ近く！' : '');
+      $('alt').textContent = Math.round(j.altitude) + 'km 上空';
+      $('vel').textContent = '時速' + Math.round(j.velocity).toLocaleString('ja-JP') + 'km';
+      $('pos').textContent = j.latitude.toFixed(1) + ', ' + j.longitude.toFixed(1);
+      SHARE = 'ISS（国際宇宙ステーション）はいま、私から' + dist.toLocaleString('ja-JP') + 'km先を時速' + Math.round(j.velocity).toLocaleString('ja-JP') + 'kmで飛行中🛰️ いまの位置はこちら👇';
+      show(); anim($('big'), 0, dist, 900);
+    }catch{ $('state').textContent = '⚠️ 位置の取得に失敗しました。時間をおいて再度お試しください。'; }
+  }
+  $('calcBtn').addEventListener('click', calc);
+  $('reloadBtn').addEventListener('click', calc);
+  bindShare();
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'iss-doko', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/result-fx.js?v=4"></script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

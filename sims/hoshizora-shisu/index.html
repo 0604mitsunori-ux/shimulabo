@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/hoshizora-shisu/">
+<title>今夜の星空指数｜雲量×月齢から「星が見えるか」を計算｜シミュラボ</title>
+<meta name="description" content="今夜のリアルタイム雲量予報と月の満ち欠けから、星空がどれだけ見えるかを0〜100の指数で計算する無料シミュレーター。都道府県を選ぶだけ。天体観測・キャンプのお供に。">
+<meta property="og:title" content="今夜の星空指数｜今夜、星は見える？">
+<meta property="og:description" content="雲量予報×月の明るさで星空指数を計算。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/hoshizora-shisu.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/hoshizora-shisu.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/hoshizora-shisu/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "今夜の星空指数", "url": "https://shimulabo.com/sims/hoshizora-shisu/", "description": "雲量予報×月の明るさで星空指数を計算。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "今夜の星空指数", "item": "https://shimulabo.com/sims/hoshizora-shisu/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "雲量データはどこから？", "acceptedAnswer": {"@type": "Answer", "text": "気象オープンデータAPI（Open-Meteo）から、選んだ地点の今夜の雲量予報を1時間単位で取得しています。"}}, {"@type": "Question", "name": "月の明るさはどう計算？", "acceptedAnswer": {"@type": "Answer", "text": "月齢周期（約29.53日）から満ち欠けを計算し、満月に近いほど指数が下がる補正をかけています。"}}, {"@type": "Question", "name": "入力データは送信される？", "acceptedAnswer": {"@type": "Answer", "text": "地域の選択のみを気象APIへの問い合わせに使います。個人情報は一切送信されません。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span>旅行・おでかけ<span>›</span><span class="cur">今夜の星空指数</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">旅行・おでかけ</div>
+    <h1>今夜の星空指数</h1>
+    <p class="lead">今夜、星は見えるのか。選んだ地域の今夜の雲量予報をリアルタイム取得し、月の明るさも計算に入れて「星空指数」を出します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🔭 条件</h2>
+    <div class="field"><label>地域</label><select id="pref"></select></div>
+    <button class="btn btn-primary" id="calcBtn">今夜の星空指数を見る</button>
+    <div class="hint" id="state" style="margin-top:8px;"></div>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">今夜の星空指数は</div>
+      <div class="big"><span id="big">0</span><span class="unit">点</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">今夜の雲量</div><div class="v" id="cloud">—</div></div>
+      <div class="stat"><div class="k">月齢</div><div class="v" id="moon">—</div></div>
+      <div class="stat"><div class="k">ベスト時間帯</div><div class="v accent" id="best">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>この指数について</h2>
+    <p>星が見えるかどうかは「雲」と「月」でほぼ決まります。この指数は、気象オープンデータAPI（Open-Meteo）から今夜21時〜翌1時の雲量予報を取得し、さらに月齢から計算した月の明るさで補正して0〜100点にしたものです。満月の夜は空が明るく、天の川クラスの淡い星は見えにくくなります。</p>
+    <div class="note">街灯りの影響（光害）は場所によって大きく異なるため含めていません。同じ指数でも、山や海辺に行くほど見える星は増えます。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>雲量データはどこから？</dt><dd>気象オープンデータAPI（Open-Meteo）から、選んだ地点の今夜の雲量予報を1時間単位で取得しています。</dd><dt>月の明るさはどう計算？</dt><dd>月齢周期（約29.53日）から満ち欠けを計算し、満月に近いほど指数が下がる補正をかけています。</dd><dt>入力データは送信される？</dt><dd>地域の選択のみを気象APIへの問い合わせに使います。個人情報は一切送信されません。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../iss-doko/"><span class="e">🛰️</span><span>ISSはいまどこ？</span></a><a class="related-card" href="../yuyake-yohou/"><span class="e">🌇</span><span>今日の夕焼け予報</span></a><a class="related-card" href="../onsen-seiha/"><span class="e">♨️</span><span>全国制覇まで何年？</span></a><a class="related-card" href="../ryohi/"><span class="e">✈️</span><span>旅行費用 総額</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function bindShare(){
+    $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+    $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+  }
+  const PREFS = [
+    ['北海道(札幌)',43.06,141.35],['青森県',40.82,140.74],['岩手県',39.70,141.15],['宮城県(仙台)',38.27,140.87],
+    ['秋田県',39.72,140.10],['山形県',38.24,140.36],['福島県',37.75,140.47],['茨城県',36.34,140.45],
+    ['栃木県',36.57,139.88],['群馬県',36.39,139.06],['埼玉県',35.86,139.65],['千葉県',35.61,140.12],
+    ['東京都',35.69,139.69],['神奈川県(横浜)',35.45,139.64],['新潟県',37.90,139.02],['富山県',36.70,137.21],
+    ['石川県(金沢)',36.59,136.63],['福井県',36.07,136.22],['山梨県',35.66,138.57],['長野県',36.65,138.18],
+    ['岐阜県',35.39,136.72],['静岡県',34.98,138.38],['愛知県(名古屋)',35.18,136.91],['三重県',34.73,136.51],
+    ['滋賀県',35.00,135.87],['京都府',35.02,135.76],['大阪府',34.69,135.52],['兵庫県(神戸)',34.69,135.18],
+    ['奈良県',34.69,135.83],['和歌山県',34.23,135.17],['鳥取県',35.50,134.24],['島根県(松江)',35.47,133.05],
+    ['岡山県',34.66,133.93],['広島県',34.40,132.46],['山口県',34.19,131.47],['徳島県',34.07,134.56],
+    ['香川県(高松)',34.34,134.04],['愛媛県(松山)',33.84,132.77],['高知県',33.56,133.53],['福岡県',33.61,130.42],
+    ['佐賀県',33.25,130.30],['長崎県',32.74,129.87],['熊本県',32.79,130.74],['大分県',33.24,131.61],
+    ['宮崎県',31.91,131.42],['鹿児島県',31.56,130.56],['沖縄県(那覇)',26.21,127.68]
+  ];
+  $('pref').innerHTML = PREFS.map((p,i) => '<option value="' + i + '"' + (i===12?' selected':'') + '>' + p[0] + '</option>').join('');
+  const moonAge = () => ((Date.now() - 947182440000) / 86400000) % 29.530588853;
+  const moonName = (a) => a < 1.85 ? '新月' : a < 5.5 ? '三日月ごろ' : a < 9.2 ? '上弦ごろ' : a < 12.9 ? '十三夜ごろ' : a < 16.6 ? '満月ごろ' : a < 20.3 ? '寝待月ごろ' : a < 24 ? '下弦ごろ' : a < 27.7 ? '有明月ごろ' : '新月';
+  async function calc(){
+    const p = PREFS[+$('pref').value];
+    $('state').textContent = '今夜の雲量予報を取得中…';
+    try{
+      const r = await fetch('https://api.open-meteo.com/v1/forecast?latitude=' + p[1] + '&longitude=' + p[2] + '&hourly=cloud_cover&forecast_days=2&timezone=Asia%2FTokyo');
+      const j = await r.json();
+      const cc = j.hourly.cloud_cover;
+      const hours = [20,21,22,23,24];
+      const vals = hours.map(h => cc[h]).filter(v => v != null);
+      const avg = vals.reduce((a,b)=>a+b,0) / vals.length;
+      let bestH = 20, bestC = 101;
+      hours.forEach(h => { if(cc[h] != null && cc[h] < bestC){ bestC = cc[h]; bestH = h; } });
+      const age = moonAge();
+      const illum = (1 - Math.cos(2 * Math.PI * age / 29.530588853)) / 2;
+      const score = Math.max(0, Math.round((100 - avg) * (1 - 0.55 * illum)));
+      const label = score >= 80 ? '満天チャンス✨' : score >= 60 ? 'よく見えそう' : score >= 40 ? '明るい星なら見える' : score >= 20 ? '今夜は厳しめ' : '今夜は絶望的…';
+      $('state').textContent = '';
+      $('sub').textContent = p[0] + '・今夜21時〜翌1時の予報｜判定: ' + label;
+      $('cloud').textContent = Math.round(avg) + '%';
+      $('moon').textContent = age.toFixed(1) + '（' + moonName(age) + '）';
+      $('best').textContent = (bestH >= 24 ? (bestH-24) : bestH) + '時ごろ（雲量' + Math.round(bestC) + '%）';
+      SHARE = '今夜の' + p[0] + 'の星空指数は' + score + '点（' + label + '）🔭 雲量' + Math.round(avg) + '%・' + moonName(age) + '。あなたの街の空は？👇';
+      show(); anim($('big'), 0, score, 900);
+    }catch{ $('state').textContent = '⚠️ 予報の取得に失敗しました。時間をおいて再度お試しください。'; }
+  }
+  $('calcBtn').addEventListener('click', calc);
+  bindShare();
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'hoshizora-shisu', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/result-fx.js?v=4"></script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

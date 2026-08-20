@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/btc-tara/">
+<title>もしビットコイン買ってたらメーター｜実際の価格データでタラレバ計算｜シミュラボ</title>
+<meta name="description" content="「あの時ビットコインを買ってたら」を実際の過去1年の価格データで計算する娯楽シミュレーター。金額と時期を選ぶだけで、いまの価値と損益をリアルタイム表示。投資助言ではありません。">
+<meta property="og:title" content="もしビットコイン買ってたらメーター">
+<meta property="og:description" content="実際の価格データでタラレバを清算。増えたか減ったかは時期しだい。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/btc-tara.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/btc-tara.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/btc-tara/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "もしビットコイン買ってたら", "url": "https://shimulabo.com/sims/btc-tara/", "description": "実際の価格データでタラレバを清算。増えたか減ったかは時期しだい。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "もしビットコイン買ってたら", "item": "https://shimulabo.com/sims/btc-tara/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "価格データの出典は？", "acceptedAnswer": {"@type": "Answer", "text": "公開の暗号資産価格API（CoinGecko）から、過去1年分のビットコイン円建て日次価格を取得しています。"}}, {"@type": "Question", "name": "投資の参考にしていい？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。これは「タラレバ」を数字にして遊ぶ娯楽ツールで、投資助言ではありません。投資判断はご自身の責任で、必要なら専門家にご相談ください。"}}, {"@type": "Question", "name": "なぜ1年前まで？", "acceptedAnswer": {"@type": "Answer", "text": "無料APIで取得できる履歴が直近365日分のためです。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span>お金・時間<span>›</span><span class="cur">もしビットコイン買ってたら</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">お金・時間</div>
+    <h1>もしビットコイン買ってたら</h1>
+    <p class="lead">「あの時買ってれば…」を、実際の価格データで清算します。金額と時期を選ぶだけ。増えているか減っているかは、選んだ時期しだいです。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🪙 条件</h2>
+    <div class="field"><label>いくら分買っていた？</label>
+      <select id="amount"><option value="10000">1万円</option><option value="100000" selected>10万円</option><option value="1000000">100万円</option><option value="custom">自分で入力</option></select>
+    </div>
+    <div class="field" id="customField" style="display:none"><label>金額 <span class="hint">（円）</span></label><input type="number" id="customYen" value="50000" min="100" inputmode="numeric"></div>
+    <div class="field"><label>いつ買っていた？</label>
+      <select id="when"><option value="365" selected>1年前</option><option value="180">半年前</option><option value="90">3ヶ月前</option><option value="30">1ヶ月前</option><option value="7">先週</option></select>
+    </div>
+    <button class="btn btn-primary" id="calcBtn">タラレバを清算する</button>
+    <div class="hint" id="state" style="margin-top:8px;"></div>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label" id="topLabel">その買い物、いまの価値は</div>
+      <div class="big"><span id="big">0</span><span class="unit">円</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">損益</div><div class="v" id="pl">—</div></div>
+      <div class="stat"><div class="k">変化率</div><div class="v" id="pct">—</div></div>
+      <div class="stat"><div class="k">期間中の最高値で売れてたら</div><div class="v accent" id="best">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>このメーターについて</h2>
+    <p>暗号資産の価格ニュースは「上がった」「下がった」の切り取りばかりで、自分ごとの金額に直してくれません。このメーターは公開の価格データAPI（CoinGecko）から過去1年分のビットコイン円建て価格を取得し、「その時◯円分買っていたら今いくらか」を機械的に計算します。夢が見られる日もあれば、現実を突きつけられる日もあります。</p>
+    <div class="note">⚠️ これは娯楽用の計算ツールであり、投資助言ではありません。暗号資産は価格変動が非常に大きく、過去の値動きは将来を保証しません。取引には手数料・税金もかかります。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>価格データの出典は？</dt><dd>公開の暗号資産価格API（CoinGecko）から、過去1年分のビットコイン円建て日次価格を取得しています。</dd><dt>投資の参考にしていい？</dt><dd>いいえ。これは「タラレバ」を数字にして遊ぶ娯楽ツールで、投資助言ではありません。投資判断はご自身の責任で、必要なら専門家にご相談ください。</dd><dt>なぜ1年前まで？</dt><dd>無料APIで取得できる履歴が直近365日分のためです。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../takarakuji/"><span class="e">🎰</span><span>宝くじ買い続けたら</span></a><a class="related-card" href="../fire/"><span class="e">🔥</span><span>FIRE達成シミュレーター</span></a><a class="related-card" href="../infure/"><span class="e">📉</span><span>物価2倍まで何年？</span></a><a class="related-card" href="../enyasu-taikan/"><span class="e">💱</span><span>円安体感メーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function bindShare(){
+    $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+    $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+  }
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const WHEN_LABEL = {365:'1年前', 180:'半年前', 90:'3ヶ月前', 30:'1ヶ月前', 7:'先週'};
+  let PRICES = null;
+  $('amount').addEventListener('change', () => { $('customField').style.display = $('amount').value === 'custom' ? '' : 'none'; });
+  async function calc(){
+    const yen = $('amount').value === 'custom' ? Math.max(100, +$('customYen').value || 0) : +$('amount').value;
+    const days = +$('when').value;
+    $('state').textContent = '価格データを取得中…';
+    try{
+      if(!PRICES){
+        const r = await fetch('https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=jpy&days=365&interval=daily');
+        const j = await r.json();
+        if(!j.prices) throw new Error('rate');
+        PRICES = j.prices;
+      }
+      const nowP = PRICES[PRICES.length - 1][1];
+      const idx = Math.max(0, PRICES.length - 1 - days);
+      const pastP = PRICES[idx][1];
+      const val = yen * nowP / pastP;
+      const window_ = PRICES.slice(idx);
+      const maxP = Math.max(...window_.map(x => x[1]));
+      const bestVal = yen * maxP / pastP;
+      const pl = val - yen;
+      $('state').textContent = '';
+      $('sub').textContent = WHEN_LABEL[days] + 'に' + num(yen) + '円分購入した想定｜当時1BTC=' + num(pastP) + '円 → いま' + num(nowP) + '円';
+      $('pl').textContent = (pl >= 0 ? '+' : '') + num(pl) + '円';
+      $('pct').textContent = (pl >= 0 ? '+' : '') + ((nowP / pastP - 1) * 100).toFixed(1) + '%';
+      $('best').textContent = '約' + num(bestVal) + '円';
+      SHARE = WHEN_LABEL[days] + 'にビットコインを' + num(yen) + '円分買ってたら、いま' + num(val) + '円' + (pl >= 0 ? 'になってた🪙' : '…実際は減ってた🫠') + '（' + (pl>=0?'+':'') + ((nowP/pastP-1)*100).toFixed(1) + '%）\nあなたのタラレバも清算する？👇';
+      show(); anim($('big'), 0, val, 1000);
+    }catch{ $('state').textContent = '⚠️ 価格データの取得に失敗しました（混雑時は少し待つと通ります）。'; }
+  }
+  $('calcBtn').addEventListener('click', calc);
+  bindShare();
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'btc-tara', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/result-fx.js?v=4"></script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

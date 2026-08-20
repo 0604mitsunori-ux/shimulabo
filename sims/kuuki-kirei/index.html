@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/kuuki-kirei/">
+<title>空気きれいメーター｜いまのPM2.5・黄砂をリアルタイム判定｜シミュラボ</title>
+<meta name="description" content="いまいる地域のPM2.5・PM10・黄砂の濃度をリアルタイムの大気質データから取得し、窓開け・外干し・運動していいかを判定する無料ツール。都道府県を選ぶだけ。">
+<meta property="og:title" content="空気きれいメーター｜いまの空気、吸って大丈夫？">
+<meta property="og:description" content="PM2.5・黄砂をリアルタイム取得してきれい度を判定。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/kuuki-kirei.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/kuuki-kirei.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/kuuki-kirei/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "空気きれいメーター", "url": "https://shimulabo.com/sims/kuuki-kirei/", "description": "PM2.5・黄砂をリアルタイム取得してきれい度を判定。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "空気きれいメーター", "item": "https://shimulabo.com/sims/kuuki-kirei/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "データの出典は？", "acceptedAnswer": {"@type": "Answer", "text": "大気質オープンデータAPI（Open-Meteo Air Quality、欧州CAMSモデル）から、選んだ地点の推計濃度を取得しています。"}}, {"@type": "Question", "name": "PM2.5はどこからが「多い」？", "acceptedAnswer": {"@type": "Answer", "text": "日本の環境基準は1日平均35μg/m³以下です。このメーターでは35を超えると「やや多い」、70を超えると「多い」と表示します。"}}, {"@type": "Question", "name": "入力データは送信される？", "acceptedAnswer": {"@type": "Answer", "text": "地域の選択のみを大気質APIへの問い合わせに使います。個人情報は一切送信されません。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span>健康・カラダ<span>›</span><span class="cur">空気きれいメーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">健康・カラダ</div>
+    <h1>空気きれいメーター</h1>
+    <p class="lead">いまの空気、どれくらいきれい？ PM2.5・PM10・黄砂の濃度をリアルタイムの大気質予測データから取得して、今日の空気を判定します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🍃 条件</h2>
+    <div class="field"><label>地域</label><select id="pref"></select></div>
+    <button class="btn btn-primary" id="calcBtn">いまの空気を判定</button>
+    <div class="hint" id="state" style="margin-top:8px;"></div>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">いまのPM2.5は</div>
+      <div class="big"><span id="big">0</span><span class="unit">μg/m³</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">PM10</div><div class="v" id="pm10">—</div></div>
+      <div class="stat"><div class="k">黄砂</div><div class="v" id="dust">—</div></div>
+      <div class="stat"><div class="k">今日のピーク</div><div class="v accent" id="peak">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>このメーターについて</h2>
+    <p>PM2.5は髪の毛の太さの30分の1ほどの微粒子で、濃度が高い日は呼吸器への負担が増えるとされています。このメーターは大気質オープンデータAPI（Open-Meteo Air Quality・CAMSモデル）から、選んだ地点のPM2.5・PM10・黄砂の濃度を1時間単位で取得しています。日本の環境基準は「1日平均35μg/m³以下」です。</p>
+    <div class="note">表示は数値モデルによる推計値で、最寄りの実測局の値とはズレることがあります。健康不安がある場合は自治体の実測データ（そらまめくん等）もあわせて確認してください。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>データの出典は？</dt><dd>大気質オープンデータAPI（Open-Meteo Air Quality、欧州CAMSモデル）から、選んだ地点の推計濃度を取得しています。</dd><dt>PM2.5はどこからが「多い」？</dt><dd>日本の環境基準は1日平均35μg/m³以下です。このメーターでは35を超えると「やや多い」、70を超えると「多い」と表示します。</dd><dt>入力データは送信される？</dt><dd>地域の選択のみを大気質APIへの問い合わせに使います。個人情報は一切送信されません。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../sleep-debt/"><span class="e">😴</span><span>睡眠負債シミュレーター</span></a><a class="related-card" href="../caffeine/"><span class="e">☕</span><span>カフェイン残量メーター</span></a><a class="related-card" href="../hiyake-timer/"><span class="e">☀️</span><span>日焼けタイマー</span></a><a class="related-card" href="../sentaku-kawaku/"><span class="e">👕</span><span>洗濯物 乾く時間メーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function bindShare(){
+    $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+    $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+  }
+  const PREFS = [
+    ['北海道(札幌)',43.06,141.35],['青森県',40.82,140.74],['岩手県',39.70,141.15],['宮城県(仙台)',38.27,140.87],
+    ['秋田県',39.72,140.10],['山形県',38.24,140.36],['福島県',37.75,140.47],['茨城県',36.34,140.45],
+    ['栃木県',36.57,139.88],['群馬県',36.39,139.06],['埼玉県',35.86,139.65],['千葉県',35.61,140.12],
+    ['東京都',35.69,139.69],['神奈川県(横浜)',35.45,139.64],['新潟県',37.90,139.02],['富山県',36.70,137.21],
+    ['石川県(金沢)',36.59,136.63],['福井県',36.07,136.22],['山梨県',35.66,138.57],['長野県',36.65,138.18],
+    ['岐阜県',35.39,136.72],['静岡県',34.98,138.38],['愛知県(名古屋)',35.18,136.91],['三重県',34.73,136.51],
+    ['滋賀県',35.00,135.87],['京都府',35.02,135.76],['大阪府',34.69,135.52],['兵庫県(神戸)',34.69,135.18],
+    ['奈良県',34.69,135.83],['和歌山県',34.23,135.17],['鳥取県',35.50,134.24],['島根県(松江)',35.47,133.05],
+    ['岡山県',34.66,133.93],['広島県',34.40,132.46],['山口県',34.19,131.47],['徳島県',34.07,134.56],
+    ['香川県(高松)',34.34,134.04],['愛媛県(松山)',33.84,132.77],['高知県',33.56,133.53],['福岡県',33.61,130.42],
+    ['佐賀県',33.25,130.30],['長崎県',32.74,129.87],['熊本県',32.79,130.74],['大分県',33.24,131.61],
+    ['宮崎県',31.91,131.42],['鹿児島県',31.56,130.56],['沖縄県(那覇)',26.21,127.68]
+  ];
+  $('pref').innerHTML = PREFS.map((p,i) => '<option value="' + i + '"' + (i===12?' selected':'') + '>' + p[0] + '</option>').join('');
+  async function calc(){
+    const p = PREFS[+$('pref').value];
+    $('state').textContent = '大気質データを取得中…';
+    try{
+      const r = await fetch('https://air-quality-api.open-meteo.com/v1/air-quality?latitude=' + p[1] + '&longitude=' + p[2] + '&hourly=pm2_5,pm10,dust&forecast_days=1&timezone=Asia%2FTokyo');
+      const j = await r.json();
+      const h = new Date().getHours();
+      const pm25 = j.hourly.pm2_5[h] ?? 0, pm10 = j.hourly.pm10[h] ?? 0, dust = j.hourly.dust[h] ?? 0;
+      let peak = 0, peakH = 0;
+      j.hourly.pm2_5.forEach((v,i) => { if(v != null && v > peak){ peak = v; peakH = i; } });
+      const label = pm25 <= 15 ? 'とてもきれい🟢 窓開け・外干し・運動ぜんぶOK' : pm25 <= 35 ? 'ふつう🙂 環境基準の範囲内です' : pm25 <= 70 ? 'やや多い😷 敏感な人は長時間の屋外運動を控えめに' : '多い⚠️ 窓開け・外干しは控えるのが無難';
+      $('state').textContent = '';
+      $('sub').textContent = p[0] + '・' + h + '時の推計｜' + label;
+      $('pm10').textContent = Math.round(pm10) + 'μg/m³';
+      $('dust').textContent = dust >= 50 ? '⚠️ 飛来中（' + Math.round(dust) + '）' : dust >= 10 ? 'うっすら（' + Math.round(dust) + '）' : 'なし';
+      $('peak').textContent = Math.round(peak) + '（' + peakH + '時ごろ）';
+      SHARE = 'いまの' + p[0] + 'のPM2.5は' + Math.round(pm25) + 'μg/m³🍃 ' + label.split(' ')[0] + ' あなたの街の空気は？👇';
+      show(); anim($('big'), 0, Math.round(pm25), 900);
+    }catch{ $('state').textContent = '⚠️ 大気質データの取得に失敗しました。時間をおいて再度お試しください。'; }
+  }
+  $('calcBtn').addEventListener('click', calc);
+  bindShare();
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'kuuki-kirei', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/result-fx.js?v=4"></script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

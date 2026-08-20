@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/sentaku-kawaku/">
+<title>洗濯物 乾く時間メーター｜今日の湿度・風から乾燥時間を計算｜シミュラボ</title>
+<meta name="description" content="今日の湿度・気温・風速の予報から「外干しで何時間で乾くか」と一番乾く干し始め時刻を計算する無料シミュレーター。雨リスクの警告つき。都道府県を選ぶだけ。">
+<meta property="og:title" content="洗濯物 乾く時間メーター｜今日は何時間で乾く？">
+<meta property="og:description" content="湿度・気温・風の予報から乾燥時間と干しどきを計算。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/sentaku-kawaku.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/sentaku-kawaku.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/sentaku-kawaku/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "洗濯物 乾く時間メーター", "url": "https://shimulabo.com/sims/sentaku-kawaku/", "description": "湿度・気温・風の予報から乾燥時間と干しどきを計算。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "洗濯物 乾く時間メーター", "item": "https://shimulabo.com/sims/sentaku-kawaku/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "気象データはどこから？", "acceptedAnswer": {"@type": "Answer", "text": "気象オープンデータAPI（Open-Meteo）から、選んだ地点の今日の湿度・気温・風速・降水確率を1時間単位で取得しています。"}}, {"@type": "Question", "name": "部屋干しには使える？", "acceptedAnswer": {"@type": "Answer", "text": "この計算は外干し想定です。部屋干しは風がほぼゼロになるため、表示より大幅に長くかかります（除湿機・扇風機併用がおすすめ）。"}}, {"@type": "Question", "name": "入力データは送信される？", "acceptedAnswer": {"@type": "Answer", "text": "地域の選択のみを気象APIへの問い合わせに使います。個人情報は一切送信されません。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span>住まい・暮らし<span>›</span><span class="cur">洗濯物 乾く時間メーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">住まい・暮らし</div>
+    <h1>洗濯物 乾く時間メーター</h1>
+    <p class="lead">「今日って外干しで乾く日？」を数字で。今日の湿度・気温・風速の予報から、乾くまでの時間と一番得する干し始め時刻を計算します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>👕 条件</h2>
+    <div class="field"><label>地域</label><select id="pref"></select></div>
+    <div class="field"><label>洗濯物の厚さ</label>
+      <select id="thick"><option value="4.5" selected>ふつう（Tシャツ・タオル中心）</option><option value="7.5">厚手あり（パーカー・ジーンズ・バスタオル）</option></select>
+    </div>
+    <button class="btn btn-primary" id="calcBtn">今日の乾き時間を計算</button>
+    <div class="hint" id="state" style="margin-top:8px;"></div>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label" id="topLabel">いちばん良い時間に干すと、乾くまで</div>
+      <div class="big"><span id="big">0</span><span class="unit" id="unit">時間</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">ベストの干し始め</div><div class="v" id="best">—</div></div>
+      <div class="stat"><div class="k">日中の平均湿度</div><div class="v" id="hum">—</div></div>
+      <div class="stat"><div class="k">雨リスク</div><div class="v accent" id="rain">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>この計算について</h2>
+    <p>洗濯物の乾きやすさは、湿度が低いほど・気温が高いほど・風が強いほど上がります。このメーターは気象オープンデータAPI（Open-Meteo）から今日の1時間ごとの湿度・気温・風速・降水確率を取得し、時間ごとの「乾燥パワー」を積み上げて、乾くまでの時間を試算します。干し始めの時刻を変えながら、今日いちばん早く乾くスタート時刻も探します。</p>
+    <div class="note">日当たりや干し方（ピンチ間隔・裏返し）でも実際の時間は変わります。数値は外干し・日なた想定の目安です。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>気象データはどこから？</dt><dd>気象オープンデータAPI（Open-Meteo）から、選んだ地点の今日の湿度・気温・風速・降水確率を1時間単位で取得しています。</dd><dt>部屋干しには使える？</dt><dd>この計算は外干し想定です。部屋干しは風がほぼゼロになるため、表示より大幅に長くかかります（除湿機・扇風機併用がおすすめ）。</dd><dt>入力データは送信される？</dt><dd>地域の選択のみを気象APIへの問い合わせに使います。個人情報は一切送信されません。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../kaji-jikan/"><span class="e">🧹</span><span>家事の生涯時間</span></a><a class="related-card" href="../denki-setsuyaku/"><span class="e">💡</span><span>電気代 節約</span></a><a class="related-card" href="../kounetsu/"><span class="e">🧾</span><span>光熱費の平均</span></a><a class="related-card" href="../hiyake-timer/"><span class="e">☀️</span><span>日焼けタイマー</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function bindShare(){
+    $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+    $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+  }
+  const PREFS = [
+    ['北海道(札幌)',43.06,141.35],['青森県',40.82,140.74],['岩手県',39.70,141.15],['宮城県(仙台)',38.27,140.87],
+    ['秋田県',39.72,140.10],['山形県',38.24,140.36],['福島県',37.75,140.47],['茨城県',36.34,140.45],
+    ['栃木県',36.57,139.88],['群馬県',36.39,139.06],['埼玉県',35.86,139.65],['千葉県',35.61,140.12],
+    ['東京都',35.69,139.69],['神奈川県(横浜)',35.45,139.64],['新潟県',37.90,139.02],['富山県',36.70,137.21],
+    ['石川県(金沢)',36.59,136.63],['福井県',36.07,136.22],['山梨県',35.66,138.57],['長野県',36.65,138.18],
+    ['岐阜県',35.39,136.72],['静岡県',34.98,138.38],['愛知県(名古屋)',35.18,136.91],['三重県',34.73,136.51],
+    ['滋賀県',35.00,135.87],['京都府',35.02,135.76],['大阪府',34.69,135.52],['兵庫県(神戸)',34.69,135.18],
+    ['奈良県',34.69,135.83],['和歌山県',34.23,135.17],['鳥取県',35.50,134.24],['島根県(松江)',35.47,133.05],
+    ['岡山県',34.66,133.93],['広島県',34.40,132.46],['山口県',34.19,131.47],['徳島県',34.07,134.56],
+    ['香川県(高松)',34.34,134.04],['愛媛県(松山)',33.84,132.77],['高知県',33.56,133.53],['福岡県',33.61,130.42],
+    ['佐賀県',33.25,130.30],['長崎県',32.74,129.87],['熊本県',32.79,130.74],['大分県',33.24,131.61],
+    ['宮崎県',31.91,131.42],['鹿児島県',31.56,130.56],['沖縄県(那覇)',26.21,127.68]
+  ];
+  $('pref').innerHTML = PREFS.map((p,i) => '<option value="' + i + '"' + (i===12?' selected':'') + '>' + p[0] + '</option>').join('');
+  async function calc(){
+    const p = PREFS[+$('pref').value];
+    const need = +$('thick').value;
+    $('state').textContent = '今日の予報を取得中…';
+    try{
+      const r = await fetch('https://api.open-meteo.com/v1/forecast?latitude=' + p[1] + '&longitude=' + p[2] + '&hourly=relative_humidity_2m,temperature_2m,wind_speed_10m,precipitation_probability&forecast_days=1&timezone=Asia%2FTokyo');
+      const j = await r.json();
+      const RH = j.hourly.relative_humidity_2m, T = j.hourly.temperature_2m, W = j.hourly.wind_speed_10m, PP = j.hourly.precipitation_probability;
+      const power = (h) => Math.max(0.15, (100 - RH[h]) / 40) * (1 + 0.10 * (W[h] || 0)) * Math.max(0.4, 1 + (T[h] - 15) / 25);
+      // 8〜14時の各スタートで乾き終わり時刻を試算（20時まで）
+      let best = null;
+      for(let s = 8; s <= 14; s++){
+        let acc = 0, end = null;
+        for(let h = s; h <= 20; h++){
+          acc += power(h);
+          if(acc >= need){ end = h + 1 - (acc - need) / power(h); break; }
+        }
+        if(end != null && (!best || end - s < best.dur)){ best = { s, dur: end - s, end }; }
+      }
+      const maxPP = Math.max(...PP.slice(8, 19).filter(v => v != null));
+      const avgRH = Math.round(RH.slice(9, 17).reduce((a,b)=>a+b,0) / 8);
+      $('state').textContent = '';
+      if(!best){
+        $('topLabel').textContent = '今日は…';
+        $('big').textContent = '乾き切らない';
+        $('unit').textContent = '';
+        $('sub').textContent = p[0] + '・今日は外干しでは夜までに乾かない予報です（部屋干し＋除湿がおすすめ）';
+        $('best').textContent = '—';
+      }else{
+        const hh = Math.floor(best.dur), mm = Math.round((best.dur - hh) * 60);
+        $('topLabel').textContent = 'いちばん良い時間に干すと、乾くまで';
+        $('unit').textContent = '時間';
+        $('big').textContent = '0';
+        $('sub').textContent = p[0] + '・' + best.s + '時に干すと ' + hh + '時間' + (mm ? mm + '分' : '') + ' で乾く計算（' + Math.round(best.end) + '時ごろ取り込み）';
+        $('best').textContent = best.s + '時スタート';
+        show(); anim($('big'), 0, Math.round(best.dur * 10) / 10, 900, 1);
+      }
+      $('hum').textContent = avgRH + '%';
+      $('rain').textContent = maxPP >= 50 ? '⚠️ 高い（' + maxPP + '%）取り込み注意' : maxPP >= 30 ? 'やや注意（' + maxPP + '%）' : '低い（' + maxPP + '%）';
+      SHARE = best
+        ? '今日の' + p[0] + '、洗濯物は' + best.s + '時に干すと約' + (Math.round(best.dur*10)/10) + '時間で乾くらしい👕 あなたの街の干しどきは？👇'
+        : '今日の' + p[0] + '、外干しでは乾き切らない予報…👕 あなたの街は？👇';
+      if(!best){ show(); }
+    }catch{ $('state').textContent = '⚠️ 予報の取得に失敗しました。時間をおいて再度お試しください。'; }
+  }
+  $('calcBtn').addEventListener('click', calc);
+  bindShare();
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'sentaku-kawaku', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/result-fx.js?v=4"></script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

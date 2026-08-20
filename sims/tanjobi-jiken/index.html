@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/tanjobi-jiken/">
+<title>あなたの誕生日、何が起きた日？｜歴史イベントカウンター｜シミュラボ</title>
+<meta name="description" content="誕生日（月日）を選ぶと、その日に起きた歴史上のできごと・生まれた有名人・記念日の数をWikipediaのデータからリアルタイム集計する無料ツール。話のネタ・自己紹介に。">
+<meta property="og:title" content="あなたの誕生日、何が起きた日？">
+<meta property="og:description" content="その日に歴史が動いた回数をWikipediaから集計。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/tanjobi-jiken.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/tanjobi-jiken.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/tanjobi-jiken/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "あなたの誕生日、何が起きた日？", "url": "https://shimulabo.com/sims/tanjobi-jiken/", "description": "その日に歴史が動いた回数をWikipediaから集計。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "あなたの誕生日、何が起きた日？", "item": "https://shimulabo.com/sims/tanjobi-jiken/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "データの出典は？", "acceptedAnswer": {"@type": "Answer", "text": "Wikipedia日本語版の日付ページ（例:「8月20日」）をAPI経由で取得し、ブラウザ内で集計しています（CC BY-SAライセンス）。"}}, {"@type": "Question", "name": "誕生日は送信される？", "acceptedAnswer": {"@type": "Answer", "text": "選んだ月日はWikipediaのページ取得だけに使われます。生年や個人情報は一切入力不要・送信されません。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span>人生・自分ごと<span>›</span><span class="cur">あなたの誕生日、何が起きた日？</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">人生・自分ごと</div>
+    <h1>あなたの誕生日、何が起きた日？</h1>
+    <p class="lead">あなたの誕生日は、歴史が何回動いた日でしょうか。Wikipediaの「その日」のページから、できごと・誕生した有名人・記念日をその場で数えます。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🎂 あなたの誕生日</h2>
+    <div class="field"><label>月</label><select id="month"></select></div>
+    <div class="field"><label>日</label><select id="day"></select></div>
+    <button class="btn btn-primary" id="calcBtn">この日の歴史を数える</button>
+    <div class="hint" id="state" style="margin-top:8px;"></div>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label" id="topLabel">あなたの誕生日、歴史が動いたのは</div>
+      <div class="big"><span id="big">0</span><span class="unit">回</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">この日生まれの有名人</div><div class="v" id="born">—</div></div>
+      <div class="stat"><div class="k">記念日・年中行事</div><div class="v" id="kinen">—</div></div>
+      <div class="stat"><div class="k">この日亡くなった人</div><div class="v accent" id="died">—</div></div></div>
+      <div id="list" style="margin-top:14px;"></div>
+      <button class="btn btn-ghost" id="moreBtn" style="margin-top:10px;display:none;">🎲 別のできごとを見る</button>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>このカウンターについて</h2>
+    <p>Wikipediaには366日ぶんの「日付ページ」があり、その日に起きたできごと・生まれた人・記念日が編集者たちの手で積み上げられています。このカウンターはWikipedia APIから選んだ日付のページを取得し、各セクションの項目数をその場で数えて、ランダムに数件を紹介します。同じ誕生日でも、開くたびに違うできごとに出会えます。</p>
+    <div class="note">出典: <a href="https://ja.wikipedia.org/" target="_blank" rel="noopener">Wikipedia日本語版</a>（CC BY-SA）。項目数は編集状況により変動します。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>データの出典は？</dt><dd>Wikipedia日本語版の日付ページ（例:「8月20日」）をAPI経由で取得し、ブラウザ内で集計しています（CC BY-SAライセンス）。</dd><dt>誕生日は送信される？</dt><dd>選んだ月日はWikipediaのページ取得だけに使われます。生年や個人情報は一切入力不要・送信されません。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../sakura-kaisu/"><span class="e">🌸</span><span>桜をあと何回見られるか</span></a><a class="related-card" href="../mental-age/"><span class="e">🧠</span><span>精神年齢診断</span></a><a class="related-card" href="../isekai/"><span class="e">🗡️</span><span>異世界転生チート度診断</span></a><a class="related-card" href="../kotoshi-pct/"><span class="e">📅</span><span>今年あと何％シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function bindShare(){
+    $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+    $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+  }
+  $('month').innerHTML = Array.from({length:12}, (_,i) => '<option value="' + (i+1) + '">' + (i+1) + '月</option>').join('');
+  $('day').innerHTML = Array.from({length:31}, (_,i) => '<option value="' + (i+1) + '">' + (i+1) + '日</option>').join('');
+  let EVENTS = [], PAGE = '';
+  function clean(s){
+    return s.replace(/<ref[^>]*\/>/g, '').replace(/<ref[\s\S]*?<\/ref>/g, '')
+      .replace(/\{\{仮リンク\|([^|}]+)[^}]*\}\}/g, '$1').replace(/\{\{[^{}]*\}\}/g, '')
+      .replace(/\[\[[^\]|]*\|([^\]]+)\]\]/g, '$1').replace(/\[\[([^\]]+)\]\]/g, '$1')
+      .replace(/'''?/g, '').replace(/<[^>]+>/g, '').trim();
+  }
+  function section(text, name){
+    const m = text.match(new RegExp('\\n==\\s*' + name + '\\s*==\\n([\\s\\S]*?)(?=\\n==[^=]|$)'));
+    if(!m) return [];
+    return m[1].split('\n').filter(l => l.startsWith('* ') || (l.startsWith('*') && !l.startsWith('**'))).map(l => clean(l.replace(/^\*+\s*/, ''))).filter(l => l.length > 3);
+  }
+  function showEvents(){
+    const picks = [...EVENTS].sort(() => Math.random() - .5).slice(0, 3);
+    $('list').innerHTML = '<div style="font-weight:800;font-size:13px;margin-bottom:8px;">📜 たとえばこんな日</div>' + picks.map(e =>
+      '<div style="padding:9px 12px;margin-bottom:6px;background:rgba(127,127,127,.07);border-radius:10px;font-size:12.5px;text-align:left;line-height:1.6;">' + (e.length > 110 ? e.slice(0, 110) + '…' : e) + '</div>').join('');
+  }
+  async function calc(){
+    const mo = +$('month').value, da = +$('day').value;
+    PAGE = mo + '月' + da + '日';
+    $('state').textContent = 'Wikipediaから「' + PAGE + '」を取得中…';
+    try{
+      const r = await fetch('https://ja.wikipedia.org/w/api.php?action=parse&page=' + encodeURIComponent(PAGE) + '&prop=wikitext&format=json&origin=*');
+      const j = await r.json();
+      if(!j.parse){ $('state').textContent = 'その日付のページが見つかりませんでした。'; return; }
+      const wt = j.parse.wikitext['*'];
+      EVENTS = section(wt, 'できごと');
+      const born = section(wt, '誕生日').length;
+      const died = section(wt, '忌日').length;
+      const kinen = section(wt, '記念日・年中行事').length;
+      $('state').textContent = '';
+      $('sub').textContent = PAGE + '｜Wikipedia日本語版の記録より（開くたびに違うできごとを紹介）';
+      $('born').textContent = born + '人';
+      $('died').textContent = died + '人';
+      $('kinen').textContent = kinen + '件';
+      showEvents();
+      $('moreBtn').style.display = '';
+      SHARE = '私の誕生日' + PAGE + 'は、歴史が' + EVENTS.length + '回動いた日だった🎂（有名人' + born + '人誕生・記念日' + kinen + '件）\nあなたの誕生日は？👇';
+      show(); anim($('big'), 0, EVENTS.length, 900);
+    }catch{ $('state').textContent = '⚠️ 取得に失敗しました。時間をおいて再度お試しください。'; }
+  }
+  $('calcBtn').addEventListener('click', calc);
+  $('moreBtn').addEventListener('click', showEvents);
+  bindShare();
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'tanjobi-jiken', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/result-fx.js?v=4"></script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>
