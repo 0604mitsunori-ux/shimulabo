@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/yasumeru-kaisu/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/yasumeru-kaisu.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/yasumeru-kaisu.png">
+<title>あと何回休めるか計算｜出席率80%まで休める回数シミュレーター｜シミュラボ</title>
+<meta name="description" content="授業の全回数と必要出席率から「あと何回休めるか」を計算する無料シミュレーター。出席率80%なら全15回で何回まで？すでに休んだ回数も考慮してリアルに判定。">
+<meta property="og:title" content="あと何回休める？｜出席率キープ計算">
+<meta property="og:description" content="全回数と必要出席率から、あと何回休めるかを計算。すでに休んだ回数も考慮。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/yasumeru-kaisu/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "あと何回休めるか計算", "url": "https://shimulabo.com/sims/yasumeru-kaisu/", "description": "全回数と必要出席率から、あと何回休めるかを計算。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "あと何回休めるか計算", "item": "https://shimulabo.com/sims/yasumeru-kaisu/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "出席率80%なら全15回で何回休める？", "acceptedAnswer": {"@type": "Answer", "text": "15回×20%＝3回まで休めます。4回休むと出席率は73.3%になり基準を下回ります。"}}, {"@type": "Question", "name": "遅刻や公欠はどう数える？", "acceptedAnswer": {"@type": "Answer", "text": "学校・科目によって扱いが異なります（遅刻2回で欠席1回扱いなど）。シラバスや学則の規定に合わせて欠席回数に換算して入力してください。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。入力した回数などは外部に送信されません。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span>学生・勉強<span>›</span><span class="cur">あと何回休めるか計算</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">学生・勉強</div>
+    <h1>あと何回休めるか計算</h1>
+    <p class="lead">授業の全回数と必要な出席率から、「あと何回まで休めるか」を計算します。すでに休んだ回数も考慮したリアルな残り回数が分かります。</p>
+  </div>
+
+  <section class="panel">
+    <h2>📋 条件</h2>
+    <div class="field"><label>授業の全回数 <span class="hint">（回・大学の講義は15回が一般的）</span></label><input type="number" id="total" value="15" min="1" max="365" inputmode="numeric"></div>
+    <div class="field"><label>必要な出席率 <span class="hint">（%・3分の2なら67、8割なら80）</span></label><input type="number" id="rate" value="80" min="1" max="100" inputmode="numeric"></div>
+    <div class="field"><label>すでに休んだ回数 <span class="hint">（回）</span></label><input type="number" id="used" value="0" min="0" max="365" inputmode="numeric"></div>
+    <button class="btn btn-primary" id="calcBtn">あと何回休めるか見る</button>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label" id="lbl">休めるのは あと</div>
+      <div class="big"><span id="big">0</span><span class="unit">回</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">休める上限（合計）</div><div class="v" id="max">—</div></div>
+      <div class="stat"><div class="k">全部出た場合の出席率</div><div class="v" id="cur">—</div></div>
+      <div class="stat"><div class="k">限界まで休んだ場合</div><div class="v accent" id="edge">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>この計算について</h2>
+    <p>単位認定に必要な出席率は「3分の2以上（約66.7%）」「8割以上（80%）」など学校や科目によって決まっています。休める回数の上限は「全回数 ×（100−必要出席率）%」を切り捨てた数です。たとえば全15回・出席率80%なら 15×20%＝3回まで。4回目を休んだ瞬間に基準を割ります。</p>
+    <div class="note">ギリギリを攻める計画は、急な発熱・電車遅延・寝坊が一度でも起きると崩れます。残り回数はあくまで「保険」として、1〜2回の余裕を残しておくのがおすすめです。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>出席率80%なら全15回で何回休める？</dt><dd>15回×20%＝3回まで休めます。4回休むと出席率は73.3%になり基準を下回ります。</dd><dt>遅刻や公欠はどう数える？</dt><dd>学校・科目によって扱いが異なります（遅刻2回で欠席1回扱いなど）。シラバスや学則の規定に合わせて欠席回数に換算して入力してください。</dd><dt>データは送信されますか？</dt><dd>いいえ。入力した回数などは外部に送信されません。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../shusseki-ritsu/"><span class="e">🏫</span><span>出席率シミュレーター</span></a><a class="related-card" href="../daigaku-shusseki/"><span class="e">🎓</span><span>大学 出席率 計算</span></a><a class="related-card" href="../natsuyasumi/"><span class="e">🍉</span><span>夏休みシミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = '';
+  function anim(el, from, to, dur){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);el.textContent=Math.round(from+(to-from)*e);if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function pct(n){ return (Math.round(n*10)/10).toFixed(1).replace(/\.0$/,'')+'%'; }
+  function calc(){
+    const total=Math.max(1,+$('total').value||15), rate=Math.min(100,Math.max(1,+$('rate').value||80)), used=Math.max(0,+$('used').value||0);
+    const maxAbs=Math.floor(total*(100-rate)/100);
+    const left=Math.max(0,maxAbs-used);
+    const over=used>maxAbs;
+    $('sub').textContent=`全${total}回・必要出席率${rate}%・既に${used}回欠席`;
+    $('max').textContent=maxAbs+'回まで';
+    $('cur').textContent=pct((total-used)/total*100);
+    $('edge').textContent=pct((total-maxAbs)/total*100);
+    if(over){ $('lbl').textContent='もう休めません（基準超過）'; SHARE=`【あと何回休める？】全${total}回・必要出席率${rate}%だと上限${maxAbs}回。私はすでに${used}回休んでいてアウトでした…😇 あなたは？👇`; }
+    else { $('lbl').textContent='休めるのは あと'; SHARE=`【あと何回休める？】全${total}回・必要出席率${rate}%なら、休めるのはあと${left}回だった📋 ギリギリを攻めるか、余裕を残すか。あなたは？👇`; }
+    show(); anim($('big'),0,left,700);
+  }
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'yasumeru-kaisu', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/result-fx.js?v=4"></script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/renkyuu-maker/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/renkyuu-maker.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/renkyuu-maker.png">
+<title>9連休メーカー｜有休を置くだけで連休が最大化する日を自動発見｜シミュラボ</title>
+<meta name="description" content="有休を何日使えるか選ぶだけで、これから1年の祝日データから「ここに置けば最大◯連休」を自動計算する無料シミュレーター。祝日は最新の内閣府データを自動取得。">
+<meta property="og:title" content="9連休メーカー｜有休ブリッジ自動発見機">
+<meta property="og:description" content="有休◯日をどこに置けば連休が最大化するか、祝日データから自動計算。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/renkyuu-maker/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "9連休メーカー", "url": "https://shimulabo.com/sims/renkyuu-maker/", "description": "有休を置くだけで連休が最大化する日を祝日データから自動計算。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "9連休メーカー", "item": "https://shimulabo.com/sims/renkyuu-maker/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "祝日データはどこから取得していますか？", "acceptedAnswer": {"@type": "Answer", "text": "内閣府発表の祝日データを配信しているオープンAPI（holidays-jp）から、ページを開くたびに最新を取得しています。"}}, {"@type": "Question", "name": "入力した内容は送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で行われ、入力内容が外部に送信されることはありません。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span>仕事・働き方<span>›</span><span class="cur">9連休メーカー</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">仕事・働き方</div>
+    <h1>9連休メーカー</h1>
+    <p class="lead">有休を「どこに置くか」で連休の長さは倍以上変わります。これから1年の祝日データから、有休◯日で作れる最大連休を自動で見つけます。祝日は最新データを自動取得。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🏖️ 条件</h2>
+    <div class="field"><label>使える有休 <span class="hint">（日）</span></label>
+      <select id="paid"><option value="1">1日</option><option value="2" selected>2日</option><option value="3">3日</option><option value="4">4日</option><option value="5">5日</option></select>
+    </div>
+    <div class="field"><label>ふだんの休み</label>
+      <select id="weekend"><option value="sat-sun" selected>土日休み</option><option value="sun">日曜だけ休み</option></select>
+    </div>
+    <button class="btn btn-primary" id="calcBtn">連休が最大化する日を探す</button>
+    <div class="hint" id="loadState" style="margin-top:8px;">祝日データを読み込み中…</div>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">その有休、置き方しだいで 最大</div>
+      <div class="big"><span id="big">0</span><span class="unit">連休</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">使う有休</div><div class="v" id="used">—</div></div>
+      <div class="stat"><div class="k">連休コスパ</div><div class="v" id="cospa">—</div></div>
+      <div class="stat"><div class="k">有休なし最長連休</div><div class="v accent" id="base">—</div></div></div>
+      <div id="plans" style="margin-top:14px;"></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>この計算について</h2>
+    <p>カレンダーには、祝日と土日のあいだに「平日が1〜2日だけ挟まる谷間」が毎年いくつも生まれます。そこに有休を置くと、同じ有休日数でも連休の長さが一気に伸びます。このシミュレーターは、今日から365日分のカレンダーを祝日データと突き合わせて、指定した有休日数で作れる連休をすべて計算し、長い順に提案します。</p>
+    <div class="note">祝日データは内閣府発表分を配信するオープンAPI（holidays-jp）から毎回自動取得しているので、来年の祝日が発表されれば計算にも自動で反映されます。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>祝日データはどこから取得していますか？</dt><dd>内閣府発表の祝日データを配信しているオープンAPI（holidays-jp）から、ページを開くたびに最新を取得しています。</dd><dt>入力した内容は送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で行われ、入力内容が外部に送信されることはありません。</dd><dt>会社の夏季休暇や年末年始休暇は考慮されますか？</dt><dd>法定祝日と土日のみで計算しています。会社独自の休暇がある場合は、実際にはさらに長い連休が作れます。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../yukyu/"><span class="e">🏖️</span><span>有給消化シミュ</span></a><a class="related-card" href="../kyuryobi/"><span class="e">📆</span><span>あと何回給料日</span></a><a class="related-card" href="../tsukin/"><span class="e">🚃</span><span>通勤時間の生涯コスト</span></a><a class="related-card" href="../kotoshi-pct/"><span class="e">📅</span><span>今年あと何％シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let HOLIDAYS = null;
+  let SHARE = '';
+  const WD = ['日','月','火','水','木','金','土'];
+
+  fetch('https://holidays-jp.github.io/api/v1/date.json')
+    .then(r => r.json())
+    .then(j => { HOLIDAYS = j; $('loadState').textContent = '祝日データ取得済み（' + Object.keys(j).length + '件・内閣府発表分）'; })
+    .catch(() => { $('loadState').textContent = '⚠️ 祝日データの取得に失敗しました。通信環境をご確認のうえ再読み込みしてください。'; });
+
+  const ymd = (d) => d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+  const fmt = (d) => (d.getMonth()+1) + '/' + d.getDate() + '(' + WD[d.getDay()] + ')';
+
+  function anim(el, from, to, dur){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);el.textContent=Math.round(from+(to-from)*e);if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+
+  function calc(){
+    if(!HOLIDAYS){ alert('祝日データを読み込み中です。少し待ってからもう一度押してください。'); return; }
+    const paid = +$('paid').value;
+    const satOff = $('weekend').value === 'sat-sun';
+
+    // 今日から365日分の休み判定
+    const days = [];
+    const start = new Date(); start.setHours(0,0,0,0);
+    for(let i=0;i<372;i++){
+      const d = new Date(start); d.setDate(start.getDate()+i);
+      const off = d.getDay()===0 || (satOff && d.getDay()===6) || !!HOLIDAYS[ymd(d)];
+      days.push({d, off, name: HOLIDAYS[ymd(d)] || ''});
+    }
+
+    // 有休なしの最長連休（ベースライン）
+    let base=0, run=0;
+    for(const x of days){ run = x.off ? run+1 : 0; if(run>base) base=run; }
+
+    // 全ウィンドウ走査: 埋めるべき平日数 <= paid で最長の区間
+    const n = days.length, cands = [];
+    for(let i=0;i<n;i++){
+      if(!days[i].off) continue; // 連休は休みの日から始まる
+      let need=0;
+      for(let j=i;j<n && j<i+31;j++){
+        if(!days[j].off) need++;
+        if(need>paid) break;
+        const len=j-i+1;
+        if(len>base && days[i].off && days[j].off){
+          cands.push({i, j, len, need});
+        }
+      }
+    }
+    // 長い順→有休効率順、重複期間は除外して上位5件
+    cands.sort((a,b)=> b.len-a.len || a.need-b.need || a.i-b.i);
+    const picked=[];
+    for(const c of cands){
+      if(picked.some(p => !(c.j < p.i || c.i > p.j))) continue;
+      picked.push(c);
+      if(picked.length>=5) break;
+    }
+
+    if(!picked.length){
+      $('sub').textContent='この1年は、その条件で今より連休を伸ばせる谷間が見つかりませんでした';
+      $('used').textContent='—'; $('cospa').textContent='—'; $('base').textContent=base+'連休';
+      $('plans').innerHTML='';
+      SHARE='有休'+paid+'日でどこまで連休を伸ばせるか計算してみた🏖️ #シミュラボ';
+      show(); anim($('big'),0,base,900);
+      return;
+    }
+
+    const best = picked[0];
+    $('sub').textContent = fmt(days[best.i].d) + ' 〜 ' + fmt(days[best.j].d) + ' に有休を置いた場合';
+    $('used').textContent = best.need + '日';
+    $('cospa').textContent = '有休1日→' + (best.need ? (best.len/best.need).toFixed(1) : '∞') + '連休日';
+    $('base').textContent = base + '連休';
+
+    $('plans').innerHTML = '<div style="font-weight:800;font-size:13px;margin-bottom:8px;">📋 連休が伸びる置き方 TOP' + picked.length + '</div>' + picked.map((c,k)=>{
+      const vac = [];
+      for(let x=c.i;x<=c.j;x++) if(!days[x].off) vac.push(fmt(days[x].d));
+      return '<div style="padding:10px 12px;margin-bottom:8px;background:rgba(127,127,127,.07);border-radius:10px;font-size:13px;text-align:left;">'
+        + '<b>' + (k+1) + '位　' + c.len + '連休</b>（' + fmt(days[c.i].d) + '〜' + fmt(days[c.j].d) + '）<br>'
+        + (vac.length ? '→ 有休を置く日: ' + vac.join('、') : '→ 有休不要でこの連休！')
+        + '</div>';
+    }).join('');
+
+    SHARE = '有休' + best.need + '日を正しい場所に置くだけで、最大' + best.len + '連休が作れることが判明🏖️\nいつ置けばいいかは自動計算👇';
+    show(); anim($('big'),0,best.len,900);
+  }
+
+  $('calcBtn').addEventListener('click', calc);
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'renkyuu-maker', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/result-fx.js?v=4"></script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>
