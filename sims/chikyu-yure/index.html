@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/chikyu-yure/">
+<title>地球まるごと地震カウンター｜世界のM4.5以上を24時間ライブ集計｜シミュラボ</title>
+<meta name="description" content="米地質調査所（USGS）の地震データから、直近24時間に地球全体で起きたM4.5以上の地震回数・最大地震・日本周辺の回数をライブ表示する無料ツール。">
+<meta property="og:title" content="地球まるごと地震カウンター">
+<meta property="og:description" content="直近24時間の世界の地震をライブ集計。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/chikyu-yure.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/chikyu-yure.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/chikyu-yure/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "地球まるごと地震カウンター", "url": "https://shimulabo.com/sims/chikyu-yure/", "description": "直近24時間の世界の地震をライブ集計。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ライブデータラボ", "item": "https://shimulabo.com/live/"}, {"@type": "ListItem", "position": 3, "name": "地球まるごと地震カウンター", "item": "https://shimulabo.com/sims/chikyu-yure/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "データの出典は？", "acceptedAnswer": {"@type": "Answer", "text": "米地質調査所（USGS）のリアルタイム地震フィード（GeoJSON）から直近24時間のデータを取得しています。"}}, {"@type": "Question", "name": "日本の地震情報と数値が違う", "acceptedAnswer": {"@type": "Answer", "text": "USGSと気象庁ではマグニチュードの算出方法が異なるため、同じ地震でも値がずれることがあります。日本の詳細は気象庁の発表をご覧ください。"}}, {"@type": "Question", "name": "入力データは送信される？", "acceptedAnswer": {"@type": "Answer", "text": "このページは何も入力せずに使えます。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../live/">⚡ ライブデータ一覧</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../live/">ライブデータラボ</a><span>›</span><span class="cur">地球まるごと地震カウンター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ふしぎ・現象</div>
+    <h1>地球まるごと地震カウンター</h1>
+    <p class="lead">日本が揺れていない日も、地球はどこかで揺れています。米地質調査所（USGS）のデータから、直近24時間の地球全体の地震を数えます。</p>
+  </div>
+
+  <section class="panel" id="resultPanel">
+    <div class="result">
+      <div class="label">直近24時間、地球で起きたM4.5以上の地震は</div>
+      <div class="big"><span id="big">–</span><span class="unit">回</span></div>
+      <div class="sub" id="sub">データを読み込み中…</div>
+      <div class="statline"><div class="stat"><div class="k">最大の地震</div><div class="v" id="biggest">—</div></div>
+      <div class="stat"><div class="k">日本周辺</div><div class="v" id="japan">—</div></div>
+      <div class="stat"><div class="k">M6以上</div><div class="v accent" id="m6">—</div></div></div>
+      <div id="list" style="margin-top:14px;"></div>
+      <button class="btn btn-ghost" id="reloadBtn" style="margin-top:10px;">🔄 最新に更新</button>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>このカウンターについて</h2>
+    <p>地球全体では、M4.5以上の地震だけで年間およそ1万回—つまり1日平均30回近く起きています。このカウンターは米地質調査所（USGS）のリアルタイム地震フィードから直近24時間のM4.5以上を取得し、最大の地震と日本周辺の回数もあわせて表示します。<a href="../jishin-live/">日本版カウンター</a>と見比べると、環太平洋の「火の輪」の上に住んでいることを実感できます。</p>
+    <div class="note">USGSのマグニチュードは気象庁マグニチュードと算出方法が異なるため、同じ地震でも数値が少し違うことがあります。</div>
+    <h2>引用・転載について</h2>
+    <p>本ページの計算結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「地球まるごと地震カウンター」 https://shimulabo.com/sims/chikyu-yure/</code><br>Webでご利用の際は上記URLへのリンク設置をお願いします。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>データの出典は？</dt><dd>米地質調査所（USGS）のリアルタイム地震フィード（GeoJSON）から直近24時間のデータを取得しています。</dd><dt>日本の地震情報と数値が違う</dt><dd>USGSと気象庁ではマグニチュードの算出方法が異なるため、同じ地震でも値がずれることがあります。日本の詳細は気象庁の発表をご覧ください。</dd><dt>入力データは送信される？</dt><dd>このページは何も入力せずに使えます。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../jishin-live/"><span class="e">🗾</span><span>日本はいまも揺れている</span></a><a class="related-card" href="../natsu-2050/"><span class="e">🔥</span><span>2050年の夏、何度になる？</span></a><a class="related-card" href="../iss-doko/"><span class="e">🛰️</span><span>ISSはいまどこ？</span></a><a class="related-card" href="../sandpile/"><span class="e">⛰️</span><span>砂山崩しシミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../live/">⚡ ライブデータラボ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function bindShare(){
+    $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+    $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+  }
+  const ago = (ms) => { const m = Math.floor(ms / 60000); if(m < 60) return m + '分前'; const h = Math.floor(m / 60); if(h < 24) return h + '時間前'; return Math.floor(h / 24) + '日前'; };
+  async function load(){
+    $('sub').textContent = 'データを読み込み中…';
+    try{
+      const r = await fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_day.geojson');
+      const j = await r.json();
+      const now = Date.now();
+      const qs = (j.features || []).map(f => ({
+        mag: f.properties.mag, place: f.properties.place || '', t: f.properties.time,
+        lat: f.geometry.coordinates[1], lon: f.geometry.coordinates[0],
+      })).sort((a,b) => b.mag - a.mag);
+      const jp = qs.filter(q => q.lat >= 24 && q.lat <= 46 && q.lon >= 122 && q.lon <= 148);
+      const m6 = qs.filter(q => q.mag >= 6);
+      $('sub').textContent = new Date().toLocaleString('ja-JP') + ' 時点（USGSリアルタイムフィード）';
+      $('biggest').textContent = qs[0] ? 'M' + qs[0].mag.toFixed(1) + '・' + qs[0].place : '—';
+      $('japan').textContent = jp.length + '回';
+      $('m6').textContent = m6.length + '回';
+      $('list').innerHTML = '<div style="font-weight:800;font-size:13px;margin-bottom:8px;">📋 直近24時間の大きい順TOP5</div>' + qs.slice(0, 5).map(q =>
+        '<div style="display:flex;gap:8px;justify-content:space-between;padding:7px 10px;margin-bottom:5px;background:rgba(127,127,127,.07);border-radius:8px;font-size:12.5px;text-align:left;">'
+        + '<span>M' + q.mag.toFixed(1) + '　' + q.place + '</span><span style="opacity:.7;white-space:nowrap;">' + ago(now - q.t) + '</span></div>').join('');
+      SHARE = '直近24時間、地球ではM4.5以上の地震が' + qs.length + '回起きてた🌐 最大はM' + (qs[0] ? qs[0].mag.toFixed(1) : '—') + '。日本周辺は' + jp.length + '回。\n地球のいまの揺れはこちら👇';
+      anim($('big'), 0, qs.length, 900);
+    }catch{ $('sub').textContent = '⚠️ データの取得に失敗しました。時間をおいて再度お試しください。'; }
+  }
+  load();
+  $('reloadBtn').addEventListener('click', load);
+  bindShare();
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'chikyu-yure', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/result-fx.js?v=4"></script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

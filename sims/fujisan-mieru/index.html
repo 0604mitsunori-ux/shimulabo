@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/fujisan-mieru/">
+<title>今日、富士山見える？チェッカー｜視程×雲量でスポット別に判定｜シミュラボ</title>
+<meta name="description" content="河口湖・江の島・東京都心など主要スポットから今日富士山が見えるかを、大気の視程と富士山周辺の雲量からリアルタイム判定する無料ツール。">
+<meta property="og:title" content="今日、富士山見える？チェッカー">
+<meta property="og:description" content="視程×雲量で富士山が見えるかをスポット別に判定。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/fujisan-mieru.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/fujisan-mieru.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/fujisan-mieru/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "今日、富士山見える？", "url": "https://shimulabo.com/sims/fujisan-mieru/", "description": "視程×雲量で富士山が見えるかをスポット別に判定。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ライブデータラボ", "item": "https://shimulabo.com/live/"}, {"@type": "ListItem", "position": 3, "name": "今日、富士山見える？", "item": "https://shimulabo.com/sims/fujisan-mieru/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "データの出典は？", "acceptedAnswer": {"@type": "Answer", "text": "気象オープンデータAPI（Open-Meteo）の視程（visibility）と雲量の予報値を利用しています。"}}, {"@type": "Question", "name": "見える度100でも見えないことは？", "acceptedAnswer": {"@type": "Answer", "text": "あります。ビル・地形の遮蔽や局地的な靄は考慮できないため、あくまで大気条件の目安です。逆に低くても山頂だけ覗くこともあります。"}}, {"@type": "Question", "name": "入力データは送信される？", "acceptedAnswer": {"@type": "Answer", "text": "スポットの選択のみを使います。個人情報は一切送信されません。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../live/">⚡ ライブデータ一覧</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../live/">ライブデータラボ</a><span>›</span><span class="cur">今日、富士山見える？</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">旅行・おでかけ</div>
+    <h1>今日、富士山見える？</h1>
+    <p class="lead">富士山が見えるかどうかは「空気の澄み具合」と「山頂の雲」で決まります。いまの視程と雲量から、スポット別の「見える度」を判定します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🗻 どこから見る？</h2>
+    <div class="field"><label>スポット</label>
+      <select id="spot">
+        <option value="35.50,138.76,16">河口湖（山梨・約16km）</option>
+        <option value="35.42,138.87,14">山中湖（山梨・約14km）</option>
+        <option value="35.31,138.93,19">御殿場（静岡・約19km）</option>
+        <option value="35.12,138.92,32">三島・沼津（静岡・約32km）</option>
+        <option value="34.99,138.52,45">三保松原（静岡・約45km）</option>
+        <option value="35.30,139.48,69">江の島（神奈川・約69km）</option>
+        <option value="35.45,139.64,83">横浜（約83km）</option>
+        <option value="35.69,139.69,95" selected>東京都心（約95km）</option>
+      </select>
+    </div>
+    <button class="btn btn-primary" id="calcBtn">いまの「見える度」を判定</button>
+    <div class="hint" id="state" style="margin-top:8px;"></div>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label">いまの富士山「見える度」は</div>
+      <div class="big"><span id="big">0</span><span class="unit">%</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">いまの視程</div><div class="v" id="vis">—</div></div>
+      <div class="stat"><div class="k">富士山周辺の雲</div><div class="v" id="cloud">—</div></div>
+      <div class="stat"><div class="k">今日のベスト時間帯</div><div class="v accent" id="best">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>この判定について</h2>
+    <p>遠くの山が見えるかは、大気中の水蒸気やチリで決まる「視程」（どこまで見通せるか）に大きく左右されます。このチェッカーは気象オープンデータAPI（Open-Meteo）から、選んだスポットの現在の視程と、富士山周辺の雲量を取得し、スポットから富士山までの距離と突き合わせて「見える度」を計算します。冬の朝がいちばんよく見えるのは、空気が乾いて視程が伸びるからです。</p>
+    <div class="note">局地的な靄（もや）やビルの遮蔽までは反映できません。「見える度が高い日に外に出たら本物を確認」くらいの気持ちでどうぞ。</div>
+    <h2>引用・転載について</h2>
+    <p>本ページの計算結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「今日、富士山見える？」 https://shimulabo.com/sims/fujisan-mieru/</code><br>Webでご利用の際は上記URLへのリンク設置をお願いします。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>データの出典は？</dt><dd>気象オープンデータAPI（Open-Meteo）の視程（visibility）と雲量の予報値を利用しています。</dd><dt>見える度100でも見えないことは？</dt><dd>あります。ビル・地形の遮蔽や局地的な靄は考慮できないため、あくまで大気条件の目安です。逆に低くても山頂だけ覗くこともあります。</dd><dt>入力データは送信される？</dt><dd>スポットの選択のみを使います。個人情報は一切送信されません。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../hoshizora-shisu/"><span class="e">🔭</span><span>今夜の星空指数</span></a><a class="related-card" href="../yuyake-yohou/"><span class="e">🌇</span><span>今日の夕焼け予報</span></a><a class="related-card" href="../kaibatsu-check/"><span class="e">⛰️</span><span>うちの海抜チェッカー</span></a><a class="related-card" href="../shuumatsu-hare/"><span class="e">🌤️</span><span>今週末、晴れる？</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../live/">⚡ ライブデータラボ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function bindShare(){
+    $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+    $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+  }
+  const FUJI = [35.36, 138.73];
+  async function calc(){
+    const [lat, lon, dist] = $('spot').value.split(',').map(Number);
+    const name = $('spot').selectedOptions[0].textContent.split('（')[0];
+    $('state').textContent = '視程と雲量を取得中…';
+    try{
+      const [vp, fj] = await Promise.all([
+        fetch('https://api.open-meteo.com/v1/forecast?latitude=' + lat + '&longitude=' + lon + '&hourly=visibility&forecast_days=1&timezone=Asia%2FTokyo').then(r => r.json()),
+        fetch('https://api.open-meteo.com/v1/forecast?latitude=' + FUJI[0] + '&longitude=' + FUJI[1] + '&hourly=cloud_cover&forecast_days=1&timezone=Asia%2FTokyo').then(r => r.json()),
+      ]);
+      const h = new Date().getHours();
+      const visArr = vp.hourly.visibility, cloudArr = fj.hourly.cloud_cover;
+      const vis = visArr[h] ?? 0;
+      const cloud = cloudArr[h] ?? 100;
+      const scoreAt = (hh) => Math.round(Math.min(1, (visArr[hh] ?? 0) / (dist * 1000)) * (100 - (cloudArr[hh] ?? 100)));
+      const score = scoreAt(h);
+      let bestH = 6, bestS = -1;
+      for(let x = 6; x <= 18; x++){ const s = scoreAt(x); if(s > bestS){ bestS = s; bestH = x; } }
+      const label = score >= 70 ? 'くっきり見えるはず🗻' : score >= 40 ? 'うっすら見えるかも' : score >= 15 ? 'かなり厳しい' : '今はほぼ無理…';
+      $('state').textContent = '';
+      $('sub').textContent = name + 'から（距離約' + dist + 'km）｜' + label;
+      $('vis').textContent = (vis / 1000).toFixed(0) + 'km';
+      $('cloud').textContent = Math.round(cloud) + '%';
+      $('best').textContent = bestH + '時ごろ（見える度' + bestS + '%）';
+      SHARE = 'いま' + name + 'から富士山が見える度は' + score + '%🗻（' + label + '）視程' + (vis/1000).toFixed(0) + 'km・山頂の雲' + Math.round(cloud) + '%\nあなたの場所からは？👇';
+      show(); anim($('big'), 0, score, 900);
+    }catch{ $('state').textContent = '⚠️ 取得に失敗しました。時間をおいて再度お試しください。'; }
+  }
+  $('calcBtn').addEventListener('click', calc);
+  bindShare();
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'fujisan-mieru', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/result-fx.js?v=4"></script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

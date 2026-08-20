@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/umareta-hi-tenki/">
+<title>生まれた日の天気｜誕生日の気温・天気を気象アーカイブで再現｜シミュラボ</title>
+<meta name="description" content="生年月日と場所を入れると、あなたが生まれた日の天気・最高気温・降水を1940年からの気象アーカイブデータで表示する無料ツール。記念日・家族の思い出調べにも。">
+<meta property="og:title" content="生まれた日の天気｜あなたが生まれた日、空はどうだった？">
+<meta property="og:description" content="1940年からの気象アーカイブで誕生日の空を再現。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/umareta-hi-tenki.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/umareta-hi-tenki.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/umareta-hi-tenki/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "生まれた日の天気", "url": "https://shimulabo.com/sims/umareta-hi-tenki/", "description": "1940年からの気象アーカイブで誕生日の空を再現。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ライブデータラボ", "item": "https://shimulabo.com/live/"}, {"@type": "ListItem", "position": 3, "name": "生まれた日の天気", "item": "https://shimulabo.com/sims/umareta-hi-tenki/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "データの出典は？", "acceptedAnswer": {"@type": "Answer", "text": "気象オープンデータの過去アーカイブAPI（Open-Meteo Historical Weather、ERA5再解析）から取得しています。1940年以降に対応しています。"}}, {"@type": "Question", "name": "生年月日は保存される？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。入力した日付は気象APIへの問い合わせにだけ使われ、当サイトが保存することはありません。"}}, {"@type": "Question", "name": "海外生まれでも使える？", "acceptedAnswer": {"@type": "Answer", "text": "現在は日本の都道府県のみ対応です。リクエストが多ければ海外都市も追加します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../live/">⚡ ライブデータ一覧</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../live/">ライブデータラボ</a><span>›</span><span class="cur">生まれた日の天気</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">人生・自分ごと</div>
+    <h1>生まれた日の天気</h1>
+    <p class="lead">あなたが生まれた日、外は晴れていたでしょうか。1940年まで遡れる気象アーカイブから、その日の天気と気温を呼び出します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>👶 生まれた日</h2>
+    <div class="field"><label>年 <span class="hint">（1940〜）</span></label><input type="number" id="year" value="1990" min="1940" max="2026" inputmode="numeric"></div>
+    <div class="field"><label>月</label><select id="month"></select></div>
+    <div class="field"><label>日</label><select id="day"></select></div>
+    <div class="field"><label>生まれた場所</label><select id="pref"></select></div>
+    <button class="btn btn-primary" id="calcBtn">その日の空を見る</button>
+    <div class="hint" id="state" style="margin-top:8px;"></div>
+  </section>
+
+  <section class="panel" id="resultPanel" style="display:none">
+    <div class="result">
+      <div class="label" id="topLabel">その日の天気は</div>
+      <div class="big" style="font-size:min(13vw,58px);"><span id="big">—</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">最高気温</div><div class="v" id="hi">—</div></div>
+      <div class="stat"><div class="k">最低気温</div><div class="v" id="lo">—</div></div>
+      <div class="stat"><div class="k">降水量</div><div class="v accent" id="rain">—</div></div></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>このツールについて</h2>
+    <p>このツールは気象オープンデータの過去アーカイブAPI（Open-Meteo Historical Weather・ERA5再解析データ）から、指定した日付・地点の天気を取得しています。1940年以降の全世界の気象が再現されており、ご自身はもちろん、親や祖父母が生まれた日・結婚した日など、家族の記念日の「あの日の空」も調べられます。</p>
+    <div class="note">再解析データは観測とモデルを組み合わせた推計値のため、当時の新聞の天気欄と細部が異なることがあります。</div>
+    <h2>引用・転載について</h2>
+    <p>本ページの計算結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「生まれた日の天気」 https://shimulabo.com/sims/umareta-hi-tenki/</code><br>Webでご利用の際は上記URLへのリンク設置をお願いします。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>データの出典は？</dt><dd>気象オープンデータの過去アーカイブAPI（Open-Meteo Historical Weather、ERA5再解析）から取得しています。1940年以降に対応しています。</dd><dt>生年月日は保存される？</dt><dd>いいえ。入力した日付は気象APIへの問い合わせにだけ使われ、当サイトが保存することはありません。</dd><dt>海外生まれでも使える？</dt><dd>現在は日本の都道府県のみ対応です。リクエストが多ければ海外都市も追加します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../tanjobi-jiken/"><span class="e">🎂</span><span>あなたの誕生日、何が起きた日？</span></a><a class="related-card" href="../sakura-kaisu/"><span class="e">🌸</span><span>桜をあと何回見られるか</span></a><a class="related-card" href="../hoshizora-shisu/"><span class="e">🔭</span><span>今夜の星空指数</span></a><a class="related-card" href="../kotoshi-pct/"><span class="e">📅</span><span>今年あと何％シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../live/">⚡ ライブデータラボ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function bindShare(){
+    $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+    $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+  }
+  const PREFS = [
+    ['北海道(札幌)',43.06,141.35],
+    ['青森県',40.82,140.74],
+    ['岩手県',39.7,141.15],
+    ['宮城県(仙台)',38.27,140.87],
+    ['秋田県',39.72,140.1],
+    ['山形県',38.24,140.36],
+    ['福島県',37.75,140.47],
+    ['茨城県',36.34,140.45],
+    ['栃木県',36.57,139.88],
+    ['群馬県',36.39,139.06],
+    ['埼玉県',35.86,139.65],
+    ['千葉県',35.61,140.12],
+    ['東京都',35.69,139.69],
+    ['神奈川県(横浜)',35.45,139.64],
+    ['新潟県',37.9,139.02],
+    ['富山県',36.7,137.21],
+    ['石川県(金沢)',36.59,136.63],
+    ['福井県',36.07,136.22],
+    ['山梨県',35.66,138.57],
+    ['長野県',36.65,138.18],
+    ['岐阜県',35.39,136.72],
+    ['静岡県',34.98,138.38],
+    ['愛知県(名古屋)',35.18,136.91],
+    ['三重県',34.73,136.51],
+    ['滋賀県',35.0,135.87],
+    ['京都府',35.02,135.76],
+    ['大阪府',34.69,135.52],
+    ['兵庫県(神戸)',34.69,135.18],
+    ['奈良県',34.69,135.83],
+    ['和歌山県',34.23,135.17],
+    ['鳥取県',35.5,134.24],
+    ['島根県(松江)',35.47,133.05],
+    ['岡山県',34.66,133.93],
+    ['広島県',34.4,132.46],
+    ['山口県',34.19,131.47],
+    ['徳島県',34.07,134.56],
+    ['香川県(高松)',34.34,134.04],
+    ['愛媛県(松山)',33.84,132.77],
+    ['高知県',33.56,133.53],
+    ['福岡県',33.61,130.42],
+    ['佐賀県',33.25,130.3],
+    ['長崎県',32.74,129.87],
+    ['熊本県',32.79,130.74],
+    ['大分県',33.24,131.61],
+    ['宮崎県',31.91,131.42],
+    ['鹿児島県',31.56,130.56],
+    ['沖縄県(那覇)',26.21,127.68],
+  ];
+  $('pref').innerHTML = PREFS.map((p,i) => '<option value="' + i + '"' + (i===12?' selected':'') + '>' + p[0] + '</option>').join('');
+  const WMO = {0:'快晴',1:'晴れ',2:'晴れ時々くもり',3:'くもり',45:'霧',48:'霧氷',51:'霧雨',53:'霧雨',55:'強い霧雨',61:'弱い雨',63:'雨',65:'強い雨',66:'着氷性の雨',67:'着氷性の雨',71:'弱い雪',73:'雪',75:'大雪',77:'霧雪',80:'にわか雨',81:'にわか雨',82:'激しいにわか雨',85:'にわか雪',86:'にわか雪',95:'雷雨',96:'雷雨(ひょう)',99:'激しい雷雨'};
+  const wmoEmoji = (c) => c<=1?'☀️':c<=2?'🌤️':c<=3?'☁️':c<=48?'🌫️':c<=57?'🌦️':c<=67?'🌧️':c<=77?'🌨️':c<=82?'🌦️':c<=86?'🌨️':'⛈️';
+  $('month').innerHTML = Array.from({length:12}, (_,i) => '<option value="' + (i+1) + '">' + (i+1) + '月</option>').join('');
+  $('day').innerHTML = Array.from({length:31}, (_,i) => '<option value="' + (i+1) + '">' + (i+1) + '日</option>').join('');
+  async function calc(){
+    const y = Math.max(1940, Math.min(2026, +$('year').value || 1990));
+    const mo = +$('month').value, da = +$('day').value;
+    const p = PREFS[+$('pref').value];
+    const date = y + '-' + String(mo).padStart(2,'0') + '-' + String(da).padStart(2,'0');
+    if(new Date(date) > new Date(Date.now() - 6 * 86400000)){ $('state').textContent = '直近すぎる日付はアーカイブ未反映です。少し前の日付でお試しください。'; return; }
+    $('state').textContent = '気象アーカイブを検索中…';
+    try{
+      const r = await fetch('https://archive-api.open-meteo.com/v1/archive?latitude=' + p[1] + '&longitude=' + p[2] + '&start_date=' + date + '&end_date=' + date + '&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,snowfall_sum,weather_code&timezone=Asia%2FTokyo');
+      const j = await r.json();
+      const d = j.daily;
+      if(!d || d.temperature_2m_max[0] == null){ $('state').textContent = 'その日付のデータが見つかりませんでした。'; return; }
+      const code = d.weather_code[0] ?? 0;
+      const wx = WMO[code] || 'くもり';
+      const snow = d.snowfall_sum[0] || 0;
+      $('state').textContent = '';
+      $('big').textContent = wmoEmoji(code) + ' ' + wx;
+      $('sub').textContent = y + '年' + mo + '月' + da + '日・' + p[0] + '（ERA5気象アーカイブ）';
+      $('hi').textContent = d.temperature_2m_max[0].toFixed(1) + '℃';
+      $('lo').textContent = d.temperature_2m_min[0].toFixed(1) + '℃';
+      $('rain').textContent = snow > 1 ? '雪 ' + snow.toFixed(0) + 'cm' : (d.precipitation_sum[0] || 0).toFixed(1) + 'mm';
+      SHARE = '私が生まれた' + y + '年' + mo + '月' + da + '日の' + p[0].split('(')[0] + 'は「' + wx + '」・最高' + d.temperature_2m_max[0].toFixed(1) + '℃だった' + wmoEmoji(code) + '\nあなたが生まれた日の空は？👇';
+      show();
+    }catch{ $('state').textContent = '⚠️ アーカイブの取得に失敗しました。時間をおいて再度お試しください。'; }
+  }
+  $('calcBtn').addEventListener('click', calc);
+  bindShare();
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'umareta-hi-tenki', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/result-fx.js?v=4"></script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>
