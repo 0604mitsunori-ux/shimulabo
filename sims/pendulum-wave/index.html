@@ -25,7 +25,7 @@
     <meta name="robots" content="index,follow">
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "振り子の波", "url": "https://shimulabo.com/sims/pendulum-wave/", "description": "長さの違う15個の振り子が作る波模様を体感。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "振り子の波", "item": "https://shimulabo.com/sims/pendulum-wave/"}]}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "実際に作れる？", "acceptedAnswer": {"@type": "Answer", "text": "はい。科学館の展示でも人気です。長さの精密な調整がポイント。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動きます。"}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "実際に作れる？", "acceptedAnswer": {"@type": "Answer", "text": "はい。科学館の展示でも人気です。長さの精密な調整がポイント。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動きます。"}}, {"@type": "Question", "name": "実物を作るには何が必要？", "acceptedAnswer": {"@type": "Answer", "text": "糸とナット、支柱だけで作れますが、長さの精度が命です。一番長い糸を1mにすると、一番短い糸は約61.6cmになります（周期比65:51の2乗）。"}}, {"@type": "Question", "name": "おもりを重くしても同じ？", "acceptedAnswer": {"@type": "Answer", "text": "はい。周期は長さだけで決まるので、重さを変えても模様は変わりません（空気抵抗を無視した場合）。"}}]}</script>
     <!-- ga4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
@@ -76,7 +76,13 @@
   <article class="article">
     <h2>なぜ波模様になる？</h2>
     <p>振り子の周期は「長さ」で決まります。一定時間にちょうど51回・52回・53回…と揺れるよう長さを調整すると、最初はそろっていた振り子が少しずつずれて波模様になり、一定時間ごとに再びそろいます。物理の美しさを体感できる定番デモです。</p>
-    <h2>よくある質問</h2><dl class="faq"><dt>実際に作れる？</dt><dd>はい。科学館の展示でも人気です。長さの精密な調整がポイント。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動きます。</dd></dl>
+    <!-- enriched-2026-09 -->
+<h2>振り子の長さの決め方</h2>
+<p>振り子の周期は <b>T = 2π√(L/g)</b>（L：長さ、g：重力加速度）で、おもりの重さには関係しません。本シミュレーターでは、一番長い振り子が60秒間に51回、次が52回、…、一番短い振り子が65回振れるように長さを調整しています。周期がすべて「60秒の整数分の1」なので、ちょうど60秒後に全員が同時にスタート位置へ戻ります。</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>経過時間</th><th>見える模様</th></tr><tr><td>0秒</td><td>全員そろって出発</td></tr><tr><td>約7〜8秒</td><td>波打つ模様（進行波）</td></tr><tr><td>約15秒</td><td>2つのグループに分かれて交互に</td></tr><tr><td>20秒</td><td>3グループ</td></tr><tr><td>30秒</td><td>2グループが完全に逆向き（折り返し点）</td></tr><tr><td>60秒</td><td>再びぴったりそろう</td></tr></table></div>
+<h2>“波”に見えるのはなぜ？</h2>
+<p>隣同士の振り子の周期がわずかに違うため、時間がたつほど位相のずれが一定の割合で積み上がります。この「一定のずれ」が並ぶと、人間の目には進行する波や螺旋として見えます。本当は誰も隣を見ていないのに、全体が協調しているように見える——錯覚と数学の合わせ技です。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>実際に作れる？</dt><dd>はい。科学館の展示でも人気です。長さの精密な調整がポイント。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動きます。</dd><dt>実物を作るには何が必要？</dt><dd>糸とナット、支柱だけで作れますが、長さの精度が命です。一番長い糸を1mにすると、一番短い糸は約61.6cmになります（周期比65:51の2乗）。</dd><dt>おもりを重くしても同じ？</dt><dd>はい。周期は長さだけで決まるので、重さを変えても模様は変わりません（空気抵抗を無視した場合）。</dd></dl>
   </article>
 
   <nav class="related" aria-label="related">

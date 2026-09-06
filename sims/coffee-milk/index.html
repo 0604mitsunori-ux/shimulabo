@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/coffee-milk/">
+<title>コーヒーにミルクを落とすと｜ブラウザで動く流体シミュレーター（ナビエ＝ストークス方程式）｜シミュラボ</title>
+<meta name="description" content="カップにミルクを落とし、指でかき混ぜると渦が生まれて混ざっていく——流体の運動方程式（ナビエ＝ストークス）をブラウザで数値的に解く無料シミュレーター。粘り気（粘性）や拡散を変えて、コーヒー・はちみつ・水の違いを体感。">
+<meta property="og:title" content="コーヒーにミルクを落とすと 流体シミュレーター">
+<meta property="og:description" content="指でかき混ぜて渦を作る。流体の方程式をブラウザで解く。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/coffee-milk.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/coffee-milk.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/coffee-milk/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "コーヒーにミルクを落とすと 流体シミュレーター", "url": "https://shimulabo.com/sims/coffee-milk/", "description": "指でかき混ぜて渦を作る。流体の方程式をブラウザで解く。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "シミュレーション・ラボ", "item": "https://shimulabo.com/lab/"}, {"@type": "ListItem", "position": 3, "name": "コーヒーにミルクを落とすと 流体シミュレーター", "item": "https://shimulabo.com/sims/coffee-milk/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "画面がカクつく場合は？", "acceptedAnswer": {"@type": "Answer", "text": "計算量が大きいため、古いスマホでは重くなることがあります。粘り気を上げる（計算が安定する）か、他のタブを閉じてお試しください。"}}, {"@type": "Question", "name": "本当のコーヒーと違うところは？", "acceptedAnswer": {"@type": "Answer", "text": "本物は3次元で、温度差による対流やミルクの密度差も働きます。本ページは2次元の非圧縮流体として計算しています。それでも渦の巻き方や引き伸ばされ方は、本物とよく似ます。"}}, {"@type": "Question", "name": "「混ざり具合」はどう計算している？", "acceptedAnswer": {"@type": "Answer", "text": "画面全体でミルクの濃度の“ばらつき”（標準偏差）を測り、完全に均一な状態を100%としています。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+<style>
+.lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
+.lab-ctl .field{margin-bottom:6px;}
+.lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
+.lab-ctl .slider-head label{margin:0;font-size:13px;}
+.lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
+.lab-ctl input[type=range]{width:100%;}
+.lab-ctl select{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;font-size:14px;background:#fff;}
+.lab-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px;}
+.lab-btns .btn{padding:11px 18px;font-size:14px;width:auto;}
+.lab-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;width:100%;max-width:640px;margin-top:4px;}
+.lab-stats .stat{background:var(--teal-l);border-radius:10px;padding:10px 12px;text-align:center;}
+.lab-stats .k{font-size:11px;color:var(--ink-2);}
+.lab-stats .v{font-size:20px;font-weight:800;color:var(--ink);font-feature-settings:"tnum";}
+.lab-stats .v.accent{color:var(--accent);}
+.lab-legend{text-align:center;color:var(--ink-2);font-size:13px;margin-top:12px;}
+.lab-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;background:rgba(44,107,134,.10);color:var(--teal-d);margin-bottom:8px;}
+canvas.lab{width:100%;max-width:640px;height:auto;border:1px solid var(--line);border-radius:12px;background:#0b1020;touch-action:none;}
+canvas.lab.light{background:#fff;}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../lab/">🧪 シミュレーション・ラボ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../lab/">シミュレーション・ラボ</a><span>›</span><span class="cur">コーヒーにミルクを落とすと 流体シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ふしぎ・現象</div>
+    <h1>コーヒーにミルクを落とすと 流体シミュレーター</h1>
+    <p class="lead">コーヒーにミルクを一滴。スプーンでひと混ぜすると、渦を巻きながら混ざっていく。あの動きを、流体の運動方程式をブラウザで解いて再現しました。画面をなぞってかき混ぜ、粘り気を変えて、水・コーヒー・はちみつの違いを見てください。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:14px;">
+      <span class="lab-badge">🧪 ナビエ＝ストークス方程式の数値解法（Stable Fluids）</span>
+      <canvas id="cv" class="lab" width="400" height="400"></canvas>
+      <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="visc">粘り気（粘性）</label><span class="val" id="viscL"></span></div><input type="range" id="visc" min="0" max="10" value="1" step="1"></div><div class="field"><div class="slider-head"><label for="diff">ミルクの広がりやすさ（拡散）</label><span class="val" id="diffL"></span></div><input type="range" id="diff" min="0" max="10" value="2" step="1"></div><div class="field"><div class="slider-head"><label for="force">かき混ぜる強さ</label><span class="val" id="forceL"></span></div><input type="range" id="force" min="1" max="10" value="5" step="1"></div><div class="field"><div class="slider-head"><label for="liq">液体プリセット</label></div><select id="liq"><option value="coffee" selected>コーヒー</option><option value="water">水</option><option value="honey">はちみつ</option><option value="ink">水にインク</option></select></div></div>
+      <div class="lab-btns"><button class="btn btn-ghost" id="drop">🥛 ミルクを落とす</button><button class="btn btn-ghost" id="stir">🥄 スプーンでひと混ぜ</button><button class="btn btn-ghost" id="reset">新しいカップ</button></div>
+      <div class="lab-stats"><div class="stat"><div class="k">混ざり具合</div><div class="v accent" id="sMix">—</div></div><div class="stat"><div class="k">渦の強さ</div><div class="v" id="sVort">—</div></div><div class="stat"><div class="k">経過</div><div class="v" id="sT">—</div></div></div>
+    </div>
+    <p class="lab-legend">画面をドラッグ／スワイプするとかき混ぜられます。粘り気が高いほど渦がすぐ消え、拡散が高いほど境界がぼやけます。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+<div class="note" style="border-left:4px solid var(--teal)"><strong>ポイント</strong>：流体の動きは<b>ナビエ＝ストークス方程式</b>という1本の式で記述できます。ただしこの式は解析的には解けず（解の存在自体がミレニアム懸賞問題）、コンピュータで格子に分けて近似します。本ページはその近似計算を、1秒に数十回、ブラウザの中で行っています。</div>
+<h2>この画面で解いている式</h2>
+<div class="note">∂u/∂t = −(u·∇)u + ν∇²u + f<br>移流（流れが流れを運ぶ）＋ 粘性（速度がならされる）＋ 外力（あなたの指）</div>
+<p>本ページは Jos Stam が1999年に発表した「Stable Fluids」法を用いています。①外力を加える、②粘性で速度を拡散させる、③流れに沿って速度と色を運ぶ（移流）、④体積が保存するよう圧力を補正する（射影）——の4段階を毎フレーム繰り返します。この手法は安定性が高く、映画のVFXやゲームの煙・水の表現の基礎になっています。</p>
+<h2>粘り気で何が変わるか</h2>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>液体</th><th>粘性（水との比較）</th><th>見え方</th></tr><tr><td>水</td><td>ほぼ0</td><td>渦が長く残り、細かい乱れが生まれる</td></tr><tr><td>コーヒー</td><td>水と同程度〜やや高い</td><td>ミルクの筋が渦を巻きながらゆっくり混ざる</td></tr><tr><td>はちみつ</td><td>水の約1万倍</td><td>渦はすぐ消え、指の跡がそのまま残る（層流）</td></tr></table></div>
+<p>「渦が生まれるか、すぐ消えるか」を決めるのは<b>レイノルズ数</b>（慣性力÷粘性力）です。同じかき混ぜ方でも、粘性が高いとレイノルズ数が小さく、流れは整然とした層流に。小さいと乱流になり、渦が次々に生まれます。</p>
+<h2>なぜ混ぜると速く混ざるのか</h2>
+<p>ミルクを落として放置すると、分子の拡散だけで混ざるため数分〜十数分かかります。かき混ぜると、渦がミルクの塊を細く長く引き伸ばし、コーヒーとの境界面積を何百倍にも増やします。境界が増えた分だけ拡散が一気に進む——「混ぜる」とは、拡散の仕事を減らす操作なのです。</p>
+
+    <h2>引用・転載について</h2>
+    <p>本ページのシミュレーション結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・授業や社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「コーヒーにミルクを落とすと 流体シミュレーター」 https://shimulabo.com/sims/coffee-milk/</code></div>
+    <h2>よくある質問</h2><dl class="faq"><dt>画面がカクつく場合は？</dt><dd>計算量が大きいため、古いスマホでは重くなることがあります。粘り気を上げる（計算が安定する）か、他のタブを閉じてお試しください。</dd><dt>本当のコーヒーと違うところは？</dt><dd>本物は3次元で、温度差による対流やミルクの密度差も働きます。本ページは2次元の非圧縮流体として計算しています。それでも渦の巻き方や引き伸ばされ方は、本物とよく似ます。</dd><dt>「混ざり具合」はどう計算している？</dt><dd>画面全体でミルクの濃度の“ばらつき”（標準偏差）を測り、完全に均一な状態を100%としています。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../diffusion/"><span class="e">🌫️</span><span>拡散シミュレーター</span></a><a class="related-card" href="../heya-chirakaru/"><span class="e">🧦</span><span>部屋はなぜ勝手に散らかる？</span></a><a class="related-card" href="../ripple/"><span class="e">💧</span><span>波紋シミュレーター</span></a><a class="related-card" href="../tsunami-kishi/"><span class="e">🌊</span><span>津波はなぜ岸で高くなる？</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../lab/">🧪 シミュレーション・ラボ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+  const rnd = (a,b) => a + Math.random()*(b-a);
+  const randn = () => { let u=0,v=0; while(!u)u=Math.random(); while(!v)v=Math.random(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
+  let SHARE = '';
+  function setShare(t){ SHARE = t; }
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{ const l=$(s.id+'L'); if(l){ const u=()=>{ l.textContent = (s.dataset.fmt ? s.dataset.fmt.replace('{v}', s.value) : s.value); }; s.addEventListener('input',u); u(); } }); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  function setStat(id, v){ const e=$(id); if(e) e.textContent = v; }
+  try {
+    syncSliders();
+
+  const cv=$('cv'), x=cv.getContext('2d'); const N=64, SZ=(N+2)*(N+2); const IX=(i,j)=>i+(N+2)*j;
+  let u,v,u0,v0,d,d0,t=0, vort=0; const img=x.createImageData(N,N);
+  function alloc(){ u=new Float32Array(SZ); v=new Float32Array(SZ); u0=new Float32Array(SZ); v0=new Float32Array(SZ); d=new Float32Array(SZ); d0=new Float32Array(SZ); t=0; }
+  function setBnd(b,xa){ for(let i=1;i<=N;i++){ xa[IX(0,i)]=b===1?-xa[IX(1,i)]:xa[IX(1,i)]; xa[IX(N+1,i)]=b===1?-xa[IX(N,i)]:xa[IX(N,i)]; xa[IX(i,0)]=b===2?-xa[IX(i,1)]:xa[IX(i,1)]; xa[IX(i,N+1)]=b===2?-xa[IX(i,N)]:xa[IX(i,N)]; }
+    xa[IX(0,0)]=0.5*(xa[IX(1,0)]+xa[IX(0,1)]); xa[IX(0,N+1)]=0.5*(xa[IX(1,N+1)]+xa[IX(0,N)]); xa[IX(N+1,0)]=0.5*(xa[IX(N,0)]+xa[IX(N+1,1)]); xa[IX(N+1,N+1)]=0.5*(xa[IX(N,N+1)]+xa[IX(N+1,N)]); }
+  function linSolve(b,xa,x0,a,c){ for(let k=0;k<12;k++){ for(let j=1;j<=N;j++) for(let i=1;i<=N;i++){ xa[IX(i,j)]=(x0[IX(i,j)]+a*(xa[IX(i-1,j)]+xa[IX(i+1,j)]+xa[IX(i,j-1)]+xa[IX(i,j+1)]))/c; } setBnd(b,xa); } }
+  function diffuse(b,xa,x0,df,dt){ const a=dt*df*N*N; if(a===0){ xa.set(x0); setBnd(b,xa); return; } linSolve(b,xa,x0,a,1+4*a); }
+  function advect(b,dd,d0_,uu,vv,dt){ const dt0=dt*N; for(let j=1;j<=N;j++) for(let i=1;i<=N;i++){ let xx=i-dt0*uu[IX(i,j)], yy=j-dt0*vv[IX(i,j)]; xx=clamp(xx,0.5,N+0.5); yy=clamp(yy,0.5,N+0.5); const i0=xx|0,i1=i0+1,j0=yy|0,j1=j0+1; const s1=xx-i0,s0=1-s1,t1=yy-j0,t0=1-t1; dd[IX(i,j)]=s0*(t0*d0_[IX(i0,j0)]+t1*d0_[IX(i0,j1)])+s1*(t0*d0_[IX(i1,j0)]+t1*d0_[IX(i1,j1)]); } setBnd(b,dd); }
+  function project(uu,vv,p,div){ for(let j=1;j<=N;j++) for(let i=1;i<=N;i++){ div[IX(i,j)]=-0.5*(uu[IX(i+1,j)]-uu[IX(i-1,j)]+vv[IX(i,j+1)]-vv[IX(i,j-1)])/N; p[IX(i,j)]=0; } setBnd(0,div); setBnd(0,p); linSolve(0,p,div,1,4);
+    for(let j=1;j<=N;j++) for(let i=1;i<=N;i++){ uu[IX(i,j)]-=0.5*N*(p[IX(i+1,j)]-p[IX(i-1,j)]); vv[IX(i,j)]-=0.5*N*(p[IX(i,j+1)]-p[IX(i,j-1)]); } setBnd(1,uu); setBnd(2,vv); }
+  function step(){ const dt=0.1, visc=+$('visc').value*0.00002, diff=+$('diff').value*0.00002;
+    let tmp; diffuse(1,u0,u,visc,dt); diffuse(2,v0,v,visc,dt); project(u0,v0,u,v); advect(1,u,u0,u0,v0,dt); advect(2,v,v0,u0,v0,dt); project(u,v,u0,v0);
+    diffuse(0,d0,d,diff,dt); advect(0,d,d0,u,v,dt); t+=dt; }
+  function drop(cx,cy,r){ for(let j=1;j<=N;j++) for(let i=1;i<=N;i++){ if((i-cx)**2+(j-cy)**2<r*r) d[IX(i,j)]=1; } }
+  function stir(){ const f=+$('force').value*0.6; for(let j=1;j<=N;j++) for(let i=1;i<=N;i++){ const dx=i-N/2, dy=j-N/2, r=Math.hypot(dx,dy); if(r>4&&r<N/2-2){ u[IX(i,j)]+=-dy/r*f*Math.exp(-r/22); v[IX(i,j)]+=dx/r*f*Math.exp(-r/22); } } }
+  function preset(){ const p=$('liq').value; const set=(id,val)=>{ $(id).value=val; $(id).dispatchEvent(new Event('input')); }; if(p==='water'){ set('visc',0); set('diff',1); } else if(p==='honey'){ set('visc',10); set('diff',0); } else if(p==='ink'){ set('visc',0); set('diff',4); } else { set('visc',1); set('diff',2); } }
+  function draw(){ const p=$('liq').value; const bg=p==='water'||p==='ink'?[210,230,245]:p==='honey'?[205,140,30]:[70,38,20]; const fg=p==='ink'?[20,30,120]:[250,246,235];
+    let sum=0,sum2=0,vs=0; for(let j=1;j<=N;j++) for(let i=1;i<=N;i++){ const c=clamp(d[IX(i,j)],0,1); sum+=c; sum2+=c*c; const k=((j-1)*N+(i-1))*4; img.data[k]=bg[0]+(fg[0]-bg[0])*c; img.data[k+1]=bg[1]+(fg[1]-bg[1])*c; img.data[k+2]=bg[2]+(fg[2]-bg[2])*c; img.data[k+3]=255;
+      vs+=Math.abs((v[IX(i+1,j)]-v[IX(i-1,j)])-(u[IX(i,j+1)]-u[IX(i,j-1)])); }
+    const tmpc=document.createElement('canvas'); tmpc.width=N; tmpc.height=N; tmpc.getContext('2d').putImageData(img,0,0); x.imageSmoothingEnabled=true; x.drawImage(tmpc,0,0,cv.width,cv.height);
+    x.strokeStyle='rgba(255,255,255,.35)'; x.lineWidth=6; x.beginPath(); x.arc(cv.width/2,cv.height/2,cv.width/2-3,0,7); x.stroke();
+    const n=N*N, mean=sum/n, sd=Math.sqrt(Math.max(0,sum2/n-mean*mean)); const mix=mean>0.01?Math.max(0,100-sd/Math.sqrt(mean*(1-mean)+1e-9)*100):0; vort=vs/n;
+    setStat('sMix', Math.round(mix)+'%'); setStat('sVort', (vort*100).toFixed(1)); setStat('sT', t.toFixed(0)+'秒');
+    setShare('コーヒーにミルクを落として'+t.toFixed(0)+'秒→混ざり具合'+Math.round(mix)+'%☕ 流体の方程式（ナビエ＝ストークス）をブラウザで解いてかき混ぜられる👇'); }
+  let last=null; function pointer(e){ const [px,py]=cpos(cv,e); const i=clamp((px/cv.width*N)|0,1,N), j=clamp((py/cv.height*N)|0,1,N); if(last){ const f=+$('force').value*0.8; const dx=(i-last[0]), dy=(j-last[1]); for(let a=-1;a<=1;a++) for(let b=-1;b<=1;b++){ const ii=clamp(i+a,1,N), jj=clamp(j+b,1,N); u[IX(ii,jj)]+=dx*f; v[IX(ii,jj)]+=dy*f; } } last=[i,j]; }
+  cv.addEventListener('pointerdown',(e)=>{ last=null; pointer(e); cv.setPointerCapture(e.pointerId); }); cv.addEventListener('pointermove',(e)=>{ if(e.buttons) pointer(e); }); cv.addEventListener('pointerup',()=>last=null);
+  function loop(){ step(); draw(); requestAnimationFrame(loop); }
+  $('drop').addEventListener('click',()=>drop(N/2+rnd(-12,12),N/2+rnd(-12,12),5)); $('stir').addEventListener('click',stir); $('reset').addEventListener('click',()=>{ alloc(); drop(N/2,N/2,6); }); $('liq').addEventListener('change',preset);
+  alloc(); drop(N/2+6,N/2-4,6); stir(); loop();
+
+  } catch(e) { console.error(e); }
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE || document.title)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText((SHARE||document.title)+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'coffee-milk', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

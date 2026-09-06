@@ -25,7 +25,7 @@
     <meta name="robots" content="index,follow">
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "マンデルブロ集合エクスプローラー", "url": "https://shimulabo.com/sims/mandelbrot/", "description": "クリックでどこまでもズームできる無限フラクタル。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "マンデルブロ集合エクスプローラー", "item": "https://shimulabo.com/sims/mandelbrot/"}]}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "どこまでズームできる？", "acceptedAnswer": {"@type": "Answer", "text": "数値の精度の限界まで。本ツールでも数十段は潜れます。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で計算します。"}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "どこまでズームできる？", "acceptedAnswer": {"@type": "Answer", "text": "数値の精度の限界まで。本ツールでも数十段は潜れます。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で計算します。"}}, {"@type": "Question", "name": "黒い部分の中はどうなっている？", "acceptedAnswer": {"@type": "Answer", "text": "どこまで反復しても発散しない点の集まりなので、拡大しても黒一色です。面白い模様はすべて境界の近くにあります。"}}, {"@type": "Question", "name": "ズームの限界は？", "acceptedAnswer": {"@type": "Answer", "text": "JavaScriptの倍精度浮動小数点では、10の13〜14乗倍程度で座標の区別ができなくなり、模様がにじみます。それ以上のズームには任意精度計算が必要です。"}}]}</script>
     <!-- ga4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
@@ -76,7 +76,14 @@
   <article class="article">
     <h2>無限に複雑な理由</h2>
     <p>各点について「z = z² + c」を繰り返し、無限大に飛んでいくか踏みとどまるかを色で表したものです。境界線は無限に入り組んでいて、拡大するたびに新しい渦や、全体と同じ小さなマンデルブロが現れます。たった1行の式が生む無限の世界です。</p>
-    <h2>よくある質問</h2><dl class="faq"><dt>どこまでズームできる？</dt><dd>数値の精度の限界まで。本ツールでも数十段は潜れます。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で計算します。</dd></dl>
+    <!-- enriched-2026-09 -->
+<h2>計算のやり方</h2>
+<p>画面の各点を複素数 c とみなし、z₀=0 から <b>z = z² + c</b> を繰り返します。|z| が2を超えたら「発散」と判定し、そこまでにかかった回数で色を付けます。何回繰り返しても2を超えない点が“黒い本体”＝マンデルブロ集合です。ズームするほど必要な反復回数が増え、計算は重くなります。</p>
+<h2>有名な観光スポット</h2>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>名前</th><th>座標</th><th>見どころ</th></tr><tr><td>タツノオトシゴの谷</td><td>c ≈ −0.75 + 0.1i</td><td>本体と大きな円のつなぎ目。渦巻きが連なる</td></tr><tr><td>象の谷</td><td>c ≈ 0.275 + 0i</td><td>右端のくびれ。象の鼻のような形が並ぶ</td></tr><tr><td>ミニ・マンデルブロ</td><td>c ≈ −1.75 + 0i</td><td>左のアンテナの先に、本体そっくりの小さな集合</td></tr></table></div>
+<h2>この図形の“異常さ”</h2>
+<p>集合の面積は有限（約1.506）なのに、境界線の長さは無限で、境界のフラクタル次元は<b>2</b>（宍倉光広、1991年）——線なのに面と同じ次元を持つという、数学的にも異常な図形です。1980年にブノワ・マンデルブロがコンピュータで初めて描き、フラクタルという言葉とともに世界に広まりました。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>どこまでズームできる？</dt><dd>数値の精度の限界まで。本ツールでも数十段は潜れます。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で計算します。</dd><dt>黒い部分の中はどうなっている？</dt><dd>どこまで反復しても発散しない点の集まりなので、拡大しても黒一色です。面白い模様はすべて境界の近くにあります。</dd><dt>ズームの限界は？</dt><dd>JavaScriptの倍精度浮動小数点では、10の13〜14乗倍程度で座標の区別ができなくなり、模様がにじみます。それ以上のズームには任意精度計算が必要です。</dd></dl>
   </article>
 
   <nav class="related" aria-label="related">

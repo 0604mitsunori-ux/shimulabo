@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/kansen-agent/">
+<title>感染はこう広がる SIRシミュレーター｜マスク・ワクチン・外出制限でピークはどう変わる？｜シミュラボ</title>
+<meta name="description" content="街を動き回る人々の間で感染が広がる様子をエージェントシミュレーションで再現。感染しやすさ・接触の多さ・ワクチン接種率・外出制限を変えると、感染のピークの高さと時期、最終的な感染者数がどう変わるかを体感できる無料ツール。集団免疫の閾値も解説。">
+<meta property="og:title" content="感染はこう広がる SIRシミュレーター">
+<meta property="og:description" content="マスク・ワクチン・外出制限でピークはどう変わる？街の中の感染を再現。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/kansen-agent.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/kansen-agent.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/kansen-agent/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "感染はこう広がる SIRシミュレーター", "url": "https://shimulabo.com/sims/kansen-agent/", "description": "マスク・ワクチン・外出制限でピークはどう変わる？街の中の感染を再現。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "シミュレーション・ラボ", "item": "https://shimulabo.com/lab/"}, {"@type": "ListItem", "position": 3, "name": "感染はこう広がる SIRシミュレーター", "item": "https://shimulabo.com/sims/kansen-agent/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "最終的な感染者数が100%にならないのは？", "acceptedAnswer": {"@type": "Answer", "text": "感染者が減ると接触相手も減るため、免疫のある人が増えた時点で流行は自然に終息します。R₀が2〜3でも、最終的な感染者は人口の8〜9割で止まるのがSIRモデルの結論です。"}}, {"@type": "Question", "name": "マスクはどのスライダー？", "acceptedAnswer": {"@type": "Answer", "text": "「接触したときの感染しやすさ」がマスクや換気に相当します。「人の動き回り」が外出頻度や人混みの多さ、「外出しない人」が在宅・隔離です。"}}, {"@type": "Question", "name": "現実の予測はこれでできる？", "acceptedAnswer": {"@type": "Answer", "text": "本ページは原理を示す簡略モデルです。実際の予測では、年齢構成・接触パターン・潜伏期間・無症状感染などを加えた大規模モデルが使われますが、SIRの骨格はそのまま生きています。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+<style>
+.lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
+.lab-ctl .field{margin-bottom:6px;}
+.lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
+.lab-ctl .slider-head label{margin:0;font-size:13px;}
+.lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
+.lab-ctl input[type=range]{width:100%;}
+.lab-ctl select{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;font-size:14px;background:#fff;}
+.lab-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px;}
+.lab-btns .btn{padding:11px 18px;font-size:14px;width:auto;}
+.lab-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;width:100%;max-width:640px;margin-top:4px;}
+.lab-stats .stat{background:var(--teal-l);border-radius:10px;padding:10px 12px;text-align:center;}
+.lab-stats .k{font-size:11px;color:var(--ink-2);}
+.lab-stats .v{font-size:20px;font-weight:800;color:var(--ink);font-feature-settings:"tnum";}
+.lab-stats .v.accent{color:var(--accent);}
+.lab-legend{text-align:center;color:var(--ink-2);font-size:13px;margin-top:12px;}
+.lab-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;background:rgba(44,107,134,.10);color:var(--teal-d);margin-bottom:8px;}
+canvas.lab{width:100%;max-width:640px;height:auto;border:1px solid var(--line);border-radius:12px;background:#0b1020;touch-action:none;}
+canvas.lab.light{background:#fff;}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../lab/">🧪 シミュレーション・ラボ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../lab/">シミュレーション・ラボ</a><span>›</span><span class="cur">感染はこう広がる SIRシミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">健康・カラダ</div>
+    <h1>感染はこう広がる SIRシミュレーター</h1>
+    <p class="lead">1人の感染者から、街の中でどう広がるのか。人々が動き回って接触し、一定期間で回復する——それだけのルールで、感染の「山」が生まれます。感染しやすさ・接触の多さ・ワクチン・外出制限を変えて、山の高さと時期がどう動くかを見てください。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:14px;">
+      <span class="lab-badge">🧪 エージェントベースSIRモデル（感受性・感染・回復）</span>
+      <canvas id="cv" class="lab" width="640" height="400"></canvas>
+      <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="beta">接触したときの感染しやすさ</label><span class="val" id="betaL"></span></div><input type="range" id="beta" min="0.05" max="1" value="0.5" step="0.05"></div><div class="field"><div class="slider-head"><label for="move">人の動き回り（接触の多さ）</label><span class="val" id="moveL"></span></div><input type="range" id="move" min="0" max="3" value="1.5" step="0.1"></div><div class="field"><div class="slider-head"><label for="vac">ワクチン接種率（免疫あり）</label><span class="val" id="vacL"></span></div><input type="range" id="vac" min="0" max="90" value="0" step="5" data-fmt="{v}%"></div><div class="field"><div class="slider-head"><label for="stay">外出しない人の割合</label><span class="val" id="stayL"></span></div><input type="range" id="stay" min="0" max="90" value="0" step="5" data-fmt="{v}%"></div><div class="field"><div class="slider-head"><label for="rec">回復までの日数</label><span class="val" id="recL"></span></div><input type="range" id="rec" min="3" max="21" value="10" step="1" data-fmt="{v}日"></div><div class="field"><div class="slider-head"><label for="sp">再生速度</label><span class="val" id="spL"></span></div><input type="range" id="sp" min="1" max="10" value="4" step="1" data-fmt="×{v}"></div></div>
+      <div class="lab-btns"><button class="btn btn-ghost" id="toggle">⏸ 一時停止</button><button class="btn btn-ghost" id="reset">リセット</button></div>
+      <div class="lab-stats"><div class="stat"><div class="k">経過日数</div><div class="v" id="sDay">—</div></div><div class="stat"><div class="k">いま感染中</div><div class="v accent" id="sI">—</div></div><div class="stat"><div class="k">ピーク（人数／日）</div><div class="v" id="sPeak">—</div></div><div class="stat"><div class="k">最終的な感染者</div><div class="v" id="sTotal">—</div></div></div>
+    </div>
+    <p class="lab-legend">灰＝未感染、赤＝感染中、青＝回復（免疫）、緑＝ワクチン接種済み。右のグラフ＝感染中の人数の推移。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+<div class="note" style="border-left:4px solid var(--teal)"><strong>ポイント</strong>：感染の広がりを決めるのは<b>基本再生産数 R₀</b>＝1人の感染者が平均何人にうつすか。R₀が1を超えると流行し、1未満なら自然に収束します。ワクチンや外出制限は、感染の「山」を低く・遅くします。同じ最終感染者数でも、山を低くすれば医療が持ちこたえられる——これが「カーブをならす」の意味です。</div>
+<h2>SIRモデルの3つの状態</h2>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>状態</th><th>意味</th><th>遷移</th></tr><tr><td>S（Susceptible）</td><td>まだ感染していない人</td><td>感染者と接触すると一定確率で I へ</td></tr><tr><td>I（Infectious）</td><td>感染中で、他人にうつす人</td><td>一定日数で R へ</td></tr><tr><td>R（Recovered）</td><td>回復して免疫を持つ人（ワクチン接種者も含む）</td><td>再感染しない</td></tr></table></div>
+<p>1927年にカーマックとマッケンドリックが提案した、感染症数理モデルの原点です。本ページは方程式ではなく、1人1人が街を動き回って接触する「エージェントベース」で同じ現象を再現しています。動き回る速さ・接触時の感染確率・回復日数が、実効的な R₀ を決めます。</p>
+<h2>集団免疫の閾値</h2>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>R₀</th><th>必要な免疫保有率（1 − 1/R₀）</th></tr><tr><td>R₀ = 1.5（季節性インフルエンザ級）</td><td>33%</td></tr><tr><td>R₀ = 2.5〜3</td><td>60〜67%</td></tr><tr><td>R₀ = 5〜6（新型コロナ変異株級）</td><td>80〜83%</td></tr><tr><td>R₀ = 12〜18（麻疹）</td><td>92〜95%</td></tr></table></div>
+<p>免疫を持つ人の割合が 1 − 1/R₀ を超えると、感染者が平均1人未満にしかうつせなくなり、流行は起きません。ワクチン接種率のスライダーを上げていくと、ある割合を境に「山が立たなくなる」ことが確認できます。麻疹のワクチン接種率が95%必要と言われるのはこの計算です。</p>
+<h2>「動き回り」を減らす効果</h2>
+<p>外出しない人の割合を増やすと、接触の総数が減り、山は低く・遅くなります。ただし全員が家にいるわけにいかないため、実際には「一定期間だけ接触を減らして山をならし、その間にワクチンを行き渡らせる」戦略が取られました。本ページでも、外出制限とワクチンを組み合わせると、山を立てずに収束させられます。</p>
+
+    <h2>引用・転載について</h2>
+    <p>本ページのシミュレーション結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・授業や社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「感染はこう広がる SIRシミュレーター」 https://shimulabo.com/sims/kansen-agent/</code></div>
+    <h2>よくある質問</h2><dl class="faq"><dt>最終的な感染者数が100%にならないのは？</dt><dd>感染者が減ると接触相手も減るため、免疫のある人が増えた時点で流行は自然に終息します。R₀が2〜3でも、最終的な感染者は人口の8〜9割で止まるのがSIRモデルの結論です。</dd><dt>マスクはどのスライダー？</dt><dd>「接触したときの感染しやすさ」がマスクや換気に相当します。「人の動き回り」が外出頻度や人混みの多さ、「外出しない人」が在宅・隔離です。</dd><dt>現実の予測はこれでできる？</dt><dd>本ページは原理を示す簡略モデルです。実際の予測では、年齢構成・接触パターン・潜伏期間・無症状感染などを加えた大規模モデルが使われますが、SIRの骨格はそのまま生きています。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../uwasa-kakusan/"><span class="e">🗣️</span><span>噂が全員に届くまで</span></a><a class="related-card" href="../lotka-volterra/"><span class="e">🐰</span><span>キツネとウサギ 増減</span></a><a class="related-card" href="../ryukou-curve/"><span class="e">📈</span><span>流行はなぜ急に終わる？</span></a><a class="related-card" href="../forest-fire/"><span class="e">🔥</span><span>森林火災シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../lab/">🧪 シミュレーション・ラボ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+  const rnd = (a,b) => a + Math.random()*(b-a);
+  const randn = () => { let u=0,v=0; while(!u)u=Math.random(); while(!v)v=Math.random(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
+  let SHARE = '';
+  function setShare(t){ SHARE = t; }
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{ const l=$(s.id+'L'); if(l){ const u=()=>{ l.textContent = (s.dataset.fmt ? s.dataset.fmt.replace('{v}', s.value) : s.value); }; s.addEventListener('input',u); u(); } }); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  function setStat(id, v){ const e=$(id); if(e) e.textContent = v; }
+  try {
+    syncSliders();
+
+  const cv=$('cv'), x=cv.getContext('2d'), W=cv.width, H=cv.height, NP=300, AW=420;
+  let ag, day, hist, run=true, peak=0, peakDay=0, tick=0;
+  function reset(){ const vac=+$('vac').value/100, stay=+$('stay').value/100; ag=Array.from({length:NP},(_,i)=>({x:rnd(6,AW-6),y:rnd(6,H-6),vx:randn(),vy:randn(),s:Math.random()<vac?3:0,t:0,home:Math.random()<stay}));
+    const inf=ag.filter(a=>a.s===0); for(let i=0;i<3&&i<inf.length;i++){ inf[i].s=1; } day=0; hist=[]; peak=0; peakDay=0; tick=0; draw(); }
+  function step(){ const mv=+$('move').value, beta=+$('beta').value, rec=+$('rec').value; tick++;
+    ag.forEach(a=>{ if(a.home) return; a.vx+=randn()*0.3; a.vy+=randn()*0.3; const sp=Math.hypot(a.vx,a.vy)||1; const cap=mv; if(sp>cap){ a.vx*=cap/sp; a.vy*=cap/sp; } a.x+=a.vx; a.y+=a.vy; if(a.x<6||a.x>AW-6) a.vx*=-1; if(a.y<6||a.y>H-6) a.vy*=-1; a.x=clamp(a.x,6,AW-6); a.y=clamp(a.y,6,H-6); });
+    if(tick%10===0){ day++; for(const a of ag){ if(a.s===1){ a.t++; if(a.t>=rec) a.s=2; } }
+      for(let i=0;i<NP;i++){ const a=ag[i]; if(a.s!==1) continue; for(let j=0;j<NP;j++){ const b=ag[j]; if(b.s!==0) continue; const d=Math.hypot(a.x-b.x,a.y-b.y); if(d<13&&Math.random()<beta*(a.home||b.home?0.2:1)) b.s=1; } }
+      const I=ag.filter(a=>a.s===1).length; hist.push(I); if(I>peak){ peak=I; peakDay=day; } } }
+  function draw(){ x.fillStyle='#0b1020'; x.fillRect(0,0,W,H); x.fillStyle='#111827'; x.fillRect(0,0,AW,H);
+    ag.forEach(a=>{ x.fillStyle=['#6b7280','#ef4444','#3b82f6','#22c55e'][a.s]; x.beginPath(); x.arc(a.x,a.y,a.s===1?4:3,0,7); x.fill(); });
+    const L=AW+16,PW=W-L-10,B=H-24,PH=B-30; x.fillStyle='rgba(255,255,255,.4)'; x.font='10px sans-serif'; x.fillText('感染中の人数', L, 16); x.fillText('日数 →', L+PW-36, H-8);
+    x.strokeStyle='rgba(255,255,255,.08)'; for(let g=0;g<=4;g++){ const y=B-PH*g/4; x.beginPath(); x.moveTo(L,y); x.lineTo(L+PW,y); x.stroke(); }
+    const n=Math.max(hist.length,60); x.fillStyle='rgba(239,68,68,.35)'; x.beginPath(); x.moveTo(L,B); hist.forEach((v,i)=>x.lineTo(L+i/n*PW, B-v/NP*PH)); x.lineTo(L+(hist.length-1)/n*PW,B); x.fill();
+    x.strokeStyle='#ef4444'; x.lineWidth=2; x.beginPath(); hist.forEach((v,i)=>{ const X=L+i/n*PW, Y=B-v/NP*PH; i?x.lineTo(X,Y):x.moveTo(X,Y); }); x.stroke();
+    const I=ag.filter(a=>a.s===1).length, R=ag.filter(a=>a.s===2).length, S=ag.filter(a=>a.s===0).length;
+    setStat('sDay', day+'日'); setStat('sI', I+'人'); setStat('sPeak', peak+'人／'+peakDay+'日目'); setStat('sTotal', (I+R)+'人（'+Math.round((I+R)/NP*100)+'%）');
+    if(I===0&&day>0){ x.fillStyle='#e5e7eb'; x.font='bold 14px sans-serif'; x.fillText('✅ 収束', L+8, 36); }
+    setShare('感染しやすさ'+$('beta').value+'・ワクチン'+$('vac').value+'%・外出制限'+$('stay').value+'%でシミュ🦠 ピークは'+peakDay+'日目に'+peak+'人、最終感染者'+Math.round((I+R)/NP*100)+'%。ワクチンで山が消える瞬間を体感👇'); }
+  function loop(){ if(run){ for(let i=0;i<+$('sp').value;i++) step(); } draw(); requestAnimationFrame(loop); }
+  ['vac','stay'].forEach(id=>$(id).addEventListener('change',reset));
+  $('toggle').addEventListener('click',()=>{ run=!run; $('toggle').textContent=run?'⏸ 一時停止':'▶ 再生'; });
+  $('reset').addEventListener('click',reset);
+  reset(); loop();
+
+  } catch(e) { console.error(e); }
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE || document.title)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText((SHARE||document.title)+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'kansen-agent', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

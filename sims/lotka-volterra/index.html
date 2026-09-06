@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/lotka-volterra/">
+<title>キツネとウサギ 増減シミュレーター｜捕食者と獲物はなぜ周期的に増減する？｜シミュラボ</title>
+<meta name="description" content="ウサギが増えるとキツネが増え、キツネが増えるとウサギが減る——生態学の基本方程式（ロトカ・ヴォルテラ）をブラウザで動かし、増減の周期や「キツネを減らすと何が起きるか」を体感できる無料シミュレーター。">
+<meta property="og:title" content="キツネとウサギ 増減シミュレーター">
+<meta property="og:description" content="捕食者と獲物が周期的に増減する理由を、数理生態学の方程式で体感。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/lotka-volterra.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/lotka-volterra.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/lotka-volterra/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "キツネとウサギ 増減シミュレーター", "url": "https://shimulabo.com/sims/lotka-volterra/", "description": "捕食者と獲物が周期的に増減する理由を、数理生態学の方程式で体感。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "シミュレーション・ラボ", "item": "https://shimulabo.com/lab/"}, {"@type": "ListItem", "position": 3, "name": "キツネとウサギ 増減シミュレーター", "item": "https://shimulabo.com/sims/lotka-volterra/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "なぜ平衡点に落ち着かないの？", "acceptedAnswer": {"@type": "Answer", "text": "ロトカ・ヴォルテラ方程式は摩擦にあたる項を持たないため、振り子と同じでエネルギーが保存され、永遠に振動します。現実には環境収容力（餌の上限）などの項が加わるため、実際の生態系では振動が徐々に小さくなったり、逆に周期が安定したりします。"}}, {"@type": "Question", "name": "キツネの平均数が「ウサギの増殖率」で決まるのはなぜ？", "acceptedAnswer": {"@type": "Answer", "text": "式を解くと、キツネの平均数は α/β、ウサギの平均数は γ/δ になります。つまりキツネの数はキツネ自身の性質ではなく、餌であるウサギがどれだけ増えるかで決まります。生態系の“意外な連鎖”です。"}}, {"@type": "Question", "name": "数値は現実の個体数？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。単位は相対的なもので、表示は見やすさのために10倍しています。周期や増減のパターンを見る目的でお使いください。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+<style>
+.lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
+.lab-ctl .field{margin-bottom:6px;}
+.lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
+.lab-ctl .slider-head label{margin:0;font-size:13px;}
+.lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
+.lab-ctl input[type=range]{width:100%;}
+.lab-ctl select{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;font-size:14px;background:#fff;}
+.lab-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px;}
+.lab-btns .btn{padding:11px 18px;font-size:14px;width:auto;}
+.lab-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;width:100%;max-width:640px;margin-top:4px;}
+.lab-stats .stat{background:var(--teal-l);border-radius:10px;padding:10px 12px;text-align:center;}
+.lab-stats .k{font-size:11px;color:var(--ink-2);}
+.lab-stats .v{font-size:20px;font-weight:800;color:var(--ink);font-feature-settings:"tnum";}
+.lab-stats .v.accent{color:var(--accent);}
+.lab-legend{text-align:center;color:var(--ink-2);font-size:13px;margin-top:12px;}
+.lab-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;background:rgba(44,107,134,.10);color:var(--teal-d);margin-bottom:8px;}
+canvas.lab{width:100%;max-width:640px;height:auto;border:1px solid var(--line);border-radius:12px;background:#0b1020;touch-action:none;}
+canvas.lab.light{background:#fff;}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../lab/">🧪 シミュレーション・ラボ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../lab/">シミュレーション・ラボ</a><span>›</span><span class="cur">キツネとウサギ 増減シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ふしぎ・現象</div>
+    <h1>キツネとウサギ 増減シミュレーター</h1>
+    <p class="lead">ウサギが増えるとキツネが増え、キツネが増えるとウサギが減り、するとキツネも減って——。誰も指揮していないのに、2種類の生き物は決まったリズムで増減を繰り返します。増殖率や捕食率を動かして、その波を観察してください。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:14px;">
+      <span class="lab-badge">🧪 ロトカ・ヴォルテラ方程式（捕食者－被食者モデル）</span>
+      <canvas id="cv" class="lab" width="640" height="360"></canvas>
+      <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="a">ウサギの増殖率 α</label><span class="val" id="aL"></span></div><input type="range" id="a" min="0.5" max="2.0" value="1.1" step="0.05"></div><div class="field"><div class="slider-head"><label for="b">キツネに食べられる率 β</label><span class="val" id="bL"></span></div><input type="range" id="b" min="0.1" max="1.0" value="0.4" step="0.05"></div><div class="field"><div class="slider-head"><label for="g">キツネの死亡率 γ</label><span class="val" id="gL"></span></div><input type="range" id="g" min="0.1" max="1.0" value="0.4" step="0.05"></div><div class="field"><div class="slider-head"><label for="sp">再生速度</label><span class="val" id="spL"></span></div><input type="range" id="sp" min="1" max="8" value="3" step="1" data-fmt="×{v}"></div></div>
+      <div class="lab-btns"><button class="btn btn-ghost" id="toggle">⏸ 一時停止</button><button class="btn btn-ghost" id="reset">リセット</button><button class="btn btn-ghost" id="cull">🦊 キツネを半分に減らす</button><button class="btn btn-ghost" id="feed">🐰 ウサギを2倍に増やす</button></div>
+      <div class="lab-stats"><div class="stat"><div class="k">ウサギ</div><div class="v" id="sR">—</div></div><div class="stat"><div class="k">キツネ</div><div class="v accent" id="sF">—</div></div><div class="stat"><div class="k">増減の周期</div><div class="v" id="sT">—</div></div><div class="stat"><div class="k">ウサギの最大</div><div class="v" id="sMax">—</div></div></div>
+    </div>
+    <p class="lab-legend">緑＝ウサギ、オレンジ＝キツネ。右の小さな図は「ウサギ数×キツネ数」の軌道（ぐるぐる回る＝周期的に増減）。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+<div class="note" style="border-left:4px solid var(--teal)"><strong>ポイント</strong>：キツネはウサギがいないと餓死し、ウサギはキツネがいないと増え続ける。この2つを式にしただけで、どちらも絶滅せず、<b>一定の周期で増減を繰り返す</b>ことが導けます。増減は「振り子」のように永遠に続き、平衡点に落ち着きません。</div>
+<h2>この画面の裏で解いている式</h2>
+<div class="note">dR/dt = αR − βRF　（ウサギ：自然に増え、キツネに会うと減る）<br>dF/dt = δβRF − γF　（キツネ：ウサギを食べると増え、自然に減る）</div>
+<p>R がウサギ、F がキツネの数です。式の中身は「ウサギとキツネが出会う回数は R×F に比例する」というだけ。この“出会いの項”が2つの種を結びつけ、周期的な振動を生みます。本シミュレーターはこの式をルンゲ＝クッタ法で数値積分しています（δ＝0.1で固定）。</p>
+<h2>スライダーで何が起きるか</h2>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>操作</th><th>起きること</th></tr><tr><td>ウサギの増殖率 α を上げる</td><td>波の山が高くなり、周期が短くなる。キツネの平均数（＝α/β）が増える</td></tr><tr><td>捕食率 β を上げる</td><td>キツネが効率よく食べるので、キツネの平衡数は減る（意外）。波が激しくなる</td></tr><tr><td>キツネの死亡率 γ を上げる</td><td>ウサギの平衡数（＝γ/δ）が増える。キツネが減りやすく、ウサギ天国に近づく</td></tr><tr><td>キツネを半分に減らす</td><td>ウサギが一時的に急増→餌が増えたキツネが元以上に増える→ウサギ激減。“駆除の逆効果”</td></tr></table></div>
+<h2>現実で観測された「10年周期」</h2>
+<p>カナダのハドソン湾会社が19世紀から残した毛皮の取引記録では、カンジキウサギとカナダオオヤマネコの捕獲数が<b>約10年周期</b>で増減しており、この方程式の予測と驚くほど一致します。第一次世界大戦中にアドリア海で漁獲が減った際、サメなど捕食魚の割合が増えた現象を説明するために、数学者ヴォルテラがこの式を導いたのが始まりです。</p>
+<p>害虫駆除で「殺虫剤を撒いたら害虫が前より増えた」という現象（駆除の逆効果）も、この式で説明できます。殺虫剤が害虫だけでなく天敵も減らすため、回復の早い害虫が先に増え、天敵が追いつく前に大発生するのです。</p>
+
+    <h2>引用・転載について</h2>
+    <p>本ページのシミュレーション結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・授業や社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「キツネとウサギ 増減シミュレーター」 https://shimulabo.com/sims/lotka-volterra/</code></div>
+    <h2>よくある質問</h2><dl class="faq"><dt>なぜ平衡点に落ち着かないの？</dt><dd>ロトカ・ヴォルテラ方程式は摩擦にあたる項を持たないため、振り子と同じでエネルギーが保存され、永遠に振動します。現実には環境収容力（餌の上限）などの項が加わるため、実際の生態系では振動が徐々に小さくなったり、逆に周期が安定したりします。</dd><dt>キツネの平均数が「ウサギの増殖率」で決まるのはなぜ？</dt><dd>式を解くと、キツネの平均数は α/β、ウサギの平均数は γ/δ になります。つまりキツネの数はキツネ自身の性質ではなく、餌であるウサギがどれだけ増えるかで決まります。生態系の“意外な連鎖”です。</dd><dt>数値は現実の個体数？</dt><dd>いいえ。単位は相対的なもので、表示は見やすさのために10倍しています。周期や増減のパターンを見る目的でお使いください。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../kansen-agent/"><span class="e">🦠</span><span>感染はこう広がる</span></a><a class="related-card" href="../shinrai-shinka/"><span class="e">🤝</span><span>信頼の進化</span></a><a class="related-card" href="../boids/"><span class="e">🐦</span><span>鳥の群れシミュレーター</span></a><a class="related-card" href="../forest-fire/"><span class="e">🔥</span><span>森林火災シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../lab/">🧪 シミュレーション・ラボ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+  const rnd = (a,b) => a + Math.random()*(b-a);
+  const randn = () => { let u=0,v=0; while(!u)u=Math.random(); while(!v)v=Math.random(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
+  let SHARE = '';
+  function setShare(t){ SHARE = t; }
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{ const l=$(s.id+'L'); if(l){ const u=()=>{ l.textContent = (s.dataset.fmt ? s.dataset.fmt.replace('{v}', s.value) : s.value); }; s.addEventListener('input',u); u(); } }); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  function setStat(id, v){ const e=$(id); if(e) e.textContent = v; }
+  try {
+    syncSliders();
+
+  const cv=$('cv'), x=cv.getContext('2d'), W=cv.width, H=cv.height;
+  const PLOT_W=430, PH_X=470, PH_W=150;
+  let R, F, t, hist, run=true, peaks, maxR, sp;
+  const p = () => ({a:+$('a').value, b:+$('b').value, g:+$('g').value, d:0.1});
+  function reset(){ R=10; F=4; t=0; hist=[]; peaks=[]; maxR=0; draw(); }
+  function deriv(r,f,q){ return [q.a*r - q.b*r*f, q.d*q.b*r*f - q.g*f]; }
+  function rk4(dt){ const q=p(); const k1=deriv(R,F,q); const k2=deriv(R+dt/2*k1[0],F+dt/2*k1[1],q); const k3=deriv(R+dt/2*k2[0],F+dt/2*k2[1],q); const k4=deriv(R+dt*k3[0],F+dt*k3[1],q);
+    R=Math.max(0.01, R+dt/6*(k1[0]+2*k2[0]+2*k3[0]+k4[0])); F=Math.max(0.01, F+dt/6*(k1[1]+2*k2[1]+2*k3[1]+k4[1])); t+=dt; }
+  function step(){ const n=+$('sp').value*2; for(let i=0;i<n;i++){ rk4(0.01); }
+    hist.push([t,R,F]); if(hist.length>1200) hist.shift();
+    const L=hist.length; if(L>=3){ const a=hist[L-3][1],b=hist[L-2][1],c=hist[L-1][1]; if(b>a&&b>=c&&b>2){ if(!peaks.length||hist[L-2][0]-peaks[peaks.length-1]>0.5) peaks.push(hist[L-2][0]); if(peaks.length>4) peaks.shift(); } }
+    maxR=Math.max(maxR,R); }
+  function draw(){
+    x.fillStyle='#0b1020'; x.fillRect(0,0,W,H);
+    const ymax=Math.max(30, maxR*1.15, 20);
+    // grid
+    x.strokeStyle='rgba(255,255,255,.08)'; x.lineWidth=1; for(let i=1;i<5;i++){ x.beginPath(); x.moveTo(0,H*i/5); x.lineTo(PLOT_W,H*i/5); x.stroke(); }
+    x.fillStyle='rgba(255,255,255,.35)'; x.font='11px sans-serif'; x.fillText('個体数（×10匹）', 6, 14); x.fillText('時間 →', PLOT_W-44, H-6);
+    if(hist.length>1){ const t0=hist[0][0], t1=Math.max(hist[hist.length-1][0], t0+12);
+      const sx=(tt)=>(tt-t0)/(t1-t0)*PLOT_W, sy=(v)=>H-8-(v/ymax)*(H-30);
+      for(const [idx,col] of [[1,'#4ade80'],[2,'#fb923c']]){ x.strokeStyle=col; x.lineWidth=2; x.beginPath(); hist.forEach((h,i)=>{ const X=sx(h[0]),Y=sy(h[idx]); i?x.lineTo(X,Y):x.moveTo(X,Y); }); x.stroke(); }
+      // phase portrait
+      x.strokeStyle='rgba(255,255,255,.12)'; x.strokeRect(PH_X,20,PH_W,PH_W);
+      x.fillStyle='rgba(255,255,255,.35)'; x.fillText('ウサギ→', PH_X+PH_W-42, 20+PH_W+12); x.save(); x.translate(PH_X-4,20+PH_W/2); x.rotate(-Math.PI/2); x.fillText('キツネ→',-20,0); x.restore();
+      const rmax=ymax, fmax=Math.max(15, ...hist.map(h=>h[2]))*1.1;
+      x.strokeStyle='#a78bfa'; x.lineWidth=1.5; x.beginPath(); hist.forEach((h,i)=>{ const X=PH_X+h[1]/rmax*PH_W, Y=20+PH_W-h[2]/fmax*PH_W; i?x.lineTo(X,Y):x.moveTo(X,Y); }); x.stroke();
+      x.fillStyle='#fff'; x.beginPath(); x.arc(PH_X+R/rmax*PH_W, 20+PH_W-F/fmax*PH_W, 4, 0, 7); x.fill();
+      // labels
+      x.fillStyle='#4ade80'; x.font='bold 12px sans-serif'; x.fillText('🐰 ウサギ '+Math.round(R*10)+'匹', 6, 32); x.fillStyle='#fb923c'; x.fillText('🦊 キツネ '+Math.round(F*10)+'匹', 6, 48);
+    }
+    setStat('sR', Math.round(R*10)+'匹'); setStat('sF', Math.round(F*10)+'匹'); setStat('sMax', Math.round(maxR*10)+'匹');
+    let per='計測中'; if(peaks.length>=2){ per=(peaks[peaks.length-1]-peaks[peaks.length-2]).toFixed(1)+' 年'; }
+    setStat('sT', per);
+    setShare('ウサギとキツネの増減は約'+(per==='計測中'?'？':per)+'周期🐰🦊 ウサギ最大'+Math.round(maxR*10)+'匹。キツネを減らすと逆にウサギが激減する“駆除の逆効果”も再現できる👇');
+  }
+  function loop(){ if(run){ step(); } draw(); requestAnimationFrame(loop); }
+  $('toggle').addEventListener('click',()=>{ run=!run; $('toggle').textContent=run?'⏸ 一時停止':'▶ 再生'; });
+  $('reset').addEventListener('click',reset);
+  $('cull').addEventListener('click',()=>{ F=Math.max(0.2,F*0.5); });
+  $('feed').addEventListener('click',()=>{ R=R*2; });
+  reset(); loop();
+
+  } catch(e) { console.error(e); }
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE || document.title)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText((SHARE||document.title)+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'lotka-volterra', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

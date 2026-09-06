@@ -25,7 +25,7 @@
     <meta name="robots" content="index,follow">
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "街の分断シミュレーター", "url": "https://shimulabo.com/sims/schelling/", "description": "弱い好みだけで街が分断されるシェリングの分居モデル。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "街の分断シミュレーター", "item": "https://shimulabo.com/sims/schelling/"}]}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "差別の話ですか？", "acceptedAnswer": {"@type": "Answer", "text": "むしろ逆で、強い差別意識がなくても分離が起きうることを示すモデルです。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動作します。"}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "差別の話ですか？", "acceptedAnswer": {"@type": "Answer", "text": "むしろ逆で、強い差別意識がなくても分離が起きうることを示すモデルです。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動作します。"}}, {"@type": "Question", "name": "現実の街でも同じことが起きている？", "acceptedAnswer": {"@type": "Answer", "text": "アメリカの都市の人種別居住分布や、SNSでの意見の分極（フィルターバブル）を説明するモデルとしてよく引用されます。「本人の意図」と「全体の結果」が一致しないことを示す代表例です。"}}, {"@type": "Question", "name": "分断を防ぐには？", "acceptedAnswer": {"@type": "Answer", "text": "モデル上では、空き地を増やす／満足ラインを下げる／「同類が多すぎても不満」という条件を足す、などで混合状態が保たれます。現実の都市政策でもこうした示唆が議論されています。"}}]}</script>
     <!-- ga4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
@@ -77,7 +77,13 @@
     <h2>シェリングの分居モデル</h2>
     <p>経済学者シェリングが示した有名なモデルです。各住人は「近所の◯％以上が同じ仲間なら満足、足りなければ引っ越す」というルールだけで動きます。<strong>「相手を排除したい」という気持ちはゼロ</strong>。それでも、わずかな好みが積み重なると、街全体は強く分断されてしまいます。</p>
     <p>社会の分断やフィルターバブルを考えるうえで示唆に富んだモデルです。</p>
-    <h2>よくある質問</h2><dl class="faq"><dt>差別の話ですか？</dt><dd>むしろ逆で、強い差別意識がなくても分離が起きうることを示すモデルです。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動作します。</dd></dl>
+    <!-- enriched-2026-09 -->
+<h2>数字で見る「弱い好み」の威力</h2>
+<p>1971年にトーマス・シェリングが示したこのモデルでは、住人が「近所の<b>3割</b>が同じ仲間なら満足」という、むしろ多様性に寛容といえる条件でも、街はくっきり分かれます。満足ラインを上げていくと分離はさらに進み、7割前後になると「どこに引っ越しても満足できない人」が出て、街が落ち着かなくなります。</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>満足する同類の割合</th><th>街の様子</th></tr><tr><td>10〜25%</td><td>ほとんど混ざったまま。引っ越しはすぐ止まる</td></tr><tr><td>30〜40%</td><td>はっきり2つに分かれる（最も“意外”な領域）</td></tr><tr><td>50〜60%</td><td>大きな塊に分離。境界がくっきり</td></tr><tr><td>70%〜</td><td>満足できる場所が見つからず、引っ越しが止まらない</td></tr></table></div>
+<h2>なぜ「弱い好み」が「強い分断」になるのか</h2>
+<p>不満な人が1人引っ越すと、元いた場所の周りは同類が減り、引っ越し先の周りは同類が増えます。つまり1回の引っ越しが、近所の別の人の不満を生み、連鎖します。個人の判断は小さくても、<b>相互作用が増幅する</b>ため、結果は誰も望んでいない分断になります。シェリングはこの研究を含む業績で2005年にノーベル経済学賞を受賞しました。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>差別の話ですか？</dt><dd>むしろ逆で、強い差別意識がなくても分離が起きうることを示すモデルです。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動作します。</dd><dt>現実の街でも同じことが起きている？</dt><dd>アメリカの都市の人種別居住分布や、SNSでの意見の分極（フィルターバブル）を説明するモデルとしてよく引用されます。「本人の意図」と「全体の結果」が一致しないことを示す代表例です。</dd><dt>分断を防ぐには？</dt><dd>モデル上では、空き地を増やす／満足ラインを下げる／「同類が多すぎても不満」という条件を足す、などで混合状態が保たれます。現実の都市政策でもこうした示唆が議論されています。</dd></dl>
   </article>
 
   <nav class="related" aria-label="related">

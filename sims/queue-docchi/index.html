@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/queue-docchi/">
+<title>行列は1列に並ぶべき？レジ別に並ぶべき？｜待ち時間を待ち行列シミュレーションで比較｜シミュラボ</title>
+<meta name="description" content="「1本の列から空いたレジへ」と「レジごとに並ぶ」では、どちらが待ち時間が短い？同じ客・同じレジ時間で2つの並び方を同時にシミュレーションし、平均待ち時間と最大待ち時間の差を可視化する無料ツール。銀行やATMの列が1本なのはこの理由。">
+<meta property="og:title" content="行列、1列並び vs レジ別 どっちが速い？">
+<meta property="og:description" content="同じ客で2つの並び方を同時シミュレーション。待ち時間の差を可視化。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/queue-docchi.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/queue-docchi.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/queue-docchi/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "行列、1列並び vs レジ別 どっちが速い？", "url": "https://shimulabo.com/sims/queue-docchi/", "description": "同じ客で2つの並び方を同時シミュレーション。待ち時間の差を可視化。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "シミュレーション・ラボ", "item": "https://shimulabo.com/lab/"}, {"@type": "ListItem", "position": 3, "name": "行列、1列並び vs レジ別 どっちが速い？", "item": "https://shimulabo.com/sims/queue-docchi/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "スーパーはなぜレジ別に並ぶの？", "acceptedAnswer": {"@type": "Answer", "text": "1本の列を作るには売り場の通路幅が必要で、カートを持った客が長い1列を作ると通路が塞がるためです。物理的な制約で、待ち時間の短さより売り場の動線を優先しています。"}}, {"@type": "Question", "name": "レジ別でも「空いたら移動」すれば同じでは？", "acceptedAnswer": {"@type": "Answer", "text": "移動（ジョッキング）を許すと差は縮まりますが、移動の判断が遅れる分だけ無駄が残ります。本シミュレーターのレジ別方式は「最初に短い列を選び、その後は移動しない」設定です。"}}, {"@type": "Question", "name": "待ち時間がずっと増え続けるのはなぜ？", "acceptedAnswer": {"@type": "Answer", "text": "稼働率が100%を超えると（客の到着がレジの処理能力を上回ると）列は理論上無限に伸びます。スライダーで到着を減らすかレジを増やしてください。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+<style>
+.lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
+.lab-ctl .field{margin-bottom:6px;}
+.lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
+.lab-ctl .slider-head label{margin:0;font-size:13px;}
+.lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
+.lab-ctl input[type=range]{width:100%;}
+.lab-ctl select{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;font-size:14px;background:#fff;}
+.lab-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px;}
+.lab-btns .btn{padding:11px 18px;font-size:14px;width:auto;}
+.lab-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;width:100%;max-width:640px;margin-top:4px;}
+.lab-stats .stat{background:var(--teal-l);border-radius:10px;padding:10px 12px;text-align:center;}
+.lab-stats .k{font-size:11px;color:var(--ink-2);}
+.lab-stats .v{font-size:20px;font-weight:800;color:var(--ink);font-feature-settings:"tnum";}
+.lab-stats .v.accent{color:var(--accent);}
+.lab-legend{text-align:center;color:var(--ink-2);font-size:13px;margin-top:12px;}
+.lab-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;background:rgba(44,107,134,.10);color:var(--teal-d);margin-bottom:8px;}
+canvas.lab{width:100%;max-width:640px;height:auto;border:1px solid var(--line);border-radius:12px;background:#0b1020;touch-action:none;}
+canvas.lab.light{background:#fff;}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../lab/">🧪 シミュレーション・ラボ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../lab/">シミュレーション・ラボ</a><span>›</span><span class="cur">行列、1列並び vs レジ別 どっちが速い？</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ふしぎ・現象</div>
+    <h1>行列、1列並び vs レジ別 どっちが速い？</h1>
+    <p class="lead">銀行やATM、空港の保安検査は「1本の列から空いたところへ」。スーパーは「レジごとに並ぶ」。同じ客・同じレジ時間で2つの方式を同時に走らせると、待ち時間にどれだけ差が出るのかを見てください。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:14px;">
+      <span class="lab-badge">🧪 待ち行列理論（M/M/c・フォーク型 vs 個別列）</span>
+      <canvas id="cv" class="lab" width="640" height="380"></canvas>
+      <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="c">レジの台数</label><span class="val" id="cL"></span></div><input type="range" id="c" min="2" max="6" value="3" step="1" data-fmt="{v}台"></div><div class="field"><div class="slider-head"><label for="lam">客の到着（1分あたり）</label><span class="val" id="lamL"></span></div><input type="range" id="lam" min="0.5" max="5" value="2.7" step="0.1" data-fmt="{v}人"></div><div class="field"><div class="slider-head"><label for="s">1人あたりのレジ時間（平均）</label><span class="val" id="sL"></span></div><input type="range" id="s" min="0.5" max="2.0" value="1.0" step="0.1" data-fmt="{v}分"></div><div class="field"><div class="slider-head"><label for="var">レジ時間のばらつき</label></div><select id="var"><option value="hi" selected>大きい（会計に手間取る客がいる）</option><option value="lo">小さい（ほぼ一定）</option></select></div><div class="field"><div class="slider-head"><label for="sp">再生速度</label><span class="val" id="spL"></span></div><input type="range" id="sp" min="1" max="10" value="4" step="1" data-fmt="×{v}"></div></div>
+      <div class="lab-btns"><button class="btn btn-ghost" id="toggle">⏸ 一時停止</button><button class="btn btn-ghost" id="reset">リセット</button></div>
+      <div class="lab-stats"><div class="stat"><div class="k">1列並び 平均待ち</div><div class="v" id="sA">—</div></div><div class="stat"><div class="k">レジ別 平均待ち</div><div class="v accent" id="sB">—</div></div><div class="stat"><div class="k">最大待ち（1列／レジ別）</div><div class="v" id="sMax">—</div></div><div class="stat"><div class="k">レジ稼働率</div><div class="v" id="sRho">—</div></div></div>
+    </div>
+    <p class="lab-legend">上＝1本の列（空いたレジへ）、下＝レジ別に並ぶ。同じ客が同じ順番・同じレジ時間で来店しています。緑のマス＝接客中。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+<div class="note" style="border-left:4px solid var(--teal)"><strong>ポイント</strong>：同じ客・同じレジ台数でも、<b>「1本の列」のほうが平均待ち時間も最大待ち時間も短くなる</b>のが待ち行列理論の結論です。レジ別に並ぶと、「自分の列の前の人が手間取る」という運の要素で、空いているレジがあるのに待つ人が出るからです。</div>
+<h2>なぜ1列のほうが速いのか</h2>
+<p>レジ別に並ぶ方式では、あるレジが手間取る客で止まっている間に、隣のレジが空いてしまう瞬間があります。この「レジが空いているのに待っている人がいる」時間が無駄です。1本の列なら、空いたレジにすぐ次の人が入るため、この無駄が構造的に起きません。列を作る側からすれば<b>「待ちの不公平」がなくなる</b>ことも大きな利点で、銀行・郵便局・空港・Apple Storeなどが1列方式を採用している理由です。</p>
+<h2>待ち時間が急に増える「稼働率」のライン</h2>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>レジ稼働率（λ×s÷c）</th><th>様子</th></tr><tr><td>〜70%</td><td>ほぼ待たない。列ができてもすぐ消える</td></tr><tr><td>80%</td><td>ときどき列。平均待ちがレジ時間の1〜2倍になる</td></tr><tr><td>90%</td><td>つねに列。平均待ちがレジ時間の数倍。ばらつきの影響が激しい</td></tr><tr><td>95%以上</td><td>待ち時間が爆発的に伸びる。少しの混雑増で列が無限に近づく</td></tr></table></div>
+<p>稼働率が同じでも、レジ時間の<b>ばらつきが大きいほど待ち時間は長く</b>なります（ポラチェック＝ヒンチンの公式）。「たまに手間取る客がいる」だけで、平均待ちは倍近くになることも。会計を速くするより、ばらつきを減らす（セルフレジの分離、カゴ数で列を分ける）ほうが効くこともあります。</p>
+<h2>現実の設計に使われている</h2>
+<p>待ち行列理論は1909年、デンマークの電話会社の技術者アーランが「交換手を何人置けば電話がつながるか」を計算するために生み出しました。現在はコールセンターのオペレーター数、病院の診察室数、サーバーの台数、ディズニーランドのファストパスまで、あらゆる「待ち」の設計に使われています。</p>
+
+    <h2>引用・転載について</h2>
+    <p>本ページのシミュレーション結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・授業や社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「行列、1列並び vs レジ別 どっちが速い？」 https://shimulabo.com/sims/queue-docchi/</code></div>
+    <h2>よくある質問</h2><dl class="faq"><dt>スーパーはなぜレジ別に並ぶの？</dt><dd>1本の列を作るには売り場の通路幅が必要で、カートを持った客が長い1列を作ると通路が塞がるためです。物理的な制約で、待ち時間の短さより売り場の動線を優先しています。</dd><dt>レジ別でも「空いたら移動」すれば同じでは？</dt><dd>移動（ジョッキング）を許すと差は縮まりますが、移動の判断が遅れる分だけ無駄が残ります。本シミュレーターのレジ別方式は「最初に短い列を選び、その後は移動しない」設定です。</dd><dt>待ち時間がずっと増え続けるのはなぜ？</dt><dd>稼働率が100%を超えると（客の到着がレジの処理能力を上回ると）列は理論上無限に伸びます。スライダーで到着を減らすかレジを増やしてください。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../elevator-sim/"><span class="e">🛗</span><span>エレベーター待ち時間シミュレーター</span></a><a class="related-card" href="../manin-densha/"><span class="e">🚃</span><span>満員電車 混雑率シミュレーター</span></a><a class="related-card" href="../jutai/"><span class="e">🚗</span><span>渋滞は勝手に生まれる</span></a><a class="related-card" href="../machi-jikan/"><span class="e">⏳</span><span>人生の「待ち時間」</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../lab/">🧪 シミュレーション・ラボ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+  const rnd = (a,b) => a + Math.random()*(b-a);
+  const randn = () => { let u=0,v=0; while(!u)u=Math.random(); while(!v)v=Math.random(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
+  let SHARE = '';
+  function setShare(t){ SHARE = t; }
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{ const l=$(s.id+'L'); if(l){ const u=()=>{ l.textContent = (s.dataset.fmt ? s.dataset.fmt.replace('{v}', s.value) : s.value); }; s.addEventListener('input',u); u(); } }); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  function setStat(id, v){ const e=$(id); if(e) e.textContent = v; }
+  try {
+    syncSliders();
+
+  const cv=$('cv'), x=cv.getContext('2d'), W=cv.width, H=cv.height;
+  let t, nextArr, sysA, sysB, run=true, cid;
+  const expo=(m)=>-Math.log(1-Math.random())*m;
+  function svc(){ const s=+$('s').value; if($('var').value==='lo'){ let v=0; for(let i=0;i<8;i++) v+=expo(s/8); return v; } return expo(s); }
+  function mk(c){ return { srv:Array.from({length:c},()=>({busyUntil:0,cust:null})), q:[], qs:Array.from({length:c},()=>[]), waits:[], sumW:0, maxW:0, served:0 }; }
+  function reset(){ t=0; nextArr=expo(1/+$('lam').value); const c=+$('c').value; sysA=mk(c); sysB=mk(c); cid=0; draw(); }
+  function arrive(){ const cu={id:cid++, at:t, st:svc()};
+    sysA.q.push({...cu});
+    // B: 最短の列へ（同着はランダム）
+    let best=[],bl=1e9; sysB.qs.forEach((q,i)=>{ const L=q.length+(sysB.srv[i].cust?1:0); if(L<bl){bl=L;best=[i];} else if(L===bl) best.push(i); });
+    sysB.qs[best[Math.random()*best.length|0]].push({...cu}); }
+  function serve(sys, single){ sys.srv.forEach((s,i)=>{ if(s.cust && s.busyUntil<=t){ s.cust=null; sys.served++; }
+      if(!s.cust){ const q=single?sys.q:sys.qs[i]; if(q.length){ const cu=q.shift(); const w=t-cu.at; sys.sumW+=w; sys.maxW=Math.max(sys.maxW,w); sys.waits.push(w); if(sys.waits.length>400) sys.waits.shift(); s.cust=cu; s.busyUntil=t+cu.st; } } }); }
+  function step(){ const dt=0.01*+$('sp').value; t+=dt; while(nextArr<=t){ arrive(); nextArr+=expo(1/+$('lam').value); } serve(sysA,true); serve(sysB,false); }
+  function person(px,py,col){ x.fillStyle=col; x.beginPath(); x.arc(px,py-5,4,0,7); x.fill(); x.fillRect(px-4,py,8,9); }
+  function draw(){
+    x.fillStyle='#0b1020'; x.fillRect(0,0,W,H); const c=+$('c').value;
+    x.font='bold 13px sans-serif'; x.fillStyle='#93c5fd'; x.fillText('A. 1本の列 → 空いたレジへ', 12, 20);
+    x.fillStyle='#fca5a5'; x.fillText('B. レジごとに並ぶ（最初に短い列を選ぶ）', 12, 200);
+    const bw=54, gap=16, x0=W-24-c*(bw+gap);
+    // A
+    sysA.srv.forEach((s,i)=>{ const bx=x0+i*(bw+gap); x.fillStyle=s.cust?'#16a34a':'#1e293b'; x.fillRect(bx,40,bw,40); x.strokeStyle='#475569'; x.strokeRect(bx,40,bw,40); x.fillStyle='#e2e8f0'; x.font='11px sans-serif'; x.fillText('レジ'+(i+1), bx+12, 64); if(s.cust) person(bx+bw/2, 100, '#facc15'); });
+    const qa=sysA.q; const shown=Math.min(qa.length,40); for(let i=0;i<shown;i++){ person(x0-30-i*13, 60, i<3?'#facc15':'#94a3b8'); }
+    x.fillStyle='#cbd5e1'; x.font='12px sans-serif'; x.fillText('待ち '+qa.length+'人', 12, 64);
+    // B
+    sysB.srv.forEach((s,i)=>{ const bx=x0+i*(bw+gap); x.fillStyle=s.cust?'#16a34a':'#1e293b'; x.fillRect(bx,220,bw,40); x.strokeStyle='#475569'; x.strokeRect(bx,220,bw,40); x.fillStyle='#e2e8f0'; x.font='11px sans-serif'; x.fillText('レジ'+(i+1), bx+12, 244); if(s.cust) person(bx+bw/2, 280, '#facc15');
+      const q=sysB.qs[i]; const n=Math.min(q.length,7); for(let k=0;k<n;k++) person(bx+bw/2, 300+k*11, k<2?'#facc15':'#94a3b8'); if(q.length>7){ x.fillStyle='#94a3b8'; x.fillText('+'+(q.length-7), bx+bw/2-8, 300+7*11+8); } });
+    const wb=sysB.qs.reduce((a,q)=>a+q.length,0); x.fillStyle='#cbd5e1'; x.font='12px sans-serif'; x.fillText('待ち '+wb+'人', 12, 244);
+    x.fillStyle='rgba(255,255,255,.5)'; x.fillText('経過 '+Math.floor(t)+'分', W-80, H-8);
+    const avg=(s)=>s.waits.length?s.sumW/(s.served+s.srv.filter(v=>v.cust).length||1):0;
+    const a=avg(sysA), b=avg(sysB), rho=+$('lam').value*+$('s').value/c;
+    setStat('sA', a.toFixed(1)+'分'); setStat('sB', b.toFixed(1)+'分'); setStat('sMax', sysA.maxW.toFixed(0)+'分 / '+sysB.maxW.toFixed(0)+'分'); setStat('sRho', Math.round(rho*100)+'%'+(rho>=1?' ⚠️限界超え':''));
+    setShare('レジ'+c+'台・稼働率'+Math.round(rho*100)+'%で実験🧍 1列並びの平均待ち'+a.toFixed(1)+'分 vs レジ別'+b.toFixed(1)+'分（最大'+sysA.maxW.toFixed(0)+'分 vs '+sysB.maxW.toFixed(0)+'分）。銀行の列が1本な理由👇');
+  }
+  function loop(){ if(run){ for(let i=0;i<3;i++) step(); } draw(); requestAnimationFrame(loop); }
+  ['c','lam','s','var'].forEach(id=>$(id).addEventListener('change',reset));
+  $('toggle').addEventListener('click',()=>{ run=!run; $('toggle').textContent=run?'⏸ 一時停止':'▶ 再生'; });
+  $('reset').addEventListener('click',reset);
+  reset(); loop();
+
+  } catch(e) { console.error(e); }
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE || document.title)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText((SHARE||document.title)+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'queue-docchi', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

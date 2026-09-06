@@ -25,7 +25,7 @@
     <meta name="robots" content="index,follow">
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "砂山崩しシミュレーター", "url": "https://shimulabo.com/sims/sandpile/", "description": "砂を積むとある時 突然 大崩壊が起きる自己組織化臨界。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "砂山崩しシミュレーター", "item": "https://shimulabo.com/sims/sandpile/"}]}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "美しい模様になるのはなぜ？", "acceptedAnswer": {"@type": "Answer", "text": "崩れのルールが生む数学的なパターンです。完成形はフラクタル的な構造になります。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動作します。"}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "美しい模様になるのはなぜ？", "acceptedAnswer": {"@type": "Answer", "text": "崩れのルールが生む数学的なパターンです。完成形はフラクタル的な構造になります。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動作します。"}}, {"@type": "Question", "name": "なぜ美しい模様になる？", "acceptedAnswer": {"@type": "Answer", "text": "中央に砂を積み続けると、崩れの規則が対称的に伝わるため、フラクタル状の幾何学模様が育ちます。この模様は数学的に厳密に決まっており、砂を100万粒積んだ図が有名です。"}}, {"@type": "Question", "name": "大崩壊はいつ来るか予測できる？", "acceptedAnswer": {"@type": "Answer", "text": "できません。臨界状態では、1粒追加が小さな崩れで済むか大崩壊になるかは、砂山全体の微細な配置で決まります。地震の予知が難しいのと同じ構造です。"}}]}</script>
     <!-- ga4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
@@ -77,7 +77,13 @@
     <h2>自己組織化臨界</h2>
     <p>1つのマスに砂が4粒たまると、周囲4マスへ1粒ずつ崩れます。崩れた先がまた4粒になれば、さらに崩れる…と連鎖します。たいていは小さな崩れですが、ときどき<strong>とてつもない大崩壊</strong>が起こります。しかも、いつ大崩壊が来るかは事前に分かりません。</p>
     <p>この「ふだんは静かで、ときどき大事件」という性質は、地震・山火事・株価暴落など多くの現象に共通します。</p>
-    <h2>よくある質問</h2><dl class="faq"><dt>美しい模様になるのはなぜ？</dt><dd>崩れのルールが生む数学的なパターンです。完成形はフラクタル的な構造になります。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動作します。</dd></dl>
+    <!-- enriched-2026-09 -->
+<h2>ルールは1つ：「4粒たまったら4方向へ」</h2>
+<p>1つのマスに砂が4粒以上たまると、上下左右のマスへ1粒ずつ配ります。配られた先も4粒になればまた崩れる——この連鎖が「なだれ」です。このモデルは1987年にバック・タン・ヴィーゼンフェルトが提案し、<b>自己組織化臨界</b>という概念を生みました。誰も調整していないのに、系が勝手に「いつ大崩壊してもおかしくない臨界状態」へ向かうのがポイントです。</p>
+<h2>大崩壊の頻度は「べき乗則」</h2>
+<p>なだれの大きさ s と、その起こる頻度の関係は <b>頻度 ∝ 1/sᵗ</b>（べき乗則）になります。小さななだれは頻繁に、大きななだれはまれに——しかし「まれ」であって「起きない」わけではない。平均や標準偏差で語れない分布なので、「想定外」が構造的に起きます。</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>同じ分布が見つかる現象</th><th>内容</th></tr><tr><td>地震</td><td>グーテンベルク・リヒター則（M1上がるごとに頻度は約1/10）</td></tr><tr><td>山火事</td><td>燃えた面積の分布</td></tr><tr><td>株価の暴落</td><td>値動きの分布（正規分布より裾が厚い）</td></tr><tr><td>停電の連鎖</td><td>送電網の連鎖障害の規模</td></tr></table></div>
+    <h2>よくある質問</h2><dl class="faq"><dt>美しい模様になるのはなぜ？</dt><dd>崩れのルールが生む数学的なパターンです。完成形はフラクタル的な構造になります。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動作します。</dd><dt>なぜ美しい模様になる？</dt><dd>中央に砂を積み続けると、崩れの規則が対称的に伝わるため、フラクタル状の幾何学模様が育ちます。この模様は数学的に厳密に決まっており、砂を100万粒積んだ図が有名です。</dd><dt>大崩壊はいつ来るか予測できる？</dt><dd>できません。臨界状態では、1粒追加が小さな崩れで済むか大崩壊になるかは、砂山全体の微細な配置で決まります。地震の予知が難しいのと同じ構造です。</dd></dl>
   </article>
 
   <nav class="related" aria-label="related">

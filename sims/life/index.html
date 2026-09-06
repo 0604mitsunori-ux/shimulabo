@@ -25,7 +25,7 @@
     <meta name="robots" content="index,follow">
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "ライフゲーム", "url": "https://shimulabo.com/sims/life/", "description": "3つのルールだけで生命のようなパターンが生まれるライフゲーム。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ライフゲーム", "item": "https://shimulabo.com/sims/life/"}]}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "何の役に立つの？", "acceptedAnswer": {"@type": "Answer", "text": "創発・複雑系を直感的に理解できる教材として有名です。眺めるだけでも面白いですよ。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動作します。"}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "何の役に立つの？", "acceptedAnswer": {"@type": "Answer", "text": "創発・複雑系を直感的に理解できる教材として有名です。眺めるだけでも面白いですよ。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動作します。"}}, {"@type": "Question", "name": "最初の密度はどのくらいが面白い？", "acceptedAnswer": {"@type": "Answer", "text": "セルの3〜4割を生きた状態にすると、数百世代にわたって動きが続きやすいです。多すぎると一気に死に絶え、少なすぎるとすぐ固定物だけになります。"}}, {"@type": "Question", "name": "必ず終わりが来る？", "acceptedAnswer": {"@type": "Answer", "text": "多くの配置はやがて固定物と振動子だけになりますが、グライダー銃のように永遠に成長し続ける配置もあります。「この配置がどうなるか」を一般的に予測する方法は存在しないことが証明されています。"}}]}</script>
     <!-- ga4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
@@ -77,7 +77,13 @@
     <h2>3つのルール</h2>
     <ul><li>生きているセルの周りに2〜3個の仲間 → 生存</li><li>死んでいるセルの周りにちょうど3個 → 誕生</li><li>それ以外 → 死</li></ul>
     <p>1970年に数学者コンウェイが考案。単純なルールから、移動する「グライダー」や永遠に動く構造など、驚くほど複雑なパターンが生まれます。これは「単純なルールから複雑さが生まれる（創発）」の代表例です。</p>
-    <h2>よくある質問</h2><dl class="faq"><dt>何の役に立つの？</dt><dd>創発・複雑系を直感的に理解できる教材として有名です。眺めるだけでも面白いですよ。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動作します。</dd></dl>
+    <!-- enriched-2026-09 -->
+<h2>覚えておきたい有名パターン</h2>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>名前</th><th>形</th><th>ふるまい</th></tr><tr><td>ブロック</td><td>2×2の正方形</td><td>永遠に動かない（固定物）</td></tr><tr><td>ブリンカー</td><td>縦3つ→横3つ</td><td>周期2で点滅（振動子）</td></tr><tr><td>グライダー</td><td>5セルの塊</td><td>4世代で斜めに1マス進む（移動体）</td></tr><tr><td>ゴスパーのグライダー銃</td><td>36セル</td><td>30世代ごとにグライダーを撃ち続ける（無限成長）</td></tr></table></div>
+<p>クリックで「グライダー」を置いてみてください。ライフゲーム誕生直後、コンウェイは「無限に増え続ける配置はない」と予想して賞金をかけましたが、1970年にビル・ゴスパーがグライダー銃を発見し、この予想は覆されました。</p>
+<h2>ライフゲームは「コンピュータ」である</h2>
+<p>グライダーを信号、衝突をスイッチとして使うと、論理回路（AND・OR・NOT）を組めます。つまりライフゲームの上で、どんな計算でもできるコンピュータを作れる——これを<b>チューリング完全</b>といいます。実際に、ライフゲームの中で動くライフゲームまで作られています。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>何の役に立つの？</dt><dd>創発・複雑系を直感的に理解できる教材として有名です。眺めるだけでも面白いですよ。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動作します。</dd><dt>最初の密度はどのくらいが面白い？</dt><dd>セルの3〜4割を生きた状態にすると、数百世代にわたって動きが続きやすいです。多すぎると一気に死に絶え、少なすぎるとすぐ固定物だけになります。</dd><dt>必ず終わりが来る？</dt><dd>多くの配置はやがて固定物と振動子だけになりますが、グライダー銃のように永遠に成長し続ける配置もあります。「この配置がどうなるか」を一般的に予測する方法は存在しないことが証明されています。</dd></dl>
   </article>
 
   <nav class="related" aria-label="related">

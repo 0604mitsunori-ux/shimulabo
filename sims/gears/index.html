@@ -25,7 +25,7 @@
     <meta name="robots" content="index,follow">
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "歯車シミュレーター", "url": "https://shimulabo.com/sims/gears/", "description": "歯数を変えて回転比（ギア比）を体感。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "歯車シミュレーター", "item": "https://shimulabo.com/sims/gears/"}]}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "なぜ逆向きに回る？", "acceptedAnswer": {"@type": "Answer", "text": "かみ合う歯車は必ず反対方向に回ります。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動きます。"}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "なぜ逆向きに回る？", "acceptedAnswer": {"@type": "Answer", "text": "かみ合う歯車は必ず反対方向に回ります。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動きます。"}}, {"@type": "Question", "name": "トルクって何？", "acceptedAnswer": {"@type": "Answer", "text": "回転させる力のことです。歯車で回転数を半分にすると、トルクは2倍になります（摩擦を無視した場合）。"}}, {"@type": "Question", "name": "3つ以上つなぐとどうなる？", "acceptedAnswer": {"@type": "Answer", "text": "間の歯車（アイドラー）は回転方向を反転させるだけで、ギア比は両端の歯数だけで決まります。"}}]}</script>
     <!-- ga4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
@@ -76,7 +76,13 @@
   <article class="article">
     <h2>ギア比のしくみ</h2>
     <p>かみ合う歯車は、歯のかみ合う数が同じになるよう回ります。だから歯数が半分の歯車は2倍の速さで回転。自転車の変速、車のミッション、時計の針——すべてこの原理です。</p>
-    <h2>よくある質問</h2><dl class="faq"><dt>なぜ逆向きに回る？</dt><dd>かみ合う歯車は必ず反対方向に回ります。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動きます。</dd></dl>
+    <!-- enriched-2026-09 -->
+<h2>ギア比の計算</h2>
+<p>かみ合う2つの歯車では、<b>回転数の比は歯数の逆比</b>になります。左20歯・右40歯なら、左が2回転する間に右は1回転（ギア比2:1）。速度が半分になる代わりに、回す力（トルク）は2倍になります。速度と力はトレードオフ、というのが歯車の本質です。</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>例</th><th>ギア比のはたらき</th></tr><tr><td>自転車（前50T・後25T）</td><td>ペダル1回転で後輪2回転（速い・重い）</td></tr><tr><td>自転車（前34T・後34T）</td><td>ペダル1回転で後輪1回転（遅い・軽い）</td></tr><tr><td>時計の秒針→分針</td><td>60:1（秒針60回転で分針1回転）</td></tr><tr><td>自動車の1速</td><td>約3〜4:1で力を優先</td></tr></table></div>
+<h2>歯数に“奇数”や“互いに素”を使う理由</h2>
+<p>工業用の歯車は、20:40のような割り切れる比を避け、20:41 のように互いに素な歯数を選ぶことがよくあります。同じ歯同士がいつも当たると偏った摩耗が起きるため、当たる歯の組み合わせをずらす工夫（ハンチング歯）です。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>なぜ逆向きに回る？</dt><dd>かみ合う歯車は必ず反対方向に回ります。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動きます。</dd><dt>トルクって何？</dt><dd>回転させる力のことです。歯車で回転数を半分にすると、トルクは2倍になります（摩擦を無視した場合）。</dd><dt>3つ以上つなぐとどうなる？</dt><dd>間の歯車（アイドラー）は回転方向を反転させるだけで、ギア比は両端の歯数だけで決まります。</dd></dl>
   </article>
 
   <nav class="related" aria-label="related">

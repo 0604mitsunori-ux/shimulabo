@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/tsunami-kishi/">
+<title>津波はなぜ岸で高くなる？シミュレーター｜沖で1mの津波が岸で何mになるか浅水波方程式で計算｜シミュラボ</title>
+<meta name="description" content="沖ではわずか1mの津波が、岸に近づくと数倍の高さになる理由を、津波予測に使われる浅水波方程式をブラウザで解いて再現。水深・海底の傾斜・沖の波高を変えて、到達時間と岸での高さを体感できる無料シミュレーター。グリーンの法則も解説。">
+<meta property="og:title" content="津波はなぜ岸で高くなる？ シミュレーター">
+<meta property="og:description" content="沖で1mの津波が岸で何mに？浅水波方程式で計算。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/tsunami-kishi.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/tsunami-kishi.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/tsunami-kishi/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "津波はなぜ岸で高くなる？ シミュレーター", "url": "https://shimulabo.com/sims/tsunami-kishi/", "description": "沖で1mの津波が岸で何mに？浅水波方程式で計算。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "シミュレーション・ラボ", "item": "https://shimulabo.com/lab/"}, {"@type": "ListItem", "position": 3, "name": "津波はなぜ岸で高くなる？ シミュレーター", "item": "https://shimulabo.com/sims/tsunami-kishi/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "普通の波と津波は何が違う？", "acceptedAnswer": {"@type": "Answer", "text": "風の波は波長が数十mで海面付近だけが動きますが、津波は波長が数十〜数百kmあり、海底から海面まで水全体が動きます。そのため運ぶエネルギーが桁違いで、高さ1mでも人は流されます。"}}, {"@type": "Question", "name": "岸での高さが理論値と違うのは？", "acceptedAnswer": {"@type": "Answer", "text": "本シミュレーターは海底の摩擦・砕波・波の非線形効果を簡略化しており、傾斜が急だと理論値より低く、緩いと近い値になります。実際の津波は湾の形状でさらに2〜3倍になることもあります。"}}, {"@type": "Question", "name": "津波の速さを実感するには？", "acceptedAnswer": {"@type": "Answer", "text": "水深4,000mでの時速700kmはジェット旅客機と同じです。沖にいる船が津波に気づかないのは、高さ1m・波長100kmの“うねり”が数分かけて通過するだけだからです。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+<style>
+.lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
+.lab-ctl .field{margin-bottom:6px;}
+.lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
+.lab-ctl .slider-head label{margin:0;font-size:13px;}
+.lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
+.lab-ctl input[type=range]{width:100%;}
+.lab-ctl select{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;font-size:14px;background:#fff;}
+.lab-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px;}
+.lab-btns .btn{padding:11px 18px;font-size:14px;width:auto;}
+.lab-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;width:100%;max-width:640px;margin-top:4px;}
+.lab-stats .stat{background:var(--teal-l);border-radius:10px;padding:10px 12px;text-align:center;}
+.lab-stats .k{font-size:11px;color:var(--ink-2);}
+.lab-stats .v{font-size:20px;font-weight:800;color:var(--ink);font-feature-settings:"tnum";}
+.lab-stats .v.accent{color:var(--accent);}
+.lab-legend{text-align:center;color:var(--ink-2);font-size:13px;margin-top:12px;}
+.lab-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;background:rgba(44,107,134,.10);color:var(--teal-d);margin-bottom:8px;}
+canvas.lab{width:100%;max-width:640px;height:auto;border:1px solid var(--line);border-radius:12px;background:#0b1020;touch-action:none;}
+canvas.lab.light{background:#fff;}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../lab/">🧪 シミュレーション・ラボ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../lab/">シミュレーション・ラボ</a><span>›</span><span class="cur">津波はなぜ岸で高くなる？ シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ふしぎ・現象</div>
+    <h1>津波はなぜ岸で高くなる？ シミュレーター</h1>
+    <p class="lead">沖合の船は津波にほとんど気づきません。ところが同じ波が岸に届くと、数倍の高さの壁になります。津波の予測に使われる「浅水波方程式」をブラウザで解いて、水深・傾斜・沖の高さを変えながら、その理由を見てください。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:14px;">
+      <span class="lab-badge">🧪 浅水波方程式（1次元・有限差分）</span>
+      <canvas id="cv" class="lab" width="640" height="360"></canvas>
+      <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="depth">沖の水深</label><span class="val" id="depthL"></span></div><input type="range" id="depth" min="500" max="6000" value="3000" step="100" data-fmt="{v}m"></div><div class="field"><div class="slider-head"><label for="h0">沖での津波の高さ</label><span class="val" id="h0L"></span></div><input type="range" id="h0" min="0.3" max="3" value="1" step="0.1" data-fmt="{v}m"></div><div class="field"><div class="slider-head"><label for="slope">海底の傾斜（岸に向かう浅くなり方）</label><span class="val" id="slopeL"></span></div><input type="range" id="slope" min="1" max="5" value="3" step="1"></div><div class="field"><div class="slider-head"><label for="sp">再生速度</label><span class="val" id="spL"></span></div><input type="range" id="sp" min="1" max="10" value="5" step="1" data-fmt="×{v}"></div></div>
+      <div class="lab-btns"><button class="btn btn-primary" id="go">🌊 津波を発生させる</button><button class="btn btn-ghost" id="toggle">⏸ 一時停止</button></div>
+      <div class="lab-stats"><div class="stat"><div class="k">岸での高さ</div><div class="v accent" id="sH">—</div></div><div class="stat"><div class="k">沖の速さ</div><div class="v" id="sV">—</div></div><div class="stat"><div class="k">岸の速さ</div><div class="v" id="sVc">—</div></div><div class="stat"><div class="k">岸に届くまで</div><div class="v" id="sT">—</div></div></div>
+    </div>
+    <p class="lab-legend">青＝海面（高さを強調表示）、茶＝海底。津波は沖ではジェット機の速さ、岸では自動車の速さ。遅くなった分、波は縮んで高くなります。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+<div class="note" style="border-left:4px solid var(--teal)"><strong>ポイント</strong>：津波の速さは水深で決まります（<b>v = √(g × 水深)</b>）。水深4,000mでは時速約700km、水深10mでは時速約36km。岸に近づいて速度が落ちると、後ろから来る波が追いつき、エネルギーが縮んだ分だけ<b>高さが上がります</b>。沖で1mなら、岸で3〜5mになることも珍しくありません。</div>
+<h2>この画面で解いている式</h2>
+<div class="note">∂h/∂t + ∂(hu)/∂x = 0　（水の量は保存する）<br>∂u/∂t + u ∂u/∂x + g ∂η/∂x = 0　（水は水面の傾きの方向に加速する）</div>
+<p>水深に比べて波長がはるかに長い波（津波の波長は数十〜数百km）は、この「浅水波方程式」で正確に記述できます。気象庁の津波予報も、この式を3次元の海底地形に適用して計算しています。本ページは1次元・有限差分法で、沖から岸までの断面を毎フレーム解いています。</p>
+<h2>グリーンの法則：高さは水深の4乗根に反比例</h2>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>水深</th><th>津波の速さ</th><th>高さ（沖で1mの場合の理論値）</th></tr><tr><td>4,000m</td><td>約710km/h</td><td>1.0m（基準）</td></tr><tr><td>1,000m</td><td>約360km/h</td><td>1.4m</td></tr><tr><td>100m</td><td>約110km/h</td><td>2.5m</td></tr><tr><td>10m</td><td>約36km/h</td><td>4.5m</td></tr></table></div>
+<p>エネルギーが保存されるとき、津波の高さは水深の1/4乗に反比例します（グリーンの法則）。水深が4,000mから10mに（400分の1に）なると、高さは 400^0.25 ≈ 4.5倍。実際には湾の形（V字湾で集中）や海底の摩擦、砕波でさらに変わりますが、この式が「沖で小さく岸で大きい」理由の本質です。</p>
+<h2>「引き波」と逃げる時間</h2>
+<p>沖で津波が発生すると、岸に届くまでの時間は距離÷速さ。震源が近い日本海溝沿いでは<b>数分〜30分</b>で到達します。2011年の東北地方太平洋沖地震では、沖合のGPS波浪計で高さ約6mの津波を観測した後、岸では10〜15m（遡上高は最大40m）に達しました。「揺れたら、高い所へ」が鉄則である理由がこの速さと増幅にあります。</p>
+
+    <h2>引用・転載について</h2>
+    <p>本ページのシミュレーション結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・授業や社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「津波はなぜ岸で高くなる？ シミュレーター」 https://shimulabo.com/sims/tsunami-kishi/</code></div>
+    <h2>よくある質問</h2><dl class="faq"><dt>普通の波と津波は何が違う？</dt><dd>風の波は波長が数十mで海面付近だけが動きますが、津波は波長が数十〜数百kmあり、海底から海面まで水全体が動きます。そのため運ぶエネルギーが桁違いで、高さ1mでも人は流されます。</dd><dt>岸での高さが理論値と違うのは？</dt><dd>本シミュレーターは海底の摩擦・砕波・波の非線形効果を簡略化しており、傾斜が急だと理論値より低く、緩いと近い値になります。実際の津波は湾の形状でさらに2〜3倍になることもあります。</dd><dt>津波の速さを実感するには？</dt><dd>水深4,000mでの時速700kmはジェット旅客機と同じです。沖にいる船が津波に気づかないのは、高さ1m・波長100kmの“うねり”が数分かけて通過するだけだからです。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../building-quake/"><span class="e">🏢</span><span>地震でビルはどう揺れる？</span></a><a class="related-card" href="../jishin-live/"><span class="e">🗾</span><span>日本はいまも揺れている</span></a><a class="related-card" href="../ripple/"><span class="e">💧</span><span>波紋シミュレーター</span></a><a class="related-card" href="../wave/"><span class="e">🌊</span><span>波の干渉シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../lab/">🧪 シミュレーション・ラボ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+  const rnd = (a,b) => a + Math.random()*(b-a);
+  const randn = () => { let u=0,v=0; while(!u)u=Math.random(); while(!v)v=Math.random(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
+  let SHARE = '';
+  function setShare(t){ SHARE = t; }
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{ const l=$(s.id+'L'); if(l){ const u=()=>{ l.textContent = (s.dataset.fmt ? s.dataset.fmt.replace('{v}', s.value) : s.value); }; s.addEventListener('input',u); u(); } }); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  function setStat(id, v){ const e=$(id); if(e) e.textContent = v; }
+  try {
+    syncSliders();
+
+  const cv=$('cv'), x=cv.getContext('2d'), W=cv.width, H=cv.height;
+  const NX=300, LEN=200000; // 200km 断面
+  let h, u, d, t, run=true, started=false, maxCoast=0, arrive=null, dxm=LEN/NX;
+  const g=9.81;
+  function bathy(){ const D=+$('depth').value, s=+$('slope').value; d=new Float64Array(NX); for(let i=0;i<NX;i++){ const r=i/(NX-1); // 0=沖 1=岸
+      const k=[0.7,1.0,1.5,2.2,3.0][s-1]; d[i]=Math.max(5, D*Math.pow(1-r,k)); } }
+  function reset(){ bathy(); h=new Float64Array(NX); u=new Float64Array(NX); t=0; started=false; maxCoast=0; arrive=null; draw(); }
+  // u[i] は h[i] と h[i+1] の間（スタッガード格子）。線形＋弱非線形の浅水波を leapfrog で解く
+  function go(){ reset(); const A=+$('h0').value; for(let i=0;i<NX;i++){ const xx=(i-30)/9; h[i]=A*Math.exp(-xx*xx); } for(let i=0;i<NX-1;i++){ u[i]=0.5*(h[i]+h[i+1])*Math.sqrt(g/(0.5*(d[i]+d[i+1]))); } started=true; }
+  function step(){ const cmax=Math.sqrt(g*(+$('depth').value+3)); const dt=0.4*dxm/cmax;
+    for(let i=0;i<NX-1;i++){ const dh=(h[i+1]-h[i])/dxm; const Hm=0.5*(d[i]+d[i+1]+h[i]+h[i+1]); u[i]-=dt*g*dh; u[i]*=1-dt*0.001*Math.abs(u[i])/Math.max(3,Hm); }
+    u[NX-1]=0;
+    for(let i=1;i<NX;i++){ const Hl=Math.max(0.5,d[i-1]+h[i-1]), Hr=Math.max(0.5,d[i]+h[i]); const fl=0.5*(Hl+Hr)*u[i-1]; const fr=i<NX-1?0.5*(Hr+Math.max(0.5,d[i+1]+h[i+1]))*u[i]:0; h[i]-=dt*(fr-fl)/dxm; }
+    // 沖側スポンジ（反射を吸収）
+    for(let i=0;i<16;i++){ const k=1-0.06*(16-i)/16; h[i]*=k; u[i]*=k; }
+    t+=dt;
+    const coast=Math.max(h[NX-2],h[NX-3],h[NX-4]); if(coast>maxCoast) maxCoast=coast; if(arrive==null&&coast>+$('h0').value*0.3) arrive=t; }
+  function draw(){ x.fillStyle='#0b1020'; x.fillRect(0,0,W,H); const D=+$('depth').value; const top=40, bot=H-24; const sy=(depth)=>top+80+(depth/D)*(bot-top-80);
+    x.fillStyle='#6b4f2a'; x.beginPath(); x.moveTo(0,bot); for(let i=0;i<NX;i++) x.lineTo(i/(NX-1)*W, sy(d[i])); x.lineTo(W,bot); x.fill();
+    const amp=60/Math.max(1,+$('h0').value*3); x.fillStyle='rgba(56,189,248,.55)'; x.beginPath(); x.moveTo(0,sy(0)); for(let i=0;i<NX;i++) x.lineTo(i/(NX-1)*W, sy(0)-h[i]*amp); x.lineTo(W,sy(0)); for(let i=NX-1;i>=0;i--) x.lineTo(i/(NX-1)*W, sy(d[i])); x.closePath(); x.fill();
+    x.strokeStyle='#e0f2fe'; x.lineWidth=2; x.beginPath(); for(let i=0;i<NX;i++){ const X=i/(NX-1)*W, Y=sy(0)-h[i]*amp; i?x.lineTo(X,Y):x.moveTo(X,Y); } x.stroke();
+    x.fillStyle='rgba(255,255,255,.5)'; x.font='11px sans-serif'; x.fillText('沖（水深'+D+'m）', 8, 16); x.fillText('岸 →', W-40, 16); x.fillText('※波の高さは強調表示', 8, 30);
+    const i0=20; let ii=0,mx=0; for(let i=0;i<NX;i++) if(h[i]>mx){mx=h[i];ii=i;} if(started&&mx>0.05){ x.fillStyle='#fbbf24'; x.font='bold 12px sans-serif'; x.fillText('▲ '+mx.toFixed(1)+'m / 時速'+Math.round(Math.sqrt(g*d[ii])*3.6)+'km', clamp(ii/(NX-1)*W-40,0,W-150), sy(0)-mx*amp-8); }
+    x.fillStyle='rgba(255,255,255,.5)'; x.font='11px sans-serif'; x.fillText('経過 '+Math.floor(t/60)+'分'+Math.floor(t%60)+'秒', W-110, H-8);
+    const v0=Math.sqrt(g*D)*3.6, vc=Math.sqrt(g*10)*3.6;
+    setStat('sH', started?maxCoast.toFixed(1)+'m':'—'); setStat('sV', '時速'+Math.round(v0)+'km'); setStat('sVc', '時速'+Math.round(vc)+'km'); setStat('sT', arrive!=null?Math.floor(arrive/60)+'分'+Math.floor(arrive%60)+'秒':'—');
+    setShare('沖（水深'+D+'m）で'+$('h0').value+'mの津波→岸では'+(started?maxCoast.toFixed(1):'？')+'m🌊 沖の速さは時速'+Math.round(v0)+'km（ジェット機並み）、岸まで'+(arrive!=null?Math.floor(arrive/60)+'分':'？')+'。津波が岸で高くなる理由👇'); }
+  function loop(){ if(run&&started){ for(let i=0;i<+$('sp').value*2;i++) step(); } draw(); requestAnimationFrame(loop); }
+  ['depth','slope'].forEach(id=>$(id).addEventListener('input',reset));
+  $('go').addEventListener('click',go); $('toggle').addEventListener('click',()=>{ run=!run; $('toggle').textContent=run?'⏸ 一時停止':'▶ 再生'; });
+  go(); loop();
+
+  } catch(e) { console.error(e); }
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE || document.title)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText((SHARE||document.title)+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'tsunami-kishi', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

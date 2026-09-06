@@ -25,7 +25,7 @@
     <meta name="robots" content="index,follow">
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "ワープ星空シミュレーター", "url": "https://shimulabo.com/sims/starfield/", "description": "星の中を飛ぶワープ体験。スピード調整も。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ワープ星空シミュレーター", "item": "https://shimulabo.com/sims/starfield/"}]}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "酔いませんか？", "acceptedAnswer": {"@type": "Answer", "text": "スピードを下げるとゆったり眺められます。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動きます。"}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "酔いませんか？", "acceptedAnswer": {"@type": "Answer", "text": "スピードを下げるとゆったり眺められます。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動きます。"}}, {"@type": "Question", "name": "星の数を増やせる？", "acceptedAnswer": {"@type": "Answer", "text": "本シミュレーターは数百〜千個程度で描画しています。増やすほど密度感が出ますが、モバイル端末では重くなります。"}}, {"@type": "Question", "name": "眺めていると眠くなる？", "acceptedAnswer": {"@type": "Answer", "text": "一定のリズムで流れる映像は視覚的な刺激が単調で、リラックス効果があると言われます。スピードを最小にして眺めるのがおすすめです。"}}]}</script>
     <!-- ga4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
@@ -76,7 +76,13 @@
   <article class="article">
     <h2>遠近感の作り方</h2>
     <p>星に奥行き（z座標）を持たせ、近づくほど画面の外側へ大きく速く動くように描いています。これだけで「自分が前進している」感覚が生まれます。古くからあるデモですが、何度見ても気持ちいい演出です。</p>
-    <h2>よくある質問</h2><dl class="faq"><dt>酔いませんか？</dt><dd>スピードを下げるとゆったり眺められます。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動きます。</dd></dl>
+    <!-- enriched-2026-09 -->
+<h2>奥行きを作る「透視投影」</h2>
+<p>各星に3次元座標 (x, y, z) を持たせ、画面上の位置を <b>x ÷ z、y ÷ z</b> で決めています。z（奥行き）が小さい＝近い星ほど画面の外側に大きく速く動く——それだけで「自分が前へ進んでいる」感覚が生まれます。スピードを上げると、1フレームでの移動量が増えて、星が線（モーションブラー）として描かれます。</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>有名な例</th><th>内容</th></tr><tr><td>スター・ウォーズ（1977）</td><td>ハイパースペースへの突入演出の元祖</td></tr><tr><td>Windows 3.1のスクリーンセーバー</td><td>「宇宙飛行」として世界中のPCで再生された</td></tr><tr><td>デモシーン</td><td>1990年代のプログラマーが技を競った定番課題</td></tr></table></div>
+<h2>本当の宇宙旅行では星は流れない</h2>
+<p>実際には最も近い恒星でも4光年以上離れているため、光速に近い速度で飛んでも星の位置はほとんど変わりません。ただし光速に近づくと、相対論的効果で前方の星が中央に集まって見える（光行差）ため、SF映画とは別の意味で不思議な光景になるはずです。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>酔いませんか？</dt><dd>スピードを下げるとゆったり眺められます。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動きます。</dd><dt>星の数を増やせる？</dt><dd>本シミュレーターは数百〜千個程度で描画しています。増やすほど密度感が出ますが、モバイル端末では重くなります。</dd><dt>眺めていると眠くなる？</dt><dd>一定のリズムで流れる映像は視覚的な刺激が単調で、リラックス効果があると言われます。スピードを最小にして眺めるのがおすすめです。</dd></dl>
   </article>
 
   <nav class="related" aria-label="related">

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/neural-play/">
+<title>ニューラルネットが学ぶ瞬間｜ブラウザで本物のAIを学習させ、境界線が育つ様子を見る｜シミュラボ</title>
+<meta name="description" content="渦巻き・円・XORなどのデータを、本物のニューラルネットワーク（多層パーセプトロン）がブラウザ内で学習する様子をリアルタイム表示。隠れ層のニューロン数・学習率・データのノイズを変えると、AIが「分かる」までの過程がどう変わるかを体感できる無料ツール。">
+<meta property="og:title" content="ニューラルネットが学ぶ瞬間 シミュレーター">
+<meta property="og:description" content="本物のAIをブラウザで学習させ、境界線が育つ様子を見る。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/neural-play.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/neural-play.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/neural-play/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "ニューラルネットが学ぶ瞬間 シミュレーター", "url": "https://shimulabo.com/sims/neural-play/", "description": "本物のAIをブラウザで学習させ、境界線が育つ様子を見る。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "シミュレーション・ラボ", "item": "https://shimulabo.com/lab/"}, {"@type": "ListItem", "position": 3, "name": "ニューラルネットが学ぶ瞬間 シミュレーター", "item": "https://shimulabo.com/sims/neural-play/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "これは本当にAI？ 見せかけではない？", "acceptedAnswer": {"@type": "Answer", "text": "本物です。JavaScriptで多層パーセプトロンを実装し、誤差逆伝播で毎フレーム重みを更新しています。ライブラリも通信も使っていません。ページのソースコードを見れば数十行の学習ループが確認できます。"}}, {"@type": "Question", "name": "渦巻きが学べないときは？", "acceptedAnswer": {"@type": "Answer", "text": "ニューロン数を16以上・層を2〜3にして、学習率0.05〜0.1でしばらく待ってください。乱数の初期値によっては局所解にはまるので、リセットして再挑戦するのも本物の機械学習と同じ流儀です。"}}, {"@type": "Question", "name": "正解率100%にならないのは？", "acceptedAnswer": {"@type": "Answer", "text": "ノイズがあるとデータ自体に矛盾（赤の領域に混ざった青点）があるため、100%は原理的に不可能です。ノイズを0にすれば、十分なニューロンで100%近くに達します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+<style>
+.lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
+.lab-ctl .field{margin-bottom:6px;}
+.lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
+.lab-ctl .slider-head label{margin:0;font-size:13px;}
+.lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
+.lab-ctl input[type=range]{width:100%;}
+.lab-ctl select{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;font-size:14px;background:#fff;}
+.lab-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px;}
+.lab-btns .btn{padding:11px 18px;font-size:14px;width:auto;}
+.lab-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;width:100%;max-width:640px;margin-top:4px;}
+.lab-stats .stat{background:var(--teal-l);border-radius:10px;padding:10px 12px;text-align:center;}
+.lab-stats .k{font-size:11px;color:var(--ink-2);}
+.lab-stats .v{font-size:20px;font-weight:800;color:var(--ink);font-feature-settings:"tnum";}
+.lab-stats .v.accent{color:var(--accent);}
+.lab-legend{text-align:center;color:var(--ink-2);font-size:13px;margin-top:12px;}
+.lab-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;background:rgba(44,107,134,.10);color:var(--teal-d);margin-bottom:8px;}
+canvas.lab{width:100%;max-width:640px;height:auto;border:1px solid var(--line);border-radius:12px;background:#0b1020;touch-action:none;}
+canvas.lab.light{background:#fff;}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../lab/">🧪 シミュレーション・ラボ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../lab/">シミュレーション・ラボ</a><span>›</span><span class="cur">ニューラルネットが学ぶ瞬間 シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">あそぶ・実験</div>
+    <h1>ニューラルネットが学ぶ瞬間 シミュレーター</h1>
+    <p class="lead">ChatGPTも画像認識も、根っこは同じ「ニューラルネットワーク」。ここでは小さな本物のネットワークをブラウザ内で学習させ、赤と青を分ける境界線が少しずつ育っていく様子を見られます。ニューロンの数や学習率を変えると、賢くなる速さも、行き詰まり方も変わります。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:14px;">
+      <span class="lab-badge">🧪 多層パーセプトロン（誤差逆伝播法・確率的勾配降下法）</span>
+      <canvas id="cv" class="lab" width="640" height="400"></canvas>
+      <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="data">学習させるデータ</label></div><select id="data"><option value="spiral" selected>渦巻き（難しい）</option><option value="circle">円（中くらい）</option><option value="xor">XOR・市松（中くらい）</option><option value="gauss">2つの塊（かんたん）</option></select></div><div class="field"><div class="slider-head"><label for="hid">隠れ層のニューロン数</label><span class="val" id="hidL"></span></div><input type="range" id="hid" min="2" max="32" value="8" step="1" data-fmt="{v}個"></div><div class="field"><div class="slider-head"><label for="layers">隠れ層の数</label><span class="val" id="layersL"></span></div><input type="range" id="layers" min="1" max="3" value="2" step="1" data-fmt="{v}層"></div><div class="field"><div class="slider-head"><label for="lr">学習率</label><span class="val" id="lrL"></span></div><input type="range" id="lr" min="0.01" max="0.5" value="0.1" step="0.01"></div><div class="field"><div class="slider-head"><label for="noise">データのノイズ</label><span class="val" id="noiseL"></span></div><input type="range" id="noise" min="0" max="0.5" value="0.1" step="0.05"></div><div class="field"><div class="slider-head"><label for="sp">再生速度</label><span class="val" id="spL"></span></div><input type="range" id="sp" min="1" max="10" value="5" step="1" data-fmt="×{v}"></div></div>
+      <div class="lab-btns"><button class="btn btn-ghost" id="toggle">⏸ 一時停止</button><button class="btn btn-ghost" id="reset">リセット（初期化して学び直す）</button></div>
+      <div class="lab-stats"><div class="stat"><div class="k">学習回数（エポック）</div><div class="v" id="sEp">—</div></div><div class="stat"><div class="k">正解率</div><div class="v accent" id="sAcc">—</div></div><div class="stat"><div class="k">誤差（損失）</div><div class="v" id="sLoss">—</div></div><div class="stat"><div class="k">パラメータ数</div><div class="v" id="sParam">—</div></div></div>
+    </div>
+    <p class="lab-legend">点＝学習データ（赤・青の2種類）。背景色＝ネットワークの現在の判断（濃いほど自信あり）。右＝各ニューロンが担当している“見え方”。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+<div class="note" style="border-left:4px solid var(--teal)"><strong>ポイント</strong>：ニューラルネットワークは、ランダムな重みから始めて「間違えたら、間違いが減る方向に重みを少し動かす」を何万回も繰り返すだけで、渦巻きのような複雑な境界を自力で見つけます。<b>賢さは設計者が教えたのではなく、データと誤差から“育った”</b>ものです。</div>
+<h2>この画面の中で起きていること</h2>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>ステップ</th><th>内容</th></tr><tr><td>1. 順伝播</td><td>入力（x, y座標）に重みを掛けて足し、活性化関数（tanh）を通す。これを層の数だけ繰り返して「赤か青か」を出力</td></tr><tr><td>2. 誤差の計算</td><td>出力と正解のずれ（交差エントロピー）を計算</td></tr><tr><td>3. 誤差逆伝播</td><td>各重みが誤差にどれだけ影響したか（勾配）を出力側から逆にたどって計算</td></tr><tr><td>4. 更新</td><td>勾配と逆方向に、学習率の分だけ重みを動かす</td></tr></table></div>
+<p>1986年にラメルハート、ヒントン、ウィリアムズが広めたこの「誤差逆伝播法」は、現在のあらゆる深層学習の中核です。本ページのネットワークは数百パラメータですが、ChatGPTのようなモデルは同じ原理を数千億〜数兆パラメータで動かしています。</p>
+<h2>スライダーで分かる「AIの性格」</h2>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>操作</th><th>起きること</th></tr><tr><td>ニューロンを減らす（2〜3個）</td><td>直線に近い境界しか引けず、渦巻きは学べない（表現力不足）</td></tr><tr><td>ニューロンを増やす（16〜32個）</td><td>複雑な境界を学べるが、ノイズまで覚えてしまうことがある（過学習）</td></tr><tr><td>学習率を上げすぎる</td><td>重みが振動して正解率が上下に暴れる、または発散する</td></tr><tr><td>学習率を下げすぎる</td><td>正しい方向に進むが、いつまでも到達しない</td></tr><tr><td>層を増やす</td><td>少ないニューロンでも複雑な形を表現できる＝“深層”学習の利点</td></tr></table></div>
+<h2>右側の小さな図の見方</h2>
+<p>右側は最初の隠れ層の各ニューロンが「入力空間のどこで発火するか」を示しています。1つ1つは単純な直線的なパターンですが、それらを重ね合わせることで、出力層は渦巻きのような複雑な形を作ります。ニューラルネットワークが「特徴を分担して覚える」様子です。</p>
+
+    <h2>引用・転載について</h2>
+    <p>本ページのシミュレーション結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・授業や社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「ニューラルネットが学ぶ瞬間 シミュレーター」 https://shimulabo.com/sims/neural-play/</code></div>
+    <h2>よくある質問</h2><dl class="faq"><dt>これは本当にAI？ 見せかけではない？</dt><dd>本物です。JavaScriptで多層パーセプトロンを実装し、誤差逆伝播で毎フレーム重みを更新しています。ライブラリも通信も使っていません。ページのソースコードを見れば数十行の学習ループが確認できます。</dd><dt>渦巻きが学べないときは？</dt><dd>ニューロン数を16以上・層を2〜3にして、学習率0.05〜0.1でしばらく待ってください。乱数の初期値によっては局所解にはまるので、リセットして再挑戦するのも本物の機械学習と同じ流儀です。</dd><dt>正解率100%にならないのは？</dt><dd>ノイズがあるとデータ自体に矛盾（赤の領域に混ざった青点）があるため、100%は原理的に不可能です。ノイズを0にすれば、十分なニューロンで100%近くに達します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../markov-bunsho/"><span class="e">✍️</span><span>AIはこうやって文章を作る</span></a><a class="related-card" href="../ga-route/"><span class="e">🧬</span><span>遺伝的アルゴリズムで最短ルート</span></a><a class="related-card" href="../maze-ai/"><span class="e">🧩</span><span>迷路をAIが解く</span></a><a class="related-card" href="../ai-inyou/"><span class="e">🤖</span><span>AI被引用ポテンシャル診断</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../lab/">🧪 シミュレーション・ラボ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+  const rnd = (a,b) => a + Math.random()*(b-a);
+  const randn = () => { let u=0,v=0; while(!u)u=Math.random(); while(!v)v=Math.random(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
+  let SHARE = '';
+  function setShare(t){ SHARE = t; }
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{ const l=$(s.id+'L'); if(l){ const u=()=>{ l.textContent = (s.dataset.fmt ? s.dataset.fmt.replace('{v}', s.value) : s.value); }; s.addEventListener('input',u); u(); } }); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  function setStat(id, v){ const e=$(id); if(e) e.textContent = v; }
+  try {
+    syncSliders();
+
+  const cv=$('cv'), x=cv.getContext('2d'), W=cv.width, H=cv.height, S=400;
+  let data, net, ep, run=true, loss=0, acc=0;
+  function genData(){ const t=$('data').value, nz=+$('noise').value; data=[];
+    for(let i=0;i<200;i++){ const c=i%2; let px,py; if(t==='spiral'){ const r=i/200*0.9+0.1, a=i/200*3*Math.PI+c*Math.PI; px=r*Math.sin(a); py=r*Math.cos(a); }
+      else if(t==='circle'){ const r=c?rnd(0,0.45):rnd(0.6,0.95), a=rnd(0,7); px=r*Math.cos(a); py=r*Math.sin(a); }
+      else if(t==='xor'){ px=rnd(-1,1); py=rnd(-1,1); const cc=(px>0)^(py>0); data.push({x:px+randn()*nz*0.5,y:py+randn()*nz*0.5,c:cc?1:0}); continue; }
+      else { px=(c?0.5:-0.5)+randn()*0.3; py=(c?0.5:-0.5)+randn()*0.3; }
+      data.push({x:px+randn()*nz*0.5, y:py+randn()*nz*0.5, c}); } }
+  function mkNet(){ const h=+$('hid').value, L=+$('layers').value; const sizes=[2]; for(let i=0;i<L;i++) sizes.push(h); sizes.push(1);
+    net={sizes, W:[], b:[]}; for(let l=0;l<sizes.length-1;l++){ const sc=Math.sqrt(2/sizes[l]); net.W.push(Array.from({length:sizes[l+1]},()=>Array.from({length:sizes[l]},()=>randn()*sc))); net.b.push(new Array(sizes[l+1]).fill(0)); } }
+  function forward(px,py){ const acts=[[px,py]]; let a=[px,py]; for(let l=0;l<net.W.length;l++){ const last=l===net.W.length-1; const o=net.W[l].map((w,j)=>{ let s=net.b[l][j]; for(let i=0;i<w.length;i++) s+=w[i]*a[i]; return last?1/(1+Math.exp(-s)):Math.tanh(s); }); acts.push(o); a=o; } return acts; }
+  function train(){ const lr=+$('lr').value; let L=0, correct=0; const idx=data.map((_,i)=>i).sort(()=>Math.random()-0.5);
+    for(const i of idx){ const d=data[i]; const acts=forward(d.x,d.y); const out=acts[acts.length-1][0]; L+=-(d.c*Math.log(out+1e-9)+(1-d.c)*Math.log(1-out+1e-9)); if((out>0.5)===(d.c===1)) correct++;
+      let delta=[out-d.c]; for(let l=net.W.length-1;l>=0;l--){ const prev=acts[l]; const nd=new Array(prev.length).fill(0);
+        for(let j=0;j<net.W[l].length;j++){ for(let k=0;k<prev.length;k++){ nd[k]+=net.W[l][j][k]*delta[j]; net.W[l][j][k]-=lr*delta[j]*prev[k]; } net.b[l][j]-=lr*delta[j]; }
+        delta=nd.map((v,k)=>v*(1-prev[k]*prev[k])); } }
+    loss=L/data.length; acc=correct/data.length; ep++; }
+  function reset(){ genData(); mkNet(); ep=0; loss=0; acc=0; draw(); }
+  function draw(){ x.fillStyle='#0b1020'; x.fillRect(0,0,W,H);
+    const G=40, cs=S/G; for(let i=0;i<G;i++) for(let j=0;j<G;j++){ const px=(i+0.5)/G*2-1, py=1-(j+0.5)/G*2; const o=forward(px,py); const v=o[o.length-1][0]; const a=Math.abs(v-0.5)*2; x.fillStyle=v>0.5?'rgba(59,130,246,'+(0.15+a*0.5)+')':'rgba(239,68,68,'+(0.15+a*0.5)+')'; x.fillRect(i*cs,j*cs,cs+0.5,cs+0.5); }
+    data.forEach(d=>{ const X=(d.x+1)/2*S, Y=(1-d.y)/2*S; x.fillStyle=d.c?'#3b82f6':'#ef4444'; x.strokeStyle='#fff'; x.lineWidth=1; x.beginPath(); x.arc(X,Y,4,0,7); x.fill(); x.stroke(); });
+    // hidden units
+    const h=net.sizes[1], cols=4, sz=48, ox=S+16; x.fillStyle='rgba(255,255,255,.5)'; x.font='10px sans-serif'; x.fillText('隠れ層1の各ニューロン', ox, 14);
+    for(let u=0;u<Math.min(h,24);u++){ const bx=ox+(u%cols)*(sz+6), by=22+Math.floor(u/cols)*(sz+6); if(by+sz>H) break; const g=10, c2=sz/g; for(let i=0;i<g;i++) for(let j=0;j<g;j++){ const px=(i+0.5)/g*2-1, py=1-(j+0.5)/g*2; let s=net.b[0][u]; s+=net.W[0][u][0]*px+net.W[0][u][1]*py; const v=Math.tanh(s); x.fillStyle=v>0?'rgba(59,130,246,'+Math.abs(v)+')':'rgba(239,68,68,'+Math.abs(v)+')'; x.fillRect(bx+i*c2,by+j*c2,c2+0.5,c2+0.5); } x.strokeStyle='rgba(255,255,255,.15)'; x.strokeRect(bx,by,sz,sz); }
+    let np=0; net.W.forEach((w,l)=>{ np+=w.length*w[0].length+net.b[l].length; });
+    setStat('sEp', ep); setStat('sAcc', Math.round(acc*100)+'%'); setStat('sLoss', loss.toFixed(3)); setStat('sParam', np+'個');
+    const dn={spiral:'渦巻き',circle:'円',xor:'XOR',gauss:'2つの塊'}[$('data').value];
+    setShare('ニューラルネット（'+$('layers').value+'層×'+$('hid').value+'ニューロン・'+np+'パラメータ）が'+dn+'を'+ep+'回学習→正解率'+Math.round(acc*100)+'%🧠 AIが「分かる」瞬間をブラウザで👇'); }
+  function loop(){ if(run){ const n=+$('sp').value; for(let i=0;i<n;i++) train(); } draw(); requestAnimationFrame(loop); }
+  ['data','hid','layers','noise'].forEach(id=>$(id).addEventListener('change',reset));
+  $('toggle').addEventListener('click',()=>{ run=!run; $('toggle').textContent=run?'⏸ 一時停止':'▶ 再生'; });
+  $('reset').addEventListener('click',reset);
+  reset(); loop();
+
+  } catch(e) { console.error(e); }
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE || document.title)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText((SHARE||document.title)+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'neural-play', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

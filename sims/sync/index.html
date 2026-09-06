@@ -25,7 +25,7 @@
     <meta name="robots" content="index,follow">
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "同期現象シミュレーター", "url": "https://shimulabo.com/sims/sync/", "description": "バラバラのホタルが勝手に点滅を揃える同期現象。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "同期現象シミュレーター", "item": "https://shimulabo.com/sims/sync/"}]}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "強さを0にすると？", "acceptedAnswer": {"@type": "Answer", "text": "お互いに影響しなくなり、いつまでもバラバラのままになります。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動作します。"}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "強さを0にすると？", "acceptedAnswer": {"@type": "Answer", "text": "お互いに影響しなくなり、いつまでもバラバラのままになります。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動作します。"}}, {"@type": "Question", "name": "全員のリズムが違っても揃う？", "acceptedAnswer": {"@type": "Answer", "text": "リズムのばらつきが小さければ、十分な K で揃います。ばらつきが大きいほど必要な K も大きくなり、それでも揃わない個体が残ることがあります。"}}, {"@type": "Question", "name": "メトロノームが揃う動画は同じ現象？", "acceptedAnswer": {"@type": "Answer", "text": "はい。共通の台（動く板）を通じて互いに力を及ぼし合うことで同期します。ホイヘンスが1665年に振り子時計で発見した、最も古い同期現象の記録です。"}}]}</script>
     <!-- ga4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
@@ -76,7 +76,15 @@
   <article class="article">
     <h2>同期はなぜ起きる？</h2>
     <p>それぞれのホタルは自分のリズムで光りますが、まわりが光ると自分のリズムを少しだけ合わせます。この弱い引き込みが積み重なると、全体がひとつのリズムに揃います。これを<strong>蔵本モデル（同期現象）</strong>といいます。心臓のペースメーカー細胞や、橋を渡る歩行者の歩調が揃う現象などにも見られます。</p>
-    <h2>よくある質問</h2><dl class="faq"><dt>強さを0にすると？</dt><dd>お互いに影響しなくなり、いつまでもバラバラのままになります。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動作します。</dd></dl>
+    <!-- enriched-2026-09 -->
+<h2>蔵本モデルの式</h2>
+<p>ホタル i の位相 θᵢ（点滅のタイミング）は次の式で動きます。ωᵢ が各自のリズム、K が「影響し合う強さ」です。</p>
+<div class="note">dθᵢ/dt = ωᵢ + (K/N)·Σⱼ sin(θⱼ − θᵢ)</div>
+<p>1975年に蔵本由紀（京都大学）が提案し、世界中で「Kuramoto model」として使われています。K がある臨界値を超えると、リズムのばらつきがあっても全体が一斉に揃う——「同期の相転移」が数学的に示せる、極めて美しいモデルです。</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>影響し合う強さ K</th><th>様子</th></tr><tr><td>0</td><td>互いに無関係。いつまでもバラバラ</td></tr><tr><td>小さい</td><td>少しまとまるが、リズムの違う個体は取り残される</td></tr><tr><td>臨界値付近</td><td>揃う集団が急に大きくなる（相転移）</td></tr><tr><td>大きい</td><td>ほぼ全員が同じタイミングで点滅</td></tr></table></div>
+<h2>同期が起きている現実の例</h2>
+<p>東南アジアのホタルの一斉発光、心臓のペースメーカー細胞（数千個の細胞が揃って拍動を作る）、コオロギの合唱、拍手が自然に揃う現象。2000年のロンドン・ミレニアム橋では、歩行者の歩調が橋の横揺れと同期して大きく揺れ、開通2日で閉鎖されました（後に制振装置を追加して再開）。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>強さを0にすると？</dt><dd>お互いに影響しなくなり、いつまでもバラバラのままになります。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動作します。</dd><dt>全員のリズムが違っても揃う？</dt><dd>リズムのばらつきが小さければ、十分な K で揃います。ばらつきが大きいほど必要な K も大きくなり、それでも揃わない個体が残ることがあります。</dd><dt>メトロノームが揃う動画は同じ現象？</dt><dd>はい。共通の台（動く板）を通じて互いに力を及ぼし合うことで同期します。ホイヘンスが1665年に振り子時計で発見した、最も古い同期現象の記録です。</dd></dl>
   </article>
 
   <nav class="related" aria-label="related">

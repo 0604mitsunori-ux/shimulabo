@@ -25,7 +25,7 @@
     <meta name="robots" content="index,follow">
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "ガルトンボード", "url": "https://shimulabo.com/sims/galton/", "description": "たくさんのボールが釘にぶつかって左右にランダムに落ちるだけで、きれいな釣り鐘型（正規分布）が現れる「ガルトンボード」を体感できる無料シミュレーター。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ガルトンボード", "item": "https://shimulabo.com/sims/galton/"}]}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "毎回同じ形？", "acceptedAnswer": {"@type": "Answer", "text": "細部は違いますが、釣り鐘型に収束します。それが確率の不思議。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動きます。"}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "毎回同じ形？", "acceptedAnswer": {"@type": "Answer", "text": "細部は違いますが、釣り鐘型に収束します。それが確率の不思議。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動きます。"}}, {"@type": "Question", "name": "釘の位置を偏らせるとどうなる？", "acceptedAnswer": {"@type": "Answer", "text": "右に行く確率が0.5からずれると、山の頂点が左右にずれます。形は釣り鐘のままです。"}}, {"@type": "Question", "name": "中心極限定理ってそんなに大事？", "acceptedAnswer": {"@type": "Answer", "text": "統計学の土台です。「平均を取ればばらつきが正規分布に近づく」という性質のおかげで、世論調査や品質管理の誤差を計算できます。"}}]}</script>
     <!-- ga4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
@@ -76,7 +76,13 @@
   <article class="article">
     <h2>なぜ釣り鐘型に？</h2>
     <p>1個のボールがどこに落ちるかは完全にランダム。でも何千個も落とすと、中央が高く両端が低い「正規分布」になります。これは「たくさんの偶然が重なると安定した形が現れる（中心極限定理）」の visual な実例。自然界やデータの多くがこの形をしています。</p>
-    <h2>よくある質問</h2><dl class="faq"><dt>毎回同じ形？</dt><dd>細部は違いますが、釣り鐘型に収束します。それが確率の不思議。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動きます。</dd></dl>
+    <!-- enriched-2026-09 -->
+<h2>二項分布が正規分布に化ける瞬間</h2>
+<p>釘が n 段あるとき、ボールが右に k 回それる確率は <b>C(n,k) ÷ 2ⁿ</b>（二項分布）。段数が増えると、この山の形は滑らかな釣り鐘型＝<b>正規分布</b>にどんどん近づきます（ド・モアブル＝ラプラスの定理）。山の幅は段数の平方根に比例して広がり、分散は n/4 になります。</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>段数</th><th>見え方</th></tr><tr><td>5段</td><td>山はカクカク。両端にもよく落ちる</td></tr><tr><td>10段</td><td>釣り鐘らしくなってくる</td></tr><tr><td>20段以上</td><td>ほぼ滑らかな正規分布。両端はめったに落ちない</td></tr></table></div>
+<h2>身の回りの“釣り鐘型”</h2>
+<p>身長、テストの点数、製品の寸法のばらつき、測定誤差——「たくさんの小さな偶然が足し合わさったもの」は正規分布になりやすい、というのが<b>中心極限定理</b>です。ガルトンボードはこの定理を目で見える形にした装置で、1889年にフランシス・ガルトンが考案しました。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>毎回同じ形？</dt><dd>細部は違いますが、釣り鐘型に収束します。それが確率の不思議。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動きます。</dd><dt>釘の位置を偏らせるとどうなる？</dt><dd>右に行く確率が0.5からずれると、山の頂点が左右にずれます。形は釣り鐘のままです。</dd><dt>中心極限定理ってそんなに大事？</dt><dd>統計学の土台です。「平均を取ればばらつきが正規分布に近づく」という性質のおかげで、世論調査や品質管理の誤差を計算できます。</dd></dl>
   </article>
 
   <nav class="related" aria-label="related">

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/ryukou-curve/">
+<title>流行はなぜ急に終わる？普及曲線シミュレーター｜バスモデルで“ピーク”と“終わり”を予測｜シミュラボ</title>
+<meta name="description" content="広告で知る人（イノベーター）と口コミで知る人（イミテーター）、そして飽きる人。3つの流れを式にしたバス拡散モデルで、流行の立ち上がり・ピーク・急な終わりをシミュレーション。広告費と口コミ係数でピークの時期がどう動くかを体感できる無料ツール。">
+<meta property="og:title" content="流行はなぜ急に終わる？ 普及曲線シミュレーター">
+<meta property="og:description" content="広告・口コミ・飽きの3つの流れで、流行のピークと終わりを予測。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/ryukou-curve.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/ryukou-curve.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/ryukou-curve/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "流行はなぜ急に終わる？ 普及曲線シミュレーター", "url": "https://shimulabo.com/sims/ryukou-curve/", "description": "広告・口コミ・飽きの3つの流れで、流行のピークと終わりを予測。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "シミュレーション・ラボ", "item": "https://shimulabo.com/lab/"}, {"@type": "ListItem", "position": 3, "name": "流行はなぜ急に終わる？ 普及曲線シミュレーター", "item": "https://shimulabo.com/sims/ryukou-curve/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "p と q の現実的な値は？", "acceptedAnswer": {"@type": "Answer", "text": "研究の平均値では p≈0.03（月次換算で約0.25〜0.5%）、q≈0.38。SNSで拡散しやすい商品は q が0.5を超えることもあります。本ページの初期値はこれに合わせています。"}}, {"@type": "Question", "name": "飽きる速さの目安は？", "acceptedAnswer": {"@type": "Answer", "text": "ゲームアプリの月次解約率は10〜30%、サブスクの定番サービスで2〜5%とされます。r を30%にすると典型的な“1ヶ月で消えるアプリ”の曲線になります。"}}, {"@type": "Question", "name": "このモデルで売上予測はできる？", "acceptedAnswer": {"@type": "Answer", "text": "初期数ヶ月の実データから p と q を推定すれば、ピーク時期と最終普及率をある程度予測できます。実務では類似製品の p・q を借りる「アナロジー法」がよく使われます。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+<style>
+.lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
+.lab-ctl .field{margin-bottom:6px;}
+.lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
+.lab-ctl .slider-head label{margin:0;font-size:13px;}
+.lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
+.lab-ctl input[type=range]{width:100%;}
+.lab-ctl select{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;font-size:14px;background:#fff;}
+.lab-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px;}
+.lab-btns .btn{padding:11px 18px;font-size:14px;width:auto;}
+.lab-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;width:100%;max-width:640px;margin-top:4px;}
+.lab-stats .stat{background:var(--teal-l);border-radius:10px;padding:10px 12px;text-align:center;}
+.lab-stats .k{font-size:11px;color:var(--ink-2);}
+.lab-stats .v{font-size:20px;font-weight:800;color:var(--ink);font-feature-settings:"tnum";}
+.lab-stats .v.accent{color:var(--accent);}
+.lab-legend{text-align:center;color:var(--ink-2);font-size:13px;margin-top:12px;}
+.lab-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;background:rgba(44,107,134,.10);color:var(--teal-d);margin-bottom:8px;}
+canvas.lab{width:100%;max-width:640px;height:auto;border:1px solid var(--line);border-radius:12px;background:#0b1020;touch-action:none;}
+canvas.lab.light{background:#fff;}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../lab/">🧪 シミュレーション・ラボ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../lab/">シミュレーション・ラボ</a><span>›</span><span class="cur">流行はなぜ急に終わる？ 普及曲線シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">マーケティング</div>
+    <h1>流行はなぜ急に終わる？ 普及曲線シミュレーター</h1>
+    <p class="lead">タピオカも、あのアプリも、ある日突然みんなが使い始め、そして急に誰も話題にしなくなる。「広告で知る」「口コミで知る」「飽きる」の3つの流れを式にすると、流行の山の高さと、終わりの早さが見えてきます。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:14px;">
+      <span class="lab-badge">🧪 バス拡散モデル＋飽き（離脱）項（SIRS型）</span>
+      <canvas id="cv" class="lab" width="640" height="360"></canvas>
+      <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="p">広告の力（毎月、未経験者の何%が始めるか）</label><span class="val" id="pL"></span></div><input type="range" id="p" min="0.1" max="5" value="0.5" step="0.1" data-fmt="{v}%"></div><div class="field"><div class="slider-head"><label for="q">口コミの力（利用者1人が月に誘う人数）</label><span class="val" id="qL"></span></div><input type="range" id="q" min="0.05" max="1.0" value="0.35" step="0.05" data-fmt="{v}人"></div><div class="field"><div class="slider-head"><label for="r">飽きる速さ（毎月、利用者の何%がやめるか）</label><span class="val" id="rL"></span></div><input type="range" id="r" min="0" max="30" value="8" step="1" data-fmt="{v}%"></div><div class="field"><div class="slider-head"><label for="m">市場の大きさ（潜在的な利用者）</label><span class="val" id="mL"></span></div><input type="range" id="m" min="10" max="1000" value="100" step="10" data-fmt="{v}万人"></div><div class="field"><div class="slider-head"><label for="re">飽きた人は</label></div><select id="re"><option value="no" selected>二度と戻らない（一発屋型）</option><option value="yes">しばらくして戻ることもある（定番型）</option></select></div></div>
+      <div class="lab-btns"><button class="btn btn-primary" id="run">▶ 36ヶ月シミュレーション</button></div>
+      <div class="lab-stats"><div class="stat"><div class="k">ピークの利用者数</div><div class="v accent" id="sPeak">—</div></div><div class="stat"><div class="k">ピークの時期</div><div class="v" id="sWhen">—</div></div><div class="stat"><div class="k">延べ経験者</div><div class="v" id="sTotal">—</div></div><div class="stat"><div class="k">ピークの半分以下になる月</div><div class="v" id="sEnd">—</div></div></div>
+    </div>
+    <p class="lab-legend">青＝いま使っている人、灰色＝まだ知らない人、オレンジ＝飽きた人。口コミが強いほど山は急で高く、飽きが速いほど山は細くなります。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+<div class="note" style="border-left:4px solid var(--teal)"><strong>ポイント</strong>：流行が急に終わるのは、「口コミで増える速さ」と「飽きて減る速さ」の綱引きが、<b>まだ始めていない人が減った瞬間に逆転する</b>からです。増える側の燃料（未経験者）が尽きるのに対し、減る側は利用者の数に比例して続くため、ピークの後は落ちる一方になります。</div>
+<h2>バス拡散モデルの式</h2>
+<div class="note">新規利用者（今月） ＝ (p ＋ q × 利用経験者の割合) × まだ始めていない人の数<br>p：広告・自発的に知る力（イノベーション係数）　q：口コミの力（イミテーション係数）</div>
+<p>1969年にフランク・バスが提案したこのモデルは、家電・自動車・スマホ・SNS など、あらゆる新製品の普及曲線を2つの係数で驚くほどよく再現します。過去の製品では p ≈ 0.03、q ≈ 0.38 前後が典型値とされます。本シミュレーターはこれに「飽きてやめる」項を加えて、流行の“終わり”まで描いています。</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>操作</th><th>曲線の変化</th></tr><tr><td>広告の力 p を上げる</td><td>立ち上がりが早くなるが、山の高さはあまり変わらない</td></tr><tr><td>口コミの力 q を上げる</td><td>山が急に高くなる。しかしその分、未経験者が早く尽きて終わりも早い</td></tr><tr><td>飽きる速さ r を上げる</td><td>山が低く細くなる。“一発屋”の形</td></tr><tr><td>市場を大きくする</td><td>山が高く、時期が遅くなる（燃料が多い）</td></tr></table></div>
+<h2>ピークは「いつ」来るか</h2>
+<p>飽きを無視した純粋なバスモデルでは、ピークは <b>t* = ln(q/p) ÷ (p+q)</b> で計算できます。p=0.5%・q=0.35なら約12ヶ月。口コミが強いほど、そして広告が弱いほどピークは遅く来ますが、来たときの山は高くなります。マーケティングでは「ピークまでに生産・在庫を間に合わせ、ピーク後に在庫を残さない」ためにこの予測が使われます。</p>
+<h2>「定番」になれる条件</h2>
+<p>飽きた人が戻ってこない一発屋型では、流行は必ず一度きりの山で終わります。一方、飽きた人が時間をおいて戻る定番型では、山は小さくても長く続き、一定の利用者数に落ち着きます。タピオカとコーヒーの違いは、まさに「戻る人がいるか」です。</p>
+
+    <h2>引用・転載について</h2>
+    <p>本ページのシミュレーション結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・授業や社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「流行はなぜ急に終わる？ 普及曲線シミュレーター」 https://shimulabo.com/sims/ryukou-curve/</code></div>
+    <h2>よくある質問</h2><dl class="faq"><dt>p と q の現実的な値は？</dt><dd>研究の平均値では p≈0.03（月次換算で約0.25〜0.5%）、q≈0.38。SNSで拡散しやすい商品は q が0.5を超えることもあります。本ページの初期値はこれに合わせています。</dd><dt>飽きる速さの目安は？</dt><dd>ゲームアプリの月次解約率は10〜30%、サブスクの定番サービスで2〜5%とされます。r を30%にすると典型的な“1ヶ月で消えるアプリ”の曲線になります。</dd><dt>このモデルで売上予測はできる？</dt><dd>初期数ヶ月の実データから p と q を推定すれば、ピーク時期と最終普及率をある程度予測できます。実務では類似製品の p・q を借りる「アナロジー法」がよく使われます。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../uwasa-kakusan/"><span class="e">🗣️</span><span>噂が全員に届くまで</span></a><a class="related-card" href="../buzz/"><span class="e">🔥</span><span>バズ偏差値</span></a><a class="related-card" href="../kansen-agent/"><span class="e">🦠</span><span>感染はこう広がる</span></a><a class="related-card" href="../influencer-soroban/"><span class="e">📱</span><span>インフルエンサー皮算用</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../lab/">🧪 シミュレーション・ラボ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+  const rnd = (a,b) => a + Math.random()*(b-a);
+  const randn = () => { let u=0,v=0; while(!u)u=Math.random(); while(!v)v=Math.random(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
+  let SHARE = '';
+  function setShare(t){ SHARE = t; }
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{ const l=$(s.id+'L'); if(l){ const u=()=>{ l.textContent = (s.dataset.fmt ? s.dataset.fmt.replace('{v}', s.value) : s.value); }; s.addEventListener('input',u); u(); } }); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  function setStat(id, v){ const e=$(id); if(e) e.textContent = v; }
+  try {
+    syncSliders();
+
+  const cv=$('cv'), x=cv.getContext('2d'), W=cv.width, H=cv.height;
+  function simulate(){ const p=+$('p').value/100, q=+$('q').value, r=+$('r').value/100, M=+$('m').value, back=$('re').value==='yes'; const dt=0.1;
+    let S=M, I=0, R=0, cum=0; const rows=[]; for(let m=0;m<=36;m++){ rows.push({m,S,I,R}); for(let k=0;k<10;k++){ const newI=(p+q*I/M)*S*dt; const quit=r*I*dt; const ret=back?0.05*R*dt:0; S=S-newI+ret; I=I+newI-quit; R=R+quit-ret; cum+=newI; } }
+    return {rows,cum}; }
+  function draw(){ const {rows,cum}=simulate(); x.fillStyle='#0b1020'; x.fillRect(0,0,W,H); const M=+$('m').value; const L=48,B=H-28,PW=W-L-16,PH=B-16;
+    const sx=(m)=>L+m/36*PW, sy=(v)=>B-v/M*PH;
+    x.strokeStyle='rgba(255,255,255,.08)'; for(let g=0;g<=4;g++){ const y=B-PH*g/4; x.beginPath(); x.moveTo(L,y); x.lineTo(L+PW,y); x.stroke(); x.fillStyle='rgba(255,255,255,.4)'; x.font='10px sans-serif'; x.fillText(Math.round(M*g/4)+'万', 4, y+3); }
+    for(let m=0;m<=36;m+=6){ x.fillStyle='rgba(255,255,255,.4)'; x.fillText(m+'ヶ月', sx(m)-12, H-8); }
+    const series=[['S','#64748b'],['R','#fb923c'],['I','#38bdf8']];
+    series.forEach(([k,col])=>{ x.strokeStyle=col; x.lineWidth=k==='I'?3:1.5; x.beginPath(); rows.forEach((r,i)=>{ i?x.lineTo(sx(r.m),sy(r[k])):x.moveTo(sx(r.m),sy(r[k])); }); x.stroke(); });
+    x.fillStyle='rgba(56,189,248,.18)'; x.beginPath(); x.moveTo(sx(0),B); rows.forEach(r=>x.lineTo(sx(r.m),sy(r.I))); x.lineTo(sx(36),B); x.fill();
+    let pk=rows[0]; rows.forEach(r=>{ if(r.I>pk.I) pk=r; }); const half=rows.find(r=>r.m>pk.m&&r.I<pk.I/2);
+    x.fillStyle='#38bdf8'; x.font='bold 12px sans-serif'; x.fillText('▲ ピーク '+pk.I.toFixed(0)+'万人（'+pk.m+'ヶ月目）', Math.min(sx(pk.m)+6, W-200), sy(pk.I)-6);
+    x.fillStyle='#64748b'; x.font='11px sans-serif'; x.fillText('まだ始めていない人', L+6, 26); x.fillStyle='#fb923c'; x.fillText('飽きた人', L+130, 26); x.fillStyle='#38bdf8'; x.fillText('いま使っている人', L+190, 26);
+    setStat('sPeak', pk.I.toFixed(0)+'万人'); setStat('sWhen', pk.m+'ヶ月目'); setStat('sTotal', Math.min(cum, M*3).toFixed(0)+'万人'); setStat('sEnd', half?half.m+'ヶ月目':'36ヶ月以内には来ない');
+    setShare('広告'+$('p').value+'%・口コミ'+$('q').value+'人・飽き'+$('r').value+'%でシミュ📈 流行のピークは'+pk.m+'ヶ月目に'+pk.I.toFixed(0)+'万人、'+(half?half.m+'ヶ月目には半減':'定番化')+'。流行が急に終わる理由👇'); }
+  ['p','q','r','m','re'].forEach(id=>$(id).addEventListener('input',draw));
+  $('run').addEventListener('click',draw);
+  draw();
+
+  } catch(e) { console.error(e); }
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE || document.title)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText((SHARE||document.title)+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'ryukou-curve', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

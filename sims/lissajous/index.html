@@ -25,7 +25,7 @@
     <meta name="robots" content="index,follow">
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "リサージュ図形", "url": "https://shimulabo.com/sims/lissajous/", "description": "縦と横、2つの単純な波（サインカーブ）を組み合わせるだけで、8の字やリボン、複雑な網目模様が生まれる「リサージュ図形」を描ける無料シミュレーター。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "リサージュ図形", "item": "https://shimulabo.com/sims/lissajous/"}]}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "比を変えると？", "acceptedAnswer": {"@type": "Answer", "text": "整数比ほどシンプルで閉じた形に。比が複雑だと網目状になります。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動きます。"}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "比を変えると？", "acceptedAnswer": {"@type": "Answer", "text": "整数比ほどシンプルで閉じた形に。比が複雑だと網目状になります。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動きます。"}}, {"@type": "Question", "name": "位相差を動かすと何が変わる？", "acceptedAnswer": {"@type": "Answer", "text": "図形が回転・反転するように変化します。周波数比が1:1なら、直線→楕円→円→楕円→直線と変わっていきます。"}}, {"@type": "Question", "name": "音と関係ある？", "acceptedAnswer": {"@type": "Answer", "text": "2つの音の周波数比が単純（2:3など）ほど図形が単純で、実際に「よく響き合う（協和する）」音程になります。図形の複雑さは不協和の度合いとよく対応します。"}}]}</script>
     <!-- ga4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
@@ -76,7 +76,13 @@
   <article class="article">
     <h2>リサージュ図形とは</h2>
     <p>x方向とy方向に、それぞれ単純なサイン波で動く点の軌跡です。横と縦の周波数の比（例：3対2）で模様の形が決まります。音の周波数の比較や、電気信号の解析（オシロスコープ）でも使われる、科学と美が交わる図形です。</p>
-    <h2>よくある質問</h2><dl class="faq"><dt>比を変えると？</dt><dd>整数比ほどシンプルで閉じた形に。比が複雑だと網目状になります。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動きます。</dd></dl>
+    <!-- enriched-2026-09 -->
+<h2>図形を決める式</h2>
+<p>点の位置は <b>x = A·sin(a·t + δ)、y = B·sin(b·t)</b>。横の周波数 a、縦の周波数 b、位相差 δ の3つで形が決まります。a と b が整数比のとき軌跡は閉じた図形になり、比が複雑なほど網目状になります。</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>横:縦の比</th><th>形</th></tr><tr><td>1:1</td><td>位相差0°で直線、90°で円、それ以外は楕円</td></tr><tr><td>1:2</td><td>8の字（∞）</td></tr><tr><td>2:3</td><td>リボン状の網目</td></tr><tr><td>3:4</td><td>細かい格子模様</td></tr><tr><td>3:2</td><td>横に2回・縦に3回うねる曲線</td></tr></table></div>
+<h2>電気・音の現場で使われる図形</h2>
+<p>2つの信号をオシロスコープの横軸と縦軸に入れると、この図形が画面に現れます。形から周波数の比と位相差が読み取れるため、電子工学では「リサージュ図形で信号を合わせる」のが定番でした。ABC放送のロゴ（1960年代）や、オーストラリア放送協会のロゴもリサージュ図形です。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>比を変えると？</dt><dd>整数比ほどシンプルで閉じた形に。比が複雑だと網目状になります。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動きます。</dd><dt>位相差を動かすと何が変わる？</dt><dd>図形が回転・反転するように変化します。周波数比が1:1なら、直線→楕円→円→楕円→直線と変わっていきます。</dd><dt>音と関係ある？</dt><dd>2つの音の周波数比が単純（2:3など）ほど図形が単純で、実際に「よく響き合う（協和する）」音程になります。図形の複雑さは不協和の度合いとよく対応します。</dd></dl>
   </article>
 
   <nav class="related" aria-label="related">

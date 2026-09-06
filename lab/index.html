@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/lab/">
+<title>シミュレーション・ラボ｜社会・物理・AIの数理モデルで動く体験型シミュレーター20選｜シミュラボ</title>
+<meta name="description" content="キツネとウサギの増減、行列の待ち時間、信頼の進化、流体、津波、ニューラルネットワーク——研究で使われる数理モデルやアルゴリズムをブラウザでそのまま動かせる無料シミュレーター20本。授業・記事への引用歓迎。">
+<meta property="og:title" content="シミュレーション・ラボ｜数理モデルで動く体験型シミュレーター20選">
+<meta property="og:description" content="社会・物理・AIの本物のモデルをブラウザで動かす20本。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/lab.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/lab.png">
+<link rel="stylesheet" href="../assets/style.css?v=4">
+    <link rel="canonical" href="https://shimulabo.com/lab/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "シミュレーション・ラボ", "url": "https://shimulabo.com/lab/", "description": "社会科学・物理学・AIの数理モデルをブラウザで動かす体験型シミュレーター20本。", "inLanguage": "ja", "hasPart": [{"@type": "WebApplication", "name": "キツネとウサギ 増減シミュレーター", "url": "https://shimulabo.com/sims/lotka-volterra/"}, {"@type": "WebApplication", "name": "行列、1列並び vs レジ別 どっちが速い？", "url": "https://shimulabo.com/sims/queue-docchi/"}, {"@type": "WebApplication", "name": "エレベーター待ち時間シミュレーター", "url": "https://shimulabo.com/sims/elevator-sim/"}, {"@type": "WebApplication", "name": "信頼の進化シミュレーター（囚人のジレンマ）", "url": "https://shimulabo.com/sims/shinrai-shinka/"}, {"@type": "WebApplication", "name": "噂が全員に届くまでシミュレーター", "url": "https://shimulabo.com/sims/uwasa-kakusan/"}, {"@type": "WebApplication", "name": "エコーチェンバー 意見分極シミュレーター", "url": "https://shimulabo.com/sims/echo-chamber/"}, {"@type": "WebApplication", "name": "流行はなぜ急に終わる？ 普及曲線シミュレーター", "url": "https://shimulabo.com/sims/ryukou-curve/"}, {"@type": "WebApplication", "name": "多数決の罠 投票方式シミュレーター", "url": "https://shimulabo.com/sims/tasuketsu-wana/"}, {"@type": "WebApplication", "name": "満員電車 混雑率シミュレーター", "url": "https://shimulabo.com/sims/manin-densha/"}, {"@type": "WebApplication", "name": "時差出勤の効果シミュレーター", "url": "https://shimulabo.com/sims/jisa-shukkin/"}, {"@type": "WebApplication", "name": "部屋はなぜ勝手に散らかる？ エントロピーシミュレーター", "url": "https://shimulabo.com/sims/heya-chirakaru/"}, {"@type": "WebApplication", "name": "ニューラルネットが学ぶ瞬間 シミュレーター", "url": "https://shimulabo.com/sims/neural-play/"}, {"@type": "WebApplication", "name": "遺伝的アルゴリズムで最短ルート シミュレーター", "url": "https://shimulabo.com/sims/ga-route/"}, {"@type": "WebApplication", "name": "コーヒーにミルクを落とすと 流体シミュレーター", "url": "https://shimulabo.com/sims/coffee-milk/"}, {"@type": "WebApplication", "name": "地震でビルはどう揺れる？ 共振シミュレーター", "url": "https://shimulabo.com/sims/building-quake/"}, {"@type": "WebApplication", "name": "津波はなぜ岸で高くなる？ シミュレーター", "url": "https://shimulabo.com/sims/tsunami-kishi/"}, {"@type": "WebApplication", "name": "銀行の取り付け騒ぎシミュレーター", "url": "https://shimulabo.com/sims/bank-run/"}, {"@type": "WebApplication", "name": "迷路をAIが解く 探索アルゴリズム対決", "url": "https://shimulabo.com/sims/maze-ai/"}, {"@type": "WebApplication", "name": "AIはこうやって文章を作る マルコフ連鎖シミュレーター", "url": "https://shimulabo.com/sims/markov-bunsho/"}, {"@type": "WebApplication", "name": "感染はこう広がる SIRシミュレーター", "url": "https://shimulabo.com/sims/kansen-agent/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "シミュレーション・ラボ", "item": "https://shimulabo.com/lab/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "「シミュレーション・ラボ」は他のシミュレーターと何が違う？", "acceptedAnswer": {"@type": "Answer", "text": "ここに並ぶ20本は、単純な計算式ではなく、社会科学・物理学・計算機科学で実際に研究に使われている数理モデルやアルゴリズム（ロトカ・ヴォルテラ方程式、待ち行列、反復囚人のジレンマ、浅水波方程式、ニューラルネットワークなど）をブラウザ内で丸ごと動かしています。"}}, {"@type": "Question", "name": "結果は毎回同じ？", "acceptedAnswer": {"@type": "Answer", "text": "乱数を使うモデル（エージェントモデル・遺伝的アルゴリズムなど）は実行のたびに少しずつ違う結果になります。それ自体が「同じルールでも結果はばらつく」というモデルの性質です。"}}, {"@type": "Question", "name": "授業や記事で使っていい？", "acceptedAnswer": {"@type": "Answer", "text": "はい。出典（シミュラボ＋ページURL）を明記いただければ、授業・ブログ・ニュース記事・社内資料への引用を歓迎します。"}}, {"@type": "Question", "name": "入力したデータは送信される？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべての計算はブラウザ内で完結し、サーバーには何も送られません。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+<style>
+.lab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;margin:14px 0 6px;}
+.lab-h2{margin:34px 0 4px;font-size:20px;}
+.src-table{width:100%;border-collapse:collapse;font-size:13px;margin:12px 0;}
+.src-table th,.src-table td{padding:8px 10px;border-bottom:1px solid rgba(127,127,127,.25);text-align:left;vertical-align:top;}
+.src-table th{font-size:12px;opacity:.75;white-space:nowrap;}
+.lab-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;background:rgba(44,107,134,.10);color:var(--teal-d);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../">ホーム</a><span>›</span><span class="cur">シミュレーション・ラボ</span></nav>
+
+  <div class="sim-head">
+    <span class="lab-badge">🧪 SIMULATION LAB</span>
+    <h1>シミュレーション・ラボ</h1>
+    <p class="lead">研究の現場で使われている「本物のモデル」を、そのままブラウザで動かせる20本。キツネとウサギの増減、行列の待ち時間、信頼の進化、流体、津波、ニューラルネットワーク——スライダーを動かすと、社会や自然が“なぜそうなるのか”が数字と動きで見えてきます。</p>
+  </div>
+
+  <h2 class="lab-h2">🏙️ 社会はなぜそう動くのか（エージェントモデル）</h2>
+  <div class="lab-grid">
+    <a class="sim-card" href="../sims/lotka-volterra/"><div class="thumb" style="background:linear-gradient(135deg,#eef2ff,#e0e7ff)"><span class="emoji">🐰</span></div><div class="body"><div class="cat">ロトカ・ヴォルテラ方程式（捕食者－被食者モデル）</div><h3>キツネとウサギ 増減シミュレーター</h3><p>ウサギが増えればキツネも増え、やがて両方減る。生態系の“波”を方程式で動かす。</p><span class="go">触ってみる →</span></div></a>
+    <a class="sim-card" href="../sims/shinrai-shinka/"><div class="thumb" style="background:linear-gradient(135deg,#eef2ff,#e0e7ff)"><span class="emoji">🤝</span></div><div class="body"><div class="cat">反復囚人のジレンマ × レプリケーター動学（進化ゲーム理論）</div><h3>信頼の進化シミュレーター（囚人のジレンマ）</h3><p>常に裏切る／常に協力／やられたらやり返す…6つの生き方を何世代も戦わせ、生き残る戦略を観察。</p><span class="go">触ってみる →</span></div></a>
+    <a class="sim-card" href="../sims/uwasa-kakusan/"><div class="thumb" style="background:linear-gradient(135deg,#eef2ff,#e0e7ff)"><span class="emoji">🗣️</span></div><div class="body"><div class="cat">スモールワールド・ネットワーク（ワッツ＝ストロガッツ）上の伝播</div><h3>噂が全員に届くまでシミュレーター</h3><p>1人に話した噂が全員に届くまで何日？「遠くの知り合い」が数%いるだけで拡散速度が激変。</p><span class="go">触ってみる →</span></div></a>
+    <a class="sim-card" href="../sims/echo-chamber/"><div class="thumb" style="background:linear-gradient(135deg,#eef2ff,#e0e7ff)"><span class="emoji">📢</span></div><div class="body"><div class="cat">限定信頼モデル（ヘーゲルマン＝クラウゼ／デフアン）</div><h3>エコーチェンバー 意見分極シミュレーター</h3><p>「近い意見しか聞かない」だけで、バラバラの意見が2〜3の極に固まる。分極が起きる条件を探る。</p><span class="go">触ってみる →</span></div></a>
+    <a class="sim-card" href="../sims/ryukou-curve/"><div class="thumb" style="background:linear-gradient(135deg,#fff7ed,#ffedd5)"><span class="emoji">📈</span></div><div class="body"><div class="cat">バス拡散モデル＋飽き（離脱）項（SIRS型）</div><h3>流行はなぜ急に終わる？ 普及曲線シミュレーター</h3><p>広告で知る人・口コミで知る人・飽きる人。3つの流れで流行の山と急な終わりを再現。</p><span class="go">触ってみる →</span></div></a>
+    <a class="sim-card" href="../sims/tasuketsu-wana/"><div class="thumb" style="background:linear-gradient(135deg,#eef2ff,#e0e7ff)"><span class="emoji">🗳️</span></div><div class="body"><div class="cat">社会的選択理論（コンドルセ／ボルダ／決選投票／即時決選）</div><h3>多数決の罠 投票方式シミュレーター</h3><p>同じ有権者の好みなのに、単純多数決・決選投票・ボルダ・総当たりで勝者が変わる。民意の罠を体感。</p><span class="go">触ってみる →</span></div></a>
+    <a class="sim-card" href="../sims/bank-run/"><div class="thumb" style="background:linear-gradient(135deg,#fff1f2,#ffe4e6)"><span class="emoji">🏦</span></div><div class="body"><div class="cat">ダイアモンド＝ディビッグ型モデル＋不安の伝播（エージェントベース）</div><h3>銀行の取り付け騒ぎシミュレーター</h3><p>健全な銀行でも「危ないらしい」の噂で倒産する。準備率と預金保険で結果がどう変わるか。</p><span class="go">触ってみる →</span></div></a>
+    <a class="sim-card" href="../sims/kansen-agent/"><div class="thumb" style="background:linear-gradient(135deg,#fef2f2,#fee2e2)"><span class="emoji">🦠</span></div><div class="body"><div class="cat">エージェントベースSIRモデル（感受性・感染・回復）</div><h3>感染はこう広がる SIRシミュレーター</h3><p>街を動く人々の間で感染が広がる。マスク・ワクチン・外出制限でピークの高さがどう変わるか。</p><span class="go">触ってみる →</span></div></a>
+  </div>
+
+  <h2 class="lab-h2">🚶 行列・混雑・待ち時間（待ち行列・群衆）</h2>
+  <div class="lab-grid">
+    <a class="sim-card" href="../sims/queue-docchi/"><div class="thumb" style="background:linear-gradient(135deg,#eef2ff,#e0e7ff)"><span class="emoji">🧍</span></div><div class="body"><div class="cat">待ち行列理論（M/M/c・フォーク型 vs 個別列）</div><h3>行列、1列並び vs レジ別 どっちが速い？</h3><p>1本の列から空いたレジへ、とレジごとに並ぶのは、待ち時間がどれだけ違う？同じ客で同時に実験。</p><span class="go">触ってみる →</span></div></a>
+    <a class="sim-card" href="../sims/elevator-sim/"><div class="thumb" style="background:linear-gradient(135deg,#eef2ff,#e0e7ff)"><span class="emoji">🛗</span></div><div class="body"><div class="cat">離散事象シミュレーション（SCAN／最短距離／先着順の群管理）</div><h3>エレベーター待ち時間シミュレーター</h3><p>なぜ自分の階に来ない？台数・階数・制御アルゴリズムを変えて、待ち時間の変化を観察。</p><span class="go">触ってみる →</span></div></a>
+    <a class="sim-card" href="../sims/manin-densha/"><div class="thumb" style="background:linear-gradient(135deg,#fefce8,#fef9c3)"><span class="emoji">🚃</span></div><div class="body"><div class="cat">粒子ベースの群衆密度モデル（1㎡あたりの人数と圧力）</div><h3>満員電車 混雑率シミュレーター</h3><p>混雑率150%と200%、実際どれくらい違う？車両の中に人を並べて、密度と圧力を可視化。</p><span class="go">触ってみる →</span></div></a>
+    <a class="sim-card" href="../sims/jisa-shukkin/"><div class="thumb" style="background:linear-gradient(135deg,#eff6ff,#dbeafe)"><span class="emoji">🕘</span></div><div class="body"><div class="cat">出勤時刻分布（ガウス混合）とピーク混雑率のモデル</div><h3>時差出勤の効果シミュレーター</h3><p>全体の何割が何分ずらすと朝のピーク混雑率が何%下がるか。自分だけずらした場合の混雑率も。</p><span class="go">触ってみる →</span></div></a>
+    <a class="sim-card" href="../sims/heya-chirakaru/"><div class="thumb" style="background:linear-gradient(135deg,#ecfdf5,#d1fae5)"><span class="emoji">🧦</span></div><div class="body"><div class="cat">統計力学（エントロピー＝配置の場合の数）</div><h3>部屋はなぜ勝手に散らかる？ エントロピーシミュレーター</h3><p>使って戻すだけで部屋は必ず散らかる。「片付いた配置」は場合の数が圧倒的に少ないから。</p><span class="go">触ってみる →</span></div></a>
+  </div>
+
+  <h2 class="lab-h2">🌊 物理で解く身近な現象（数値シミュレーション）</h2>
+  <div class="lab-grid">
+    <a class="sim-card" href="../sims/coffee-milk/"><div class="thumb" style="background:linear-gradient(135deg,#eef2ff,#e0e7ff)"><span class="emoji">☕</span></div><div class="body"><div class="cat">ナビエ＝ストークス方程式の数値解法（Stable Fluids）</div><h3>コーヒーにミルクを落とすと 流体シミュレーター</h3><p>カップにミルクを落として指でかき混ぜると、本物の流体方程式で渦が生まれ混ざっていく。</p><span class="go">触ってみる →</span></div></a>
+    <a class="sim-card" href="../sims/building-quake/"><div class="thumb" style="background:linear-gradient(135deg,#eef2ff,#e0e7ff)"><span class="emoji">🏢</span></div><div class="body"><div class="cat">多質点系（せん断型モデル）の応答解析＋共振</div><h3>地震でビルはどう揺れる？ 共振シミュレーター</h3><p>階数と地震の周期が合うと共振して大きく揺れる。高層ビルが遠くの地震で揺れる理由を体感。</p><span class="go">触ってみる →</span></div></a>
+    <a class="sim-card" href="../sims/tsunami-kishi/"><div class="thumb" style="background:linear-gradient(135deg,#eef2ff,#e0e7ff)"><span class="emoji">🌊</span></div><div class="body"><div class="cat">浅水波方程式（1次元・有限差分）</div><h3>津波はなぜ岸で高くなる？ シミュレーター</h3><p>沖では1mの津波が岸で数倍に。水深と海底の傾斜を変えて、津波が高くなる瞬間を再現。</p><span class="go">触ってみる →</span></div></a>
+  </div>
+
+  <h2 class="lab-h2">🤖 AI・アルゴリズムのしくみ（機械学習・探索）</h2>
+  <div class="lab-grid">
+    <a class="sim-card" href="../sims/neural-play/"><div class="thumb" style="background:linear-gradient(135deg,#fdf4ff,#fae8ff)"><span class="emoji">🧠</span></div><div class="body"><div class="cat">多層パーセプトロン（誤差逆伝播法・確率的勾配降下法）</div><h3>ニューラルネットが学ぶ瞬間 シミュレーター</h3><p>渦巻きや円のデータを本物のニューラルネットが学習。境界線が育っていく瞬間をリアルタイムで。</p><span class="go">触ってみる →</span></div></a>
+    <a class="sim-card" href="../sims/ga-route/"><div class="thumb" style="background:linear-gradient(135deg,#fdf4ff,#fae8ff)"><span class="emoji">🧬</span></div><div class="body"><div class="cat">遺伝的アルゴリズム（順序交叉・突然変異・エリート保存）による巡回セールスマン問題</div><h3>遺伝的アルゴリズムで最短ルート シミュレーター</h3><p>配達先をクリックで置くと、進化計算が世代を重ねてルートを短くしていく。生物の進化を真似た最適化。</p><span class="go">触ってみる →</span></div></a>
+    <a class="sim-card" href="../sims/maze-ai/"><div class="thumb" style="background:linear-gradient(135deg,#fdf4ff,#fae8ff)"><span class="emoji">🧩</span></div><div class="body"><div class="cat">グラフ探索（幅優先／深さ優先／A*／貪欲法）＋迷路生成（再帰的バックトラック）</div><h3>迷路をAIが解く 探索アルゴリズム対決</h3><p>自動生成した迷路を4つのアルゴリズムが解く。調べたマス数と経路の長さで「賢さ」を比較。</p><span class="go">触ってみる →</span></div></a>
+    <a class="sim-card" href="../sims/markov-bunsho/"><div class="thumb" style="background:linear-gradient(135deg,#fdf4ff,#fae8ff)"><span class="emoji">✍️</span></div><div class="body"><div class="cat">n-gram言語モデル（マルコフ連鎖）＋温度サンプリング</div><h3>AIはこうやって文章を作る マルコフ連鎖シミュレーター</h3><p>文章を貼ると「次の文字の確率」を数えて学習し、それっぽい文を生成。ChatGPTの原理の最小版。</p><span class="go">触ってみる →</span></div></a>
+  </div>
+
+  <article class="article">
+    <h2>このラボについて</h2>
+    <p>シミュラボの多くのページは「入力→計算→結果」の計算機ですが、このラボの20本は<b>時間とともに状態が変化していく“動くモデル”</b>です。1体1体の住人・客・車・粒子・ニューロンが単純なルールで動き、その積み重ねとして、渋滞や分断や流行やパニックといった全体の現象が“勝手に”立ち上がります。これを<b>創発</b>と呼び、複雑系科学・計算社会科学・計算物理の中心的なテーマです。</p>
+    <p>各ページの本文では、使っているモデルの式や出典、現実世界でそのモデルがどう使われているかを解説しています。授業・記事・資料でご活用ください。</p>
+    <h2>使っているモデル・アルゴリズム一覧</h2>
+    <div class="tbl-scroll"><table class="src-table"><tr><th>シミュレーター</th><th>モデル</th><th>出典・分野</th></tr><tr><td><a href="../sims/lotka-volterra/">キツネとウサギ 増減シミュレーター</a></td><td>ロトカ・ヴォルテラ方程式（捕食者－被食者モデル）</td><td>Lotka (1925) / Volterra (1926)。数理生態学の基礎方程式</td></tr><tr><td><a href="../sims/queue-docchi/">行列、1列並び vs レジ別 どっちが速い？</a></td><td>待ち行列理論（M/M/c・フォーク型 vs 個別列）</td><td>Erlang (1909) に始まる待ち行列理論。銀行・空港・コールセンターの設計に使用</td></tr><tr><td><a href="../sims/elevator-sim/">エレベーター待ち時間シミュレーター</a></td><td>離散事象シミュレーション（SCAN／最短距離／先着順の群管理）</td><td>ディスクスケジューリングと同型のアルゴリズム。実際の群管理制御の基礎</td></tr><tr><td><a href="../sims/shinrai-shinka/">信頼の進化シミュレーター（囚人のジレンマ）</a></td><td>反復囚人のジレンマ × レプリケーター動学（進化ゲーム理論）</td><td>Axelrod (1984)『つきあい方の科学』。協力の進化を説明する古典</td></tr><tr><td><a href="../sims/uwasa-kakusan/">噂が全員に届くまでシミュレーター</a></td><td>スモールワールド・ネットワーク（ワッツ＝ストロガッツ）上の伝播</td><td>Watts & Strogatz (1998, Nature)。六次の隔たりを説明したネットワーク科学の出発点</td></tr><tr><td><a href="../sims/echo-chamber/">エコーチェンバー 意見分極シミュレーター</a></td><td>限定信頼モデル（ヘーゲルマン＝クラウゼ／デフアン）</td><td>Hegselmann & Krause (2002)、Deffuant et al. (2000)。計算社会科学の意見動学</td></tr><tr><td><a href="../sims/ryukou-curve/">流行はなぜ急に終わる？ 普及曲線シミュレーター</a></td><td>バス拡散モデル＋飽き（離脱）項（SIRS型）</td><td>Bass (1969)。新製品の普及予測に50年以上使われる標準モデル</td></tr><tr><td><a href="../sims/tasuketsu-wana/">多数決の罠 投票方式シミュレーター</a></td><td>社会的選択理論（コンドルセ／ボルダ／決選投票／即時決選）</td><td>Condorcet (1785)、Arrow (1951)。同じ民意でも投票方式で勝者が変わることの証明</td></tr><tr><td><a href="../sims/manin-densha/">満員電車 混雑率シミュレーター</a></td><td>粒子ベースの群衆密度モデル（1㎡あたりの人数と圧力）</td><td>国交省の混雑率定義＋群衆密度と圧力の関係（Fruin 1971、群衆事故研究）</td></tr><tr><td><a href="../sims/jisa-shukkin/">時差出勤の効果シミュレーター</a></td><td>出勤時刻分布（ガウス混合）とピーク混雑率のモデル</td><td>国交省「オフピーク通勤」の考え方。ピーク30分の集中度で混雑率が決まる</td></tr><tr><td><a href="../sims/heya-chirakaru/">部屋はなぜ勝手に散らかる？ エントロピーシミュレーター</a></td><td>統計力学（エントロピー＝配置の場合の数）</td><td>ボルツマンの S = k log W。「片付いた状態」は場合の数が圧倒的に少ない</td></tr><tr><td><a href="../sims/neural-play/">ニューラルネットが学ぶ瞬間 シミュレーター</a></td><td>多層パーセプトロン（誤差逆伝播法・確率的勾配降下法）</td><td>Rumelhart, Hinton & Williams (1986)。現代のAIすべての基礎</td></tr><tr><td><a href="../sims/ga-route/">遺伝的アルゴリズムで最短ルート シミュレーター</a></td><td>遺伝的アルゴリズム（順序交叉・突然変異・エリート保存）による巡回セールスマン問題</td><td>Holland (1975)。物流・配送ルート・回路設計で使われる進化計算</td></tr><tr><td><a href="../sims/coffee-milk/">コーヒーにミルクを落とすと 流体シミュレーター</a></td><td>ナビエ＝ストークス方程式の数値解法（Stable Fluids）</td><td>Stam (1999, SIGGRAPH)。映画のVFX・ゲームの流体表現の標準手法</td></tr><tr><td><a href="../sims/building-quake/">地震でビルはどう揺れる？ 共振シミュレーター</a></td><td>多質点系（せん断型モデル）の応答解析＋共振</td><td>建築の耐震設計で使う基本モデル。固有周期 T≈0.02〜0.03×高さ(m)</td></tr><tr><td><a href="../sims/tsunami-kishi/">津波はなぜ岸で高くなる？ シミュレーター</a></td><td>浅水波方程式（1次元・有限差分）</td><td>津波の伝播予測（気象庁・JAMSTEC）で実際に使われる基礎方程式</td></tr><tr><td><a href="../sims/bank-run/">銀行の取り付け騒ぎシミュレーター</a></td><td>ダイアモンド＝ディビッグ型モデル＋不安の伝播（エージェントベース）</td><td>Diamond & Dybvig (1983, ノーベル経済学賞2022)。預金保険制度の理論的根拠</td></tr><tr><td><a href="../sims/maze-ai/">迷路をAIが解く 探索アルゴリズム対決</a></td><td>グラフ探索（幅優先／深さ優先／A*／貪欲法）＋迷路生成（再帰的バックトラック）</td><td>Hart, Nilsson & Raphael (1968) A*。カーナビ・ゲームAI・配送計画の経路探索の基礎</td></tr><tr><td><a href="../sims/markov-bunsho/">AIはこうやって文章を作る マルコフ連鎖シミュレーター</a></td><td>n-gram言語モデル（マルコフ連鎖）＋温度サンプリング</td><td>Shannon (1948)。ChatGPTの「次の語を予測する」原理の最小版</td></tr><tr><td><a href="../sims/kansen-agent/">感染はこう広がる SIRシミュレーター</a></td><td>エージェントベースSIRモデル（感受性・感染・回復）</td><td>Kermack & McKendrick (1927)。感染症数理モデルの原点。ワクチン・行動制限の効果予測に使用</td></tr></table></div>
+    <h2>引用・転載について</h2>
+    <p>本ラボの各シミュレーターの結果・画面は、<b>出典を明記いただければ</b>授業・ブログ・記事・社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「（シミュレーター名）」 https://shimulabo.com/sims/（slug）/</code></div>
+    <h2>よくある質問</h2><dl class="faq"><dt>「シミュレーション・ラボ」は他のシミュレーターと何が違う？</dt><dd>ここに並ぶ20本は、単純な計算式ではなく、社会科学・物理学・計算機科学で実際に研究に使われている数理モデルやアルゴリズム（ロトカ・ヴォルテラ方程式、待ち行列、反復囚人のジレンマ、浅水波方程式、ニューラルネットワークなど）をブラウザ内で丸ごと動かしています。</dd><dt>結果は毎回同じ？</dt><dd>乱数を使うモデル（エージェントモデル・遺伝的アルゴリズムなど）は実行のたびに少しずつ違う結果になります。それ自体が「同じルールでも結果はばらつく」というモデルの性質です。</dd><dt>授業や記事で使っていい？</dt><dd>はい。出典（シミュラボ＋ページURL）を明記いただければ、授業・ブログ・ニュース記事・社内資料への引用を歓迎します。</dd><dt>入力したデータは送信される？</dt><dd>いいえ。すべての計算はブラウザ内で完結し、サーバーには何も送られません。</dd></dl>
+  </article>
+
+  <section class="req-banner">
+    <h2>💡 動かしてみたいモデル、ありますか？</h2>
+    <p>「このモデルを見てみたい」「この現象を再現してほしい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../">← シミュラボ トップへ戻る</a>　<a href="../live/">⚡ ライブデータラボ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+<script src="../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

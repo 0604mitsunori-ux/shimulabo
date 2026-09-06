@@ -123,6 +123,19 @@ const ALLOW = new Set([
   'daigaku-4nen', 'haka-jimai', 'souzoku-hiyou', 'pet-shoki', 'hitori-shoki',
   'camp-gear', 'golf-hajime', 'gakki-hajime', 'shikaku-cost', 'ryugaku-cost',
   'kafun-cost', 'suit-shakaijin', 'shokusenki-motodori', 'water-server', 'hoken-minaoshi'
+  // 2026-09 同期追加
+  'amagumo-now', 'atsusa-ranking', 'aurora-yohou', 'bbq-shisu', 'btc-tara', 'chikyu-yure',
+  'conbini-mitsudo', 'crypto-zenbu', 'docchi-yumei', 'enyasu-taikan', 'fujisan-mieru', 'gelande-yuki',
+  'genchi-ikura', 'heinen-hikaku', 'hiruma-nagasa', 'hiyake-timer', 'hoshizora-shisu', 'inu-sanpo-ok',
+  'iss-doko', 'jinja-tera', 'jishin-live', 'kaibatsu-check', 'kaminari-alert', 'kasa-iru',
+  'kiatsu-jet', 'kion-kandansa', 'kotoba-trend', 'kuuki-kirei', 'kyou-kaze', 'kyou-no-kanshin',
+  'naminori-biyori', 'nankyoku-ima', 'natsu-2050', 'nettaiya-check', 'ondanka-taikan', 'renkyuu-maker',
+  'rocket-uchiage', 'running-shisu', 'sakura-kaisu', 'sekai-kion', 'sekai-yasumi', 'sentaku-kawaku',
+  'shio-live', 'shuumatsu-hare', 'shuumatsu-nokori', 'sofubo-jikan', 'solar-hatsuden', 'tanjobi-jiken',
+  'tomodachi-kaisu', 'tsugi-renkyuu', 'umareta-hi-tenki', 'umi-mizuon', 'yasumeru-kaisu', 'yohou-shinrai',
+  'yuyake-yohou',
+  // fable20
+  'lotka-volterra', 'queue-docchi', 'elevator-sim', 'shinrai-shinka', 'uwasa-kakusan', 'echo-chamber', 'ryukou-curve', 'tasuketsu-wana', 'manin-densha', 'jisa-shukkin', 'heya-chirakaru', 'neural-play', 'ga-route', 'coffee-milk', 'building-quake', 'tsunami-kishi', 'bank-run', 'maze-ai', 'markov-bunsho', 'kansen-agent',
 ]);
 
 export default async function handler(req, res) {

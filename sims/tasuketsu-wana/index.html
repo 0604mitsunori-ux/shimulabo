@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/tasuketsu-wana/">
+<title>多数決の罠 投票方式シミュレーター｜同じ民意でも投票ルールで勝者が変わる？｜シミュラボ</title>
+<meta name="description" content="単純多数決・決選投票・ボルダ得点・総当たり（コンドルセ）の4方式で、同じ有権者の好みから勝者がどう変わるかを比べる無料シミュレーター。3候補の順位分布を動かして「多数決で最も嫌われた候補が勝つ」現象を再現。">
+<meta property="og:title" content="多数決の罠 投票方式シミュレーター">
+<meta property="og:description" content="同じ民意でも、投票ルールで勝者が変わる。4方式で比較。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/tasuketsu-wana.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/tasuketsu-wana.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/tasuketsu-wana/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "多数決の罠 投票方式シミュレーター", "url": "https://shimulabo.com/sims/tasuketsu-wana/", "description": "同じ民意でも、投票ルールで勝者が変わる。4方式で比較。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "シミュレーション・ラボ", "item": "https://shimulabo.com/lab/"}, {"@type": "ListItem", "position": 3, "name": "多数決の罠 投票方式シミュレーター", "item": "https://shimulabo.com/sims/tasuketsu-wana/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "結局どの方式がいちばんいい？", "acceptedAnswer": {"@type": "Answer", "text": "目的によります。「過半数に嫌われた候補を避けたい」なら決選投票や総当たり、「幅広く支持される候補を選びたい」ならボルダ。どの方式も何らかの罠を持つことが数学的に証明されており、方式の選択自体が政治的な決定です。"}}, {"@type": "Question", "name": "日本の選挙はどの方式？", "acceptedAnswer": {"@type": "Answer", "text": "衆議院の小選挙区・知事選・市長選はすべて単純多数決です。オーストラリアの下院やニューヨーク市長予備選は即時決選投票（順位付き投票）を採用しています。"}}, {"@type": "Question", "name": "割合の合計が100%を超えるとどうなる？", "acceptedAnswer": {"@type": "Answer", "text": "6つの数値の比率で計算するため、合計が100%でなくても問題ありません。全部0にするとエラー回避のため均等扱いになります。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+<style>
+.lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
+.lab-ctl .field{margin-bottom:6px;}
+.lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
+.lab-ctl .slider-head label{margin:0;font-size:13px;}
+.lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
+.lab-ctl input[type=range]{width:100%;}
+.lab-ctl select{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;font-size:14px;background:#fff;}
+.lab-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px;}
+.lab-btns .btn{padding:11px 18px;font-size:14px;width:auto;}
+.lab-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;width:100%;max-width:640px;margin-top:4px;}
+.lab-stats .stat{background:var(--teal-l);border-radius:10px;padding:10px 12px;text-align:center;}
+.lab-stats .k{font-size:11px;color:var(--ink-2);}
+.lab-stats .v{font-size:20px;font-weight:800;color:var(--ink);font-feature-settings:"tnum";}
+.lab-stats .v.accent{color:var(--accent);}
+.lab-legend{text-align:center;color:var(--ink-2);font-size:13px;margin-top:12px;}
+.lab-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;background:rgba(44,107,134,.10);color:var(--teal-d);margin-bottom:8px;}
+canvas.lab{width:100%;max-width:640px;height:auto;border:1px solid var(--line);border-radius:12px;background:#0b1020;touch-action:none;}
+canvas.lab.light{background:#fff;}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../lab/">🧪 シミュレーション・ラボ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../lab/">シミュレーション・ラボ</a><span>›</span><span class="cur">多数決の罠 投票方式シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ふしぎ・現象</div>
+    <h1>多数決の罠 投票方式シミュレーター</h1>
+    <p class="lead">多数決は民意を映す——とは限りません。3人の候補に対する有権者の「好みの順位」をいじると、単純多数決・決選投票・ボルダ得点・総当たりで、それぞれ別の候補が勝つことがあります。「最も嫌われた候補が勝つ」瞬間を作ってみてください。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:14px;">
+      <span class="lab-badge">🧪 社会的選択理論（コンドルセ／ボルダ／決選投票／即時決選）</span>
+      <canvas id="cv" class="lab light" width="640" height="300"></canvas>
+      <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="g1">A＞B＞C と考える人</label><span class="val" id="g1L"></span></div><input type="range" id="g1" min="0" max="60" value="35" step="1" data-fmt="{v}%"></div><div class="field"><div class="slider-head"><label for="g2">A＞C＞B と考える人</label><span class="val" id="g2L"></span></div><input type="range" id="g2" min="0" max="60" value="5" step="1" data-fmt="{v}%"></div><div class="field"><div class="slider-head"><label for="g3">B＞C＞A と考える人</label><span class="val" id="g3L"></span></div><input type="range" id="g3" min="0" max="60" value="30" step="1" data-fmt="{v}%"></div><div class="field"><div class="slider-head"><label for="g4">B＞A＞C と考える人</label><span class="val" id="g4L"></span></div><input type="range" id="g4" min="0" max="60" value="3" step="1" data-fmt="{v}%"></div><div class="field"><div class="slider-head"><label for="g5">C＞B＞A と考える人</label><span class="val" id="g5L"></span></div><input type="range" id="g5" min="0" max="60" value="22" step="1" data-fmt="{v}%"></div><div class="field"><div class="slider-head"><label for="g6">C＞A＞B と考える人</label><span class="val" id="g6L"></span></div><input type="range" id="g6" min="0" max="60" value="5" step="1" data-fmt="{v}%"></div></div>
+      <div class="lab-btns"><button class="btn btn-ghost" id="ex1">例：最も嫌われた候補が勝つ</button><button class="btn btn-ghost" id="ex2">例：三すくみ（コンドルセのパラドックス）</button><button class="btn btn-ghost" id="ex3">例：どの方式でも同じ</button></div>
+      <div class="lab-stats"><div class="stat"><div class="k">単純多数決</div><div class="v" id="sPl">—</div></div><div class="stat"><div class="k">決選投票</div><div class="v" id="sRo">—</div></div><div class="stat"><div class="k">ボルダ得点</div><div class="v" id="sBo">—</div></div><div class="stat"><div class="k">総当たり（コンドルセ）</div><div class="v accent" id="sCo">—</div></div></div>
+    </div>
+    <p class="lab-legend">各方式の勝者を表示。割合の合計が100%でなくても、比率として計算します。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+<div class="note" style="border-left:4px solid var(--teal)"><strong>ポイント</strong>：同じ有権者・同じ好みでも、<b>数え方（投票方式）を変えるだけで勝者が変わる</b>ことがあります。「どの方式が正しいか」には答えがなく、すべての望ましい性質を同時に満たす方式は存在しない——これが1951年に証明された<b>アローの不可能性定理</b>です。</div>
+<h2>4つの投票方式</h2>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>方式</th><th>数え方</th><th>長所</th><th>罠</th></tr><tr><td>単純多数決</td><td>1位票がいちばん多い候補が勝ち</td><td>分かりやすい</td><td>票が割れると、過半数に嫌われた候補が勝つ</td></tr><tr><td>決選投票</td><td>上位2人で再投票</td><td>過半数の支持を得た候補が勝つ</td><td>1回目で3位だった“みんなの2番手”が消える</td></tr><tr><td>ボルダ得点</td><td>1位2点・2位1点・3位0点の合計</td><td>幅広く好かれる候補が勝つ</td><td>戦略的に嫌いな候補を最下位にする操作ができる</td></tr><tr><td>総当たり（コンドルセ）</td><td>全ペアで1対1対決し、全員に勝った候補が勝ち</td><td>理屈のうえで最も“民意”に近い</td><td>三すくみで勝者がいないことがある</td></tr></table></div>
+<h2>「最も嫌われた候補が勝つ」しくみ</h2>
+<p>A支持35%・B支持33%・C支持32%で、B支持者とC支持者は「Aだけは嫌」だとします。単純多数決ではAが勝ちますが、65%の人にとってAは最下位。1対1で比べれば、AはBにもCにも負けます。日本の小選挙区や知事選、アメリカ大統領選（2000年の第三候補問題）などで、この構造は現実に繰り返し起きています。</p>
+<h2>三すくみ：勝者が存在しない民意</h2>
+<p>「A＞B」「B＞C」「C＞A」がそれぞれ多数派になる状況では、総当たりで全員に勝つ候補がいません。じゃんけんのような循環で、1785年にコンドルセ侯爵が発見しました。この場合、議題を出す“順番”を決める人が事実上の勝者を決められます——議会運営で議長が強い理由の1つです。</p>
+
+    <h2>引用・転載について</h2>
+    <p>本ページのシミュレーション結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・授業や社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「多数決の罠 投票方式シミュレーター」 https://shimulabo.com/sims/tasuketsu-wana/</code></div>
+    <h2>よくある質問</h2><dl class="faq"><dt>結局どの方式がいちばんいい？</dt><dd>目的によります。「過半数に嫌われた候補を避けたい」なら決選投票や総当たり、「幅広く支持される候補を選びたい」ならボルダ。どの方式も何らかの罠を持つことが数学的に証明されており、方式の選択自体が政治的な決定です。</dd><dt>日本の選挙はどの方式？</dt><dd>衆議院の小選挙区・知事選・市長選はすべて単純多数決です。オーストラリアの下院やニューヨーク市長予備選は即時決選投票（順位付き投票）を採用しています。</dd><dt>割合の合計が100%を超えるとどうなる？</dt><dd>6つの数値の比率で計算するため、合計が100%でなくても問題ありません。全部0にするとエラー回避のため均等扱いになります。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../echo-chamber/"><span class="e">📢</span><span>エコーチェンバー 意見分極</span></a><a class="related-card" href="../shinrai-shinka/"><span class="e">🤝</span><span>信頼の進化</span></a><a class="related-card" href="../kakuritsu-keisan/"><span class="e">🎲</span><span>確率計算機</span></a><a class="related-card" href="../same-class/"><span class="e">🏫</span><span>同じクラスになる確率</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../lab/">🧪 シミュレーション・ラボ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+  const rnd = (a,b) => a + Math.random()*(b-a);
+  const randn = () => { let u=0,v=0; while(!u)u=Math.random(); while(!v)v=Math.random(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
+  let SHARE = '';
+  function setShare(t){ SHARE = t; }
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{ const l=$(s.id+'L'); if(l){ const u=()=>{ l.textContent = (s.dataset.fmt ? s.dataset.fmt.replace('{v}', s.value) : s.value); }; s.addEventListener('input',u); u(); } }); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  function setStat(id, v){ const e=$(id); if(e) e.textContent = v; }
+  try {
+    syncSliders();
+
+  const cv=$('cv'), x=cv.getContext('2d'), W=cv.width, H=cv.height;
+  const ORD=[['A','B','C'],['A','C','B'],['B','C','A'],['B','A','C'],['C','B','A'],['C','A','B']];
+  const NAME={A:'候補A',B:'候補B',C:'候補C'}, COL={A:'#2c6b86',B:'#c4442b',C:'#a97a24'};
+  function calc(){ let w=[1,2,3,4,5,6].map(i=>+$('g'+i).value); let s=w.reduce((a,b)=>a+b,0); if(!s){ w=[1,1,1,1,1,1]; s=6; } w=w.map(v=>v/s);
+    const first={A:0,B:0,C:0}, borda={A:0,B:0,C:0}; w.forEach((p,i)=>{ first[ORD[i][0]]+=p; borda[ORD[i][0]]+=2*p; borda[ORD[i][1]]+=p; });
+    const pref=(a,b)=>w.reduce((acc,p,i)=>acc+(ORD[i].indexOf(a)<ORD[i].indexOf(b)?p:0),0);
+    const C=['A','B','C']; const top=(o)=>C.slice().sort((a,b)=>o[b]-o[a]);
+    const pl=top(first)[0]; const [r1,r2]=top(first); const ro=pref(r1,r2)>=0.5?r1:r2; const bo=top(borda)[0];
+    let co=null; for(const c of C){ if(C.every(d=>d===c||pref(c,d)>0.5)) co=c; }
+    const last={A:0,B:0,C:0}; w.forEach((p,i)=>last[ORD[i][2]]+=p);
+    return {first,borda,pref,pl,ro,bo,co,last,r1,r2}; }
+  function bar(y,label,vals,fmt){ x.fillStyle='#14181d'; x.font='bold 12px sans-serif'; x.fillText(label, 12, y+14); let bx=150; ['A','B','C'].forEach(c=>{ const w=vals[c]*380; x.fillStyle=COL[c]; x.fillRect(bx,y,w,20); x.fillStyle='#fff'; x.font='11px sans-serif'; if(w>28) x.fillText(c+' '+fmt(vals[c]), bx+4, y+14); bx+=w; }); }
+  function draw(){ const r=calc(); x.fillStyle='#fff'; x.fillRect(0,0,W,H);
+    bar(16,'1位票の割合', r.first, v=>Math.round(v*100)+'%');
+    bar(50,'最下位にされた割合', r.last, v=>Math.round(v*100)+'%');
+    const bsum=r.borda.A+r.borda.B+r.borda.C; bar(84,'ボルダ得点の割合', {A:r.borda.A/bsum,B:r.borda.B/bsum,C:r.borda.C/bsum}, v=>Math.round(v*100)+'%');
+    x.fillStyle='#14181d'; x.font='bold 12px sans-serif'; x.fillText('1対1対決（総当たり）', 12, 134);
+    const pairs=[['A','B'],['B','C'],['A','C']]; pairs.forEach(([a,b],i)=>{ const y=148+i*24; const pa=r.pref(a,b); x.fillStyle=COL[a]; x.fillRect(150,y,pa*380,18); x.fillStyle=COL[b]; x.fillRect(150+pa*380,y,(1-pa)*380,18); x.fillStyle='#fff'; x.font='11px sans-serif'; x.fillText(a+' '+Math.round(pa*100)+'%',154,y+13); x.fillText(b+' '+Math.round((1-pa)*100)+'%',150+pa*380+4,y+13); x.fillStyle=pa>0.5?COL[a]:COL[b]; x.font='bold 11px sans-serif'; x.fillText((pa>0.5?a:b)+'の勝ち', 540, y+13); });
+    x.fillStyle='#59616c'; x.font='11px sans-serif'; x.fillText('決選投票：上位2人 '+r.r1+' vs '+r.r2+' → '+NAME[r.ro], 12, 244);
+    const winners=[r.pl,r.ro,r.bo,r.co].filter(Boolean); const uniq=new Set(winners).size;
+    x.fillStyle=uniq>1?'#c4442b':'#2c6b86'; x.font='bold 14px sans-serif'; x.fillText(uniq>1?'⚠️ 方式によって勝者が違います（'+uniq+'通り）':'✅ どの方式でも同じ候補が勝ちます', 12, 276);
+    setStat('sPl', NAME[r.pl]); setStat('sRo', NAME[r.ro]); setStat('sBo', NAME[r.bo]); setStat('sCo', r.co?NAME[r.co]:'なし（三すくみ）');
+    setShare('同じ民意で投票方式を変えたら…単純多数決:'+r.pl+'／決選投票:'+r.ro+'／ボルダ:'+r.bo+'／総当たり:'+(r.co||'勝者なし')+'🗳️ 多数決の罠を体感👇'); }
+  function setv(v){ v.forEach((n,i)=>{ $('g'+(i+1)).value=n; $('g'+(i+1)).dispatchEvent(new Event('input')); }); draw(); }
+  for(let i=1;i<=6;i++) $('g'+i).addEventListener('input',draw);
+  $('ex1').addEventListener('click',()=>setv([35,0,33,0,32,0]));
+  $('ex2').addEventListener('click',()=>setv([34,0,33,0,33,0]));
+  $('ex3').addEventListener('click',()=>setv([45,10,20,5,15,5]));
+  draw();
+
+  } catch(e) { console.error(e); }
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE || document.title)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText((SHARE||document.title)+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'tasuketsu-wana', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

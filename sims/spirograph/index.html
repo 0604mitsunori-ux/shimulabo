@@ -25,7 +25,7 @@
     <meta name="robots" content="index,follow">
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "スピログラフ", "url": "https://shimulabo.com/sims/spirograph/", "description": "半径やペン位置を変えて幾何学模様を描く。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "スピログラフ", "item": "https://shimulabo.com/sims/spirograph/"}]}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "保存できる？", "acceptedAnswer": {"@type": "Answer", "text": "スクリーンショットで保存できます。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で描画します。"}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "保存できる？", "acceptedAnswer": {"@type": "Answer", "text": "スクリーンショットで保存できます。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で描画します。"}}, {"@type": "Question", "name": "ペンの位置を円の外に出せる？", "acceptedAnswer": {"@type": "Answer", "text": "数学的には可能で、d が r より大きいとループのある模様になります。本物の玩具では歯車の穴の範囲内に限られます。"}}, {"@type": "Question", "name": "外側の円の「外」で転がすと？", "acceptedAnswer": {"@type": "Answer", "text": "エピトロコイドという別の曲線になります。心臓形（カージオイド）などがその仲間です。"}}]}</script>
     <!-- ga4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
@@ -76,7 +76,15 @@
   <article class="article">
     <h2>スピログラフの数学</h2>
     <p>大きな円の内側で小さな円を転がし、小円の中の一点が描く軌跡を「ハイポトロコイド」と呼びます。半径の比が模様の対称性（花びらの数）を決め、ペンの位置で形が変わります。比が整数だと模様がぴったり閉じます。</p>
-    <h2>よくある質問</h2><dl class="faq"><dt>保存できる？</dt><dd>スクリーンショットで保存できます。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で描画します。</dd></dl>
+    <!-- enriched-2026-09 -->
+<h2>この曲線の式</h2>
+<p>半径 R の円の内側を半径 r の円が転がり、その円の中心から d の位置にペンがあるとき、軌跡は次の式で表せます（ハイポトロコイド）。</p>
+<div class="note">x = (R − r)·cos θ + d·cos((R − r)/r · θ)<br>y = (R − r)·sin θ − d·sin((R − r)/r · θ)</div>
+<h2>花びらの数は「最大公約数」で決まる</h2>
+<p>模様の尖った部分（花びら）の数は <b>R ÷ gcd(R, r)</b>。外側96・内側36なら gcd=12 で花びらは8枚。互いに素な組み合わせほど花びらが多く、線が閉じるまで長く描き続けます。子どもの頃「なぜかすごく細かい模様になる」歯車があったのは、この理由です。</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>外側 : 内側</th><th>花びらの数</th></tr><tr><td>96 : 48</td><td>2枚（楕円に近い）</td></tr><tr><td>96 : 36</td><td>8枚</td></tr><tr><td>96 : 40</td><td>12枚</td></tr><tr><td>96 : 35</td><td>96枚（ほぼ塗りつぶし）</td></tr></table></div>
+<p>スピログラフは1965年にイギリスの技術者デニス・フィッシャーが玩具として発売しました。原理はそれ以前から「トロコイド曲線」として数学で知られており、内燃機関のロータリーエンジンの形にも同じ族の曲線が使われています。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>保存できる？</dt><dd>スクリーンショットで保存できます。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で描画します。</dd><dt>ペンの位置を円の外に出せる？</dt><dd>数学的には可能で、d が r より大きいとループのある模様になります。本物の玩具では歯車の穴の範囲内に限られます。</dd><dt>外側の円の「外」で転がすと？</dt><dd>エピトロコイドという別の曲線になります。心臓形（カージオイド）などがその仲間です。</dd></dl>
   </article>
 
   <nav class="related" aria-label="related">

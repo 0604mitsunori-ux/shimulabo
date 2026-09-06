@@ -25,7 +25,7 @@
     <meta name="robots" content="index,follow">
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "波の干渉シミュレーター", "url": "https://shimulabo.com/sims/wave/", "description": "2つの波が重なって生まれる干渉のしま模様を体感。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "波の干渉シミュレーター", "item": "https://shimulabo.com/sims/wave/"}]}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "波源を近づけると？", "acceptedAnswer": {"@type": "Answer", "text": "しま模様の間隔が広がります。逆に離すと細かくなります。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動作します。"}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "波源を近づけると？", "acceptedAnswer": {"@type": "Answer", "text": "しま模様の間隔が広がります。逆に離すと細かくなります。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動作します。"}}, {"@type": "Question", "name": "音でも同じことが起きる？", "acceptedAnswer": {"@type": "Answer", "text": "はい。スピーカー2台の間を歩くと、音が大きくなる場所と小さくなる場所が交互に現れます。ライブ会場の音響設計ではこの干渉を避ける工夫がされています。"}}, {"@type": "Question", "name": "波源が3つ以上だとどうなる？", "acceptedAnswer": {"@type": "Answer", "text": "縞がより鋭く細くなります。波源をたくさん等間隔に並べたものが回折格子で、分光器（光を波長ごとに分ける装置）の心臓部です。"}}]}</script>
     <!-- ga4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
@@ -76,7 +76,14 @@
   <article class="article">
     <h2>干渉とは</h2>
     <p>2つの波が重なると、山と山が合うところは強め合い（明るい）、山と谷が合うところは打ち消し合います（暗い）。この結果あらわれるしま模様が<strong>干渉縞</strong>です。光・音・水面など、波であれば共通して起こる現象で、ヤングの実験（光が波であることの証明）でも有名です。</p>
-    <h2>よくある質問</h2><dl class="faq"><dt>波源を近づけると？</dt><dd>しま模様の間隔が広がります。逆に離すと細かくなります。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動作します。</dd></dl>
+    <!-- enriched-2026-09 -->
+<h2>強め合う場所・打ち消す場所の条件</h2>
+<p>2つの波源からの距離の差（経路差）が波長 λ の<b>整数倍</b>なら山と山が重なって強め合い、<b>半波長の奇数倍</b>なら山と谷が重なって打ち消し合います。この条件を満たす点をつなぐと、双曲線状の縞模様（干渉縞）になります。</p>
+<div class="note">強め合い：経路差 = m·λ　　打ち消し：経路差 = (m + ½)·λ　（m = 0, 1, 2, …）</div>
+<p>波源の間隔 d を広げると縞の本数が増え、間隔が狭くなります。スクリーン上の縞の間隔は近似的に <b>Δx = λL ÷ d</b>（L：スクリーンまでの距離）。ヤングはこの式を使って1801年に光の波長を初めて測定しました。</p>
+<h2>干渉が使われている技術</h2>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>技術・現象</th><th>干渉の使われ方</th></tr><tr><td>ノイズキャンセリングイヤホン</td><td>騒音と逆位相の音を出して打ち消す</td></tr><tr><td>シャボン玉・油膜の虹色</td><td>薄膜の表と裏で反射した光が干渉し、波長ごとに強め合う</td></tr><tr><td>重力波検出器（LIGO）</td><td>4kmの腕を進む光の干渉で、原子核より小さいずれを検出</td></tr><tr><td>CDの虹色</td><td>溝で反射した光が干渉（回折格子）</td></tr></table></div>
+    <h2>よくある質問</h2><dl class="faq"><dt>波源を近づけると？</dt><dd>しま模様の間隔が広がります。逆に離すと細かくなります。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動作します。</dd><dt>音でも同じことが起きる？</dt><dd>はい。スピーカー2台の間を歩くと、音が大きくなる場所と小さくなる場所が交互に現れます。ライブ会場の音響設計ではこの干渉を避ける工夫がされています。</dd><dt>波源が3つ以上だとどうなる？</dt><dd>縞がより鋭く細くなります。波源をたくさん等間隔に並べたものが回折格子で、分光器（光を波長ごとに分ける装置）の心臓部です。</dd></dl>
   </article>
 
   <nav class="related" aria-label="related">

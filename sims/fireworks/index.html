@@ -25,7 +25,7 @@
     <meta name="robots" content="index,follow">
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "花火シミュレーター", "url": "https://shimulabo.com/sims/fireworks/", "description": "タップで打ち上がる花火を夜空に咲かせる。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "花火シミュレーター", "item": "https://shimulabo.com/sims/fireworks/"}]}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "音は出ますか？", "acceptedAnswer": {"@type": "Answer", "text": "出ません。静かに楽しめます。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動きます。"}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "音は出ますか？", "acceptedAnswer": {"@type": "Answer", "text": "出ません。静かに楽しめます。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動きます。"}}, {"@type": "Question", "name": "本物の花火と違うところは？", "acceptedAnswer": {"@type": "Answer", "text": "本物は火薬の配置（星の並べ方）で菊・牡丹・柳などの形が決まります。本シミュレーターは全方向に均一に飛ばす“菊”に近い表現です。"}}, {"@type": "Question", "name": "連打するとカクつく？", "acceptedAnswer": {"@type": "Answer", "text": "数千個の火花を同時に計算するため、古い端末では重くなることがあります。少し間をあけて打ち上げると快適です。"}}]}</script>
     <!-- ga4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
@@ -76,7 +76,15 @@
   <article class="article">
     <h2>花火の動きの再現</h2>
     <p>打ち上げの玉が最高点で爆発し、数百個の火花が全方向へ飛び散ります。各火花には重力と空気抵抗、そして少しずつ消えていく明るさを与えています。シンプルな粒子（パーティクル）の集まりで、本物らしい動きが生まれます。</p>
-    <h2>よくある質問</h2><dl class="faq"><dt>音は出ますか？</dt><dd>出ません。静かに楽しめます。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動きます。</dd></dl>
+    <!-- enriched-2026-09 -->
+<h2>火花1つ1つに与えている“物理”</h2>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>要素</th><th>処理</th></tr><tr><td>重力</td><td>毎フレーム下向きの加速度を足す（放物線を描く）</td></tr><tr><td>空気抵抗</td><td>速度に0.95前後の係数を掛けて減速（火花が“ふわっ”と止まる）</td></tr><tr><td>明るさ</td><td>指数関数的に減衰（最後に一気に消える）</td></tr><tr><td>爆発</td><td>数百個の火花を全方向へ、速度をランダムに</td></tr></table></div>
+<p>こうした単純な粒子（パーティクル）の集まりで、驚くほど本物らしい動きになります。ゲームの炎や煙、映画の爆発シーンも、基本は同じパーティクルの考え方です。</p>
+<h2>本物の花火の色はどう作る？</h2>
+<p>花火の色は金属の「炎色反応」で決まります。理科の実験と同じ原理です。</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>色</th><th>使う金属</th></tr><tr><td>赤</td><td>ストロンチウム</td></tr><tr><td>黄</td><td>ナトリウム</td></tr><tr><td>緑</td><td>バリウム</td></tr><tr><td>青</td><td>銅</td></tr><tr><td>紫</td><td>ストロンチウム＋銅（赤と青の混合）</td></tr><tr><td>金・オレンジ</td><td>鉄・チタンの火の粉</td></tr></table></div>
+<p>青は温度管理が難しく「最も難しい色」と言われます。きれいな青い花火は職人技の証です。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>音は出ますか？</dt><dd>出ません。静かに楽しめます。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動きます。</dd><dt>本物の花火と違うところは？</dt><dd>本物は火薬の配置（星の並べ方）で菊・牡丹・柳などの形が決まります。本シミュレーターは全方向に均一に飛ばす“菊”に近い表現です。</dd><dt>連打するとカクつく？</dt><dd>数千個の火花を同時に計算するため、古い端末では重くなることがあります。少し間をあけて打ち上げると快適です。</dd></dl>
   </article>
 
   <nav class="related" aria-label="related">

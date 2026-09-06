@@ -25,7 +25,7 @@
     <meta name="robots" content="index,follow">
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "二重振り子シミュレーター", "url": "https://shimulabo.com/sims/double-pendulum/", "description": "わずかな初期差が大きな違いを生む二重振り子のカオス。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "二重振り子シミュレーター", "item": "https://shimulabo.com/sims/double-pendulum/"}]}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "ランダムなの？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。完全に決まった法則で動きます。それでも予測が難しいのがカオスの面白さです。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動作します。"}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "ランダムなの？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。完全に決まった法則で動きます。それでも予測が難しいのがカオスの面白さです。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動作します。"}}, {"@type": "Question", "name": "ふつうの振り子との違いは？", "acceptedAnswer": {"@type": "Answer", "text": "単振り子は角度が小さければ規則正しい往復（単振動）になり、いつまでも予測できます。腕が1本増えて自由度が2になっただけで、系はカオスになります。"}}, {"@type": "Question", "name": "本物の二重振り子はある？", "acceptedAnswer": {"@type": "Answer", "text": "はい。金属の腕2本を軸でつないだ玩具や科学館の展示があり、動画サイトでも人気です。摩擦で数十秒〜数分で止まりますが、その間の動きは本シミュレーターとそっくりです。"}}]}</script>
     <!-- ga4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
@@ -76,7 +76,13 @@
   <article class="article">
     <h2>カオスとは</h2>
     <p>二重振り子は「決まった物理法則」で動く（ランダムではない）のに、初期条件のごくわずかな差が、時間とともに指数関数的に拡大します。これを<strong>カオス（バタフライ効果）</strong>と呼びます。天気予報が長期では当たりにくいのも、これが理由のひとつです。</p>
-    <h2>よくある質問</h2><dl class="faq"><dt>ランダムなの？</dt><dd>いいえ。完全に決まった法則で動きます。それでも予測が難しいのがカオスの面白さです。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動作します。</dd></dl>
+    <!-- enriched-2026-09 -->
+<h2>この画面の裏で解いている式</h2>
+<p>二重振り子は、2本の腕の角度 θ₁・θ₂ についての連立微分方程式（ラグランジュの運動方程式）で完全に記述できます。式は決まっているので「予測不可能な乱数」は一切入っていません。本シミュレーターはこの式をルンゲ＝クッタ法（RK4）で細かく数値積分し、1コマごとに位置を更新しています。</p>
+<h2>「予測できる時間」には限界がある</h2>
+<p>カオス系では、初期値のわずかな誤差が時間とともに<b>指数関数的</b>に拡大します。その速さを表すのがリアプノフ指数で、二重振り子では数秒で誤差が1000倍以上に膨らむことも珍しくありません。誤差を10分の1にしても、予測できる時間は少ししか延びない——これがカオスの厄介さです。</p>
+<div class="note">同じ理由で、天気予報は「明日」はよく当たっても「2週間後」はほとんど当たりません。大気の運動もカオス系だからです。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>ランダムなの？</dt><dd>いいえ。完全に決まった法則で動きます。それでも予測が難しいのがカオスの面白さです。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動作します。</dd><dt>ふつうの振り子との違いは？</dt><dd>単振り子は角度が小さければ規則正しい往復（単振動）になり、いつまでも予測できます。腕が1本増えて自由度が2になっただけで、系はカオスになります。</dd><dt>本物の二重振り子はある？</dt><dd>はい。金属の腕2本を軸でつないだ玩具や科学館の展示があり、動画サイトでも人気です。摩擦で数十秒〜数分で止まりますが、その間の動きは本シミュレーターとそっくりです。</dd></dl>
   </article>
 
   <nav class="related" aria-label="related">

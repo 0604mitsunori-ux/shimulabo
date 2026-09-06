@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/uwasa-kakusan/">
+<title>噂が全員に届くまでシミュレーター｜「近道」が少しあるだけで拡散は何倍速くなる？｜シミュラボ</title>
+<meta name="description" content="1人に話した噂が、友だちの友だちを伝って全員に届くまで何日かかる？人数・友だちの数・「遠くの知り合い（近道）」の割合・話す確率を変えて、ネットワーク上の拡散をアニメで体感する無料シミュレーター。六次の隔たりの正体。">
+<meta property="og:title" content="噂が全員に届くまでシミュレーター">
+<meta property="og:description" content="遠くの知り合いが少しいるだけで、噂は何倍速く広がる？">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/uwasa-kakusan.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/uwasa-kakusan.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/uwasa-kakusan/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "噂が全員に届くまでシミュレーター", "url": "https://shimulabo.com/sims/uwasa-kakusan/", "description": "遠くの知り合いが少しいるだけで、噂は何倍速く広がる？", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "シミュレーション・ラボ", "item": "https://shimulabo.com/lab/"}, {"@type": "ListItem", "position": 3, "name": "噂が全員に届くまでシミュレーター", "item": "https://shimulabo.com/sims/uwasa-kakusan/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "「全員に届く日（予測）」はどう計算している？", "acceptedAnswer": {"@type": "Answer", "text": "リセットのたびに、同じ設定で拡散を裏で20回シミュレーションし、その平均日数を表示しています。実際の1回の結果は運によってばらつきます。"}}, {"@type": "Question", "name": "話す確率を下げると止まる？", "acceptedAnswer": {"@type": "Answer", "text": "確率が低くても、いつかは話すので理論上は全員に届きます。ただし日数は大きく伸びます。感染症でいえば「マスクで感染確率を下げる」ことに相当し、ピークを遅らせる効果があります。"}}, {"@type": "Question", "name": "現実の人間関係との違いは？", "acceptedAnswer": {"@type": "Answer", "text": "現実には「友だちが極端に多い人（ハブ）」がいて、つながりの数に大きな偏りがあります（スケールフリー性）。本シミュレーターは友だち数を均等にした基本モデルです。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+<style>
+.lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
+.lab-ctl .field{margin-bottom:6px;}
+.lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
+.lab-ctl .slider-head label{margin:0;font-size:13px;}
+.lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
+.lab-ctl input[type=range]{width:100%;}
+.lab-ctl select{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;font-size:14px;background:#fff;}
+.lab-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px;}
+.lab-btns .btn{padding:11px 18px;font-size:14px;width:auto;}
+.lab-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;width:100%;max-width:640px;margin-top:4px;}
+.lab-stats .stat{background:var(--teal-l);border-radius:10px;padding:10px 12px;text-align:center;}
+.lab-stats .k{font-size:11px;color:var(--ink-2);}
+.lab-stats .v{font-size:20px;font-weight:800;color:var(--ink);font-feature-settings:"tnum";}
+.lab-stats .v.accent{color:var(--accent);}
+.lab-legend{text-align:center;color:var(--ink-2);font-size:13px;margin-top:12px;}
+.lab-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;background:rgba(44,107,134,.10);color:var(--teal-d);margin-bottom:8px;}
+canvas.lab{width:100%;max-width:640px;height:auto;border:1px solid var(--line);border-radius:12px;background:#0b1020;touch-action:none;}
+canvas.lab.light{background:#fff;}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../lab/">🧪 シミュレーション・ラボ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../lab/">シミュレーション・ラボ</a><span>›</span><span class="cur">噂が全員に届くまでシミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ふしぎ・現象</div>
+    <h1>噂が全員に届くまでシミュレーター</h1>
+    <p class="lead">「ここだけの話」を1人にしただけなのに、気づけば全員が知っている。噂は友だちの友だちを伝って広がります。人数・友だちの数・「遠くの知り合い（近道）」の割合を変えて、全員に届くまでの日数を見てください。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:14px;">
+      <span class="lab-badge">🧪 スモールワールド・ネットワーク（ワッツ＝ストロガッツ）上の伝播</span>
+      <canvas id="cv" class="lab" width="640" height="400"></canvas>
+      <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="n">人数</label><span class="val" id="nL"></span></div><input type="range" id="n" min="30" max="200" value="100" step="10" data-fmt="{v}人"></div><div class="field"><div class="slider-head"><label for="k">1人あたりの友だち数</label><span class="val" id="kL"></span></div><input type="range" id="k" min="2" max="10" value="4" step="2" data-fmt="{v}人"></div><div class="field"><div class="slider-head"><label for="p">遠くの知り合い（近道）の割合</label><span class="val" id="pL"></span></div><input type="range" id="p" min="0" max="1" value="0.1" step="0.01"></div><div class="field"><div class="slider-head"><label for="q">会ったときに話す確率</label><span class="val" id="qL"></span></div><input type="range" id="q" min="0.1" max="1" value="0.5" step="0.05"></div><div class="field"><div class="slider-head"><label for="sp">再生速度</label><span class="val" id="spL"></span></div><input type="range" id="sp" min="1" max="10" value="4" step="1" data-fmt="×{v}"></div></div>
+      <div class="lab-btns"><button class="btn btn-ghost" id="toggle">⏸ 一時停止</button><button class="btn btn-ghost" id="reset">リセット（ネットワークを作り直す）</button></div>
+      <div class="lab-stats"><div class="stat"><div class="k">経過日数</div><div class="v" id="sDay">—</div></div><div class="stat"><div class="k">知っている人</div><div class="v accent" id="sKnow">—</div></div><div class="stat"><div class="k">全員に届く日（予測）</div><div class="v" id="sAll">—</div></div><div class="stat"><div class="k">平均の“隔たり”</div><div class="v" id="sDist">—</div></div></div>
+    </div>
+    <p class="lab-legend">円周に並ぶ点＝人、線＝友だち関係。赤＝噂を知っている人。中央を横切る線が「遠くの知り合い（近道）」です。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+<div class="note" style="border-left:4px solid var(--teal)"><strong>ポイント</strong>：友だちが「ご近所」だけの世界では噂はゆっくりしか広がりません。ところが<b>全体の数%が「遠くの知り合い」を持つだけで</b>、全員に届く日数は数分の1に縮みます。これがスモールワールド現象＝「六次の隔たり」の正体です。</div>
+<h2>この画面のネットワーク</h2>
+<p>人を円周に並べ、隣り合う k 人と友だちにします（ご近所だけの規則的な世界）。次に、各つながりを確率 p で「ランダムな遠くの誰か」につなぎ替えます。この単純な操作で、ネットワークの性質が劇的に変わることを示したのが1998年のワッツとストロガッツの論文です。</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>近道の割合</th><th>平均の隔たり</th><th>噂の広がり方</th></tr><tr><td>p = 0（近道なし）</td><td>人数に比例</td><td>隣から隣へ、リレーのように広がる</td></tr><tr><td>p = 0.01〜0.1</td><td>人数の対数に比例</td><td>ごく少数の近道が“ワープ”になり、一気に短くなる</td></tr><tr><td>p = 1（完全ランダム）</td><td>最短</td><td>ただし現実の人間関係には遠い</td></tr></table></div>
+<h2>六次の隔たり</h2>
+<p>1967年、心理学者ミルグラムはアメリカ中西部の住民に「ボストンの株式仲買人へ手紙を、知り合いだけを経由して届けてください」と依頼しました。届いた手紙の平均経由数は<b>約6人</b>。世界の誰とでも6人でつながる「六次の隔たり」です。2011年のFacebookの調査（7億人）では平均<b>4.74人</b>、2016年には3.57人まで縮まっています。ただし本ページでは、あなたと友だちの間の“隔たり”の平均をBFS（幅優先探索）で実際に計算しています。</p>
+<h2>SNSの拡散・感染症・停電にも同じ構造</h2>
+<p>「近道」があるネットワークでは、噂も感染症も停電の連鎖も一気に広がります。一方で、ワクチンや情報を「ハブ（つながりの多い人）」に集中的に届けると、少ないコストで拡散を止められる——これもネットワーク科学の重要な結論です。</p>
+
+    <h2>引用・転載について</h2>
+    <p>本ページのシミュレーション結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・授業や社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「噂が全員に届くまでシミュレーター」 https://shimulabo.com/sims/uwasa-kakusan/</code></div>
+    <h2>よくある質問</h2><dl class="faq"><dt>「全員に届く日（予測）」はどう計算している？</dt><dd>リセットのたびに、同じ設定で拡散を裏で20回シミュレーションし、その平均日数を表示しています。実際の1回の結果は運によってばらつきます。</dd><dt>話す確率を下げると止まる？</dt><dd>確率が低くても、いつかは話すので理論上は全員に届きます。ただし日数は大きく伸びます。感染症でいえば「マスクで感染確率を下げる」ことに相当し、ピークを遅らせる効果があります。</dd><dt>現実の人間関係との違いは？</dt><dd>現実には「友だちが極端に多い人（ハブ）」がいて、つながりの数に大きな偏りがあります（スケールフリー性）。本シミュレーターは友だち数を均等にした基本モデルです。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../kansen-agent/"><span class="e">🦠</span><span>感染はこう広がる</span></a><a class="related-card" href="../echo-chamber/"><span class="e">📢</span><span>エコーチェンバー 意見分極</span></a><a class="related-card" href="../ryukou-curve/"><span class="e">📈</span><span>流行はなぜ急に終わる？</span></a><a class="related-card" href="../forest-fire/"><span class="e">🔥</span><span>森林火災シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../lab/">🧪 シミュレーション・ラボ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+  const rnd = (a,b) => a + Math.random()*(b-a);
+  const randn = () => { let u=0,v=0; while(!u)u=Math.random(); while(!v)v=Math.random(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
+  let SHARE = '';
+  function setShare(t){ SHARE = t; }
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{ const l=$(s.id+'L'); if(l){ const u=()=>{ l.textContent = (s.dataset.fmt ? s.dataset.fmt.replace('{v}', s.value) : s.value); }; s.addEventListener('input',u); u(); } }); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  function setStat(id, v){ const e=$(id); if(e) e.textContent = v; }
+  try {
+    syncSliders();
+
+  const cv=$('cv'), x=cv.getContext('2d'), W=cv.width, H=cv.height;
+  let N, adj, know, day, run=true, doneDay, pred, dist, fresh;
+  function buildNet(n,k,p){ const a=Array.from({length:n},()=>new Set()); for(let i=0;i<n;i++) for(let j=1;j<=k/2;j++){ let t=(i+j)%n; if(Math.random()<p){ let tries=0; do{ t=Math.random()*n|0; tries++; }while((t===i||a[i].has(t))&&tries<20); } a[i].add(t); a[t].add(i); } return a.map(s=>[...s]); }
+  function avgDist(a){ const n=a.length; let tot=0,cnt=0; const S=Math.min(n,40); for(let s=0;s<S;s++){ const src=Math.floor(s*n/S); const d=new Array(n).fill(-1); d[src]=0; const q=[src]; for(let h=0;h<q.length;h++){ const u=q[h]; for(const v of a[u]) if(d[v]<0){ d[v]=d[u]+1; q.push(v); } } for(let i=0;i<n;i++) if(d[i]>0){ tot+=d[i]; cnt++; } } return cnt?tot/cnt:0; }
+  function spreadOnce(a,q){ const n=a.length; const kn=new Array(n).fill(false); kn[0]=true; let c=1,d=0; while(c<n&&d<2000){ d++; const nw=[]; for(let i=0;i<n;i++) if(kn[i]) for(const j of a[i]) if(!kn[j]&&Math.random()<q) nw.push(j); for(const j of nw) if(!kn[j]){ kn[j]=true; c++; } } return d; }
+  function reset(){ N=+$('n').value; adj=buildNet(N,+$('k').value,+$('p').value); know=new Array(N).fill(false); know[0]=true; fresh=new Set([0]); day=0; doneDay=null;
+    dist=avgDist(adj); let s=0; for(let i=0;i<20;i++) s+=spreadOnce(adj,+$('q').value); pred=s/20; draw(); }
+  function step(){ if(doneDay!=null) return; day++; const q=+$('q').value; const nw=[]; for(let i=0;i<N;i++) if(know[i]) for(const j of adj[i]) if(!know[j]&&Math.random()<q) nw.push(j); fresh=new Set(nw); nw.forEach(j=>know[j]=true); if(know.every(v=>v)) doneDay=day; }
+  function pos(i){ const a=i/N*Math.PI*2-Math.PI/2; const r=Math.min(W,H)/2-24; return [W/2+Math.cos(a)*r, H/2+Math.sin(a)*r]; }
+  function draw(){ x.fillStyle='#0b1020'; x.fillRect(0,0,W,H); x.lineWidth=1;
+    for(let i=0;i<N;i++) for(const j of adj[i]) if(j>i){ const [ax,ay]=pos(i),[bx,by]=pos(j); const far=Math.min(Math.abs(i-j),N-Math.abs(i-j))>+$('k').value; x.strokeStyle=far?'rgba(167,139,250,.35)':'rgba(255,255,255,.12)'; x.beginPath(); x.moveTo(ax,ay); x.lineTo(bx,by); x.stroke(); }
+    for(let i=0;i<N;i++){ const [px,py]=pos(i); x.fillStyle=know[i]?(fresh.has(i)?'#fb923c':'#ef4444'):'#334155'; x.beginPath(); x.arc(px,py,fresh.has(i)?6:4,0,7); x.fill(); }
+    const c=know.filter(v=>v).length; x.fillStyle='#e5e7eb'; x.font='bold 22px sans-serif'; x.textAlign='center'; x.fillText(c+' / '+N+'人', W/2, H/2-4); x.font='12px sans-serif'; x.fillStyle='#94a3b8'; x.fillText(day+'日目', W/2, H/2+16); x.textAlign='left';
+    setStat('sDay', day+'日'); setStat('sKnow', c+'人（'+Math.round(c/N*100)+'%）'); setStat('sAll', (doneDay!=null?'実測 '+doneDay+'日':'約'+pred.toFixed(1)+'日')); setStat('sDist', dist.toFixed(2)+'人');
+    setShare(N+'人の噂は'+(doneDay!=null?doneDay:'約'+pred.toFixed(0))+'日で全員に🗣️ 「遠くの知り合い」'+Math.round(+$('p').value*100)+'%で平均の隔たりは'+dist.toFixed(1)+'人。六次の隔たりの正体を体感👇'); }
+  let f=0; function loop(){ if(run){ f++; if(f%Math.max(1,12-+$('sp').value)===0) step(); } draw(); requestAnimationFrame(loop); }
+  ['n','k','p','q'].forEach(id=>$(id).addEventListener('change',reset));
+  $('toggle').addEventListener('click',()=>{ run=!run; $('toggle').textContent=run?'⏸ 一時停止':'▶ 再生'; });
+  $('reset').addEventListener('click',reset);
+  reset(); loop();
+
+  } catch(e) { console.error(e); }
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE || document.title)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText((SHARE||document.title)+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'uwasa-kakusan', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

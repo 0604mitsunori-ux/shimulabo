@@ -25,7 +25,7 @@
     <meta name="robots" content="index,follow">
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "磁力線シミュレーター", "url": "https://shimulabo.com/sims/magnet/", "description": "棒磁石の周りに並べた方位磁針が、磁力の向きにそろう様子を可視化する無料シミュレーター。磁石を回すと針も向きを変えます。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "磁力線シミュレーター", "item": "https://shimulabo.com/sims/magnet/"}]}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "地球も磁石？", "acceptedAnswer": {"@type": "Answer", "text": "はい。地球も巨大な磁石で、だから方位磁針は北を指します。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動きます。"}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "地球も磁石？", "acceptedAnswer": {"@type": "Answer", "text": "はい。地球も巨大な磁石で、だから方位磁針は北を指します。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動きます。"}}, {"@type": "Question", "name": "磁力線は実在する？", "acceptedAnswer": {"@type": "Answer", "text": "磁力線は磁場の向きを表す“描き方”であって、実体のある線ではありません。ただし砂鉄を撒くと本当に線状に並ぶため、目で見える現象として扱えます。"}}, {"@type": "Question", "name": "磁石を切ると極はどうなる？", "acceptedAnswer": {"@type": "Answer", "text": "N極だけ・S極だけの磁石は作れません。どんなに小さく切っても、それぞれの破片がN極とS極を持ちます。"}}]}</script>
     <!-- ga4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
@@ -76,7 +76,13 @@
   <article class="article">
     <h2>磁力線とは</h2>
     <p>磁石の周りには、目に見えない磁力の場（磁場）が広がっています。方位磁針を置くと、その場所の磁力の向きに針がそろい、N極からS極へと流れる「磁力線」が見えてきます。砂鉄を撒く理科の実験と同じ現象を、ブラウザで再現しています。</p>
-    <h2>よくある質問</h2><dl class="faq"><dt>地球も磁石？</dt><dd>はい。地球も巨大な磁石で、だから方位磁針は北を指します。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動きます。</dd></dl>
+    <!-- enriched-2026-09 -->
+<h2>磁力線の3つのルール</h2>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>ルール</th><th>意味</th></tr><tr><td>向き</td><td>N極から出てS極に入る（磁石の内部ではS→N）</td></tr><tr><td>交わらない</td><td>1点での磁場の向きは1つに決まるため、線は交差しない</td></tr><tr><td>密度＝強さ</td><td>線が密なほど磁場が強い（磁石の両端が最も強い）</td></tr></table></div>
+<p>本シミュレーターは、各方位磁針の位置で棒磁石の作る磁場ベクトルを計算し、針をその向きに揃えています。針をたくさん置くと、磁力線が“見える”のはこのためです。</p>
+<h2>地球という巨大な磁石</h2>
+<p>方位磁針が北を指すのは、地球が磁石だからです。ただし針のN極が引かれるのは磁石のS極。つまり<b>地球の北極付近にあるのは磁石としてのS極</b>です。しかも地磁気の極は地理上の極とずれていて、日本では方位磁針が真北から西へ約7〜9°ずれます（偏角）。さらに磁極は毎年数十kmも移動しており、数十万年ごとに南北が入れ替わる「地磁気逆転」も起きています。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>地球も磁石？</dt><dd>はい。地球も巨大な磁石で、だから方位磁針は北を指します。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動きます。</dd><dt>磁力線は実在する？</dt><dd>磁力線は磁場の向きを表す“描き方”であって、実体のある線ではありません。ただし砂鉄を撒くと本当に線状に並ぶため、目で見える現象として扱えます。</dd><dt>磁石を切ると極はどうなる？</dt><dd>N極だけ・S極だけの磁石は作れません。どんなに小さく切っても、それぞれの破片がN極とS極を持ちます。</dd></dl>
   </article>
 
   <nav class="related" aria-label="related">

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/building-quake/">
+<title>地震でビルはどう揺れる？共振シミュレーター｜階数と地震の周期で揺れ方が変わる理由｜シミュラボ</title>
+<meta name="description" content="地震の揺れの周期とビルの高さ（固有周期）が一致すると共振して大きく揺れる——建築の耐震設計で使う多質点モデルをブラウザで動かし、低層・中層・高層ビルの揺れ方の違い、長周期地震動で高層ビルが揺れる理由、制振装置の効果を体感できる無料シミュレーター。">
+<meta property="og:title" content="地震でビルはどう揺れる？ 共振シミュレーター">
+<meta property="og:description" content="階数と地震の周期で揺れが変わる。共振と制振を体感。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/building-quake.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/building-quake.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/building-quake/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "地震でビルはどう揺れる？ 共振シミュレーター", "url": "https://shimulabo.com/sims/building-quake/", "description": "階数と地震の周期で揺れが変わる。共振と制振を体感。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "シミュレーション・ラボ", "item": "https://shimulabo.com/lab/"}, {"@type": "ListItem", "position": 3, "name": "地震でビルはどう揺れる？ 共振シミュレーター", "item": "https://shimulabo.com/sims/building-quake/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "固有周期はどう計算している？", "acceptedAnswer": {"@type": "Answer", "text": "ビルの階数 n から、高さ h≈3.5n（m）として T≈0.025h を目安に設定し、多質点モデルの1次モードがその周期になるようばね定数を決めています。実際の建物は構造（鉄骨・RC）で0.02〜0.03の係数が変わります。"}}, {"@type": "Question", "name": "免震と制振の違いは？", "acceptedAnswer": {"@type": "Answer", "text": "免震は建物と地面の間に柔らかい層（積層ゴム）を入れて周期を3〜4秒以上に延ばし、地震の主なエネルギー帯から外す方法。制振は建物内部にダンパーを入れて揺れを吸収する方法です。本ページの「ダンパー」は制振に相当します。"}}, {"@type": "Question", "name": "低いビルは安全？", "acceptedAnswer": {"@type": "Answer", "text": "共振する周期が短いため、直下型地震の短周期成分に反応しやすく、加速度（衝撃）は高層より大きくなりがちです。高層は揺れ幅が大きく、低層は衝撃が大きい、という違いです。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+<style>
+.lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
+.lab-ctl .field{margin-bottom:6px;}
+.lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
+.lab-ctl .slider-head label{margin:0;font-size:13px;}
+.lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
+.lab-ctl input[type=range]{width:100%;}
+.lab-ctl select{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;font-size:14px;background:#fff;}
+.lab-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px;}
+.lab-btns .btn{padding:11px 18px;font-size:14px;width:auto;}
+.lab-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;width:100%;max-width:640px;margin-top:4px;}
+.lab-stats .stat{background:var(--teal-l);border-radius:10px;padding:10px 12px;text-align:center;}
+.lab-stats .k{font-size:11px;color:var(--ink-2);}
+.lab-stats .v{font-size:20px;font-weight:800;color:var(--ink);font-feature-settings:"tnum";}
+.lab-stats .v.accent{color:var(--accent);}
+.lab-legend{text-align:center;color:var(--ink-2);font-size:13px;margin-top:12px;}
+.lab-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;background:rgba(44,107,134,.10);color:var(--teal-d);margin-bottom:8px;}
+canvas.lab{width:100%;max-width:640px;height:auto;border:1px solid var(--line);border-radius:12px;background:#0b1020;touch-action:none;}
+canvas.lab.light{background:#fff;}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../lab/">🧪 シミュレーション・ラボ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../lab/">シミュレーション・ラボ</a><span>›</span><span class="cur">地震でビルはどう揺れる？ 共振シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ふしぎ・現象</div>
+    <h1>地震でビルはどう揺れる？ 共振シミュレーター</h1>
+    <p class="lead">同じ地震でも、低いビルは激しく細かく、高いビルはゆっくり大きく揺れます。揺れの周期とビルの「固有周期」が一致すると、共振で揺れは何倍にも。階数と地震の周期を変えて、その瞬間を見つけてください。制振ダンパーの効果も試せます。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:14px;">
+      <span class="lab-badge">🧪 多質点系（せん断型モデル）の応答解析＋共振</span>
+      <canvas id="cv" class="lab" width="640" height="400"></canvas>
+      <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="fl">ビルの階数</label><span class="val" id="flL"></span></div><input type="range" id="fl" min="3" max="60" value="20" step="1" data-fmt="{v}階"></div><div class="field"><div class="slider-head"><label for="per">地震の揺れの周期</label><span class="val" id="perL"></span></div><input type="range" id="per" min="0.3" max="8" value="2.0" step="0.1" data-fmt="{v}秒"></div><div class="field"><div class="slider-head"><label for="amp">地面の揺れの大きさ</label><span class="val" id="ampL"></span></div><input type="range" id="amp" min="1" max="10" value="5" step="1"></div><div class="field"><div class="slider-head"><label for="damp">制振ダンパーの効き</label><span class="val" id="dampL"></span></div><input type="range" id="damp" min="0" max="10" value="1" step="1"></div><div class="field"><div class="slider-head"><label for="wave">揺れのタイプ</label></div><select id="wave"><option value="sin" selected>一定の周期で揺れ続ける（長周期地震動）</option><option value="quake">実際の地震っぽい波形（短い強い揺れ）</option></select></div></div>
+      <div class="lab-btns"><button class="btn btn-ghost" id="toggle">⏸ 一時停止</button><button class="btn btn-ghost" id="resonate">🎯 このビルが共振する周期に合わせる</button><button class="btn btn-ghost" id="reset">リセット</button></div>
+      <div class="lab-stats"><div class="stat"><div class="k">このビルの固有周期</div><div class="v" id="sT0">—</div></div><div class="stat"><div class="k">最上階の揺れ幅</div><div class="v accent" id="sAmp">—</div></div><div class="stat"><div class="k">地面に対する増幅率</div><div class="v" id="sRatio">—</div></div><div class="stat"><div class="k">状態</div><div class="v" id="sState">—</div></div></div>
+    </div>
+    <p class="lab-legend">左＝ビルの断面（各階が横にずれる）。右＝地面と最上階の揺れの時間変化。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+<div class="note" style="border-left:4px solid var(--teal)"><strong>ポイント</strong>：ビルには高さで決まる<b>固有周期</b>（1往復にかかる時間）があり、目安は「0.02〜0.03秒 × 高さ（m）」。10階建て（約30m）で約0.6〜0.9秒、50階建て（約200m）で4〜6秒です。地震の揺れの周期がこれに一致すると<b>共振</b>し、地面の揺れの数倍〜10倍以上に増幅されます。</div>
+<h2>この画面のモデル</h2>
+<p>各階を「質点」、柱を「ばね」とみなし、階数分の質点をばねで直列につないだ「せん断型多質点モデル」で計算しています。地面を横に揺らすと、1階から順に力が伝わり、ビル全体がしなります。これは実際の耐震設計で最初に用いる標準的なモデルです。</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>階数（高さ）</th><th>固有周期の目安</th><th>揺れやすい地震</th></tr><tr><td>1〜5階（〜15m）</td><td>0.1〜0.5秒</td><td>直下型の短い周期の揺れに共振。ガタガタと激しく揺れる</td></tr><tr><td>10〜20階（30〜70m）</td><td>0.6〜2秒</td><td>多くの地震のエネルギーが集中する帯域</td></tr><tr><td>30〜60階（100〜250m）</td><td>3〜7秒</td><td>遠くの巨大地震の長周期地震動に共振。ゆっくり大きく、長く揺れる</td></tr></table></div>
+<h2>長周期地震動：高層ビルが遠くの地震で揺れる理由</h2>
+<p>2011年の東北地方太平洋沖地震では、震源から700km離れた大阪の55階建てビルが最上階で<b>約2.7m</b>（片側1.3m超）揺れ、10分以上揺れ続けました。短い周期の揺れは距離とともに減衰しますが、周期数秒の長周期地震動は減衰しにくく、堆積盆地（関東平野・大阪平野）で増幅されます。それが高層ビルの固有周期と一致したのです。</p>
+<h2>制振ダンパーのはたらき</h2>
+<p>共振を防ぐには周期をずらすか、揺れのエネルギーを吸収する「減衰」を増やします。オイルダンパー・粘弾性ダンパー・屋上の巨大なおもり（同調質量ダンパー）などがこの役割で、台北101の660トンの鉄球が有名です。本ページの「制振ダンパーの効き」を上げると、共振時の増幅率が急激に下がることが確認できます。</p>
+
+    <h2>引用・転載について</h2>
+    <p>本ページのシミュレーション結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・授業や社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「地震でビルはどう揺れる？ 共振シミュレーター」 https://shimulabo.com/sims/building-quake/</code></div>
+    <h2>よくある質問</h2><dl class="faq"><dt>固有周期はどう計算している？</dt><dd>ビルの階数 n から、高さ h≈3.5n（m）として T≈0.025h を目安に設定し、多質点モデルの1次モードがその周期になるようばね定数を決めています。実際の建物は構造（鉄骨・RC）で0.02〜0.03の係数が変わります。</dd><dt>免震と制振の違いは？</dt><dd>免震は建物と地面の間に柔らかい層（積層ゴム）を入れて周期を3〜4秒以上に延ばし、地震の主なエネルギー帯から外す方法。制振は建物内部にダンパーを入れて揺れを吸収する方法です。本ページの「ダンパー」は制振に相当します。</dd><dt>低いビルは安全？</dt><dd>共振する周期が短いため、直下型地震の短周期成分に反応しやすく、加速度（衝撃）は高層より大きくなりがちです。高層は揺れ幅が大きく、低層は衝撃が大きい、という違いです。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../tsunami-kishi/"><span class="e">🌊</span><span>津波はなぜ岸で高くなる？</span></a><a class="related-card" href="../jishin-live/"><span class="e">🗾</span><span>日本はいまも揺れている</span></a><a class="related-card" href="../chikyu-yure/"><span class="e">🌍</span><span>地球まるごと地震カウンター</span></a><a class="related-card" href="../sync/"><span class="e">✨</span><span>同期現象シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../lab/">🧪 シミュレーション・ラボ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+  const rnd = (a,b) => a + Math.random()*(b-a);
+  const randn = () => { let u=0,v=0; while(!u)u=Math.random(); while(!v)v=Math.random(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
+  let SHARE = '';
+  function setShare(t){ SHARE = t; }
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{ const l=$(s.id+'L'); if(l){ const u=()=>{ l.textContent = (s.dataset.fmt ? s.dataset.fmt.replace('{v}', s.value) : s.value); }; s.addEventListener('input',u); u(); } }); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  function setStat(id, v){ const e=$(id); if(e) e.textContent = v; }
+  try {
+    syncSliders();
+
+  const cv=$('cv'), x=cv.getContext('2d'), W=cv.width, H=cv.height;
+  let n, disp, vel, t, run=true, gHist=[], tHist=[], maxTop=0, maxG=0, k, m=1, c;
+  function T0(){ return 0.025*3.5*n; }
+  function setup(){ n=+$('fl').value; disp=new Float64Array(n); vel=new Float64Array(n); t=0; gHist=[]; tHist=[]; maxTop=0; maxG=0;
+    // 1次固有周期 T0 に合わせて k を決定（せん断型: ω1 ≈ 2 sin(π/(2(2n+1))) sqrt(k/m)）
+    const w1=2*Math.PI/T0(); const s=2*Math.sin(Math.PI/(2*(2*n+1))); k=(w1/s)**2*m; c=+$('damp').value*0.02*Math.sqrt(k*m); }
+  function ground(tt){ const A=+$('amp').value*0.02, P=+$('per').value; if($('wave').value==='sin') return A*Math.sin(2*Math.PI*tt/P); const env=tt<2?tt/2:Math.exp(-(tt-2)/6); return A*env*(Math.sin(2*Math.PI*tt/P)+0.35*Math.sin(2*Math.PI*tt/(P*0.37)+1)+0.2*Math.sin(2*Math.PI*tt/(P*2.3))); }
+  function step(dt){ const g=ground(t), gv=(ground(t+1e-3)-ground(t-1e-3))/2e-3; const acc=new Float64Array(n);
+    for(let i=0;i<n;i++){ const below=i===0?g:disp[i-1], vb=i===0?gv:vel[i-1]; let f=-k*(disp[i]-below)-c*(vel[i]-vb); if(i<n-1) f+=k*(disp[i+1]-disp[i])+c*(vel[i+1]-vel[i]); acc[i]=f/m; }
+    for(let i=0;i<n;i++){ vel[i]+=acc[i]*dt; disp[i]+=vel[i]*dt; } t+=dt;
+    gHist.push(g); tHist.push(disp[n-1]); if(gHist.length>600){ gHist.shift(); tHist.shift(); } maxTop=Math.max(maxTop,Math.abs(disp[n-1])); maxG=Math.max(maxG,Math.abs(g)); }
+  function draw(){ x.fillStyle='#0b1020'; x.fillRect(0,0,W,H); const bx=150, base=H-30, fh=Math.min(14,(H-70)/n), bw=70, scale=90;
+    const g=ground(t); x.fillStyle='#374151'; x.fillRect(0,base,W*0.48,30); x.fillStyle='#9ca3af'; x.font='10px sans-serif'; x.fillText('地面', 8, base+18);
+    for(let i=0;i<n;i++){ const y=base-(i+1)*fh; const dx0=(i===0?g:disp[i-1])*scale, dx1=disp[i]*scale; const drift=Math.abs(dx1-dx0)/fh; x.fillStyle=drift>0.5?'#ef4444':drift>0.25?'#f59e0b':'#60a5fa'; x.beginPath(); x.moveTo(bx+dx0-bw/2,y+fh); x.lineTo(bx+dx0+bw/2,y+fh); x.lineTo(bx+dx1+bw/2,y); x.lineTo(bx+dx1-bw/2,y); x.closePath(); x.fill(); x.strokeStyle='#0b1020'; x.stroke(); }
+    const L=330,PW=W-L-12,mid=90,ph=70; x.strokeStyle='rgba(255,255,255,.15)'; x.beginPath(); x.moveTo(L,mid); x.lineTo(L+PW,mid); x.moveTo(L,mid+180); x.lineTo(L+PW,mid+180); x.stroke();
+    x.fillStyle='#9ca3af'; x.fillText('地面の揺れ', L, 14); x.fillText('最上階の揺れ', L, 194);
+    const sc=Math.max(0.2, maxG, maxTop); [[gHist,'#9ca3af',mid],[tHist,'#f472b6',mid+180]].forEach(([h,col,cy])=>{ x.strokeStyle=col; x.lineWidth=1.5; x.beginPath(); h.forEach((v,i)=>{ const X=L+i/599*PW, Y=cy-v/sc*ph; i?x.lineTo(X,Y):x.moveTo(X,Y); }); x.stroke(); });
+    const ratio=maxG>0?maxTop/maxG:0; const T=T0(); const P=+$('per').value; const near=Math.abs(P-T)/T;
+    setStat('sT0', T.toFixed(1)+'秒'); setStat('sAmp', '±'+(maxTop*100).toFixed(0)+'cm'); setStat('sRatio', ratio.toFixed(1)+'倍'); setStat('sState', near<0.1?'⚠️ 共振中':near<0.3?'共振に近い':'安定');
+    setShare(n+'階建て（固有周期'+T.toFixed(1)+'秒）に周期'+P+'秒の地震→最上階は±'+(maxTop*100).toFixed(0)+'cm、地面の'+ratio.toFixed(1)+'倍🏢 '+(near<0.1?'共振！':'')+'高層ビルが遠くの地震で揺れる理由👇'); }
+  function loop(){ if(run){ for(let i=0;i<4;i++) step(0.01); } draw(); requestAnimationFrame(loop); }
+  ['fl','damp'].forEach(id=>$(id).addEventListener('input',()=>{ const keep=t; setup(); }));
+  ['per','amp','wave'].forEach(id=>$(id).addEventListener('input',()=>{ maxTop=0; maxG=0; }));
+  $('resonate').addEventListener('click',()=>{ $('per').value=clamp(T0(),0.3,8).toFixed(1); $('per').dispatchEvent(new Event('input')); maxTop=0; maxG=0; });
+  $('toggle').addEventListener('click',()=>{ run=!run; $('toggle').textContent=run?'⏸ 一時停止':'▶ 再生'; });
+  $('reset').addEventListener('click',setup);
+  setup(); loop();
+
+  } catch(e) { console.error(e); }
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE || document.title)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText((SHARE||document.title)+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'building-quake', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

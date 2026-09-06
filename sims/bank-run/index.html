@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/bank-run/">
+<title>銀行の取り付け騒ぎシミュレーター｜健全な銀行でも噂だけで倒産する理由（ダイアモンド＝ディビッグ）｜シミュラボ</title>
+<meta name="description" content="銀行は預金の一部しか手元に置いていない。だから「危ないらしい」という噂で預金者が一斉に引き出せば、健全な銀行でも倒産する——2022年ノーベル経済学賞のモデルをエージェントシミュレーションで再現。準備率・不安の伝わりやすさ・預金保険の有無で結果がどう変わるかを体感。">
+<meta property="og:title" content="銀行の取り付け騒ぎシミュレーター">
+<meta property="og:description" content="健全な銀行でも噂だけで倒産する。預金保険の効果を体感。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/bank-run.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/bank-run.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/bank-run/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "銀行の取り付け騒ぎシミュレーター", "url": "https://shimulabo.com/sims/bank-run/", "description": "健全な銀行でも噂だけで倒産する。預金保険の効果を体感。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "シミュレーション・ラボ", "item": "https://shimulabo.com/lab/"}, {"@type": "ListItem", "position": 3, "name": "銀行の取り付け騒ぎシミュレーター", "item": "https://shimulabo.com/sims/bank-run/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "準備率を上げれば安全？", "acceptedAnswer": {"@type": "Answer", "text": "上げるほど取り付けには強くなりますが、その分貸し出せるお金が減り、銀行の本来の機能（お金を回す）が弱まります。準備率100%の銀行は取り付けに耐えますが、それはもはや「金庫」です。"}}, {"@type": "Question", "name": "預金保険があれば絶対に起きない？", "acceptedAnswer": {"@type": "Answer", "text": "保護限度額を超える大口預金者（企業など）は依然として引き出す動機があり、シリコンバレー銀行では預金の9割超が限度額超過でした。制度は個人のパニックを止めるのに有効ですが、万能ではありません。"}}, {"@type": "Question", "name": "このモデルで日本の銀行を評価できる？", "acceptedAnswer": {"@type": "Answer", "text": "できません。本ページは「噂と予想で取り付けが起きる仕組み」を示す抽象モデルで、実在の銀行の健全性とは無関係です。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+<style>
+.lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
+.lab-ctl .field{margin-bottom:6px;}
+.lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
+.lab-ctl .slider-head label{margin:0;font-size:13px;}
+.lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
+.lab-ctl input[type=range]{width:100%;}
+.lab-ctl select{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;font-size:14px;background:#fff;}
+.lab-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px;}
+.lab-btns .btn{padding:11px 18px;font-size:14px;width:auto;}
+.lab-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;width:100%;max-width:640px;margin-top:4px;}
+.lab-stats .stat{background:var(--teal-l);border-radius:10px;padding:10px 12px;text-align:center;}
+.lab-stats .k{font-size:11px;color:var(--ink-2);}
+.lab-stats .v{font-size:20px;font-weight:800;color:var(--ink);font-feature-settings:"tnum";}
+.lab-stats .v.accent{color:var(--accent);}
+.lab-legend{text-align:center;color:var(--ink-2);font-size:13px;margin-top:12px;}
+.lab-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;background:rgba(44,107,134,.10);color:var(--teal-d);margin-bottom:8px;}
+canvas.lab{width:100%;max-width:640px;height:auto;border:1px solid var(--line);border-radius:12px;background:#0b1020;touch-action:none;}
+canvas.lab.light{background:#fff;}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../lab/">🧪 シミュレーション・ラボ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../lab/">シミュレーション・ラボ</a><span>›</span><span class="cur">銀行の取り付け騒ぎシミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">マネー・保険・不動産</div>
+    <h1>銀行の取り付け騒ぎシミュレーター</h1>
+    <p class="lead">銀行はあなたの預金の大半を貸し出していて、手元にあるのはごく一部。だから「あの銀行、危ないらしい」と噂が広がって皆が一斉に引き出せば、健全な銀行でも倒れます。不安の伝わりやすさ・準備率・預金保険を変えて、パニックが起きる条件を見てください。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:14px;">
+      <span class="lab-badge">🧪 ダイアモンド＝ディビッグ型モデル＋不安の伝播（エージェントベース）</span>
+      <canvas id="cv" class="lab" width="640" height="380"></canvas>
+      <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="res">銀行の手元資金（準備率）</label><span class="val" id="resL"></span></div><input type="range" id="res" min="5" max="60" value="15" step="5" data-fmt="{v}%"></div><div class="field"><div class="slider-head"><label for="panic">不安の伝わりやすさ</label><span class="val" id="panicL"></span></div><input type="range" id="panic" min="0" max="1" value="0.4" step="0.05"></div><div class="field"><div class="slider-head"><label for="seed">最初に不安になる人</label><span class="val" id="seedL"></span></div><input type="range" id="seed" min="1" max="20" value="2" step="1" data-fmt="{v}%"></div><div class="field"><div class="slider-head"><label for="ins">預金保険</label></div><select id="ins"><option value="no" selected>なし</option><option value="yes">あり（1,000万円まで保護）</option></select></div><div class="field"><div class="slider-head"><label for="sp">再生速度</label><span class="val" id="spL"></span></div><input type="range" id="sp" min="1" max="10" value="4" step="1" data-fmt="×{v}"></div></div>
+      <div class="lab-btns"><button class="btn btn-ghost" id="toggle">⏸ 一時停止</button><button class="btn btn-ghost" id="reset">リセット</button><button class="btn btn-ghost" id="rumor">📰 「危ないらしい」と噂を流す</button></div>
+      <div class="lab-stats"><div class="stat"><div class="k">経過日数</div><div class="v" id="sDay">—</div></div><div class="stat"><div class="k">銀行の残り資金</div><div class="v accent" id="sRes">—</div></div><div class="stat"><div class="k">引き出しに並ぶ人</div><div class="v" id="sQ">—</div></div><div class="stat"><div class="k">銀行の状態</div><div class="v" id="sState">—</div></div></div>
+    </div>
+    <p class="lab-legend">点＝預金者（灰＝安心、黄＝不安、赤＝引き出し済み）。右のバー＝銀行の手元資金。資金が尽きた瞬間、残りの人は引き出せなくなります。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+<div class="note" style="border-left:4px solid var(--teal)"><strong>ポイント</strong>：取り付け騒ぎの恐ろしさは、<b>「皆が引き出すと思うから引き出す」という予想が自己実現する</b>ことです。銀行が健全かどうかは関係ありません。この構造を数学的に示したのがダイアモンドとディビッグ（1983年）で、2022年にノーベル経済学賞を受けました。解決策は預金保険＝「取り付けに参加しなくても損しない」保証です。</div>
+<h2>なぜ銀行は全額を手元に置かないのか</h2>
+<p>銀行の仕事は、いつでも引き出せる預金を集め、それを長期の貸出（住宅ローン・企業融資）に回すことです。貸したお金はすぐには戻らないため、手元に残す現金は預金の数%〜十数%（準備率）。これは無責任ではなく、経済にお金を循環させる銀行の本質的な役割です。ただし「全員が同時に引き出す」ことだけには耐えられません。</p>
+<h2>2つの均衡：良い世界と悪い世界</h2>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>均衡</th><th>預金者の予想</th><th>結果</th></tr><tr><td>良い均衡</td><td>皆が「他の人は引き出さない」と信じる</td><td>必要な人だけ引き出し、銀行は問題なく機能</td></tr><tr><td>悪い均衡</td><td>皆が「他の人が引き出す」と信じる</td><td>全員が窓口に殺到し、健全な銀行が倒産</td></tr></table></div>
+<p>どちらの世界になるかは、銀行の財務ではなく<b>預金者の予想</b>で決まります。噂・SNS・報道が予想を切り替えるスイッチになるため、「危ないらしい」という一言が実際に銀行を倒せるのです。</p>
+<h2>2023年、SNS時代の取り付け</h2>
+<p>2023年3月、米シリコンバレー銀行では、SNSで不安が拡散してから<b>わずか1日で約420億ドル（総預金の約4分の1）</b>が引き出され、翌日に破綻しました。かつては窓口の行列が必要だった取り付けが、スマホの操作で数時間に圧縮された事例です。本シミュレーターの「不安の伝わりやすさ」を上げると、この速さが再現できます。</p>
+<h2>預金保険という発明</h2>
+<p>日本では預金保険制度により、1金融機関あたり元本1,000万円とその利息までが保護されます（決済用預金は全額）。「引き出さなくても損しない」ことが保証されれば、悪い均衡に飛び移る理由がなくなります。本ページで預金保険を「あり」にすると、噂が流れても不安が広がりにくくなることが確認できます。</p>
+
+    <h2>引用・転載について</h2>
+    <p>本ページのシミュレーション結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・授業や社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「銀行の取り付け騒ぎシミュレーター」 https://shimulabo.com/sims/bank-run/</code></div>
+    <h2>よくある質問</h2><dl class="faq"><dt>準備率を上げれば安全？</dt><dd>上げるほど取り付けには強くなりますが、その分貸し出せるお金が減り、銀行の本来の機能（お金を回す）が弱まります。準備率100%の銀行は取り付けに耐えますが、それはもはや「金庫」です。</dd><dt>預金保険があれば絶対に起きない？</dt><dd>保護限度額を超える大口預金者（企業など）は依然として引き出す動機があり、シリコンバレー銀行では預金の9割超が限度額超過でした。制度は個人のパニックを止めるのに有効ですが、万能ではありません。</dd><dt>このモデルで日本の銀行を評価できる？</dt><dd>できません。本ページは「噂と予想で取り付けが起きる仕組み」を示す抽象モデルで、実在の銀行の健全性とは無関係です。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../shinrai-shinka/"><span class="e">🤝</span><span>信頼の進化</span></a><a class="related-card" href="../uwasa-kakusan/"><span class="e">🗣️</span><span>噂が全員に届くまで</span></a><a class="related-card" href="../ryukou-curve/"><span class="e">📈</span><span>流行はなぜ急に終わる？</span></a><a class="related-card" href="../infure/"><span class="e">📉</span><span>物価2倍まで何年？</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../lab/">🧪 シミュレーション・ラボ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+  const rnd = (a,b) => a + Math.random()*(b-a);
+  const randn = () => { let u=0,v=0; while(!u)u=Math.random(); while(!v)v=Math.random(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
+  let SHARE = '';
+  function setShare(t){ SHARE = t; }
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{ const l=$(s.id+'L'); if(l){ const u=()=>{ l.textContent = (s.dataset.fmt ? s.dataset.fmt.replace('{v}', s.value) : s.value); }; s.addEventListener('input',u); u(); } }); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  function setStat(id, v){ const e=$(id); if(e) e.textContent = v; }
+  try {
+    syncSliders();
+
+  const cv=$('cv'), x=cv.getContext('2d'), W=cv.width, H=cv.height, NP=400;
+  let st, cash, day, run=true, dead=false, queue=0, hist=[];
+  // st: 0=安心 1=不安 2=引き出し済み 3=引き出せなかった
+  function reset(){ st=new Array(NP).fill(0); const s=Math.round(NP*+$('seed').value/100); for(let i=0;i<s;i++) st[Math.random()*NP|0]=1; cash=+$('res').value/100*NP; day=0; dead=false; queue=0; hist=[cash]; draw(); }
+  function step(){ if(dead) return; day++; const p=+$('panic').value, ins=$('ins').value==='yes'; const R=+$('res').value/100*NP; const nb=[];
+    cash=Math.min(R, cash+(R-cash)*0.2); // 銀行は毎日、貸出の回収・資産売却で少しずつ現金を補充
+    for(let i=0;i<NP;i++){ if(st[i]!==0) continue; let anx=0; for(let k=0;k<6;k++){ const j=Math.random()*NP|0; if(st[j]===1) anx++; if(st[j]===2) anx+=0.25; if(st[j]===3) anx+=3; }
+      const drop=(cash/R)<0.25; const prob=p*(anx/6)*(ins?0.15:1)+(drop?0.12*(ins?0.3:1):0); if(Math.random()<prob) nb.push(i); }
+    nb.forEach(i=>st[i]=1);
+    queue=0; for(let i=0;i<NP;i++){ if(st[i]===1){ if(Math.random()<0.35){ if(cash>=1){ cash-=1; st[i]=2; } else { st[i]=3; } } else queue++; } }
+    if(cash<1 && st.some(s=>s===1||s===3)){ dead=true; st=st.map(s=>s===1?3:s); }
+    if(!dead){ for(let i=0;i<NP;i++){ if(st[i]===1&&Math.random()<(ins?0.5:0.2)) st[i]=0; else if(st[i]===2&&Math.random()<(ins?0.08:0.03)){ st[i]=0; cash=Math.min(R,cash+1); } } }
+    hist.push(cash); if(hist.length>120) hist.shift(); }
+  function draw(){ x.fillStyle='#0b1020'; x.fillRect(0,0,W,H); const cols=25, cell=18;
+    for(let i=0;i<NP;i++){ const c=i%cols, r=Math.floor(i/cols); const px=16+c*cell, py=16+r*cell; x.fillStyle=['#475569','#fbbf24','#ef4444','#7f1d1d'][st[i]]; x.beginPath(); x.arc(px+7,py+7,st[i]===1?7:6,0,7); x.fill(); }
+    const bx=500, by=30, bw=100, bh=H-70; const R=+$('res').value/100*NP; x.strokeStyle='#94a3b8'; x.strokeRect(bx,by,bw,bh); const fh=Math.max(0,cash/R)*bh; x.fillStyle=cash/R>0.5?'#22c55e':cash/R>0.2?'#f59e0b':'#ef4444'; x.fillRect(bx,by+bh-fh,bw,fh);
+    x.fillStyle='#e5e7eb'; x.font='bold 12px sans-serif'; x.fillText('銀行の手元資金', bx-6, by-10); x.fillText(Math.round(cash/R*100)+'%', bx+30, by+bh/2);
+    x.fillStyle='#94a3b8'; x.font='11px sans-serif'; x.fillText('（預金総額の'+$('res').value+'%）', bx-10, by+bh+18);
+    if(dead){ x.fillStyle='rgba(127,29,29,.85)'; x.fillRect(16,H/2-40,460,80); x.fillStyle='#fff'; x.font='bold 22px sans-serif'; x.fillText('💥 資金が尽きました（取り付け騒ぎ）', 40, H/2+8); }
+    const n2=st.filter(s=>s===2).length, n3=st.filter(s=>s===3).length, n1=st.filter(s=>s===1).length;
+    setStat('sDay', day+'日'); setStat('sRes', Math.round(cash/R*100)+'%'); setStat('sQ', (n1)+'人'); setStat('sState', dead?'破綻（'+n3+'人が引き出せず）':n1>NP*0.1?'⚠️ 窓口に行列':'平常');
+    setShare('準備率'+$('res').value+'%・不安の伝わりやすさ'+$('panic').value+'・預金保険'+($('ins').value==='yes'?'あり':'なし')+'→'+day+'日目に'+(dead?'銀行が破綻🏦💥 '+n3+'人が引き出せず':'手元資金'+Math.round(cash/R*100)+'%で耐えている🏦')+'。噂だけで健全な銀行が倒れる仕組み👇'); }
+  let f=0; function loop(){ if(run){ f++; if(f%Math.max(1,12-+$('sp').value)===0) step(); } draw(); requestAnimationFrame(loop); }
+  ['res','seed','ins'].forEach(id=>$(id).addEventListener('change',reset));
+  $('toggle').addEventListener('click',()=>{ run=!run; $('toggle').textContent=run?'⏸ 一時停止':'▶ 再生'; });
+  $('reset').addEventListener('click',reset);
+  $('rumor').addEventListener('click',()=>{ if(dead) return; for(let i=0;i<NP;i++) if(st[i]===0&&Math.random()<0.2) st[i]=1; });
+  reset(); loop();
+
+  } catch(e) { console.error(e); }
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE || document.title)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText((SHARE||document.title)+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'bank-run', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

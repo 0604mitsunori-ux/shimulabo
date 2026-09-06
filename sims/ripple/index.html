@@ -25,7 +25,7 @@
     <meta name="robots" content="index,follow">
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "波紋シミュレーター", "url": "https://shimulabo.com/sims/ripple/", "description": "水面をタップして波の干渉を観察。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "波紋シミュレーター", "item": "https://shimulabo.com/sims/ripple/"}]}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "重い場合は？", "acceptedAnswer": {"@type": "Answer", "text": "少しカクつくときはタップの数を減らしてみてください。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で計算します。"}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "重い場合は？", "acceptedAnswer": {"@type": "Answer", "text": "少しカクつくときはタップの数を減らしてみてください。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で計算します。"}}, {"@type": "Question", "name": "2つの波紋がぶつかると消える？", "acceptedAnswer": {"@type": "Answer", "text": "山と谷が重なった瞬間は平らになりますが、波はそのまま通り抜けて再び現れます。波は「足し算されるだけで、互いを壊さない」性質があります。"}}, {"@type": "Question", "name": "端で反射するのはなぜ？", "acceptedAnswer": {"@type": "Answer", "text": "水槽の壁と同じで、格子の端で波が跳ね返るように計算しています。反射波と元の波が干渉して、複雑な模様を作ります。"}}]}</script>
     <!-- ga4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
@@ -76,7 +76,13 @@
   <article class="article">
     <h2>波の干渉とは</h2>
     <p>2つの波が出会うと、高さが足し算されます。山と山が重なれば大きな山に（強め合い）、山と谷が重なれば平ら（打ち消し合い）。音・光・水面——あらゆる波で起きる現象で、ノイズキャンセリングや干渉縞もこの原理です。波動方程式を格子で計算しています。</p>
-    <h2>よくある質問</h2><dl class="faq"><dt>重い場合は？</dt><dd>少しカクつくときはタップの数を減らしてみてください。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で計算します。</dd></dl>
+    <!-- enriched-2026-09 -->
+<h2>水面の裏で解いている式</h2>
+<p>波紋の動きは<b>波動方程式</b>（∂²u/∂t² = c²∇²u）で表せます。本シミュレーターは水面を格子に分け、各点の高さが「周囲4点の平均」に引っ張られるように毎フレーム更新しています。「水の粘り」は減衰項で、大きくすると波がすぐ静まります。</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>水の粘り</th><th>見え方</th></tr><tr><td>小さい</td><td>波が長く残り、干渉模様がよく見える</td></tr><tr><td>中くらい</td><td>ふつうの水面に近い</td></tr><tr><td>大きい</td><td>蜂蜜や油のような重い液体。波はすぐ消える</td></tr></table></div>
+<h2>波紋から分かる「波の速さ」</h2>
+<p>実際の水面では、水深が浅いほど波は遅く進みます。津波が沖では時速800km（ジェット機並み）なのに、岸に近づくと時速数十kmまで減速し、その分だけ高くなるのはこのためです。また小さな波紋（さざ波）は表面張力が支配的で、波長が短いほど速く進む——雨粒の波紋が“細かい波ほど先に広がる”のはこの性質です。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>重い場合は？</dt><dd>少しカクつくときはタップの数を減らしてみてください。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で計算します。</dd><dt>2つの波紋がぶつかると消える？</dt><dd>山と谷が重なった瞬間は平らになりますが、波はそのまま通り抜けて再び現れます。波は「足し算されるだけで、互いを壊さない」性質があります。</dd><dt>端で反射するのはなぜ？</dt><dd>水槽の壁と同じで、格子の端で波が跳ね返るように計算しています。反射波と元の波が干渉して、複雑な模様を作ります。</dd></dl>
   </article>
 
   <nav class="related" aria-label="related">

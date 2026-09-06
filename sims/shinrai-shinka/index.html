@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/shinrai-shinka/">
+<title>信頼の進化シミュレーター｜ずるい人と正直な人、生き残るのはどっち？（囚人のジレンマ）｜シミュラボ</title>
+<meta name="description" content="「常に裏切る」「常に協力」「やられたらやり返す」など6つの戦略を何世代も戦わせ、どの生き方が生き残るかを見る進化ゲームシミュレーター。ノイズ（うっかりミス）や付き合いの長さで勝者が変わる、アクセルロッドの有名な実験をブラウザで再現。">
+<meta property="og:title" content="信頼の進化シミュレーター（囚人のジレンマ）">
+<meta property="og:description" content="ずるい人と正直な人、何世代も戦わせると生き残るのはどっち？">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/shinrai-shinka.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/shinrai-shinka.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/shinrai-shinka/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "信頼の進化シミュレーター（囚人のジレンマ）", "url": "https://shimulabo.com/sims/shinrai-shinka/", "description": "ずるい人と正直な人、何世代も戦わせると生き残るのはどっち？", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "シミュレーション・ラボ", "item": "https://shimulabo.com/lab/"}, {"@type": "ListItem", "position": 3, "name": "信頼の進化シミュレーター（囚人のジレンマ）", "item": "https://shimulabo.com/sims/shinrai-shinka/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "ノイズを上げると協力が崩れるのはなぜ？", "acceptedAnswer": {"@type": "Answer", "text": "しっぺ返し同士がうっかり1回裏切ると、報復が交互に続く「血の復讐」状態になります。これを断ち切れるのが「寛容なしっぺ返し」で、ノイズのある現実世界では寛容さが合理的だと分かります。"}}, {"@type": "Question", "name": "ラウンド数を減らすとどうなる？", "acceptedAnswer": {"@type": "Answer", "text": "付き合いが短いと報復の機会が減り、「常に裏切り」が有利になります。一見さん相手の商売で不正が起きやすく、常連相手では起きにくいのと同じ理屈です。"}}, {"@type": "Question", "name": "これは人間以外にも当てはまる？", "acceptedAnswer": {"@type": "Answer", "text": "はい。吸血コウモリの血の分け合い、魚の掃除共生、細菌の協力行動など、多くの生物で「反復囚人のジレンマ」型の協力が観察されています。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+<style>
+.lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
+.lab-ctl .field{margin-bottom:6px;}
+.lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
+.lab-ctl .slider-head label{margin:0;font-size:13px;}
+.lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
+.lab-ctl input[type=range]{width:100%;}
+.lab-ctl select{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;font-size:14px;background:#fff;}
+.lab-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px;}
+.lab-btns .btn{padding:11px 18px;font-size:14px;width:auto;}
+.lab-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;width:100%;max-width:640px;margin-top:4px;}
+.lab-stats .stat{background:var(--teal-l);border-radius:10px;padding:10px 12px;text-align:center;}
+.lab-stats .k{font-size:11px;color:var(--ink-2);}
+.lab-stats .v{font-size:20px;font-weight:800;color:var(--ink);font-feature-settings:"tnum";}
+.lab-stats .v.accent{color:var(--accent);}
+.lab-legend{text-align:center;color:var(--ink-2);font-size:13px;margin-top:12px;}
+.lab-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;background:rgba(44,107,134,.10);color:var(--teal-d);margin-bottom:8px;}
+canvas.lab{width:100%;max-width:640px;height:auto;border:1px solid var(--line);border-radius:12px;background:#0b1020;touch-action:none;}
+canvas.lab.light{background:#fff;}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../lab/">🧪 シミュレーション・ラボ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../lab/">シミュレーション・ラボ</a><span>›</span><span class="cur">信頼の進化シミュレーター（囚人のジレンマ）</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ふしぎ・現象</div>
+    <h1>信頼の進化シミュレーター（囚人のジレンマ）</h1>
+    <p class="lead">裏切れば得、でも全員が裏切れば全員が損。この「囚人のジレンマ」を何度も繰り返す社会で、どんな生き方が生き残るのか。6つの戦略を世代交代させて、信頼が進化する条件を確かめてください。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:14px;">
+      <span class="lab-badge">🧪 反復囚人のジレンマ × レプリケーター動学（進化ゲーム理論）</span>
+      <canvas id="cv" class="lab" width="640" height="360"></canvas>
+      <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="noise">うっかりミス率（ノイズ）</label><span class="val" id="noiseL"></span></div><input type="range" id="noise" min="0" max="0.2" value="0.02" step="0.01"></div><div class="field"><div class="slider-head"><label for="rounds">1回の付き合いの長さ（ラウンド数）</label><span class="val" id="roundsL"></span></div><input type="range" id="rounds" min="2" max="50" value="20" step="1" data-fmt="{v}回"></div><div class="field"><div class="slider-head"><label for="bad">最初の「常に裏切る」の割合</label><span class="val" id="badL"></span></div><input type="range" id="bad" min="5" max="80" value="40" step="5" data-fmt="{v}%"></div><div class="field"><div class="slider-head"><label for="sp">再生速度</label><span class="val" id="spL"></span></div><input type="range" id="sp" min="1" max="10" value="3" step="1" data-fmt="×{v}"></div></div>
+      <div class="lab-btns"><button class="btn btn-ghost" id="toggle">⏸ 一時停止</button><button class="btn btn-ghost" id="reset">リセット</button></div>
+      <div class="lab-stats"><div class="stat"><div class="k">世代</div><div class="v" id="sGen">—</div></div><div class="stat"><div class="k">いちばん多い戦略</div><div class="v accent" id="sTop">—</div></div><div class="stat"><div class="k">その割合</div><div class="v" id="sTopP">—</div></div><div class="stat"><div class="k">社会の協力率</div><div class="v" id="sCoop">—</div></div></div>
+    </div>
+    <p class="lab-legend">面積＝各戦略の人口割合の推移。世代ごとに、得点の高い戦略ほど子孫を多く残します（レプリケーター動学）。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+<div class="note" style="border-left:4px solid var(--teal)"><strong>ポイント</strong>：裏切り者だらけの社会でも、<b>「やられたらやり返す（しっぺ返し）」</b>のように「まず協力し、裏切られたら報復し、相手が戻れば許す」戦略は生き残り、やがて社会全体を協力的にします。ただし<b>付き合いが短い</b>か<b>うっかりミスが多い</b>と、報復の連鎖で協力は崩れます。</div>
+<h2>6つの戦略</h2>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>戦略</th><th>ルール</th><th>特徴</th></tr><tr><td>🕊️ 常に協力</td><td>何があっても協力</td><td>裏切り者に食い物にされる</td></tr><tr><td>😈 常に裏切り</td><td>何があっても裏切る</td><td>短期では最強、長期で孤立</td></tr><tr><td>🤝 しっぺ返し</td><td>最初は協力。前回相手がした行動をそのまま返す</td><td>アクセルロッドの大会で優勝した戦略</td></tr><tr><td>🙏 寛容なしっぺ返し</td><td>しっぺ返しだが、裏切られても3割の確率で許す</td><td>ノイズがある世界で最も強い</td></tr><tr><td>💢 根に持つ</td><td>一度でも裏切られたら永遠に裏切る</td><td>ミスに弱い</td></tr><tr><td>🎲 ランダム</td><td>半々で協力／裏切り</td><td>誰からも信用されない</td></tr></table></div>
+<h2>得点表（囚人のジレンマ）</h2>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>組み合わせ</th><th>得点</th></tr><tr><td>両方協力</td><td>3点ずつ</td></tr><tr><td>自分だけ裏切り</td><td>自分5点・相手0点</td></tr><tr><td>両方裏切り</td><td>1点ずつ</td></tr></table></div>
+<p>1回きりなら「裏切り」が必ず得です。しかし何度も付き合うと、「裏切ればやり返される」ため、協力し合ったほうが合計点は高くなります。付き合いが長いほど協力の価値が上がる——これを<b>「未来の影」</b>と呼びます。</p>
+<h2>アクセルロッドの実験（1980年）</h2>
+<p>政治学者ロバート・アクセルロッドは、世界中の研究者から戦略プログラムを募って総当たり戦を行いました。優勝したのは最も短い4行のプログラム「しっぺ返し」。勝った戦略に共通していたのは、①自分から裏切らない（上品）、②裏切りには即座に報復する、③相手が戻れば許す、④分かりやすい、の4点でした。この結果は『つきあい方の科学』として出版され、ビジネス・外交・生物学に大きな影響を与えました。</p>
+
+    <h2>引用・転載について</h2>
+    <p>本ページのシミュレーション結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・授業や社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「信頼の進化シミュレーター（囚人のジレンマ）」 https://shimulabo.com/sims/shinrai-shinka/</code></div>
+    <h2>よくある質問</h2><dl class="faq"><dt>ノイズを上げると協力が崩れるのはなぜ？</dt><dd>しっぺ返し同士がうっかり1回裏切ると、報復が交互に続く「血の復讐」状態になります。これを断ち切れるのが「寛容なしっぺ返し」で、ノイズのある現実世界では寛容さが合理的だと分かります。</dd><dt>ラウンド数を減らすとどうなる？</dt><dd>付き合いが短いと報復の機会が減り、「常に裏切り」が有利になります。一見さん相手の商売で不正が起きやすく、常連相手では起きにくいのと同じ理屈です。</dd><dt>これは人間以外にも当てはまる？</dt><dd>はい。吸血コウモリの血の分け合い、魚の掃除共生、細菌の協力行動など、多くの生物で「反復囚人のジレンマ」型の協力が観察されています。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../uwasa-kakusan/"><span class="e">🗣️</span><span>噂が全員に届くまで</span></a><a class="related-card" href="../echo-chamber/"><span class="e">📢</span><span>エコーチェンバー 意見分極</span></a><a class="related-card" href="../bank-run/"><span class="e">🏦</span><span>銀行の取り付け騒ぎ</span></a><a class="related-card" href="../schelling/"><span class="e">🏘️</span><span>街の分断シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../lab/">🧪 シミュレーション・ラボ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+  const rnd = (a,b) => a + Math.random()*(b-a);
+  const randn = () => { let u=0,v=0; while(!u)u=Math.random(); while(!v)v=Math.random(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
+  let SHARE = '';
+  function setShare(t){ SHARE = t; }
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{ const l=$(s.id+'L'); if(l){ const u=()=>{ l.textContent = (s.dataset.fmt ? s.dataset.fmt.replace('{v}', s.value) : s.value); }; s.addEventListener('input',u); u(); } }); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  function setStat(id, v){ const e=$(id); if(e) e.textContent = v; }
+  try {
+    syncSliders();
+
+  const cv=$('cv'), x=cv.getContext('2d'), W=cv.width, H=cv.height;
+  const STR=[['常に協力','#38bdf8'],['常に裏切り','#ef4444'],['しっぺ返し','#22c55e'],['寛容なしっぺ返し','#a3e635'],['根に持つ','#f59e0b'],['ランダム','#a78bfa']];
+  const PAY=[[3,0],[5,1]]; // PAY[me][you] me:0=C 1=D  -> my points
+  let pop, gen, hist, run=true, coopRate;
+  function act(s, myHist, opHist){ const last=opHist.length?opHist[opHist.length-1]:0;
+    switch(s){ case 0: return 0; case 1: return 1; case 2: return last; case 3: return last===1&&Math.random()<0.3?0:last; case 4: return opHist.includes(1)?1:0; default: return Math.random()<0.5?0:1; } }
+  function play(a,b){ const n=+$('rounds').value, eps=+$('noise').value; const ha=[],hb=[]; let sa=0,sb=0,coop=0;
+    for(let r=0;r<n;r++){ let ma=act(a,ha,hb), mb=act(b,hb,ha); if(Math.random()<eps) ma=1-ma; if(Math.random()<eps) mb=1-mb; sa+=PAY[ma][mb]; sb+=PAY[mb][ma]; coop+=(ma===0)+(mb===0); ha.push(ma); hb.push(mb); }
+    return [sa/n, sb/n, coop/(2*n)]; }
+  function reset(){ const bad=+$('bad').value/100; const rest=(1-bad)/5; pop=[rest,bad,rest,rest,rest,rest]; gen=0; hist=[pop.slice()]; coopRate=0; draw(); }
+  function generation(){ const fit=[0,0,0,0,0,0]; let cw=0, tw=0;
+    for(let i=0;i<6;i++) for(let j=i;j<6;j++){ if(pop[i]<1e-4&&pop[j]<1e-4) continue; let si=0,sj=0,c=0; for(let k=0;k<2;k++){ const r=play(i,j); si+=r[0]; sj+=r[1]; c+=r[2]; } si/=2; sj/=2; c/=2;
+      fit[i]+=pop[j]*si; if(j!==i) fit[j]+=pop[i]*sj; const w=pop[i]*pop[j]*(i===j?1:2); cw+=w*c; tw+=w; }
+    coopRate=tw?cw/tw:0; const mean=pop.reduce((a,p,i)=>a+p*fit[i],0); const mu=0.002;
+    pop=pop.map((p,i)=>Math.max(0,p*fit[i]/mean)); const s=pop.reduce((a,b)=>a+b,0); pop=pop.map(p=>p/s*(1-mu*6)+mu); gen++; hist.push(pop.slice()); if(hist.length>220) hist.shift(); }
+  function draw(){ x.fillStyle='#0b1020'; x.fillRect(0,0,W,H); const PW=W-170, ph=H-30;
+    const L=hist.length; for(let k=0;k<L;k++){ const px=k/Math.max(1,219)*PW; const w=PW/219+0.6; let y=10; for(let i=0;i<6;i++){ const h=hist[k][i]*ph; x.fillStyle=STR[i][1]; x.fillRect(px,y,w,h); y+=h; } }
+    x.fillStyle='rgba(255,255,255,.4)'; x.font='11px sans-serif'; x.fillText('世代 →', PW-40, H-6);
+    let top=0; pop.forEach((p,i)=>{ if(p>pop[top]) top=i; });
+    STR.forEach((s,i)=>{ const y=24+i*30; x.fillStyle=s[1]; x.fillRect(PW+16,y-10,12,12); x.fillStyle='#e5e7eb'; x.font=(i===top?'bold ':'')+'12px sans-serif'; x.fillText(s[0], PW+34, y); x.fillStyle='#94a3b8'; x.fillText(Math.round(pop[i]*100)+'%', PW+34, y+13); });
+    setStat('sGen', gen); setStat('sTop', STR[top][0]); setStat('sTopP', Math.round(pop[top]*100)+'%'); setStat('sCoop', Math.round(coopRate*100)+'%');
+    setShare('囚人のジレンマを'+gen+'世代進化させたら、最多は「'+STR[top][0]+'」'+Math.round(pop[top]*100)+'%🤝 社会の協力率'+Math.round(coopRate*100)+'%（ミス率'+Math.round(+$('noise').value*100)+'%・付き合い'+$('rounds').value+'回）。信頼が進化する条件👇'); }
+  let f=0; function loop(){ if(run){ f++; if(f%Math.max(1,11-+$('sp').value)===0) generation(); } draw(); requestAnimationFrame(loop); }
+  ['bad'].forEach(id=>$(id).addEventListener('change',reset));
+  $('toggle').addEventListener('click',()=>{ run=!run; $('toggle').textContent=run?'⏸ 一時停止':'▶ 再生'; });
+  $('reset').addEventListener('click',reset);
+  reset(); loop();
+
+  } catch(e) { console.error(e); }
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE || document.title)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText((SHARE||document.title)+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'shinrai-shinka', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

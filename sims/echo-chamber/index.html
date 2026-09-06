@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/echo-chamber/">
+<title>エコーチェンバー 意見分極シミュレーター｜「似た意見しか聞かない」だけで社会はいくつに割れる？｜シミュラボ</title>
+<meta name="description" content="「自分と近い意見の人の話しか聞かない」というルールだけで、バラバラだった意見が2つ3つの極に固まる過程をアニメで見る無料シミュレーター。許容幅・SNSのおすすめ強度・頑固な人の割合を変えて、分極が起きる条件を体感。">
+<meta property="og:title" content="エコーチェンバー 意見分極シミュレーター">
+<meta property="og:description" content="似た意見しか聞かないだけで、社会はいくつに割れる？">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/echo-chamber.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/echo-chamber.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/echo-chamber/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "エコーチェンバー 意見分極シミュレーター", "url": "https://shimulabo.com/sims/echo-chamber/", "description": "似た意見しか聞かないだけで、社会はいくつに割れる？", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "シミュレーション・ラボ", "item": "https://shimulabo.com/lab/"}, {"@type": "ListItem", "position": 3, "name": "エコーチェンバー 意見分極シミュレーター", "item": "https://shimulabo.com/sims/echo-chamber/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "極の数はどう数えている？", "acceptedAnswer": {"@type": "Answer", "text": "意見を0.05刻みに区切り、人が集まっている区間の塊（連続した山）を数えています。頑固な人は数に含めます。"}}, {"@type": "Question", "name": "分極を防ぐには？", "acceptedAnswer": {"@type": "Answer", "text": "モデル上では「聞く耳の広さを少し広げる」「違う意見の人と出会う機会（SNSのおすすめを弱める）」が効きます。全員が変わる必要はなく、一部の人が広い ε を持つだけでも合意に向かいやすくなります。"}}, {"@type": "Question", "name": "現実の人はこんなに単純？", "acceptedAnswer": {"@type": "Answer", "text": "もちろん単純化です。ただし「近い意見にしか影響されない」という仮定は、社会心理学の実験（同化・対比効果）と整合しており、モデルの本質はよく支持されています。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+<style>
+.lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
+.lab-ctl .field{margin-bottom:6px;}
+.lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
+.lab-ctl .slider-head label{margin:0;font-size:13px;}
+.lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
+.lab-ctl input[type=range]{width:100%;}
+.lab-ctl select{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;font-size:14px;background:#fff;}
+.lab-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px;}
+.lab-btns .btn{padding:11px 18px;font-size:14px;width:auto;}
+.lab-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;width:100%;max-width:640px;margin-top:4px;}
+.lab-stats .stat{background:var(--teal-l);border-radius:10px;padding:10px 12px;text-align:center;}
+.lab-stats .k{font-size:11px;color:var(--ink-2);}
+.lab-stats .v{font-size:20px;font-weight:800;color:var(--ink);font-feature-settings:"tnum";}
+.lab-stats .v.accent{color:var(--accent);}
+.lab-legend{text-align:center;color:var(--ink-2);font-size:13px;margin-top:12px;}
+.lab-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;background:rgba(44,107,134,.10);color:var(--teal-d);margin-bottom:8px;}
+canvas.lab{width:100%;max-width:640px;height:auto;border:1px solid var(--line);border-radius:12px;background:#0b1020;touch-action:none;}
+canvas.lab.light{background:#fff;}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../lab/">🧪 シミュレーション・ラボ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../lab/">シミュレーション・ラボ</a><span>›</span><span class="cur">エコーチェンバー 意見分極シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ふしぎ・現象</div>
+    <h1>エコーチェンバー 意見分極シミュレーター</h1>
+    <p class="lead">最初は意見がバラバラの100人。「自分と近い意見の人の話だけ聞いて、少し歩み寄る」を繰り返すと、社会はいくつの“極”に割れるのか。聞く耳の広さ・SNSのおすすめ・頑固な人の割合を変えて確かめてください。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:14px;">
+      <span class="lab-badge">🧪 限定信頼モデル（ヘーゲルマン＝クラウゼ／デフアン）</span>
+      <canvas id="cv" class="lab" width="640" height="380"></canvas>
+      <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="eps">聞く耳の広さ（意見の差がこれ以内なら聞く）</label><span class="val" id="epsL"></span></div><input type="range" id="eps" min="0.05" max="0.6" value="0.2" step="0.01"></div><div class="field"><div class="slider-head"><label for="mu">歩み寄りの強さ</label><span class="val" id="muL"></span></div><input type="range" id="mu" min="0.1" max="0.5" value="0.3" step="0.05"></div><div class="field"><div class="slider-head"><label for="sns">SNSのおすすめ強度（似た人とばかり会う）</label><span class="val" id="snsL"></span></div><input type="range" id="sns" min="0" max="1" value="0.3" step="0.05"></div><div class="field"><div class="slider-head"><label for="stub">頑固な人（両極端・意見を変えない）</label><span class="val" id="stubL"></span></div><input type="range" id="stub" min="0" max="20" value="4" step="1" data-fmt="{v}%"></div><div class="field"><div class="slider-head"><label for="sp">再生速度</label><span class="val" id="spL"></span></div><input type="range" id="sp" min="1" max="10" value="4" step="1" data-fmt="×{v}"></div></div>
+      <div class="lab-btns"><button class="btn btn-ghost" id="toggle">⏸ 一時停止</button><button class="btn btn-ghost" id="reset">リセット</button></div>
+      <div class="lab-stats"><div class="stat"><div class="k">経過ステップ</div><div class="v" id="sT">—</div></div><div class="stat"><div class="k">意見の“極”の数</div><div class="v accent" id="sK">—</div></div><div class="stat"><div class="k">意見のばらつき</div><div class="v" id="sSpread">—</div></div><div class="stat"><div class="k">中道派の割合</div><div class="v" id="sMid">—</div></div></div>
+    </div>
+    <p class="lab-legend">縦軸＝意見（上が賛成・下が反対）、横軸＝時間。1本1本の線が1人の意見の変化。線が束になる＝エコーチェンバー。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+<div class="note" style="border-left:4px solid var(--teal)"><strong>ポイント</strong>：人は「自分と近い意見だけ聞く」傾向があります。その許容幅が広ければ社会は<b>1つの中道に合意</b>し、狭ければ<b>2つ、3つの極に分裂</b>します。悪意も操作もなしに、聞く耳の幅だけで分極が決まる——これが限定信頼モデルの結論です。</div>
+<h2>モデルのルール</h2>
+<p>各人は 0（強い反対）〜1（強い賛成）の意見を持ちます。毎ステップ、誰かと出会い、意見の差が「聞く耳の広さ ε」以内なら、お互いに歩み寄ります（差の μ 倍だけ近づく）。差が ε より大きければ、相手の話は“聞こえない”。これだけです。</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>聞く耳の広さ</th><th>社会の行き着く先</th></tr><tr><td>ε ＞ 0.3 くらい</td><td>全員が1つの意見に合意（コンセンサス）</td></tr><tr><td>ε ≈ 0.2</td><td>2つの極に分裂（分極）</td></tr><tr><td>ε ≈ 0.1〜0.15</td><td>3〜5個の小さな島（断片化）</td></tr><tr><td>ε ＜ 0.05</td><td>誰も動かず、バラバラのまま</td></tr></table></div>
+<p>大まかに「極の数 ≈ 1 ÷ (2ε)」になることが知られています。聞く耳の広さがほんの少し狭まるだけで、合意が分裂に変わる境目（相転移）があります。</p>
+<h2>SNSのおすすめと「頑固な人」の効果</h2>
+<p><b>SNSのおすすめ強度</b>を上げると、そもそも似た意見の人としか出会わなくなり、ε が広くても分極が進みます。<b>頑固な人</b>（意見を絶対に変えない両極端の人）が数%いるだけで、周囲の人がじわじわ引き寄せられ、中道派が消えていきます。少数の“確信犯”が世論を動かす構造です。</p>
+<h2>研究での使われ方</h2>
+<p>限定信頼モデルは2000年代に提案され、フィルターバブル・政治的分極・ワクチン忌避・製品の口コミ形成などの研究に使われています。実際のSNSデータでは、リツイート網が政治的に2つのクラスターへ分かれる様子が繰り返し観測されており、このモデルの示す構造とよく一致します。</p>
+
+    <h2>引用・転載について</h2>
+    <p>本ページのシミュレーション結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・授業や社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「エコーチェンバー 意見分極シミュレーター」 https://shimulabo.com/sims/echo-chamber/</code></div>
+    <h2>よくある質問</h2><dl class="faq"><dt>極の数はどう数えている？</dt><dd>意見を0.05刻みに区切り、人が集まっている区間の塊（連続した山）を数えています。頑固な人は数に含めます。</dd><dt>分極を防ぐには？</dt><dd>モデル上では「聞く耳の広さを少し広げる」「違う意見の人と出会う機会（SNSのおすすめを弱める）」が効きます。全員が変わる必要はなく、一部の人が広い ε を持つだけでも合意に向かいやすくなります。</dd><dt>現実の人はこんなに単純？</dt><dd>もちろん単純化です。ただし「近い意見にしか影響されない」という仮定は、社会心理学の実験（同化・対比効果）と整合しており、モデルの本質はよく支持されています。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../uwasa-kakusan/"><span class="e">🗣️</span><span>噂が全員に届くまで</span></a><a class="related-card" href="../shinrai-shinka/"><span class="e">🤝</span><span>信頼の進化</span></a><a class="related-card" href="../tasuketsu-wana/"><span class="e">🗳️</span><span>多数決の罠</span></a><a class="related-card" href="../schelling/"><span class="e">🏘️</span><span>街の分断シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../lab/">🧪 シミュレーション・ラボ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+  const rnd = (a,b) => a + Math.random()*(b-a);
+  const randn = () => { let u=0,v=0; while(!u)u=Math.random(); while(!v)v=Math.random(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
+  let SHARE = '';
+  function setShare(t){ SHARE = t; }
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{ const l=$(s.id+'L'); if(l){ const u=()=>{ l.textContent = (s.dataset.fmt ? s.dataset.fmt.replace('{v}', s.value) : s.value); }; s.addEventListener('input',u); u(); } }); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  function setStat(id, v){ const e=$(id); if(e) e.textContent = v; }
+  try {
+    syncSliders();
+
+  const cv=$('cv'), x=cv.getContext('2d'), W=cv.width, H=cv.height, NP=100;
+  let op, stub, hist, t, run=true;
+  function reset(){ op=Array.from({length:NP},()=>Math.random()); const ns=Math.round(NP*+$('stub').value/100); stub=new Array(NP).fill(false); for(let i=0;i<ns;i++){ stub[i]=true; op[i]=i%2?0.02:0.98; } hist=[op.slice()]; t=0; draw(); }
+  function step(){ const eps=+$('eps').value, mu=+$('mu').value, sns=+$('sns').value;
+    for(let m=0;m<NP;m++){ const i=Math.random()*NP|0; let j; if(Math.random()<sns){ // 似た人と会いやすい
+        let best=-1,bd=9; for(let k=0;k<6;k++){ const c=Math.random()*NP|0; if(c===i) continue; const d=Math.abs(op[c]-op[i]); if(d<bd){bd=d;best=c;} } j=best<0?(i+1)%NP:best; } else { j=Math.random()*NP|0; if(j===i) continue; }
+      const d=op[j]-op[i]; if(Math.abs(d)<=eps){ if(!stub[i]) op[i]+=mu*d; if(!stub[j]) op[j]-=mu*d; } }
+    t++; hist.push(op.slice()); if(hist.length>300) hist.shift(); }
+  function clusters(){ const bins=new Array(20).fill(0); op.forEach(v=>bins[Math.min(19,Math.floor(v*20))]++); let k=0,inn=false; bins.forEach(b=>{ if(b>=3&&!inn){k++;inn=true;} if(b<3) inn=false; }); return k; }
+  function draw(){ x.fillStyle='#0b1020'; x.fillRect(0,0,W,H); const L=hist.length, PW=W-60;
+    x.strokeStyle='rgba(255,255,255,.08)'; for(let g=0;g<=4;g++){ const y=10+(H-20)*g/4; x.beginPath(); x.moveTo(0,y); x.lineTo(PW,y); x.stroke(); }
+    x.fillStyle='rgba(255,255,255,.4)'; x.font='11px sans-serif'; x.fillText('賛成', 4, 20); x.fillText('反対', 4, H-12);
+    x.lineWidth=1; for(let i=0;i<NP;i++){ const c=op[i]; x.strokeStyle=stub[i]?'#f472b6':'hsla('+(c*200+10)+',80%,60%,.7)'; x.beginPath(); for(let k=0;k<L;k++){ const px=k/299*PW, py=10+(1-hist[k][i])*(H-20); k?x.lineTo(px,py):x.moveTo(px,py); } x.stroke(); }
+    // histogram right
+    const bins=new Array(20).fill(0); op.forEach(v=>bins[Math.min(19,Math.floor(v*20))]++); const mx=Math.max(...bins,1); bins.forEach((b,i)=>{ const y=10+(1-(i+1)/20)*(H-20); x.fillStyle='hsla('+((i+0.5)/20*200+10)+',80%,60%,.9)'; x.fillRect(PW+8, y, b/mx*48, (H-20)/20-1); });
+    const mean=op.reduce((a,b)=>a+b,0)/NP, sd=Math.sqrt(op.reduce((a,b)=>a+(b-mean)**2,0)/NP), mid=op.filter(v=>v>0.4&&v<0.6).length, k=clusters();
+    setStat('sT', t); setStat('sK', k+'個'); setStat('sSpread', sd.toFixed(2)); setStat('sMid', Math.round(mid/NP*100)+'%');
+    setShare('聞く耳の広さ'+$('eps').value+'で'+t+'ステップ経過→意見の極は'+k+'個📢 中道派'+Math.round(mid/NP*100)+'%（頑固な人'+$('stub').value+'%・SNSおすすめ'+$('sns').value+'）。分極は悪意なしで起きる👇'); }
+  let f=0; function loop(){ if(run){ f++; if(f%Math.max(1,11-+$('sp').value)===0) step(); } draw(); requestAnimationFrame(loop); }
+  ['stub'].forEach(id=>$(id).addEventListener('change',reset));
+  $('toggle').addEventListener('click',()=>{ run=!run; $('toggle').textContent=run?'⏸ 一時停止':'▶ 再生'; });
+  $('reset').addEventListener('click',reset);
+  reset(); loop();
+
+  } catch(e) { console.error(e); }
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE || document.title)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText((SHARE||document.title)+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'echo-chamber', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

@@ -25,7 +25,7 @@
     <meta name="robots" content="index,follow">
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "拡散シミュレーター", "url": "https://shimulabo.com/sims/diffusion/", "description": "2色の粒子が混ざって戻らない不可逆性（エントロピー）。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "拡散シミュレーター", "item": "https://shimulabo.com/sims/diffusion/"}]}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "絶対に戻らない？", "acceptedAnswer": {"@type": "Answer", "text": "理論上はゼロではありませんが、確率が天文学的に低く、現実には起こりません。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動作します。"}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "絶対に戻らない？", "acceptedAnswer": {"@type": "Answer", "text": "理論上はゼロではありませんが、確率が天文学的に低く、現実には起こりません。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動作します。"}}, {"@type": "Question", "name": "温度を上げると速くなる？", "acceptedAnswer": {"@type": "Answer", "text": "はい。温度が高いほど粒子の運動が激しくなり、拡散係数が大きくなります。お湯に砂糖が速く溶けるのはこのためです。"}}, {"@type": "Question", "name": "かき混ぜると速いのはなぜ？", "acceptedAnswer": {"@type": "Answer", "text": "かき混ぜは「対流」で大きな塊ごと運ぶため、拡散が担当する距離がごく短くなります。最後の仕上げだけを拡散に任せる形になるので圧倒的に速くなります。"}}]}</script>
     <!-- ga4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
@@ -76,7 +76,13 @@
   <article class="article">
     <h2>なぜ戻らないのか</h2>
     <p>一粒一粒の動きはランダムで、向きの好みはありません。それでも全体は必ず「混ざった状態」に向かいます。理由は、混ざった状態のほうが圧倒的に「場合の数が多い」から。これが<strong>エントロピー増大</strong>であり、私たちが感じる「時間の向き（過去→未来）」の正体ともいわれます。</p>
-    <h2>よくある質問</h2><dl class="faq"><dt>絶対に戻らない？</dt><dd>理論上はゼロではありませんが、確率が天文学的に低く、現実には起こりません。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動作します。</dd></dl>
+    <!-- enriched-2026-09 -->
+<h2>拡散の数式：広がりは「時間の平方根」に比例</h2>
+<p>ランダムに動く粒子が t 秒後に出発点からどれだけ離れているかは、平均すると <b>√t に比例</b>します（フィックの法則／アインシュタインの関係式）。2倍の距離に広がるには4倍の時間がかかる、ということです。だから拡散は最初は速く見えて、あとになるほどじれったくなります。</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>身近な例</th><th>均一になるまでの目安</th></tr><tr><td>コーヒーにミルクを1滴</td><td>混ぜなければ数分〜10分以上</td></tr><tr><td>部屋に香水を1プッシュ</td><td>部屋の隅まで数分〜数十分（実際は空気の流れが手伝う）</td></tr><tr><td>角砂糖を水に入れて放置</td><td>完全に均一になるまで数時間〜日単位</td></tr><tr><td>金属の中の原子</td><td>ミリメートル動くのに年単位</td></tr></table></div>
+<h2>なぜ「戻らない」のか：場合の数で考える</h2>
+<p>粒子が100個あるとき、「全部左にいる」配置は1通りしかありませんが、「左右にほぼ半々」の配置は天文学的な数だけあります。粒子は配置を選んでいるのではなく、ただ動き回っているだけ。それでも圧倒的に数が多い“混ざった配置”に自然と落ち着きます。これが<b>エントロピー増大則</b>の正体で、「時間の向き」を感じる理由だと考えられています。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>絶対に戻らない？</dt><dd>理論上はゼロではありませんが、確率が天文学的に低く、現実には起こりません。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動作します。</dd><dt>温度を上げると速くなる？</dt><dd>はい。温度が高いほど粒子の運動が激しくなり、拡散係数が大きくなります。お湯に砂糖が速く溶けるのはこのためです。</dd><dt>かき混ぜると速いのはなぜ？</dt><dd>かき混ぜは「対流」で大きな塊ごと運ぶため、拡散が担当する距離がごく短くなります。最後の仕上げだけを拡散に任せる形になるので圧倒的に速くなります。</dd></dl>
   </article>
 
   <nav class="related" aria-label="related">

@@ -25,7 +25,7 @@
     <meta name="robots" content="index,follow">
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "ローレンツ・アトラクタ", "url": "https://shimulabo.com/sims/lorenz/", "description": "3つの式から生まれるカオスの蝶を回転描画。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ローレンツ・アトラクタ", "item": "https://shimulabo.com/sims/lorenz/"}]}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "同じ絵になりますか？", "acceptedAnswer": {"@type": "Answer", "text": "形は似ますが、軌道は毎回わずかに違います。それがカオスです。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動きます。"}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "同じ絵になりますか？", "acceptedAnswer": {"@type": "Answer", "text": "形は似ますが、軌道は毎回わずかに違います。それがカオスです。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動きます。"}}, {"@type": "Question", "name": "軌道が同じ場所を二度通らないのは本当？", "acceptedAnswer": {"@type": "Answer", "text": "はい。ローレンツ系の軌道は自分自身と交わらず、無限に長い1本の線としてアトラクタを埋め尽くします。アトラクタのフラクタル次元は約2.06です。"}}, {"@type": "Question", "name": "乱数は使っている？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。完全に決定論的な式です。毎回形が微妙に違うのは、初期値をわずかに変えているからです。"}}]}</script>
     <!-- ga4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
@@ -76,7 +76,15 @@
   <article class="article">
     <h2>カオスの蝶とは</h2>
     <p>気象学者ローレンツが大気の対流を3つの式で表したところ、初期値のほんの少しの違いが将来を大きく変えることを発見しました。これが「バタフライ効果」。軌跡は蝶のような形を描き、二度と同じ点を通りません。</p>
-    <h2>よくある質問</h2><dl class="faq"><dt>同じ絵になりますか？</dt><dd>形は似ますが、軌道は毎回わずかに違います。それがカオスです。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動きます。</dd></dl>
+    <!-- enriched-2026-09 -->
+<h2>たった3本の式</h2>
+<p>ローレンツ方程式は次の3本です。σ=10、ρ=28、β=8/3 という定数で、あの蝶の形が現れます。</p>
+<div class="note">dx/dt = σ(y − x)<br>dy/dt = x(ρ − z) − y<br>dz/dt = xy − βz</div>
+<p>本シミュレーターはこの式を数値積分し、点の軌跡を描いています。ρ を24以下にすると軌道はどちらかの“羽”の中心に落ち着き、カオスは消えます。</p>
+<h2>「バタフライ効果」の由来</h2>
+<p>1961年、気象学者エドワード・ローレンツは計算を途中から再開する際、印字された小数第3位までの値（0.506）を入力しました。もとの値は0.506127。この0.0001未満の差が、数ヶ月分の“天気”をまったく別物に変えたことがカオス発見のきっかけです。1972年の講演タイトル「ブラジルの蝶の羽ばたきはテキサスで竜巻を起こすか」から、バタフライ効果という言葉が生まれました。</p>
+<div class="note">現在の天気予報が実用的に当たるのは約1週間、理論上の限界は約2週間とされます。初期値の誤差が倍になる時間（約2〜3日）が、この限界を決めています。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>同じ絵になりますか？</dt><dd>形は似ますが、軌道は毎回わずかに違います。それがカオスです。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動きます。</dd><dt>軌道が同じ場所を二度通らないのは本当？</dt><dd>はい。ローレンツ系の軌道は自分自身と交わらず、無限に長い1本の線としてアトラクタを埋め尽くします。アトラクタのフラクタル次元は約2.06です。</dd><dt>乱数は使っている？</dt><dd>いいえ。完全に決定論的な式です。毎回形が微妙に違うのは、初期値をわずかに変えているからです。</dd></dl>
   </article>
 
   <nav class="related" aria-label="related">

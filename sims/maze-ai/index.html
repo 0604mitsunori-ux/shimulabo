@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/maze-ai/">
+<title>迷路をAIが解く 探索アルゴリズム対決｜幅優先・深さ優先・A*はどう違う？アニメで比較｜シミュラボ</title>
+<meta name="description" content="自動生成した迷路を、幅優先探索・深さ優先探索・A*・貪欲法の4つのアルゴリズムが解く様子をアニメで比較する無料シミュレーター。調べたマス数と経路の長さで「賢い探し方」の違いが分かる。カーナビの経路探索のしくみ。">
+<meta property="og:title" content="迷路をAIが解く 探索アルゴリズム対決">
+<meta property="og:description" content="幅優先・深さ優先・A*・貪欲法。4つの解き方をアニメで比較。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/maze-ai.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/maze-ai.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/maze-ai/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "迷路をAIが解く 探索アルゴリズム対決", "url": "https://shimulabo.com/sims/maze-ai/", "description": "幅優先・深さ優先・A*・貪欲法。4つの解き方をアニメで比較。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "シミュレーション・ラボ", "item": "https://shimulabo.com/lab/"}, {"@type": "ListItem", "position": 3, "name": "迷路をAIが解く 探索アルゴリズム対決", "item": "https://shimulabo.com/sims/maze-ai/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "迷路はどう作っている？", "acceptedAnswer": {"@type": "Answer", "text": "「再帰的バックトラック」という方法で、スタートから壁を掘り進み、行き止まりで戻る操作を繰り返して完全迷路（経路が1本）を作ります。「抜け道の多さ」の分だけ、あとから壁をランダムに壊しています。"}}, {"@type": "Question", "name": "A*が幅優先より調べるマスが少ないのはなぜ？", "acceptedAnswer": {"@type": "Answer", "text": "幅優先はゴールの方向を知らないため、全方向に均等に広がります。A*はゴールまでの推定距離で「見込みのない方向」を後回しにできるため、無駄な探索が減ります。"}}, {"@type": "Question", "name": "貪欲法が遠回りする理由は？", "acceptedAnswer": {"@type": "Answer", "text": "「ゴールに近そう」だけで選ぶため、壁の裏側の行き止まりに引き込まれます。戻って別の道を探す間に、経路が長くなります。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+<style>
+.lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
+.lab-ctl .field{margin-bottom:6px;}
+.lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
+.lab-ctl .slider-head label{margin:0;font-size:13px;}
+.lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
+.lab-ctl input[type=range]{width:100%;}
+.lab-ctl select{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;font-size:14px;background:#fff;}
+.lab-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px;}
+.lab-btns .btn{padding:11px 18px;font-size:14px;width:auto;}
+.lab-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;width:100%;max-width:640px;margin-top:4px;}
+.lab-stats .stat{background:var(--teal-l);border-radius:10px;padding:10px 12px;text-align:center;}
+.lab-stats .k{font-size:11px;color:var(--ink-2);}
+.lab-stats .v{font-size:20px;font-weight:800;color:var(--ink);font-feature-settings:"tnum";}
+.lab-stats .v.accent{color:var(--accent);}
+.lab-legend{text-align:center;color:var(--ink-2);font-size:13px;margin-top:12px;}
+.lab-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;background:rgba(44,107,134,.10);color:var(--teal-d);margin-bottom:8px;}
+canvas.lab{width:100%;max-width:640px;height:auto;border:1px solid var(--line);border-radius:12px;background:#0b1020;touch-action:none;}
+canvas.lab.light{background:#fff;}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../lab/">🧪 シミュレーション・ラボ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../lab/">シミュレーション・ラボ</a><span>›</span><span class="cur">迷路をAIが解く 探索アルゴリズム対決</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">あそぶ・実験</div>
+    <h1>迷路をAIが解く 探索アルゴリズム対決</h1>
+    <p class="lead">カーナビが一瞬でルートを出せるのは、迷路を賢く探す「アルゴリズム」のおかげ。同じ迷路を、しらみつぶしに調べる方法・一本道を突き進む方法・ゴールの方向を推定する方法で解かせて、調べたマスの数と見つけた経路の違いを見てください。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:14px;">
+      <span class="lab-badge">🧪 グラフ探索（幅優先／深さ優先／A*／貪欲法）＋迷路生成（再帰的バックトラック）</span>
+      <canvas id="cv" class="lab" width="640" height="400"></canvas>
+      <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="algo">アルゴリズム</label></div><select id="algo"><option value="astar" selected>A*（エースター）：距離＋ゴールまでの推定</option><option value="bfs">幅優先探索：近い順にしらみつぶし</option><option value="dfs">深さ優先探索：一本道を突き進む</option><option value="greedy">貪欲法：ゴールに近そうな方へ</option></select></div><div class="field"><div class="slider-head"><label for="size">迷路の大きさ</label><span class="val" id="sizeL"></span></div><input type="range" id="size" min="10" max="40" value="24" step="2" data-fmt="{v}マス"></div><div class="field"><div class="slider-head"><label for="loops">抜け道の多さ</label><span class="val" id="loopsL"></span></div><input type="range" id="loops" min="0" max="30" value="5" step="1" data-fmt="{v}%"></div><div class="field"><div class="slider-head"><label for="sp">再生速度</label><span class="val" id="spL"></span></div><input type="range" id="sp" min="1" max="10" value="5" step="1" data-fmt="×{v}"></div></div>
+      <div class="lab-btns"><button class="btn btn-primary" id="solve">▶ 解かせる</button><button class="btn btn-ghost" id="newmaze">🔀 新しい迷路</button><button class="btn btn-ghost" id="compare">📊 4つ全部で比較</button></div>
+      <div class="lab-stats"><div class="stat"><div class="k">調べたマス</div><div class="v" id="sVis">—</div></div><div class="stat"><div class="k">経路の長さ</div><div class="v accent" id="sLen">—</div></div><div class="stat"><div class="k">最短との差</div><div class="v" id="sOpt">—</div></div><div class="stat"><div class="k">比較結果</div><div class="v" id="sRes">—</div></div></div>
+    </div>
+    <p class="lab-legend">青＝調べたマス、黄＝いま調べている先端、緑＝見つけた経路。左上がスタート、右下がゴール。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+<div class="note" style="border-left:4px solid var(--teal)"><strong>ポイント</strong>：賢い探索とは「調べるマスを減らしつつ、最短の経路を見つける」こと。<b>幅優先は必ず最短だが調べすぎ、深さ優先は速いが遠回り、貪欲法は速いが最短の保証なし。A*はゴールまでの推定距離を使って、最短を保証しつつ調べるマスを減らします</b>。カーナビ・ゲームのキャラ・配送計画はほぼA*の仲間です。</div>
+<h2>4つのアルゴリズム</h2>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>アルゴリズム</th><th>探し方</th><th>長所</th><th>短所</th></tr><tr><td>幅優先探索（BFS）</td><td>スタートから近い順に全部調べる</td><td>必ず最短</td><td>調べるマスが多い</td></tr><tr><td>深さ優先探索（DFS）</td><td>行けるところまで進み、行き止まりで戻る</td><td>メモリが少なくて済む</td><td>最短でないことが多い</td></tr><tr><td>貪欲法（Greedy）</td><td>ゴールまでの直線距離が近いマスを優先</td><td>調べるマスが少ない</td><td>壁に阻まれると遠回りに</td></tr><tr><td>A*（エースター）</td><td>「ここまでの距離＋ゴールまでの推定」が小さい順</td><td>最短を保証しつつ効率的</td><td>推定（ヒューリスティック）の設計が要</td></tr></table></div>
+<h2>A*が「賢い」理由</h2>
+<p>A*は各マスに <b>f = g + h</b> という点数を付けます。g はスタートからの実距離、h はゴールまでの推定距離（迷路ならマンハッタン距離）。h が「実際の距離を超えない」推定なら、A*は必ず最短経路を見つけることが証明されています。1968年にスタンフォード研究所のロボット「シェーキー」の経路計画のために開発されました。</p>
+<h2>現実での使われ方</h2>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>分野</th><th>使い方</th></tr><tr><td>カーナビ・地図アプリ</td><td>道路をグラフとみなし、A*やその改良版（ダイクストラ法＋前処理）で最短ルート</td></tr><tr><td>ゲームのキャラクター</td><td>敵キャラが壁を避けてプレイヤーに向かう移動はほぼA*</td></tr><tr><td>配送・物流</td><td>倉庫ロボットの走行経路、配送順の決定</td></tr><tr><td>ネットワーク</td><td>インターネットのパケットの経路選択（ダイクストラ法）</td></tr></table></div>
+<h2>観察のコツ</h2>
+<p>「抜け道の多さ」を上げると迷路に複数の経路が生まれ、深さ優先と貪欲法が遠回りする様子がはっきり見えます。抜け道0%（完全迷路）では経路が1本しかないため、どのアルゴリズムも同じ経路にたどり着き、違いは「調べたマスの数」だけになります。</p>
+
+    <h2>引用・転載について</h2>
+    <p>本ページのシミュレーション結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・授業や社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「迷路をAIが解く 探索アルゴリズム対決」 https://shimulabo.com/sims/maze-ai/</code></div>
+    <h2>よくある質問</h2><dl class="faq"><dt>迷路はどう作っている？</dt><dd>「再帰的バックトラック」という方法で、スタートから壁を掘り進み、行き止まりで戻る操作を繰り返して完全迷路（経路が1本）を作ります。「抜け道の多さ」の分だけ、あとから壁をランダムに壊しています。</dd><dt>A*が幅優先より調べるマスが少ないのはなぜ？</dt><dd>幅優先はゴールの方向を知らないため、全方向に均等に広がります。A*はゴールまでの推定距離で「見込みのない方向」を後回しにできるため、無駄な探索が減ります。</dd><dt>貪欲法が遠回りする理由は？</dt><dd>「ゴールに近そう」だけで選ぶため、壁の裏側の行き止まりに引き込まれます。戻って別の道を探す間に、経路が長くなります。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../ga-route/"><span class="e">🧬</span><span>遺伝的アルゴリズムで最短ルート</span></a><a class="related-card" href="../neural-play/"><span class="e">🧠</span><span>ニューラルネットが学ぶ瞬間</span></a><a class="related-card" href="../sort-visualizer/"><span class="e">📊</span><span>ソートアルゴリズム可視化</span></a><a class="related-card" href="../markov-bunsho/"><span class="e">✍️</span><span>AIはこうやって文章を作る</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../lab/">🧪 シミュレーション・ラボ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+  const rnd = (a,b) => a + Math.random()*(b-a);
+  const randn = () => { let u=0,v=0; while(!u)u=Math.random(); while(!v)v=Math.random(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
+  let SHARE = '';
+  function setShare(t){ SHARE = t; }
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{ const l=$(s.id+'L'); if(l){ const u=()=>{ l.textContent = (s.dataset.fmt ? s.dataset.fmt.replace('{v}', s.value) : s.value); }; s.addEventListener('input',u); u(); } }); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  function setStat(id, v){ const e=$(id); if(e) e.textContent = v; }
+  try {
+    syncSliders();
+
+  const cv=$('cv'), x=cv.getContext('2d'), W=cv.width, H=cv.height;
+  let n, grid, cell, S, G, state=null, results={};
+  const K=(r,c)=>r*n+c;
+  function gen(){ n=+$('size').value; cell=Math.min((W-20)/n,(H-20)/n); grid=Array.from({length:n},()=>Array.from({length:n},()=>({N:1,S:1,E:1,W:1,v:false})));
+    const st=[[0,0]]; grid[0][0].v=true; while(st.length){ const [r,c]=st[st.length-1]; const nb=[]; if(r>0&&!grid[r-1][c].v) nb.push([r-1,c,'N','S']); if(r<n-1&&!grid[r+1][c].v) nb.push([r+1,c,'S','N']); if(c>0&&!grid[r][c-1].v) nb.push([r,c-1,'W','E']); if(c<n-1&&!grid[r][c+1].v) nb.push([r,c+1,'E','W']);
+      if(!nb.length){ st.pop(); continue; } const [nr,nc,a,b]=nb[Math.random()*nb.length|0]; grid[r][c][a]=0; grid[nr][nc][b]=0; grid[nr][nc].v=true; st.push([nr,nc]); }
+    const extra=Math.round(n*n*+$('loops').value/100); for(let k=0;k<extra;k++){ const r=Math.random()*n|0, c=Math.random()*n|0; if(Math.random()<0.5&&c<n-1){ grid[r][c].E=0; grid[r][c+1].W=0; } else if(r<n-1){ grid[r][c].S=0; grid[r+1][c].N=0; } }
+    S=[0,0]; G=[n-1,n-1]; state=null; results={}; setStat('sRes','—'); draw(); }
+  function nbrs(r,c){ const o=[]; const g=grid[r][c]; if(!g.N) o.push([r-1,c]); if(!g.S) o.push([r+1,c]); if(!g.W) o.push([r,c-1]); if(!g.E) o.push([r,c+1]); return o; }
+  function hfn(r,c){ return Math.abs(G[0]-r)+Math.abs(G[1]-c); }
+  function start(algo){ const open=[{r:0,c:0,g:0,f:hfn(0,0)}]; state={algo, open, closed:new Set(), prev:new Map(), path:null, visited:0, done:false, gmap:new Map([[K(0,0),0]])}; }
+  function tick(){ const s=state; if(!s||s.done) return; if(!s.open.length){ s.done=true; return; }
+    let idx=0; if(s.algo==='bfs') idx=0; else if(s.algo==='dfs') idx=s.open.length-1; else { let best=1e9; s.open.forEach((o,i)=>{ const v=s.algo==='astar'?o.g+hfn(o.r,o.c):hfn(o.r,o.c); if(v<best){best=v;idx=i;} }); }
+    const cur=s.open.splice(idx,1)[0]; const k=K(cur.r,cur.c); if(s.closed.has(k)) return; s.closed.add(k); s.visited++;
+    if(cur.r===G[0]&&cur.c===G[1]){ const p=[]; let key=k; while(key!=null){ p.push(key); key=s.prev.get(key); } s.path=p; s.done=true; return; }
+    for(const [nr,nc] of nbrs(cur.r,cur.c)){ const nk=K(nr,nc); if(s.closed.has(nk)) continue; const ng=cur.g+1; if(s.algo==='astar'||s.algo==='bfs'){ if(s.gmap.has(nk)&&s.gmap.get(nk)<=ng) continue; } else if(s.gmap.has(nk)) continue; s.gmap.set(nk,ng); s.prev.set(nk,k); s.open.push({r:nr,c:nc,g:ng}); } }
+  function shortest(){ const q=[[0,0]]; const d=new Map([[0,0]]); while(q.length){ const [r,c]=q.shift(); if(r===G[0]&&c===G[1]) return d.get(K(r,c)); for(const [nr,nc] of nbrs(r,c)){ const k=K(nr,nc); if(!d.has(k)){ d.set(k,d.get(K(r,c))+1); q.push([nr,nc]); } } } return null; }
+  function draw(){ x.fillStyle='#0b1020'; x.fillRect(0,0,W,H); const ox=(W-cell*n)/2, oy=(H-cell*n)/2;
+    if(state){ x.fillStyle='rgba(59,130,246,.35)'; state.closed.forEach(k=>{ x.fillRect(ox+(k%n)*cell, oy+Math.floor(k/n)*cell, cell, cell); }); x.fillStyle='#fbbf24'; state.open.forEach(o=>x.fillRect(ox+o.c*cell+cell*0.25, oy+o.r*cell+cell*0.25, cell*0.5, cell*0.5));
+      if(state.path){ x.strokeStyle='#4ade80'; x.lineWidth=Math.max(2,cell*0.35); x.beginPath(); state.path.forEach((k,i)=>{ const X=ox+(k%n+0.5)*cell, Y=oy+(Math.floor(k/n)+0.5)*cell; i?x.lineTo(X,Y):x.moveTo(X,Y); }); x.stroke(); } }
+    x.strokeStyle='#e5e7eb'; x.lineWidth=2; x.beginPath(); for(let r=0;r<n;r++) for(let c=0;c<n;c++){ const g=grid[r][c], X=ox+c*cell, Y=oy+r*cell; if(g.N){ x.moveTo(X,Y); x.lineTo(X+cell,Y); } if(g.W){ x.moveTo(X,Y); x.lineTo(X,Y+cell); } if(g.S){ x.moveTo(X,Y+cell); x.lineTo(X+cell,Y+cell); } if(g.E){ x.moveTo(X+cell,Y); x.lineTo(X+cell,Y+cell); } } x.stroke();
+    x.fillStyle='#f472b6'; x.fillRect(ox+cell*0.2,oy+cell*0.2,cell*0.6,cell*0.6); x.fillStyle='#22c55e'; x.fillRect(ox+(n-1)*cell+cell*0.2,oy+(n-1)*cell+cell*0.2,cell*0.6,cell*0.6);
+    const opt=shortest(); const nm={astar:'A*',bfs:'幅優先',dfs:'深さ優先',greedy:'貪欲法'};
+    if(state){ setStat('sVis', state.visited+'マス'); setStat('sLen', state.path?(state.path.length-1)+'歩':'探索中'); setStat('sOpt', state.path?'+'+(state.path.length-1-opt)+'歩':'—');
+      if(state.path) setShare(n+'×'+n+'の迷路を'+nm[state.algo]+'が解いた🧩 調べたマス'+state.visited+'・経路'+(state.path.length-1)+'歩（最短'+opt+'歩）。カーナビの探索アルゴリズムを体感👇'); } }
+  function loop(){ if(state&&!state.done){ for(let i=0;i<+$('sp').value;i++) tick(); } draw(); requestAnimationFrame(loop); }
+  $('solve').addEventListener('click',()=>start($('algo').value)); $('newmaze').addEventListener('click',gen); ['size','loops'].forEach(id=>$(id).addEventListener('change',gen));
+  $('compare').addEventListener('click',()=>{ const out=[]; for(const a of ['astar','bfs','dfs','greedy']){ start(a); while(!state.done) tick(); out.push({a,v:state.visited,l:state.path?state.path.length-1:'-'}); } const nm={astar:'A*',bfs:'幅優先',dfs:'深さ優先',greedy:'貪欲法'}; setStat('sRes', out.map(o=>nm[o.a]+' '+o.v+'マス/'+o.l+'歩').join('　')); start($('algo').value); setShare('同じ迷路で比較🧩 '+out.map(o=>nm[o.a]+'：調べた'+o.v+'マス・経路'+o.l+'歩').join('／')+'。A*が賢い理由👇'); });
+  gen(); start('astar'); loop();
+
+  } catch(e) { console.error(e); }
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE || document.title)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText((SHARE||document.title)+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'maze-ai', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

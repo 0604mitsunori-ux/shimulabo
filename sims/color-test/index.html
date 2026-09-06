@@ -25,7 +25,7 @@
     <meta name="robots" content="index,follow">
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "色当てゲーム", "url": "https://shimulabo.com/sims/color-test/", "description": "並んだタイルの中から、1つだけ微妙に色が違うタイルを見つけるゲーム。レベルが上がるほど色の差が小さく難しくなる、色覚チャレンジ型シミュレーター。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "色当てゲーム", "item": "https://shimulabo.com/sims/color-test/"}]}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "色覚検査になる？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。あくまでゲームです。医学的な検査ではありません。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動きます。"}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "色覚検査になる？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。あくまでゲームです。医学的な検査ではありません。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動きます。"}}, {"@type": "Question", "name": "画面によって結果が変わるのはなぜ？", "acceptedAnswer": {"@type": "Answer", "text": "画面の色再現（色域）と明るさが違うためです。有機ELと液晶、古い画面と新しい画面で見え方が変わります。同じ端末での記録更新を楽しんでください。"}}, {"@type": "Question", "name": "年齢で色の見え方は変わる？", "acceptedAnswer": {"@type": "Answer", "text": "はい。加齢で水晶体が黄色みを帯びるため、青〜紫系の識別がやや苦手になります。逆に若いほど青系のレベルで有利です。"}}]}</script>
     <!-- ga4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
@@ -76,7 +76,13 @@
   <article class="article">
     <h2>色を見分ける力</h2>
     <p>人の目はわずかな色の違いも見分けられますが、その精度には個人差があります。このゲームはレベルが上がるほど色差が小さくなり、マスも増えていきます。どこまで見分けられるか挑戦してみてください。明るい画面・適度な距離で見るのがコツ。</p>
-    <h2>よくある質問</h2><dl class="faq"><dt>色覚検査になる？</dt><dd>いいえ。あくまでゲームです。医学的な検査ではありません。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動きます。</dd></dl>
+    <!-- enriched-2026-09 -->
+<h2>人はどこまで色の差を見分けられる？</h2>
+<p>色の違いを見分けられる最小の差を<b>丁度可知差異（JND）</b>と呼びます。色を数値化する CIE Lab 色空間では、色の差 ΔE がおよそ 1〜2.3 を下回ると、ほとんどの人は違いに気づけません。このゲームはレベルが上がるにつれて、正解タイルとの色差を JND に近づけていきます。</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>到達レベル</th><th>色差の目安</th></tr><tr><td>〜レベル8</td><td>ΔE≈15以上。誰でも見分けられる差</td></tr><tr><td>レベル9〜15</td><td>ΔE≈5〜10。少し目を凝らす帯</td></tr><tr><td>レベル16〜22</td><td>ΔE≈2〜5。明るい環境と良い画面が必要</td></tr><tr><td>レベル23〜</td><td>ΔE≈2以下。プロのデザイナーでも運が絡む領域</td></tr></table></div>
+<h2>結果を左右する“環境要因”</h2>
+<p>同じ人でも、画面の明るさ・ブルーライトカット・部屋の照明・画面の傾きで結果は変わります。特にスマホの「ナイトモード」は青系の色差を大幅に潰します。ベストスコアを狙うなら、昼間の明るい部屋で、画面を正面から見るのがおすすめです。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>色覚検査になる？</dt><dd>いいえ。あくまでゲームです。医学的な検査ではありません。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動きます。</dd><dt>画面によって結果が変わるのはなぜ？</dt><dd>画面の色再現（色域）と明るさが違うためです。有機ELと液晶、古い画面と新しい画面で見え方が変わります。同じ端末での記録更新を楽しんでください。</dd><dt>年齢で色の見え方は変わる？</dt><dd>はい。加齢で水晶体が黄色みを帯びるため、青〜紫系の識別がやや苦手になります。逆に若いほど青系のレベルで有利です。</dd></dl>
   </article>
 
   <nav class="related" aria-label="related">

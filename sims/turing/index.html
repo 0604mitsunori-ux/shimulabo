@@ -25,7 +25,7 @@
     <meta name="robots" content="index,follow">
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "模様が生まれるシミュレーター", "url": "https://shimulabo.com/sims/turing/", "description": "反応拡散でヒョウ柄やシマ模様が生まれるチューリングパターン。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "模様が生まれるシミュレーター", "item": "https://shimulabo.com/sims/turing/"}]}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "ランダムに描いてるの？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。物質の反応と拡散の数式から、模様が自然に立ち上がります。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動作します。"}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "ランダムに描いてるの？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。物質の反応と拡散の数式から、模様が自然に立ち上がります。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動作します。"}}, {"@type": "Question", "name": "ランダムに描いているの？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。上の式を格子上で毎フレーム計算しています。最初の小さなノイズが、式に従って自然に模様へ成長します。"}}, {"@type": "Question", "name": "人間にも当てはまる？", "acceptedAnswer": {"@type": "Answer", "text": "指紋の渦や、歯の並び、毛包の間隔などに反応拡散の考え方が使われています。砂漠の植生パターンや砂丘の縞模様も同じ仕組みで説明されます。"}}]}</script>
     <!-- ga4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
@@ -76,7 +76,15 @@
   <article class="article">
     <h2>チューリングパターン</h2>
     <p>計算機科学の父アラン・チューリングが提唱した理論です。「広がる速さの違う2つの物質が反応し合う」だけで、自然に規則的な模様が生まれることを示しました。シマウマ・ヒョウ・熱帯魚・貝殻など、生き物の模様の説明に使われています。</p>
-    <h2>よくある質問</h2><dl class="faq"><dt>ランダムに描いてるの？</dt><dd>いいえ。物質の反応と拡散の数式から、模様が自然に立ち上がります。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動作します。</dd></dl>
+    <!-- enriched-2026-09 -->
+<h2>反応拡散の式（グレイ・スコット模型）</h2>
+<p>2つの物質 u と v が「反応して増減しながら、広がる」様子を式にします。u は速く広がり、v は遅く広がる——この<b>拡散速度の差</b>が模様の源です。</p>
+<div class="note">∂u/∂t = Dᵤ∇²u − uv² + F(1 − u)<br>∂v/∂t = Dᵥ∇²v + uv² − (F + k)v</div>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>模様</th><th>パラメータの目安</th></tr><tr><td>斑点（ヒョウ柄）</td><td>F≈0.035、k≈0.065</td></tr><tr><td>縞（シマウマ）</td><td>F≈0.030、k≈0.057</td></tr><tr><td>迷路</td><td>F≈0.029、k≈0.057</td></tr><tr><td>分裂して増える細胞のような模様</td><td>F≈0.026、k≈0.051</td></tr></table></div>
+<p>F（補給率）と k（除去率）をわずかに変えるだけで、まったく違う模様に切り替わります。生き物の模様の多様性が「ほんの少しのパラメータ差」で説明できるかもしれない、というのがこの理論の魅力です。</p>
+<h2>チューリングの予言は本当だった</h2>
+<p>アラン・チューリングが1952年に発表した理論は、当時は数学上の仮説でした。1995年、近藤滋（現・大阪大学）らが熱帯魚タテジマキンチャクダイの縞模様が成長とともに「分岐して増える」様子を観察し、反応拡散の予測どおりに変化することを示しました。その後ゼブラフィッシュの遺伝子研究でも裏付けられ、今では生物学の標準的な考え方になっています。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>ランダムに描いてるの？</dt><dd>いいえ。物質の反応と拡散の数式から、模様が自然に立ち上がります。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動作します。</dd><dt>ランダムに描いているの？</dt><dd>いいえ。上の式を格子上で毎フレーム計算しています。最初の小さなノイズが、式に従って自然に模様へ成長します。</dd><dt>人間にも当てはまる？</dt><dd>指紋の渦や、歯の並び、毛包の間隔などに反応拡散の考え方が使われています。砂漠の植生パターンや砂丘の縞模様も同じ仕組みで説明されます。</dd></dl>
   </article>
 
   <nav class="related" aria-label="related">

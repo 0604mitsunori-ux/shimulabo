@@ -25,7 +25,7 @@
     <meta name="robots" content="index,follow">
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "重力シミュレーター", "url": "https://shimulabo.com/sims/gravity/", "description": "クリックで星を放つと重力で軌道が生まれる。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "重力シミュレーター", "item": "https://shimulabo.com/sims/gravity/"}]}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "安定した軌道を作るコツは？", "acceptedAnswer": {"@type": "Answer", "text": "中心から少し離れた場所をクリックすると、自動でほどよい初速がつきます。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動きます。"}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "安定した軌道を作るコツは？", "acceptedAnswer": {"@type": "Answer", "text": "中心から少し離れた場所をクリックすると、自動でほどよい初速がつきます。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動きます。"}}, {"@type": "Question", "name": "人工衛星はなぜ落ちてこない？", "acceptedAnswer": {"@type": "Answer", "text": "落ち続けていますが、横向きの速さが十分あるため「落ちても地面が離れていく」状態です。国際宇宙ステーションは秒速約7.7 kmで、90分で地球を1周しています。"}}, {"@type": "Question", "name": "星同士は引き合わない？", "acceptedAnswer": {"@type": "Answer", "text": "本シミュレーターでは太陽の重力だけを計算しています（星同士は無視）。星同士も計算すると三体問題になり、軌道はカオスになります。"}}]}</script>
     <!-- ga4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
@@ -76,7 +76,13 @@
   <article class="article">
     <h2>軌道が生まれるしくみ</h2>
     <p>星は中心の太陽に向かって落ちますが、横向きの速度があると「落ち続けながら回る」＝公転になります。速すぎると飛び去り、遅すぎると落下。地球が太陽を回るのも同じ原理です。万有引力（距離の2乗に反比例）で計算しています。</p>
-    <h2>よくある質問</h2><dl class="faq"><dt>安定した軌道を作るコツは？</dt><dd>中心から少し離れた場所をクリックすると、自動でほどよい初速がつきます。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動きます。</dd></dl>
+    <!-- enriched-2026-09 -->
+<h2>使っている式は「万有引力の法則」だけ</h2>
+<p>中心の太陽が星を引く力は <b>F = G·M·m ÷ r²</b>。距離が2倍になれば力は4分の1です。この加速度を毎フレーム速度に足し、速度を位置に足す——それだけで公転が生まれます。</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>条件</th><th>式</th><th>数値例</th></tr><tr><td>円軌道になる速さ</td><td>v = √(GM/r)</td><td>地球の場合 約7.9 km/s（第一宇宙速度）</td></tr><tr><td>脱出する速さ</td><td>円軌道速度の √2 倍</td><td>地球の場合 約11.2 km/s（第二宇宙速度）</td></tr><tr><td>それより遅い</td><td>楕円軌道→さらに遅いと落下</td><td>高度が下がるとやがて太陽に衝突</td></tr></table></div>
+<h2>軌道の形は3種類</h2>
+<p>速さによって軌道は<b>楕円</b>（戻ってくる）・<b>放物線</b>（ぎりぎり戻らない）・<b>双曲線</b>（飛び去る）の3種類に分かれます。ハレー彗星は細長い楕円、太陽系外から来たオウムアムアは双曲線でした。クリック位置と初速を変えて、それぞれの形を作ってみてください。</p>
+    <h2>よくある質問</h2><dl class="faq"><dt>安定した軌道を作るコツは？</dt><dd>中心から少し離れた場所をクリックすると、自動でほどよい初速がつきます。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動きます。</dd><dt>人工衛星はなぜ落ちてこない？</dt><dd>落ち続けていますが、横向きの速さが十分あるため「落ちても地面が離れていく」状態です。国際宇宙ステーションは秒速約7.7 kmで、90分で地球を1周しています。</dd><dt>星同士は引き合わない？</dt><dd>本シミュレーターでは太陽の重力だけを計算しています（星同士は無視）。星同士も計算すると三体問題になり、軌道はカオスになります。</dd></dl>
   </article>
 
   <nav class="related" aria-label="related">

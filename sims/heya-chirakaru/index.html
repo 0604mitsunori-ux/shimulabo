@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/heya-chirakaru/">
+<title>部屋はなぜ勝手に散らかる？エントロピーシミュレーター｜片付けが続かない物理的な理由｜シミュラボ</title>
+<meta name="description" content="物を使って戻す、を繰り返すだけで部屋は散らかっていく——その理由を「片付いた配置の場合の数」で説明する無料シミュレーター。物の数・戻す確率・定位置の数を変えて、散らかりが進む速さと、片付けに必要な労力を体感。">
+<meta property="og:title" content="部屋はなぜ勝手に散らかる？ エントロピーシミュレーター">
+<meta property="og:description" content="片付けが続かないのは意志ではなく物理。場合の数で説明。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/heya-chirakaru.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/heya-chirakaru.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/heya-chirakaru/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "部屋はなぜ勝手に散らかる？ エントロピーシミュレーター", "url": "https://shimulabo.com/sims/heya-chirakaru/", "description": "片付けが続かないのは意志ではなく物理。場合の数で説明。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "シミュレーション・ラボ", "item": "https://shimulabo.com/lab/"}, {"@type": "ListItem", "position": 3, "name": "部屋はなぜ勝手に散らかる？ エントロピーシミュレーター", "item": "https://shimulabo.com/sims/heya-chirakaru/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "散らかり度はどう計算している？", "acceptedAnswer": {"@type": "Answer", "text": "定位置にない物の数 k から、配置の場合の数 W = C(n,k)×(n−1)ᵏ を求め、その対数（log₁₀ W）を散らかり度として表示しています。"}}, {"@type": "Question", "name": "「30分片付け」ボタンは何をしている？", "acceptedAnswer": {"@type": "Answer", "text": "定位置から外れた物を10個、定位置に戻します。系の外からエネルギーを入れてエントロピーを下げる操作にあたります。"}}, {"@type": "Question", "name": "本当に物理学の話？", "acceptedAnswer": {"@type": "Answer", "text": "比喩ではなく、統計力学の考え方そのものです。「場合の数が多い状態へ向かう」という原理は、コーヒーとミルクが混ざる現象と部屋が散らかる現象の両方に共通します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+<style>
+.lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
+.lab-ctl .field{margin-bottom:6px;}
+.lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
+.lab-ctl .slider-head label{margin:0;font-size:13px;}
+.lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
+.lab-ctl input[type=range]{width:100%;}
+.lab-ctl select{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;font-size:14px;background:#fff;}
+.lab-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px;}
+.lab-btns .btn{padding:11px 18px;font-size:14px;width:auto;}
+.lab-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;width:100%;max-width:640px;margin-top:4px;}
+.lab-stats .stat{background:var(--teal-l);border-radius:10px;padding:10px 12px;text-align:center;}
+.lab-stats .k{font-size:11px;color:var(--ink-2);}
+.lab-stats .v{font-size:20px;font-weight:800;color:var(--ink);font-feature-settings:"tnum";}
+.lab-stats .v.accent{color:var(--accent);}
+.lab-legend{text-align:center;color:var(--ink-2);font-size:13px;margin-top:12px;}
+.lab-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;background:rgba(44,107,134,.10);color:var(--teal-d);margin-bottom:8px;}
+canvas.lab{width:100%;max-width:640px;height:auto;border:1px solid var(--line);border-radius:12px;background:#0b1020;touch-action:none;}
+canvas.lab.light{background:#fff;}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../lab/">🧪 シミュレーション・ラボ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../lab/">シミュレーション・ラボ</a><span>›</span><span class="cur">部屋はなぜ勝手に散らかる？ エントロピーシミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">住まい・暮らし</div>
+    <h1>部屋はなぜ勝手に散らかる？ エントロピーシミュレーター</h1>
+    <p class="lead">片付けても片付けても、気づけば散らかっている。それは意志が弱いからではなく、「片付いた状態」が「散らかった状態」より圧倒的に<b>場合の数が少ない</b>から。物の数と戻す確率を変えて、散らかりが進む様子とその理由を見てください。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:14px;">
+      <span class="lab-badge">🧪 統計力学（エントロピー＝配置の場合の数）</span>
+      <canvas id="cv" class="lab" width="640" height="360"></canvas>
+      <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="n">物の数</label><span class="val" id="nL"></span></div><input type="range" id="n" min="10" max="80" value="30" step="5" data-fmt="{v}個"></div><div class="field"><div class="slider-head"><label for="ret">使ったあと定位置に戻す確率</label><span class="val" id="retL"></span></div><input type="range" id="ret" min="0" max="100" value="60" step="5" data-fmt="{v}%"></div><div class="field"><div class="slider-head"><label for="use">1日に使う物の数</label><span class="val" id="useL"></span></div><input type="range" id="use" min="1" max="20" value="6" step="1" data-fmt="{v}個"></div><div class="field"><div class="slider-head"><label for="sp">再生速度</label><span class="val" id="spL"></span></div><input type="range" id="sp" min="1" max="10" value="4" step="1" data-fmt="×{v}"></div></div>
+      <div class="lab-btns"><button class="btn btn-ghost" id="toggle">⏸ 一時停止</button><button class="btn btn-ghost" id="reset">リセット（全部片付ける）</button><button class="btn btn-ghost" id="clean">🧹 30分片付け（10個戻す）</button></div>
+      <div class="lab-stats"><div class="stat"><div class="k">経過日数</div><div class="v" id="sDay">—</div></div><div class="stat"><div class="k">定位置にない物</div><div class="v accent" id="sOut">—</div></div><div class="stat"><div class="k">散らかり度（エントロピー）</div><div class="v" id="sEnt">—</div></div><div class="stat"><div class="k">配置の場合の数</div><div class="v" id="sW">—</div></div></div>
+    </div>
+    <p class="lab-legend">左＝部屋（白い枠＝各物の定位置、色の点＝物）。定位置から外れた物は赤。右のグラフ＝散らかり度の推移。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+<div class="note" style="border-left:4px solid var(--teal)"><strong>ポイント</strong>：「片付いた配置」は1通り。物が30個あれば「散らかった配置」は<b>何兆通り以上</b>。ランダムに動く物は、ただ数が多いという理由だけで散らかった配置に落ち着きます。片付けは、この確率の坂を毎回登り直す作業です。</div>
+<h2>エントロピー＝場合の数</h2>
+<p>物理学者ボルツマンは、エントロピー S を「その状態が実現する配置の数 W」の対数として定義しました（S = k log W）。物が n 個・置き場所が m か所あるとき、「全部が定位置」は1通りですが、「k 個が定位置から外れている」配置は C(n,k)×(m−1)ᵏ 通りもあります。n=30・m=30 なら、10個外れた配置は 10²⁰ 通りを超えます。</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>定位置にない物の数（30個・置き場30か所）</th><th>配置の場合の数</th></tr><tr><td>0個（完璧に片付いている）</td><td>1通り</td></tr><tr><td>1個</td><td>870通り</td></tr><tr><td>5個</td><td>約2.9×10¹²通り</td></tr><tr><td>10個</td><td>約1.5×10²¹通り</td></tr><tr><td>15個</td><td>約2.3×10²⁷通り</td></tr></table></div>
+<h2>「戻す確率」の閾値</h2>
+<p>1日に使う物の数を u、戻す確率を r とすると、毎日 u(1−r) 個が定位置から外れ、外れている物は使われて戻る分だけ減ります。落ち着く先の「定位置にない物の数」はおおよそ n(1−r) 付近。<b>戻す確率が9割でも1割は常に散らかっている</b>ため、「使ったら戻す」だけでは完璧には保てません。定期的な片付け（外部からエネルギーを入れる）が必要な理由です。</p>
+<h2>散らかりにくい部屋の設計</h2>
+<p>熱力学的に考えると、対策は3つ。①物の数 n を減らす（場合の数が減る）、②定位置を「使う場所のすぐそば」にして戻す確率 r を上げる、③片付けを毎日少しずつ行う（エントロピーの山を小さいうちに削る）。「片付けが続かない」のは性格ではなく、この3つのどれかが欠けている設計問題です。</p>
+
+    <h2>引用・転載について</h2>
+    <p>本ページのシミュレーション結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・授業や社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「部屋はなぜ勝手に散らかる？ エントロピーシミュレーター」 https://shimulabo.com/sims/heya-chirakaru/</code></div>
+    <h2>よくある質問</h2><dl class="faq"><dt>散らかり度はどう計算している？</dt><dd>定位置にない物の数 k から、配置の場合の数 W = C(n,k)×(n−1)ᵏ を求め、その対数（log₁₀ W）を散らかり度として表示しています。</dd><dt>「30分片付け」ボタンは何をしている？</dt><dd>定位置から外れた物を10個、定位置に戻します。系の外からエネルギーを入れてエントロピーを下げる操作にあたります。</dd><dt>本当に物理学の話？</dt><dd>比喩ではなく、統計力学の考え方そのものです。「場合の数が多い状態へ向かう」という原理は、コーヒーとミルクが混ざる現象と部屋が散らかる現象の両方に共通します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../diffusion/"><span class="e">🌫️</span><span>拡散シミュレーター</span></a><a class="related-card" href="../coffee-milk/"><span class="e">☕</span><span>コーヒーにミルクを落とすと</span></a><a class="related-card" href="../sandpile/"><span class="e">⛰️</span><span>砂山崩しシミュレーター</span></a><a class="related-card" href="../tatami-henkan/"><span class="e">🏠</span><span>部屋の広さ換算シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../lab/">🧪 シミュレーション・ラボ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+  const rnd = (a,b) => a + Math.random()*(b-a);
+  const randn = () => { let u=0,v=0; while(!u)u=Math.random(); while(!v)v=Math.random(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
+  let SHARE = '';
+  function setShare(t){ SHARE = t; }
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{ const l=$(s.id+'L'); if(l){ const u=()=>{ l.textContent = (s.dataset.fmt ? s.dataset.fmt.replace('{v}', s.value) : s.value); }; s.addEventListener('input',u); u(); } }); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  function setStat(id, v){ const e=$(id); if(e) e.textContent = v; }
+  try {
+    syncSliders();
+
+  const cv=$('cv'), x=cv.getContext('2d'), W=cv.width, H=cv.height;
+  let n, items, day, hist, run=true;
+  function logC(n,k){ let s=0; for(let i=1;i<=k;i++) s+=Math.log10(n-k+i)-Math.log10(i); return s; }
+  function logW(k){ return k?logC(n,k)+k*Math.log10(Math.max(1,n-1)):0; }
+  function reset(){ n=+$('n').value; const cols=Math.ceil(Math.sqrt(n*1.6)); items=Array.from({length:n},(_,i)=>{ const c=i%cols, r=Math.floor(i/cols); const hx=30+c*(330/cols), hy=30+r*(300/Math.ceil(n/cols)); return {hx,hy,x:hx,y:hy,home:true,col:'hsl('+(i*47%360)+',70%,60%)'}; }); day=0; hist=[0]; draw(); }
+  function step(){ day++; const u=+$('use').value, r=+$('ret').value/100; for(let k=0;k<u;k++){ const it=items[Math.random()*n|0]; if(Math.random()<r){ it.home=true; it.x=it.hx; it.y=it.hy; } else { it.home=false; it.x=30+Math.random()*330; it.y=30+Math.random()*300; } }
+    hist.push(items.filter(i=>!i.home).length); if(hist.length>200) hist.shift(); }
+  function draw(){ x.fillStyle='#0b1020'; x.fillRect(0,0,W,H); x.fillStyle='#111827'; x.fillRect(16,16,360,H-32);
+    items.forEach(it=>{ x.strokeStyle='rgba(255,255,255,.18)'; x.strokeRect(it.hx-6,it.hy-6,12,12); });
+    items.forEach(it=>{ x.fillStyle=it.home?it.col:'#ef4444'; x.beginPath(); x.arc(it.x,it.y,5,0,7); x.fill(); });
+    const k=items.filter(i=>!i.home).length; const lw=logW(k), lwmax=logW(Math.round(n*0.6));
+    const L=400,B=H-28,PW=W-L-12,PH=B-30; x.strokeStyle='rgba(255,255,255,.08)'; for(let g=0;g<=4;g++){ const y=B-PH*g/4; x.beginPath(); x.moveTo(L,y); x.lineTo(L+PW,y); x.stroke(); }
+    x.fillStyle='rgba(255,255,255,.4)'; x.font='10px sans-serif'; x.fillText('定位置にない物の数', L, 24); x.fillText('日数 →', L+PW-40, H-8); x.fillText(n+'個', L-18, B-PH+4); x.fillText('0', L-10, B+3);
+    x.strokeStyle='#f87171'; x.lineWidth=2; x.beginPath(); hist.forEach((v,i)=>{ const X=L+i/199*PW, Y=B-v/n*PH; i?x.lineTo(X,Y):x.moveTo(X,Y); }); x.stroke();
+    setStat('sDay', day+'日'); setStat('sOut', k+'個 / '+n+'個'); setStat('sEnt', lw.toFixed(1)); setStat('sW', k?'10^'+lw.toFixed(0)+' 通り':'1通り');
+    setShare('物'+n+'個・戻す確率'+$('ret').value+'%で'+day+'日→定位置にない物'+k+'個🧦 この散らかり方の配置は10^'+lw.toFixed(0)+'通り、片付いた配置は1通り。部屋が勝手に散らかる物理的理由👇'); }
+  let f=0; function loop(){ if(run){ f++; if(f%Math.max(1,12-+$('sp').value)===0) step(); } draw(); requestAnimationFrame(loop); }
+  $('n').addEventListener('change',reset);
+  $('toggle').addEventListener('click',()=>{ run=!run; $('toggle').textContent=run?'⏸ 一時停止':'▶ 再生'; });
+  $('reset').addEventListener('click',reset);
+  $('clean').addEventListener('click',()=>{ let c=0; for(const it of items){ if(!it.home&&c<10){ it.home=true; it.x=it.hx; it.y=it.hy; c++; } } });
+  reset(); loop();
+
+  } catch(e) { console.error(e); }
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE || document.title)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText((SHARE||document.title)+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'heya-chirakaru', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

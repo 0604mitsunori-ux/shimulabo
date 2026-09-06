@@ -25,7 +25,7 @@
     <meta name="robots" content="index,follow">
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "フラクタルの木", "url": "https://shimulabo.com/sims/fractal-tree/", "description": "角度と深さを変えて自己相似の木を育てる。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "フラクタルの木", "item": "https://shimulabo.com/sims/fractal-tree/"}]}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "深さを上げると重い？", "acceptedAnswer": {"@type": "Answer", "text": "枝の数が指数的に増えます。13くらいまでが快適です。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動きます。"}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "深さを上げると重い？", "acceptedAnswer": {"@type": "Answer", "text": "枝の数が指数的に増えます。13くらいまでが快適です。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動きます。"}}, {"@type": "Question", "name": "枝の角度に「自然な値」はある？", "acceptedAnswer": {"@type": "Answer", "text": "植物の葉や枝の配置には黄金角（約137.5°）が現れることが知られています。本シミュレーターで25〜35°付近にすると木らしく見えます。"}}, {"@type": "Question", "name": "本物の木と何が違う？", "acceptedAnswer": {"@type": "Answer", "text": "本物は分かれるたびに太さが細くなり、光の当たり方で成長が変わります。ここではルールを最小にして「繰り返しだけで木になる」ことを見せています。"}}]}</script>
     <!-- ga4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
@@ -76,7 +76,13 @@
   <article class="article">
     <h2>フラクタルとは</h2>
     <p>拡大しても全体と同じような形が現れる図形のこと。木の枝、川の支流、肺の血管、稲妻——自然界はフラクタルだらけです。単純な「分かれるルール」の繰り返しが、複雑で自然な形を生み出します。</p>
-    <h2>よくある質問</h2><dl class="faq"><dt>深さを上げると重い？</dt><dd>枝の数が指数的に増えます。13くらいまでが快適です。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動きます。</dd></dl>
+    <!-- enriched-2026-09 -->
+<h2>枝は何本になる？</h2>
+<p>毎回2つに分かれる木では、深さ n で枝の先端は 2ⁿ 本になります。深さ10で1,024本、深さ13で8,192本、深さ20なら100万本超。「深さを1増やすだけで倍」になるため、すぐに描画が重くなります。</p>
+<h2>フラクタル次元という考え方</h2>
+<p>「拡大しても同じ形」の図形には、1次元（線）でも2次元（面）でもない中途半端な次元が定義できます。N個の縮小コピー（縮尺 r）でできる図形の次元は <b>D = log N ÷ log(1/r)</b>。コッホ雪片は約1.26、海岸線は1.1〜1.3程度、人間の肺の気管支の分岐は3次元空間をほぼ埋めるほど高い次元を持ちます。</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>自然のフラクタル</th><th>なぜその形か</th></tr><tr><td>木の枝・根</td><td>光や水を効率よく集めるための分岐</td></tr><tr><td>川の支流</td><td>高いところから低いところへの最短集水</td></tr><tr><td>肺の気管支・血管</td><td>限られた体積に最大の表面積</td></tr><tr><td>稲妻</td><td>電気が進みやすい経路の分岐</td></tr></table></div>
+    <h2>よくある質問</h2><dl class="faq"><dt>深さを上げると重い？</dt><dd>枝の数が指数的に増えます。13くらいまでが快適です。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動きます。</dd><dt>枝の角度に「自然な値」はある？</dt><dd>植物の葉や枝の配置には黄金角（約137.5°）が現れることが知られています。本シミュレーターで25〜35°付近にすると木らしく見えます。</dd><dt>本物の木と何が違う？</dt><dd>本物は分かれるたびに太さが細くなり、光の当たり方で成長が変わります。ここではルールを最小にして「繰り返しだけで木になる」ことを見せています。</dd></dl>
   </article>
 
   <nav class="related" aria-label="related">

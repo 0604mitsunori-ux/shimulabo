@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/jisa-shukkin/">
+<title>時差出勤の効果シミュレーター｜何割が30分ずらすとピークの混雑率はどれだけ下がる？｜シミュラボ</title>
+<meta name="description" content="会社の何割が出勤を何分ずらすと、朝のピーク混雑率がどれだけ下がるかを、時刻別の乗客分布グラフで見る無料シミュレーター。フレックス・時差通勤の効果を数字で。自分がずらした場合の混雑率も表示。">
+<meta property="og:title" content="時差出勤の効果シミュレーター">
+<meta property="og:description" content="何割が30分ずらせば、ピークの混雑率はどれだけ下がる？">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/jisa-shukkin.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/jisa-shukkin.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/jisa-shukkin/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "時差出勤の効果シミュレーター", "url": "https://shimulabo.com/sims/jisa-shukkin/", "description": "何割が30分ずらせば、ピークの混雑率はどれだけ下がる？", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "シミュレーション・ラボ", "item": "https://shimulabo.com/lab/"}, {"@type": "ListItem", "position": 3, "name": "時差出勤の効果シミュレーター", "item": "https://shimulabo.com/sims/jisa-shukkin/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "「ずらす方向」で効果は変わる？", "acceptedAnswer": {"@type": "Answer", "text": "早出と遅出に分散させるのが最も効果的です。片側だけにずらすと、ずらした先で新しい山ができることがあります（特に遅出は9時台の元々の乗客と重なります）。"}}, {"@type": "Question", "name": "実際の路線データではない？", "acceptedAnswer": {"@type": "Answer", "text": "はい。首都圏の平均的な通勤時刻分布（8時前後をピークとする正規分布に近い形）をモデル化したものです。路線固有の時刻分布とは異なります。"}}, {"@type": "Question", "name": "混雑率は何%を目指せばいい？", "acceptedAnswer": {"@type": "Answer", "text": "国交省の目標は主要路線で150%以下です。「広げて楽に新聞が読める」レベルで、身体的な圧迫がほぼなくなる目安です。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+<style>
+.lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
+.lab-ctl .field{margin-bottom:6px;}
+.lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
+.lab-ctl .slider-head label{margin:0;font-size:13px;}
+.lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
+.lab-ctl input[type=range]{width:100%;}
+.lab-ctl select{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;font-size:14px;background:#fff;}
+.lab-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px;}
+.lab-btns .btn{padding:11px 18px;font-size:14px;width:auto;}
+.lab-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;width:100%;max-width:640px;margin-top:4px;}
+.lab-stats .stat{background:var(--teal-l);border-radius:10px;padding:10px 12px;text-align:center;}
+.lab-stats .k{font-size:11px;color:var(--ink-2);}
+.lab-stats .v{font-size:20px;font-weight:800;color:var(--ink);font-feature-settings:"tnum";}
+.lab-stats .v.accent{color:var(--accent);}
+.lab-legend{text-align:center;color:var(--ink-2);font-size:13px;margin-top:12px;}
+.lab-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;background:rgba(44,107,134,.10);color:var(--teal-d);margin-bottom:8px;}
+canvas.lab{width:100%;max-width:640px;height:auto;border:1px solid var(--line);border-radius:12px;background:#0b1020;touch-action:none;}
+canvas.lab.light{background:#fff;}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../lab/">🧪 シミュレーション・ラボ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../lab/">シミュレーション・ラボ</a><span>›</span><span class="cur">時差出勤の効果シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">仕事・働き方</div>
+    <h1>時差出勤の効果シミュレーター</h1>
+    <p class="lead">「時差出勤にご協力ください」と言われても、効果はピンときません。全体の何割が、何分ずらすと、ピークの混雑率がどこまで下がるのか。そして自分だけがずらしたら、どれだけ空いた電車に乗れるのかを見てください。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:14px;">
+      <span class="lab-badge">🧪 出勤時刻分布（ガウス混合）とピーク混雑率のモデル</span>
+      <canvas id="cv" class="lab" width="640" height="340"></canvas>
+      <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="peak">現在のピーク混雑率</label><span class="val" id="peakL"></span></div><input type="range" id="peak" min="100" max="250" value="180" step="5" data-fmt="{v}%"></div><div class="field"><div class="slider-head"><label for="share">時差出勤する人の割合</label><span class="val" id="shareL"></span></div><input type="range" id="share" min="0" max="80" value="30" step="5" data-fmt="{v}%"></div><div class="field"><div class="slider-head"><label for="shift">ずらす時間</label><span class="val" id="shiftL"></span></div><input type="range" id="shift" min="15" max="120" value="45" step="15" data-fmt="{v}分"></div><div class="field"><div class="slider-head"><label for="dir">ずらす方向</label></div><select id="dir"><option value="both" selected>早出と遅出に半々</option><option value="late">遅出（9時台へ）</option><option value="early">早出（7時台へ）</option></select></div><div class="field"><div class="slider-head"><label for="me">あなたの乗車時刻</label><span class="val" id="meL"></span></div><input type="range" id="me" min="6.5" max="10.5" value="8.25" step="0.25"></div></div>
+      <div class="lab-btns"><button class="btn btn-primary" id="run">▶ 計算する</button></div>
+      <div class="lab-stats"><div class="stat"><div class="k">施策後のピーク混雑率</div><div class="v accent" id="sPeak">—</div></div><div class="stat"><div class="k">ピークの低下</div><div class="v" id="sDown">—</div></div><div class="stat"><div class="k">あなたの時刻の混雑率</div><div class="v" id="sMe">—</div></div><div class="stat"><div class="k">いちばん空く時刻</div><div class="v" id="sBest">—</div></div></div>
+    </div>
+    <p class="lab-legend">灰色＝現在の乗客分布、青＝時差出勤後の分布。横軸は乗車時刻、縦軸は混雑率。赤い点線が「あなたの乗車時刻」。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+<div class="note" style="border-left:4px solid var(--teal)"><strong>ポイント</strong>：朝の通勤は<b>8時前後の30分に極端に集中</b>しています。全体の3割が45分ずらすだけで、ピーク混雑率は2割前後下がります。そして自分1人が30分早く（または遅く）乗るだけでも、混雑率は数十ポイント低い電車に乗れます。</div>
+<h2>なぜピークは「とがっている」のか</h2>
+<p>始業時刻が9時に集中しているため、乗車時刻は8時〜8時30分に山を作ります。首都圏の主要路線では、ピーク1時間に1日の乗客の約20%、ピーク30分に約12%が集中します。混雑率は「その時間帯の乗客数 ÷ 輸送力」なので、山の高さがそのまま混雑率になります。</p>
+<h2>時差出勤で山を“ならす”</h2>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>施策</th><th>ピーク混雑率の変化（目安）</th><th>コメント</th></tr><tr><td>1割が45分ずらす</td><td>約5〜7%低下</td><td>効果は小さいが確実</td></tr><tr><td>3割が45分ずらす</td><td>約15〜20%低下</td><td>180%→150%前後。「新聞が読める」ライン</td></tr><tr><td>5割が60分ずらす</td><td>約30%低下</td><td>ピーク自体が消え、なだらかな台形になる</td></tr></table></div>
+<p>コロナ禍のテレワークで実証されたように、ピークが1〜2割減るだけで体感は大きく変わります。東京都の「時差Biz」、JR東日本のオフピークポイントなど、企業と鉄道会社の両方がこの山をならすことに投資しているのはそのためです。</p>
+<h2>自分だけがずらす戦略</h2>
+<p>全社が動かなくても、自分が7時30分に乗れば混雑率は8時台の6〜7割程度、9時15分以降なら半分以下になることが多いです。フレックス制度があるなら、「30分の時差」が最もコスパの高い通勤改善になります。</p>
+
+    <h2>引用・転載について</h2>
+    <p>本ページのシミュレーション結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・授業や社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「時差出勤の効果シミュレーター」 https://shimulabo.com/sims/jisa-shukkin/</code></div>
+    <h2>よくある質問</h2><dl class="faq"><dt>「ずらす方向」で効果は変わる？</dt><dd>早出と遅出に分散させるのが最も効果的です。片側だけにずらすと、ずらした先で新しい山ができることがあります（特に遅出は9時台の元々の乗客と重なります）。</dd><dt>実際の路線データではない？</dt><dd>はい。首都圏の平均的な通勤時刻分布（8時前後をピークとする正規分布に近い形）をモデル化したものです。路線固有の時刻分布とは異なります。</dd><dt>混雑率は何%を目指せばいい？</dt><dd>国交省の目標は主要路線で150%以下です。「広げて楽に新聞が読める」レベルで、身体的な圧迫がほぼなくなる目安です。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../manin-densha/"><span class="e">🚃</span><span>満員電車 混雑率シミュレーター</span></a><a class="related-card" href="../tsukin-car/"><span class="e">🚗</span><span>車通勤 vs 電車通勤</span></a><a class="related-card" href="../elevator-sim/"><span class="e">🛗</span><span>エレベーター待ち時間</span></a><a class="related-card" href="../queue-docchi/"><span class="e">🧍</span><span>行列、1列並び vs レジ別</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../lab/">🧪 シミュレーション・ラボ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+  const rnd = (a,b) => a + Math.random()*(b-a);
+  const randn = () => { let u=0,v=0; while(!u)u=Math.random(); while(!v)v=Math.random(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
+  let SHARE = '';
+  function setShare(t){ SHARE = t; }
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{ const l=$(s.id+'L'); if(l){ const u=()=>{ l.textContent = (s.dataset.fmt ? s.dataset.fmt.replace('{v}', s.value) : s.value); }; s.addEventListener('input',u); u(); } }); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  function setStat(id, v){ const e=$(id); if(e) e.textContent = v; }
+  try {
+    syncSliders();
+
+  const cv=$('cv'), x=cv.getContext('2d'), W=cv.width, H=cv.height;
+  const g=(t,m,s)=>Math.exp(-0.5*((t-m)/s)**2)/(s*Math.sqrt(2*Math.PI));
+  function base(t){ return 0.8*g(t,8.1,0.32)+0.2*g(t,8.6,0.7); }
+  function after(t){ const sh=+$('share').value/100, d=+$('shift').value/60, dir=$('dir').value; const b=base(t)*(1-sh);
+    if(dir==='both') return b+sh*0.5*(0.8*g(t-(-d),8.1,0.32)+0.2*g(t-(-d),8.6,0.7))+sh*0.5*(0.8*g(t-d,8.1,0.32)+0.2*g(t-d,8.6,0.7));
+    const s=dir==='late'?d:-d; return b+sh*(0.8*g(t-s,8.1,0.32)+0.2*g(t-s,8.6,0.7)); }
+  function draw(){ x.fillStyle='#0b1020'; x.fillRect(0,0,W,H); const L=44,B=H-26,PW=W-L-12,PH=B-20; const t0=6.5,t1=10.5;
+    const peak0=+$('peak').value; const FLOOR=60; const bmax=base(8.1); const scale=(peak0-FLOOR)/bmax; const cr=(v)=>FLOOR+v*scale;
+    const sx=(t)=>L+(t-t0)/(t1-t0)*PW, sy=(v)=>B-Math.min(v,300)/300*PH;
+    x.strokeStyle='rgba(255,255,255,.08)'; for(let v=50;v<=300;v+=50){ x.beginPath(); x.moveTo(L,sy(v)); x.lineTo(L+PW,sy(v)); x.stroke(); x.fillStyle='rgba(255,255,255,.4)'; x.font='10px sans-serif'; x.fillText(v+'%', 4, sy(v)+3); }
+    for(let t=7;t<=10;t+=0.5){ x.fillStyle='rgba(255,255,255,.4)'; x.fillText(Math.floor(t)+':'+(t%1?'30':'00'), sx(t)-12, H-8); }
+    x.strokeStyle='#ef4444'; x.setLineDash([4,4]); x.beginPath(); x.moveTo(L,sy(150)); x.lineTo(L+PW,sy(150)); x.stroke(); x.setLineDash([]); x.fillStyle='#ef4444'; x.fillText('目標150%', L+PW-60, sy(150)-4);
+    let pk=0, bestT=t0, bestV=1e9, meV=0; const me=+$('me').value;
+    x.fillStyle='rgba(148,163,184,.35)'; x.beginPath(); x.moveTo(sx(t0),B); for(let t=t0;t<=t1;t+=0.02){ x.lineTo(sx(t),sy(cr(base(t)))); } x.lineTo(sx(t1),B); x.fill();
+    x.strokeStyle='#38bdf8'; x.lineWidth=2.5; x.beginPath(); for(let t=t0;t<=t1;t+=0.02){ const v=cr(after(t)); pk=Math.max(pk,v); if(t>=7&&t<=9.5&&v<bestV){bestV=v;bestT=t;} const X=sx(t),Y=sy(v); t===t0?x.moveTo(X,Y):x.lineTo(X,Y); } x.stroke();
+    meV=cr(after(me)); x.strokeStyle='#f472b6'; x.setLineDash([3,3]); x.beginPath(); x.moveTo(sx(me),B); x.lineTo(sx(me),sy(meV)); x.stroke(); x.setLineDash([]); x.fillStyle='#f472b6'; x.font='bold 11px sans-serif'; x.fillText('あなた '+Math.round(meV)+'%', sx(me)+4, sy(meV)-6);
+    x.fillStyle='#94a3b8'; x.font='11px sans-serif'; x.fillText('現在', L+8, 30); x.fillStyle='#38bdf8'; x.fillText('時差出勤後', L+40, 30);
+    const fm=(t)=>{ const m=Math.round(t*60); return Math.floor(m/60)+':'+String(m%60).padStart(2,'0'); };
+    setStat('sPeak', Math.round(pk)+'%'); setStat('sDown', '−'+Math.round(peak0-pk)+'pt'); setStat('sMe', Math.round(meV)+'%（'+fm(me)+'）'); setStat('sBest', fm(bestT)+'（'+Math.round(bestV)+'%）');
+    setShare('全体の'+$('share').value+'%が'+$('shift').value+'分ずらすと、ピーク混雑率'+peak0+'%→'+Math.round(pk)+'%🕘 自分が'+fm(me)+'に乗ると'+Math.round(meV)+'%。時差出勤の効果を数字で👇'); }
+  ['peak','share','shift','dir','me'].forEach(id=>$(id).addEventListener('input',draw)); $('run').addEventListener('click',draw);
+  $('me').dataset.fmt='{v}'; const meL=$('meL'); const upd=()=>{ const m=Math.round(+$('me').value*60); meL.textContent=Math.floor(m/60)+':'+String(m%60).padStart(2,'0'); }; $('me').addEventListener('input',upd); upd();
+  draw();
+
+  } catch(e) { console.error(e); }
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE || document.title)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText((SHARE||document.title)+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'jisa-shukkin', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>
