@@ -25,7 +25,7 @@
     <meta name="robots" content="index,follow">
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "今日の月（月齢・満ち欠け・次の満月はいつ？）", "url": "https://shimulabo.com/sims/kyou-no-tsuki/", "description": "今夜の月の形・月齢・名前と、次の満月・新月を計算。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ライブデータラボ", "item": "https://shimulabo.com/live/"}, {"@type": "ListItem", "position": 3, "name": "今日の月（月齢・満ち欠け・次の満月はいつ？）", "item": "https://shimulabo.com/sims/kyou-no-tsuki/"}]}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "次の満月はいつ？", "acceptedAnswer": {"@type": "Answer", "text": "今日の月齢から計算した「次の満月」を結果に表示しています。満月は約29.5日ごとに巡ってきます。"}}, {"@type": "Question", "name": "月齢と輝面比の違いは？", "acceptedAnswer": {"@type": "Answer", "text": "月齢は新月からの日数、輝面比は月の円盤のうち光っている割合（%）です。上弦・下弦で約50%、満月で100%です。"}}, {"@type": "Question", "name": "南半球では形が逆？", "acceptedAnswer": {"@type": "Answer", "text": "はい。南半球では月を逆さに見上げる形になるため、光っている側が左右逆に見えます。本ツールは日本（北半球）基準です。"}}, {"@type": "Question", "name": "入力データは送信される？", "acceptedAnswer": {"@type": "Answer", "text": "日付の計算はすべてブラウザ内で行い、外部には何も送信しません。"}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "次の満月はいつ？", "acceptedAnswer": {"@type": "Answer", "text": "新月と満月の瞬間を計算して、「次の満月」の日付と時刻（日本時間）を表示しています。満月から次の満月までは平均約29.5日ですが、月の速さが変わるため29.3〜29.8日ほどの幅があります。"}}, {"@type": "Question", "name": "月齢と輝面比の違いは？", "acceptedAnswer": {"@type": "Answer", "text": "月齢は新月からの日数、輝面比は月の円盤のうち光っている割合（%）です。上弦・下弦で約50%、満月で100%です。"}}, {"@type": "Question", "name": "南半球では形が逆？", "acceptedAnswer": {"@type": "Answer", "text": "はい。南半球では月を逆さに見上げる形になるため、光っている側が左右逆に見えます。本ツールは日本（北半球）基準です。"}}, {"@type": "Question", "name": "入力データは送信される？", "acceptedAnswer": {"@type": "Answer", "text": "日付の計算はすべてブラウザ内で行い、外部には何も送信しません。"}}]}</script>
     <!-- ga4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
@@ -69,13 +69,13 @@
       <canvas id="cv" style="width:100%;height:auto;display:block;background:#0a0f1e;border:1px solid var(--line);border-radius:8px;"></canvas>
       <div class="big" style="font-size:min(9vw,36px);margin-top:12px;"><span id="big">—</span></div>
       <div class="sub" id="sub">—</div>
-      <div class="statline"><div class="stat"><div class="k">月齢</div><div class="v accent" id="age">—</div></div>
+      <div class="statline"><div class="stat"><div class="k">月齢（正午）</div><div class="v accent" id="age">—</div></div>
       <div class="stat"><div class="k">輝面比</div><div class="v" id="illum">—</div></div>
       <div class="stat"><div class="k">次の満月</div><div class="v" id="nextFull">—</div></div>
       <div class="stat"><div class="k">次の新月</div><div class="v" id="nextNew">—</div></div></div>
       <div class="field" style="margin:14px 0 0;text-align:left;"><label>日付を変える</label><input type="date" id="dt"></div>
       <canvas id="strip" style="width:100%;height:auto;display:block;margin-top:12px;background:#0a0f1e;border:1px solid var(--line);border-radius:8px;"></canvas>
-      <p style="font-size:11.5px;color:var(--ink-3);margin:6px 0 0;">この日から30日分の満ち欠け（左が選んだ日）。</p>
+      <p style="font-size:11.5px;color:var(--ink-3);margin:6px 0 0;">この日から30日分の満ち欠け（左が選んだ日。各日の正午で、金色の日付は満月の日）。</p>
       <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
       <div class="share-row">
         <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
@@ -98,12 +98,13 @@
     <tr><td>22〜23</td><td>下弦の月</td><td>深夜〜午前中</td></tr>
     <tr><td>26〜27</td><td>二十六夜・有明月</td><td>明け方の東の空</td></tr></table></div>
     <h2>計算の仕組み</h2>
-    <p>基準となる新月の時刻（2000年1月6日18時14分 UTC）からの経過時間を朔望月（29.530589日）で割った余りで月齢を求め、月齢から輝面比（光っている割合）を計算しています。実際の月の満ち欠けは楕円軌道の影響で±0.5日ほど前後するため、正確な満月の瞬間は国立天文台の暦をご確認ください。</p>
+    <p>新月（朔）と満月（望）の瞬間を、J. Meeus『Astronomical Algorithms』の月の位相の計算式（月と地球の軌道が楕円であることなどによるずれを補正する式）で求め、<b>月齢は直前の新月の瞬間からの経過日数</b>として計算しています。表示している月齢は、国立天文台と同じく日本時間の正午の値です。輝面比（光っている割合）と月の形も、同書の式で求めた月と太陽の角度から計算しています。</p>
+    <p>国立天文台の暦と比べると、2026〜2027年の正午月齢730日分はすべて小数第1位まで一致し、新月・満月の時刻のずれは1分以内でした。月の速さは日によって変わるので、新月から満月までの日数は毎回ちがい、満月になる瞬間の月齢は13.9〜15.6の間で変わります。</p>
     <p>今夜の星の見えやすさは<a href="../hoshizora-shisu/">今夜の星空指数</a>、日の出・日の入りは<a href="../hiruma-nagasa/">昼の長さメーター</a>でどうぞ。</p>
     <h2>引用・転載について</h2>
     <p>本ページの計算結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・社内資料への引用を歓迎します。事前連絡は不要です。</p>
     <div class="note">推奨クレジット表記：<code>出典：シミュラボ「今日の月（月齢・満ち欠け・次の満月はいつ？）」 https://shimulabo.com/sims/kyou-no-tsuki/</code><br>Webでご利用の際は上記URLへのリンク設置をお願いします。</div>
-    <h2>よくある質問</h2><dl class="faq"><dt>次の満月はいつ？</dt><dd>今日の月齢から計算した「次の満月」を結果に表示しています。満月は約29.5日ごとに巡ってきます。</dd><dt>月齢と輝面比の違いは？</dt><dd>月齢は新月からの日数、輝面比は月の円盤のうち光っている割合（%）です。上弦・下弦で約50%、満月で100%です。</dd><dt>南半球では形が逆？</dt><dd>はい。南半球では月を逆さに見上げる形になるため、光っている側が左右逆に見えます。本ツールは日本（北半球）基準です。</dd><dt>入力データは送信される？</dt><dd>日付の計算はすべてブラウザ内で行い、外部には何も送信しません。</dd></dl>
+    <h2>よくある質問</h2><dl class="faq"><dt>次の満月はいつ？</dt><dd>新月と満月の瞬間を計算して、「次の満月」の日付と時刻（日本時間）を表示しています。満月から次の満月までは平均約29.5日ですが、月の速さが変わるため29.3〜29.8日ほどの幅があります。</dd><dt>月齢と輝面比の違いは？</dt><dd>月齢は新月からの日数、輝面比は月の円盤のうち光っている割合（%）です。上弦・下弦で約50%、満月で100%です。</dd><dt>南半球では形が逆？</dt><dd>はい。南半球では月を逆さに見上げる形になるため、光っている側が左右逆に見えます。本ツールは日本（北半球）基準です。</dd><dt>入力データは送信される？</dt><dd>日付の計算はすべてブラウザ内で行い、外部には何も送信しません。</dd></dl>
   </article>
 
   <nav class="related" aria-label="related">
@@ -143,21 +144,42 @@
   const pad2 = n => String(n).padStart(2,'0');
   const ymd = d => d.getFullYear()+'-'+pad2(d.getMonth()+1)+'-'+pad2(d.getDate());
   const jaDate = d => d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日('+'日月火水木金土'[d.getDay()]+')';
-  const SYN=29.530588853, EPOCH=Date.UTC(2000,0,6,18,14);
-  const age = d => { let a=((d.getTime()-EPOCH)/86400000)%SYN; if(a<0)a+=SYN; return a; };
-  const illum = a => (1-Math.cos(2*Math.PI*a/SYN))/2;
+  const SYN=29.530588853, R=Math.PI/180, DAY=864e5, HR=36e5;
+  // 新月（朔）・満月（望）の瞬間＝J. Meeus『Astronomical Algorithms』49章の式。月齢＝直前の新月からの経過日数（日本時間の正午の値。国立天文台の正午月齢と同じ考え方）
+  const sd=d=>Math.sin(d*R);
+  function phaseMs(k,q){ k+=q; const f=q?1:0, T=k/1236.85, E=1-0.002516*T-0.0000074*T*T, M=2.5534+29.1053567*k-0.0000014*T*T, Mp=201.5643+385.81693528*k+0.0107582*T*T+0.00001238*T*T*T,
+      F=160.7108+390.67050284*k-0.0016118*T*T-0.00000227*T*T*T, Om=124.7746-1.56375588*k+0.0020672*T*T;
+    let j=2451550.09766+29.530588861*k+0.00015437*T*T+(f?-0.40614:-0.4072)*sd(Mp)+(f?0.17302:0.17241)*E*sd(M)+(f?0.01614:0.01608)*sd(2*Mp)+(f?0.01043:0.01039)*sd(2*F)
+      +(f?0.00734:0.00739)*E*sd(Mp-M)+(f?-0.00515:-0.00514)*E*sd(Mp+M)+(f?0.00209:0.00208)*E*E*sd(2*M)
+      -0.00111*sd(Mp-2*F)-0.00057*sd(Mp+2*F)+0.00056*E*sd(2*Mp+M)-0.00042*sd(3*Mp)+0.00042*E*sd(M+2*F)+0.00038*E*sd(M-2*F)-0.00024*E*sd(2*Mp-M)-0.00017*sd(Om)
+      -0.00007*sd(Mp+2*M)+0.00004*sd(2*Mp-2*F)+0.00004*sd(3*M)+0.00003*sd(Mp+M-2*F)+0.00003*sd(2*Mp+2*F)-0.00003*sd(Mp+M+2*F)+0.00003*sd(Mp-M+2*F)-0.00002*sd(Mp-M-2*F)-0.00002*sd(3*Mp+M)+0.00002*sd(4*Mp);
+    const A=[[299.77,0.107408,325],[251.88,0.016321,165],[251.83,26.651886,164],[349.42,36.412478,126],[84.66,18.206239,110],[141.74,53.303771,62],[207.14,2.453732,60],
+             [154.84,7.30686,56],[34.52,27.261239,47],[207.19,0.121824,42],[291.34,1.844379,40],[161.72,24.198154,37],[239.56,25.513099,35],[331.55,3.592518,23]];
+    A.forEach((a,i)=>{ j+=a[2]*1e-6*sd(a[0]+a[1]*k-(i?0:0.009173*T*T)); });
+    return (j-2440587.5-69/86400)*DAY; }                                              // 世界時（ΔT＝69秒）のミリ秒
+  const lun = ms => { let k=Math.floor((ms/DAY+2440587.5-2451550.09766)/29.530588861); while(phaseMs(k+1,0)<=ms) k++; while(phaseMs(k,0)>ms) k--; return k; };   // その時刻をふくむ朔望月の番号
+  function elong(ms){ const T=(ms/DAY+2440587.5+69/86400-2451545)/36525, D=297.8501921+445267.1114034*T-0.0018819*T*T, M=357.5291092+35999.0502909*T-0.0001536*T*T, Mp=134.9633964+477198.8675055*T+0.0087414*T*T;
+    return (((D+6.289*sd(Mp)-2.1*sd(M)+1.274*sd(2*D-Mp)+0.658*sd(2*D)+0.214*sd(2*Mp)+0.11*sd(D))%360)+360)%360; }   // 太陽から東へはなれた角度（48章）
+  function moonAt(ms){ const k=lun(ms), L=elong(ms); return {k:k, a:(ms-phaseMs(k,0))/DAY, f:(1-Math.cos(L*R))/2, wax:L<180, L:L}; }   // 月齢・輝面比・満ちていく途中か
+  const nextPhase = (from,q) => { let k=lun(from)-1, t; do{ t=phaseMs(k,q); k++; } while(t<from); return t; };
+  const jday = ms => Math.floor((ms+9*HR)/DAY);                                         // 日本時間の日付の通し番号
+  const md = ms => { const j=new Date(ms+9*HR); return (j.getUTCMonth()+1)+'/'+j.getUTCDate(); };
+  const hhmm = ms => { const j=new Date(ms+9*HR); return j.getUTCHours()+':'+pad2(j.getUTCMinutes()); };
   function name(a){ if(a<1||a>=28.8)return['新月','ほぼ見えません']; if(a<2)return['繊月（二日月）','日没直後の西の空に細く']; if(a<4)return['三日月','夕方の西の空']; if(a<6.5)return['上弦前の月','夕方〜夜'];
     if(a<8.5)return['上弦の月','夕方〜夜半、南の空']; if(a<12)return['十日夜ごろの月','夕方〜深夜']; if(a<13.5)return['十三夜','夕方〜深夜']; if(a<14.3)return['小望月（十四日月）','夕方〜明け方'];
     if(a<15.5)return['満月（十五夜）','一晩中']; if(a<16.5)return['十六夜（いざよい）','夜〜明け方']; if(a<17.5)return['立待月','夜〜明け方']; if(a<18.5)return['居待月','夜遅く〜明け方'];
     if(a<19.5)return['寝待月','深夜〜明け方']; if(a<21)return['更待月','深夜〜午前']; if(a<23.5)return['下弦の月','深夜〜午前中、南の空']; if(a<26)return['有明月','明け方〜午前'];
     return['二十六夜（明けの三日月）','明け方の東の空']; }
-  function moon(x,cx,cy,R,a,detail){
-    const p=a/SYN, s=Math.cos(2*Math.PI*p);
+  function nameOn(ms){ const m=moonAt(ms), a=m.L/360*SYN, d=jday(ms);                   // 名前は実際の満ち欠けの位置で。新月・満月は、その瞬間がふくまれる日だけ
+    if(jday(phaseMs(m.k,0))===d||jday(phaseMs(m.k+1,0))===d) return name(0);
+    if(jday(phaseMs(m.k,0.5))===d) return name(SYN/2);
+    const nm=name(a); if(nm[0]==='新月') return a<SYN/2?name(1.5):name(27); if(nm[0].indexOf('満月')===0) return a<SYN/2?name(14):name(16); return nm; }
+  function moon(x,cx,cy,R,f,wax,detail){
+    const s=1-2*f;                                                                       // cos（太陽から東へはなれた角度）
     x.save(); x.beginPath(); x.arc(cx,cy,R,0,6.283); x.clip();
     x.fillStyle='#1c2236'; x.fillRect(cx-R,cy-R,2*R,2*R);                      // 影の面
     const lit='#e9e4d2', dark='#1c2236';
-    if(p<0.5){ x.fillStyle=lit; x.fillRect(cx,cy-R,R,2*R); x.fillStyle= s>0? dark: lit; }
-    else     { x.fillStyle=lit; x.fillRect(cx-R,cy-R,R,2*R); x.fillStyle= s<0? lit: dark; }
+    x.fillStyle=lit; x.fillRect(wax?cx:cx-R,cy-R,R,2*R); x.fillStyle= s>0? dark: lit;
     x.beginPath(); x.ellipse(cx,cy,Math.max(0.01,R*Math.abs(s)),R,0,0,6.283); x.fill();
     if(detail){ x.fillStyle='rgba(120,116,100,.28)';                              // クレーター
       [[-.35,-.25,.16],[.22,-.38,.1],[.35,.2,.2],[-.15,.42,.12],[-.5,.3,.09],[.05,.05,.07]].forEach(c=>{ x.beginPath(); x.arc(cx+c[0]*R,cy+c[1]*R,c[2]*R,0,6.283); x.fill(); }); }
@@ -165,29 +187,29 @@
     if(detail){ x.strokeStyle='rgba(233,228,210,.25)'; x.lineWidth=1; x.beginPath(); x.arc(cx,cy,R+0.5,0,6.283); x.stroke(); }
   }
   function stars(x,W,H,n){ x.fillStyle='#fff'; for(let i=0;i<n;i++){ const sx=(i*97%W), sy=(i*53%H); x.globalAlpha=0.25+((i*31)%60)/100; x.fillRect(sx,sy,1.2,1.2); } x.globalAlpha=1; }
-  let cur=new Date();
+  let sel=ymd(new Date());                                                               // 選んだ日（YYYY-MM-DD）
   function render(){
-    const a=age(cur), k=illum(a), nm=name(a);
+    const p=sel.split('-').map(Number), d0=Date.UTC(p[0],p[1]-1,p[2])-9*HR, t=d0+12*HR, isT=sel===ymd(new Date());   // その日の0時・正午（日本時間）
+    const m=moonAt(t), nm=nameOn(t);
     const {x,W,H}=fitCanvas($('cv'),0.5); x.fillStyle='#0a0f1e'; x.fillRect(0,0,W,H); stars(x,W,H,90);
-    const R=Math.min(H*0.38, 110), cx=W/2, cy=H/2;
-    x.shadowColor='rgba(233,228,210,.45)'; x.shadowBlur=k*40; moon(x,cx,cy,R,a,true); x.shadowBlur=0;
+    const Rm=Math.min(H*0.38, 110), cx=W/2, cy=H/2;
+    x.shadowColor='rgba(233,228,210,.45)'; x.shadowBlur=m.f*40; moon(x,cx,cy,Rm,m.f,m.wax,true); x.shadowBlur=0;
     $('big').textContent=nm[0];
-    $('dLbl').textContent= ymd(cur)===ymd(new Date()) ? '今日' : jaDate(cur);
-    $('sub').textContent='見えやすい時間：'+nm[1]+(a<SYN/2?'　（満ちていく月）':'　（欠けていく月）');
-    $('age').textContent=a.toFixed(1); $('illum').textContent=Math.round(k*100)+'%';
-    const toFull = a<=SYN/2 ? SYN/2-a : SYN*1.5-a, toNew = SYN-a;
-    const f=new Date(cur.getTime()+toFull*86400000), n=new Date(cur.getTime()+toNew*86400000);
-    $('nextFull').innerHTML=(f.getMonth()+1)+'/'+f.getDate()+'<small style="font-size:12px;font-weight:600;color:var(--ink-3);margin-left:4px;">'+Math.ceil(toFull)+'日後</small>';
-    $('nextNew').innerHTML=(n.getMonth()+1)+'/'+n.getDate()+'<small style="font-size:12px;font-weight:600;color:var(--ink-3);margin-left:4px;">'+Math.ceil(toNew)+'日後</small>';
-    // 30日ストリップ
+    $('dLbl').textContent= isT ? '今日' : jaDate(new Date(p[0],p[1]-1,p[2]));
+    $('sub').textContent='見えやすい時間：'+nm[1]+(m.wax?'　（満ちていく月）':'　（欠けていく月）');
+    $('age').textContent=m.a.toFixed(1); $('illum').textContent=Math.round(m.f*100)+'%';
+    const f=nextPhase(d0,0.5), n=nextPhase(d0,0);                                        // その日の0時以後の満月・新月
+    const lab=ms=>{ const dd=jday(ms)-jday(d0); return md(ms)+'<small style="font-size:12px;font-weight:600;color:var(--ink-3);margin-left:4px;display:inline-block;white-space:nowrap;">'+hhmm(ms)+'・'+(dd===0?(isT?'今日':'この日'):dd+'日後')+'</small>'; };
+    $('nextFull').innerHTML=lab(f); $('nextNew').innerHTML=lab(n);
+    // 30日ストリップ（各日の正午。金色は満月の日）
     const sc=$('strip'); const S=fitCanvas(sc,0.19); const sx=S.x; sx.fillStyle='#0a0f1e'; sx.fillRect(0,0,S.W,S.H);
     const cols=15, rows=2, cw=S.W/cols, rr=Math.min(cw*0.32, S.H/rows*0.3);
-    for(let i=0;i<30;i++){ const d=new Date(cur.getTime()+i*86400000), aa=age(d); const ccx=(i%cols)*cw+cw/2, ccy=Math.floor(i/cols)*(S.H/rows)+S.H/rows*0.42;
-      moon(sx,ccx,ccy,rr,aa,false); sx.fillStyle= (aa>=14&&aa<15.6)?'#f4c542':'rgba(233,228,210,.6)'; sx.font='10px system-ui,sans-serif'; sx.textAlign='center'; sx.fillText((d.getMonth()+1)+'/'+d.getDate(), ccx, ccy+rr+12); }
-    SHARE=`今日の月は「${nm[0]}」🌙 月齢${a.toFixed(1)}・輝面比${Math.round(k*100)}%。次の満月は${f.getMonth()+1}/${f.getDate()}。今夜の月を見上げてみて👇`;
+    for(let i=0;i<30;i++){ const ti=t+i*DAY, mi=moonAt(ti), full=jday(phaseMs(mi.k,0.5))===jday(ti); const ccx=(i%cols)*cw+cw/2, ccy=Math.floor(i/cols)*(S.H/rows)+S.H/rows*0.42;
+      moon(sx,ccx,ccy,rr,mi.f,mi.wax,false); sx.fillStyle= full?'#f4c542':'rgba(233,228,210,.6)'; sx.font='10px system-ui,sans-serif'; sx.textAlign='center'; sx.fillText(md(ti), ccx, ccy+rr+12); }
+    SHARE=`${isT?'今日':p[1]+'月'+p[2]+'日'}の月は「${nm[0]}」🌙 月齢${m.a.toFixed(1)}・輝面比${Math.round(m.f*100)}%。次の満月は${md(f)}。今夜の月を見上げてみて👇`;
   }
-  $('dt').value=ymd(cur);
-  $('dt').addEventListener('change',()=>{ const v=$('dt').value; if(v){ cur=new Date(v+'T21:00:00'); render(); } });
+  $('dt').value=sel;
+  $('dt').addEventListener('change',()=>{ const v=$('dt').value; if(v){ sel=v; render(); } });
   let rt; addEventListener('resize',()=>{ clearTimeout(rt); rt=setTimeout(render,200); });
   render(); bindShare();
 })();

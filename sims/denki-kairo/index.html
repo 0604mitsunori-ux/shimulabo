@@ -35,6 +35,7 @@
 <style>
 .lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
 .lab-ctl .field{margin-bottom:6px;}
+.lab-ctl>*,.lab-stats>*{min-width:0;}
 .lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
 .lab-ctl .slider-head label{margin:0;font-size:13px;}
 .lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
@@ -87,7 +88,7 @@ canvas.lab.light{background:#fff;}
   </div>
 
   <section class="panel">
-    <div style="display:grid;place-items:center;gap:14px;">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;gap:14px;">
       <span class="lab-badge">🔬 小4 電流の働き／中2 電流（オームの法則）／物理基礎 電気</span>
       <canvas id="cv" class="lab light" width="640" height="440"></canvas>
       <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="mode">学年・モード</label></div><select id="mode"><option value="chu2" selected>中2 抵抗の直列・並列</option><option value="sho4">小4 かん電池のつなぎ方</option></select></div><div class="field"><div class="slider-head"><label for="bat">かん電池のつなぎ方</label></div><select id="bat"><option value="one" selected>かん電池1個</option><option value="ser">2個の直列つなぎ</option><option value="par">2個のへい列つなぎ</option></select></div><div class="field"><div class="slider-head"><label for="load">つなぐもの</label></div><select id="load"><option value="bulb" selected>豆電球</option><option value="motor">モーター</option></select></div><div class="field"><div class="slider-head"><label for="conn">つなぎ方</label></div><select id="conn"><option value="ser" selected>直列回路</option><option value="par">並列回路</option></select></div><div class="field"><div class="slider-head"><label for="volt">電源の電圧</label><span class="val" id="voltL"></span></div><input type="range" id="volt" min="0" max="12" value="6" step="0.5" data-fmt="{v} V"></div><div class="field"><div class="slider-head"><label for="r1">抵抗 R<sub>1</sub></label><span class="val" id="r1L"></span></div><input type="range" id="r1" min="1" max="60" value="10" step="1" data-fmt="{v} Ω"></div><div class="field"><div class="slider-head"><label for="r2">抵抗 R<sub>2</sub></label><span class="val" id="r2L"></span></div><input type="range" id="r2" min="1" max="60" value="20" step="1" data-fmt="{v} Ω"></div><div class="field"><div class="slider-head"><label for="gsel">グラフに描く抵抗</label></div><select id="gsel"><option value="all" selected>R1・R2・回路全体</option><option value="r1">R1 だけ</option><option value="r2">R2 だけ</option><option value="tot">回路全体だけ</option></select></div></div>

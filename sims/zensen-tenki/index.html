@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/zensen-tenki/">
+<title>寒冷前線・温暖前線のシミュレーター｜前線の通過と天気の変化・断面図（中2理科）｜シミュラボ</title>
+<meta name="description" content="寒冷前線と温暖前線をともなう低気圧が西から東へ進み、観測地点の気温・湿度・気圧・風向・天気がどう変わるかを、天気図・断面図・観測記録のグラフで同時に確かめられる無料シミュレーター。積乱雲と乱層雲、雨の降り方のちがい、通過時刻の読み取り練習つき。">
+<meta property="og:title" content="前線と天気の変化シミュレーター（寒冷前線・温暖前線）">
+<meta property="og:description" content="低気圧と前線が通過するときの気温・気圧・風向・天気の変化を、天気図・断面図・観測記録のグラフで確かめる中2理科の教材です。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/zensen-tenki.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/zensen-tenki.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/zensen-tenki/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "前線と天気の変化シミュレーター（寒冷前線・温暖前線）", "url": "https://shimulabo.com/sims/zensen-tenki/", "description": "低気圧と前線が通過するときの気温・気圧・風向・天気の変化を、天気図・断面図・観測記録のグラフで確かめる中2理科の教材です。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "educationalLevel": "中学2年", "learningResourceType": "シミュレーション", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "理科の授業向け", "item": "https://shimulabo.com/rika/"}, {"@type": "ListItem", "position": 3, "name": "前線と天気の変化シミュレーター（寒冷前線・温暖前線）", "item": "https://shimulabo.com/sims/zensen-tenki/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "寒冷前線と温暖前線のちがいは何ですか？", "acceptedAnswer": {"@type": "Answer", "text": "寒冷前線は、寒気が暖気の下にもぐりこみ、暖気をおし上げながら進む前線です。前線面の傾きが急で積乱雲が発達し、せまい範囲に短時間の強い雨が降り、通過後は気温が下がります。温暖前線は、暖気が寒気の上をはい上がりながら進む前線です。前線面の傾きがゆるやかで乱層雲などが広がり、広い範囲に長時間おだやかな雨が降り、通過後は気温が上がります。"}}, {"@type": "Question", "name": "寒冷前線が通過すると、天気はどう変わりますか？", "acceptedAnswer": {"@type": "Answer", "text": "短い時間に強い雨が降り（雷や突風をともなうこともあります）、通過後は気温が急に下がり、風向が南寄りから北寄り（北西など）に変わります。気圧は通過するころに最も低くなり、通過後は上がっていきます。"}}, {"@type": "Question", "name": "温暖前線が通過すると、天気はどう変わりますか？", "acceptedAnswer": {"@type": "Answer", "text": "前線が近づくと雲がふえ、広い範囲で長い時間おだやかな雨が降ります。通過すると雨がやみ、気温が上がり、風向が東寄り（南東など）から南寄り（南西など）に変わります。"}}, {"@type": "Question", "name": "気象観測のグラフから、前線が通過した時刻はどう読み取りますか？", "acceptedAnswer": {"@type": "Answer", "text": "寒冷前線は「気温が急に下がった」「風向が南寄りから北寄りに変わった」「短時間に強い雨が降った」時刻をさがします。気温の変化だけでは、夜に気温が下がる日変化と区別しにくいので、風向や気圧の変化と合わせて判断します。3時間ごとの記録なら「○時から○時の間」と答えます。"}}, {"@type": "Question", "name": "閉塞前線と停滞前線とは何ですか？", "acceptedAnswer": {"@type": "Answer", "text": "閉塞前線は、寒冷前線が温暖前線に追いついてできる前線です。停滞前線は、寒気と暖気の勢力がほぼ同じで、ほとんど同じ位置にとどまっている前線で、初夏の梅雨前線や、夏から秋に移るころの秋雨前線がその例です。"}}, {"@type": "Question", "name": "低気圧のまわりでは、風はどのようにふきますか？", "acceptedAnswer": {"@type": "Answer", "text": "北半球では、低気圧の中心に向かって反時計回りにふきこみ、中心付近では上昇気流が起こるため雲ができやすくなります。高気圧からは時計回りにふき出し、下降気流が起こるため晴れることが多くなります。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+<style>
+.lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
+.lab-ctl .field{margin-bottom:6px;}
+.lab-ctl>*,.lab-stats>*{min-width:0;}
+.lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
+.lab-ctl .slider-head label{margin:0;font-size:13px;}
+.lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
+.lab-ctl input[type=range]{width:100%;}
+.lab-ctl select{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;font-size:14px;background:#fff;}
+.lab-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px;}
+.lab-btns .btn{padding:11px 18px;font-size:14px;width:auto;}
+.lab-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;width:100%;max-width:640px;margin-top:4px;}
+.lab-stats .stat{background:var(--teal-l);border-radius:10px;padding:10px 12px;text-align:center;}
+.lab-stats .k{font-size:11px;color:var(--ink-2);}
+.lab-stats .v{font-size:20px;font-weight:800;color:var(--ink);font-feature-settings:"tnum";}
+.lab-stats .v.accent{color:var(--accent);}
+.lab-legend{text-align:center;color:var(--ink-2);font-size:13px;margin-top:12px;}
+.lab-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;background:rgba(44,107,134,.10);color:var(--teal-d);margin-bottom:8px;}
+canvas.lab{width:100%;max-width:640px;height:auto;border:1px solid var(--line);border-radius:12px;background:#0b1020;touch-action:none;}
+canvas.lab.light{background:#fff;}
+.panel:fullscreen,.panel:-webkit-full-screen{overflow:auto;padding:24px;background:var(--bg,#faf8f3);}
+.panel:fullscreen canvas.lab{max-width:min(96vw,1100px);}
+.panel:fullscreen .lab-ctl,.panel:fullscreen .lab-stats{max-width:min(96vw,1100px);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../rika/">🔬 理科の授業向け</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../rika/">理科の授業向け</a><span>›</span><span class="cur">前線と天気の変化シミュレーター（寒冷前線・温暖前線）</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">理科の授業向け</div>
+    <h1>前線と天気の変化シミュレーター（寒冷前線・温暖前線）</h1>
+    <p class="lead">温帯低気圧と前線が西から東へ進むと、観測地点の気温・湿度・気圧・風向・天気がグラフに記録されていきます。寒冷前線が通ると気温が急に下がって北寄りの風になり、短時間の強い雨。温暖前線は長くおだやかな雨のあと気温が上がります。断面図で寒気と暖気の動きと雲のちがいも確かめられます。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;gap:14px;">
+      <span class="lab-badge">🔬 中2 天気の変化（前線の通過と天気の変化）</span>
+      <canvas id="cv" class="lab light" width="640" height="656"></canvas>
+      <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="mode">使い方</label></div><select id="mode"><option value="play" selected>ふつう（前線を表示）</option><option value="quiz">読み取り練習（前線をかくす）</option></select></div><div class="field"><div class="slider-head"><label for="tt">時刻</label><span class="val" id="ttL"></span></div><input type="range" id="tt" min="0" max="48" value="0" step="0.25"></div><div class="field"><div class="slider-head"><label for="ys">観測地点の位置</label><span class="val" id="ysL"></span></div><input type="range" id="ys" min="200" max="500" value="300" step="10" data-fmt="中心の南{v}km"></div><div class="field"><div class="slider-head"><label for="uu">低気圧の進む速さ</label><span class="val" id="uuL"></span></div><input type="range" id="uu" min="30" max="60" value="40" step="5" data-fmt="時速{v}km"></div><div class="field"><div class="slider-head"><label for="diu">気温の日変化</label></div><select id="diu"><option value="on" selected>入れる（実際の観測に近い）</option><option value="off">入れない（前線の影響だけ）</option></select></div><div class="field"><div class="slider-head"><label for="sp">再生の速さ</label><span class="val" id="spL"></span></div><input type="range" id="sp" min="1" max="6" value="2" step="1" data-fmt="1秒で{v}時間"></div></div>
+      <div class="lab-btns"><button class="btn btn-primary" id="play">⏸ 一時停止</button><button class="btn btn-ghost" id="rew">↺ 最初から</button><button class="btn btn-ghost" id="rand">🎲 別の天気で</button><button class="btn btn-primary" id="ans">✔ 答えを見る</button></div>
+      <div class="lab-stats"><div class="stat"><div class="k">時刻</div><div class="v" id="sTime">—</div></div><div class="stat"><div class="k">気温</div><div class="v accent" id="sT">—</div></div><div class="stat"><div class="k">湿度</div><div class="v" id="sRH">—</div></div><div class="stat"><div class="k">気圧</div><div class="v" id="sP">—</div></div><div class="stat"><div class="k">風向（風力）</div><div class="v" id="sW">—</div></div><div class="stat"><div class="k">天気</div><div class="v" id="sWx">—</div></div><div class="stat"><div class="k">温暖前線の通過</div><div class="v" id="sWf">—</div></div><div class="stat"><div class="k">寒冷前線の通過</div><div class="v accent" id="sCf">—</div></div></div>
+    </div>
+    <p class="lab-legend">上の図：赤い線と半円＝温暖前線、青い線と三角＝寒冷前線、黒い線＝等圧線（4hPaごと）、青くぬった所＝雨の範囲、灰色の矢印＝地上の風（空気が流れる向き）。地図を指でなぞると観測地点を南北に動かせます。下のグラフをなぞると時刻を動かせます。天気記号：○快晴、○に縦線＝晴れ、◎くもり、●雨（大きい●は強い雨）。記号からのびる棒は風がふいてくる方位、羽根の数は風力です。前線・気温・雨の量は説明のためのモデルで、実際の観測値ではありません。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-ghost" id="fsBtn" hidden>⛶ 全画面で表示</button>
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+
+<h2>このシミュレーションでわかること</h2>
+<div class="note" style="border-left:4px solid var(--teal)"><strong>ポイント</strong>：寒冷前線が通過すると、<b>気温が急に下がり、風向が南寄りから北寄りに変わり、せまい範囲に短時間の強い雨</b>が降ります。温暖前線が通過すると、<b>広い範囲で長く続いたおだやかな雨がやみ、気温が上がり、風向が東寄り（南東）から南寄り（南西）に変わります</b>。</div>
+<p>温帯低気圧にともなう前線が西から東へ進むようすを、天気図ふうの図・断面図・観測地点の記録グラフの3つで同時に見られます。断面図では、寒冷前線では寒気が暖気の下にもぐりこんで暖気を急におし上げること（積乱雲）、温暖前線では暖気が寒気の上をゆるやかにはい上がること（乱層雲など）を確かめられます。</p>
+<p>対応する単元は、中学校学習指導要領 理科 第2分野（4）「気象とその変化」の（イ）天気の変化「前線の通過と天気の変化」で、主に<b>中学2年</b>で学習します。学習指導要領解説は、前線の通過にともなう気温・湿度・気圧・風向・天気の変化を暖気・寒気と関連付けて理解させること、暖気と寒気のぶつかり合いを表すモデル実験などで前線の構造の理解を深めることを例示しています。</p>
+
+<h2>授業での使い方</h2>
+<ul>
+<li><b>導入</b>：「にわか雨のあと急に寒くなった」「北風に変わった」などの経験を聞き、そのまま再生して、観測地点の記録グラフがかかれていくようすを見せます。何がいつ変わったかを予想させます。</li>
+<li><b>展開</b>：前線が通過した時刻の前後で、気温・湿度・気圧・風向・天気がどう変わったかをグラフから読み取り、断面図の寒気・暖気の動きと結びつけます。観測地点を南北に動かすと、2つの前線が通過する時刻の間かくが変わることも確かめられます。校庭での継続的な気象観測の記録や教科書のグラフと見くらべるのも効果的です。</li>
+<li><b>まとめ</b>：「使い方」を「読み取り練習」にすると、前線がかくれ、記録グラフだけが表示されます。寒冷前線が通過した時刻をグラフをタップして答え、「答えを見る」で確かめます。「別の天気で」を押すと、観測地点・低気圧の速さ・時刻を変えた別の記録で何度も練習できます。</li>
+</ul>
+<p>生徒への問いの例：</p>
+<ol>
+<li>寒冷前線が通過するとき、気温・風向・雨の降り方はどう変わるでしょうか。それはなぜでしょうか。</li>
+<li>温暖前線による雨と寒冷前線による雨では、降る時間や強さにどんなちがいがあるでしょうか。断面図の雲の形と結びつけて説明しましょう。</li>
+<li>夜に気温が下がったのか、寒冷前線が通過して気温が下がったのかは、グラフのどこを見れば区別できるでしょうか。</li>
+</ol>
+
+<h2>しくみ・解説</h2>
+<h3>気団と前線</h3>
+<p>気温や湿度がほぼ一様な大きな空気のかたまりを<b>気団</b>といいます。性質のちがう気団（寒気と暖気）が接すると、すぐには混じり合わずに境の面ができます。この面を<b>前線面</b>、前線面が地表と交わる線を<b>前線</b>といいます。暖気は寒気より密度が小さい（軽い）ので、前線面では暖気が寒気の上にのり上げる形になります。</p>
+<h3>寒冷前線と温暖前線のちがい</h3>
+<div class="tbl-scroll"><table class="seo-table"><tr><th></th><th>寒冷前線</th><th>温暖前線</th></tr><tr><td>空気の動き</td><td>寒気が暖気の下にもぐりこみ、暖気をおし上げる</td><td>暖気が寒気の上をはい上がる</td></tr><tr><td>前線面の傾き</td><td>急</td><td>ゆるやか</td></tr><tr><td>できる雲</td><td>積乱雲（縦に発達する雲）</td><td>乱層雲・高層雲・巻層雲・巻雲（横に広がる雲）</td></tr><tr><td>雨の降り方</td><td>せまい範囲に、短時間の強い雨（雷や突風をともなうことも）</td><td>広い範囲に、長時間のおだやかな雨</td></tr><tr><td>通過後の気温</td><td>急に下がる</td><td>上がる</td></tr><tr><td>通過時の風向の変化</td><td>南寄り（南西など）→ 北寄り（北西など）</td><td>東寄り（南東など）→ 南寄り（南西など）</td></tr><tr><td>天気図の記号</td><td>三角（▲）を進む向きにつけた線（青）</td><td>半円を進む向きにつけた線（赤）</td></tr></table></div>
+<p>気圧は、前線（低気圧）が近づくと下がり、寒冷前線が通過するころに最も低くなり、通過後は上がっていきます。</p>
+<h3>温帯低気圧と天気の移り変わり</h3>
+<p>日本付近の温帯低気圧は、中心から南東に温暖前線、南西に寒冷前線をのばしていることが多く、上空の偏西風に流されて西から東へ進みます。そのため天気は西から東へ移り変わり、ある地点では、温暖前線の通過 → 2つの前線の間（暖域） → 寒冷前線の通過、の順に天気が変わります。断面図は、時間がたつと右（東）へ動いていくので、観測地点の天気の変化は、断面図を東（右）から西（左）へ読んだ順番になります。</p>
+<p>低気圧のまわりでは、北半球では風が<b>反時計回りに中心に向かってふきこみ</b>、中心付近で上昇気流が起こるため雲ができやすくなります。高気圧からは<b>時計回りにふき出し</b>、下降気流が起こるため晴れることが多くなります。天気図ふうの図の灰色の矢印で確かめられます。</p>
+<h3>観測記録から前線の通過を読み取る（例題）</h3>
+<p>次の表は、このシミュレーターを初期設定のまま（観測地点は低気圧の中心の南300km、時速40km、気温の日変化あり）で再生したときの、3時間ごとの記録です。ページを開いた直後の設定で再生すると、同じ記録になります。</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>日時</th><th>天気</th><th>風向</th><th>風力</th><th>気温［℃］</th><th>湿度［％］</th><th>気圧［hPa］</th></tr><tr><td>1日目 0時</td><td>晴れ</td><td>南東</td><td>3</td><td>11.0</td><td>73</td><td>1015.7</td></tr><tr><td>1日目 3時</td><td>晴れ</td><td>南東</td><td>3</td><td>10.2</td><td>77</td><td>1013.5</td></tr><tr><td>1日目 6時</td><td>くもり</td><td>南東</td><td>3</td><td>11.3</td><td>71</td><td>1010.8</td></tr><tr><td>1日目 9時</td><td>くもり</td><td>南東</td><td>4</td><td>11.8</td><td>71</td><td>1007.6</td></tr><tr><td>1日目 12時</td><td>雨</td><td>南東</td><td>4</td><td>12.4</td><td>100</td><td>1003.8</td></tr><tr><td>1日目 15時</td><td>雨</td><td>南東</td><td>4</td><td>13.8</td><td>100</td><td>999.6</td></tr><tr><td>1日目 18時</td><td>晴れ</td><td>南西</td><td>4</td><td>20.2</td><td>72</td><td>997.6</td></tr><tr><td>1日目 21時</td><td>晴れ</td><td>南西</td><td>4</td><td>19.4</td><td>77</td><td>996.6</td></tr><tr><td>2日目 0時</td><td>晴れ</td><td>南西</td><td>4</td><td>18.2</td><td>82</td><td>995.5</td></tr><tr><td>2日目 3時</td><td>晴れ</td><td>南西</td><td>4</td><td>17.3</td><td>87</td><td>994.2</td></tr><tr><td>2日目 6時</td><td>雨</td><td>南南西</td><td>4</td><td>18.0</td><td>100</td><td>992.6</td></tr><tr><td>2日目 9時</td><td>晴れ</td><td>北西</td><td>4</td><td>9.5</td><td>62</td><td>996.0</td></tr><tr><td>2日目 12時</td><td>晴れ</td><td>北西</td><td>4</td><td>11.8</td><td>53</td><td>999.9</td></tr><tr><td>2日目 15時</td><td>晴れ</td><td>北西</td><td>4</td><td>12.5</td><td>51</td><td>1003.5</td></tr><tr><td>2日目 18時</td><td>晴れ</td><td>北西</td><td>4</td><td>11.8</td><td>53</td><td>1006.8</td></tr><tr><td>2日目 21時</td><td>晴れ</td><td>北西</td><td>3</td><td>10.5</td><td>58</td><td>1009.8</td></tr><tr><td>3日目 0時</td><td>晴れ</td><td>北西</td><td>3</td><td>9.0</td><td>63</td><td>1012.6</td></tr></table></div>
+<p><b>例題1</b>　寒冷前線が観測地点を通過したのは、何日目の何時から何時の間ですか。また、そう考えた理由を2つ答えなさい。<br>
+→ 2日目6時から9時の間に、気温が18.0℃から9.5℃に急に下がり、風向が南南西から北西（北寄り）に変わっています。　答え <b>2日目6時から9時の間</b>（理由：気温が急に下がった。風向が南寄りから北寄りに変わった。）</p>
+<p><b>例題2</b>　温暖前線が通過したのは、何日目の何時から何時の間ですか。<br>
+→ 1日目15時から18時の間に、雨がやみ、気温が13.8℃から20.2℃に上がり、風向が南東から南西に変わっています。　答え <b>1日目15時から18時の間</b></p>
+<p><b>例題3</b>　シミュレーターの「降水量」のグラフ（1時間ごと）を見て、温暖前線による雨と寒冷前線による雨のちがいを説明しなさい。<br>
+→ 温暖前線による雨は1日目10時ごろから17時ごろまで約7時間続き、1時間あたり最大約3mmのおだやかな雨でした（合計約16mm）。寒冷前線による雨は2日目5時ごろから9時ごろまでの約4時間で、強い時間は1時間に約20mmでした（合計約42mm）。　答え <b>温暖前線の雨は長時間おだやかに降り、寒冷前線の雨は短時間に強く降った。</b></p>
+<p><b>例題4</b>　寒冷前線が通過したあと、気圧と湿度はどう変わりましたか。<br>
+→ 気圧は2日目6時の992.6hPaが最も低く、その後は上がっています（2日目15時に1003.5hPa）。湿度は2日目9時に62％、15時に51％と、2つの前線の間（暖域）にいたときより低くなっています（乾いた寒気に入ったため）。</p>
+<div class="note" style="border-left:4px solid var(--teal)"><strong>ポイント</strong>：寒冷前線の通過は、<b>気温の急な低下・風向の北寄りへの変化・短時間の強い雨・気圧の上昇へのきりかわり</b>の4つがそろう時刻をさがします。夜は前線と関係なく気温が下がる（気温の日変化）ので、気温だけでなく風向も合わせて判断します。「気温の日変化」を「入れない」にすると、前線による変化だけを見られます。</div>
+<h3>閉塞前線と停滞前線</h3>
+<p>寒冷前線は温暖前線より速く進むことが多く、やがて温暖前線に追いつきます。寒冷前線が温暖前線に追いついた前線を<b>閉塞前線</b>といい、天気図では半円と三角を同じ側に交互につけた線（色つきの図では紫色）で表します。閉塞前線ができると、暖気は上空におし上げられ、低気圧はやがておとろえていくことが多くなります。</p>
+<p>寒気と暖気の勢力がほぼ同じで、ほとんど同じ位置にとどまっている前線を<b>停滞前線</b>といい、半円と三角を反対側に交互につけた線（赤と青）で表します。初夏の梅雨前線や、夏から秋に移るころの秋雨前線は停滞前線で、長い期間、雨やくもりの日が続きます。</p>
+<p>このシミュレーターでは、前線は形を変えずに低気圧と同じ速さで進むものとしているので、閉塞前線や停滞前線は表示されません。</p>
+<h3>天気図記号の読み方</h3>
+<p>グラフの上の段は、3時間ごとの天気図記号です。○の中のようすで天気（○快晴、○の中に縦線が晴れ、◎くもり、●雨）を表し、○からのびる棒（矢）は<b>風がふいてくる方位</b>（風向）、棒の先の羽根の数は<b>風力</b>を表します。たとえば棒が北西にのびていれば「北西の風」です。雲量が0〜1なら快晴、2〜8なら晴れ、9〜10ならくもりです。</p>
+<div class="note"><b>このシミュレーターで単純にしていること</b><br>・低気圧・前線・高気圧の形と強さ、気温（寒気約10〜12℃、暖気約19℃）、雨の範囲と強さは、教科書の説明に合わせて作ったモデルの値です。実際の前線の天気は、季節や場所によって大きく変わります。<br>・前線は形を変えずに、低気圧と同じ速さで西から東へ進むものとしています。<br>・地上の風は、等圧線に対して約30°低気圧側にかたむいてふくとして、気圧の分布から向きを計算しています。風力はモデルによる目安です。<br>・気温の日変化は、晴れの日は約6℃、雨の日は約1℃の幅（最低は朝6時、最高は14時）としています。湿度は、湿度と雲のでき方シミュレーターと同じ飽和水蒸気量の表を使って計算しています。<br>・断面図は、高さを横の長さの約50倍に引きのばして表示しています。実際の前線面の傾きはとてもゆるやかで、寒冷前線でおよそ50〜100分の1、温暖前線でおよそ100〜300分の1程度とされます。</div>
+<h2>参考</h2>
+<ul class="seo-refs">
+<li>文部科学省「中学校学習指導要領（平成29年告示）解説 理科編」第2分野（4）気象とその変化（<a href="https://www.mext.go.jp/a_menu/shotou/new-cs/1387016.htm" target="_blank" rel="noopener">中学校学習指導要領解説</a>）</li>
+<li>気象庁「予報用語」気団・前線・気圧配置に関する用語（<a href="https://www.jma.go.jp/jma/kishou/know/yougo_hp/haichi3.html" target="_blank" rel="noopener">気象庁ホームページ</a>）</li>
+<li>気象庁「天気図」（<a href="https://www.jma.go.jp/bosai/weather_map/" target="_blank" rel="noopener">気象庁 天気図</a>）</li>
+<li>中学校理科の教科書（東京書籍「新しい科学」、啓林館「未来へひろがるサイエンス」、大日本図書「理科の世界」、学校図書「中学校科学」、教育出版「自然の探究 中学理科」）の第2学年「気象とその変化」の単元</li>
+</ul>
+
+    <h2>引用・転載について</h2>
+    <p>本ページのシミュレーション結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・授業や社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「前線と天気の変化シミュレーター（寒冷前線・温暖前線）」 https://shimulabo.com/sims/zensen-tenki/</code></div>
+    <h2>よくある質問</h2><dl class="faq"><dt>寒冷前線と温暖前線のちがいは何ですか？</dt><dd>寒冷前線は、寒気が暖気の下にもぐりこみ、暖気をおし上げながら進む前線です。前線面の傾きが急で積乱雲が発達し、せまい範囲に短時間の強い雨が降り、通過後は気温が下がります。温暖前線は、暖気が寒気の上をはい上がりながら進む前線です。前線面の傾きがゆるやかで乱層雲などが広がり、広い範囲に長時間おだやかな雨が降り、通過後は気温が上がります。</dd><dt>寒冷前線が通過すると、天気はどう変わりますか？</dt><dd>短い時間に強い雨が降り（雷や突風をともなうこともあります）、通過後は気温が急に下がり、風向が南寄りから北寄り（北西など）に変わります。気圧は通過するころに最も低くなり、通過後は上がっていきます。</dd><dt>温暖前線が通過すると、天気はどう変わりますか？</dt><dd>前線が近づくと雲がふえ、広い範囲で長い時間おだやかな雨が降ります。通過すると雨がやみ、気温が上がり、風向が東寄り（南東など）から南寄り（南西など）に変わります。</dd><dt>気象観測のグラフから、前線が通過した時刻はどう読み取りますか？</dt><dd>寒冷前線は「気温が急に下がった」「風向が南寄りから北寄りに変わった」「短時間に強い雨が降った」時刻をさがします。気温の変化だけでは、夜に気温が下がる日変化と区別しにくいので、風向や気圧の変化と合わせて判断します。3時間ごとの記録なら「○時から○時の間」と答えます。</dd><dt>閉塞前線と停滞前線とは何ですか？</dt><dd>閉塞前線は、寒冷前線が温暖前線に追いついてできる前線です。停滞前線は、寒気と暖気の勢力がほぼ同じで、ほとんど同じ位置にとどまっている前線で、初夏の梅雨前線や、夏から秋に移るころの秋雨前線がその例です。</dd><dt>低気圧のまわりでは、風はどのようにふきますか？</dt><dd>北半球では、低気圧の中心に向かって反時計回りにふきこみ、中心付近では上昇気流が起こるため雲ができやすくなります。高気圧からは時計回りにふき出し、下降気流が起こるため晴れることが多くなります。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../kiatsu-jet/"><span class="e">🎢</span><span>気圧ジェットコースター指数</span></a><a class="related-card" href="../amagumo-now/"><span class="e">🌧️</span><span>いまの雨雲マップ</span></a><a class="related-card" href="../shitsudo-roten/"><span class="e">☁️</span><span>湿度と雲のでき方（露点）</span></a><a class="related-card" href="../kaminari-alert/"><span class="e">⚡</span><span>今日の雷ゴロゴロ度</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../rika/">🔬 理科の授業向けシミュレーター</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+  const rnd = (a,b) => a + Math.random()*(b-a);
+  const randn = () => { let u=0,v=0; while(!u)u=Math.random(); while(!v)v=Math.random(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
+  let SHARE = '';
+  function setShare(t){ SHARE = t; }
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{ const l=$(s.id+'L'); if(l){ const u=()=>{ l.textContent = (s.dataset.fmt ? s.dataset.fmt.replace('{v}', s.value) : s.value); }; s.addEventListener('input',u); u(); } }); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  function setStat(id, v){ const e=$(id); if(e) e.textContent = v; }
+  try {
+    syncSliders();
+
+  const cv=$('cv'); const dpr=Math.min(2,window.devicePixelRatio||1); const W=cv.width,H=cv.height; cv.width=W*dpr; cv.height=H*dpr; const ctx=cv.getContext('2d'); ctx.setTransform(dpr,0,0,dpr,0,0);
+  cv.setAttribute('role','img'); cv.setAttribute('aria-label','温帯低気圧と前線の天気図ふうの図、観測地点を通る西から東への断面図、観測地点の天気・風向・降水量・気温・湿度・気圧の記録グラフ');
+  cv.style.cursor='pointer';
+  // ---------- モデル（km。x＝東、y＝北、低気圧の中心が原点。式は記事の表を作った Python と同じ）
+  const SAT=[4.8,5.2,5.6,6.0,6.4,6.8,7.3,7.8,8.3,8.8,9.4,10.0,10.7,11.4,12.1,12.8,13.6,14.5,15.4,16.3,17.3,18.3,19.4,20.6,21.8,23.1,24.4,25.8,27.2,28.8,30.4,32.1,33.8,35.7,37.6,39.6,41.7,43.9,46.2,48.6,51.1];
+  const sat=(v)=>{ v=clamp(v,0,40); const i=Math.min(39,Math.floor(v)); return SAT[i]+(SAT[i+1]-SAT[i])*(v-i); };
+  const ss=(a,b,v)=>{ const u=clamp((v-a)/(b-a),0,1); return u*u*(3-2*u); };
+  const lg=(v)=>v<-50?0:1/(1+Math.exp(-v));
+  const xwf=(s)=>s*(1.6-0.0006*s), xcf=(s)=>-s*(0.6-0.0003*s);
+  const g2=(dx,dy,sg)=>Math.exp(-(dx*dx+dy*dy)/(2*sg*sg));
+  function pres(x,y){ const s=-y; let p=1013-17*g2(x,y,520)+8*g2(x-1600,y+150,560)+8*g2(x+1550,y+250,560);
+    if(s>0){ const dW=x-xwf(s), dC=x-xcf(s); p-=5.5*ss(0,140,s)*(1-ss(620,820,s))*Math.exp(-Math.sqrt(dW*dW+2025)/240)+7*ss(0,140,s)*(1-ss(820,1020,s))*Math.exp(-Math.sqrt(dC*dC+100)/230); }
+    return p; }
+  const DIRS=['北','北北東','北東','東北東','東','東南東','南東','南南東','南','南南西','南西','西南西','西','西北西','北西','北北西'];
+  const BFT=[0.3,1.6,3.4,5.5,8.0,10.8,13.9,17.2,20.8,24.5,28.5,32.7], CA=Math.cos(2*Math.PI/3), SA=Math.sin(2*Math.PI/3);
+  function wind(x,y){ const gx=(pres(x+1,y)-pres(x-1,y))/2, gy=(pres(x,y+1)-pres(x,y-1))/2, g=Math.hypot(gx,gy)||1e-9;
+    const vx=(gx*CA-gy*SA)/g, vy=(gx*SA+gy*CA)/g, b=(Math.atan2(-vx,-vy)*180/Math.PI+360)%360, ms=g*0.1/(1.2*8.4e-5)*0.22;
+    let bf=0; while(bf<12 && ms>=BFT[bf]) bf++;
+    return {vx:vx,vy:vy,b:b,d:DIRS[Math.round(b/22.5)%16],bf:bf}; }
+  function rain(x,y){ const s=-y; let r=0;
+    if(s>-20){ const sp=Math.max(s,0), dW=x-xwf(sp), Rw=320-0.25*sp; r=(1+3*(1-clamp(dW/Rw,0,1)))*lg(dW/12+1)*lg((Rw-dW)/15)*(1-ss(560,760,s));
+      if(s>0){ const dC=x-xcf(s); r=Math.max(r,25*lg((dC+55)/6)*lg((12-dC)/5)*ss(30,140,s)*(1-ss(850,1020,s))); } }
+    const bb=3.2*Math.exp(-((x-80)*(x-80)/115200+(y-60)*(y-60)/45000))*ss(-120,0,y); if(bb>0.5) r=Math.max(r,bb);
+    return r; }
+  function cloud(x,y,r){ const s=-y, dW=x-xwf(s), dC=x-xcf(s), Rw=320-0.25*s; let c=2;
+    if(dW>0) c=Math.max(c,2+8*clamp((Rw+300-dW)/150,0,1));
+    if(dW<=0 && dC>=0){ c=4; if(dW>-70) c=Math.max(c,4+5*(1+dW/70)); if(dC<90) c=Math.max(c,4+6*Math.min(1,(90-dC)/78)); }
+    if(dC<0) c=Math.max(2,2+8*clamp((dC+170)/110,0,1));
+    return Math.min(10,Math.max(c,10*clamp(r/0.5,0,1))); }
+  function diur(h){ h=((h%24)+24)%24; if(h>=6 && h<=14) return -Math.cos(Math.PI*(h-6)/8); return Math.cos(Math.PI*((((h-14)%24)+24)%24)/16); }
+  // ---------- レイアウト（px）
+  const KM=4.5, XS=400, XSKM=XS*KM, HB=28, MT=56, MB=232, TRK=MT+50, S0=258, SG=382, ZK=11.4,
+        GL=60, GR=598, GW=GR-GL, GTY=408, WY=434, RT=468, RB=496, TT=502, TB=570, PT=578, PB=622;
+  const gx=(v)=>GL+v/48*GW, Zs=(z)=>SG-z*ZK;
+  const WXN=['快晴','晴れ','くもり','雨','強い雨'];
+  // ---------- 状態
+  let ys=300, U=40, twf=16, toff=0, diu=true, x0=0, tcf=0, t=0, playing=true, quiz=false, rev=false, guess=null, drag=null, dirty=true, hintT=0, last=performance.now();
+  let SER=[], RH1=[], TR=[5,25], PR=[992,1016], WPI=null, CPI=null;
+  function geo(){ x0=XSKM-xwf(ys)-U*twf; tcf=(XSKM-x0-xcf(ys))/U; }
+  function obs(v){ const x=XSKM-(x0+U*v), y=-ys, Sw=lg(-(x-xwf(ys))/25), Sc=lg(-(x-xcf(ys))/6), r=rain(x,y), c=cloud(x,y,r);
+    const Tm=12+toff+7*Sw-9*Sc+(diu?3*(1-0.08*c)*diur(v):0); let Td=6+toff+9*Sw-13*Sc; Td=Math.min(Tm,Td+(Tm-Td)*Math.min(1,r/1.5));
+    return {t:v,T:Tm,RH:Math.min(100,sat(Td)/sat(Tm)*100),P:pres(x,y),w:wind(x,y),r:r,c:c,wx:r>=0.5?(r>=10?3:2):(c>=9?1:(c>=2?0:-1))}; }
+  function compute(){ geo(); SER=[]; for(let k=0;k<=192;k++) SER.push(obs(k/4));
+    RH1=[]; for(let h=0;h<48;h++){ let a=0; for(let q=0;q<=4;q++) a+=SER[h*4+q].r*(q===0||q===4?0.5:1); RH1.push(a/4); }
+    let tn=1e9,tx=-1e9,pn=1e9,px=-1e9; SER.forEach((o)=>{ tn=Math.min(tn,o.T); tx=Math.max(tx,o.T); pn=Math.min(pn,o.P); px=Math.max(px,o.P); });
+    TR=[Math.floor(tn/5)*5,Math.ceil(tx/5)*5]; if(TR[1]-TR[0]<15) TR[1]=TR[0]+15;
+    PR=[Math.floor(pn/4)*4,Math.ceil(px/4)*4]; if(PR[1]-PR[0]<12) PR[1]=PR[0]+12;
+    WPI={a:obs(twf-1.5),b:obs(twf+2)}; CPI={a:obs(tcf-1),b:obs(tcf+1.5)}; dirty=true; }
+  // ---------- 等圧線と雨の範囲（低気圧といっしょに動くので最初に1回だけ計算）
+  const GX0=-3400, GY0=-650, GS=25, NX=257, NY=38, PG=new Float32Array(NX*NY), RG=new Float32Array(NX*NY);
+  for(let j=0;j<NY;j++) for(let i=0;i<NX;i++){ PG[j*NX+i]=pres(GX0+i*GS,GY0+j*GS); RG[j*NX+i]=rain(GX0+i*GS,GY0+j*GS); }
+  const ISO=[];
+  for(let lv=984;lv<=1024;lv+=4){ const sg=[]; let lb=null, bd=1e9;
+    for(let j=0;j<NY-1;j++) for(let i=0;i<NX-1;i++){ const a=PG[j*NX+i], b=PG[j*NX+i+1], c=PG[(j+1)*NX+i+1], d=PG[(j+1)*NX+i], x=GX0+i*GS, y=GY0+j*GS, q=[];
+      if((a<lv)!==(b<lv)) q.push(x+GS*(lv-a)/(b-a),y);
+      if((b<lv)!==(c<lv)) q.push(x+GS,y+GS*(lv-b)/(c-b));
+      if((c<lv)!==(d<lv)) q.push(x+GS*(1-(lv-c)/(d-c)),y+GS);
+      if((d<lv)!==(a<lv)) q.push(x,y+GS*(1-(lv-d)/(a-d)));
+      for(let k=0;k+3<q.length;k+=4){ sg.push(q[k],q[k+1],q[k+2],q[k+3]); const mx=(q[k]+q[k+2])/2, my=(q[k+1]+q[k+3])/2;
+        if(mx>-1300 && mx<-60 && my>60 && my<220 && Math.abs(my-140)<bd){ bd=Math.abs(my-140); lb=[mx,my]; } } }
+    if(sg.length) ISO.push({lv:lv,sg:sg,lb:lb}); }
+  const RC=document.createElement('canvas'); RC.width=NX; RC.height=NY;
+  function mkRain(){ const c2=RC.getContext('2d'), im=c2.createImageData(NX,NY);
+    for(let j=0;j<NY;j++) for(let i=0;i<NX;i++){ const r=RG[j*NX+i]; if(r<0.3) continue; const o=((NY-1-j)*NX+i)*4, k=clamp((r-3)/9,0,1);
+      im.data[o]=Math.round(120-85*k); im.data[o+1]=Math.round(180-90*k); im.data[o+2]=Math.round(250-15*k); im.data[o+3]=Math.round(255*clamp((r-0.3)/0.5,0,1)*(0.45+0.3*k)); }
+    c2.putImageData(im,0,0); }
+  mkRain();
+  const WFL=[], CFL=[]; for(let s=0;s<=740;s+=10) WFL.push([xwf(s),-s]); for(let s=0;s<=940;s+=10) CFL.push([xcf(s),-s]);
+  const LOWP=pres(0,0), HIGHS=[[1600,-150,pres(1600,-150)],[-1550,-250,pres(-1550,-250)]];
+  // ---------- 描画の道具
+  const f1=(v)=>(Math.round(v*10)/10).toFixed(1);
+  const line=(a,b,c,d)=>{ ctx.beginPath(); ctx.moveTo(a,b); ctx.lineTo(c,d); ctx.stroke(); };
+  function txt(s,x,y,font,col,al,halo){ ctx.font=font; ctx.textAlign=al||'left'; if(halo){ ctx.lineJoin='round'; ctx.lineWidth=3.5; ctx.strokeStyle='rgba(255,255,255,.95)'; ctx.strokeText(s,x,y); } ctx.fillStyle=col; ctx.fillText(s,x,y); }
+  function tw(s,font){ ctx.font=font; return ctx.measureText(s).width; }
+  function rr(x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.lineTo(x+w-r,y); ctx.quadraticCurveTo(x+w,y,x+w,y+r); ctx.lineTo(x+w,y+h-r); ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h); ctx.lineTo(x+r,y+h); ctx.quadraticCurveTo(x,y+h,x,y+h-r); ctx.lineTo(x,y+r); ctx.quadraticCurveTo(x,y,x+r,y); ctx.closePath(); }
+  function arrow(x1,y1,x2,y2,hs){ line(x1,y1,x2,y2); const a=Math.atan2(y2-y1,x2-x1), h=hs||6; ctx.beginPath(); ctx.moveTo(x2,y2); ctx.lineTo(x2-h*Math.cos(a-0.45),y2-h*Math.sin(a-0.45)); ctx.lineTo(x2-h*Math.cos(a+0.45),y2-h*Math.sin(a+0.45)); ctx.closePath(); ctx.fill(); }
+  function lab(id){ const s=$(id), l=$(id+'L'); if(l) l.textContent = s.dataset.fmt ? s.dataset.fmt.replace('{v}', s.value) : s.value; }
+  function tfmt(v){ const m=Math.round(v*4)*15, d=Math.floor(m/1440), r=m-d*1440, mi=r%60; return (d+1)+'日目 '+Math.floor(r/60)+':'+(mi<10?'0':'')+mi; }
+  // ---------- 上：いまの観測値
+  function drawHead(o){ ctx.fillStyle='#f1f5f9'; rr(1,1,W-2,HB-2,8); ctx.fill();
+    const L=[[tfmt(o.t),'#0f172a'],['気温 '+f1(o.T)+'℃','#dc2626'],['湿度 '+Math.round(o.RH)+'%','#15803d'],['気圧 '+f1(o.P)+'hPa','#1d4ed8'],[o.w.d+'の風 風力'+o.w.bf,'#334155'],[WXN[o.wx+1],'#0f172a']];
+    let font='bold 13px sans-serif', tot=0; L.forEach((p)=>{ tot+=tw(p[0],font); }); if(tot>W-70){ font='bold 12px sans-serif'; tot=0; L.forEach((p)=>{ tot+=tw(p[0],font); }); }
+    const gap=(W-20-tot)/(L.length-1); let x=10; L.forEach((p)=>{ txt(p[0],x,19,font,p[1]); x+=tw(p[0],font)+gap; }); }
+  // ---------- 天気図ふうの図
+  function front(L,col,cold,X,Y){ const Pp=L.map((p)=>[X(p[0]),Y(p[1])]);
+    ctx.strokeStyle=col; ctx.lineWidth=2.6; ctx.lineJoin='round'; ctx.beginPath(); Pp.forEach((p,i)=>{ if(i) ctx.lineTo(p[0],p[1]); else ctx.moveTo(p[0],p[1]); }); ctx.stroke();
+    ctx.fillStyle=col; let dist=0, next=14;
+    for(let k=1;k<Pp.length;k++){ const ax=Pp[k-1][0], ay=Pp[k-1][1], bx=Pp[k][0], by=Pp[k][1], L2=Math.hypot(bx-ax,by-ay); if(L2<1e-6) continue; const tx=(bx-ax)/L2, ty=(by-ay)/L2, nx=ty, ny=-tx;
+      while(next<=dist+L2){ const u=next-dist, px=ax+tx*u, py=ay+ty*u;
+        if(px>-10 && px<W+10 && py>MT-10 && py<MB+10){ ctx.beginPath(); if(cold){ ctx.moveTo(px-tx*5.5,py-ty*5.5); ctx.lineTo(px+nx*8.5,py+ny*8.5); ctx.lineTo(px+tx*5.5,py+ty*5.5); } else { const a=Math.atan2(ty,tx); ctx.moveTo(px+tx*5.5,py+ty*5.5); ctx.arc(px,py,5.5,a,a-Math.PI,true); } ctx.closePath(); ctx.fill(); }
+        next+=24; }
+      dist+=L2; } }
+  function drawMap(t){ const xc=x0+U*t, X=(x)=>(xc+x)/KM, Y=(y)=>TRK-y/KM, hide=quiz&&!rev;
+    txt('天気図ふうの図（上が北）',6,MT-7,'bold 13px sans-serif','#0f172a');
+    let lx=W-6; [['ins','等圧線（4hPaごと）'],['rain','雨の範囲'],['cf','寒冷前線'],['wf','温暖前線']].forEach((g)=>{ const w=tw(g[1],'11px sans-serif'); txt(g[1],lx-w,MT-8,'11px sans-serif','#334155'); lx-=w+4;
+      if(g[0]==='ins'){ ctx.strokeStyle='#475569'; ctx.lineWidth=1.2; line(lx-16,MT-12,lx,MT-12); lx-=16; }
+      else if(g[0]==='rain'){ ctx.fillStyle='rgba(96,165,250,.6)'; ctx.fillRect(lx-14,MT-17,14,10); lx-=14; }
+      else if(g[0]==='cf'){ ctx.strokeStyle='#2563eb'; ctx.lineWidth=2.2; line(lx-18,MT-11,lx,MT-11); ctx.fillStyle='#2563eb'; ctx.beginPath(); ctx.moveTo(lx-14,MT-11); ctx.lineTo(lx-9,MT-19); ctx.lineTo(lx-4,MT-11); ctx.closePath(); ctx.fill(); lx-=18; }
+      else { ctx.strokeStyle='#dc2626'; ctx.lineWidth=2.2; line(lx-18,MT-11,lx,MT-11); ctx.fillStyle='#dc2626'; ctx.beginPath(); ctx.arc(lx-9,MT-11,4.5,Math.PI,0); ctx.closePath(); ctx.fill(); lx-=18; }
+      lx-=12; });
+    ctx.save(); ctx.beginPath(); ctx.rect(0,MT,W,MB-MT); ctx.clip();
+    ctx.fillStyle='#f8fafc'; ctx.fillRect(0,MT,W,MB-MT);
+    if(!hide){
+      ctx.imageSmoothingEnabled=true; ctx.drawImage(RC,X(GX0-GS/2),Y(GY0+(NY-0.5)*GS),NX*GS/KM,NY*GS/KM);
+      ISO.forEach((Lv)=>{ const s=Lv.sg; ctx.beginPath(); for(let k=0;k<s.length;k+=4){ ctx.moveTo(X(s[k]),Y(s[k+1])); ctx.lineTo(X(s[k+2]),Y(s[k+3])); } ctx.strokeStyle=Lv.lv%20===0?'#334155':'#64748b'; ctx.lineWidth=Lv.lv%20===0?1.5:0.9; ctx.stroke(); });
+      ctx.strokeStyle='rgba(71,85,105,.5)'; ctx.fillStyle='rgba(71,85,105,.5)'; ctx.lineWidth=1.3;
+      for(let ax=40; ax<W; ax+=80) for(let ay=MT+24; ay<MB-6; ay+=50){ const w=wind(ax*KM-xc,(TRK-ay)*KM); arrow(ax-w.vx*8,ay+w.vy*8,ax+w.vx*8,ay-w.vy*8,5); }
+      front(WFL,'#dc2626',false,X,Y); front(CFL,'#2563eb',true,X,Y);
+      ISO.forEach((Lv)=>{ if(Lv.lb){ const a=X(Lv.lb[0]), b=Y(Lv.lb[1]); if(a>14 && a<W-14 && b>MT+8 && b<MB-6) txt(String(Lv.lv),a,b+4,'bold 10px sans-serif','#334155','center',true); } });
+      const lcx=X(0), lcy=Y(0); ctx.strokeStyle='#dc2626'; ctx.lineWidth=2.4; line(lcx-5,lcy-5,lcx+5,lcy+5); line(lcx-5,lcy+5,lcx+5,lcy-5);
+      txt('低',lcx,lcy-9,'bold 18px sans-serif','#dc2626','center',true); txt(String(Math.round(LOWP)),lcx+9,lcy+15,'bold 11px sans-serif','#b91c1c','left',true);
+      HIGHS.forEach((h)=>{ const a=X(h[0]), b=Y(h[1]); if(a>-20 && a<W+20){ txt('高',a,b+6,'bold 18px sans-serif','#2563eb','center',true); txt(String(Math.round(h[2])),a,b+21,'bold 11px sans-serif','#1d4ed8','center',true); } });
+    } else {
+      ctx.fillStyle='#e2e8f0'; ctx.fillRect(0,MT,W,MB-MT);
+      txt('読み取り練習中：前線と雨の範囲はかくしています',W/2,(MT+MB)/2-34,'bold 14px sans-serif','#475569','center');
+      txt('下のグラフをタップして答えを選び、「✔ 答えを見る」をおしてください',W/2,(MT+MB)/2-14,'12px sans-serif','#475569','center'); }
+    const sy=Y(-ys); ctx.setLineDash([6,4]); ctx.strokeStyle='#0f766e'; ctx.lineWidth=1.4; line(0,sy,W,sy); ctx.setLineDash([]);
+    txt('断面図の線',6,sy-5,'bold 11px sans-serif','#0f766e','left',true);
+    ctx.fillStyle='#fff'; ctx.strokeStyle='#0f172a'; ctx.lineWidth=2.4; ctx.beginPath(); ctx.arc(XS,sy,7,0,Math.PI*2); ctx.fill(); ctx.stroke(); ctx.fillStyle='#0f172a'; ctx.beginPath(); ctx.arc(XS,sy,2.6,0,Math.PI*2); ctx.fill();
+    txt('観測地点',XS+11,sy-8,'bold 12px sans-serif','#0f172a','left',true);
+    if(!quiz) txt('地図を上下になぞると、観測地点を南北に動かせます',6,MB-8,'10.5px sans-serif','#475569','left',true);
+    const sbx=W-128, sby=MB-9; ctx.strokeStyle='#0f172a'; ctx.lineWidth=2; line(sbx,sby,sbx+500/KM,sby); line(sbx,sby-4,sbx,sby+2); line(sbx+500/KM,sby-4,sbx+500/KM,sby+2); txt('500 km',sbx+250/KM,sby-5,'10px sans-serif','#0f172a','center',true);
+    ctx.restore(); ctx.strokeStyle='#94a3b8'; ctx.lineWidth=1; ctx.strokeRect(0.5,MT+0.5,W-1,MB-MT-1); }
+  // ---------- 断面図
+  function blob(L,fill,stroke,lw){ ctx.beginPath(); L.forEach((c)=>{ ctx.moveTo(c[0]+c[2],c[1]); if(c.length>3) ctx.ellipse(c[0],c[1],c[2],c[3],0,0,Math.PI*2); else ctx.arc(c[0],c[1],c[2],0,Math.PI*2); }); ctx.lineWidth=lw; ctx.strokeStyle=stroke; ctx.stroke(); ctx.fillStyle=fill; ctx.fill(); }
+  function streaks(x1,x2,step,zf,col,len,ph){ if(x2<-5 || x1>W+5) return; ctx.strokeStyle=col; ctx.lineWidth=1.3; ctx.beginPath();
+    for(let p=Math.max(x1,-4);p<=Math.min(x2,W+4);p+=step){ const top=Zs(zf(p)), h=SG-top; if(h<6) continue; for(let k=0;k<3;k++){ const y=top+((k*h/3+p*7.3+ph)%h); ctx.moveTo(p,y); ctx.lineTo(p-1.6,Math.min(SG,y+len)); } }
+    ctx.stroke(); }
+  function drawSec(t,ph){ const xc=x0+U*t, X=(x)=>(xc+x)/KM, Xw=X(xwf(ys)), Xc=X(xcf(ys)), Rw=320-0.25*ys, hide=quiz&&!rev;
+    const zw=(p)=>clamp((p-Xw)*KM/180,0,10.6), zc=(p)=>clamp((Xc-p)*KM/60,0,10.6);
+    txt('断面図（観測地点を通る西→東の線・高さは約50倍）',6,S0-7,'bold 13px sans-serif','#0f172a');
+    { let lx=W-6; [['温暖前線の前線面','#dc2626'],['寒冷前線の前線面','#2563eb']].forEach((g)=>{ const w=tw(g[0],'11px sans-serif'); txt(g[0],lx-w,S0-8,'11px sans-serif','#334155'); lx-=w+4; ctx.strokeStyle=g[1]; ctx.lineWidth=2.4; line(lx-16,S0-7,lx-2,S0-15); lx-=30; }); }
+    ctx.save(); ctx.beginPath(); ctx.rect(0,S0,W,SG-S0+6); ctx.clip();
+    ctx.fillStyle='#fff7ed'; ctx.fillRect(0,S0,W,SG-S0);
+    if(!hide){
+      ctx.fillStyle='#dbeafe';
+      if(Xw<W+10){ const a=Math.max(Xw,-30); ctx.beginPath(); ctx.moveTo(a,SG); for(let p=a;p<=W+12;p+=6) ctx.lineTo(p,Zs(zw(p))); ctx.lineTo(W+12,SG); ctx.closePath(); ctx.fill(); }
+      if(Xc>-10){ const a=Math.min(Xc,W+30); ctx.beginPath(); ctx.moveTo(a,SG); for(let p=a;p>=-12;p-=4) ctx.lineTo(p,Zs(zc(p))); ctx.lineTo(-12,SG); ctx.closePath(); ctx.fill(); }
+      ctx.lineWidth=2.4; ctx.strokeStyle='#dc2626'; line(Xw,SG,Xw+10.6*180/KM,Zs(10.6)); ctx.strokeStyle='#2563eb'; line(Xc,SG,Xc-10.6*60/KM,Zs(10.6));
+      const b1=X(xwf(ys)+Rw), a2=X(xwf(ys)+Rw*0.55), b2=X(xwf(ys)+Rw+200), a3=X(xwf(ys)+Rw+110), b3=X(xwf(ys)+Rw+330);
+      if(b3>-10 && a3<W+10){ ctx.lineCap='round'; for(let k=0;k<3;k++){ const yy=Zs(7.7+k*0.45), xa=a3+k*14, xb=b3-k*18; ctx.beginPath(); ctx.moveTo(xa,yy); ctx.quadraticCurveTo((xa+xb)/2,yy-6,xb,yy+2); ctx.strokeStyle='#cbd5e1'; ctx.lineWidth=5; ctx.stroke(); ctx.strokeStyle='#fff'; ctx.lineWidth=3; ctx.stroke(); } ctx.lineCap='butt';
+        txt('巻層雲・巻雲',clamp((a3+b3)/2,40,W-70),Zs(9.3),'bold 11px sans-serif','#475569','center',true); }
+      if(b2>-10 && a2<W+10){ ctx.beginPath(); ctx.moveTo(a2,Zs(6.1)); for(let p=a2;p<=b2;p+=6) ctx.lineTo(p,Zs(6.1-0.5*(p-a2)/(b2-a2))+2*Math.sin(p*0.3)); for(let p=b2;p>=a2;p-=6) ctx.lineTo(p,Zs(Math.max(zw(p)+0.9,3.4))); ctx.closePath();
+        ctx.fillStyle='#e2e8f0'; ctx.fill(); ctx.strokeStyle='#94a3b8'; ctx.lineWidth=1; ctx.stroke(); txt('高層雲',clamp((a2+b2)/2+14,40,W-30),Zs(4.9),'bold 11px sans-serif','#475569','center',true); }
+      const a1=Xw-8;
+      if(b1+8>-10 && a1<W+10){ ctx.beginPath(); ctx.moveTo(a1,Zs(0.5)); ctx.quadraticCurveTo(a1-6,Zs(3.4),a1+6,Zs(5.2)); for(let p=a1+6;p<=b1+8;p+=4) ctx.lineTo(p,Zs(5.3-0.9*(p-a1)/Math.max(1,b1+8-a1))-2.2*Math.abs(Math.sin(p*0.12))); for(let p=b1+8;p>=a1;p-=5) ctx.lineTo(p,Zs(zw(p)+0.45)); ctx.closePath();
+        ctx.fillStyle='#94a3b8'; ctx.fill(); ctx.strokeStyle='#64748b'; ctx.lineWidth=1.2; ctx.stroke();
+        streaks(Xw-2,b1,5,(p)=>zw(p)+0.45,'rgba(37,99,235,.6)',6,ph);
+        if(b1-a1>44) txt('乱層雲',clamp((a1+b1)/2,a1+26,W-30),Zs(3.1),'bold 12px sans-serif','#ffffff','center'); }
+      const wsec=Xw-Xc; if(wsec>90){ [0.3,0.62].forEach((f,i)=>{ const px=Xc+wsec*f; if(px>-20 && px<W+20) blob([[px-6,Zs(1.5),6],[px+5,Zs(1.55),6.5],[px,Zs(2.0),7]],'#ffffff','#cbd5e1',2); }); }
+      if(Xc-40>-20 && Xc-40<W+20) blob([[Xc-46,Zs(1.4),5.5],[Xc-36,Zs(1.45),6],[Xc-41,Zs(1.85),6.5]],'#ffffff','#cbd5e1',2);
+      const cx=Xc-4;
+      if(cx>-90 && cx<W+40){ streaks(X(xcf(ys)-55),X(xcf(ys)+12),2.2,()=>1.2,'rgba(30,64,175,.85)',8,ph*1.6);
+        const L=[[cx-7,Zs(1.6),11],[cx+7,Zs(1.8),10],[cx-2,Zs(3.1),13.5],[cx+3,Zs(4.6),14],[cx-3,Zs(6.1),14],[cx+2,Zs(7.5),13],[cx,Zs(8.7),12]];
+        L.push([cx+24,Zs(9.75),50,7.5]); for(let k=0;k<5;k++) L.push([cx-14+k*16,Zs(10.0),6.5]);
+        blob(L,'#ffffff','#94a3b8',3); txt('積乱雲',cx+36,Zs(6.4),'bold 12px sans-serif','#334155','center',true); }
+      if(Xc>40){ const lx=Math.max(28,Xc-110); txt('寒気',lx,Zs(Math.min(2,zc(lx)*0.45))+5,'bold 13px sans-serif','#1d4ed8','center',true); }
+      if(Xw<W-40){ let lx=Math.min(W-28,Xw+150); if(Math.abs(lx-XS)<75) lx=(XS+85<W-24)?XS+85:XS-70; if(lx>Xw+20) txt('寒気',lx,Zs(Math.min(1.2,zw(lx)*0.4))+5,'bold 13px sans-serif','#1d4ed8','center',true); }
+      const wa=Math.max(Xc,0), wb=Math.min(Xw,W); if(wb-wa>70) txt('暖気',(wa+wb)/2,Zs(3.0),'bold 13px sans-serif','#c2410c','center',true); else txt('暖気',clamp((Xc+Xw)/2,40,W-40),Zs(8.4),'bold 13px sans-serif','#c2410c','center',true);
+      ctx.lineWidth=2.4;
+      if(Xc>20 && Xc<W+40){ ctx.strokeStyle='#1d4ed8'; ctx.fillStyle='#1d4ed8'; arrow(Xc-60,Zs(0.6),Xc-16,Zs(0.6)); ctx.strokeStyle='#ea580c'; ctx.fillStyle='#ea580c'; arrow(Xc+18,Zs(0.5),Xc-2,Zs(4.4)); }
+      if(Xw>-60 && Xw<W-20){ ctx.strokeStyle='#ea580c'; ctx.fillStyle='#ea580c'; arrow(Xw-34,Zs(1.0),Xw+62,Zs(zw(Xw+62)+1.1)); }
+    } else { ctx.fillStyle='#e2e8f0'; ctx.fillRect(0,S0,W,SG-S0); txt('読み取り練習中：断面図はかくしています',W/2,(S0+SG)/2,'bold 13px sans-serif','#475569','center'); }
+    ctx.fillStyle='#a8a29e'; ctx.fillRect(0,SG,W,6);
+    ctx.strokeStyle='#0f172a'; ctx.lineWidth=2; line(XS,SG,XS,SG-17); ctx.fillStyle='#0f766e'; ctx.beginPath(); ctx.moveTo(XS,SG-17); ctx.lineTo(XS+11,SG-13.5); ctx.lineTo(XS,SG-10); ctx.closePath(); ctx.fill();
+    txt('観測地点',XS+13,SG-4,'bold 11px sans-serif','#0f172a','left',true);
+    ctx.strokeStyle='#64748b'; ctx.lineWidth=1; [0,5,10].forEach((z)=>{ line(0,Zs(z),5,Zs(z)); if(z) txt(z+'km',7,Zs(z)+4,'10px sans-serif','#475569','left',true); });
+    txt('西',46,S0+15,'bold 12px sans-serif','#334155','left',true); txt('東',W-8,S0+15,'bold 12px sans-serif','#334155','right',true);
+    ctx.restore(); ctx.strokeStyle='#94a3b8'; ctx.lineWidth=1; ctx.strokeRect(0.5,S0+0.5,W-1,SG-S0+5); }
+  // ---------- 観測記録のグラフ
+  function wsym(x,y,o){ const r=6.2, b=o.w.b*Math.PI/180, ux=Math.sin(b), uy=-Math.cos(b), L=13;
+    ctx.strokeStyle='#0f172a'; ctx.lineWidth=1.5;
+    if(o.w.bf>0){ line(x+ux*r,y+uy*r,x+ux*(r+L),y+uy*(r+L)); const px=-uy, py=ux;
+      for(let k=0;k<Math.min(12,o.w.bf);k++){ const sd=k<6?1:-1, d=r+L-(k%6)*2.7, qx=x+ux*d, qy=y+uy*d; line(qx,qy,qx+px*5.2*sd-ux*2.2,qy+py*5.2*sd-uy*2.2); } }
+    const rad=o.wx===3?7.6:r; ctx.beginPath(); ctx.arc(x,y,rad,0,Math.PI*2); ctx.fillStyle=o.wx>=2?'#0f172a':'#fff'; ctx.fill(); ctx.stroke();
+    if(o.wx===0) line(x,y-r,x,y+r); else if(o.wx===1){ ctx.beginPath(); ctx.arc(x,y,r*0.48,0,Math.PI*2); ctx.stroke(); } }
+  function drawGraph(t,o){ const tm=quiz?48:t, hid=quiz&&!rev;
+    if(!quiz){ let msg=null, col=null;
+      if(t>=tcf && t<tcf+3){ msg='寒冷前線が通過：強い雨のあと気温が'+f1(CPI.a.T)+'℃→'+f1(CPI.b.T)+'℃、風向は'+CPI.a.w.d+'→'+CPI.b.w.d; col='#1d4ed8'; }
+      else if(t>=twf && t<twf+3){ msg='温暖前線が通過：雨がやみ、気温が'+f1(WPI.a.T)+'℃→'+f1(WPI.b.T)+'℃、風向は'+WPI.a.w.d+'→'+WPI.b.w.d; col='#b91c1c'; }
+      if(msg){ const font='bold 12.5px sans-serif', w=tw(msg,font)+20; ctx.fillStyle=col; rr(2,GTY-15,Math.min(W-4,w),21,7); ctx.fill(); txt(msg,12,GTY,font,'#fff'); }
+      else txt('観測地点の記録（3時間ごとの天気記号・1時間ごとの降水量・気温・湿度・気圧）',6,GTY,'bold 12.5px sans-serif','#0f172a'); }
+    else if(hintT && performance.now()-hintT<2000) txt('先にグラフをタップして、答えの時刻を選んでください',6,GTY,'bold 12.5px sans-serif','#b91c1c');
+    else if(!rev) txt(guess===null?'練習：寒冷前線が通過したのはいつ？　グラフをタップして答えよう':'あなたの答え：'+tfmt(guess)+'ごろ　→「✔ 答えを見る」で確かめよう',6,GTY,'bold 12.5px sans-serif','#c2410c');
+    else { const d=Math.abs(guess-tcf); txt((d<=1?'正解！ ':(d<=3?'おしい！ ':'もう一度グラフを見てみよう。'))+'寒冷前線の通過は '+tfmt(tcf)+'ごろ（あなたの答えとの差 '+f1(d)+'時間）',6,GTY,'bold 12.5px sans-serif',d<=1?'#15803d':'#c2410c'); }
+    for(let h=0;h<=48;h+=3){ const x=gx(h); ctx.strokeStyle=h%24===0?'rgba(15,23,42,.35)':(h%6===0?'rgba(15,23,42,.13)':'rgba(15,23,42,.06)'); ctx.lineWidth=1; line(x,RT-4,x,PB); }
+    ctx.strokeStyle='#cbd5e1'; ctx.lineWidth=1; ctx.strokeRect(GL+0.5,RT+0.5,GW,RB-RT); ctx.strokeRect(GL+0.5,TT+0.5,GW,TB-TT); ctx.strokeRect(GL+0.5,PT+0.5,GW,PB-PT);
+    txt('天気',4,WY-1,'bold 11px sans-serif','#0f172a'); txt('風向',4,WY+13,'bold 11px sans-serif','#0f172a');
+    txt('降水量',4,RT+10,'bold 11px sans-serif','#1d4ed8'); txt('（mm）',2,RT+21,'9.5px sans-serif','#475569');
+    txt('気温',4,TT+12,'bold 11px sans-serif','#dc2626'); txt('（℃）',2,TT+24,'9.5px sans-serif','#dc2626');
+    txt('湿度',4,TT+46,'bold 11px sans-serif','#15803d'); txt('（％）',2,TT+58,'9.5px sans-serif','#15803d');
+    txt('気圧',4,PT+14,'bold 11px sans-serif','#1d4ed8'); txt('（hPa）',2,PT+26,'9.5px sans-serif','#1d4ed8');
+    const TY=(v)=>TB-3-(v-TR[0])/(TR[1]-TR[0])*(TB-TT-6), HY=(v)=>TB-3-v/100*(TB-TT-6), PY=(v)=>PB-3-(v-PR[0])/(PR[1]-PR[0])*(PB-PT-6);
+    ctx.strokeStyle='rgba(15,23,42,.06)'; for(let v=TR[0];v<=TR[1];v+=5){ line(GL,TY(v),GR,TY(v)); txt(String(v),GL-4,TY(v)+4,'10px sans-serif','#b91c1c','right'); }
+    [0,50,100].forEach((v)=>txt(v+'%',GR+4,HY(v)+4,'10px sans-serif','#15803d','left'));
+    const pst=Math.max(4,Math.ceil((PR[1]-PR[0])/8)*4); for(let v=PR[0];v<=PR[1];v+=pst) txt(String(v),GR+4,PY(v)+4,'10px sans-serif','#1d4ed8','left');
+    txt('25',GR+4,RT+9,'10px sans-serif','#1d4ed8','left'); txt('0',GR+4,RB+3,'10px sans-serif','#1d4ed8','left');
+    for(let h=0;h<48;h++){ if(h+1>tm+1e-6) break; const v=RH1[h]; if(v<0.1) continue; const bh=Math.max(2,Math.min(1,v/25)*(RB-RT-2)); ctx.fillStyle=v>=10?'#1d4ed8':'#60a5fa'; ctx.fillRect(gx(h)+1,RB-bh,GW/48-2,bh); }
+    function plot(fn,Yf,col,lw){ ctx.strokeStyle=col; ctx.lineWidth=lw; ctx.lineJoin='round'; ctx.beginPath(); let n=0; for(let k=0;k<=192;k++){ if(k/4>tm+1e-9) break; const x=gx(k/4), y=Yf(fn(SER[k])); if(n++) ctx.lineTo(x,y); else ctx.moveTo(x,y); } if(!quiz && n && tm<48) ctx.lineTo(gx(tm),Yf(fn(o))); ctx.stroke(); }
+    plot((q)=>q.RH,HY,'#22c55e',1.6); plot((q)=>q.T,TY,'#dc2626',2.4); plot((q)=>q.P,PY,'#2563eb',2.2);
+    for(let k=0;k<=16;k++){ const v=k*3; if(v>tm+1e-9) break; const q=SER[k*12]; wsym(gx(v),WY,q); txt(q.w.d,gx(v),WY+28,'9.5px sans-serif','#334155','center'); }
+    if(!quiz || rev){ [[twf,'#dc2626','温暖前線の通過'],[tcf,'#2563eb','寒冷前線の通過']].forEach((q)=>{ if(!quiz && t<q[0]) return; const x=gx(q[0]), rt=x>GR-90; ctx.setLineDash([5,4]); ctx.strokeStyle=q[1]; ctx.lineWidth=1.8; line(x,RT-6,x,PB); ctx.setLineDash([]); txt(q[2],x+(rt?-4:4),RT+12,'bold 11px sans-serif',q[1],rt?'right':'left',true); }); }
+    if(quiz && guess!==null){ const x=gx(guess), rt=x>GR-90; ctx.strokeStyle='#ea580c'; ctx.lineWidth=2.6; line(x,RT-6,x,PB); txt('あなたの答え',x+(rt?-4:4),PT+12,'bold 11px sans-serif','#c2410c',rt?'right':'left',true); }
+    if(!quiz || rev){ const x=gx(t); ctx.strokeStyle='rgba(15,23,42,.6)'; ctx.lineWidth=1.2; line(x,WY-18,x,PB);
+      if(!quiz && t>0.4){ const rt=x>GR-60; let yT=TY(o.T)-5, yH=HY(o.RH)+12; if(Math.abs(yT-yH)<13){ if(yT<yH) yH=yT+13; else yH=yT-13; } txt(f1(o.T)+'℃',x+(rt?-5:5),yT,'bold 11px sans-serif','#dc2626',rt?'right':'left',true); txt(Math.round(o.RH)+'%',x+(rt?-5:5),yH,'bold 10px sans-serif','#15803d',rt?'right':'left',true); txt(f1(o.P),x+(rt?-5:5),PY(o.P)-4,'bold 10px sans-serif','#1d4ed8',rt?'right':'left',true); } }
+    if(!quiz && t<0.3) txt('▶ 再生すると、観測地点の記録がここにかかれていきます',GL+GW/2,(TT+TB)/2+4,'bold 13px sans-serif','#64748b','center');
+    for(let h=0;h<=48;h+=6) txt((h%24)+'時',gx(h),PB+14,'10px sans-serif','#475569','center');
+    ['1日目','2日目'].forEach((s,i)=>{ const a=gx(i*24), b=gx(i*24+24); ctx.strokeStyle='#94a3b8'; ctx.lineWidth=1; line(a+3,PB+24,b-3,PB+24); line(a+3,PB+20,a+3,PB+28); line(b-3,PB+20,b-3,PB+28); txt(s,(a+b)/2,PB+28,'bold 11px sans-serif','#334155','center',true); }); }
+  // ---------- まとめて描く
+  function draw(ph){ const o=obs(t); ctx.clearRect(0,0,W,H); ctx.fillStyle='#fff'; ctx.fillRect(0,0,W,H);
+    drawHead(o); drawMap(t); drawSec(t,ph); drawGraph(t,o);
+    setStat('sTime',tfmt(t)); setStat('sT',f1(o.T)+'℃'); setStat('sRH',Math.round(o.RH)+'%'); setStat('sP',f1(o.P)+' hPa'); setStat('sW',o.w.d+'（'+o.w.bf+'）'); setStat('sWx',WXN[o.wx+1]);
+    const hid=quiz&&!rev; setStat('sWf',hid?'？':tfmt(twf)); setStat('sCf',hid?'？':tfmt(tcf));
+    setShare(hid?'【前線の読み取り練習】気象観測の記録グラフから、寒冷前線が通過した時刻を当てよう｜シミュラボ'
+      :'【前線と天気】寒冷前線が'+tfmt(tcf)+'ごろ通過し、気温'+f1(CPI.a.T)+'℃→'+f1(CPI.b.T)+'℃、風向'+CPI.a.w.d+'→'+CPI.b.w.d+'に。温暖前線の通過（'+tfmt(twf)+'ごろ）では雨がやんで気温が上がった｜シミュラボ'); }
+  // ---------- 操作
+  function tog(){ $('play').textContent=playing?'⏸ 一時停止':'▶ 再生'; }
+  function syncT(){ $('tt').value=t; $('ttL').textContent=tfmt(t); }
+  function btnVis(){ $('play').style.display=quiz?'none':''; $('rew').style.display=quiz?'none':''; $('ans').style.display=quiz?'':'none'; }
+  function resetQuiz(){ rev=false; guess=null; if(quiz){ playing=false; t=48; } }
+  function setYs(py){ const v=clamp(Math.round((py-TRK)*KM/10)*10,200,500); if(v!==ys){ ys=v; $('ys').value=ys; lab('ys'); compute(); } }
+  function setT(px){ const v=Math.round(clamp((px-GL)/GW*48,0,48)*4)/4; if(quiz && !rev) guess=v; else { playing=false; tog(); } t=v; syncT(); dirty=true; }
+  function pxy(e){ const p=cpos(cv,e); return [p[0]/dpr,p[1]/dpr]; }
+  cv.addEventListener('pointerdown',(e)=>{ const q=pxy(e);
+    if(q[1]>=MT && q[1]<=MB){ if(quiz) return; drag='map'; setYs(q[1]); }
+    else if(q[1]>=WY-20 && q[1]<=PB+8 && q[0]>=GL-12 && q[0]<=GR+12){ drag='graph'; setT(q[0]); }
+    else return;
+    try{ cv.setPointerCapture(e.pointerId); }catch(err){ } e.preventDefault(); });
+  cv.addEventListener('pointermove',(e)=>{ if(!drag) return; const q=pxy(e); if(drag==='map') setYs(q[1]); else setT(q[0]); });
+  ['pointerup','pointercancel'].forEach((n)=>cv.addEventListener(n,()=>{ drag=null; }));
+  $('tt').addEventListener('input',()=>{ t=+$('tt').value; if(quiz && !rev) guess=t; else { playing=false; tog(); } $('ttL').textContent=tfmt(t); dirty=true; });
+  $('ys').addEventListener('input',()=>{ ys=+$('ys').value; compute(); resetQuiz(); syncT(); });
+  $('uu').addEventListener('input',()=>{ U=+$('uu').value; compute(); resetQuiz(); syncT(); });
+  $('diu').addEventListener('change',()=>{ diu=$('diu').value==='on'; compute(); });
+  $('mode').addEventListener('change',()=>{ quiz=$('mode').value==='quiz'; rev=false; guess=null; if(quiz){ playing=false; t=48; } else { t=0; playing=true; } btnVis(); tog(); syncT(); dirty=true; });
+  $('play').addEventListener('click',()=>{ if(!playing && t>=48-1e-6) t=0; playing=!playing; tog(); dirty=true; });
+  $('rew').addEventListener('click',()=>{ t=0; playing=true; tog(); syncT(); dirty=true; });
+  $('rand').addEventListener('click',()=>{ ys=Math.round(rnd(20,48))*10; U=Math.round(rnd(6,12))*5; toff=Math.round(rnd(-2,3)); twf=Math.round(rnd(8,19)*4)/4;
+    twf=Math.max(5,Math.min(twf,Math.floor((44-(xwf(ys)-xcf(ys))/U)*4)/4));
+    $('ys').value=ys; lab('ys'); $('uu').value=U; lab('uu'); compute(); rev=false; guess=null; if(quiz){ t=48; playing=false; } else { t=0; playing=true; } tog(); syncT(); });
+  $('ans').addEventListener('click',()=>{ if(guess===null){ hintT=performance.now(); dirty=true; return; } rev=true; t=tcf; syncT(); dirty=true; });
+  function frame(now){ const dt=Math.min(0.05,Math.max(0,(now-last)/1000)); last=now;
+    if(playing){ t+=dt*(+$('sp').value); if(t>=48){ t=48; playing=false; tog(); } syncT(); dirty=true; }
+    if(hintT && now-hintT<2300) dirty=true;
+    if(dirty){ dirty=false; draw(playing?now*0.06:0); }
+    requestAnimationFrame(frame); }
+  btnVis(); compute(); tog(); syncT(); draw(0); requestAnimationFrame(frame);
+
+  } catch(e) { console.error(e); }
+  (function(){ const fs=$('fsBtn'), panel=document.querySelector('.panel');
+    const req = panel && (panel.requestFullscreen || panel.webkitRequestFullscreen);
+    if (fs && req) { fs.hidden = false; fs.addEventListener('click', () => {
+      const cur = document.fullscreenElement || document.webkitFullscreenElement;
+      if (cur) { (document.exitFullscreen || document.webkitExitFullscreen).call(document); }
+      else { req.call(panel); } }); }
+  })();
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE || document.title)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText((SHARE||document.title)+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'zensen-tenki', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

@@ -35,6 +35,7 @@
 <style>
 .lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
 .lab-ctl .field{margin-bottom:6px;}
+.lab-ctl>*,.lab-stats>*{min-width:0;}
 .lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
 .lab-ctl .slider-head label{margin:0;font-size:13px;}
 .lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
@@ -87,7 +88,7 @@ canvas.lab.light{background:#fff;}
   </div>
 
   <section class="panel">
-    <div style="display:grid;place-items:center;gap:14px;">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;gap:14px;">
       <span class="lab-badge">🔬 中1 火山と地震（地震の伝わり方）</span>
       <canvas id="cv" class="lab light" width="640" height="600"></canvas>
       <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="vp">P波の速さ</label><span class="val" id="vpL"></span></div><input type="range" id="vp" min="4" max="8" value="6" step="0.1" data-fmt="{v} km/秒"></div><div class="field"><div class="slider-head"><label for="vs">S波の速さ</label><span class="val" id="vsL"></span></div><input type="range" id="vs" min="2" max="5" value="3.5" step="0.1" data-fmt="{v} km/秒"></div><div class="field"><div class="slider-head"><label for="dep">震源の深さ</label><span class="val" id="depL"></span></div><input type="range" id="dep" min="0" max="100" value="10" step="5" data-fmt="{v} km"></div><div class="field"><div class="slider-head"><label for="st">観測点を選ぶ</label></div><select id="st"><option value="0" selected>A地点</option><option value="1">B地点</option><option value="2">C地点</option><option value="3">D地点</option><option value="4">E地点</option></select></div><div class="field"><div class="slider-head"><label for="tt">地震発生からの時間</label><span class="val" id="ttL"></span></div><input type="range" id="tt" min="0" max="90" value="0" step="0.1" data-fmt="{v} 秒"></div><div class="field"><div class="slider-head"><label for="sp">再生速度</label><span class="val" id="spL"></span></div><input type="range" id="sp" min="1" max="20" value="8" step="1" data-fmt="×{v}"></div><div class="field"><div class="slider-head"><label for="gm">グラフ</label></div><select id="gm"><option value="ps" selected>初期微動継続時間と距離</option><option value="tt">P波・S波の到着時刻と距離</option></select></div><div class="field"><div class="slider-head"><label for="eew">緊急地震速報（発展）</label></div><select id="eew"><option value="off" selected>表示しない</option><option value="on">表示する</option></select></div></div>

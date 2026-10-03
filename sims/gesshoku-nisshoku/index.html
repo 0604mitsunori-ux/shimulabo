@@ -35,6 +35,7 @@
 <style>
 .lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
 .lab-ctl .field{margin-bottom:6px;}
+.lab-ctl>*,.lab-stats>*{min-width:0;}
 .lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
 .lab-ctl .slider-head label{margin:0;font-size:13px;}
 .lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
@@ -87,7 +88,7 @@ canvas.lab.light{background:#fff;}
   </div>
 
   <section class="panel">
-    <div style="display:grid;place-items:center;gap:14px;">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;gap:14px;">
       <span class="lab-badge">🔬 小6 月と太陽（発展）／中3 月や金星の運動と見え方（日食・月食）</span>
       <canvas id="cv" class="lab" width="640" height="460"></canvas>
       <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="side">見るとき</label></div><select id="side"><option value="full" selected>満月のころ（月食）</option><option value="new">新月のころ（日食）</option></select></div><div class="field"><div class="slider-head"><label for="t">月齢</label><span class="val" id="tL"></span></div><input type="range" id="t" min="-5" max="5" value="0" step="0.1"></div><div class="field"><div class="slider-head"><label for="beta">月の通り道のずれ</label><span class="val" id="betaL"></span></div><input type="range" id="beta" min="-5.15" max="5.15" value="0.3" step="0.05"></div><div class="field"><div class="slider-head"><label for="dist">月までの距離</label></div><select id="dist"><option value="mean" selected>平均（約38万km）</option><option value="near">近いとき（約36万km）</option><option value="far">遠いとき（約41万km）</option></select></div></div>

@@ -35,6 +35,7 @@
 <style>
 .lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
 .lab-ctl .field{margin-bottom:6px;}
+.lab-ctl>*,.lab-stats>*{min-width:0;}
 .lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
 .lab-ctl .slider-head label{margin:0;font-size:13px;}
 .lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
@@ -84,7 +85,7 @@ canvas.lab.light{background:#fff;}
   </div>
 
   <section class="panel">
-    <div style="display:grid;place-items:center;gap:14px;">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;gap:14px;">
       <span class="lab-badge">🧪 バス拡散モデル＋飽き（離脱）項（SIRS型）</span>
       <canvas id="cv" class="lab" width="640" height="360"></canvas>
       <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="p">広告の力（毎月、未経験者の何%が始めるか）</label><span class="val" id="pL"></span></div><input type="range" id="p" min="0.1" max="5" value="0.5" step="0.1" data-fmt="{v}%"></div><div class="field"><div class="slider-head"><label for="q">口コミの力（利用者1人が月に誘う人数）</label><span class="val" id="qL"></span></div><input type="range" id="q" min="0.05" max="1.0" value="0.35" step="0.05" data-fmt="{v}人"></div><div class="field"><div class="slider-head"><label for="r">飽きる速さ（毎月、利用者の何%がやめるか）</label><span class="val" id="rL"></span></div><input type="range" id="r" min="0" max="30" value="8" step="1" data-fmt="{v}%"></div><div class="field"><div class="slider-head"><label for="m">市場の大きさ（潜在的な利用者）</label><span class="val" id="mL"></span></div><input type="range" id="m" min="10" max="1000" value="100" step="10" data-fmt="{v}万人"></div><div class="field"><div class="slider-head"><label for="re">飽きた人は</label></div><select id="re"><option value="no" selected>二度と戻らない（一発屋型）</option><option value="yes">しばらくして戻ることもある（定番型）</option></select></div></div>

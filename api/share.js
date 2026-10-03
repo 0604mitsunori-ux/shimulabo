@@ -139,6 +139,8 @@ const ALLOW = new Set([
   'lotka-volterra', 'queue-docchi', 'elevator-sim', 'shinrai-shinka', 'uwasa-kakusan', 'echo-chamber', 'ryukou-curve', 'tasuketsu-wana', 'manin-densha', 'jisa-shukkin', 'heya-chirakaru', 'neural-play', 'ga-route', 'coffee-milk', 'building-quake', 'tsunami-kishi', 'bank-run', 'maze-ai', 'markov-bunsho', 'kansen-agent',
   // rika
   'tsuki-michikake', 'gesshoku-nisshoku', 'denki-kairo', 'totsu-lens', 'shitsudo-roten', 'jishin-ha', 'teko-tsuriai', 'furiko-jikken', 'joutai-henka', 'mendel-iden',
+  // rika
+  'taiyou-ugoki', 'hoshi-ugoki', 'chisou', 'kazan-kaseigan', 'zensen-tenki', 'nagareru-mizu', 'denryu-jikai', 'kagaku-shitsuryou', 'hito-karada', 'kamu-pulley', 'kinsei-michikake',
 ]);
 
 export default async function handler(req, res) {

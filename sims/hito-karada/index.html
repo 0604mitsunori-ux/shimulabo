@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/hito-karada/">
+<title>血液の循環（肺循環・体循環）シミュレーション｜心臓の4つの部屋・肺胞での呼吸・消化酵素のはたらき（小6・中2理科）｜シミュラボ</title>
+<meta name="description" content="小6「人の体のつくりと働き」・中2「動物の体のつくりと働き」のシミュレーション。心臓の4つの部屋と肺循環・体循環、動脈血と静脈血の流れ、心拍数と1分間に送り出す血液の量、肺胞での気体の交換、消化酵素の分解と柔毛での吸収を動きで確かめられます。">
+<meta property="og:title" content="人の体のつくりと働き（血液の循環・呼吸・消化）シミュレーター">
+<meta property="og:description" content="心拍数を変えると1分間に送り出す血液の量が変わる。肺循環・体循環、肺胞での気体の交換、消化酵素のはたらきを動きで確かめる。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/hito-karada.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/hito-karada.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/hito-karada/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "人の体のつくりと働き（血液の循環・呼吸・消化）", "url": "https://shimulabo.com/sims/hito-karada/", "description": "心拍数を変えると1分間に送り出す血液の量が変わる。肺循環・体循環、肺胞での気体の交換、消化酵素のはたらきを動きで確かめる。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "educationalLevel": "小学6年、中学2年", "learningResourceType": "シミュレーション", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "理科の授業向け", "item": "https://shimulabo.com/rika/"}, {"@type": "ListItem", "position": 3, "name": "人の体のつくりと働き（血液の循環・呼吸・消化）", "item": "https://shimulabo.com/sims/hito-karada/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "肺循環と体循環のちがいは何ですか？", "acceptedAnswer": {"@type": "Answer", "text": "肺循環は、右心室 → 肺動脈 → 肺 → 肺静脈 → 左心房 と流れ、肺で二酸化炭素を出して酸素を受けとる流れです。体循環は、左心室 → 大動脈 → 全身 → 大静脈 → 右心房 と流れ、全身の細胞に酸素や養分をわたし、二酸化炭素などを受けとる流れです。"}}, {"@type": "Question", "name": "動脈血と静脈血のちがいは何ですか？ 肺動脈に流れているのはどちらですか？", "acceptedAnswer": {"@type": "Answer", "text": "動脈血は酸素を多くふくむ血液（あざやかな赤色）、静脈血は二酸化炭素を多くふくむ血液（暗い赤色）です。肺動脈は心臓から肺へ向かう血管なので「動脈」ですが、全身からもどった静脈血が流れています。反対に、肺静脈には動脈血が流れています。"}}, {"@type": "Question", "name": "心臓は1分間にどれくらいの血液を送り出していますか？", "acceptedAnswer": {"@type": "Answer", "text": "安静にしているおとなでは、心拍数が1分間に約70回、1回に送り出す量が約70mLなので、70×70＝4,900mLで、約5Lです。運動するとどちらも増え、1分間に十数Lになることもあります。数値は目安で、年齢や体格によって変わります。"}}, {"@type": "Question", "name": "消化酵素にはどんなものがありますか？", "acceptedAnswer": {"@type": "Answer", "text": "だ液のアミラーゼ（デンプン → 麦芽糖など）、胃液のペプシン（タンパク質を分解）、すい液のアミラーゼ・トリプシン・リパーゼ（リパーゼは脂肪 → 脂肪酸とモノグリセリド）、小腸の壁の消化酵素（→ ブドウ糖・アミノ酸）などがあります。胆汁は消化酵素をふくみませんが、脂肪を細かい粒にして消化を助けます。"}}, {"@type": "Question", "name": "吸う空気とはいた空気では、何がちがいますか？", "acceptedAnswer": {"@type": "Answer", "text": "体積の割合で、酸素は吸う空気で約21%、はいた空気で約17%に減り、二酸化炭素は吸う空気で約0.04%、はいた空気で約4%に増えます。肺の肺胞で、酸素が血液に取り入れられ、二酸化炭素が出されるためです。"}}, {"@type": "Question", "name": "小腸の柔毛（じゅう毛）には、どんな働きがありますか？", "acceptedAnswer": {"@type": "Answer", "text": "小腸の内側のひだをおおう小さな出っぱりで、養分にふれる表面積を大きくして、効率よく吸収します。ブドウ糖とアミノ酸は柔毛の毛細血管に入って肝臓へ運ばれ、脂肪酸とモノグリセリドは柔毛の中で再び脂肪になってリンパ管に入ります。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+<style>
+.lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
+.lab-ctl .field{margin-bottom:6px;}
+.lab-ctl>*,.lab-stats>*{min-width:0;}
+.lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
+.lab-ctl .slider-head label{margin:0;font-size:13px;}
+.lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
+.lab-ctl input[type=range]{width:100%;}
+.lab-ctl select{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;font-size:14px;background:#fff;}
+.lab-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px;}
+.lab-btns .btn{padding:11px 18px;font-size:14px;width:auto;}
+.lab-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;width:100%;max-width:640px;margin-top:4px;}
+.lab-stats .stat{background:var(--teal-l);border-radius:10px;padding:10px 12px;text-align:center;}
+.lab-stats .k{font-size:11px;color:var(--ink-2);}
+.lab-stats .v{font-size:20px;font-weight:800;color:var(--ink);font-feature-settings:"tnum";}
+.lab-stats .v.accent{color:var(--accent);}
+.lab-legend{text-align:center;color:var(--ink-2);font-size:13px;margin-top:12px;}
+.lab-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;background:rgba(44,107,134,.10);color:var(--teal-d);margin-bottom:8px;}
+canvas.lab{width:100%;max-width:640px;height:auto;border:1px solid var(--line);border-radius:12px;background:#0b1020;touch-action:none;}
+canvas.lab.light{background:#fff;}
+.panel:fullscreen,.panel:-webkit-full-screen{overflow:auto;padding:24px;background:var(--bg,#faf8f3);}
+.panel:fullscreen canvas.lab{max-width:min(96vw,1100px);}
+.panel:fullscreen .lab-ctl,.panel:fullscreen .lab-stats{max-width:min(96vw,1100px);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../rika/">🔬 理科の授業向け</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../rika/">理科の授業向け</a><span>›</span><span class="cur">人の体のつくりと働き（血液の循環・呼吸・消化）</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">理科の授業向け</div>
+    <h1>人の体のつくりと働き（血液の循環・呼吸・消化）</h1>
+    <p class="lead">血液の循環（肺循環・体循環）、肺での呼吸、消化と吸収の3つを切りかえて見られます。心拍数を変えると、心臓が1分間に送り出す血液の量も変わります。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;gap:14px;">
+      <span class="lab-badge">🔬 小6 人の体のつくりと働き／中2 動物の体のつくりと働き</span>
+      <canvas id="cv" class="lab light" width="640" height="420"></canvas>
+      <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="lv">ことば</label></div><select id="lv"><option value="s6" selected>小6の言葉</option><option value="c2">中2の言葉</option></select></div><div class="field"><div class="slider-head"><label for="hr">心拍数（1分間）</label><span class="val" id="hrL"></span></div><input type="range" id="hr" min="40" max="200" value="70" step="5" data-fmt="{v}回"></div><div class="field"><div class="slider-head"><label for="sv">1回に送り出す血液の量</label><span class="val" id="svL"></span></div><input type="range" id="sv" min="30" max="130" value="70" step="5" data-fmt="{v}mL"></div><div class="field"><div class="slider-head"><label for="br">呼吸数（1分間）</label><span class="val" id="brL"></span></div><input type="range" id="br" min="6" max="40" value="15" step="1" data-fmt="{v}回"></div><div class="field"><div class="slider-head"><label for="tv">1回の呼吸の量</label><span class="val" id="tvL"></span></div><input type="range" id="tv" min="300" max="3000" value="500" step="100" data-fmt="{v}mL"></div><div class="field"><div class="slider-head"><label for="pos">どこまで進んだか</label><span class="val" id="posL"></span></div><input type="range" id="pos" min="0" max="100" value="0" step="1" data-fmt="{v}%"></div><div class="field"><div class="slider-head"><label for="spd">進む速さ</label></div><select id="spd"><option value="1" selected>ふつう</option><option value="0.5">ゆっくり</option><option value="2">はやい</option></select></div></div>
+      <div class="lab-btns"><button class="btn btn-primary" id="tJ">🫀 ① 血液の循環</button><button class="btn btn-ghost" id="tK">🫁 ② 呼吸</button><button class="btn btn-ghost" id="tS">🍙 ③ 消化と吸収</button><button class="btn btn-ghost" id="pause">⏸ 一時停止</button><button class="btn btn-ghost" id="rest">🧘 安静時</button><button class="btn btn-ghost" id="ex">🏃 運動中</button><button class="btn btn-primary" id="eat">▶ 食べる（最初から）</button></div>
+      <div class="lab-stats"><div class="stat"><div class="k">心拍数（1分間）</div><div class="v" id="s1">—</div></div><div class="stat"><div class="k">1回に送り出す血液の量</div><div class="v" id="s2">—</div></div><div class="stat"><div class="k">1分間に送り出す血液の量</div><div class="v accent" id="s3">—</div></div><div class="stat"><div class="k">1日に送り出す血液の量（目安）</div><div class="v" id="s4">—</div></div></div>
+    </div>
+    <p class="lab-legend">図は模式図です。①は体の正面から見た向き（図の左が体の右）で、酸素が多い血液を赤、二酸化炭素が多い血液を青で表しています（実際の静脈血は暗い赤色）。心臓が打つ速さは実際と同じですが、血液の流れは見やすく速めています。心臓の部屋・血管・臓器をタップすると名前と働きが出ます。③は進み具合の帯をタップ・ドラッグすると、その場所の消化のようすを見られます。数値はおとなの目安で、医療的な判断には使えません。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-ghost" id="fsBtn" hidden>⛶ 全画面で表示</button>
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+<h2>このシミュレーションでわかること</h2>
+<div class="note" style="border-left:4px solid var(--teal)"><strong>ポイント</strong>：血液は、心臓の働きで体の中をめぐり、酸素・養分・二酸化炭素などを運んでいます。心臓から肺へ行ってもどる流れを<b>肺循環</b>、心臓から全身へ行ってもどる流れを<b>体循環</b>といいます。肺から心臓にもどる血液には酸素が多く、全身から心臓にもどる血液には二酸化炭素が多くふくまれます。</div>
+<p>小学校6年の理科「人の体のつくりと働き」（学習指導要領 第6学年 B（1））と、中学校2年の理科「動物の体のつくりと働き」（第2分野（3）ア（ｳ）の「生命を維持する働き」）で学ぶ内容です。小学校の学習指導要領解説（理科編 p.86）には、人や動物の体のつくりや働きを調べるときに「映像や模型，図書，コンピュータシミュレーションなどを活用」することが書かれています。</p>
+<p>画面は3つです。<b>①血液の循環</b>では、心拍数と1回に送り出す血液の量から、心臓が1分間に送り出す血液の量を計算します。<b>②呼吸</b>では、肺の中の肺胞で酸素と二酸化炭素が入れかわるようすを、<b>③消化と吸収</b>では、食べ物が口から小腸へ進むあいだに消化され、柔毛から吸収されるようすを見られます。「ことば」で、小6向けと中2向けの言い方を切りかえられます（例：「酸素が多い血液」⇔「動脈血」、「だ液」⇔「アミラーゼ」）。</p>
+<h2>授業での使い方</h2>
+<ul>
+<li><b>導入</b>：自分の脈拍を15秒数えて4倍し、1分間の脈拍を求めます。①の画面で心拍数を同じ値にして、「心臓が1回ちぢむと、手首の脈が1回ふれる」ことを確かめます。</li>
+<li><b>展開</b>：①で血液の色が変わる場所（肺と全身の毛細血管）に注目させ、酸素と二酸化炭素がどこで入れかわるかを考えます。②は気体検知管で吸う空気とはいた空気を調べる実験の前後に、③はだ液でデンプンの変化を調べる実験（ヨウ素液）の前後に使えます。心臓の部屋・血管・臓器をタップすると、名前と働きが表示されます。</li>
+<li><b>まとめ</b>：3つの画面を行き来して、呼吸・消化・血液の循環・排出に関わる臓器が、たがいに関わり合って生命を維持していることを整理します。画面のアドレスの最後に <code>#kokyu</code>（呼吸）や <code>#shoka</code>（消化と吸収）を付けると、その画面から始まります。</li>
+</ul>
+<p>児童・生徒への問いの例：</p>
+<ol>
+<li>肺から心臓にもどる血液と、全身から心臓にもどる血液では、何がちがうでしょう。（中2：肺動脈と肺静脈には、それぞれ動脈血・静脈血のどちらが流れているでしょう。）</li>
+<li>運動すると脈拍が増えるのはなぜでしょう。「1分間に送り出す血液の量」を使って説明しましょう。</li>
+<li>ごはんをよくかんでいると甘く感じるのはなぜでしょう。だ液は、でんぷんにどんな変化を起こすでしょう。</li>
+</ol>
+<h2>しくみ・解説</h2>
+<h3>血液の循環（肺循環と体循環）</h3>
+<p>心臓は筋肉でできたポンプで、中は4つの部屋（右心房・右心室・左心房・左心室）に分かれています。図は体の正面から見た向きなので、<b>図の左側が体の右側</b>です。</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>心臓の部屋</th><th>つながる血管</th><th>流れる血液</th></tr><tr><td>右心房</td><td>大静脈（全身から）</td><td>静脈血（二酸化炭素が多い）</td></tr><tr><td>右心室</td><td>肺動脈（肺へ）</td><td>静脈血</td></tr><tr><td>左心房</td><td>肺静脈（肺から）</td><td>動脈血（酸素が多い）</td></tr><tr><td>左心室</td><td>大動脈（全身へ）</td><td>動脈血</td></tr></table></div>
+<ul>
+<li><b>肺循環</b>：右心室 → 肺動脈 → 肺の毛細血管（二酸化炭素を出し、酸素を受けとる）→ 肺静脈 → 左心房</li>
+<li><b>体循環</b>：左心室 → 大動脈 → 全身の毛細血管（酸素や養分をわたし、二酸化炭素などを受けとる）→ 大静脈 → 右心房</li>
+</ul>
+<div class="note">血管の名前は「心臓から出ていく血管＝動脈」「心臓にもどる血管＝静脈」で決まり、血液の名前は「酸素が多い＝動脈血」「二酸化炭素が多い＝静脈血」で決まります。そのため、<b>肺動脈には静脈血、肺静脈には動脈血</b>が流れています。</div>
+<p>心臓の部屋の出口や静脈には<b>弁</b>があり、血液が逆にもどらないようにしています。全身に血液を送り出す左心室は、かべの筋肉がいちばん厚くなっています。</p>
+<h3>1分間に送り出す血液の量の計算</h3>
+<div class="note">1分間に送り出す血液の量 ＝ 心拍数（1分間）× 1回に送り出す量<br>例：70回 × 70mL ＝ 4,900mL ≒ 約4.9L</div>
+<p>1日では 4.9L × 60 × 24 ＝ 約7,056L（200Lのドラム缶 約35本分）になります。1日の拍動の回数は 70 × 60 × 24 ＝ 約100,800回です。おとなの体の血液は約5L（体重の約13分の1）なので、安静時は約1分で、体の血液と同じくらいの量が心臓から送り出されている計算になります。</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>体のようす</th><th>心拍数（1分間）</th><th>1回に送り出す量</th><th>1分間に送り出す量</th></tr><tr><td>安静にしているとき（おとなの目安）</td><td>約70回</td><td>約70mL</td><td>約4.9L</td></tr><tr><td>運動中（ジョギングくらいの目安）</td><td>約130回</td><td>約100mL</td><td>約13L</td></tr></table></div>
+<p>運動すると、筋肉がたくさんの酸素と養分を使うので、心拍数も1回に送り出す量も増え、1分間に送り出す血液の量は数倍になります。子どもは体が小さいぶん1回に送り出す量が少なく、心拍数はおとなより多めです。これらの数値は目安で、年齢・体格・体調によって変わります。<b>このシミュレーションは学習用で、医療的な判断に使うものではありません。</b>自分の脈拍の目安は<a href="../myakuhaku-heikin/">脈拍・心拍数 平均チェック</a>でも確かめられます。</p>
+<h3>呼吸（肺胞での気体の交換）</h3>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>気体（体積の割合）</th><th>吸う空気</th><th>はいた空気</th></tr><tr><td>酸素</td><td>約21%</td><td>約17%</td></tr><tr><td>二酸化炭素</td><td>約0.04%</td><td>約4%</td></tr></table></div>
+<p>残りはおもにちっ素（約78%）で、ほとんど変わりません。肺の中には、気管支の先に<b>肺胞</b>という小さなふくろが数億個あり、まわりを毛細血管がとりまいています。肺胞の中の空気から酸素が血液にとけこみ、血液中の二酸化炭素が肺胞の中に出されます。肺胞がたくさんあることで、空気にふれる表面積が大きくなり、気体の交換が効率よく行われます。肺には筋肉がないので、中学校では<b>横隔膜</b>やろっ骨の間の筋肉の動きで肺がふくらんだりちぢんだりすることも学びます。</p>
+<div class="note">1分間に出入りする空気の量 ＝ 呼吸数 × 1回の呼吸の量 ＝ 15回 × 500mL ＝ 7.5L<br>取り入れる酸素の量（目安）＝ 7.5L × （21% − 17%）＝ 約300mL</div>
+<p>安静時のおとなの呼吸数は1分間に12〜20回ほど、1回の呼吸で出入りする空気は約500mLが目安です。運動中は呼吸数も1回の量も増え、30回 × 1,500mL なら1分間に45Lになります。取り入れられた酸素は、血液によって全身の細胞に運ばれ、養分からエネルギーを取り出すのに使われます。</p>
+
+<h3>消化と吸収（消化酵素の働き）</h3>
+<p>食べ物は、口 → 食道 → 胃 → 小腸 → 大腸 → こう門（肛門）と進みます。この1本の管を消化管といいます。消化液にふくまれる<b>消化酵素</b>が、養分を小さな物に分解して、小腸から吸収されやすくします。</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>消化液</th><th>出すところ</th><th>消化酵素</th><th>分解するもの → できるもの</th></tr><tr><td>だ液</td><td>だ液せん</td><td>アミラーゼ</td><td>デンプン → 麦芽糖など</td></tr><tr><td>胃液</td><td>胃</td><td>ペプシン</td><td>タンパク質 → 小さく分解</td></tr><tr><td>胆汁</td><td>肝臓（胆のうにためる）</td><td>ふくまない</td><td>脂肪を細かい粒にして、分解を助ける</td></tr><tr><td>すい液</td><td>すい臓</td><td>アミラーゼ</td><td>デンプン → 麦芽糖など</td></tr><tr><td>すい液</td><td>すい臓</td><td>トリプシン</td><td>タンパク質 → さらに小さく分解</td></tr><tr><td>すい液</td><td>すい臓</td><td>リパーゼ</td><td>脂肪 → 脂肪酸とモノグリセリド</td></tr><tr><td>小腸の壁の消化酵素</td><td>小腸</td><td>いくつかの消化酵素</td><td>麦芽糖など → ブドウ糖／分解されたタンパク質 → アミノ酸</td></tr></table></div>
+<ul>
+<li><b>ブドウ糖とアミノ酸</b>：小腸の柔毛（じゅう毛）の<b>毛細血管</b>に入り、肝臓を通って全身へ運ばれます。</li>
+<li><b>脂肪酸とモノグリセリド</b>：柔毛に吸収されたあと再び脂肪になり、<b>リンパ管</b>に入って、やがて血液に合流します。</li>
+<li>水分はおもに小腸で吸収され、大腸でも吸収されます。吸収されなかった物は、便としてこう門から出されます。</li>
+</ul>
+<p>小6の言葉の画面では、消化酵素の名前は出さずに「だ液」「胃液」などの消化液で表し、でんぷんからできる物を「糖」と表しています。だ液の実験では、ヨウ素液はでんぷんがあると青むらさき色になります。だ液を入れて体温くらい（約40℃）にあたためたでんぷんの液では、ヨウ素液を加えても色が変わらず、でんぷんが別の物に変わったことがわかります。小腸の内側にはたくさんのひだがあり、その表面は柔毛という小さな出っぱりでおおわれているので、養分を吸収する表面積がとても大きくなっています（小腸の長さは、のばすと約6m）。</p>
+<h3>このシミュレーションで単純にしていること</h3>
+<ul>
+<li>心臓と血管は模式図です。肺の毛細血管はまとめて1つの箱で、全身の毛細血管は「脳・うで」「小腸 → 肝臓」「腎臓」「あし」の4つの通り道で表しています。</li>
+<li>見やすくするため、酸素が多い血液を赤、二酸化炭素が多い血液を青で表しています。実際の静脈血は暗い赤色です。</li>
+<li>心臓が打つ速さ（心拍数）は実際と同じですが、血液が流れる速さは見やすいように速くしています（実際は約1分で体をひとめぐりします）。</li>
+<li>③の消化と吸収は、場所ごとにかかる時間を実際より大きく縮めています。実際には、胃に2〜4時間ほどとどまり、食べてから便になって出るまでには24〜72時間ほどかかるといわれ、個人差が大きいです。「吸収された養分」の％は、このモデルの中での目安です。</li>
+<li>数値はおとなの目安です。医療的な判断には使えません。</li>
+</ul>
+<h2>参考</h2>
+<ul class="seo-refs">
+<li>文部科学省「小学校学習指導要領（平成29年告示）解説 理科編」第6学年 B（1）人の体のつくりと働き（pp.85〜86）（<a href="https://www.mext.go.jp/a_menu/shotou/new-cs/1387014.htm" target="_blank" rel="noopener">文部科学省 小学校学習指導要領解説のページ</a>）</li>
+<li>文部科学省「中学校学習指導要領（平成29年告示）解説 理科編」第2分野（3）ア（ｳ）動物の体のつくりと働き（pp.89〜90）（<a href="https://www.mext.go.jp/a_menu/shotou/new-cs/1387016.htm" target="_blank" rel="noopener">文部科学省 中学校学習指導要領解説のページ</a>）</li>
+<li>小学校理科の教科書（東京書籍「新しい理科」、啓林館「わくわく理科」、大日本図書「たのしい理科」など）6年「人の体のつくりと働き」</li>
+<li>中学校理科の教科書（東京書籍「新しい科学」、啓林館「未来へひろがるサイエンス」、大日本図書「理科の世界」など）2年「動物の体のつくりと働き」</li>
+<li>教育出版 小学校理科のウェブ資料「消化の仕組み」（<a href="https://www.kyoiku-shuppan.co.jp/docs/pages/rika/6_jintai/shoka/shoka1.html" target="_blank" rel="noopener">教育出版のページ</a>）</li>
+</ul>
+
+    <h2>引用・転載について</h2>
+    <p>本ページのシミュレーション結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・授業や社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「人の体のつくりと働き（血液の循環・呼吸・消化）」 https://shimulabo.com/sims/hito-karada/</code></div>
+    <h2>よくある質問</h2><dl class="faq"><dt>肺循環と体循環のちがいは何ですか？</dt><dd>肺循環は、右心室 → 肺動脈 → 肺 → 肺静脈 → 左心房 と流れ、肺で二酸化炭素を出して酸素を受けとる流れです。体循環は、左心室 → 大動脈 → 全身 → 大静脈 → 右心房 と流れ、全身の細胞に酸素や養分をわたし、二酸化炭素などを受けとる流れです。</dd><dt>動脈血と静脈血のちがいは何ですか？ 肺動脈に流れているのはどちらですか？</dt><dd>動脈血は酸素を多くふくむ血液（あざやかな赤色）、静脈血は二酸化炭素を多くふくむ血液（暗い赤色）です。肺動脈は心臓から肺へ向かう血管なので「動脈」ですが、全身からもどった静脈血が流れています。反対に、肺静脈には動脈血が流れています。</dd><dt>心臓は1分間にどれくらいの血液を送り出していますか？</dt><dd>安静にしているおとなでは、心拍数が1分間に約70回、1回に送り出す量が約70mLなので、70×70＝4,900mLで、約5Lです。運動するとどちらも増え、1分間に十数Lになることもあります。数値は目安で、年齢や体格によって変わります。</dd><dt>消化酵素にはどんなものがありますか？</dt><dd>だ液のアミラーゼ（デンプン → 麦芽糖など）、胃液のペプシン（タンパク質を分解）、すい液のアミラーゼ・トリプシン・リパーゼ（リパーゼは脂肪 → 脂肪酸とモノグリセリド）、小腸の壁の消化酵素（→ ブドウ糖・アミノ酸）などがあります。胆汁は消化酵素をふくみませんが、脂肪を細かい粒にして消化を助けます。</dd><dt>吸う空気とはいた空気では、何がちがいますか？</dt><dd>体積の割合で、酸素は吸う空気で約21%、はいた空気で約17%に減り、二酸化炭素は吸う空気で約0.04%、はいた空気で約4%に増えます。肺の肺胞で、酸素が血液に取り入れられ、二酸化炭素が出されるためです。</dd><dt>小腸の柔毛（じゅう毛）には、どんな働きがありますか？</dt><dd>小腸の内側のひだをおおう小さな出っぱりで、養分にふれる表面積を大きくして、効率よく吸収します。ブドウ糖とアミノ酸は柔毛の毛細血管に入って肝臓へ運ばれ、脂肪酸とモノグリセリドは柔毛の中で再び脂肪になってリンパ管に入ります。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../myakuhaku-heikin/"><span class="e">💓</span><span>脈拍・心拍数 平均チェック</span></a><a class="related-card" href="../reaction-test/"><span class="e">⚡</span><span>反応速度テスト</span></a><a class="related-card" href="../mendel-iden/"><span class="e">🌱</span><span>遺伝の規則性シミュレーター</span></a><a class="related-card" href="../diffusion/"><span class="e">🫧</span><span>拡散シミュレーター</span></a><a class="related-card" href="../ketsueki-iden/"><span class="e">🩸</span><span>血液型 遺伝 判定</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../rika/">🔬 理科の授業向けシミュレーター</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+  const rnd = (a,b) => a + Math.random()*(b-a);
+  const randn = () => { let u=0,v=0; while(!u)u=Math.random(); while(!v)v=Math.random(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
+  let SHARE = '';
+  function setShare(t){ SHARE = t; }
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{ const l=$(s.id+'L'); if(l){ const u=()=>{ l.textContent = (s.dataset.fmt ? s.dataset.fmt.replace('{v}', s.value) : s.value); }; s.addEventListener('input',u); u(); } }); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  function setStat(id, v){ const e=$(id); if(e) e.textContent = v; }
+  try {
+    syncSliders();
+
+  const cv=$('cv'); const dpr=Math.min(2,window.devicePixelRatio||1); const W=cv.width,H=cv.height; cv.width=W*dpr; cv.height=H*dpr; const ctx=cv.getContext('2d'); ctx.setTransform(dpr,0,0,dpr,0,0);
+  const h1=document.querySelector('.sim-head h1'); if(h1&&!h1.children.length){ const t=h1.textContent, i=t.indexOf('（'); if(i>0){ h1.textContent=t.slice(0,i); const sp=document.createElement('span'); sp.style.display='inline-block'; sp.textContent=t.slice(i); h1.appendChild(sp); } }
+  const RED=[220,38,38], BLUE=[37,99,235];
+  const mixc=(a,b,f)=>'rgb('+Math.round(a[0]+(b[0]-a[0])*f)+','+Math.round(a[1]+(b[1]-a[1])*f)+','+Math.round(a[2]+(b[2]-a[2])*f)+')';
+  const sm=(v)=>{ v=clamp(v,0,1); return v*v*(3-2*v); };
+  const lerp=(a,b,f)=>a+(b-a)*f;
+  const bump=(p,a,b)=>(p>=a&&p<=b)?Math.sin(Math.PI*(p-a)/(b-a)):0;
+  const S6=()=>$('lv').value==='s6';
+  const tx=(a,b)=>(S6()?a:b);
+  const fld=(id)=>$(id).closest('.field');
+  let mode='J', run=true, T=0, cph=0, rph=0, beatN=0, beatT=-9, pulses=[], info=null, dragTL=false, dp=0, lastKey='';
+  const bar=document.createElement('div'); bar.className='lab-btns'; bar.style.marginTop='0';
+  ['tJ','tK','tS'].forEach((id)=>{ const b=$(id); if(b) bar.appendChild(b); });
+  cv.parentNode.insertBefore(bar,cv);
+  cv.parentNode.style.gridTemplateColumns='minmax(0,1fr)';
+  function setK(id,s){ const e=$(id); if(e&&e.previousElementSibling) e.previousElementSibling.textContent=s; }
+  function setV(id,s){ const e=$(id); if(!e) return; e.textContent=s; e.style.fontSize=s.length>10?'14px':(s.length>7?'16px':''); }
+  // ---------- 描画の道具
+  function rrect(x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
+  function txt(t,x,y,size,col,weight,align,maxW,halo){ ctx.textAlign=align||'left'; let s=size; ctx.font=(weight||'')+' '+s+'px sans-serif';
+    if(maxW){ while(ctx.measureText(t).width>maxW&&s>8){ s-=0.5; ctx.font=(weight||'')+' '+s+'px sans-serif'; } }
+    if(halo){ ctx.lineWidth=3.5; ctx.strokeStyle='rgba(255,255,255,.92)'; ctx.lineJoin='round'; ctx.strokeText(t,x,y); }
+    ctx.fillStyle=col||'#0f172a'; ctx.fillText(t,x,y); }
+  function dot(x,y,r,c){ ctx.fillStyle=c; ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2); ctx.fill(); }
+  function poly(pts,w,c,dash){ ctx.strokeStyle=c; ctx.lineWidth=w; ctx.lineJoin='round'; ctx.lineCap='round'; if(dash) ctx.setLineDash(dash); ctx.beginPath(); pts.forEach((p,i)=>{ if(i) ctx.lineTo(p[0],p[1]); else ctx.moveTo(p[0],p[1]); }); ctx.stroke(); if(dash) ctx.setLineDash([]); }
+  function panel(x,y,w,h){ ctx.fillStyle='rgba(255,255,255,.95)'; rrect(x,y,w,h,10); ctx.fill(); ctx.strokeStyle='#e2e8f0'; ctx.lineWidth=1; ctx.stroke(); }
+  function mkPath(pts){ const cum=[0]; for(let i=1;i<pts.length;i++) cum.push(cum[i-1]+Math.hypot(pts[i][0]-pts[i-1][0],pts[i][1]-pts[i-1][1])); return {pts:pts,cum:cum,len:cum[cum.length-1]}; }
+  function at(P,d){ d=clamp(d,0,P.len); let lo=0,hi=P.cum.length-1; while(hi-lo>1){ const m=(lo+hi)>>1; if(P.cum[m]<=d) lo=m; else hi=m; }
+    const sg=(P.cum[hi]-P.cum[lo])||1, f=(d-P.cum[lo])/sg, a=P.pts[lo], b=P.pts[hi]; return [a[0]+(b[0]-a[0])*f, a[1]+(b[1]-a[1])*f]; }
+  function bez(p0,p1,p2,p3,n){ const o=[]; for(let i=0;i<=n;i++){ const t=i/n,u=1-t; o.push([u*u*u*p0[0]+3*u*u*t*p1[0]+3*u*t*t*p2[0]+t*t*t*p3[0], u*u*u*p0[1]+3*u*u*t*p1[1]+3*u*t*t*p2[1]+t*t*t*p3[1]]); } return o; }
+  function arcPts(c,r,a0,a1,n){ const o=[]; for(let i=0;i<=n;i++){ const a=(a0+(a1-a0)*i/n)*Math.PI/180; o.push([c[0]+r*Math.cos(a), c[1]+r*Math.sin(a)]); } return o; }
+  function inR(x,y,a,b,c,d){ return x>=a&&x<=c&&y>=b&&y<=d; }
+  function nearPts(pts,x,y,r){ for(const p of pts){ if(Math.hypot(p[0]-x,p[1]-y)<r) return true; } return false; }
+  function wrapLines(t,maxW){ const out=[]; let cur=''; for(const ch of t){ if(ctx.measureText(cur+ch).width>maxW&&cur){ out.push(cur); cur=ch; } else cur+=ch; } if(cur) out.push(cur); return out; }
+  function bubble(){ if(!info) return; ctx.font='12.5px sans-serif'; const lines=wrapLines(info.t,250); let w=0; lines.forEach((l)=>{ w=Math.max(w,ctx.measureText(l).width); }); w+=18; const h=lines.length*18+12;
+    const x=clamp(info.x-w/2,6,W-w-6); let y=info.y-h-14; if(y<6) y=Math.min(H-h-6,info.y+16);
+    ctx.globalAlpha=Math.min(1,info.life*2); ctx.fillStyle='rgba(15,23,42,.93)'; rrect(x,y,w,h,8); ctx.fill(); lines.forEach((l,i)=>txt(l,x+9,y+20+i*18,12.5,'#fff','','left')); ctx.globalAlpha=1; }
+
+  // ================= ① 血液の循環
+  const RA=[230,132,70,58], RV=[230,194,88,68], LA=[340,132,70,58], LV=[322,194,88,68];
+  const EN=[309,98], EX=[331,98], LANES=[300,328,356,384], LW=[0.3,0.25,0.2,0.25];
+  const LOOPS=[[60,30],[140,52],[220,72],[300,94]].map((q)=>bez(EN,[EN[0]-q[0],EN[1]-q[1]],[EX[0]+q[0],EX[1]-q[1]],EX,32));
+  const H1=LOOPS.map((lp)=>{ const a=[[230,160],[262,160],[264,198],[278,232],[309,236],[309,194],[309,120]]; const pts=a.concat(lp); const i0=a.length, i1=pts.length-1;
+    const P=mkPath(pts.concat([[331,108],[392,122],[392,136],[392,160],[380,198],[364,232],[410,236]])); P.o0=P.cum[i0]; P.o1=P.cum[i1]; return P; });
+  const H2=LANES.map((y)=>{ const pts=[[410,236],[544,236],[544,y],[506,y]]; const c0=pts.length; for(let x=496;x>=316;x-=4) pts.push([x,y+3+3.5*Math.sin((496-x)/6)]); const c1=pts.length-1;
+    pts.push([300,y+6],[136,y+6],[96,y+6],[96,160],[230,160]); const P=mkPath(pts); P.c0=P.cum[c0]; P.c1=P.cum[c1]; P.cm=(P.c0+P.c1)/2; P.e1=P.cum[c0+12]; P.e2=P.cum[c0+34]; P.cap=pts.slice(c0,c1+1); return P; });
+  function pickLane(){ let r=Math.random(), j=0; while(j<3&&r>LW[j]){ r-=LW[j]; j++; } return j; }
+  const parts=[]; for(let i=0;i<100;i++){ const h=Math.random()<0.45?0:1, k=h?pickLane():(Math.random()*4|0), PP=h?H2[k]:H1[k]; parts.push({h:h,k:k,d:Math.random()*PP.len,nut:Math.random()<0.2,ws:Math.random()<0.3}); }
+  function oxy(p){ const P=p.h?H2[p.k]:H1[p.k]; if(!p.h){ if(p.d<=P.o0) return 0; if(p.d>=P.o1) return 1; return sm((p.d-P.o0)/(P.o1-P.o0)*1.7); }
+    if(p.d<=P.c0) return 1; if(p.d>=P.c1) return 0; return 1-sm((p.d-P.c0)/(P.c1-P.c0)*1.5); }
+  function stepJ(dt){ const hr=+$('hr').value, sv=+$('sv').value, Q=hr*sv/1000, ph=cph%1;
+    const v=210*(Q/4.9)*(0.55+1.1*bump(ph,0.15,0.5))/0.795;
+    for(const p of parts){ const P=p.h?H2[p.k]:H1[p.k]; const d0=p.d; p.d+=v*dt; const cr=(e)=>d0<e&&p.d>=e;
+      if(p.h){ if(p.k===0||p.k===3){ if(cr(P.cm)){ p.nut=false; if(Math.random()<0.7) p.ws=true; } }
+        else if(p.k===1){ if(cr(P.e1)) p.nut=true; if(cr(P.e2)&&p.nut&&Math.random()<0.35) p.nut=false; }
+        else if(cr(P.cm)) p.ws=false; }
+      if(p.d>=P.len){ p.d-=P.len; p.h=1-p.h; p.k=p.h?pickLane():(Math.random()*4|0); const P2=p.h?H2[p.k]:H1[p.k]; if(p.d>P2.len) p.d=0; } } }
+  function chamber(r,s,f,st,lw){ const cx=r[0]+r[2]/2, cy=r[1]+r[3]/2, w=r[2]*s, h=r[3]*s; rrect(cx-w/2,cy-h/2,w,h,11); ctx.fillStyle=f; ctx.fill(); ctx.strokeStyle=st; ctx.lineWidth=lw; ctx.stroke(); }
+  function valve(x,y,a,o){ ctx.save(); ctx.translate(x,y); ctx.rotate(a); ctx.strokeStyle='#9a3412'; ctx.lineWidth=2.2; ctx.lineCap='round'; const h=7;
+    ctx.beginPath(); ctx.moveTo(0,-h); ctx.lineTo(lerp(3,9,o),lerp(0,-h+1,o)); ctx.moveTo(0,h); ctx.lineTo(lerp(3,9,o),lerp(0,h-1,o)); ctx.stroke(); ctx.restore(); }
+  function drawJ(){ const s6=S6(), hr=+$('hr').value, sv=+$('sv').value, Q=hr*sv, ph=cph%1;
+    const aS=1-0.07*bump(ph,0,0.13), vS=1-0.08*bump(ph,0.15,0.5);
+    const VEN='#93c5fd', VENi='#eff6ff', ART='#fca5a5', ARTi='#fef2f2';
+    // 肺
+    ctx.fillStyle='#fdf2f8'; rrect(196,6,248,96,34); ctx.fill(); ctx.strokeStyle='#f9a8d4'; ctx.lineWidth=2; ctx.stroke();
+    ctx.fillStyle='rgba(244,114,182,.10)'; ctx.beginPath(); ctx.ellipse(262,56,58,42,0,0,Math.PI*2); ctx.fill(); ctx.beginPath(); ctx.ellipse(378,56,58,42,0,0,Math.PI*2); ctx.fill();
+    poly([[320,0],[320,20]],8,'#cbd5e1');
+    LOOPS.forEach((lp)=>poly(lp,1.4,'rgba(219,39,119,.32)'));
+    txt(tx('肺','肺（毛細血管）'),210,28,13,'#be185d','bold','left',0,true);
+    // 全身（毛細血管の通り道）
+    const LC=['#f8fafc','#fefce8','#f5f3ff','#f8fafc'];
+    poly([[96,160],[96,392]],13,VEN); poly([[96,160],[96,392]],8,VENi);
+    poly([[544,236],[544,392]],13,ART); poly([[544,236],[544,392]],8,ARTi);
+    LANES.forEach((y,j)=>{ ctx.fillStyle=LC[j]; rrect(128,y-13,384,26,8); ctx.fill(); ctx.strokeStyle='#e2e8f0'; ctx.lineWidth=1; ctx.stroke();
+      if(j===1){ ctx.fillStyle='#fef3c7'; rrect(410,y-12,94,24,6); ctx.fill(); ctx.fillStyle='#ffedd5'; rrect(318,y-12,90,24,6); ctx.fill();
+        txt('小腸',457,y-3,9.5,'#a16207','bold','center'); txt(tx('かん臓','肝臓'),363,y-3,9.5,'#9a3412','bold','center'); }
+      if(j===2){ ctx.fillStyle='#ede9fe'; rrect(318,y-12,186,24,6); ctx.fill(); }
+      poly(H2[j].cap,1.3,'rgba(219,39,119,.45)');
+      poly([[544,y],[506,y]],7,ART); poly([[136,y+6],[96,y+6]],7,VEN);
+      const nm=['脳・うで など',tx('小腸 → かん臓','小腸 → 肝臓'),tx('じん臓','腎臓'),'あし など'][j];
+      const an=['',' 養分を受けとる',tx(' 不要な物をこし出す（→にょう）',' 尿素などをこし出す（→尿）'),''][j];
+      txt(nm,136,y-1,11.5,'#334155','bold'); if(an){ ctx.font='bold 11.5px sans-serif'; const w=ctx.measureText(nm).width; txt(an,136+w,y-1,10.5,'#64748b','','left',176-w); } });
+    // 心臓
+    ctx.fillStyle='#ffe4e6'; rrect(222,124,196,146,30); ctx.fill(); ctx.strokeStyle='#fb7185'; ctx.lineWidth=2; ctx.stroke();
+    chamber(RA,aS,'#dbeafe','#60a5fa',2); chamber(RV,vS,'#dbeafe','#60a5fa',2.5); chamber(LA,aS,'#fee2e2','#f87171',2); chamber(LV,vS,'#fee2e2','#ef4444',4.5);
+    // 血管
+    poly([[230,160],[96,160]],13,VEN); poly([[230,160],[96,160]],8,VENi);
+    poly([[410,236],[544,236]],13,ART); poly([[410,236],[544,236]],8,ARTi);
+    poly([[309,198],[309,98]],13,VEN); poly([[309,198],[309,98]],8,VENi);
+    poly([[331,98],[331,108],[392,122],[392,136]],13,ART); poly([[331,98],[331,108],[392,122],[392,136]],8,ARTi);
+    if(!s6){ const av=1-sm(bump(ph,0.12,0.52)*1.6), sl=sm(bump(ph,0.17,0.48)*1.6);
+      valve(264,195,Math.PI/2,av); valve(380,195,Math.PI/2,av); valve(309,196,-Math.PI/2,sl); valve(413,236,0,sl); txt('弁',248,200,10,'#9a3412','bold','right',0,true); }
+    // 血液の粒
+    for(const p of parts){ const P=p.h?H2[p.k]:H1[p.k]; const q=at(P,p.d); dot(q[0],q[1],3.4,mixc(BLUE,RED,oxy(p))); if(p.nut) dot(q[0]+3,q[1]-3,1.9,'#eab308'); if(p.ws) dot(q[0]-3,q[1]-3,1.9,'#6b7280'); }
+    // 部屋の名前
+    if(s6){ txt('全身から',265,144,10.5,'#1e3a8a','bold','center',0,true); txt('もどる',265,155,10.5,'#1e3a8a','bold','center',0,true);
+      txt('肺へ',268,250,10.5,'#1e3a8a','bold','center',0,true); txt('送り出す',268,261,10.5,'#1e3a8a','bold','center',0,true);
+      txt('肺から',345,150,10.5,'#991b1b','bold','left',0,true); txt('もどる',345,162,10.5,'#991b1b','bold','left',0,true);
+      txt('全身へ',362,250,10.5,'#991b1b','bold','center',0,true); txt('送り出す',362,261,10.5,'#991b1b','bold','center',0,true); }
+    else { txt('右心房',265,152,12,'#1e3a8a','bold','center',0,true); txt('右心室',266,256,12,'#1e3a8a','bold','center',0,true);
+      txt('左心房',344,152,12,'#991b1b','bold','left',0,true); txt('左心室',360,256,12,'#991b1b','bold','center',0,true); }
+    txt(tx('全身から','大静脈'),106,234,12,'#1d4ed8','bold','left',0,true);
+    txt(tx('全身へ','大動脈'),538,272,12,'#b91c1c','bold','right',0,true);
+    txt(tx('肺へ','肺動脈'),302,118,12,'#1d4ed8','bold','right',0,true);
+    txt(tx('肺から','肺静脈'),400,120,12,'#b91c1c','bold','left',0,true);
+    txt('体の正面から見た図（図の左が体の右）',320,281,10,'#64748b','','center');
+    if(T-beatT<0.4){ ctx.globalAlpha=1-(T-beatT)/0.4; txt('ドクン',426,176,17,'#e11d48','bold','left'); ctx.globalAlpha=1; }
+    // 左上：色の説明
+    panel(6,6,186,102);
+    dot(18,22,5,mixc(BLUE,RED,1)); txt(tx('酸素が多い血液','動脈血（酸素が多い）'),28,26,11.5,'#0f172a','bold','left',160);
+    dot(18,41,5,mixc(BLUE,RED,0)); txt(tx('二酸化炭素が多い血液','静脈血（二酸化炭素が多い）'),28,45,11.5,'#0f172a','bold','left',160);
+    txt(tx('肺をめぐる：心臓→肺→心臓','肺循環：心臓→肺→心臓'),14,65,11,'#334155','','left',172);
+    txt(tx('全身をめぐる：心臓→全身→心臓','体循環：心臓→全身→心臓'),14,82,11,'#334155','','left',172);
+    dot(19,96,3,'#eab308'); txt('養分',26,100,10.5,'#475569'); dot(64,96,3,'#6b7280'); txt('不要な物（二酸化炭素以外）',71,100,10.5,'#475569','','left',116);
+    // 右上：1分間の量
+    panel(450,6,184,102);
+    txt(tx('1分間に心臓が送り出す血液','1分間に送り出す血液の量'),542,24,11.5,'#475569','bold','center',172);
+    txt((Q/1000).toFixed(1)+' L',542,58,30,'#b91c1c','bold','center');
+    txt(hr+'回 × '+sv+'mL ＝ '+num(Q)+'mL',542,79,12,'#334155','','center',172);
+    txt('1日で 約'+num(Q*1.44)+' L（目安）',542,98,11,'#64748b','','center',172);
+    // 手首の脈
+    panel(552,124,82,90); txt(tx('手首の脈','手首の脈拍'),593,140,11,'#475569','bold','center');
+    ctx.strokeStyle='#e11d48'; ctx.lineWidth=1.7; ctx.beginPath();
+    for(let x=558;x<=628;x++){ const tt=T-(628-x)/70*2.4; let v=0; for(const pt of pulses){ const u=tt-pt; if(u>=0&&u<0.42) v+=Math.sin(Math.PI*u/0.42)*Math.exp(-2.2*u); } const y=192-v*30; if(x===558) ctx.moveTo(x,y); else ctx.lineTo(x,y); }
+    ctx.stroke(); txt(tx('心臓1回＝脈1回','拍動1回＝脈拍1回'),593,208,9.5,'#64748b','','center',78); }
+  function hitJ(x,y){
+    if(inR(x,y,230,132,300,190)) return tx('右心房：全身からもどってきた、二酸化炭素が多い血液が入る部屋','右心房：大静脈から、全身をめぐってきた静脈血が入る部屋');
+    if(inR(x,y,230,194,318,262)) return tx('右心室：血液を肺へ送り出す部屋','右心室：静脈血を肺動脈へ送り出す部屋（肺循環のはじまり）');
+    if(inR(x,y,340,132,410,190)) return tx('左心房：肺で酸素を受けとった血液が入る部屋','左心房：肺静脈から、肺で酸素を受けとった動脈血が入る部屋');
+    if(inR(x,y,322,194,410,262)) return tx('左心室：血液を全身へ送り出す部屋。かべの筋肉がいちばん厚い','左心室：動脈血を大動脈へ送り出す部屋（体循環のはじまり）。全身へ送るので、かべの筋肉がいちばん厚い');
+    if(inR(x,y,300,98,318,132)) return tx('心臓から肺へ向かう血管。二酸化炭素が多い血液が流れる','肺動脈：右心室から肺へ向かう血管。名前は「動脈」でも、静脈血が流れる');
+    if(nearPts([[331,100],[350,112],[370,117],[392,122],[392,134]],x,y,12)) return tx('肺から心臓へもどる血管。酸素が多い血液が流れる','肺静脈：肺から左心房へもどる血管。名前は「静脈」でも、動脈血が流れる');
+    if(inR(x,y,410,228,552,244)||inR(x,y,536,236,552,392)) return tx('心臓から全身へ向かう太い血管。酸素が多い血液が流れる','大動脈：左心室から全身へ向かう太い血管。動脈血が流れる。動脈のかべは厚く、弾力がある');
+    if(inR(x,y,88,152,230,168)||inR(x,y,88,160,104,392)) return tx('全身から心臓へもどる太い血管。二酸化炭素が多い血液が流れる','大静脈：全身から右心房へもどる太い血管。静脈血が流れる。静脈には逆流を防ぐ弁がある');
+    if(inR(x,y,196,6,444,102)) return tx('肺の毛細血管：血液が二酸化炭素を出し、酸素を受けとる（②呼吸の画面でくわしく見られます）','肺の毛細血管：肺胞で二酸化炭素を出し、酸素を受けとる。静脈血が動脈血に変わる（②呼吸）');
+    for(let j=0;j<4;j++){ const y0=LANES[j]; if(inR(x,y,128,y0-13,512,y0+13)){
+      if(j===1) return tx('小腸で吸収した養分を受けとり、かん臓へ運ぶ。かん臓は養分の一部をたくわえる','小腸の毛細血管で吸収した養分（ブドウ糖・アミノ酸）を肝臓へ運ぶ。肝臓は養分をたくわえ、有害な物を無害な物に変える');
+      if(j===2) return tx('じん臓：血液の中の不要な物をこし出して、にょうをつくる','腎臓：血液から尿素などの不要な物をこし出して尿をつくる（尿はぼうこうにためられる）');
+      return tx('体のすみずみの毛細血管：細胞に酸素と養分をわたし、二酸化炭素などの不要な物を受けとる','全身の毛細血管：血しょうがしみ出て組織液になり、細胞に酸素や養分をわたし、二酸化炭素などを受けとる'); } }
+    return null; }
+
+  // ================= ② 呼吸
+  const AC=[470,172], AR0=66, CRd=AR0+13;
+  const CAPA=arcPts(AC,CRd,168,12,40), CAP=mkPath([[318,206]].concat(CAPA,[[630,206]])), CAP0=CAP.cum[1], CAP1=CAP.cum[CAPA.length];
+  const BRP=mkPath([[372,40],[386,66],[404,86],[424,101],[438,114]]);
+  const AWL=mkPath([[150,0],[150,104],[118,128],[104,150]]), AWR=mkPath([[150,0],[150,104],[182,128],[196,150]]);
+  const o2=[], co2=[], rbc=[], air=[];
+  for(let i=0;i<16;i++){ const a=rnd(0,Math.PI*2), r=rnd(0,AR0-12); o2.push({st:'air',x:AC[0]+r*Math.cos(a),y:AC[1]+r*Math.sin(a),vx:rnd(-20,20),vy:rnd(-20,20),t:0,s:0,fx:0,fy:0,gx:0,gy:0}); }
+  for(let i=0;i<12;i++){ const m={st:'wait',w:rnd(0,3),x:0,y:0,vx:0,vy:0,t:0,s:0,sx:0,fx:0,fy:0,gx:0,gy:0}; if(i<5){ const a=rnd(0,Math.PI*2), r=rnd(0,AR0-14); m.st='air'; m.x=AC[0]+r*Math.cos(a); m.y=AC[1]+r*Math.sin(a); } co2.push(m); }
+  for(let i=0;i<9;i++) rbc.push({s:i*CAP.len/9});
+  for(let i=0;i<16;i++) air.push({sd:i%2,s:rnd(0,AWL.len),k:i});
+  function breath(){ const p=rph%1; return p<0.4?{b:0.5-0.5*Math.cos(Math.PI*p/0.4),inh:true}:{b:0.5+0.5*Math.cos(Math.PI*(p-0.4)/0.6),inh:false}; }
+  function ampK(){ return Math.min(1.8,Math.sqrt(+$('tv').value/500)); }
+  function curR(){ return AR0*(1+0.05*breath().b*ampK()); }
+  function walk(m,dt,R){ m.vx+=randn()*90*dt; m.vy+=randn()*90*dt; const sp=Math.hypot(m.vx,m.vy); if(sp>45){ m.vx*=45/sp; m.vy*=45/sp; }
+    m.x+=m.vx*dt; m.y+=m.vy*dt; const dx=m.x-AC[0], dy=m.y-AC[1], d=Math.hypot(dx,dy)||1;
+    if(d>R-6){ const k=(R-6)/d; m.x=AC[0]+dx*k; m.y=AC[1]+dy*k; const nx=dx/d, ny=dy/d, vn=m.vx*nx+m.vy*ny; if(vn>0){ m.vx-=2*vn*nx; m.vy-=2*vn*ny; } } }
+  function capS(ang){ return CAP0+clamp((168-ang)/156,0,1)*(CAP1-CAP0); }
+  function stepK(dt){ const B=breath(), R=curR(), Q=(+$('hr').value)*(+$('sv').value)/1000, vb=42*(Q/4.9);
+    rbc.forEach((c)=>{ c.s=(c.s+vb*dt)%CAP.len; });
+    for(const m of o2){
+      if(m.st==='wait'){ if(B.inh&&Math.random()<dt*2.5){ m.st='in'; m.s=0; } }
+      else if(m.st==='in'){ m.s+=dt*80; const q=at(BRP,m.s); m.x=q[0]; m.y=q[1]; if(m.s>=BRP.len){ m.st='air'; m.vx=rnd(-20,20); m.vy=rnd(5,30); } }
+      else if(m.st==='air'){ walk(m,dt,R); const dx=m.x-AC[0], dy=m.y-AC[1], d=Math.hypot(dx,dy), ang=Math.atan2(dy,dx)*180/Math.PI;
+        if(ang>18&&ang<162&&d>R-10&&Math.random()<dt*0.9){ m.st='x'; m.t=0; m.fx=m.x; m.fy=m.y; const a=ang*Math.PI/180; m.gx=AC[0]+CRd*Math.cos(a); m.gy=AC[1]+CRd*Math.sin(a); m.s=capS(ang); } }
+      else if(m.st==='x'){ m.t+=dt/0.6; m.x=lerp(m.fx,m.gx,sm(m.t)); m.y=lerp(m.fy,m.gy,sm(m.t)); if(m.t>=1) m.st='b'; }
+      else if(m.st==='b'){ m.s+=vb*dt; const q=at(CAP,m.s); m.x=q[0]; m.y=q[1]; if(m.s>=CAP.len-2) m.st='wait'; } }
+    for(const m of co2){
+      if(m.st==='wait'){ m.w-=dt; if(m.w<=0){ m.st='bl'; m.s=0; m.sx=CAP0+rnd(0.05,0.55)*(CAP1-CAP0); } }
+      else if(m.st==='bl'){ m.s+=vb*dt; const q=at(CAP,m.s); m.x=q[0]; m.y=q[1];
+        if(m.s>=m.sx){ m.st='x'; m.t=0; m.fx=m.x; m.fy=m.y; const a=Math.atan2(m.y-AC[1],m.x-AC[0]); m.gx=AC[0]+(R-14)*Math.cos(a); m.gy=AC[1]+(R-14)*Math.sin(a); } }
+      else if(m.st==='x'){ m.t+=dt/0.6; m.x=lerp(m.fx,m.gx,sm(m.t)); m.y=lerp(m.fy,m.gy,sm(m.t)); if(m.t>=1){ m.st='air'; m.vx=rnd(-15,15); m.vy=rnd(-30,-5); } }
+      else if(m.st==='air'){ walk(m,dt,R); if(!B.inh&&Math.random()<dt*1.6) m.st='go'; }
+      else if(m.st==='go'){ const e=BRP.pts[BRP.pts.length-1], dx=e[0]-m.x, dy=e[1]-m.y, d=Math.hypot(dx,dy); if(d<5){ m.st='out'; m.s=BRP.len; } else { m.x+=dx/d*70*dt; m.y+=dy/d*70*dt; } }
+      else if(m.st==='out'){ m.s-=dt*85; const q=at(BRP,Math.max(0,m.s)); m.x=q[0]; m.y=q[1]; if(m.s<=0){ m.st='wait'; m.w=rnd(0.3,2.2); } } }
+    const spd=(40+60*ampK())*Math.sqrt(+$('br').value/15);
+    air.forEach((a)=>{ const P=a.sd?AWR:AWL; a.s+=(B.inh?1:-1)*dt*spd; a.s=((a.s%P.len)+P.len)%P.len; }); }
+  function o2icon(x,y){ dot(x-2.4,y,2.7,'#ea580c'); dot(x+2.4,y,2.7,'#ea580c'); }
+  function co2icon(x,y){ dot(x-4,y,2.5,'#94a3b8'); dot(x+4,y,2.5,'#94a3b8'); dot(x,y,2.4,'#1f2937'); }
+  function drawK(){ const s6=S6(), B=breath(), amp=ampK(), R=curR(), br=+$('br').value;
+    // 胸
+    ctx.fillStyle='#fff7ed'; ctx.beginPath(); ctx.moveTo(130,0); ctx.lineTo(130,24); ctx.quadraticCurveTo(66,28,40,70); ctx.lineTo(26,318); ctx.lineTo(274,318); ctx.lineTo(260,70); ctx.quadraticCurveTo(234,28,170,24); ctx.lineTo(170,0); ctx.closePath(); ctx.fill(); ctx.strokeStyle='#fed7aa'; ctx.lineWidth=2; ctx.stroke();
+    ctx.strokeStyle='#f3e3cf'; ctx.lineWidth=3; for(let k=0;k<5;k++){ const y=96+k*38; ctx.beginPath(); ctx.moveTo(146,y); ctx.quadraticCurveTo(72,y-6,42,y+26); ctx.stroke(); ctx.beginPath(); ctx.moveTo(154,y); ctx.quadraticCurveTo(228,y-6,258,y+26); ctx.stroke(); }
+    const ex=0.05*B.b*amp, ey=0.08*B.b*amp;
+    [94,206].forEach((cx)=>{ const rx=50*(1+ex), ry=85*(1+ey), cy=116+ry; ctx.fillStyle='#fce7f3'; ctx.beginPath(); ctx.ellipse(cx,cy,rx,ry,0,0,Math.PI*2); ctx.fill(); ctx.strokeStyle='#f472b6'; ctx.lineWidth=2; ctx.stroke(); });
+    [[[104,150],[84,192],[70,230]],[[104,150],[118,200],[112,246]],[[196,150],[216,192],[230,230]],[[196,150],[184,196],[176,224]],[[84,192],[100,214]],[[216,192],[200,214]]].forEach((b)=>poly(b,3,'rgba(148,163,184,.55)'));
+    poly([[150,0],[150,104]],15,'#94a3b8'); poly([[150,0],[150,104]],11,'#e2e8f0'); for(let y=8;y<100;y+=9) poly([[144,y],[156,y]],1.4,'#94a3b8');
+    poly([[150,104],[118,128],[104,150]],10,'#94a3b8'); poly([[150,104],[118,128],[104,150]],6,'#e2e8f0');
+    poly([[150,104],[182,128],[196,150]],10,'#94a3b8'); poly([[150,104],[182,128],[196,150]],6,'#e2e8f0');
+    ctx.save(); ctx.translate(166,252); ctx.rotate(-0.45); ctx.fillStyle='#fda4af'; ctx.beginPath(); ctx.ellipse(0,0,25,19,0,0,Math.PI*2); ctx.fill(); ctx.strokeStyle='#e11d48'; ctx.lineWidth=1.5; ctx.stroke(); ctx.restore();
+    const apex=290+14*B.b*Math.min(1.6,amp); ctx.strokeStyle='#fb923c'; ctx.lineWidth=7; ctx.lineCap='round'; ctx.beginPath(); ctx.moveTo(30,314); ctx.quadraticCurveTo(150,2*apex-314,270,314); ctx.stroke();
+    air.forEach((a)=>{ const q=at(a.sd?AWR:AWL,a.s); if(B.inh){ if(a.k%5===0) o2icon(q[0],q[1]); else dot(q[0],q[1],2.4,'#cbd5e1'); } else { if(a.k%6===0) o2icon(q[0],q[1]); else if(a.k%4===2) co2icon(q[0],q[1]); else dot(q[0],q[1],2.4,'#cbd5e1'); } });
+    txt(B.inh?tx('↓ すう','↓ 吸う'):tx('↑ はく','↑ はく'),12,24,18,B.inh?'#0891b2':'#7c3aed','bold','left');
+    txt('1分間に'+br+'回',12,44,11,'#475569','','left');
+    txt('気管',160,56,12,'#334155','bold','left',0,true); if(!s6) txt('気管支',196,108,11,'#334155','bold','left',0,true);
+    txt('肺',94,220,15,'#be185d','bold','center',0,true); txt('心臓',166,256,10,'#881337','bold','center');
+    if(!s6) txt('横隔膜',272,298,11,'#c2410c','bold','right',0,true);
+    // 拡大のつなぎ線
+    ctx.strokeStyle='#38bdf8'; ctx.lineWidth=1.5; ctx.setLineDash([4,4]); ctx.beginPath(); ctx.arc(226,206,10,0,Math.PI*2); ctx.stroke(); ctx.beginPath(); ctx.moveTo(234,200); ctx.lineTo(306,70); ctx.moveTo(234,212); ctx.lineTo(306,300); ctx.stroke(); ctx.setLineDash([]);
+    // 拡大図
+    panel(306,6,328,322);
+    txt(tx('肺胞（はいほう）の拡大','肺胞の拡大（イメージ）'),318,28,13,'#0f172a','bold','left',170);
+    o2icon(500,22); txt('酸素 → 血液へ',510,26,11,'#9a3412','bold'); co2icon(500,40); txt('二酸化炭素 → 肺胞へ',510,44,11,'#334155','bold','left',118);
+    poly(BRP.pts,22,'#f9a8d4'); poly(BRP.pts,16,'#f8fafc');
+    [[408,126,20],[396,166,17],[532,100,21],[560,136,18],[512,72,15]].forEach((c)=>{ ctx.fillStyle='#fdf2f8'; ctx.beginPath(); ctx.arc(c[0],c[1],c[2],0,Math.PI*2); ctx.fill(); ctx.strokeStyle='#fbcfe8'; ctx.lineWidth=2; ctx.stroke(); });
+    ctx.fillStyle='#f8fafc'; ctx.beginPath(); ctx.arc(AC[0],AC[1],R,0,Math.PI*2); ctx.fill(); ctx.strokeStyle='#f472b6'; ctx.lineWidth=3; ctx.stroke();
+    poly(CAP.pts,22,'#f1f5f9');
+    for(let i=1;i<CAP.pts.length;i++){ const f=clamp((CAP.cum[i]-CAP0)/(CAP1-CAP0)*1.6,0,1); poly([CAP.pts[i-1],CAP.pts[i]],18,mixc([191,219,254],[254,202,202],f)); }
+    rbc.forEach((c)=>{ const q=at(CAP,c.s), f=clamp((c.s-CAP0)/(CAP1-CAP0)*1.6,0,1); dot(q[0],q[1],5.6,mixc(BLUE,RED,f)); dot(q[0]-1,q[1]-1,2,'rgba(255,255,255,.35)'); });
+    o2.forEach((m)=>{ if(m.st!=='wait') o2icon(m.x,m.y); }); co2.forEach((m)=>{ if(m.st!=='wait') co2icon(m.x,m.y); });
+    txt(tx('肺胞','肺胞'),470,140,13,'#be185d','bold','center',0,true);
+    txt('毛細血管',470,288,11.5,'#9f1239','bold','center',0,true);
+    txt(B.inh?'↓ 空気':'↑ 空気',340,62,11,B.inh?'#0891b2':'#7c3aed','bold','left');
+    txt(tx('心臓から来た','肺動脈から'),322,230,11,'#1d4ed8','bold','left'); txt(tx('二酸化炭素が多い血液','（静脈血）'),322,245,11,'#1d4ed8','','left',98);
+    txt(tx('心臓へもどる','肺静脈へ'),624,230,11,'#b91c1c','bold','right'); txt(tx('酸素が多い血液','（動脈血）'),624,245,11,'#b91c1c','','right',98);
+    poly([[324,214],[346,208]],2,'#1d4ed8'); ctx.fillStyle='#1d4ed8'; ctx.beginPath(); ctx.moveTo(352,206); ctx.lineTo(343,204); ctx.lineTo(345,212); ctx.closePath(); ctx.fill();
+    poly([[594,198],[616,204]],2,'#b91c1c'); ctx.fillStyle='#b91c1c'; ctx.beginPath(); ctx.moveTo(622,206); ctx.lineTo(613,200); ctx.lineTo(612,208); ctx.closePath(); ctx.fill();
+    txt(tx('毛細血管で、血液が酸素を受けとり、二酸化炭素を出す','肺胞と毛細血管の間で、酸素と二酸化炭素が入れかわる'),470,314,11,'#475569','','center',310);
+    // 吸う空気・はいた空気の割合
+    const bx=80, sc=7.4;
+    txt(tx('すう空気','吸う空気'),12,346,12,'#0f172a','bold');
+    ctx.fillStyle='#fb923c'; ctx.fillRect(bx,337,21*sc,9); txt('酸素 約21%',bx+21*sc+5,346,11,'#9a3412','bold');
+    ctx.fillStyle='#64748b'; ctx.fillRect(bx,350,1.5,9); txt('二酸化炭素 約0.04%',bx+6,359,11,'#334155');
+    txt('はいた空気',12,384,12,'#0f172a','bold');
+    ctx.fillStyle='#fb923c'; ctx.fillRect(bx,375,17*sc,9); txt('酸素 約17%',bx+17*sc+5,384,11,'#9a3412','bold');
+    ctx.fillStyle='#64748b'; ctx.fillRect(bx,388,4*sc,9); txt('二酸化炭素 約4%',bx+4*sc+5,397,11,'#334155');
+    txt(tx('残りはおもにちっ素（約78%）。数値は目安','残りはおもに窒素（約78%）。数値は目安'),12,414,10,'#64748b','','left',290);
+    // 右下：1分間の空気
+    const V=br*(+$('tv').value);
+    panel(318,338,316,76);
+    txt(tx('1分間に出入りする空気','1分間に出入りする空気'),330,358,11.5,'#475569','bold','left');
+    txt((V/1000).toFixed(1)+' L',330,392,26,'#0e7490','bold','left');
+    txt(br+'回 × '+num(+$('tv').value)+'mL',470,362,12,'#334155','','left',156);
+    txt(tx('取り入れる酸素','取り入れる酸素（目安）'),470,382,11,'#475569','','left',156);
+    txt('約'+num(V*0.04)+'mL（目安）',470,402,13,'#c2410c','bold','left',156); }
+  function hitK(x,y){
+    if(inR(x,y,140,0,160,106)) return tx('気管：鼻や口から入った空気の通り道。肺につながっている','気管：空気の通り道。気管支に分かれて、左右の肺につながる');
+    if(Math.hypot(x-AC[0],y-AC[1])<AR0) return tx('肺胞：肺の中の小さなふくろ。まわりを毛細血管がとりまき、酸素と二酸化炭素が入れかわる','肺胞：肺の中の小さなふくろで、数億個ある。表面積が大きいので、気体の交換が効率よく行われる');
+    if(nearPts(CAP.pts,x,y,14)) return tx('毛細血管：肺胞をとりまく細い血管。ここで血液が酸素を受けとり、二酸化炭素を出す','毛細血管：肺胞をとりまく。肺動脈から来た静脈血が、酸素を受けとって動脈血になり、肺静脈へ向かう');
+    if(Math.hypot((x-166)/26,(y-252)/20)<1) return tx('心臓：肺で酸素を受けとった血液を、全身へ送り出す','心臓：肺静脈から入った動脈血を、左心室から大動脈で全身へ送り出す');
+    if(Math.hypot((x-94)/52,(y-202)/88)<1||Math.hypot((x-206)/52,(y-202)/88)<1) return tx('肺：小さなふくろ（肺胞）がたくさん集まっている。血液に酸素を取り入れ、二酸化炭素を出す','肺：たくさんの肺胞が集まってできている。肺には筋肉がなく、横隔膜やろっ骨の間の筋肉の動きでふくらんだりちぢんだりする');
+    if(inR(x,y,26,286,274,320)) return tx('むねとおなかの間のまく（横隔膜）：下がると肺がふくらみ、空気が入る','横隔膜：下がると胸の空間が広がって肺がふくらみ、空気が吸いこまれる。上がると空気がはき出される');
+    return null; }
+
+  // ================= ③ 消化と吸収
+  const SD=[4,2,6,5,9,6,2], ST=34;
+  const SP=[mkPath([[120,41],[120,41]]),
+    mkPath([[120,44],[120,60],[121,80],[124,100],[130,113],[138,120]]),
+    mkPath([[138,120],[152,116],[164,122],[168,134],[162,146],[150,150],[140,146],[136,136],[144,128],[156,130],[158,140],[148,148],[132,152]]),
+    mkPath([[132,152],[120,156],[112,164],[114,174],[126,179],[142,177],[150,186],[150,198]]),
+    mkPath([[150,198],[92,198],[87,204],[92,209],[150,209],[155,215],[150,220],[92,220],[87,226],[92,231],[150,231],[155,237],[150,242],[92,242],[84,252],[78,262]]),
+    mkPath([[78,262],[71,252],[70,230],[70,198],[73,186],[82,182],[160,182],[170,186],[173,200],[173,240],[170,258],[160,270],[142,276],[128,282]]),
+    mkPath([[128,282],[123,292],[122,304],[122,318]])];
+  const SI=SP[3].pts.concat(SP[4].pts), LI=SP[5].pts;
+  function stg(p){ let t=clamp(p,0,1)*ST; for(let i=0;i<7;i++){ if(t<=SD[i]||i===6) return [i,clamp(t/SD[i],0,1)]; t-=SD[i]; } return [6,1]; }
+  function stStart(i){ let a=0; for(let k=0;k<i;k++) a+=SD[k]; return a/ST; }
+  function lvls(s,u){ let A,Pr,F,Wt;
+    if(s===0) A=sm(u); else if(s<=2) A=1; else if(s===3) A=1+sm(u); else if(s===4) A=u<0.35?2+sm(u/0.35):3+sm((u-0.35)/0.65); else A=4;
+    if(s<2) Pr=0; else if(s===2) Pr=sm(u); else if(s===3) Pr=1+sm(u); else if(s===4) Pr=u<0.35?2+sm(u/0.35):3+sm((u-0.35)/0.65); else Pr=4;
+    if(s<3) F=0; else if(s===3) F=u<0.5?sm(u/0.5):1+sm((u-0.5)/0.5); else if(s===4) F=u<0.35?2:2+sm((u-0.35)/0.65); else F=3;
+    if(s<4) Wt=0; else if(s===4) Wt=0.75*sm((u-0.2)/0.8); else if(s===5) Wt=0.75+0.25*sm(u); else Wt=1;
+    return [A,Pr,F,Wt]; }
+  const PLACE=()=>['口','食道','胃','小腸（前半）','小腸（後半）','大腸',tx('こう門','肛門')];
+  const JUICE=()=>S6()?['だ液','なし（運ぶだけ）','胃液','たん汁・すい液','小腸の消化液','なし（水分を吸収）','なし']:['だ液（アミラーゼ）','なし（運ぶだけ）','胃液（ペプシン）','胆汁・すい液（アミラーゼ・トリプシン・リパーゼ）','小腸の壁の消化酵素','なし（水分を吸収）','なし'];
+  const JUICE_S=()=>S6()?['だ液','なし','胃液','たん汁・すい液','小腸の消化液','なし','なし']:['だ液（アミラーゼ）','なし','胃液（ペプシン）','胆汁・すい液','小腸の壁の消化酵素','なし','なし'];
+  const DESC=()=>S6()?['歯で細かくし、だ液と混ぜる（でんぷんが変化しはじめる）','筋肉の動きで胃へ送る（ここでは消化しない）','胃液と混ぜて、たんぱく質を消化しはじめる','たん汁・すい液で、でんぷん・たんぱく質・しぼうを消化','小腸のかべで消化を仕上げ、じゅう毛から吸収する','おもに水分を吸収する','吸収されなかった物を便として出す']
+    :['だ液のアミラーゼがデンプンを分解しはじめる','ぜん動運動で胃へ送る（ここでは消化しない）','胃液のペプシンがタンパク質を分解する','胆汁が脂肪を細かくし、すい液の消化酵素が分解する','小腸の壁の消化酵素で仕上げ、柔毛から吸収する','おもに水分を吸収する','吸収されなかった物を便として排出する'];
+  function stepS(dt){ dp+=dt*(+$('spd').value)/ST; if(dp>=1){ dp=1; run=false; $('pause').textContent='▶ 再生'; } syncPos(); }
+  function syncPos(){ const v=Math.round(dp*100); if(+$('pos').value!==v){ $('pos').value=v; const l=$('posL'); if(l) l.textContent=v+'%'; } }
+  function hexa(x,y,r,f,s){ ctx.beginPath(); for(let k=0;k<6;k++){ const a=Math.PI/6+k*Math.PI/3, px=x+r*Math.cos(a), py=y+r*Math.sin(a); if(k) ctx.lineTo(px,py); else ctx.moveTo(px,py); } ctx.closePath(); ctx.fillStyle=f; ctx.fill(); ctx.strokeStyle=s; ctx.lineWidth=1.2; ctx.stroke(); }
+  function uX(kd,n,i){ if(n<=0) return i*15; if(n===1) return kd?i*15+Math.floor(i/3)*10:i*15+Math.floor(i/4)*14; if(n===2) return i*15+Math.floor(i/2)*9; return i*21; }
+  function bnd(kd,n,i){ if(n<=0) return true; if(n===1) return kd?Math.floor(i/3)===Math.floor((i+1)/3):Math.floor(i/4)===Math.floor((i+1)/4); if(n===2) return Math.floor(i/2)===Math.floor((i+1)/2); return false; }
+  function pY(kd,n,i){ if(n<=0) return 0; if(n===1) return ((kd?Math.floor(i/3):Math.floor(i/4))%2)?3:-3; if(n===2) return (Math.floor(i/2)%2)?3:-3; return (i%2)?3:-3; }
+  function chPos(kd,L,i,yc){ const n=Math.min(3,Math.floor(L)), f=sm(L-n); if(L>=3) return [262+uX(kd,3,i), yc+pY(kd,3,i)]; return [262+lerp(uX(kd,n,i),uX(kd,n+1,i),f), yc+lerp(pY(kd,n,i),pY(kd,n+1,i),f)]; }
+  function toVillus(x0,y0,q,lane){ const vx=lane?594:612, d1=Math.max(0,558-x0), d2=vx-558, d3=Math.max(0,318-y0), tot=d1+d2+d3, s=q*tot;
+    if(s<=d1) return [x0+s,y0]; if(s<=d1+d2) return [558+(s-d1),y0]; return [vx,y0+(s-d1-d2)]; }
+  const PCOL=['#86efac','#93c5fd','#f9a8d4','#fcd34d','#c4b5fd'];
+  function chainDraw(kd,L,yc){ const n=Math.min(3,Math.floor(L)), f=L-n;
+    if(L<3){ const P=[]; for(let i=0;i<12;i++) P.push(chPos(kd,L,i,yc));
+      for(let i=0;i<11;i++){ const now=bnd(kd,n,i), nx=bnd(kd,n+1,i); if(now||nx){ const a=(now&&!nx)?1-f:1; if(a>0.02){ ctx.globalAlpha=a; poly([P[i],P[i+1]],2.2,'#64748b'); ctx.globalAlpha=1; }
+          if(now&&!nx&&f>0.04&&f<0.96) txt('✂',(P[i][0]+P[i+1][0])/2,yc-11,12,'#dc2626','bold','center'); } }
+      for(let i=0;i<12;i++){ const c=PCOL[i%5]; if(kd){ dot(P[i][0],P[i][1],6,c); ctx.strokeStyle='#334155'; ctx.lineWidth=1; ctx.beginPath(); ctx.arc(P[i][0],P[i][1],6,0,Math.PI*2); ctx.stroke(); } else hexa(P[i][0],P[i][1],6.3,'#fde68a','#b45309'); } }
+    else { const g=L-3; for(let i=0;i<12;i++){ const st=i/12*0.55, q=clamp((g-st)/0.45,0,1); const b=chPos(kd,3,i,yc); const p=toVillus(b[0],b[1],q,0);
+      ctx.globalAlpha=q>0.85?Math.max(0,(1-q)/0.15):1; if(kd){ dot(p[0],p[1],6,PCOL[i%5]); ctx.strokeStyle='#334155'; ctx.lineWidth=1; ctx.beginPath(); ctx.arc(p[0],p[1],6,0,Math.PI*2); ctx.stroke(); } else hexa(p[0],p[1],6.3,'#fde68a','#b45309'); ctx.globalAlpha=1; } } }
+  function zig(x,y,c){ poly([[x,y],[x+4,y-3],[x+8,y],[x+12,y-3],[x+16,y]],1.8,c); }
+  function mono(x,y){ ctx.fillStyle='#fb923c'; rrect(x-2,y-6,5,12,2); ctx.fill(); zig(x+3,y+2,'#a16207'); }
+  function fatDraw(F,yc){ if(F<2){ const f1=sm(Math.min(1,F)), f2=F>1?sm(F-1):0;
+      for(let i=0;i<6;i++){ const x=lerp(318+(i%3)*12,282+i*42,f1), y=lerp(yc+(i<3?-5:6),yc+(i%2?3:-3),f1), r=lerp(14,7.5,f1);
+        ctx.globalAlpha=1-f2; dot(x,y,r,'#fde047'); ctx.strokeStyle='#ca8a04'; ctx.lineWidth=1; ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2); ctx.stroke(); ctx.globalAlpha=1;
+        if(f2>0){ ctx.globalAlpha=f2; mono(x-8,y); zig(x+2,y-7,'#a16207'); zig(x+2,y+6,'#a16207'); ctx.globalAlpha=1; } } }
+    else { const g=F-2; for(let i=0;i<6;i++){ const q=clamp((g-i/6*0.6)/0.4,0,1), x0=282+i*42, y0=yc+(i%2?3:-3), p=toVillus(x0,y0,q,1);
+        ctx.globalAlpha=q>0.85?Math.max(0,(1-q)/0.15):1;
+        if(q<=0){ mono(p[0]-8,p[1]); zig(p[0]+2,p[1]-7,'#a16207'); zig(p[0]+2,p[1]+6,'#a16207'); }
+        else if(p[0]<556){ ctx.save(); ctx.translate(p[0],p[1]); ctx.scale(0.7,0.7); mono(-8,0); zig(2,-7,'#a16207'); ctx.restore(); }
+        else { dot(p[0],p[1],5,'#facc15'); ctx.strokeStyle='#a16207'; ctx.lineWidth=1; ctx.beginPath(); ctx.arc(p[0],p[1],5,0,Math.PI*2); ctx.stroke(); } ctx.globalAlpha=1; } } }
+  function waterDraw(Wt,s,u,yc){ for(let i=0;i<8;i++){ const q=clamp(Wt*8-i,0,1), x0=268+i*24; let p=[x0,yc], a=1;
+      if(i<6) { p=toVillus(x0,yc,q,0); if(q>0.85) a=Math.max(0,(1-q)/0.15); } else { p=[x0,yc-q*16]; a=1-q; }
+      if(a>0.01){ ctx.globalAlpha=a; dot(p[0],p[1]+1,5,'#60a5fa'); ctx.fillStyle='#60a5fa'; ctx.beginPath(); ctx.moveTo(p[0]-4,p[1]-1); ctx.lineTo(p[0],p[1]-9); ctx.lineTo(p[0]+4,p[1]-1); ctx.fill(); ctx.globalAlpha=1; } }
+    const fb=s>=5?(s===5?sm(u):1):0, out=s===6?sm(u):0; const fx=lerp(470,496,fb)+out*24;
+    ctx.globalAlpha=1-out*0.8; poly([[fx,yc-8],[fx+8,yc-2],[fx+2,yc+4],[fx+12,yc+9]],3,fb>0.5?'#92400e':'#16a34a'); poly([[fx+18,yc-8],[fx+12,yc-1],[fx+22,yc+3],[fx+16,yc+10]],3,fb>0.5?'#92400e':'#16a34a');
+    if(fb>0.5) txt('便',fx+12,yc+24,11,'#92400e','bold','center'); ctx.globalAlpha=1; }
+  function pill(t,x,y,bg,fg){ ctx.font='bold 10.5px sans-serif'; const w=ctx.measureText(t).width+14; rrect(x-w,y-11,w,16,8); ctx.fillStyle=bg; ctx.fill(); txt(t,x-7,y+1,10.5,fg,'bold','right'); }
+  function drawBody(s,u){ const s6=S6();
+    ctx.fillStyle='#fff7ed'; ctx.strokeStyle='#fed7aa'; ctx.lineWidth=2;
+    ctx.beginPath(); ctx.arc(120,26,22,0,Math.PI*2); ctx.fill(); ctx.stroke(); ctx.fillRect(110,46,20,28);
+    ctx.beginPath(); ctx.moveTo(70,74); ctx.quadraticCurveTo(120,66,170,74); ctx.lineTo(186,92); ctx.lineTo(184,320); ctx.quadraticCurveTo(120,332,56,320); ctx.lineTo(54,92); ctx.closePath(); ctx.fill(); ctx.stroke();
+    ctx.fillStyle='#be123c'; ctx.beginPath(); ctx.ellipse(120,40,7,3,0,0,Math.PI*2); ctx.fill();
+    const glow=(on)=>{ ctx.shadowColor=on?'rgba(245,158,11,.9)':'transparent'; ctx.shadowBlur=on?12:0; };
+    glow(s===3); ctx.fillStyle='#e8a87c'; ctx.beginPath(); ctx.moveTo(58,104); ctx.lineTo(108,98); ctx.lineTo(136,104); ctx.lineTo(140,112); ctx.lineTo(122,124); ctx.lineTo(100,136); ctx.lineTo(70,140); ctx.lineTo(58,128); ctx.closePath(); ctx.fill(); glow(false); ctx.strokeStyle='#c2410c'; ctx.lineWidth=1.2; ctx.stroke();
+    glow(s===2); ctx.fillStyle='#fecdd3'; ctx.beginPath(); ctx.moveTo(136,118); ctx.quadraticCurveTo(150,106,168,116); ctx.quadraticCurveTo(180,134,170,152); ctx.quadraticCurveTo(152,164,128,152); ctx.quadraticCurveTo(140,144,144,132); ctx.quadraticCurveTo(142,124,136,118); ctx.closePath(); ctx.fill(); glow(false); ctx.strokeStyle='#fb7185'; ctx.lineWidth=1.5; ctx.stroke();
+    poly([[122,164],[146,161],[168,155]],9,'#f59e0b'); poly([[122,164],[146,161],[168,155]],6.5,'#fde68a');
+    ctx.fillStyle='#86efac'; ctx.beginPath(); ctx.ellipse(106,141,6,8,0,0,Math.PI*2); ctx.fill(); ctx.strokeStyle='#16a34a'; ctx.lineWidth=1; ctx.stroke(); poly([[108,148],[113,160]],2,'#16a34a');
+    glow(s===3||s===4); poly(SI,9,'#fda4af'); glow(false); poly(SI,5,'#ffe4e6');
+    glow(s===5); poly(LI,13,'#fdba74'); glow(false); poly(LI,8.5,'#ffedd5');
+    glow(s===1); poly(SP[1].pts,7,'#fca5a5'); glow(false); poly(SP[1].pts,3.5,'#fee2e2'); poly(SP[6].pts.slice(0,3),8,'#fdba74');
+    // 消化液のしずく
+    const ph=(T*1.6)%1;
+    if(s===0){ [[104,52],[136,52]].forEach((p)=>{ dot(lerp(p[0],120,ph),lerp(p[1],42,ph),2.2,'#38bdf8'); }); }
+    if(s===2){ for(let k=0;k<5;k++){ const a=k*1.26+T; dot(152+16*Math.cos(a)*(1-ph*0.5),136+10*Math.sin(a)*(1-ph*0.5),1.8,'#22d3ee'); } }
+    if(s===3){ dot(lerp(108,113,ph),lerp(148,160,ph),2.2,'#16a34a'); dot(lerp(130,116,ph),lerp(162,166,ph),2.2,'#d97706'); }
+    if(s===4){ for(let k=0;k<6;k++){ const q=at(SP[4],((k/6+ph/6)%1)*SP[4].len); dot(q[0],q[1]-4,1.6,'#db2777'); } }
+    if(s===5){ for(let k=0;k<4;k++){ const q=at(SP[5],((k/4+ph/4)%1)*SP[5].len); dot(q[0]+(ph*6),q[1]-ph*6,1.8,'#3b82f6'); } }
+    // 食べ物の位置
+    const P=SP[s], q=s===0?[120,41]:at(P,P.len*u), r=s===0?6+Math.sin(T*12)*1.2:6; ctx.globalAlpha=s===6?1-0.8*u:1; dot(q[0],q[1],r+1.5,'#fff'); dot(q[0],q[1],r,'#a16207'); ctx.globalAlpha=1;
+    // 名前
+    const lab=(t,x,y,lx,ly,al)=>{ poly([[lx,ly],[al==='right'?x+3:x-3,y-4]],1,'#94a3b8'); txt(t,x,y,11,'#334155','bold',al,0,true); };
+    lab('口',50,44,110,41,'right'); lab('食道',50,84,119,84,'right'); lab(tx('かん臓','肝臓'),50,114,64,114,'right'); lab(tx('たんのう','胆のう'),50,146,100,143,'right');
+    lab('大腸',50,224,66,224,'right'); lab(tx('こう門','肛門'),50,306,118,304,'right'); lab('胃',194,130,176,130,'left'); lab('すい臓',194,162,170,158,'left'); lab('小腸',194,218,157,218,'left'); }
+  function drawS(){ const s6=S6(); const sg=stg(dp), s=sg[0], u=sg[1]; const L=lvls(s,u);
+    drawBody(s,u);
+    // 見出し
+    txt('いまの場所：'+PLACE()[s],252,26,16,'#0f172a','bold','left',296);
+    txt('はたらく消化液：'+JUICE()[s],252,45,12,'#0e7490','bold','left',300);
+    txt(DESC()[s],252,61,11.5,'#475569','','left',300);
+    // ヨウ素液
+    const io=L[0]<0.3?0:(L[0]<1.8?1:2), ioc=['#5b21b6','#a78bfa','#d6a35b'][io];
+    ctx.fillStyle='#f8fafc'; rrect(612,8,14,40,6); ctx.fill(); ctx.strokeStyle='#64748b'; ctx.lineWidth=1.2; ctx.stroke(); ctx.fillStyle=ioc; rrect(613.5,24,11,22.5,5); ctx.fill();
+    txt('ヨウ素液',606,24,10,'#475569','bold','right'); txt(['青むらさき','うすい青むらさき','変化しない'][io],606,40,10,'#334155','','right',64);
+    // 柔毛
+    ctx.fillStyle='#ffe4e6'; ctx.beginPath(); ctx.moveTo(558,318); ctx.lineTo(558,104); ctx.quadraticCurveTo(558,78,593,78); ctx.quadraticCurveTo(628,78,628,104); ctx.lineTo(628,318); ctx.closePath(); ctx.fill(); ctx.strokeStyle='#fb7185'; ctx.lineWidth=2; ctx.stroke();
+    poly([[568,318],[568,104],[593,92],[618,104],[618,318]],2.5,'rgba(220,38,38,.7)'); for(let y=130;y<318;y+=38) poly([[568,y],[580,y+8],[606,y-6],[618,y+4]],1.2,'rgba(220,38,38,.45)');
+    poly([[594,98],[594,318]],4,'#bef264'); poly([[594,98],[594,318]],2,'#65a30d');
+    txt(tx('じゅう毛','柔毛'),593,72,11.5,'#be123c','bold','center');
+    txt(tx('毛細血管（→かん臓へ）','毛細血管（→肝臓へ）'),632,331,10,'#b91c1c','bold','right'); txt('リンパ管（中央の線）',632,344,10,'#4d7c0f','bold','right');
+    // 4つの養分
+    const RY=[68,130,192,254], YC=RY.map((y)=>y+36);
+    const nmA=tx('でんぷん（ごはん・パン）','デンプン（ごはん・パン）'), nmP=tx('たんぱく質（肉・魚・たまご）','タンパク質（肉・魚・卵）'), nmF=tx('しぼう（油・バター）','脂肪（油・バター）'), nmW=tx('水・食物せんい','水・食物繊維');
+    const fA=L[0]<0.5?'':L[0]<1.5?'→ 短くなる':L[0]<2.5?tx('→ さらに小さく','→ 麦芽糖など'):L[0]<3.05?tx('→ 糖','→ ブドウ糖'):tx('→ 糖 → 血液へ','→ ブドウ糖 → 毛細血管へ');
+    const fP=L[1]<0.5?'':L[1]<1.5?'→ 小さく分かれる':L[1]<2.5?'→ さらに小さく':L[1]<3.05?'→ アミノ酸':'→ アミノ酸 → 毛細血管へ';
+    const fF=L[2]<0.5?'':L[2]<1.5?tx('→ 細かい粒（たん汁）','→ 細かい粒（胆汁）'):L[2]<2.05?tx('→ しぼう酸・モノグリセリド','→ 脂肪酸・モノグリセリド'):'→ リンパ管へ';
+    const fW=s<4?'':s===4?'→ 小腸で吸収':s===5?'→ 大腸で吸収':'→ 残りは便に';
+    [[nmA,fA,'#b45309'],[nmP,fP,'#1d4ed8'],[nmF,fF,'#a16207'],[nmW,fW,'#0369a1']].forEach((r,i)=>{ txt(r[0],252,RY[i]+13,12,'#0f172a','bold','left',165); if(r[1]) txt(r[1],262,RY[i]+58,11,r[2],'bold','left',284); if(i<3) poly([[252,RY[i]+62],[548,RY[i]+62]],1,'#eef2f7'); });
+    const tagA=L[0]>0&&L[0]<1?tx('だ液','アミラーゼ（だ液）'):L[0]>1&&L[0]<2?tx('すい液','アミラーゼ（すい液）'):L[0]>2&&L[0]<3?tx('小腸の消化液','小腸の壁の消化酵素'):L[0]>3&&L[0]<4?tx('じゅう毛で吸収','柔毛で吸収'):'';
+    const tagP=L[1]>0&&L[1]<1?tx('胃液','ペプシン（胃液）'):L[1]>1&&L[1]<2?tx('すい液','トリプシン（すい液）'):L[1]>2&&L[1]<3?tx('小腸の消化液','小腸の壁の消化酵素'):L[1]>3&&L[1]<4?tx('じゅう毛で吸収','柔毛で吸収'):'';
+    const tagF=L[2]>0&&L[2]<1?tx('たん汁','胆汁（消化酵素なし）'):L[2]>1&&L[2]<2?tx('すい液','リパーゼ（すい液）'):L[2]>2&&L[2]<3?tx('じゅう毛 → リンパ管','柔毛 → リンパ管'):'';
+    const tagW='';
+    [[tagA,'#e0f2fe','#0369a1'],[tagP,'#ccfbf1','#0f766e'],[tagF,'#fef3c7','#92400e'],[tagW,'#dbeafe','#1d4ed8']].forEach((g,i)=>{ if(g[0]) pill(g[0],548,RY[i]+12,g[1],g[2]); });
+    chainDraw(0,L[0],YC[0]+2); chainDraw(1,L[1],YC[1]+2); fatDraw(L[2],YC[2]+2); waterDraw(L[3],s,u,YC[3]+2);
+    // 進み具合（タップで移動）
+    const X0=16, WW=608; let x=X0; const nm=['口','食道','胃','小腸','','大腸',tx('こう門','肛門')], cl=['#bae6fd','#e2e8f0','#fecdd3','#fbcfe8','#fbcfe8','#fed7aa','#e7e5e4'];
+    for(let i=0;i<7;i++){ const w=SD[i]/ST*WW; ctx.fillStyle=cl[i]; ctx.fillRect(x,362,w,30); x+=w; }
+    x=X0; for(let i=0;i<7;i++){ const w=SD[i]/ST*WW; if(i===3) txt('小腸',x+(SD[3]+SD[4])/ST*WW/2,382,12,'#334155','bold','center'); else if(nm[i]) txt(nm[i],x+w/2,382,12,'#334155','bold','center',w-4); x+=w; }
+    ctx.strokeStyle='#cbd5e1'; ctx.lineWidth=1; ctx.strokeRect(X0,362,WW,30);
+    const mx=X0+dp*WW; ctx.fillStyle='rgba(15,23,42,.10)'; ctx.fillRect(X0,362,mx-X0,30); poly([[mx,358],[mx,396]],2.5,'#0f172a'); ctx.fillStyle='#0f172a'; ctx.beginPath(); ctx.moveTo(mx-7,350); ctx.lineTo(mx+7,350); ctx.lineTo(mx,359); ctx.closePath(); ctx.fill();
+    txt('（時間の長さは実際とはちがいます）',X0,412,10,'#64748b','','left'); txt('▲ 帯をタップ・ドラッグすると、その場所へ動かせます',X0+WW,412,10,'#64748b','','right'); }
+  function hitS(x,y){
+    if(Math.hypot(x-120,y-26)<23) return [tx('口：歯で食べ物を細かくし、だ液と混ぜる。だ液はでんぷんを別の物に変える','口：歯でかみくだく。だ液にふくまれるアミラーゼが、デンプンを麦芽糖などに分解する'),0];
+    if(inR(x,y,112,46,132,116)) return [tx('食道：口と胃をつなぐ管。筋肉の動きで食べ物を胃へ送る','食道：口と胃をつなぐ管。ぜん動運動で食べ物を胃へ送る'),1];
+    if(inR(x,y,130,106,180,158)) return [tx('胃：胃液を出して、たんぱく質を消化する','胃：胃液にふくまれるペプシンが、タンパク質を分解する（胃液は塩酸をふくみ、強い酸性）'),2];
+    if(inR(x,y,98,130,114,152)) return [tx('たんのう：かん臓でつくられたたん汁をためておく','胆のう：肝臓でつくられた胆汁をためる。胆汁は消化酵素をふくまないが、脂肪を細かい粒にして消化を助ける'),3];
+    if(inR(x,y,56,96,128,142)) return [tx('かん臓：たん汁をつくる。小腸で吸収した養分をたくわえる','肝臓：胆汁をつくる。養分をたくわえ、有害な物を無害な物に変える'),3];
+    if(inR(x,y,118,150,172,170)) return [tx('すい臓：すい液を出す。すい液は、でんぷん・たんぱく質・しぼうを消化する','すい臓：すい液を出す。すい液はアミラーゼ・トリプシン・リパーゼをふくむ'),3];
+    if(inR(x,y,82,190,160,256)) return [tx('小腸：消化を仕上げ、内側のじゅう毛から養分を吸収する（のばすと長さ約6m）','小腸：壁の消化酵素で分解を仕上げ、柔毛から養分を吸収する（のばすと長さ約6m）'),4];
+    if(nearPts(LI,x,y,10)) return [tx('大腸：おもに水分を吸収する','大腸：おもに水分を吸収する。残りは便になる'),5];
+    if(inR(x,y,108,280,136,322)) return [tx('こう門：吸収されなかった物が、便として出される','肛門：吸収されなかった物が、便として排出される'),6];
+    if(inR(x,y,556,70,632,332)) return [tx('じゅう毛：小腸のかべの小さな出っぱり。糖・アミノ酸は毛細血管へ、しぼう酸・モノグリセリドはリンパ管へ入る','柔毛：小腸の壁の小さな突起。ブドウ糖・アミノ酸は毛細血管へ、脂肪酸・モノグリセリドは再び脂肪になってリンパ管へ入る'),null];
+    return null; }
+  function updateS(force){ const sg=stg(dp), s=sg[0], u=sg[1], L=lvls(s,u); const io=L[0]<0.3?0:(L[0]<1.8?1:2);
+    const ab=Math.round(((clamp(L[0]-3,0,1)+clamp(L[1]-3,0,1)+clamp(L[2]-2,0,1))/3)*100);
+    const key=s+'|'+io+'|'+ab+'|'+S6(); if(!force&&key===lastKey) return; lastKey=key;
+    setV('s1',PLACE()[s]); setV('s2',JUICE_S()[s]); setV('s3',['青むらさき色','うすい青むらさき色','変化しない'][io]); setV('s4',ab+'%');
+    setShare(tx('【消化と吸収】いま'+PLACE()[s]+'。'+JUICE()[s].replace('なし','消化液なし')+'。吸収された養分 '+ab+'%（でんぷん→糖、たんぱく質→アミノ酸、しぼう→しぼう酸とモノグリセリド）｜シミュラボ',
+      '【消化と吸収】いま'+PLACE()[s]+'。'+JUICE()[s].replace('なし','消化液なし')+'。吸収された養分 '+ab+'%（デンプン→ブドウ糖、タンパク質→アミノ酸、脂肪→脂肪酸とモノグリセリド）｜シミュラボ')); }
+
+  // ================= 切りかえ・数値
+  const SL={J:['心拍数（1分間）','1回に送り出す血液の量','1分間に送り出す血液の量','1日に送り出す血液の量（目安）'],K:['呼吸数（1分間）','1回の呼吸で出入りする空気','1分間に出入りする空気','1分間に取り入れる酸素（目安）'],S:['いまの場所','はたらく消化液','ヨウ素液を加えると','吸収された養分（モデル）']};
+  function update(){ SL[mode].forEach((t,i)=>setK('s'+(i+1),(mode==='S'&&i===2)?tx('ヨウ素液を加えると（でんぷん）','ヨウ素液を加えると（デンプン）'):t));
+    if(mode==='J'){ const hr=+$('hr').value, sv=+$('sv').value, Q=hr*sv; setV('s1',hr+'回'); setV('s2',sv+'mL'); setV('s3',(Q/1000).toFixed(1)+'L'); setV('s4','約'+num(Q*1.44)+'L');
+      setShare('【血液の循環】心拍数'+hr+'回/分 × 1回'+sv+'mL ＝ 1分間に'+(Q/1000).toFixed(1)+'L、1日で約'+num(Q*1.44)+'Lの血液を心臓が送り出す（目安）｜シミュラボ'); }
+    else if(mode==='K'){ const b=+$('br').value, tv=+$('tv').value, V=b*tv; setV('s1',b+'回'); setV('s2',num(tv)+'mL'); setV('s3',(V/1000).toFixed(1)+'L'); setV('s4','約'+num(V*0.04)+'mL');
+      setShare('【呼吸】1分間に'+b+'回 × '+num(tv)+'mL ＝ '+(V/1000).toFixed(1)+'Lの空気が出入りし、酸素を約'+num(V*0.04)+'mL取り入れる（吸う空気の酸素21%・はいた空気約17%で計算）｜シミュラボ'); }
+    else updateS(true); }
+  const HASH={J:'junkan',K:'kokyu',S:'shoka'};
+  function setMode(m){ mode=m; info=null;
+    [['tJ','J'],['tK','K'],['tS','S']].forEach((a)=>{ const b=$(a[0]); b.className='btn '+(a[1]===m?'btn-primary':'btn-ghost'); b.setAttribute('aria-pressed',a[1]===m?'true':'false'); });
+    ['hr','sv'].forEach((id)=>{ fld(id).style.display=m==='J'?'':'none'; }); ['br','tv'].forEach((id)=>{ fld(id).style.display=m==='K'?'':'none'; }); ['pos','spd'].forEach((id)=>{ fld(id).style.display=m==='S'?'':'none'; });
+    $('rest').style.display=m==='S'?'none':''; $('ex').style.display=m==='S'?'none':''; $('eat').style.display=m==='S'?'':'none';
+    if(m==='S'&&dp>=1) dp=0;
+    run=true; $('pause').textContent='⏸ 一時停止';
+    try{ history.replaceState(null,'',location.pathname+location.search+'#'+HASH[m]); }catch(e){}
+    update(); }
+  function preset(ex){ const v=ex?{hr:130,sv:100,br:30,tv:1500}:{hr:70,sv:70,br:15,tv:500}; Object.keys(v).forEach((id)=>{ $(id).value=v[id]; $(id).dispatchEvent(new Event('input')); }); }
+  ['hr','sv','br','tv'].forEach((id)=>$(id).addEventListener('input',update));
+  $('lv').addEventListener('change',()=>{ lastKey=''; update(); });
+  $('pos').addEventListener('input',()=>{ dp=(+$('pos').value)/100; run=false; $('pause').textContent='▶ 再生'; updateS(); });
+  $('tJ').addEventListener('click',()=>setMode('J')); $('tK').addEventListener('click',()=>setMode('K')); $('tS').addEventListener('click',()=>setMode('S'));
+  $('pause').addEventListener('click',()=>{ if(!run&&mode==='S'&&dp>=1) dp=0; run=!run; $('pause').textContent=run?'⏸ 一時停止':'▶ 再生'; });
+  $('rest').addEventListener('click',()=>preset(false)); $('ex').addEventListener('click',()=>preset(true));
+  $('eat').addEventListener('click',()=>{ dp=0; run=true; $('pause').textContent='⏸ 一時停止'; syncPos(); updateS(); });
+  function scrub(x){ dp=clamp((x-16)/608,0,1); run=false; $('pause').textContent='▶ 再生'; syncPos(); updateS(); }
+  cv.addEventListener('pointerdown',(e)=>{ const p=cpos(cv,e), x=p[0]/dpr, y=p[1]/dpr;
+    if(mode==='S'&&y>=344&&y<=402){ e.preventDefault(); dragTL=true; try{ cv.setPointerCapture(e.pointerId); }catch(er){} scrub(x); return; }
+    if(mode==='J'){ const t=hitJ(x,y); info=t?{t:t,x:x,y:y,life:5}:null; }
+    else if(mode==='K'){ const t=hitK(x,y); info=t?{t:t,x:x,y:y,life:5}:null; }
+    else { const h=hitS(x,y); info=h?{t:h[0],x:x,y:y,life:5}:null; if(h&&h[1]!=null){ dp=stStart(h[1])+0.002; syncPos(); updateS(); } } });
+  cv.addEventListener('pointermove',(e)=>{ if(!dragTL) return; const p=cpos(cv,e); scrub(p[0]/dpr); });
+  const endDrag=()=>{ dragTL=false; }; cv.addEventListener('pointerup',endDrag); cv.addEventListener('pointercancel',endDrag);
+  function draw(){ ctx.fillStyle='#ffffff'; ctx.fillRect(0,0,W,H); if(mode==='J') drawJ(); else if(mode==='K') drawK(); else drawS(); bubble(); }
+  let last=performance.now();
+  function loop(now){ const dt=Math.min(0.05,Math.max(0,(now-last)/1000)); last=now;
+    if(run){ T+=dt; cph+=dt*(+$('hr').value)/60; rph+=dt*(+$('br').value)/60;
+      const nb=Math.floor(cph); if(nb!==beatN){ beatN=nb; beatT=T; pulses.push(T+0.12); if(pulses.length>8) pulses.shift(); }
+      if(mode==='J') stepJ(dt); else if(mode==='K') stepK(dt); else { stepS(dt); updateS(); } }
+    if(info){ info.life-=dt; if(info.life<=0) info=null; }
+    draw(); requestAnimationFrame(loop); }
+  const h0=(location.hash||'').replace('#',''); const m0=h0==='kokyu'?'K':(h0==='shoka'?'S':'J');
+  pulses=[-1.2,-0.34]; for(let i=0;i<40;i++) stepJ(0.05);
+  setMode(m0); draw(); requestAnimationFrame(loop);
+
+  } catch(e) { console.error(e); }
+  (function(){ const fs=$('fsBtn'), panel=document.querySelector('.panel');
+    const req = panel && (panel.requestFullscreen || panel.webkitRequestFullscreen);
+    if (fs && req) { fs.hidden = false; fs.addEventListener('click', () => {
+      const cur = document.fullscreenElement || document.webkitFullscreenElement;
+      if (cur) { (document.exitFullscreen || document.webkitExitFullscreen).call(document); }
+      else { req.call(panel); } }); }
+  })();
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE || document.title)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText((SHARE||document.title)+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'hito-karada', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

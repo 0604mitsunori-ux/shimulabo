@@ -35,6 +35,7 @@
 <style>
 .lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
 .lab-ctl .field{margin-bottom:6px;}
+.lab-ctl>*,.lab-stats>*{min-width:0;}
 .lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
 .lab-ctl .slider-head label{margin:0;font-size:13px;}
 .lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
@@ -84,7 +85,7 @@ canvas.lab.light{background:#fff;}
   </div>
 
   <section class="panel">
-    <div style="display:grid;place-items:center;gap:14px;">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;gap:14px;">
       <span class="lab-badge">🧪 n-gram言語モデル（マルコフ連鎖）＋温度サンプリング</span>
       
       <div class="lab-ctl"><div class="field" style="grid-column:1/-1;"><div class="slider-head"><label for="src">学習させる文章（長いほど賢くなります）</label></div><textarea id="src" rows="6" style="width:100%;padding:10px;border:1px solid var(--line);border-radius:8px;font-size:13px;line-height:1.6;"></textarea></div><div class="field"><div class="slider-head"><label for="order">記憶の長さ n（直前の何文字を見るか）</label><span class="val" id="orderL"></span></div><input type="range" id="order" min="1" max="6" value="2" step="1" data-fmt="{v}文字"></div><div class="field"><div class="slider-head"><label for="temp">温度（ランダムさ）</label><span class="val" id="tempL"></span></div><input type="range" id="temp" min="0.2" max="2.0" value="1.0" step="0.1"></div><div class="field"><div class="slider-head"><label for="len">生成する長さ</label><span class="val" id="lenL"></span></div><input type="range" id="len" min="50" max="400" value="150" step="10" data-fmt="{v}文字"></div></div>

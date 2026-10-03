@@ -16,7 +16,8 @@ sys.path.insert(0, HERE)
 sys.stdout.reconfigure(encoding="utf-8")
 from common import render, G, CATJP, BASE, TODAY
 
-MODULES = ["sims_tenmon", "sims_denki_hikari", "sims_kishou_jishin", "sims_chikara", "sims_ryushi_iden"]
+MODULES = ["sims_tenmon", "sims_denki_hikari", "sims_kishou_jishin", "sims_chikara", "sims_ryushi_iden",   # 第1弾
+           "sims_tentai", "sims_chisou", "sims_kishou2", "sims_denki_kagaku", "sims_karada_gijutsu", "sims_kinsei"]   # 第2弾
 REQUIRED = ["slug", "cat", "title", "title_tag", "meta_desc", "og_title", "og_desc", "lead", "model", "level", "unit",
             "emoji", "card_desc", "score", "article", "faqs", "rel", "js"]
 

@@ -35,6 +35,7 @@
 <style>
 .lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
 .lab-ctl .field{margin-bottom:6px;}
+.lab-ctl>*,.lab-stats>*{min-width:0;}
 .lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
 .lab-ctl .slider-head label{margin:0;font-size:13px;}
 .lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
@@ -84,7 +85,7 @@ canvas.lab.light{background:#fff;}
   </div>
 
   <section class="panel">
-    <div style="display:grid;place-items:center;gap:14px;">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;gap:14px;">
       <span class="lab-badge">🧪 社会的選択理論（コンドルセ／ボルダ／決選投票／即時決選）</span>
       <canvas id="cv" class="lab light" width="640" height="300"></canvas>
       <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="g1">A＞B＞C と考える人</label><span class="val" id="g1L"></span></div><input type="range" id="g1" min="0" max="60" value="35" step="1" data-fmt="{v}%"></div><div class="field"><div class="slider-head"><label for="g2">A＞C＞B と考える人</label><span class="val" id="g2L"></span></div><input type="range" id="g2" min="0" max="60" value="5" step="1" data-fmt="{v}%"></div><div class="field"><div class="slider-head"><label for="g3">B＞C＞A と考える人</label><span class="val" id="g3L"></span></div><input type="range" id="g3" min="0" max="60" value="30" step="1" data-fmt="{v}%"></div><div class="field"><div class="slider-head"><label for="g4">B＞A＞C と考える人</label><span class="val" id="g4L"></span></div><input type="range" id="g4" min="0" max="60" value="3" step="1" data-fmt="{v}%"></div><div class="field"><div class="slider-head"><label for="g5">C＞B＞A と考える人</label><span class="val" id="g5L"></span></div><input type="range" id="g5" min="0" max="60" value="22" step="1" data-fmt="{v}%"></div><div class="field"><div class="slider-head"><label for="g6">C＞A＞B と考える人</label><span class="val" id="g6L"></span></div><input type="range" id="g6" min="0" max="60" value="5" step="1" data-fmt="{v}%"></div></div>

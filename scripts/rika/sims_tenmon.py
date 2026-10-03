@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
 """理科の授業向け（天文）：月の満ち欠けの仕組み／月食・日食シミュレーター
    照合メモ
-   - 月齢＝平均朔望月 29.530588853日・基準新月 2000-01-06 18:14 UTC（目安）。国立天文台の正午月齢（東京 2026年10月）と比べると 0.73〜0.76日小さい。
-     Meeus の真の朔望で 2000〜2040年を調べると、モデル月齢は真の月齢より最大0.73日小さく〜0.43日大きくなる。
-   - 南中時刻＝12時＋月齢×24/29.53時。国立天文台（東京 2026年10月）との差は −8分〜＋57分。
+   - 「今日の月齢」＝Meeus『Astronomical Algorithms』49章の真の新月（ΔT＝69秒）からの経過日数（2026-10-04 改修）。
+     国立天文台の正午月齢（東京 2026〜2027年の730日）と小数第1位で全日一致（四捨五入前の差 −0.047〜＋0.032日）。朔弦望（暦要項 2026〜2027年の99件）とは −0.5〜＋0.6分。
+     旧方式（平均朔望月 29.530588853日・基準新月 2000-01-06 18:14 UTC）は同じ730日で −0.76〜＋0.46日ずれていた（2026-10-04 正午：旧22.3／国立天文台23.0）。
+     今日の月齢モードでは、図の月の角度も Meeus 48章の式（太陽から東へはなれた角度。真の朔弦望の瞬間との差 ±0.4°）。スライダー操作は平均の速さのまま。
+   - 南中時刻＝12時＋（太陽から東への角度）÷15°（スライダー操作では 12時＋月齢×24/29.53時）。国立天文台（東京）との差は、今日の月齢モード（正午の角度）で
+     2026年10月 ＋2〜＋66分・11月 ＋5〜＋55分・2027年2月 −21〜＋47分（旧方式の10月は −8〜＋57分）。東京は東経135°より約19分早く南中する。
    - 食のしきい値・食分・継続時間は Meeus『Astronomical Algorithms』54章の式（地球半径単位、u＝本影円錐の半径）。
      国立天文台の一覧に載る2025〜2030年の月食10回・日食14回の種類（皆既・部分・金環）がすべて一致することを確認済み（半影月食は一覧に無い）。
 """
@@ -83,8 +86,9 @@ sim(slug="tsuki-michikake", cat="rika", emoji="🌓", score=82,
 <ul>
 <li>左の図の大きさと距離は誇張しています。実際の地球と月の距離は地球の直径の約30倍、月の直径は地球の約4分の1、太陽までの距離は月までの約390倍です。</li>
 <li>月と太陽は、春分・秋分の日の太陽と同じ通り道（真東からのぼり真西にしずむ。北緯35°で南中の高さ55°）を通るとして計算しています。実際の月の通り道は日によって北や南にずれ、のぼる方角や時刻も変わります。</li>
-<li>月齢は、平均の朔望月（29.530588853日）と基準の新月（2000年1月6日18時14分、世界時）から計算した目安です。国立天文台が発表する月齢とは最大で0.8日ほどずれることがあります（例：2026年10月4日正午は、このシミュレーターで22.3、国立天文台の東京の値で23.0）。</li>
-<li>南中時刻なども目安です。国立天文台の東京の値と比べると、2026年10月は8分早い〜57分おそいずれがありました。日本の時刻は、東経135°の時刻としています。</li>
+<li>「今日の月齢にする」の月齢は、J. Meeus『Astronomical Algorithms』の式で求めた新月（朔）の瞬間からの経過日数です。新月の時刻は国立天文台の暦要項（2026〜2027年）と1分以内で一致し、月齢は国立天文台の正午月齢（東京）と2026〜2027年の730日分がすべて小数第1位まで一致しました（例：2026年10月4日正午は23.0）。このときは、図の月の位置と形も、同書の式で求めた実際の「太陽から東へはなれた角度」にしています。</li>
+<li>月齢のスライダーや「形をえらぶ」で動かすときは、月が平均の速さ（1日に約12.2°）で太陽からはなれるとして計算しています。実際の月は軌道が楕円で速さが変わるので、満月になるときの月齢は13.9〜15.6の間で毎回ちがいます。</li>
+<li>南中時刻なども目安です。「今日の月齢にする」で出る南中時刻（正午の月の位置で計算）を国立天文台の東京の値と比べると、2026年10月は2分〜66分おそくなりました。日本の時刻は東経135°の時刻としていて、東京はそれより約19分早く南中します。</li>
 </ul>
 
 <h2>参考</h2>
@@ -93,6 +97,8 @@ sim(slug="tsuki-michikake", cat="rika", emoji="🌓", score=82,
 <li>国立天文台「月はいつどんなふうに見える？昼間も見えるの？」（''' + A("https://www.nao.ac.jp/faq/a0201.html") + '''）</li>
 <li>国立天文台「「月齢」ってなに？なぜ小数がつくの？」（''' + A("https://www.nao.ac.jp/faq/a0204.html") + '''）</li>
 <li>国立天文台 暦計算室「月の出入り 東京（2026年10月）」（''' + A("https://eco.mtk.nao.ac.jp/koyomi/dni/2026/m1310.html") + '''）…月齢・南中時刻の照合に使用</li>
+<li>国立天文台 暦計算室「暦要項 令和8年 朔弦望」（''' + A("https://eco.mtk.nao.ac.jp/koyomi/yoko/2026/rekiyou263.html") + '''）…新月の時刻の照合に使用</li>
+<li>Jean Meeus『Astronomical Algorithms』第2版（Willmann-Bell, 1998）…新月の時刻と、月が太陽からはなれた角度の計算式</li>
 </ul>
 ''',
     faqs=[("月の満ち欠けはなぜ起こるのですか？", "月は太陽の光を反射して光っていて、いつも太陽に向いた半分が光っています。月が地球のまわりを回ると、その光っている半分を地球から見る角度が変わるため、光って見える部分の形が変わります。周期は平均約29.5日です。"),
@@ -106,15 +112,31 @@ sim(slug="tsuki-michikake", cat="rika", emoji="🌓", score=82,
     js=r'''
   const cv=$('cv'); const dpr=Math.min(2,window.devicePixelRatio||1); const W=cv.width,H=cv.height; cv.width=W*dpr; cv.height=H*dpr; const x=cv.getContext('2d'); x.setTransform(dpr,0,0,dpr,0,0);
   cv.style.cursor='pointer';
-  const SYN=29.530588853, EPOCH=Date.UTC(2000,0,6,18,14), R=Math.PI/180, LAT=35*R;
+  const SYN=29.530588853, R=Math.PI/180, LAT=35*R, DAY=864e5, HR=36e5;
   const LX=164, LY=228, RE=22, RO=112;               // 左：宇宙（北極の上）から見た図
   const X0=324, SX0=482, SXW=146, HZ=262, SKY=2.3;   // 右：日本から見た空（高さ1°＝2.3px）
   const F=(s,b)=>(b?'bold ':'')+s+'px system-ui,-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif';
-  let age=+$('age').value, hour=+$('hour').value, play=false, todayTxt='', drag=null, last=0, need=true;
+  let age=+$('age').value, hour=+$('hour').value, play=false, drag=null, last=0, need=true, tMs=null, day0=0, Lr=0;   // tMs：「今日の月齢」で表示している日時
   const wrap=(v,m)=>((v%m)+m)%m;
+  // 「今日の月齢」は真の新月（朔）の瞬間から数える：J. Meeus『Astronomical Algorithms』49章（新月の時刻）・48章（太陽から東へはなれた角度）の式
+  const sd=(d)=>Math.sin(d*R);
+  function newMoon(k){ const T=k/1236.85, E=1-0.002516*T-0.0000074*T*T, M=2.5534+29.1053567*k-0.0000014*T*T, Mp=201.5643+385.81693528*k+0.0107582*T*T+0.00001238*T*T*T,
+      F=160.7108+390.67050284*k-0.0016118*T*T-0.00000227*T*T*T, Om=124.7746-1.56375588*k+0.0020672*T*T;
+    let j=2451550.09766+29.530588861*k+0.00015437*T*T-0.4072*sd(Mp)+0.17241*E*sd(M)+0.01608*sd(2*Mp)+0.01039*sd(2*F)+0.00739*E*sd(Mp-M)-0.00514*E*sd(Mp+M)+0.00208*E*E*sd(2*M)
+      -0.00111*sd(Mp-2*F)-0.00057*sd(Mp+2*F)+0.00056*E*sd(2*Mp+M)-0.00042*sd(3*Mp)+0.00042*E*sd(M+2*F)+0.00038*E*sd(M-2*F)-0.00024*E*sd(2*Mp-M)-0.00017*sd(Om)
+      -0.00007*sd(Mp+2*M)+0.00004*sd(2*Mp-2*F)+0.00004*sd(3*M)+0.00003*sd(Mp+M-2*F)+0.00003*sd(2*Mp+2*F)-0.00003*sd(Mp+M+2*F)+0.00003*sd(Mp-M+2*F)-0.00002*sd(Mp-M-2*F)-0.00002*sd(3*Mp+M)+0.00002*sd(4*Mp);
+    const A=[[299.77,0.107408,325],[251.88,0.016321,165],[251.83,26.651886,164],[349.42,36.412478,126],[84.66,18.206239,110],[141.74,53.303771,62],[207.14,2.453732,60],
+             [154.84,7.30686,56],[34.52,27.261239,47],[207.19,0.121824,42],[291.34,1.844379,40],[161.72,24.198154,37],[239.56,25.513099,35],[331.55,3.592518,23]];
+    A.forEach((a,i)=>{ j+=a[2]*1e-6*sd(a[0]+a[1]*k-(i?0:0.009173*T*T)); });
+    return (j-2440587.5-69/86400)*DAY; }                                  // 世界時（ΔT＝69秒）のミリ秒
+  function lastNew(ms){ let k=Math.floor((ms/DAY+2440587.5-2451550.09766)/29.530588861); while(newMoon(k+1)<=ms) k++; while(newMoon(k)>ms) k--; return newMoon(k); }
+  function elong(ms){ const T=(ms/DAY+2440587.5+69/86400-2451545)/36525, D=297.8501921+445267.1114034*T-0.0018819*T*T, M=357.5291092+35999.0502909*T-0.0001536*T*T, Mp=134.9633964+477198.8675055*T+0.0087414*T*T;
+    return wrap(D+6.289*sd(Mp)-2.1*sd(M)+1.274*sd(2*D-Mp)+0.658*sd(2*D)+0.214*sd(2*Mp)+0.11*sd(D),360); }
+  function setReal(){ tMs=day0+hour*HR; age=(tMs-lastNew(tMs))/DAY; Lr=elong(tMs); }   // day0：日本時間の0時
+  const ae=()=>tMs!==null?Lr/360*SYN:age;           // 図・形・時刻の計算に使う月齢（今日の月齢では、実際の太陽からの角度に合わせる）
   const lamOf=(a)=>360*a/SYN;                        // 太陽から東へはなれた角度
   const transitH=(a)=>wrap(12+24*a/SYN,24);          // 南中時刻（目安）
-  const haMoon=()=>wrap(15*(hour-12)-lamOf(age)+180,360)-180;   // 時角（0＝南中、−90＝東の地平線、＋90＝西）
+  const haMoon=()=>wrap(15*(hour-12)-lamOf(ae())+180,360)-180;   // 時角（0＝南中、−90＝東の地平線、＋90＝西）
   const haSun=()=>wrap(15*(hour-12)+180,360)-180;
   function altAz(h){ h*=R; return [Math.asin(Math.cos(LAT)*Math.cos(h))/R, Math.atan2(Math.sin(h),Math.cos(h)*Math.sin(LAT))/R]; }  // 高さ・方位（南から西回り）
   function sky(alt,A){ return [SX0+A/90*SXW, HZ-alt*SKY]; }
@@ -178,7 +200,7 @@ sim(slug="tsuki-michikake", cat="rika", emoji="🌓", score=82,
     [['新月',0],['上弦',90],['満月',180],['下弦',270]].forEach(d=>{ const l=d[1]*R, s=toS(-136*Math.cos(l),-136*Math.sin(l)); x.fillText(d[0],s[0],s[1]); });
     // 日本（観察する人）から月への視線（見えないときは点線。地球の後ろにかくれる）
     const th=(180+15*(hour-12))*R, zx=Math.cos(th), zy=Math.sin(th), ex=-Math.sin(th), ey=Math.cos(th);
-    const o=toS(RE*zx,RE*zy), l=lamOf(age)*R, mx=-RO*Math.cos(l), my=-RO*Math.sin(l), m=toS(mx,my), vis=(mx*zx+my*zy)>0;
+    const o=toS(RE*zx,RE*zy), l=lamOf(ae())*R, mx=-RO*Math.cos(l), my=-RO*Math.sin(l), m=toS(mx,my), vis=(mx*zx+my*zy)>0;
     x.strokeStyle=vis?'rgba(253,230,138,.9)':'rgba(148,163,184,.55)'; x.lineWidth=vis?2:1.5; if(!vis) x.setLineDash([4,4]);
     x.beginPath(); x.moveTo(o[0],o[1]); x.lineTo(m[0],m[1]); x.stroke(); x.setLineDash([]);
     // 地球（左半分が昼）・時刻のめやす・自転の矢印
@@ -194,15 +216,15 @@ sim(slug="tsuki-michikake", cat="rika", emoji="🌓", score=82,
     x.fillStyle='#ef4444'; x.beginPath(); x.arc(o[0],o[1],4.5,0,2*Math.PI); x.fill(); x.strokeStyle='#fff'; x.lineWidth=1.2; x.stroke();
     const nl=toS((RE-11)*zx,(RE-11)*zy); x.font=F(10,1); x.lineWidth=3; x.strokeStyle='#0b1020'; x.strokeText('日本',nl[0],nl[1]); x.fillStyle='#fff'; x.fillText('日本',nl[0],nl[1]);
     // 月（いま）：明るい半分＝太陽側、水色の線＝地球に向いている側
-    x.strokeStyle='rgba(125,211,252,.95)'; x.lineWidth=2.5; x.beginPath(); x.arc(m[0],m[1],15,(-lamOf(age)-90)*R,(-lamOf(age)+90)*R,false); x.stroke();
+    x.strokeStyle='rgba(125,211,252,.95)'; x.lineWidth=2.5; x.beginPath(); x.arc(m[0],m[1],15,(-lamOf(ae())-90)*R,(-lamOf(ae())+90)*R,false); x.stroke();
     phase(m[0],m[1],11,90,Math.PI,'#f8f4e3','#3b4660');
     x.textBaseline='alphabetic'; x.textAlign='left'; x.font=F(10.5); x.fillStyle='rgba(203,213,225,.85)';
     x.fillText('地球の自転（地球のまわりの矢印）も月の公転も反時計回り',8,398);
     x.fillText('水色の線＝地球に向いた側（大きさ・距離は誇張）',8,414);
   }
   function drawSky(){
-    const sp=altAz(haSun()), sAlt=sp[0], Hm=haMoon(), mp=altAz(Hm), mAlt=mp[0];
-    const L=lamOf(age), e=L<=180?L:360-L, vis=Math.abs(Hm)<90, nm=nameOf(age), k=(1-Math.cos(L*R))/2;
+    const sp=altAz(haSun()), sAlt=sp[0], Hm=haMoon(), mp=altAz(Hm), mAlt=mp[0], a=ae();
+    const L=lamOf(a), e=L<=180?L:360-L, vis=Math.abs(Hm)<90, nm=nameOf(a), k=(1-Math.cos(L*R))/2;
     const cols=skyCols(sAlt), g=x.createLinearGradient(0,0,0,HZ); g.addColorStop(0,cols[0]); g.addColorStop(1,cols[1]);
     x.save(); x.beginPath(); x.rect(X0,0,W-X0,HZ); x.clip();
     x.fillStyle=g; x.fillRect(X0,0,W-X0,HZ);
@@ -212,10 +234,10 @@ sim(slug="tsuki-michikake", cat="rika", emoji="🌓", score=82,
     if(sAlt>-2){ const s=sky(sAlt,sp[1]), gl=x.createRadialGradient(s[0],s[1],5,s[0],s[1],40); gl.addColorStop(0,'rgba(255,244,190,.95)'); gl.addColorStop(1,'rgba(255,244,190,0)');
       x.fillStyle=gl; x.beginPath(); x.arc(s[0],s[1],40,0,2*Math.PI); x.fill(); x.fillStyle='#fff6c4'; x.beginPath(); x.arc(s[0],s[1],12,0,2*Math.PI); x.fill(); }
     let below=false, endP=null;
-    if(vis&&!isNew(age)){ const dH=L<=180?L:L-360, n=Math.ceil(Math.abs(dH)/2); x.setLineDash([2,5]); x.strokeStyle='rgba(250,204,21,.95)'; x.lineWidth=2; x.beginPath();
+    if(vis&&!isNew(a)){ const dH=L<=180?L:L-360, n=Math.ceil(Math.abs(dH)/2); x.setLineDash([2,5]); x.strokeStyle='rgba(250,204,21,.95)'; x.lineWidth=2; x.beginPath();
       for(let i=0;i<=n;i++){ const q=altAz(Hm+dH*i/n); if(q[0]<0){ below=true; break; } const s=sky(q[0],q[1]); i?x.lineTo(s[0],s[1]):x.moveTo(s[0],s[1]); endP=s; }
       x.stroke(); x.setLineDash([]); }
-    if(vis&&!isNew(age)){ const s=sky(mAlt,mp[1]), a1=altAz(Hm-0.5), a2=altAz(Hm+0.5), p1=sky(a1[0],a1[1]), p2=sky(a2[0],a2[1]), sg=L<180?1:-1;
+    if(vis&&!isNew(a)){ const s=sky(mAlt,mp[1]), a1=altAz(Hm-0.5), a2=altAz(Hm+0.5), p1=sky(a1[0],a1[1]), p2=sky(a2[0],a2[1]), sg=L<180?1:-1;
       const th=Math.atan2((p2[1]-p1[1])*sg,(p2[0]-p1[0])*sg);
       if(sAlt<0){ const gl=x.createRadialGradient(s[0],s[1],6,s[0],s[1],42); gl.addColorStop(0,'rgba(255,250,225,'+(0.1+0.3*k).toFixed(2)+')'); gl.addColorStop(1,'rgba(255,250,225,0)'); x.fillStyle=gl; x.beginPath(); x.arc(s[0],s[1],42,0,2*Math.PI); x.fill(); }
       phase(s[0],s[1],14,e,th,sAlt>0?'#f8fafc':'#fbf6e2',sAlt>0?'rgba(120,150,190,.25)':'rgba(60,72,100,.6)'); }
@@ -225,14 +247,14 @@ sim(slug="tsuki-michikake", cat="rika", emoji="🌓", score=82,
     if(below&&endP){ const right=endP[0]>SX0; x.font=F(10.5,1); x.fillStyle='#fde68a'; x.textAlign=right?'right':'left'; x.fillText('この先に太陽（地平線の下）',endP[0]+(right?-6:6),Math.min(endP[1]-8,HZ-8)); }
     x.fillStyle='rgba(6,11,28,.6)'; rr(X0+6,6,W-X0-12,40,8); x.fill();
     x.textAlign='left'; x.fillStyle='#fff'; x.font=F(13,1); x.fillText('日本から見た空（南を向いて）',X0+14,22);
-    let st; if(isNew(age)) st='新月のころ：太陽と同じ方向で見えない'; else if(!vis) st='いま月は地平線の下（見えない）'; else st='いま：'+dirName(mp[1])+'の空・高さ'+Math.round(mAlt)+'°'+(sAlt>3?'（昼の空）':sAlt>-8?(hour<12?'（明け方の空）':'（夕方の空）'):'');
+    let st; if(isNew(a)) st='新月のころ：太陽と同じ方向で見えない'; else if(!vis) st='いま月は地平線の下（見えない）'; else st='いま：'+dirName(mp[1])+'の空・高さ'+Math.round(mAlt)+'°'+(sAlt>3?'（昼の空）':sAlt>-8?(hour<12?'（明け方の空）':'（夕方の空）'):'');
     x.font=F(12,1); x.fillStyle='#fde68a'; x.fillText(st,X0+14,39);
     // 地面：方角・月の出／南中／月の入り
     x.fillStyle='#14211a'; x.fillRect(X0,HZ,W-X0,H-HZ);
     x.strokeStyle='rgba(255,255,255,.6)'; x.lineWidth=1.5; x.beginPath(); x.moveTo(X0,HZ); x.lineTo(W,HZ); x.stroke();
     x.font=F(12,1); x.fillStyle='#e2e8f0'; x.textAlign='center';
     [['東',-90],['南東',-45],['南',0],['南西',45],['西',90]].forEach(d=>{ x.fillText(d[0],Math.min(W-10,Math.max(X0+10,SX0+d[1]/90*SXW)),HZ+16); });
-    if(!isNew(age)){ const T=transitH(age); x.font=F(11); x.fillStyle='#fde68a';
+    if(!isNew(a)){ const T=transitH(a); x.font=F(11); x.fillStyle='#fde68a';
       x.textAlign='left'; x.fillText('月の出 '+about(T-6),X0+6,HZ+33); x.textAlign='center'; x.fillText('南中 '+about(T),SX0,HZ+33); x.textAlign='right'; x.fillText('月の入り '+aboutSet(T+6),W-6,HZ+33); }
     x.strokeStyle='rgba(255,255,255,.12)'; x.lineWidth=1; x.beginPath(); x.moveTo(X0+6,HZ+42); x.lineTo(W-6,HZ+42); x.stroke();
     // 月の形（南の空で見たとき）と説明
@@ -241,40 +263,40 @@ sim(slug="tsuki-michikake", cat="rika", emoji="🌓", score=82,
     x.font=F(10); x.fillStyle='rgba(203,213,225,.8)'; x.textAlign='center'; x.fillText('南の空での形',cx,cy+43);
     const tx=X0+90; x.textAlign='left'; x.fillStyle='#fff'; x.font=F(nm[0].length>5?16:19,1); x.fillText(nm[0],tx,HZ+70);
     x.font=F(11.5); x.fillStyle='#e2e8f0'; x.fillText(nm[1],tx,HZ+89); x.fillText('月齢 '+age.toFixed(1)+'日・光る部分 '+Math.round(k*100)+'%',tx,HZ+107);
-    const dw=darkWin(age); x.fillStyle='#fde68a'; x.fillText(dw?'暗い空で見える：'+dw+'ごろ':'暗い空ではほとんど見えない',tx,HZ+125);
-    if(todayTxt){ x.fillStyle='#93c5fd'; x.font=F(10.5); x.fillText(todayTxt,tx,HZ+143); }
+    const dw=darkWin(a); x.fillStyle='#fde68a'; x.fillText(dw?'暗い空で見える：'+dw+'ごろ':'暗い空ではほとんど見えない',tx,HZ+125);
+    if(tMs!==null){ const j=new Date(day0+9*HR); x.fillStyle='#93c5fd'; x.font=F(10.5); x.fillText((j.getUTCMonth()+1)+'/'+j.getUTCDate()+' '+hm(hour)+'の月齢（正午は'+((day0+12*HR-lastNew(day0+12*HR))/DAY).toFixed(1)+'）',tx,HZ+143); }
   }
   function draw(){
     x.clearRect(0,0,W,H); drawSpace(); drawSky();
     x.strokeStyle='rgba(255,255,255,.15)'; x.lineWidth=1; x.beginPath(); x.moveTo(X0-1,0); x.lineTo(X0-1,H); x.stroke();
-    const nm=nameOf(age), T=transitH(age);
+    const nm=nameOf(ae()), T=transitH(ae());
     setStat('sAge',age.toFixed(1)+'日'); setStat('sName',nm[0]); $('sName').style.fontSize=nm[0].length>5?'15px':'';
-    setStat('sWin',upWin(age)); setStat('sTr',about(T));
-    setShare('【月の満ち欠け】月齢'+age.toFixed(1)+'日は「'+nm[0]+'」🌙 '+(isNew(age)?'太陽と同じ方向にあって見えません':about(T-6)+'に東からのぼり、'+about(T)+'に南の空、'+aboutSet(T+6)+'に西にしずみます（目安）')+'｜シミュラボ');
+    setStat('sWin',upWin(ae())); setStat('sTr',about(T));
+    setShare('【月の満ち欠け】月齢'+age.toFixed(1)+'日は「'+nm[0]+'」🌙 '+(isNew(ae())?'太陽と同じ方向にあって見えません':about(T-6)+'に東からのぼり、'+about(T)+'に南の空、'+aboutSet(T+6)+'に西にしずみます（目安）')+'｜シミュラボ');
   }
   function syncUI(){ $('age').value=age.toFixed(1); $('ageL').textContent=age.toFixed(1)+'日'; $('hour').value=String(Math.round(hour*2)/2); $('hourL').textContent=hm(hour)+'（'+word(hour)+'）'; }
   function frame(ts){ const dt=last?Math.min(0.1,(ts-last)/1000):0; last=ts;
-    if(play){ hour+=dt*2; age=wrap(age+dt*2/24,SYN); if(hour>=24) hour-=24; syncUI(); need=true; }
+    if(play){ hour+=dt*2; if(hour>=24){ hour-=24; day0+=DAY; } if(tMs!==null) setReal(); else age=wrap(age+dt*2/24,SYN); syncUI(); need=true; }
     if(need){ need=false; draw(); }
     requestAnimationFrame(frame); }
   function pos(e){ const q=cpos(cv,e); return [q[0]/dpr,q[1]/dpr]; }
   function move(q){
-    if(drag==='moon'){ const a=Math.atan2(LY-q[1],q[0]-LX)/R; age=wrap(a-180,360)/360*SYN; todayTxt=''; $('preset').value=''; }
+    if(drag==='moon'){ const a=Math.atan2(LY-q[1],q[0]-LX)/R; age=wrap(a-180,360)/360*SYN; tMs=null; $('preset').value=''; }
     else if(drag==='obs'){ const a=Math.atan2(LY-q[1],q[0]-LX)/R; hour=wrap(12+(a-180)/15,24); }
-    else if(drag==='sky'){ const A=clamp((q[0]-SX0)/SXW*90,-89,89), h=Math.atan(Math.tan(A*R)*Math.sin(LAT))/R; hour=wrap(transitH(age)+h/15,24); }
+    else if(drag==='sky'){ const A=clamp((q[0]-SX0)/SXW*90,-89,89), h=Math.atan(Math.tan(A*R)*Math.sin(LAT))/R; hour=wrap(transitH(ae())+h/15,24); }
+    if(drag!=='moon'&&tMs!==null) setReal();
     syncUI(); draw(); }
   cv.addEventListener('pointerdown',e=>{ const q=pos(e);
     if(q[0]<X0-2) drag=Math.hypot(q[0]-LX,q[1]-LY)<RE+16?'obs':'moon'; else drag=q[1]<HZ?'sky':null;
     if(drag){ try{ cv.setPointerCapture(e.pointerId); }catch(_){ } move(q); } });
   cv.addEventListener('pointermove',e=>{ if(drag) move(pos(e)); });
   ['pointerup','pointercancel'].forEach(n=>cv.addEventListener(n,()=>{ drag=null; }));
-  $('age').addEventListener('input',()=>{ age=+$('age').value; todayTxt=''; $('preset').value=''; syncUI(); draw(); });
-  $('hour').addEventListener('input',()=>{ hour=(+$('hour').value)%24; syncUI(); draw(); });
-  $('preset').addEventListener('change',()=>{ const v=$('preset').value; if(v!==''){ age=+v; todayTxt=''; syncUI(); draw(); } });
-  $('today').addEventListener('click',()=>{ const d=new Date(); d.setHours(Math.floor(hour),Math.round((hour%1)*60),0,0); age=wrap((d.getTime()-EPOCH)/864e5,SYN);
-    todayTxt=(d.getMonth()+1)+'/'+d.getDate()+' '+hm(hour)+'の月齢（目安）'; $('preset').value=''; syncUI(); draw(); });
-  $('play').addEventListener('click',()=>{ play=!play; if(play) todayTxt=''; $('play').textContent=play?'⏸ 止める':'▶ 時刻を進める'; });
-  $('plus1').addEventListener('click',()=>{ age=wrap(age+1,SYN); todayTxt=''; $('preset').value=''; syncUI(); draw(); });
+  $('age').addEventListener('input',()=>{ age=+$('age').value; tMs=null; $('preset').value=''; syncUI(); draw(); });
+  $('hour').addEventListener('input',()=>{ hour=(+$('hour').value)%24; if(tMs!==null) setReal(); syncUI(); draw(); });
+  $('preset').addEventListener('change',()=>{ const v=$('preset').value; if(v!==''){ age=+v; tMs=null; syncUI(); draw(); } });
+  $('today').addEventListener('click',()=>{ day0=Math.floor((Date.now()+9*HR)/DAY)*DAY-9*HR; setReal(); $('preset').value=''; syncUI(); draw(); });   // 日本時間の今日、時刻スライダーの時刻
+  $('play').addEventListener('click',()=>{ play=!play; $('play').textContent=play?'⏸ 止める':'▶ 時刻を進める'; });
+  $('plus1').addEventListener('click',()=>{ if(tMs!==null){ day0+=DAY; setReal(); } else age=wrap(age+1,SYN); $('preset').value=''; syncUI(); draw(); });
   syncUI(); draw(); need=false; requestAnimationFrame(frame);
 ''')
 

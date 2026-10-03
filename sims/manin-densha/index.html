@@ -35,6 +35,7 @@
 <style>
 .lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
 .lab-ctl .field{margin-bottom:6px;}
+.lab-ctl>*,.lab-stats>*{min-width:0;}
 .lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
 .lab-ctl .slider-head label{margin:0;font-size:13px;}
 .lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
@@ -84,7 +85,7 @@ canvas.lab.light{background:#fff;}
   </div>
 
   <section class="panel">
-    <div style="display:grid;place-items:center;gap:14px;">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;gap:14px;">
       <span class="lab-badge">🧪 粒子ベースの群衆密度モデル（1㎡あたりの人数と圧力）</span>
       <canvas id="cv" class="lab light" width="640" height="300"></canvas>
       <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="rate">混雑率</label><span class="val" id="rateL"></span></div><input type="range" id="rate" min="50" max="300" value="150" step="10" data-fmt="{v}%"></div><div class="field"><div class="slider-head"><label for="car">車両</label></div><select id="car"><option value="std" selected>一般的な通勤車両（定員約150人・20m）</option><option value="wide">ワイドドア／ロング車両（定員約160人）</option></select></div><div class="field"><div class="slider-head"><label for="bag">大きな荷物を持つ人の割合</label><span class="val" id="bagL"></span></div><input type="range" id="bag" min="0" max="50" value="10" step="5" data-fmt="{v}%"></div></div>

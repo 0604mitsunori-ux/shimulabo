@@ -35,6 +35,7 @@
 <style>
 .lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
 .lab-ctl .field{margin-bottom:6px;}
+.lab-ctl>*,.lab-stats>*{min-width:0;}
 .lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
 .lab-ctl .slider-head label{margin:0;font-size:13px;}
 .lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
@@ -84,7 +85,7 @@ canvas.lab.light{background:#fff;}
   </div>
 
   <section class="panel">
-    <div style="display:grid;place-items:center;gap:14px;">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;gap:14px;">
       <span class="lab-badge">🧪 浅水波方程式（1次元・有限差分）</span>
       <canvas id="cv" class="lab" width="640" height="360"></canvas>
       <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="depth">沖の水深</label><span class="val" id="depthL"></span></div><input type="range" id="depth" min="500" max="6000" value="3000" step="100" data-fmt="{v}m"></div><div class="field"><div class="slider-head"><label for="h0">沖での津波の高さ</label><span class="val" id="h0L"></span></div><input type="range" id="h0" min="0.3" max="3" value="1" step="0.1" data-fmt="{v}m"></div><div class="field"><div class="slider-head"><label for="slope">海底の傾斜（岸に向かう浅くなり方）</label><span class="val" id="slopeL"></span></div><input type="range" id="slope" min="1" max="5" value="3" step="1"></div><div class="field"><div class="slider-head"><label for="sp">再生速度</label><span class="val" id="spL"></span></div><input type="range" id="sp" min="1" max="10" value="5" step="1" data-fmt="×{v}"></div></div>

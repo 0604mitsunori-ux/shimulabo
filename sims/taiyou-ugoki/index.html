@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/taiyou-ugoki/">
+<title>南中高度・太陽の動きのシミュレーター｜透明半球で見る季節の変化と南中高度の求め方｜シミュラボ</title>
+<meta name="description" content="南中高度の求め方と太陽の1日の動きを、透明半球の図で確かめる無料シミュレーター。日付・時刻・地点を変えると、太陽の通り道・棒の影・南中高度・昼の長さ・日の出の方位が連動し、宇宙から見た地軸の傾きも表示します。小3・中3の理科の授業に。">
+<meta property="og:title" content="太陽の1日の動きと季節シミュレーター（透明半球・南中高度・昼の長さ）">
+<meta property="og:description" content="日付と時刻を動かすと、透明半球の太陽の通り道・棒の影・南中高度・昼の長さが連動。夏至と冬至のちがいを地軸の傾きから確かめよう。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/taiyou-ugoki.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/taiyou-ugoki.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/taiyou-ugoki/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "太陽の1日の動きと季節（透明半球・南中高度・昼の長さ）", "url": "https://shimulabo.com/sims/taiyou-ugoki/", "description": "日付と時刻を動かすと、透明半球の太陽の通り道・棒の影・南中高度・昼の長さが連動。夏至と冬至のちがいを地軸の傾きから確かめよう。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "educationalLevel": "小学3年、中学3年", "learningResourceType": "シミュレーション", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "理科の授業向け", "item": "https://shimulabo.com/rika/"}, {"@type": "ListItem", "position": 3, "name": "太陽の1日の動きと季節（透明半球・南中高度・昼の長さ）", "item": "https://shimulabo.com/sims/taiyou-ugoki/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "南中高度はどうやって求めますか？", "acceptedAnswer": {"@type": "Answer", "text": "北緯◯°の地点では、春分・秋分の日は「90° − 緯度」、夏至の日は「90° − 緯度 ＋ 23.4°」、冬至の日は「90° − 緯度 − 23.4°」で求められます。東京（北緯35.7°）では、春分・秋分54.3°、夏至77.7°、冬至30.9°です。"}}, {"@type": "Question", "name": "夏は昼が長く、冬は短いのはなぜですか？", "acceptedAnswer": {"@type": "Answer", "text": "地球が地軸を23.4°かたむけたまま公転しているからです。夏至のころは北半球が太陽の方へかたむくので、自転で1日に回る道すじのうち昼の側にある部分が長くなり、太陽も高くのぼります。冬至のころはその反対になります。"}}, {"@type": "Question", "name": "春分の日は、昼と夜の長さが同じですか？", "acceptedAnswer": {"@type": "Answer", "text": "ほぼ同じですが、昼のほうが少し長くなります。日の出・日の入りは太陽の上のふちが地平線に接する時刻で決めることと、大気で光が曲がって太陽が浮き上がって見えるためです。国立天文台によると、2026年3月20日の東京は日の出5時45分・日の入り17時52分で、昼の長さは12時間7分です。"}}, {"@type": "Question", "name": "夏至の日、太陽は真東からのぼりますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。夏至の日は真東より北寄り（東京で約30°）からのぼり、真西より北寄りにしずみます。冬至の日は南寄りです。真東からのぼって真西にしずむのは、春分・秋分の日です。"}}, {"@type": "Question", "name": "透明半球の1時間ごとの印の間隔が同じになるのはなぜですか？", "acceptedAnswer": {"@type": "Answer", "text": "地球が一定の速さで自転しているので、太陽も1時間に約15°の同じ速さで動いて見えるからです。印の間隔を使うと、日の出や日の入りの時刻を求めることができます。"}}, {"@type": "Question", "name": "棒の影の向きは、1日でどう変わりますか？", "acceptedAnswer": {"@type": "Answer", "text": "影は太陽の反対側にできるので、朝は西側、正午ごろは北側、夕方は東側にでき、西→北→東と動きます。正午ごろ（南中したとき）がいちばん短くなります。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+<style>
+.lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
+.lab-ctl .field{margin-bottom:6px;}
+.lab-ctl>*,.lab-stats>*{min-width:0;}
+.lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
+.lab-ctl .slider-head label{margin:0;font-size:13px;}
+.lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
+.lab-ctl input[type=range]{width:100%;}
+.lab-ctl select{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;font-size:14px;background:#fff;}
+.lab-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px;}
+.lab-btns .btn{padding:11px 18px;font-size:14px;width:auto;}
+.lab-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;width:100%;max-width:640px;margin-top:4px;}
+.lab-stats .stat{background:var(--teal-l);border-radius:10px;padding:10px 12px;text-align:center;}
+.lab-stats .k{font-size:11px;color:var(--ink-2);}
+.lab-stats .v{font-size:20px;font-weight:800;color:var(--ink);font-feature-settings:"tnum";}
+.lab-stats .v.accent{color:var(--accent);}
+.lab-legend{text-align:center;color:var(--ink-2);font-size:13px;margin-top:12px;}
+.lab-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;background:rgba(44,107,134,.10);color:var(--teal-d);margin-bottom:8px;}
+canvas.lab{width:100%;max-width:640px;height:auto;border:1px solid var(--line);border-radius:12px;background:#0b1020;touch-action:none;}
+canvas.lab.light{background:#fff;}
+.panel:fullscreen,.panel:-webkit-full-screen{overflow:auto;padding:24px;background:var(--bg,#faf8f3);}
+.panel:fullscreen canvas.lab{max-width:min(96vw,1100px);}
+.panel:fullscreen .lab-ctl,.panel:fullscreen .lab-stats{max-width:min(96vw,1100px);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../rika/">🔬 理科の授業向け</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../rika/">理科の授業向け</a><span>›</span><span class="cur">太陽の1日の動きと季節（透明半球・南中高度・昼の長さ）</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">理科の授業向け</div>
+    <h1>太陽の1日の動きと季節（透明半球・南中高度・昼の長さ）</h1>
+    <p class="lead">日付・時刻・地点を変えると、透明半球の太陽の通り道、棒の影、南中高度、昼の長さが連動します。季節による変化が地軸の傾きから起こることも、右の図とグラフで確かめられます。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;gap:14px;">
+      <span class="lab-badge">🔬 小3 太陽と地面の様子／中3 日周運動と自転・年周運動と公転</span>
+      <canvas id="cv" class="lab" width="640" height="420"></canvas>
+      <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="day">日付</label><span class="val" id="dayL"></span></div><input type="range" id="day" min="1" max="365" value="172" step="1"></div><div class="field"><div class="slider-head"><label for="hour">時刻（日本時間）</label><span class="val" id="hourL"></span></div><input type="range" id="hour" min="0" max="24" value="10" step="0.25"></div><div class="field"><div class="slider-head"><label for="loc">地点</label></div><select id="loc"><option value="tokyo" selected>東京（北緯35.7°）</option><option value="sapporo">札幌（北緯43.1°）</option><option value="naha">那覇（北緯26.2°）</option><option value="equator">赤道（北緯0°）</option><option value="pole">北極（北緯90°）</option></select></div></div>
+      <div class="lab-btns"><button class="btn btn-ghost" id="s0">🌸 春分</button><button class="btn btn-ghost" id="s1">☀️ 夏至</button><button class="btn btn-ghost" id="s2">🍁 秋分</button><button class="btn btn-ghost" id="s3">⛄ 冬至</button><button class="btn btn-primary" id="play">▶ 1日を再生</button></div>
+      <div class="lab-stats"><div class="stat"><div class="k">南中高度</div><div class="v accent" id="sAlt">—</div></div><div class="stat"><div class="k">昼の長さ</div><div class="v" id="sLen">—</div></div><div class="stat"><div class="k">日の出・日の入りの方位</div><div class="v" id="sDir">—</div></div><div class="stat"><div class="k">いまの高度（影の長さ）</div><div class="v" id="sNow">—</div></div></div>
+    </div>
+    <p class="lab-legend">左：透明半球をななめ上（南南東）から見た図。オレンジの線が選んだ日の太陽の通り道、白い点が1時間ごとの位置、点線は夏至・春分秋分・冬至の通り道です。赤い線の角度が南中高度、中心の棒の影は太陽の反対側にできます。右上の小さな図は、真上から見た棒の影（北が上、灰色の点は1時間ごとの影の先）です。右：宇宙から見た地球と、1年の南中高度・昼の長さのグラフ。左の図の通り道、右の地球、グラフを指でなぞっても動かせます。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-ghost" id="fsBtn" hidden>⛶ 全画面で表示</button>
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+
+<h2>このシミュレーションでわかること</h2>
+<p>太陽は、東の地平線からのぼり、南の空でいちばん高くなって（南中）、西にしずみます。この1日の動き（日周運動）は、地球が1日に1回、西から東へ自転しているために起こる見かけの動きです。透明半球に1時間ごとに記録すると、印の間隔はどれも同じになり、太陽は1時間に約15°（360°÷24時間）の同じ速さで動いていることがわかります。</p>
+<p>また、太陽の通り道は季節によって南北に平行に移り、<b>南中高度・昼の長さ・日の出と日の入りの方位</b>が変わります。これは、地球が地軸を公転面に垂直な方向から23.4°かたむけたまま、太陽のまわりを公転しているためです。</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>学年</th><th>単元</th><th>学習指導要領（平成29年告示）の内容</th></tr><tr><td><span style="white-space:nowrap">小学校3年</span></td><td><span style="white-space:nowrap">B(2) 太陽と地面の様子</span></td><td>日陰は太陽の光を遮るとでき、日陰の位置は太陽の位置の変化によって変わること（太陽の位置は東から南、西へと変化する）</td></tr><tr><td><span style="white-space:nowrap">中学校3年</span></td><td>第2分野（6）地球と宇宙「日周運動と自転」</td><td>天体の日周運動の観察を行い、その観察記録を地球の自転と関連付けて理解すること</td></tr><tr><td><span style="white-space:nowrap">中学校3年</span></td><td>第2分野（6）地球と宇宙「年周運動と公転」</td><td>太陽の南中高度の変化などの観察記録を、地球の公転や地軸の傾きと関連付けて理解すること（季節による昼夜の長さや気温の変化にも触れる）</td></tr></table></div>
+<p>中学校の解説（理科編 p.105〜106）は、透明半球を使った太陽の日周運動の観察とあわせて、観察者の視点を地球の外に移して考えるために、コンピュータシミュレーションを用いて視覚的に捉えさせる工夫を例にあげています。学年は一般的な配当です。小学校3年では方位は東・西・南・北を扱い、地球から見た太陽の位置の変化として学習します。</p>
+
+<h2>授業での使い方</h2>
+<p><b>導入（小3）</b>：時刻のスライダーを朝から夕方へ動かし、太陽が東→南→西と動くことを確かめます。図の右上の「上から見た影」で、棒の影がいつも太陽の反対側にでき、西→北→東へ動くこと、太陽が高い昼ごろは影が短くなることにも気づかせます。</p>
+<p><b>展開（中3・日周運動）</b>：「▶ 1日を再生」で太陽を動かし、透明半球の1時間ごとの印の間隔が同じことから、太陽が一定の速さで動くことを確かめます。右の「宇宙から見た地球」で、観測地点（赤い点）が自転によって昼の側に入ったり出たりすることと、空の太陽の動きを対応させます。</p>
+<p><b>展開（中3・年周運動）</b>：「夏至」「冬至」「春分」「秋分」のボタンで通り道を比べ、南中高度・昼の長さ・日の出の方位を表にまとめます。地点を札幌・那覇に変えると、緯度による違いも確かめられます。</p>
+<p><b>まとめ</b>：下の「南中高度の求め方」で計算し、シミュレーターの値と照らし合わせます。季節によって気温が変わる理由（太陽の光の当たる角度と昼の長さ）にもふれます。</p>
+<p>児童・生徒への問いの例です。</p>
+<ul>
+<li>（小3）午前10時ごろ、棒の影は東・西・南・北のどちらの側にできるでしょう。（太陽が南東の空にあるので、反対の北西の側）</li>
+<li>（中3）夏至の日の昼が冬至の日より長いのはなぜでしょう。右の図で、選んだ地点の緯線のうち昼の側（黄色）にある部分の長さに注目して説明しましょう。</li>
+<li>（中3）赤道では、1年中、昼の長さがほぼ12時間なのはなぜでしょう。</li>
+</ul>
+
+<h2>しくみ・解説</h2>
+<h3>透明半球への記録のしかた</h3>
+<p>透明半球は、観測する人を中心にして、空を半球の形で表したもの（天球のモデル）です。台紙に透明半球のふちと同じ大きさの円をかき、中心Oと東西南北の線をかいて、方位を合わせて日の当たる水平な場所に置きます。ペン先の影が中心Oにくる位置に、1時間ごとに印をつけます。印をなめらかな線で結んで透明半球のふちまでのばすと、日の出と日の入りの位置がわかります。</p>
+<div class="note">太陽を直接見てはいけません。小学校での観察では、しゃ光板（JIS規格のもの）を必ず使います。</div>
+<p>1時間ごとの印の間隔は、どれも同じ長さになります。地球が一定の速さで自転しているからです。</p>
+<h3>南中高度の求め方</h3>
+<p>南中高度は、太陽が真南にきたとき（南中）の、地平線からの角度です。透明半球では、中心Oから見た「真南の点」と「南中したときの印」の間の角度で、図の赤い線で示しています。北緯◯°の地点では、次の式で求められます。</p>
+<div class="note">春分・秋分の日：南中高度 ＝ 90° − 緯度<br>夏至の日：南中高度 ＝ 90° − 緯度 ＋ 23.4°<br>冬至の日：南中高度 ＝ 90° − 緯度 − 23.4°</div>
+<p>春分・夏至・秋分・冬至以外の日は、その日の太陽の通り道が、春分・秋分の日の通り道から北や南へずれている角度を足したり引いたりします（図の下の数値の「この日のずれ」。高校では太陽の赤緯といいます）。たとえば東京の10月4日は、通り道が南へ約4.3°ずれているので、90° − 35.7° − 4.3° ≒ 50.0°です。</p>
+<p><b>例題1</b>：東京（北緯35.7°）の夏至の日の南中高度は何度ですか。<br>答え：90° − 35.7° ＋ 23.4° ＝ <b>77.7°</b></p>
+<p><b>例題2</b>：北緯34.0°の地点の、冬至の日の南中高度は何度ですか。<br>答え：90° − 34.0° − 23.4° ＝ <b>32.6°</b></p>
+<p><b>例題3</b>：ある地点で、春分の日の南中高度が50.0°でした。この地点の緯度は何度ですか。<br>答え：90° − 緯度 ＝ 50.0° より、<b>北緯40.0°</b></p>
+<p>式の意味：春分・秋分の日には、太陽の光が赤道に真上から当たります。北緯◯°の地点では地面が赤道の地面より◯°かたむいているので、太陽は真上から◯°ずれた高さ（90°−緯度）に見えます。夏至の日は、地軸の北極側が太陽の方へ23.4°かたむいているので、その分だけ高くなります。冬至の日はその反対です。計算した値が90°をこえたら、太陽は北の空で「180° − その値」の高さに南中します（例：赤道の夏至は 90° − 0° ＋ 23.4° ＝ 113.4° → 北の空で66.6°）。</p>
+<h3>地点ごとの早見表</h3>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>地点</th><th>春分・秋分の南中高度</th><th>夏至の南中高度</th><th>冬至の南中高度</th><th>夏至の昼の長さ</th><th>冬至の昼の長さ</th></tr><tr><td><span style="white-space:nowrap">札幌（北緯43.1°）</span></td><td>46.9°</td><td>70.3°</td><td>23.5°</td><td><span style="white-space:nowrap">15時間22分</span></td><td><span style="white-space:nowrap">9時間00分</span></td></tr><tr><td><span style="white-space:nowrap">東京（北緯35.7°）</span></td><td>54.3°</td><td>77.7°</td><td>30.9°</td><td><span style="white-space:nowrap">14時間34分</span></td><td><span style="white-space:nowrap">9時間45分</span></td></tr><tr><td><span style="white-space:nowrap">那覇（北緯26.2°）</span></td><td>63.8°</td><td>87.2°</td><td>40.4°</td><td><span style="white-space:nowrap">13時間47分</span></td><td><span style="white-space:nowrap">10時間30分</span></td></tr><tr><td><span style="white-space:nowrap">赤道（北緯0°）</span></td><td>90°（真上）</td><td>66.6°（北の空）</td><td>66.6°</td><td><span style="white-space:nowrap">12時間07分</span></td><td><span style="white-space:nowrap">12時間07分</span></td></tr><tr><td><span style="white-space:nowrap">北極（北緯90°）</span></td><td>0°（地平線すれすれ）</td><td>23.4°</td><td>のぼらない</td><td>24時間（白夜）</td><td>0時間（極夜）</td></tr></table></div>
+<p>南中高度は、地軸の傾き23.4°を使った計算値です。地軸の傾きは正確には23.44°で、国立天文台の暦では、2026年の夏至の日の南中高度は東京77.8°・札幌70.4°です。昼の長さは日の出から日の入りまでの時間で、このシミュレーターの計算値です（2026年）。</p>
+<h3>透明半球の記録から時刻を求める</h3>
+<p><b>例題4</b>：透明半球で、1時間ごとの印の間隔は2.4cmでした。日の出の位置（透明半球のふち）から午前9時の印までの長さが7.2cmのとき、日の出の時刻は何時ですか。<br>答え：7.2 ÷ 2.4 ＝ 3（時間）なので、9時の3時間前の<b>午前6時</b></p>
+<p>日の出から南中までの時間と、南中から日の入りまでの時間はほぼ等しいので、南中時刻は日の出と日の入りのちょうど真ん中の時刻になります。日本の南中時刻が12時ちょうどにならないのは、日本の時刻が東経135°の地点を基準にしているためと、地球の公転の速さが季節で少し変わるためです（2026年の東京では11時25分〜11時55分ごろ）。</p>
+<h3>影の向きと長さ</h3>
+<p>影は、太陽と反対の側にできます。太陽が東→南→西と動くので、棒の影は西→北→東と動き、南中したとき（正午ごろ）に真北を向いて、いちばん短くなります。太陽が高いほど影は短くなります。</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>太陽の高度</th><th>影の長さ（棒の長さの何倍か）</th></tr><tr><td>15°</td><td>3.73倍</td></tr><tr><td>30°</td><td>1.73倍</td></tr><tr><td>45°</td><td>1.00倍</td></tr><tr><td>60°</td><td>0.58倍</td></tr><tr><td>77.7°（東京の夏至の南中）</td><td>0.22倍</td></tr><tr><td>30.9°（東京の冬至の南中）</td><td>1.67倍</td></tr></table></div>
+<p>影の長さは「棒の長さ ÷ tan（太陽の高度）」で求められます（tanは高校の数学で学びます。中学校では、表のように高度が低いほど影が長くなる関係をつかめば十分です）。</p>
+<h3>昼の長さと気温が季節で変わるわけ</h3>
+<p>右の「宇宙から見た地球」の黄色と灰色の線は、選んだ地点が自転で1日に回る道すじ（緯線）で、点は1時間ごとの位置です。黄色の点（昼の側にある点）の数が、ほぼ昼の長さになります。夏至のころは地軸の北極側が太陽の方へかたむくため、北半球の緯線は昼の側に長く入り、昼が長くなります。冬至のころはその反対です。赤道は、いつも半分が昼の側にあるので、1年中ほぼ12時間です。</p>
+<p>太陽の高度が高いほど、同じ面積の地面が受ける光の量が多くなり、昼が長いほど長い時間あたためられます。これが、夏に気温が高くなる主な理由です。</p>
+<h3>このシミュレーションで単純化していること</h3>
+<ul>
+<li>地軸の傾きを教科書と同じ23.4°とし、太陽の通り道は、2026年の春分（3月20日）・夏至（6月21日）・秋分（9月23日）・冬至（12月22日）にちょうど春分の通り道から0°・北へ23.4°・0°・南へ23.4°となるように、その間をなめらかにつないでいます。精密な計算（J. Meeusの式）と比べた2026年1年間の差は、南中高度で0.3°以内です。</li>
+<li>1日のあいだは、太陽の通り道は変わらないものとしています。</li>
+<li>日の出・日の入りの時刻と昼の長さは、国立天文台と同じく「太陽の上のふちが地平線に接する時刻（大気で光が曲がって浮き上がって見える分を含む）」で計算しています。そのため春分・秋分の日でも、昼の長さは12時間より7〜9分ほど長くなります。透明半球の図と日の出・日の入りの方位は、太陽の中心が地平線にくる位置で表しています。</li>
+<li>地点の緯度・経度は国立天文台の暦計算室と同じ値（東京：北緯35.6581°・東経139.7414°、札幌：北緯43.0667°・東経141.35°、那覇：北緯26.2167°・東経127.6667°）です。赤道と北極は東経135°として、時刻は日本時間で表しています。</li>
+<li>国立天文台の2026年の暦と比べると、日の出・日の入り・南中の時刻の差は2分以内でした（例：東京の夏至の日は、このシミュレーターで日の出4:26・日の入り19:00、国立天文台は4:25・19:00）。</li>
+<li>右の地球の図は、大きさを誇張しています。</li>
+</ul>
+
+<h2>参考</h2>
+<ul class="seo-refs">
+<li>文部科学省「小学校学習指導要領（平成29年告示）解説 理科編」（<a href="https://www.mext.go.jp/component/a_menu/education/micro_detail/__icsFiles/afieldfile/2019/03/18/1387017_005_1.pdf" rel="noopener" target="_blank">https://www.mext.go.jp/component/a_menu/education/micro_detail/__icsFiles/afieldfile/2019/03/18/1387017_005_1.pdf</a>）</li>
+<li>文部科学省「中学校学習指導要領（平成29年告示）解説 理科編」p.104〜106（<a href="https://www.mext.go.jp/component/a_menu/education/micro_detail/__icsFiles/afieldfile/2019/03/18/1387018_005.pdf" rel="noopener" target="_blank">https://www.mext.go.jp/component/a_menu/education/micro_detail/__icsFiles/afieldfile/2019/03/18/1387018_005.pdf</a>）</li>
+<li>国立天文台 暦計算室「日の出入り 東京（2026年6月）」（<a href="https://eco.mtk.nao.ac.jp/koyomi/dni/2026/s1306.html" rel="noopener" target="_blank">https://eco.mtk.nao.ac.jp/koyomi/dni/2026/s1306.html</a>）…日の出・日の入り・南中の時刻と南中高度の照合に使用（札幌・那覇、ほかの月も同じページから）</li>
+<li>国立天文台「春分の日・秋分の日には、昼と夜の長さは同じになるの？」（<a href="https://www.nao.ac.jp/faq/a0303.html" rel="noopener" target="_blank">https://www.nao.ac.jp/faq/a0303.html</a>）</li>
+<li>Jean Meeus『Astronomical Algorithms』第2版（Willmann-Bell, 1998）</li>
+</ul>
+
+    <h2>引用・転載について</h2>
+    <p>本ページのシミュレーション結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・授業や社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「太陽の1日の動きと季節（透明半球・南中高度・昼の長さ）」 https://shimulabo.com/sims/taiyou-ugoki/</code></div>
+    <h2>よくある質問</h2><dl class="faq"><dt>南中高度はどうやって求めますか？</dt><dd>北緯◯°の地点では、春分・秋分の日は「90° − 緯度」、夏至の日は「90° − 緯度 ＋ 23.4°」、冬至の日は「90° − 緯度 − 23.4°」で求められます。東京（北緯35.7°）では、春分・秋分54.3°、夏至77.7°、冬至30.9°です。</dd><dt>夏は昼が長く、冬は短いのはなぜですか？</dt><dd>地球が地軸を23.4°かたむけたまま公転しているからです。夏至のころは北半球が太陽の方へかたむくので、自転で1日に回る道すじのうち昼の側にある部分が長くなり、太陽も高くのぼります。冬至のころはその反対になります。</dd><dt>春分の日は、昼と夜の長さが同じですか？</dt><dd>ほぼ同じですが、昼のほうが少し長くなります。日の出・日の入りは太陽の上のふちが地平線に接する時刻で決めることと、大気で光が曲がって太陽が浮き上がって見えるためです。国立天文台によると、2026年3月20日の東京は日の出5時45分・日の入り17時52分で、昼の長さは12時間7分です。</dd><dt>夏至の日、太陽は真東からのぼりますか？</dt><dd>いいえ。夏至の日は真東より北寄り（東京で約30°）からのぼり、真西より北寄りにしずみます。冬至の日は南寄りです。真東からのぼって真西にしずむのは、春分・秋分の日です。</dd><dt>透明半球の1時間ごとの印の間隔が同じになるのはなぜですか？</dt><dd>地球が一定の速さで自転しているので、太陽も1時間に約15°の同じ速さで動いて見えるからです。印の間隔を使うと、日の出や日の入りの時刻を求めることができます。</dd><dt>棒の影の向きは、1日でどう変わりますか？</dt><dd>影は太陽の反対側にできるので、朝は西側、正午ごろは北側、夕方は東側にでき、西→北→東と動きます。正午ごろ（南中したとき）がいちばん短くなります。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../hiruma-nagasa/"><span class="e">🌅</span><span>昼の長さメーター</span></a><a class="related-card" href="../hoshi-ugoki/"><span class="e">⭐</span><span>星の1日・1年の動き（日周運動・年周運動）</span></a><a class="related-card" href="../tsuki-michikake/"><span class="e">🌓</span><span>月の満ち欠けの仕組みシミュレーター</span></a><a class="related-card" href="../solar-system/"><span class="e">🪐</span><span>太陽系シミュレーター</span></a><a class="related-card" href="../solar-hatsuden/"><span class="e">🔋</span><span>今日のソーラー発電シミュ</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../rika/">🔬 理科の授業向けシミュレーター</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+  const rnd = (a,b) => a + Math.random()*(b-a);
+  const randn = () => { let u=0,v=0; while(!u)u=Math.random(); while(!v)v=Math.random(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
+  let SHARE = '';
+  function setShare(t){ SHARE = t; }
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{ const l=$(s.id+'L'); if(l){ const u=()=>{ l.textContent = (s.dataset.fmt ? s.dataset.fmt.replace('{v}', s.value) : s.value); }; s.addEventListener('input',u); u(); } }); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  function setStat(id, v){ const e=$(id); if(e) e.textContent = v; }
+  try {
+    syncSliders();
+
+  const cv=$('cv'); const dpr=Math.min(2,window.devicePixelRatio||1); const W=cv.width,H=cv.height; cv.width=W*dpr; cv.height=H*dpr; const x=cv.getContext('2d'); x.setTransform(dpr,0,0,dpr,0,0);
+  cv.style.cursor='pointer';
+
+  const R=Math.PI/180, EPS=23.4, H0=-0.8333, ML=[31,28,31,30,31,30,31,31,30,31,30,31];
+  const LOC={tokyo:{n:'東京',lat:35.6581,lon:139.7414}, sapporo:{n:'札幌',lat:43.0667,lon:141.35}, naha:{n:'那覇',lat:26.2167,lon:127.6667},
+             equator:{n:'赤道',lat:0,lon:135}, pole:{n:'北極',lat:89.999,lon:135}};
+  const SEAS=[[79,'春分'],[172,'夏至'],[266,'秋分'],[356,'冬至']], ANC=[[79.5,0],[172.5,90],[266.5,180],[356.5,270],[444.5,360]];
+  const wrap=(v,m)=>((v%m)+m)%m;
+  function md(n){ let m=0; while(m<11&&n>ML[m]){ n-=ML[m]; m++; } return [m+1,n]; }
+  function lamOf(t){ if(t<ANC[0][0]) t+=365; for(let i=0;i<4;i++){ const a=ANC[i], b=ANC[i+1]; if(t<=b[0]) return a[1]+(b[1]-a[1])*(t-a[0])/(b[0]-a[0]); } return 0; }
+  function decOf(n){ return Math.asin(Math.sin(EPS*R)*Math.sin(lamOf(n+0.5)*R))/R; }   // その日の太陽の赤緯（正午）
+  function eotOf(n){ const d=Date.UTC(2026,0,n,3)/864e5+2440587.5-2451545, g=(357.529+0.98560028*d)*R, q=280.459+0.98564736*d;   // 均時差（度）
+    const L=(q+1.915*Math.sin(g)+0.020*Math.sin(2*g))*R, e=(23.439-0.00000036*d)*R;
+    return wrap(q-Math.atan2(Math.cos(e)*Math.sin(L),Math.cos(L))/R+180,360)-180; }
+  function sunDay(n,p){ const d=decOf(n), E=eotOf(n), noon=12-(p.lon-135)/15-E/15, sl=Math.sin(p.lat*R), cl=Math.cos(p.lat*R), sd=Math.sin(d*R), cd=Math.cos(d*R);
+    const c=(Math.sin(H0*R)-sl*sd)/(cl*cd), h0=c<=-1?180:c>=1?0:Math.acos(c)/R;
+    let top=90-p.lat+d, north=false; if(top>90){ top=180-top; north=true; }
+    const s=sd/cl;
+    return {d:d, noon:noon, len:2*h0/15, rise:noon-h0/15, set:noon+h0/15, kind:c<=-1?'白夜':c>=1?'極夜':'', top:top, north:north, shift:Math.abs(s)<1?Math.asin(s)/R:null}; }
+  function sunAt(n,p,t){ const d=decOf(n)*R, Hd=15*(t-12)+(p.lon-135)+eotOf(n), Hr=Hd*R, la=p.lat*R;   // 高度・方位（南から西回り）・時角
+    const h=Math.asin(Math.sin(la)*Math.sin(d)+Math.cos(la)*Math.cos(d)*Math.cos(Hr));
+    return [h/R, Math.atan2(Math.sin(Hr),Math.cos(Hr)*Math.sin(la)-Math.tan(d)*Math.cos(la))/R, Hd]; }
+
+
+  const F=(s,b)=>(b?'bold ':'')+s+'px system-ui,-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif';
+  function lerp(c1,c2,f){ const q=(s)=>[1,3,5].map(i=>parseInt(s.slice(i,i+2),16)); const a=q(c1), b=q(c2); return 'rgb('+a.map((v,i)=>Math.round(v+(b[i]-v)*f)).join(',')+')'; }
+  function skyCols(s){ if(s>=8) return ['#5aa7e6','#d6ecfa']; if(s<=-12) return ['#060b1c','#17213b'];
+    if(s>=0){ const f=s/8; return [lerp('#3a64a0','#5aa7e6',f), lerp('#f0b27c','#d6ecfa',f)]; }
+    const f=(s+12)/12; return [lerp('#060b1c','#3a64a0',f), lerp('#17213b','#f0b27c',f)]; }
+  function rr(a,b,w,h,r){ x.beginPath(); x.moveTo(a+r,b); x.arcTo(a+w,b,a+w,b+h,r); x.arcTo(a+w,b+h,a,b+h,r); x.arcTo(a,b+h,a,b,r); x.arcTo(a,b,a+w,b,r); x.closePath(); }
+  function halo(t,px,py,col,dark,al){ x.textAlign=al||'center'; x.textBaseline='middle'; x.lineJoin='round'; x.lineWidth=3; x.strokeStyle=dark?'rgba(8,12,26,.88)':'rgba(255,255,255,.92)'; x.strokeText(t,px,py); x.fillStyle=col; x.fillText(t,px,py); }
+  function hm(h){ let m=Math.round(wrap(h,24)*60); if(m>=1440) m-=1440; return Math.floor(m/60)+':'+String(m%60).padStart(2,'0'); }
+  function arrowHead(px,py,ang,sz){ x.beginPath(); x.moveTo(px+Math.cos(ang)*sz,py+Math.sin(ang)*sz); x.lineTo(px+Math.cos(ang+2.5)*sz,py+Math.sin(ang+2.5)*sz); x.lineTo(px+Math.cos(ang-2.5)*sz,py+Math.sin(ang-2.5)*sz); x.closePath(); x.fill(); }
+  function setBtn(id,on){ const b=$(id); if(!b) return; b.style.background=on?'var(--teal-l)':''; b.style.borderColor=on?'var(--teal)':''; b.style.color=on?'var(--teal-d)':''; b.style.fontWeight=on?'800':''; }
+  function fit(id,v){ setStat(id,v); const e=$(id); if(e) e.style.fontSize=v.length>9?'14px':v.length>6?'16px':''; }
+
+  const LW=392, CX=194, CY=222, RD=152, CP=Math.cos(28*R), SP=Math.sin(28*R), SL=Math.sin(24*R), CL=Math.cos(24*R), STK=0.2;
+  const EX=518, EY=118, ER=52, GX0=414, GX1=628, GA0=250, GA1=294, GB0=322, GB1=366;
+  const P3=(e,n,z)=>[CX+(e*CP+n*SP)*RD, CY-((n*CP-e*SP)*SL+z*CL)*RD];   // ななめ上（南南東）から見た図：東が右手前
+  function V(h,A,k){ const c=Math.cos(h*R)*k; return [-Math.sin(A*R)*c,-Math.cos(A*R)*c,Math.sin(h*R)*k]; }   // 東・北・上
+  const PS=(h,A,k)=>{ const v=V(h,A,k||1); return P3(v[0],v[1],v[2]); };
+  const td=new Date();
+  let n0=clamp(Math.round((Date.UTC(2026,td.getMonth(),td.getDate())-Date.UTC(2026,0,1))/864e5)+1,1,365);
+  let hour=+$('hour').value, p=LOC[$('loc').value]||LOC.tokyo, play=false, last=0, need=true, drag=null, d0=null, yd=null;
+  function dur(h){ const m=Math.round(h*60); return Math.floor(m/60)+'時間'+String(m%60).padStart(2,'0')+'分'; }
+  const D8=['南','南西','西','北西','北','北東','東','南東'], dir8=(A)=>D8[Math.round(wrap(A,360)/45)%8];
+  const seasonOf=(n)=>{ const s=SEAS.find(q=>q[0]===n); return s?s[1]:''; };
+  const dateTxt=(n)=>{ const q=md(n), s=seasonOf(n); return q[0]+'月'+q[1]+'日'+(s?'（'+s+'）':''); };
+  const latTxt=()=>{ const v=Math.round(Math.min(90,p.lat)*10)/10; return v===0?'0':v===90?'90':v.toFixed(1); };
+  function yearData(){ const a=[], b=[]; for(let i=1;i<=365;i++){ const s=sunDay(i,p); a.push(s.top); b.push(s.len); } yd=[a,b]; }
+  function segs(n){ const out=[]; let cur=null, pv=null;   // 地平線より上の通り道（5分ごと）
+    for(let i=0;i<=288;i++){ const t=i/12, sv=sunAt(n,p,t);
+      if(sv[0]>=0){ if(!cur){ cur=[]; if(pv){ const f=pv[0]/(pv[0]-sv[0]), q=sunAt(n,p,t-(1-f)/12); cur.push(PS(0,q[1])); } } cur.push(PS(sv[0],sv[1])); }
+      else if(cur){ const f=pv[0]/(pv[0]-sv[0]), q=sunAt(n,p,t-(1-f)/12); cur.push(PS(0,q[1])); out.push(cur); cur=null; }
+      pv=sv; }
+    if(cur) out.push(cur); return out; }
+  function strokeSegs(ss){ ss.forEach(sg=>{ x.beginPath(); sg.forEach((q,i)=>i?x.lineTo(q[0],q[1]):x.moveTo(q[0],q[1])); x.stroke(); }); }
+  function shiftTxt(s){ if(s.shift===null) return s.kind==='極夜'?'のぼらない':'しずまない'; const a=Math.round(Math.abs(s.shift)); return a===0?'真東・真西':(s.shift>0?'北':'南')+'寄り'+a+'°'; }
+  function topTxt(s){ return s.top<=0.05?'のぼらない':s.top.toFixed(1)+'°'+(s.north?'（北）':''); }
+  function formula(s){ const sea=seasonOf(n0), L=latTxt()+'°'; let f='90° − '+L;
+    if(sea==='夏至') f+=' ＋ 23.4°'; else if(sea==='冬至') f+=' − 23.4°'; else if(!sea) f+=(s.d>=0?' ＋ ':' − ')+Math.abs(s.d).toFixed(1)+'°';
+    return f; }
+  function infoLines(s,now){ const L=[], sea=seasonOf(n0), f=formula(s);
+    if(p.lat>89) L.push(s.top<=0.05?'太陽は1日中のぼらない（極夜）：'+f+' ＝ '+s.top.toFixed(1)+'°':'太陽の高さ '+s.top.toFixed(1)+'°（1日中ほぼ同じ）＝ '+f);
+    else if(s.north) L.push('南中高度 '+s.top.toFixed(1)+'°（北の空）'+(sea?'＝':'≒')+' 180° −（'+f+'）');
+    else L.push('南中高度 '+s.top.toFixed(1)+'° '+(sea?'＝':'≒')+' '+f+(sea?'':'（この日のずれ）'));
+    L.push(s.kind?('1日中'+(s.kind==='白夜'?'しずまない（白夜）':'のぼらない（極夜）')+'　昼の長さ '+dur(s.len)):('南中 '+hm(s.noon)+'　日の出 '+hm(s.rise)+'　日の入り '+hm(s.set)+'　昼 '+dur(s.len)));
+    if(s.shift!==null){ const a=Math.round(Math.abs(s.shift)); L.push('日の出・日の入りの方位：'+(a===0?'真東・真西':'真東・真西から'+(s.shift>0?'北':'南')+'へ'+a+'°')); }
+    else L.push('日の出・日の入り：なし（太陽は地平線と平行に1日1周）');
+    if(now[0]>0.3){ const k=1/Math.tan(now[0]*R), kt='影は棒の'+(k<10?k.toFixed(2)+'倍':'10倍以上');
+      L.push('いま '+hm(hour)+'：高度 '+Math.round(now[0])+'°'+(p.lat>89?'　'+kt+'（北極ではどの向きも南）':'（'+dir8(now[1])+'）　'+kt+'（'+dir8(now[1]+180)+'向き）')); }
+    else L.push('いま '+hm(hour)+'：太陽は地平線の下（影はできない）');
+    return L; }
+  function drawDome(s,now){
+    const sAlt=now[0], dk=sAlt<-3, ink=dk?'226,232,240':'30,41,59';
+    const cols=skyCols(sAlt), g=x.createLinearGradient(0,0,0,H); g.addColorStop(0,cols[0]); g.addColorStop(1,cols[1]); x.fillStyle=g; x.fillRect(0,0,LW,H);
+    // 台紙（地平面）と東西・南北の線
+    x.fillStyle=dk?'#2a3247':'#f2eee2'; x.beginPath(); x.ellipse(CX,CY,RD,RD*SL,0,0,2*Math.PI); x.fill(); x.strokeStyle='rgba('+ink+',.55)'; x.lineWidth=1.2; x.stroke();
+    x.setLineDash([4,4]); x.strokeStyle='rgba('+ink+',.35)'; x.beginPath();
+    let a=P3(1,0,0), b=P3(-1,0,0); x.moveTo(a[0],a[1]); x.lineTo(b[0],b[1]); a=P3(0,1,0); b=P3(0,-1,0); x.moveTo(a[0],a[1]); x.lineTo(b[0],b[1]); x.stroke(); x.setLineDash([]);
+    // 透明半球と子午線（北—天頂—南）
+    x.fillStyle=dk?'rgba(255,255,255,.05)':'rgba(255,255,255,.3)'; x.beginPath(); x.arc(CX,CY,RD,Math.PI,2*Math.PI); x.closePath(); x.fill();
+    x.setLineDash([2,5]); x.strokeStyle='rgba('+ink+',.3)'; x.lineWidth=1; x.beginPath();
+    for(let i=0;i<=36;i++){ const t=i*5, q=t<=90?PS(t,0):PS(180-t,180); i?x.lineTo(q[0],q[1]):x.moveTo(q[0],q[1]); } x.stroke(); x.setLineDash([]);
+    x.strokeStyle=dk?'rgba(255,255,255,.6)':'rgba(30,64,110,.6)'; x.lineWidth=1.6; x.beginPath(); x.arc(CX,CY,RD,Math.PI,2*Math.PI); x.stroke();
+    // 夏至・春分秋分・冬至の通り道（比べる用）
+    x.setLineDash([5,4]); x.lineWidth=1.4; x.font=F(10.5,1);
+    [[172,'夏至'],[79,'春分・秋分'],[356,'冬至']].forEach(r=>{ if(Math.abs(decOf(r[0])-s.d)<0.05) return; const sd=sunDay(r[0],p);
+      x.strokeStyle='rgba('+ink+',.45)'; strokeSegs(segs(r[0]));
+      if(sd.top>2){ const q=PS(sd.top,sd.north?180:0); x.setLineDash([]); halo(r[1],q[0]+6,q[1]-8,'rgba('+ink+',.95)',dk,'left'); x.setLineDash([5,4]); } });
+    x.setLineDash([]);
+    // 選んだ日の通り道と1時間ごとの印
+    const ss=segs(n0); x.lineCap='round'; x.strokeStyle=dk?'rgba(0,0,0,.35)':'rgba(255,255,255,.8)'; x.lineWidth=6.5; strokeSegs(ss); x.strokeStyle='#f97316'; x.lineWidth=3.2; strokeSegs(ss); x.lineCap='butt';
+    x.font=F(10.5,1); const DP=[[1,0],[-1,0],[0,-1],[0,1]].map(d=>P3(d[0]*1.13,d[1]*1.13,0));
+    for(let k=0;k<24;k++){ const sv=sunAt(n0,p,k); if(sv[0]<0.5) continue; const q=PS(sv[0],sv[1]);
+      x.fillStyle='#fff'; x.strokeStyle='#c2410c'; x.lineWidth=1.5; x.beginPath(); x.arc(q[0],q[1],3.4,0,2*Math.PI); x.fill(); x.stroke();
+      if(k%3===0){ const dx=q[0]-CX, dy=q[1]-(CY-30), l=Math.hypot(dx,dy)||1, lx=q[0]+dx/l*16, ly=q[1]+dy/l*13;
+        if(DP.every(d=>Math.hypot(d[0]-lx,d[1]-ly)>24)) halo(k+'時',lx,ly,dk?'#fed7aa':'#9a3412',dk); } }
+    // 日の出・日の入りの位置（ふちの三角）
+    if(s.shift!==null){ x.fillStyle='#ea580c'; [-90-s.shift,90+s.shift].forEach(A=>{ const q=PS(0,A), o=PS(0,A,1.07); arrowHead(q[0],q[1],Math.atan2(q[1]-o[1],q[0]-o[0]),6); }); }
+    // 南中高度（中心Oから見た角度）
+    const O=P3(0,0,0), Tp=P3(0,0,STK);
+    if(s.top>0.5){ const A0=s.north?180:0, C=PS(s.top,A0), B=PS(0,A0);
+      x.strokeStyle='#dc2626'; x.lineWidth=1.6; x.setLineDash([5,3]); x.beginPath(); x.moveTo(O[0],O[1]); x.lineTo(B[0],B[1]); x.moveTo(O[0],O[1]); x.lineTo(C[0],C[1]); x.stroke(); x.setLineDash([]);
+      x.lineWidth=2.4; x.beginPath(); for(let i=0;i<=24;i++){ const q=PS(s.top*i/24,A0,0.3); i?x.lineTo(q[0],q[1]):x.moveTo(q[0],q[1]); } x.stroke();
+      const q=PS(s.top*0.55,A0,0.3); x.font=F(11.5,1); const t=(p.lat>89?'太陽の高さ ':'南中高度 ')+s.top.toFixed(1)+'°', w=x.measureText(t).width;
+      x.fillStyle=dk?'rgba(8,12,26,.8)':'rgba(255,255,255,.9)'; rr(q[0]-w-16,q[1]-9,w+8,18,5); x.fill(); x.fillStyle='#dc2626'; x.textAlign='left'; x.textBaseline='middle'; x.fillText(t,q[0]-w-12,q[1]+0.5); }
+    // 棒と影
+    if(sAlt>0.3){ const L=STK/Math.tan(sAlt*R), Lc=Math.min(L,1), sp=P3(Math.sin(now[1]*R)*Lc,Math.cos(now[1]*R)*Lc,0);
+      x.strokeStyle=dk?'rgba(0,0,0,.55)':'rgba(30,41,59,.72)'; x.lineWidth=5; x.lineCap='round'; x.beginPath(); x.moveTo(O[0],O[1]); x.lineTo(sp[0],sp[1]); x.stroke(); x.lineCap='butt';
+    }
+    x.strokeStyle='#92400e'; x.lineWidth=4; x.beginPath(); x.moveTo(O[0],O[1]); x.lineTo(Tp[0],Tp[1]); x.stroke();
+    x.fillStyle='#ef4444'; x.beginPath(); x.arc(O[0],O[1],3,0,2*Math.PI); x.fill();
+    // 太陽（中心Oへの光の線）
+    if(sAlt>-0.5){ const q=PS(Math.max(0,sAlt),now[1]);
+      x.setLineDash([3,4]); x.strokeStyle='rgba(234,179,8,.95)'; x.lineWidth=1.6; x.beginPath(); x.moveTo(q[0],q[1]); x.lineTo(O[0],O[1]); x.stroke(); x.setLineDash([]);
+      const gl=x.createRadialGradient(q[0],q[1],4,q[0],q[1],26); gl.addColorStop(0,'rgba(255,236,150,.95)'); gl.addColorStop(1,'rgba(255,236,150,0)'); x.fillStyle=gl; x.beginPath(); x.arc(q[0],q[1],26,0,2*Math.PI); x.fill();
+      x.fillStyle='#fde047'; x.strokeStyle='#f59e0b'; x.lineWidth=2; x.beginPath(); x.arc(q[0],q[1],10,0,2*Math.PI); x.fill(); x.stroke(); }
+    drawShadowTop(now,dk);
+    // 方位
+    x.font=F(14,1); [['東',1,0],['西',-1,0],['南',0,-1],['北',0,1]].forEach(d=>{ const q=P3(d[1]*1.13,d[2]*1.13,0); halo(d[0],q[0],q[1]+(d[2]<0?6:0),dk?'#fff':'#0f172a',dk); });
+    // 見出し
+    x.fillStyle='rgba(6,11,28,.66)'; rr(6,6,272,42,8); x.fill();
+    x.textAlign='left'; x.textBaseline='alphabetic'; x.fillStyle='#fff'; x.font=F(13,1); x.fillText('透明半球（ななめ上から見た図）',14,23);
+    x.fillStyle='#fde68a'; x.font=F(12,1); x.fillText(p.n+'（北緯'+latTxt()+'°）　'+dateTxt(n0)+'　'+hm(hour),14,40);
+    // 数値
+    const ls=infoLines(s,now); x.fillStyle='rgba(6,11,28,.74)'; rr(6,H-98,LW-12,92,8); x.fill();
+    ls.forEach((l,i)=>{ x.font=F(i===0?12:11.5,i===0); x.fillStyle=i===0?'#fde68a':'#e2e8f0'; x.textAlign='left'; x.textBaseline='alphabetic'; x.fillText(l,14,H-78+i*20); });
+  }
+  function drawShadowTop(now,dk){   // 上から見た影（北が上）
+    const bx=290, by=6, ICX=339, ICY=66, IR=31, SH=9;
+    x.fillStyle='rgba(6,11,28,.66)'; rr(bx,by,98,108,8); x.fill();
+    x.textAlign='center'; x.textBaseline='alphabetic'; x.fillStyle='#fff'; x.font=F(11,1); x.fillText('上から見た影',bx+49,by+15);
+    x.fillStyle=dk?'#2a3247':'#f2eee2'; x.beginPath(); x.arc(ICX,ICY,IR,0,2*Math.PI); x.fill();
+    x.strokeStyle='rgba(30,41,59,.35)'; x.lineWidth=1; x.setLineDash([2,3]); x.beginPath(); x.moveTo(ICX-IR,ICY); x.lineTo(ICX+IR,ICY); x.moveTo(ICX,ICY-IR); x.lineTo(ICX,ICY+IR); x.stroke(); x.setLineDash([]);
+    x.font=F(10,1); x.fillStyle='#e2e8f0'; x.textBaseline='middle'; x.fillText('北',ICX,ICY-IR-6); x.fillText('南',ICX,ICY+IR+7); x.fillText('東',ICX+IR+7,ICY); x.fillText('西',ICX-IR-7,ICY);
+    const tip=(h,A)=>{ const L=Math.min(SH/Math.tan(h*R),IR); return [ICX+Math.sin(A*R)*L, ICY-Math.cos(A*R)*L]; };
+    const pts=[]; for(let k=0;k<24;k++){ const sv=sunAt(n0,p,k); if(sv[0]>4) pts.push([k,tip(sv[0],sv[1])]); }
+    x.strokeStyle='rgba(100,116,139,.8)'; x.lineWidth=1; x.beginPath(); pts.forEach((q,i)=>i?x.lineTo(q[1][0],q[1][1]):x.moveTo(q[1][0],q[1][1])); x.stroke();
+    pts.forEach(q=>{ x.fillStyle='#64748b'; x.beginPath(); x.arc(q[1][0],q[1][1],1.8,0,2*Math.PI); x.fill(); });
+    if(now[0]>0.3){ const t=tip(now[0],now[1]); x.strokeStyle='#1e293b'; x.lineWidth=3.5; x.lineCap='round'; x.beginPath(); x.moveTo(ICX,ICY); x.lineTo(t[0],t[1]); x.stroke(); x.lineCap='butt';
+      const sx=ICX-Math.sin(now[1]*R)*IR, sy=ICY+Math.cos(now[1]*R)*IR; x.fillStyle='#fde047'; x.strokeStyle='#f59e0b'; x.lineWidth=1.5; x.beginPath(); x.arc(sx,sy,5,0,2*Math.PI); x.fill(); x.stroke(); }
+    x.fillStyle='#92400e'; x.beginPath(); x.arc(ICX,ICY,2.6,0,2*Math.PI); x.fill();
+  }
+  function drawEarth(s,now){
+    x.fillStyle='#0b1020'; x.fillRect(LW+2,0,W-LW-2,H);
+    const lam=lamOf(n0+0.5)*R, e=EPS*R, kp=40*R, cl=Math.cos(lam), sl=Math.sin(lam);
+    const S3=[cl,sl,0], T3=[-sl,cl,0], rv=[-cl,-sl,0], uv=[-Math.sin(kp)*T3[0],-Math.sin(kp)*T3[1],Math.cos(kp)], vv=[Math.cos(kp)*T3[0],Math.cos(kp)*T3[1],Math.sin(kp)];
+    const dot=(a,b)=>a[0]*b[0]+a[1]*b[1]+a[2]*b[2];
+    const pr=(q,r)=>[EX+(r||ER)*dot(q,rv), EY-(r||ER)*dot(q,uv)];
+    const ec=(a,b,c)=>[a, b*Math.cos(e)+c*Math.sin(e), -b*Math.sin(e)+c*Math.cos(e)];
+    const ra=Math.atan2(Math.cos(e)*sl,cl);
+    const site=(la,Hd)=>{ const t=ra+Hd*R, c=Math.cos(la*R); return ec(c*Math.cos(t),c*Math.sin(t),Math.sin(la*R)); };
+    x.textAlign='left'; x.textBaseline='alphabetic'; x.fillStyle='#fff'; x.font=F(13,1); x.fillText('宇宙から見た地球',LW+12,20);
+    x.font=F(10.5); x.fillStyle='rgba(203,213,225,.85)'; x.fillText('地軸は公転面に垂直な向きから23.4°',LW+12,36);
+    // 太陽の光
+    x.strokeStyle='rgba(253,224,71,.75)'; x.fillStyle='rgba(253,224,71,.75)'; x.lineWidth=1.5;
+    [-34,-11,12,35].forEach(dy=>{ const y=EY+dy; x.beginPath(); x.moveTo(LW+10,y); x.lineTo(EX-ER-14,y); x.stroke(); arrowHead(EX-ER-12,y,0,5); });
+    x.font=F(10.5,1); x.fillStyle='#fde68a'; x.fillText('太陽の光',LW+10,EY-44);
+    // 地球（左半分が昼）
+    x.fillStyle='#173153'; x.beginPath(); x.arc(EX,EY,ER,0,2*Math.PI); x.fill();
+    x.fillStyle='#3d8bd0'; x.beginPath(); x.arc(EX,EY,ER,Math.PI/2,3*Math.PI/2); x.closePath(); x.fill();
+    x.strokeStyle='rgba(255,255,255,.35)'; x.lineWidth=1; x.beginPath(); x.arc(EX,EY,ER,0,2*Math.PI); x.stroke();
+    // 赤道（点線）と、選んだ地点の緯線（昼の側は黄色）
+    const ringPts=(la)=>{ const o=[]; for(let i=0;i<=120;i++){ const h=-180+i*3, q=site(la,h); o.push([pr(q),dot(q,vv)>=0,dot(q,S3)>Math.sin(H0*R)]); } return o; };
+    const eqp=ringPts(0); x.lineWidth=1; for(let i=0;i<120;i++){ const a=eqp[i], b=eqp[i+1]; if(!a[1]) continue; x.strokeStyle='rgba(255,255,255,.45)'; x.setLineDash([3,3]); x.beginPath(); x.moveTo(a[0][0],a[0][1]); x.lineTo(b[0][0],b[0][1]); x.stroke(); } x.setLineDash([]);
+    if(p.lat<89){ const rp=ringPts(p.lat);
+      for(let i=0;i<120;i++){ const a=rp[i], b=rp[i+1]; x.strokeStyle=a[2]?'#facc15':'#64748b'; x.lineWidth=a[1]?2.6:1.2; x.globalAlpha=a[1]?1:0.45; x.beginPath(); x.moveTo(a[0][0],a[0][1]); x.lineTo(b[0][0],b[0][1]); x.stroke(); }
+      x.globalAlpha=1;
+      for(let h=0;h<360;h+=15){ const q=site(p.lat,h), P=pr(q), fr=dot(q,vv)>=0, dy=dot(q,S3)>Math.sin(H0*R); x.fillStyle=dy?'#fef08a':'#94a3b8'; x.globalAlpha=fr?1:0.4; x.beginPath(); x.arc(P[0],P[1],fr?2.3:1.6,0,2*Math.PI); x.fill(); }
+      x.globalAlpha=1; }
+    // 地軸
+    const N3=ec(0,0,1), nb=pr(N3), nt=pr(N3,ER*1.36), sb=pr([-N3[0],-N3[1],-N3[2]]), st=pr([-N3[0],-N3[1],-N3[2]],ER*1.3);
+    x.strokeStyle='#e2e8f0'; x.lineWidth=2; x.beginPath(); x.moveTo(nb[0],nb[1]); x.lineTo(nt[0],nt[1]); x.moveTo(sb[0],sb[1]); x.lineTo(st[0],st[1]); x.stroke();
+    x.setLineDash([3,3]); x.strokeStyle='rgba(203,213,225,.5)'; x.lineWidth=1; x.beginPath(); x.moveTo(EX,EY-ER-2); x.lineTo(EX,EY-ER*1.42); x.stroke(); x.setLineDash([]);
+    x.font=F(11,1); x.fillStyle='#fff'; x.textAlign=nt[0]<EX?'right':'left'; x.fillText('北極',nt[0]+(nt[0]<EX?-4:4),nt[1]+2);
+    x.font=F(10.5); x.fillStyle='#fde68a'; x.textAlign=st[0]<EX?'right':'left'; x.fillText('地軸',st[0]+(st[0]<EX?-5:5),st[1]+2);
+    // 地点（いま）
+    if(p.lat<89){ const q=site(p.lat,now[2]), P=pr(q), fr=dot(q,vv)>=0;
+      x.fillStyle=fr?'#ef4444':'rgba(239,68,68,.45)'; x.strokeStyle='#fff'; x.lineWidth=1.5; x.beginPath(); x.arc(P[0],P[1],4.6,0,2*Math.PI); x.fill(); if(fr) x.stroke();
+      x.font=F(10.5,1); halo(p.n,P[0],P[1]-11,'#fff',true); }
+    else { x.fillStyle='#ef4444'; x.beginPath(); x.arc(nb[0],nb[1],4.6,0,2*Math.PI); x.fill(); }
+    x.font=F(12,1); x.fillStyle='#bfdbfe'; x.textAlign='center'; x.fillText('昼',EX-24,EY+38); x.fillStyle='#94a3b8'; x.fillText('夜',EX+24,EY+38);
+    x.font=F(10); x.fillStyle='rgba(203,213,225,.85)'; x.textAlign='left'; x.fillText('黄色の点＝昼の側の1時間ごとの位置',LW+12,EY+ER+40);
+  }
+  const gx=(n)=>GX0+(n-1)/364*(GX1-GX0);
+  function drawGraph(s){
+    x.strokeStyle='rgba(255,255,255,.14)'; x.lineWidth=1; x.beginPath(); x.moveTo(LW+8,EY+ER+50); x.lineTo(W-8,EY+ER+50); x.stroke();
+    x.textAlign='left'; x.textBaseline='alphabetic'; x.fillStyle='#fff'; x.font=F(12.5,1); x.fillText('1年の変化（'+p.n+'）',LW+12,GA0-26);
+    const strip=(y0,y1,arr,max,col,lab,val,mid)=>{
+      x.fillStyle='rgba(255,255,255,.05)'; x.fillRect(GX0,y0,GX1-GX0,y1-y0);
+      if(mid!==undefined){ const ym=y1-(mid/max)*(y1-y0); x.setLineDash([2,3]); x.strokeStyle='rgba(255,255,255,.25)'; x.beginPath(); x.moveTo(GX0,ym); x.lineTo(GX1,ym); x.stroke(); x.setLineDash([]); }
+      SEAS.forEach(q=>{ x.strokeStyle='rgba(255,255,255,.12)'; x.beginPath(); x.moveTo(gx(q[0]),y0); x.lineTo(gx(q[0]),y1); x.stroke(); });
+      x.strokeStyle=col; x.lineWidth=2; x.beginPath(); arr.forEach((v,i)=>{ const yy=y1-clamp(v,0,max)/max*(y1-y0), xx=gx(i+1); i?x.lineTo(xx,yy):x.moveTo(xx,yy); }); x.stroke();
+      x.font=F(11,1); x.fillStyle=col; x.fillText(lab,GX0,y0-6); x.fillStyle='#fff'; x.textAlign='right'; x.fillText(val,GX1,y0-6); x.textAlign='left';
+      const yy=y1-clamp(arr[n0-1],0,max)/max*(y1-y0); x.fillStyle='#fff'; x.beginPath(); x.arc(gx(n0),yy,3.6,0,2*Math.PI); x.fill(); };
+    strip(GA0,GA1,yd[0],90,'#fb923c','南中高度（0〜90°）',topTxt(s));
+    strip(GB0,GB1,yd[1],24,'#60a5fa','昼の長さ（0〜24時間）',dur(s.len),12);
+    x.strokeStyle='rgba(255,255,255,.8)'; x.lineWidth=1.2; x.beginPath(); x.moveTo(gx(n0),GA0); x.lineTo(gx(n0),GB1); x.stroke();
+    x.font=F(10.5,1); x.textAlign='center'; SEAS.forEach(q=>{ x.fillStyle=q[0]===n0?'#fde68a':'rgba(203,213,225,.85)'; x.fillText(q[1],gx(q[0]),GB1+15); });
+    x.font=F(10); x.fillStyle='rgba(203,213,225,.75)'; x.textAlign='left'; x.fillText('グラフをなぞると日付が変わります',LW+12,H-10);
+  }
+  function draw(){
+    if(!yd) yearData();
+    const s=sunDay(n0,p), now=sunAt(n0,p,hour);
+    x.clearRect(0,0,W,H); drawDome(s,now); drawEarth(s,now); drawGraph(s);
+    x.strokeStyle='rgba(255,255,255,.2)'; x.lineWidth=1; x.beginPath(); x.moveTo(LW+1,0); x.lineTo(LW+1,H); x.stroke();
+    fit('sAlt',topTxt(s)); fit('sLen',dur(s.len)); fit('sDir',shiftTxt(s));
+    if(now[0]>0.3){ const k=1/Math.tan(now[0]*R); fit('sNow',Math.round(now[0])+'°（影'+(k<10?k.toFixed(2)+'倍':'10倍超')+'）'); } else fit('sNow','地平線の下');
+    SEAS.forEach((q,i)=>setBtn('s'+i,q[0]===n0));
+    setShare('【太陽の動き】'+p.n+'・'+dateTxt(n0)+'の南中高度は'+topTxt(s)+'、昼の長さは'+dur(s.len)+'。日の出・日の入りの方位は'+shiftTxt(s)+'☀️｜シミュラボ');
+  }
+  function syncUI(){ $('day').value=String(n0); $('dayL').textContent=dateTxt(n0); $('hour').value=String(Math.round(hour*4)/4); $('hourL').textContent=hm(hour); }
+  function stopPlay(){ play=false; $('play').textContent='▶ 1日を再生'; }
+  function frame(ts){ const dt=last?Math.min(0.1,(ts-last)/1000):0; last=ts;
+    if(play){ hour+=dt*1.2; const s=sunDay(n0,p); if(!s.kind&&hour>s.set+0.6){ hour=Math.min(24,s.set+0.6); stopPlay(); } if(hour>=24) hour-=24; syncUI(); need=true; }
+    if(need){ need=false; draw(); }
+    requestAnimationFrame(frame); }
+  function pos(e){ const q=cpos(cv,e); return [q[0]/dpr,q[1]/dpr]; }
+  function nearT(q){ let best=1e9, bt=null; for(let i=0;i<=288;i++){ const t=i/12, sv=sunAt(n0,p,t); if(sv[0]<0) continue; const P=PS(sv[0],sv[1]), d=Math.hypot(P[0]-q[0],P[1]-q[1]); if(d<best){ best=d; bt=t; } } return best<70?bt:null; }
+  function mv(q){
+    if(drag==='dome'){ const t=nearT(q); if(t!==null) hour=t; }
+    else if(drag==='earth'){ hour=wrap(d0[1]+(q[0]-d0[0])/9,24); }
+    else if(drag==='graph'){ n0=clamp(Math.round((q[0]-GX0)/(GX1-GX0)*364)+1,1,365); }
+    syncUI(); draw(); }
+  cv.addEventListener('pointerdown',e=>{ const q=pos(e); drag=q[0]<LW?'dome':q[1]<EY+ER+50?'earth':'graph'; d0=[q[0],hour]; stopPlay(); try{ cv.setPointerCapture(e.pointerId); }catch(_){ } mv(q); });
+  cv.addEventListener('pointermove',e=>{ if(drag) mv(pos(e)); });
+  ['pointerup','pointercancel'].forEach(nm=>cv.addEventListener(nm,()=>{ drag=null; }));
+  $('day').addEventListener('input',()=>{ n0=+$('day').value; syncUI(); draw(); });
+  $('hour').addEventListener('input',()=>{ hour=+$('hour').value; if(hour>=24) hour=23.99; stopPlay(); syncUI(); draw(); });
+  $('loc').addEventListener('change',()=>{ p=LOC[$('loc').value]||LOC.tokyo; yearData(); draw(); });
+  SEAS.forEach((q,i)=>$('s'+i).addEventListener('click',()=>{ n0=q[0]; syncUI(); draw(); }));
+  $('play').addEventListener('click',()=>{ if(play){ stopPlay(); return; } const s=sunDay(n0,p); if(!s.kind&&(hour<s.rise-0.6||hour>s.set+0.3)) hour=Math.max(0,s.rise-0.5); play=true; $('play').textContent='⏸ 止める'; });
+  syncUI(); draw(); need=false; requestAnimationFrame(frame);
+
+  } catch(e) { console.error(e); }
+  (function(){ const fs=$('fsBtn'), panel=document.querySelector('.panel');
+    const req = panel && (panel.requestFullscreen || panel.webkitRequestFullscreen);
+    if (fs && req) { fs.hidden = false; fs.addEventListener('click', () => {
+      const cur = document.fullscreenElement || document.webkitFullscreenElement;
+      if (cur) { (document.exitFullscreen || document.webkitExitFullscreen).call(document); }
+      else { req.call(panel); } }); }
+  })();
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE || document.title)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText((SHARE||document.title)+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'taiyou-ugoki', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

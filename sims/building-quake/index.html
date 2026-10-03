@@ -35,6 +35,7 @@
 <style>
 .lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
 .lab-ctl .field{margin-bottom:6px;}
+.lab-ctl>*,.lab-stats>*{min-width:0;}
 .lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
 .lab-ctl .slider-head label{margin:0;font-size:13px;}
 .lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
@@ -84,7 +85,7 @@ canvas.lab.light{background:#fff;}
   </div>
 
   <section class="panel">
-    <div style="display:grid;place-items:center;gap:14px;">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;gap:14px;">
       <span class="lab-badge">🧪 多質点系（せん断型モデル）の応答解析＋共振</span>
       <canvas id="cv" class="lab" width="640" height="400"></canvas>
       <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="fl">ビルの階数</label><span class="val" id="flL"></span></div><input type="range" id="fl" min="3" max="60" value="20" step="1" data-fmt="{v}階"></div><div class="field"><div class="slider-head"><label for="per">地震の揺れの周期</label><span class="val" id="perL"></span></div><input type="range" id="per" min="0.3" max="8" value="2.0" step="0.1" data-fmt="{v}秒"></div><div class="field"><div class="slider-head"><label for="amp">地面の揺れの大きさ</label><span class="val" id="ampL"></span></div><input type="range" id="amp" min="1" max="10" value="5" step="1"></div><div class="field"><div class="slider-head"><label for="damp">制振ダンパーの効き</label><span class="val" id="dampL"></span></div><input type="range" id="damp" min="0" max="10" value="1" step="1"></div><div class="field"><div class="slider-head"><label for="wave">揺れのタイプ</label></div><select id="wave"><option value="sin" selected>一定の周期で揺れ続ける（長周期地震動）</option><option value="quake">実際の地震っぽい波形（短い強い揺れ）</option></select></div></div>

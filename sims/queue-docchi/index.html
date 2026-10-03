@@ -35,6 +35,7 @@
 <style>
 .lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
 .lab-ctl .field{margin-bottom:6px;}
+.lab-ctl>*,.lab-stats>*{min-width:0;}
 .lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
 .lab-ctl .slider-head label{margin:0;font-size:13px;}
 .lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
@@ -84,7 +85,7 @@ canvas.lab.light{background:#fff;}
   </div>
 
   <section class="panel">
-    <div style="display:grid;place-items:center;gap:14px;">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;gap:14px;">
       <span class="lab-badge">🧪 待ち行列理論（M/M/c・フォーク型 vs 個別列）</span>
       <canvas id="cv" class="lab" width="640" height="380"></canvas>
       <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="c">レジの台数</label><span class="val" id="cL"></span></div><input type="range" id="c" min="2" max="6" value="3" step="1" data-fmt="{v}台"></div><div class="field"><div class="slider-head"><label for="lam">客の到着（1分あたり）</label><span class="val" id="lamL"></span></div><input type="range" id="lam" min="0.5" max="5" value="2.7" step="0.1" data-fmt="{v}人"></div><div class="field"><div class="slider-head"><label for="s">1人あたりのレジ時間（平均）</label><span class="val" id="sL"></span></div><input type="range" id="s" min="0.5" max="2.0" value="1.0" step="0.1" data-fmt="{v}分"></div><div class="field"><div class="slider-head"><label for="var">レジ時間のばらつき</label></div><select id="var"><option value="hi" selected>大きい（会計に手間取る客がいる）</option><option value="lo">小さい（ほぼ一定）</option></select></div><div class="field"><div class="slider-head"><label for="sp">再生速度</label><span class="val" id="spL"></span></div><input type="range" id="sp" min="1" max="10" value="4" step="1" data-fmt="×{v}"></div></div>

@@ -35,6 +35,7 @@
 <style>
 .lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
 .lab-ctl .field{margin-bottom:6px;}
+.lab-ctl>*,.lab-stats>*{min-width:0;}
 .lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
 .lab-ctl .slider-head label{margin:0;font-size:13px;}
 .lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
@@ -87,7 +88,7 @@ canvas.lab.light{background:#fff;}
   </div>
 
   <section class="panel">
-    <div style="display:grid;place-items:center;gap:14px;">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;gap:14px;">
       <span class="lab-badge">🔬 小4 金属，水，空気と温度／中1 状態変化</span>
       <canvas id="cv" class="lab light" width="640" height="420"></canvas>
       <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="sub">物質</label></div><select id="sub"><option value="water" selected>水（融点0℃・沸点100℃）</option><option value="ethanol">エタノール（融点−115℃・沸点78℃）</option><option value="nitrogen">窒素（融点−210℃・沸点−196℃）</option><option value="oxygen">酸素（融点−218℃・沸点−183℃）</option><option value="mercury">水銀（融点−39℃・沸点357℃）</option></select></div><div class="field"><div class="slider-head"><label for="t">温度</label><span class="val" id="tL"></span></div><input type="range" id="t" min="-40" max="140" value="20" step="1" data-fmt="{v}℃"></div></div>

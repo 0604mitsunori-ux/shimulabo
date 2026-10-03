@@ -35,6 +35,7 @@
 <style>
 .lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
 .lab-ctl .field{margin-bottom:6px;}
+.lab-ctl>*,.lab-stats>*{min-width:0;}
 .lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
 .lab-ctl .slider-head label{margin:0;font-size:13px;}
 .lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
@@ -84,7 +85,7 @@ canvas.lab.light{background:#fff;}
   </div>
 
   <section class="panel">
-    <div style="display:grid;place-items:center;gap:14px;">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;gap:14px;">
       <span class="lab-badge">🧪 ナビエ＝ストークス方程式の数値解法（Stable Fluids）</span>
       <canvas id="cv" class="lab" width="400" height="400"></canvas>
       <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="visc">粘り気（粘性）</label><span class="val" id="viscL"></span></div><input type="range" id="visc" min="0" max="10" value="1" step="1"></div><div class="field"><div class="slider-head"><label for="diff">ミルクの広がりやすさ（拡散）</label><span class="val" id="diffL"></span></div><input type="range" id="diff" min="0" max="10" value="2" step="1"></div><div class="field"><div class="slider-head"><label for="force">かき混ぜる強さ</label><span class="val" id="forceL"></span></div><input type="range" id="force" min="1" max="10" value="5" step="1"></div><div class="field"><div class="slider-head"><label for="liq">液体プリセット</label></div><select id="liq"><option value="coffee" selected>コーヒー</option><option value="water">水</option><option value="honey">はちみつ</option><option value="ink">水にインク</option></select></div></div>

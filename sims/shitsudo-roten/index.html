@@ -35,6 +35,7 @@
 <style>
 .lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
 .lab-ctl .field{margin-bottom:6px;}
+.lab-ctl>*,.lab-stats>*{min-width:0;}
 .lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
 .lab-ctl .slider-head label{margin:0;font-size:13px;}
 .lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
@@ -87,7 +88,7 @@ canvas.lab.light{background:#fff;}
   </div>
 
   <section class="panel">
-    <div style="display:grid;place-items:center;gap:14px;">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;gap:14px;">
       <span class="lab-badge">🔬 中2 気象観測・天気の変化（霧や雲の発生）</span>
       <canvas id="cv" class="lab light" width="640" height="490"></canvas>
       <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="mode">モード</label></div><select id="mode"><option value="cool" selected>冷やす（露点と水滴）</option><option value="rise">上昇させる（雲の高さ）</option></select></div><div class="field"><div class="slider-head"><label for="t0">気温（はじめ）</label><span class="val" id="t0L"></span></div><input type="range" id="t0" min="0" max="40" value="25" step="1" data-fmt="{v}℃"></div><div class="field"><div class="slider-head"><label for="v0">水蒸気量</label><span class="val" id="v0L"></span></div><input type="range" id="v0" min="4.8" max="51.1" value="12.8" step="0.1" data-fmt="{v} g/m³"></div><div class="field"><div class="slider-head"><label for="tc">冷やしたあとの気温</label><span class="val" id="tcL"></span></div><input type="range" id="tc" min="0" max="40" value="10" step="1" data-fmt="{v}℃"></div><div class="field"><div class="slider-head"><label for="hh">上昇させる高さ</label><span class="val" id="hhL"></span></div><input type="range" id="hh" min="0" max="4000" value="2000" step="50" data-fmt="{v} m"></div></div>

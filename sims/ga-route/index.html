@@ -35,6 +35,7 @@
 <style>
 .lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
 .lab-ctl .field{margin-bottom:6px;}
+.lab-ctl>*,.lab-stats>*{min-width:0;}
 .lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
 .lab-ctl .slider-head label{margin:0;font-size:13px;}
 .lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
@@ -84,7 +85,7 @@ canvas.lab.light{background:#fff;}
   </div>
 
   <section class="panel">
-    <div style="display:grid;place-items:center;gap:14px;">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;gap:14px;">
       <span class="lab-badge">🧪 遺伝的アルゴリズム（順序交叉・突然変異・エリート保存）による巡回セールスマン問題</span>
       <canvas id="cv" class="lab" width="640" height="400"></canvas>
       <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="n">配達先の数（ランダム配置）</label><span class="val" id="nL"></span></div><input type="range" id="n" min="5" max="60" value="20" step="1" data-fmt="{v}か所"></div><div class="field"><div class="slider-head"><label for="pop">1世代のルート数（個体数）</label><span class="val" id="popL"></span></div><input type="range" id="pop" min="20" max="300" value="100" step="10" data-fmt="{v}本"></div><div class="field"><div class="slider-head"><label for="mut">突然変異率</label><span class="val" id="mutL"></span></div><input type="range" id="mut" min="0.01" max="0.5" value="0.1" step="0.01"></div><div class="field"><div class="slider-head"><label for="sp">再生速度</label><span class="val" id="spL"></span></div><input type="range" id="sp" min="1" max="10" value="5" step="1" data-fmt="×{v}"></div></div>

@@ -35,6 +35,7 @@
 <style>
 .lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
 .lab-ctl .field{margin-bottom:6px;}
+.lab-ctl>*,.lab-stats>*{min-width:0;}
 .lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
 .lab-ctl .slider-head label{margin:0;font-size:13px;}
 .lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
@@ -84,7 +85,7 @@ canvas.lab.light{background:#fff;}
   </div>
 
   <section class="panel">
-    <div style="display:grid;place-items:center;gap:14px;">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;gap:14px;">
       <span class="lab-badge">🧪 グラフ探索（幅優先／深さ優先／A*／貪欲法）＋迷路生成（再帰的バックトラック）</span>
       <canvas id="cv" class="lab" width="640" height="400"></canvas>
       <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="algo">アルゴリズム</label></div><select id="algo"><option value="astar" selected>A*（エースター）：距離＋ゴールまでの推定</option><option value="bfs">幅優先探索：近い順にしらみつぶし</option><option value="dfs">深さ優先探索：一本道を突き進む</option><option value="greedy">貪欲法：ゴールに近そうな方へ</option></select></div><div class="field"><div class="slider-head"><label for="size">迷路の大きさ</label><span class="val" id="sizeL"></span></div><input type="range" id="size" min="10" max="40" value="24" step="2" data-fmt="{v}マス"></div><div class="field"><div class="slider-head"><label for="loops">抜け道の多さ</label><span class="val" id="loopsL"></span></div><input type="range" id="loops" min="0" max="30" value="5" step="1" data-fmt="{v}%"></div><div class="field"><div class="slider-head"><label for="sp">再生速度</label><span class="val" id="spL"></span></div><input type="range" id="sp" min="1" max="10" value="5" step="1" data-fmt="×{v}"></div></div>

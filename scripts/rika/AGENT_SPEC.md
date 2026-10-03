@@ -60,11 +60,19 @@ HTMLはこのdictから `scripts/rika/common.py` の `render()` が作る（ペ�
 3. iPad縦の見た目：`--screenshot="C:/Users/社員/Desktop/Nsawa/プロジェクト/シミュラボ_理科授業/shots/<slug>.png" --window-size=820,1180 --hide-scrollbars --virtual-time-budget=4000` で撮って、Read で画像を開いて自分の目で確認（文字のはみ出し・重なり・小さすぎるボタンが無いか）。
 4. 主要な数値を別計算で照合。
 
+## 5-2. 第1弾でわかったこと（2026-10-04）
+- **単元の一次資料**：`C:\Users\社員\Desktop\Nsawa\プロジェクト\シミュラボ_理科授業\学習指導要領_理科_単元とシミュ案.md`（公式の単元名・解説のページ・代表的な実験）。さらに細かく確かめるときは同じフォルダの `学習指導要領テキスト\`（`sho_honbun.txt`＝小学校本文、`chu_kaisetsu.txt`＝中学校解説、`gika_kaisetsu.txt`＝技術・家庭解説、`kou_kaisetsu.txt`＝高校解説 など、文科省PDFのテキスト）を grep して、言い方と扱う範囲を合わせる。
+- ヘッドレスChromeの仮想時間では requestAnimationFrame がほとんど進まない。アニメ途中の状態を確かめるときは、Temp に作ったテスト用コピーだけ rAF を `setTimeout(f,16)` に置き換えて撮る（本番のページは書き換えない）。
+- 統計欄が iPad縦の最初の画面から外れやすい。操作部は詰めて、重要な数値は図の中にも出す。
+- テスト用コピーで rAF を置き換えて撮るときは、広告（pagead2）と GA のスクリプトも外す（残すとヘッドレスChromeが2分以上止まることがある）。
+- スマホ幅（375px）でもはみ出さないこと。2026-10-04 に共通骨格の枠を `grid-template-columns:minmax(0,1fr)` に直した。独自に幅の大きい表を作るときは `overflow-x:auto` の入れ物に入れる。
+
 ## 6. 触ってはいけないもの
 `index.html` / `sitemap.xml` / `api/share.js` / `rika/index.html` / `scripts/rika/build_sims.py` / `scripts/rika/common.py` / `scripts/rika/build.py` / `scripts/rika/units.json` / 他の担当のモジュール。**git の commit / push はしない**（まとめて公開する）。ブラウザの共有ペイン（Claude_Browser）は使わない（他の担当と取り合いになる）。
 
 ## 7. 既存の関連シミュ（rel に使える slug）
 magnet 磁力線シミュレーター🧲 / kyou-no-tsuki 今日の月🌙 / hoshizora-shisu 今夜の星空指数🔭 / pendulum-wave 振り子の波 / amagumo-now いまの雨雲マップ🌧️ / solar-hatsuden 今日のソーラー発電シミュ🔋 / lotka-volterra キツネとウサギ 増減シミュレーター🐰 / jishin-live 日本はいまも揺れている🗾 / mosquito-on モスキート音テスト / ripple 波紋シミュレーター / doppler ドップラー効果シミュレーター / diffusion 拡散シミュレーター / coffee-milk コーヒーにミルクを落とすと / denkidai-keisan 電気代計算機 / newtons-cradle ニュートンのゆりかご / led-setsuyaku LED電球の節約シミュ / chikyu-yure 地球まるごと地震カウンター🌐 / tsunami-kishi 津波はなぜ岸で高くなる？🌊 / building-quake 地震でビルはどう揺れる？🏢 / kaibatsu-check うちの海抜チェッカー⛰️ / reaction-test 反応速度テスト / myakuhaku-heikin 脈拍・心拍数 平均チェック / kiatsu-jet 気圧ジェットコースター指数🎢 / sentaku-kawaku 洗濯物 乾く時間メーター👕 / kaminari-alert 今日の雷ゴロゴロ度⚡ / yohou-shinrai 週間予報、どこまで信じる？🔮 / ketsueki-iden 血液型 遺伝 判定 / shinka-sim 進化シミュレーター / dna DNA二重らせん / solar-system 太陽系シミュレーター / hiruma-nagasa 昼の長さメーター🌅 / gravity 重力シミュレーター / gears 歯車シミュレーター / wave 波の干渉シミュレーター / double-slit ダブルスリット実験 / lissajous リサージュ図形 / iss-doko ISSはいまどこ？🛰️
+第1弾（理科の授業向け）：tsuki-michikake 月の満ち欠けの仕組み🌗 / gesshoku-nisshoku 月食・日食 / denki-kairo 電気回路🔌 / totsu-lens 凸レンズの像🔍 / shitsudo-roten 湿度と雲のでき方☁️ / jishin-ha 地震の伝わり方📳 / teko-tsuriai てこのつり合い / furiko-jikken 振り子の実験 / joutai-henka 状態変化と粒子🧊 / mendel-iden 遺伝の規則性🌱
 （絵文字が無いものは、トップのカードの絵文字を `index.html` で確認して使う。読むだけならOK）
 
 ## 8. 報告

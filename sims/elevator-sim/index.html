@@ -35,6 +35,7 @@
 <style>
 .lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
 .lab-ctl .field{margin-bottom:6px;}
+.lab-ctl>*,.lab-stats>*{min-width:0;}
 .lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
 .lab-ctl .slider-head label{margin:0;font-size:13px;}
 .lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
@@ -84,7 +85,7 @@ canvas.lab.light{background:#fff;}
   </div>
 
   <section class="panel">
-    <div style="display:grid;place-items:center;gap:14px;">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;gap:14px;">
       <span class="lab-badge">🧪 離散事象シミュレーション（SCAN／最短距離／先着順の群管理）</span>
       <canvas id="cv" class="lab" width="640" height="400"></canvas>
       <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="fl">階数</label><span class="val" id="flL"></span></div><input type="range" id="fl" min="5" max="30" value="15" step="1" data-fmt="{v}階"></div><div class="field"><div class="slider-head"><label for="el">エレベーターの台数</label><span class="val" id="elL"></span></div><input type="range" id="el" min="1" max="4" value="2" step="1" data-fmt="{v}台"></div><div class="field"><div class="slider-head"><label for="lam">混雑度（1分あたりの利用者）</label><span class="val" id="lamL"></span></div><input type="range" id="lam" min="1" max="30" value="12" step="1" data-fmt="{v}人"></div><div class="field"><div class="slider-head"><label for="mode">制御方式</label></div><select id="mode"><option value="scan" selected>進行方向の呼びを順に（SCAN・一般的）</option><option value="sstf">いちばん近い呼びへ（最短距離優先）</option><option value="fcfs">呼んだ順（先着順）</option></select></div><div class="field"><div class="slider-head"><label for="sp">再生速度</label><span class="val" id="spL"></span></div><input type="range" id="sp" min="1" max="10" value="4" step="1" data-fmt="×{v}"></div></div>

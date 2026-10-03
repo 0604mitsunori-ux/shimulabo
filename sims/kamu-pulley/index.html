@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/kamu-pulley/">
+<title>カム機構・ベルトとプーリのシミュレーター｜速度伝達比と回転数、カムの形と従動節の動き（中学 技術 動力伝達）｜シミュラボ</title>
+<meta name="description" content="中学 技術・家庭（技術分野）「エネルギー変換の技術」の動力伝達の機構をブラウザで試せます。ベルトとプーリは直径で速度伝達比と回転数が変わり、十字掛けで回る向きが逆に。カム機構は円形（偏心）・卵形・ハート形で従動節の動きをグラフで比べられます。">
+<meta property="og:title" content="カムとベルト・プーリのシミュレーター（動力伝達の機構）">
+<meta property="og:description" content="プーリの直径で速度伝達比と回転数が変わる。カムの形で従動節の動きが変わる。中学技術の動力伝達を動かして確かめる。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/kamu-pulley.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/kamu-pulley.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/kamu-pulley/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "カムとベルト・プーリのシミュレーター（動力伝達の機構）", "url": "https://shimulabo.com/sims/kamu-pulley/", "description": "プーリの直径で速度伝達比と回転数が変わる。カムの形で従動節の動きが変わる。中学技術の動力伝達を動かして確かめる。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "educationalLevel": "中学校（技術・家庭 技術分野）", "learningResourceType": "シミュレーション", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "理科の授業向け", "item": "https://shimulabo.com/rika/"}, {"@type": "ListItem", "position": 3, "name": "カムとベルト・プーリのシミュレーター（動力伝達の機構）", "item": "https://shimulabo.com/sims/kamu-pulley/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "速度伝達比はどうやって求めますか？", "acceptedAnswer": {"@type": "Answer", "text": "速度伝達比 ＝ 原動プーリの回転数 ÷ 従動プーリの回転数 ＝ 従動プーリの直径 ÷ 原動プーリの直径 で求めます。原動プーリ20mm・従動プーリ60mmなら、60÷20＝3です。原動プーリが1分間に1,200回転すると、従動プーリは1,200÷3＝400回転します。"}}, {"@type": "Question", "name": "従動プーリを原動プーリより速く回すには、どうすればよいですか？", "acceptedAnswer": {"@type": "Answer", "text": "従動プーリの直径を、原動プーリより小さくします（速度伝達比が1より小さくなります）。そのかわり、回す力（トルク）は小さくなります。"}}, {"@type": "Question", "name": "十字掛けにすると、なぜ回る向きが逆になるのですか？", "acceptedAnswer": {"@type": "Answer", "text": "ベルトを交差させると、原動プーリの上側を動くベルトが、従動プーリでは下側に回りこむためです。平行掛けでは同じ向き、十字掛け（たすき掛け）では逆向きに回ります。"}}, {"@type": "Question", "name": "カム機構の原動節と従動節とは何ですか？", "acceptedAnswer": {"@type": "Answer", "text": "カム機構で、回転して動きをつくり出すカムを原動節、カムに当たって動かされる部分を従動節といいます。カム機構は、カムの回転運動を、従動節の往復運動などに変えるしくみです。"}}, {"@type": "Question", "name": "円形の偏心カム・卵形カム・ハート形カムでは、動きはどうちがいますか？", "acceptedAnswer": {"@type": "Answer", "text": "偏心カムは、なめらかに上下します（上下の幅は中心のずれの2倍）。卵形カムは、1回転のうち半分以上は止まっていて、とがった部分が来たときだけ上下します。ハート形カムは、一定の速さで上がり、一定の速さで下がります。"}}, {"@type": "Question", "name": "ベルトとプーリは、歯車とくらべてどんなところがちがいますか？", "acceptedAnswer": {"@type": "Answer", "text": "ベルトとプーリは摩擦で動力を伝えるので、軸がはなれていても伝えられ、音が静かですが、大きな力がかかるとすべることがあります。歯車はかみ合いで伝えるので、すべらず回転を正確に伝えられます。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+<style>
+.lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
+.lab-ctl .field{margin-bottom:6px;}
+.lab-ctl>*,.lab-stats>*{min-width:0;}
+.lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
+.lab-ctl .slider-head label{margin:0;font-size:13px;}
+.lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
+.lab-ctl input[type=range]{width:100%;}
+.lab-ctl select{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;font-size:14px;background:#fff;}
+.lab-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px;}
+.lab-btns .btn{padding:11px 18px;font-size:14px;width:auto;}
+.lab-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;width:100%;max-width:640px;margin-top:4px;}
+.lab-stats .stat{background:var(--teal-l);border-radius:10px;padding:10px 12px;text-align:center;}
+.lab-stats .k{font-size:11px;color:var(--ink-2);}
+.lab-stats .v{font-size:20px;font-weight:800;color:var(--ink);font-feature-settings:"tnum";}
+.lab-stats .v.accent{color:var(--accent);}
+.lab-legend{text-align:center;color:var(--ink-2);font-size:13px;margin-top:12px;}
+.lab-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;background:rgba(44,107,134,.10);color:var(--teal-d);margin-bottom:8px;}
+canvas.lab{width:100%;max-width:640px;height:auto;border:1px solid var(--line);border-radius:12px;background:#0b1020;touch-action:none;}
+canvas.lab.light{background:#fff;}
+.panel:fullscreen,.panel:-webkit-full-screen{overflow:auto;padding:24px;background:var(--bg,#faf8f3);}
+.panel:fullscreen canvas.lab{max-width:min(96vw,1100px);}
+.panel:fullscreen .lab-ctl,.panel:fullscreen .lab-stats{max-width:min(96vw,1100px);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../rika/">🔬 理科の授業向け</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../rika/">理科の授業向け</a><span>›</span><span class="cur">カムとベルト・プーリのシミュレーター（動力伝達の機構）</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">理科の授業向け</div>
+    <h1>カムとベルト・プーリのシミュレーター（動力伝達の機構）</h1>
+    <p class="lead">原動プーリと従動プーリの直径を変えると、回転数と速度伝達比が変わります。カムの形を変えると、従動節の上下の動き方が変わります（動きのグラフつき）。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;gap:14px;">
+      <span class="lab-badge">🔬 中学 技術 動力伝達の機構（ベルトとプーリ・カム）</span>
+      <canvas id="cv" class="lab light" width="640" height="410"></canvas>
+      <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="d1">原動プーリの直径</label><span class="val" id="d1L"></span></div><input type="range" id="d1" min="20" max="100" value="40" step="10" data-fmt="{v}mm"></div><div class="field"><div class="slider-head"><label for="d2">従動プーリの直径</label><span class="val" id="d2L"></span></div><input type="range" id="d2" min="20" max="100" value="80" step="10" data-fmt="{v}mm"></div><div class="field"><div class="slider-head"><label for="n1">原動プーリの回転数</label><span class="val" id="n1L"></span></div><input type="range" id="n1" min="10" max="120" value="30" step="10" data-fmt="{v}回/分"></div><div class="field"><div class="slider-head"><label for="shape">カムの形</label></div><select id="shape"><option value="ecc" selected>円形（偏心カム）</option><option value="egg">卵形カム</option><option value="heart">ハート形カム</option></select></div><div class="field"><div class="slider-head"><label for="ecc">中心のずれ（偏心量）</label><span class="val" id="eccL"></span></div><input type="range" id="ecc" min="5" max="15" value="10" step="1" data-fmt="{v}mm"></div><div class="field"><div class="slider-head"><label for="egg">とがった部分の高さ</label><span class="val" id="eggL"></span></div><input type="range" id="egg" min="10" max="30" value="20" step="2" data-fmt="{v}mm"></div><div class="field"><div class="slider-head"><label for="heart">半径の差（最大−最小）</label><span class="val" id="heartL"></span></div><input type="range" id="heart" min="10" max="30" value="20" step="2" data-fmt="{v}mm"></div><div class="field"><div class="slider-head"><label for="cr">カムの回転数</label><span class="val" id="crL"></span></div><input type="range" id="cr" min="6" max="60" value="20" step="2" data-fmt="{v}回/分"></div></div>
+      <div class="lab-btns"><button class="btn btn-primary" id="tP">🔁 ベルトとプーリ</button><button class="btn btn-ghost" id="tC">🥚 カム機構</button><button class="btn btn-ghost" id="pause">⏸ 一時停止</button><button class="btn btn-ghost" id="crossB">✖ 十字掛けにする</button><button class="btn btn-ghost" id="count0">↺ 回った数を0にする</button><button class="btn btn-ghost" id="step">↻ 30°だけ回す</button><button class="btn btn-ghost" id="home">↺ 最初の位置へ</button></div>
+      <div class="lab-stats"><div class="stat"><div class="k">速度伝達比</div><div class="v accent" id="s1">—</div></div><div class="stat"><div class="k">原動プーリの回転数</div><div class="v" id="s2">—</div></div><div class="stat"><div class="k">従動プーリの回転数</div><div class="v" id="s3">—</div></div><div class="stat"><div class="k">回る向き</div><div class="v" id="s4">—</div></div></div>
+    </div>
+    <p class="lab-legend">ベルトとプーリ：青＝原動プーリ、オレンジ＝従動プーリ。赤い●で回った数を数えられます。ベルトはすべらないものとしています。カム機構：グラフの横軸はカムの回転角、縦軸は従動節のいちばん下からの高さです。プーリとカムは指でドラッグして回せます。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-ghost" id="fsBtn" hidden>⛶ 全画面で表示</button>
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+<h2>このシミュレーションでわかること</h2>
+<div class="note" style="border-left:4px solid var(--teal)"><strong>ポイント</strong>：ベルトとプーリでは、<b>速度伝達比 ＝ 原動プーリの回転数 ÷ 従動プーリの回転数 ＝ 従動プーリの直径 ÷ 原動プーリの直径</b> です。従動プーリを大きくするほど従動プーリはゆっくり回り、回す力（トルク）は大きくなります。カム機構では、カム（原動節）の形によって、従動節の上下の動き方が変わります。</div>
+<p>中学校 技術・家庭（技術分野）の「C エネルギー変換の技術」で学ぶ<b>動力伝達の機構</b>です。学習指導要領の解説（技術・家庭編 p.42）は、動力伝達の機構として「ベルトとプーリなどの摩擦を利用して動力を伝える機構」「歯車などのかみ合いを利用して動力を伝える機構」「カム機構などの目的とする動きに変換して動力を伝える機構」を挙げています。また p.45 では、課題の解決策を具体化するときに、繰り返し試行錯誤できる実験装置や「ＩＣＴを活用したシミュレーション等を用いて試行・試作させることも考えられる」としています。歯車のかみ合いは<a href="../gears/">歯車シミュレーター</a>で試せます。</p>
+<h2>授業での使い方</h2>
+<ul>
+<li><b>導入</b>：自転車・洗濯機・自動車など身の回りの機械で、回転がどのように伝えられているかを考えます。「ベルトとプーリ」の画面で、原動プーリと従動プーリの赤い印（●）が何回まわったかを数え、回転数の比を予想してから確かめます。</li>
+<li><b>展開</b>：直径の組み合わせを変えて、速度伝達比と回転数を表に記録し、「直径の比」と「回転数の比」の関係をまとめます。「十字掛けにする」で回る向きが逆になることも確かめます。「カム機構」の画面では、3つの形のカムで従動節の動きのグラフをくらべ、「30°だけ回す」で角度ごとの高さを読み取ります。プーリやカムは指でドラッグして手で回せます。</li>
+<li><b>まとめ</b>：「ゆっくり強く回したい」「ものを決まった間かくで持ち上げたい」など、製作の課題に合う機構を選び、理由を説明します（解説 p.45 の試行・試作）。</li>
+</ul>
+<p>生徒への問いの例：</p>
+<ol>
+<li>原動プーリの直径が20mm、従動プーリの直径が60mmです。速度伝達比はいくつでしょう。原動プーリが1分間に1,200回転するとき、従動プーリは1分間に何回転するでしょう。（答え：速度伝達比 3、400回転）</li>
+<li>原動プーリと従動プーリを逆向きに回したいとき、ベルトの掛け方をどうすればよいでしょう。</li>
+<li>従動節を「しばらく止めておき、ときどきすばやく上下させたい」とき、どの形のカムを使えばよいでしょう。</li>
+</ol>
+<h2>しくみ・解説</h2>
+<h3>動力を伝える3つのしくみ</h3>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>伝え方</th><th>例</th><th>特徴</th></tr><tr><td>摩擦を利用する</td><td>ベルトとプーリ、摩擦車</td><td>軸がはなれていても伝えられ、音が静か。大きな力がかかると、すべることがある</td></tr><tr><td>かみ合いを利用する</td><td>歯車、チェーンとスプロケット</td><td>すべらないので、回転を正確に伝えられる</td></tr><tr><td>目的の動きに変える</td><td>カム機構など</td><td>回転運動を、往復運動などの別の動きに変える</td></tr></table></div>
+<h3>速度伝達比の計算（ベルトとプーリ）</h3>
+<div class="note">速度伝達比 ＝ 原動プーリの回転数 ÷ 従動プーリの回転数 ＝ 従動プーリの直径 ÷ 原動プーリの直径<br>従動プーリの回転数 ＝ 原動プーリの回転数 ÷ 速度伝達比</div>
+<p>ベルトがすべらないとすると、ベルトが動く速さは、どちらのプーリのふちでも同じです。プーリのふちが1分間に進む長さは「円周（直径 × 3.14）× 回転数」なので、<b>原動プーリの直径 × 原動プーリの回転数 ＝ 従動プーリの直径 × 従動プーリの回転数</b>となり、上の式が成り立ちます。教科書では、回転数を「回転速度（単位 min<sup>-1</sup>＝1分間あたりの回転数）」と書くこともあります。</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>原動プーリの直径</th><th>従動プーリの直径</th><th>速度伝達比</th><th>従動プーリの回転数（原動 1,200回/分のとき）</th><th>回り方</th></tr><tr><td>20mm</td><td>20mm</td><td>1</td><td>1,200回</td><td>同じ速さ・同じ力</td></tr><tr><td>20mm</td><td>40mm</td><td>2</td><td>600回</td><td>ゆっくり・トルク約2倍</td></tr><tr><td>20mm</td><td>60mm</td><td>3</td><td>400回</td><td>ゆっくり・トルク約3倍</td></tr><tr><td>20mm</td><td>80mm</td><td>4</td><td>300回</td><td>ゆっくり・トルク約4倍</td></tr><tr><td>40mm</td><td>20mm</td><td>0.5</td><td>2,400回</td><td>速く・トルク約0.5倍</td></tr></table></div>
+<p>速度伝達比が1より大きいと、従動プーリはゆっくり回り、回す力（トルク）は大きくなります。1より小さいと速く回り、トルクは小さくなります（摩擦などによる損失を考えないとき）。速さと力の両方を同時に大きくすることはできません。</p>
+<h3>ベルトの掛け方と回る向き</h3>
+<p>ベルトをそのまま掛ける<b>平行掛け</b>では、原動プーリと従動プーリは<b>同じ向き</b>に回ります。ベルトを交差させて掛ける<b>十字掛け</b>（たすき掛け）では、<b>逆向き</b>に回ります。ベルトとプーリは摩擦で動力を伝えるので、大きな力がかかったり、ベルトがゆるんだりすると、すべって回転が正しく伝わらないことがあります。ベルトの張りやすり減りを点検すること（保守点検）が大切です。回転を正確に伝えたいところには、歯車やチェーン、歯の付いたベルトが使われます。</p>
+<h3>カム機構</h3>
+<p>カム機構は、回転するカム（<b>原動節</b>）の形にそって、<b>従動節</b>を往復運動させるしくみです。カムの回転の中心から、ふちまでの長さが場所によってちがうので、カムが回ると、ふちに当たっている従動節が上下します。カムが1回転すると、従動節は1回上下します。</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>カムの形</th><th>従動節の動き</th><th>動きのグラフ</th><th>メモ</th></tr><tr><td>円形（偏心カム）</td><td>なめらかに上下する（ゆっくり → 速く → ゆっくり）</td><td>なめらかな波の形</td><td>上下の幅 ＝ 中心のずれ（偏心量）× 2</td></tr><tr><td>卵形カム</td><td>1回転のうち半分以上は止まっていて、とがった部分が来たときだけ上下する</td><td>平らな部分と山</td><td>自動車のエンジンの弁（バルブ）の開け閉めなど</td></tr><tr><td>ハート形カム</td><td>一定の速さで上がり、一定の速さで下がる</td><td>直線の山（三角の形）</td><td>一定の速さで往復させたいところ</td></tr></table></div>
+<p>グラフの横軸はカムの回転角、縦軸は従動節の高さ（いちばん下からの高さ）です。グラフが平らなところは従動節が止まっているところ、かたむきが急なところは速く動いているところです。卵形カムでは、もとの円の部分（カムの回転の中心からの長さが同じ部分）に従動節が当たっているあいだは止まっていて、このシミュレーションの寸法では1回転の約6〜7割が止まっています。</p>
+<h3>このシミュレーションで単純にしていること</h3>
+<ul>
+<li>ベルトはすべらず、のび縮みもしないものとしています。ベルトの厚さは考えず、プーリの直径で計算しています。</li>
+<li>摩擦などによる損失は考えていません（トルクの倍率は目安です）。</li>
+<li>従動節は先が細く、カムのふちの1点に当たるものとしています。実際の機械には、先にローラーが付いたものや、平らな面で当たるものもあり、動きが少しちがいます。</li>
+<li>偏心カムは円板の半径40mm、卵形カムは大きい円の半径30mm・小さい円の半径12mm、ハート形カムはいちばん短い半径22mmで描いています。</li>
+<li>アニメーションは選んだ回転数どおりの速さで動きます（1分間に30回転なら、2秒で1回転）。</li>
+</ul>
+<h2>参考</h2>
+<ul class="seo-refs">
+<li>文部科学省「中学校学習指導要領（平成29年告示）解説 技術・家庭編」技術分野 C エネルギー変換の技術（p.42 動力伝達の機構、p.45 ICTを活用したシミュレーション）（<a href="https://www.mext.go.jp/a_menu/shotou/new-cs/1387016.htm" target="_blank" rel="noopener">文部科学省 中学校学習指導要領解説のページ</a>）</li>
+<li>中学校 技術・家庭（技術分野）の教科書（開隆堂出版、東京書籍、教育図書）の「エネルギー変換の技術」の章</li>
+<li>日本機械学会「機械工学辞典」クロス掛けベルト伝動（<a href="https://www.jsme.or.jp/jsme-medwiki/doku.php?id=16:1003435" target="_blank" rel="noopener">日本機械学会のページ</a>）</li>
+</ul>
+
+    <h2>引用・転載について</h2>
+    <p>本ページのシミュレーション結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・授業や社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「カムとベルト・プーリのシミュレーター（動力伝達の機構）」 https://shimulabo.com/sims/kamu-pulley/</code></div>
+    <h2>よくある質問</h2><dl class="faq"><dt>速度伝達比はどうやって求めますか？</dt><dd>速度伝達比 ＝ 原動プーリの回転数 ÷ 従動プーリの回転数 ＝ 従動プーリの直径 ÷ 原動プーリの直径 で求めます。原動プーリ20mm・従動プーリ60mmなら、60÷20＝3です。原動プーリが1分間に1,200回転すると、従動プーリは1,200÷3＝400回転します。</dd><dt>従動プーリを原動プーリより速く回すには、どうすればよいですか？</dt><dd>従動プーリの直径を、原動プーリより小さくします（速度伝達比が1より小さくなります）。そのかわり、回す力（トルク）は小さくなります。</dd><dt>十字掛けにすると、なぜ回る向きが逆になるのですか？</dt><dd>ベルトを交差させると、原動プーリの上側を動くベルトが、従動プーリでは下側に回りこむためです。平行掛けでは同じ向き、十字掛け（たすき掛け）では逆向きに回ります。</dd><dt>カム機構の原動節と従動節とは何ですか？</dt><dd>カム機構で、回転して動きをつくり出すカムを原動節、カムに当たって動かされる部分を従動節といいます。カム機構は、カムの回転運動を、従動節の往復運動などに変えるしくみです。</dd><dt>円形の偏心カム・卵形カム・ハート形カムでは、動きはどうちがいますか？</dt><dd>偏心カムは、なめらかに上下します（上下の幅は中心のずれの2倍）。卵形カムは、1回転のうち半分以上は止まっていて、とがった部分が来たときだけ上下します。ハート形カムは、一定の速さで上がり、一定の速さで下がります。</dd><dt>ベルトとプーリは、歯車とくらべてどんなところがちがいますか？</dt><dd>ベルトとプーリは摩擦で動力を伝えるので、軸がはなれていても伝えられ、音が静かですが、大きな力がかかるとすべることがあります。歯車はかみ合いで伝えるので、すべらず回転を正確に伝えられます。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../gears/"><span class="e">⚙️</span><span>歯車シミュレーター</span></a><a class="related-card" href="../teko-tsuriai/"><span class="e">⚖️</span><span>てこのつり合いシミュレーター</span></a><a class="related-card" href="../denki-kairo/"><span class="e">🔌</span><span>電気回路シミュレーター（直列・並列・オームの法則）</span></a><a class="related-card" href="../solar-hatsuden/"><span class="e">🔋</span><span>今日のソーラー発電シミュ</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../rika/">🔬 理科の授業向けシミュレーター</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+  const rnd = (a,b) => a + Math.random()*(b-a);
+  const randn = () => { let u=0,v=0; while(!u)u=Math.random(); while(!v)v=Math.random(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
+  let SHARE = '';
+  function setShare(t){ SHARE = t; }
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{ const l=$(s.id+'L'); if(l){ const u=()=>{ l.textContent = (s.dataset.fmt ? s.dataset.fmt.replace('{v}', s.value) : s.value); }; s.addEventListener('input',u); u(); } }); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  function setStat(id, v){ const e=$(id); if(e) e.textContent = v; }
+  try {
+    syncSliders();
+
+  const cv=$('cv'); const dpr=Math.min(2,window.devicePixelRatio||1); const W=cv.width,H=cv.height; cv.width=W*dpr; cv.height=H*dpr; const ctx=cv.getContext('2d'); ctx.setTransform(dpr,0,0,dpr,0,0);
+  const h1=document.querySelector('.sim-head h1'); if(h1&&!h1.children.length){ const t=h1.textContent, i=t.indexOf('（'); if(i>0){ h1.textContent=t.slice(0,i); const sp=document.createElement('span'); sp.style.display='inline-block'; sp.textContent=t.slice(i); h1.appendChild(sp); } }
+  let mode='P', run=true, cross=false, thA=-Math.PI/2, thB=-Math.PI/2, turnA=0, turnB=0, beltS=0, thC=0, grab=null, lastAng=0, wasRun=true;
+  let cacheKey='', SAMP=[], RMIN=0, RMAX=0, STROKE=0;
+  const bar=document.createElement('div'); bar.className='lab-btns'; bar.style.marginTop='0';
+  ['tP','tC'].forEach((id)=>{ const b=$(id); if(b) bar.appendChild(b); });
+  cv.parentNode.insertBefore(bar,cv);
+  cv.parentNode.style.gridTemplateColumns='minmax(0,1fr)';
+  const fld=(id)=>$(id).closest('.field');
+  function setK(id,s){ const e=$(id); if(e&&e.previousElementSibling) e.previousElementSibling.textContent=s; }
+  function setV(id,s){ const e=$(id); if(!e) return; e.textContent=s; e.style.fontSize=s.length>10?'14px':(s.length>7?'16px':''); }
+  function rrect(x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
+  function txt(t,x,y,size,col,weight,align,maxW,halo){ ctx.textAlign=align||'left'; let s=size; ctx.font=(weight||'')+' '+s+'px sans-serif';
+    if(maxW){ while(ctx.measureText(t).width>maxW&&s>8){ s-=0.5; ctx.font=(weight||'')+' '+s+'px sans-serif'; } }
+    if(halo){ ctx.lineWidth=3.5; ctx.strokeStyle='rgba(255,255,255,.92)'; ctx.lineJoin='round'; ctx.strokeText(t,x,y); }
+    ctx.fillStyle=col||'#0f172a'; ctx.fillText(t,x,y); }
+  function dot(x,y,r,c){ ctx.fillStyle=c; ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2); ctx.fill(); }
+  function poly(pts,w,c,dash){ ctx.strokeStyle=c; ctx.lineWidth=w; ctx.lineJoin='round'; ctx.lineCap='round'; if(dash) ctx.setLineDash(dash); ctx.beginPath(); pts.forEach((p,i)=>{ if(i) ctx.lineTo(p[0],p[1]); else ctx.moveTo(p[0],p[1]); }); ctx.stroke(); if(dash) ctx.setLineDash([]); }
+  function mkPath(pts){ const cum=[0]; for(let i=1;i<pts.length;i++) cum.push(cum[i-1]+Math.hypot(pts[i][0]-pts[i-1][0],pts[i][1]-pts[i-1][1])); return {pts:pts,cum:cum,len:cum[cum.length-1]}; }
+  function at(P,d){ d=clamp(d,0,P.len); let lo=0,hi=P.cum.length-1; while(hi-lo>1){ const m=(lo+hi)>>1; if(P.cum[m]<=d) lo=m; else hi=m; }
+    const sg=(P.cum[hi]-P.cum[lo])||1, f=(d-P.cum[lo])/sg, a=P.pts[lo], b=P.pts[hi]; return [a[0]+(b[0]-a[0])*f, a[1]+(b[1]-a[1])*f]; }
+  const wrapPi=(a)=>{ while(a>Math.PI) a-=2*Math.PI; while(a<-Math.PI) a+=2*Math.PI; return a; };
+  function fmtN(v){ const r=Math.round(v*100)/100; return (Math.abs(v-r)<1e-9?'':'約')+r; }
+  function arrowHead(x,y,tx2,ty2,col){ ctx.fillStyle=col; ctx.beginPath(); ctx.moveTo(x+tx2*9,y+ty2*9); ctx.lineTo(x-tx2*2-ty2*5,y-ty2*2+tx2*5); ctx.lineTo(x-tx2*2+ty2*5,y-ty2*2-tx2*5); ctx.closePath(); ctx.fill(); }
+  function rarrow(cx,cy,R,a0,a1,dir,col){ ctx.strokeStyle=col; ctx.lineWidth=2.5; ctx.beginPath(); ctx.arc(cx,cy,R,a0,a1); ctx.stroke(); const ae=dir>0?a1:a0; arrowHead(cx+R*Math.cos(ae),cy+R*Math.sin(ae),-Math.sin(ae)*dir,Math.cos(ae)*dir,col); }
+
+  // ================= ベルトとプーリ
+  const AX=172, BX=468, PY=168, KS=1.9;
+  function PV(){ const d1=+$('d1').value, d2=+$('d2').value, n1=+$('n1').value; return {d1:d1,d2:d2,n1:n1,i:d2/d1,n2:n1*d1/d2,r1:d1/2*KS,r2:d2/2*KS}; }
+  function beltPath(r1,r2,cr){ const d=BX-AX, ph=Math.acos(clamp((cr?(r1+r2):(r1-r2))/d,-1,1)), pts=[];
+    const arc=(cx,r,a0,a1,n)=>{ for(let k=0;k<=n;k++){ const a=a0+(a1-a0)*k/n; pts.push([cx+r*Math.cos(a),PY+r*Math.sin(a)]); } };
+    arc(AX,r1,ph,2*Math.PI-ph,72); if(cr) arc(BX,r2,Math.PI-ph,-Math.PI+ph,72); else arc(BX,r2,-ph,ph,72); pts.push(pts[0].slice()); return mkPath(pts); }
+  function rotP(dA){ const v=PV(); thA+=dA; const dB=dA*v.d1/v.d2; thB+=cross?-dB:dB; turnA+=dA/(2*Math.PI); turnB+=dB/(2*Math.PI); beltS+=dA*v.r1; }
+  function pulley(cx,r,th,fill,edge){ ctx.fillStyle=fill; ctx.beginPath(); ctx.arc(cx,PY,r-2,0,Math.PI*2); ctx.fill(); ctx.strokeStyle=edge; ctx.lineWidth=2; ctx.stroke();
+    ctx.globalAlpha=0.45; ctx.lineWidth=1; ctx.beginPath(); ctx.arc(cx,PY,Math.max(9,r*0.62),0,Math.PI*2); ctx.stroke(); ctx.globalAlpha=1;
+    const hub=Math.min(9,r*0.35); ctx.lineWidth=3; ctx.strokeStyle=edge; for(let k=0;k<4;k++){ const a=th+k*Math.PI/2; ctx.beginPath(); ctx.moveTo(cx+hub*Math.cos(a),PY+hub*Math.sin(a)); ctx.lineTo(cx+(r-5)*Math.cos(a),PY+(r-5)*Math.sin(a)); ctx.stroke(); }
+    const mr=Math.max(r*0.68,r-12); dot(cx+mr*Math.cos(th),PY+mr*Math.sin(th),Math.max(3.5,Math.min(6,r*0.12)),'#dc2626'); dot(cx,PY,hub,'#334155'); dot(cx,PY,2.5,'#f8fafc'); }
+  function drawP(){ const v=PV(), BP=beltPath(v.r1,v.r2,cross);
+    txt('原動プーリ（モーターなどで回す） → ベルト → 従動プーリ',14,22,12.5,'#475569','bold','left',612);
+    pulley(AX,v.r1,thA,'#dbeafe','#1d4ed8'); pulley(BX,v.r2,thB,'#ffedd5','#c2410c');
+    poly(BP.pts,7,'#1f2937'); const n=Math.max(6,Math.floor(BP.len/26));
+    for(let k=0;k<n;k++){ const s=((beltS+k*BP.len/n)%BP.len+BP.len)%BP.len, q=at(BP,s); dot(q[0],q[1],2.2,'#fbbf24'); }
+    rarrow(AX,PY,v.r1+15,-Math.PI*0.72,-Math.PI*0.28,1,'#1d4ed8'); rarrow(BX,PY,v.r2+15,-Math.PI*0.72,-Math.PI*0.28,cross?-1:1,'#c2410c');
+    txt('時計回り',AX,PY-v.r1-24,11,'#1d4ed8','bold','center'); txt(cross?'反時計回り':'時計回り',BX,PY-v.r2-24,11,'#c2410c','bold','center');
+    txt('原動プーリ（直径'+v.d1+'mm）',AX,292,13.5,'#1d4ed8','bold','center',280); txt('従動プーリ（直径'+v.d2+'mm）',BX,292,13.5,'#c2410c','bold','center',280);
+    txt('回った数 '+Math.abs(turnA).toFixed(1)+'回転',AX,310,12,'#334155','','center'); txt('回った数 '+Math.abs(turnB).toFixed(1)+'回転',BX,310,12,'#334155','','center');
+    const nice=Math.abs(v.i*100-Math.round(v.i*100))<1e-9;
+    txt('速度伝達比 ＝ 従動プーリの直径 ÷ 原動プーリの直径 ＝ '+v.d2+' ÷ '+v.d1+' ＝ '+fmtN(v.i),14,338,14,'#0f172a','bold','left',612);
+    txt('従動プーリの回転数 ＝ 原動プーリの回転数 ÷ 速度伝達比 ＝ '+v.n1+' ÷ '+(nice?String(Math.round(v.i*100)/100):'（'+v.d2+' ÷ '+v.d1+'）')+' ＝ '+fmtN(v.n2)+'回/分',14,360,13,'#334155','','left',612);
+    txt('回る向き：'+(cross?'逆向き（十字掛け）':'同じ向き（平行掛け）')+'　　回す力（トルク）：約'+(Math.round(v.i*100)/100)+'倍'+(v.i>1?'（ゆっくり・強く）':v.i<1?'（速く・弱く）':'（変わらない）')+'　※損失は考えない',14,382,12.5,'#334155','','left',612);
+    txt('赤い●が回った数を数えてみよう。プーリは指でドラッグして手で回せます',14,400,11,'#64748b','','left',612); }
+
+  // ================= カム機構
+  const OX=150, OY=262, KC=1.9, GX0=364, GX1=622, GY0=46, GY1=250;
+  const SHAPE={ecc:'円形（偏心カム）',egg:'卵形カム',heart:'ハート形カム'};
+  function CP(){ const sh=$('shape').value; return {sh:sh,p:+$(sh).value}; }
+  function camR(phi,c){ const a=((phi%(2*Math.PI))+3*Math.PI)%(2*Math.PI)-Math.PI;
+    if(c.sh==='ecc'){ const R=40, e=c.p; return e*Math.cos(a)+Math.sqrt(R*R-e*e*Math.sin(a)*Math.sin(a)); }
+    if(c.sh==='heart') return 22+c.p*(1-Math.abs(a)/Math.PI);
+    const R0=30, rs=12, cc=R0+c.p-rs, al=Math.acos((R0-rs)/cc), be=Math.atan2(rs*Math.sin(al),cc+rs*Math.cos(al)), b=Math.abs(a);
+    if(b>=al) return R0; if(b>=be) return R0/Math.cos(b-al); return cc*Math.cos(b)+Math.sqrt(Math.max(0,rs*rs-cc*cc*Math.sin(b)*Math.sin(b))); }
+  function eggDwell(p){ const R0=30, rs=12, cc=R0+p-rs, al=Math.acos((R0-rs)/cc); return 1-al/Math.PI; }
+  function prep(){ const c=CP(), key=c.sh+c.p; if(key===cacheKey) return; cacheKey=key; SAMP=[]; let mn=1e9, mx=-1e9;
+    for(let k=0;k<=720;k++){ const r=camR(Math.PI-k/720*2*Math.PI,c); SAMP.push(r); mn=Math.min(mn,r); mx=Math.max(mx,r); } RMIN=mn; RMAX=mx; STROKE=mx-mn; }
+  function motionText(c){ if(c.sh==='ecc') return 'なめらかに上下'; if(c.sh==='egg') return '約'+Math.round(eggDwell(c.p)*100)+'%は止まる'; return '一定の速さで上下'; }
+  function drawC(){ prep(); const c=CP(), rpm=+$('cr').value, th=thC, rUp=camR(Math.PI-th,c), disp=rUp-RMIN, deg=((th*180/Math.PI)%360+360)%360;
+    // カム
+    ctx.beginPath(); for(let k=0;k<=240;k++){ const ph=k/240*2*Math.PI, r=camR(ph,c)*KC, ps=ph+th-1.5*Math.PI, x=OX+r*Math.cos(ps), y=OY+r*Math.sin(ps); if(k) ctx.lineTo(x,y); else ctx.moveTo(x,y); }
+    ctx.closePath(); ctx.fillStyle='#e2e8f0'; ctx.fill(); ctx.strokeStyle='#475569'; ctx.lineWidth=2.5; ctx.stroke();
+    const p0=th-1.5*Math.PI;
+    if(c.sh==='ecc'){ const ex=OX+c.p*KC*Math.cos(p0), ey=OY+c.p*KC*Math.sin(p0); poly([[OX,OY],[ex,ey]],1.5,'#dc2626',[3,3]); poly([[ex-6,ey],[ex+6,ey]],2,'#dc2626'); poly([[ex,ey-6],[ex,ey+6]],2,'#dc2626');
+      txt('＋＝円板の中心（回転の中心から'+c.p+'mmずれている）',10,398,10.5,'#b91c1c','bold','left',300); }
+    if(c.sh==='egg'){ ctx.strokeStyle='rgba(71,85,105,.45)'; ctx.setLineDash([4,4]); ctx.lineWidth=1.2; ctx.beginPath(); ctx.arc(OX,OY,30*KC,0,Math.PI*2); ctx.stroke(); ctx.setLineDash([]);
+      txt('点線＝もとの円（ここに当たっている間は止まる）',10,398,10.5,'#475569','bold','left',300); }
+    if(c.sh==='heart') txt('いちばん短い半径22mm → 長い半径'+(22+c.p)+'mm（半回転で一定に増える）',10,398,10.5,'#475569','bold','left',300);
+    dot(OX+camR(0,c)*KC*0.72*Math.cos(p0),OY+camR(0,c)*KC*0.72*Math.sin(p0),4,'#dc2626');
+    dot(OX,OY,8,'#334155'); dot(OX,OY,2.5,'#f8fafc');
+    rarrow(OX,OY,RMAX*KC+13,Math.PI*0.82,Math.PI*1.18,1,'#0e7490');
+    txt('カム',14,146,13.5,'#0e7490','bold','left',0,true); txt('（原動節）',14,162,11.5,'#0e7490','bold','left',0,true); txt('時計回りに回る',14,178,10.5,'#475569','','left',0,true);
+    // 従動節
+    const tipY=OY-rUp*KC; ctx.fillStyle='#cbd5e1'; rrect(OX-24,126,15,14,3); ctx.fill(); rrect(OX+9,126,15,14,3); ctx.fill(); ctx.strokeStyle='#64748b'; ctx.lineWidth=1; rrect(OX-24,126,15,14,3); ctx.stroke(); rrect(OX+9,126,15,14,3); ctx.stroke();
+    poly([[OX,tipY-6],[OX,tipY-116]],9,'#64748b'); poly([[OX,tipY-6],[OX,tipY-116]],5,'#cbd5e1'); dot(OX,tipY-4,5,'#475569');
+    ctx.fillStyle='#475569'; rrect(OX-20,tipY-123,40,7,3); ctx.fill();
+    txt('従動節',OX+14,tipY-64,13,'#0f172a','bold','left',0,true); txt('ガイド',OX-28,138,10,'#64748b','','right');
+    // 目盛り（いちばん下からの高さ）
+    const y0=OY-RMIN*KC-123; poly([[218,y0],[218,y0-30*KC]],1.5,'#94a3b8');
+    for(let mm=0;mm<=30;mm+=5){ const y=y0-mm*KC; poly([[214,y],[mm%10?218:222,y]],1.2,'#94a3b8'); if(mm%10===0) txt(mm+'',226,y+4,10,'#64748b','','left'); }
+    poly([[OX+20,tipY-120],[214,tipY-120]],1,'#0e7490',[3,3]); ctx.fillStyle='#0e7490'; ctx.beginPath(); ctx.moveTo(216,tipY-120); ctx.lineTo(209,tipY-124); ctx.lineTo(209,tipY-116); ctx.closePath(); ctx.fill();
+    txt('mm',226,y0-30*KC-8,10,'#64748b','','left');
+    // グラフ
+    txt('従動節の動き（グラフ）',330,24,13.5,'#0f172a','bold','left');
+    for(let mm=0;mm<=30;mm+=10){ const y=GY1-mm/32*(GY1-GY0); poly([[GX0,y],[GX1,y]],1,'#e5e7eb'); txt(mm+'',GX0-6,y+4,10.5,'#64748b','','right'); }
+    for(let dg=0;dg<=360;dg+=90){ const x=GX0+dg/360*(GX1-GX0); poly([[x,GY0],[x,GY1]],1,'#f1f5f9'); txt(dg+'°',x,GY1+16,10.5,'#64748b','','center'); }
+    ctx.save(); ctx.translate(334,(GY0+GY1)/2); ctx.rotate(-Math.PI/2); txt('従動節の高さ（mm）',0,0,11,'#475569','bold','center'); ctx.restore();
+    txt('カムの回転角',(GX0+GX1)/2,GY1+32,11,'#475569','bold','center');
+    const gy=(r)=>GY1-(r-RMIN)/32*(GY1-GY0), gx=(k)=>GX0+k/720*(GX1-GX0);
+    if(c.sh==='egg'){ ctx.fillStyle='rgba(34,197,94,.12)'; let k0=-1; for(let k=0;k<=720;k++){ const flat=SAMP[k]-RMIN<1e-6; if(flat&&k0<0) k0=k; if((!flat||k===720)&&k0>=0){ const k1=flat?k:k-1; if(k1>k0) ctx.fillRect(gx(k0),GY0,gx(k1)-gx(k0),GY1-GY0); k0=-1; } }
+      txt('止まっている',gx(360),GY0+16,11,'#15803d','bold','center'); }
+    poly(SAMP.map((r,k)=>[gx(k),gy(r)]),2,'#cbd5e1');
+    const kc=Math.round(deg/360*720); if(kc>0) poly(SAMP.slice(0,kc+1).map((r,k)=>[gx(k),gy(r)]),3,'#0e7490');
+    poly([[gx(kc),GY0],[gx(kc),GY1]],1.2,'#0e7490',[3,3]); dot(gx(kc),gy(SAMP[kc]),5,'#dc2626');
+    txt('上下の幅 '+(Math.round(STROKE*10)/10)+'mm',GX1,GY0+(c.sh==='egg'?34:14),12,'#b91c1c','bold','right',0,true);
+    // 説明
+    const lines=c.sh==='ecc'?['なめらかに上下する（ゆっくり → 速く → ゆっくり）','上下の幅 ＝ 中心のずれ（偏心量）'+c.p+'mm × 2 ＝ '+(2*c.p)+'mm']
+      :c.sh==='egg'?['1回転のうち約'+Math.round(eggDwell(c.p)*100)+'%は止まり、とがった部分で上下','例：自動車のエンジンの弁（バルブ）の開け閉め']
+      :['一定の速さで上がり、一定の速さで下がる','グラフが直線になる（等速の往復運動）'];
+    txt(SHAPE[c.sh],330,304,14.5,'#0f172a','bold','left',300);
+    txt(lines[0],330,324,12.5,'#334155','','left',300); txt(lines[1],330,343,12,'#334155','','left',300);
+    txt('カム1回転で従動節は1回上下（1分間に'+rpm+'回）',330,362,12,'#334155','','left',300);
+    txt('回転角 '+Math.round(deg)+'°　いまの高さ '+disp.toFixed(1)+'mm',330,382,12,'#0e7490','bold','left',300);
+    txt('カムを指でドラッグすると手で回せます。グラフをタップするとその角度に回ります',330,398,10,'#64748b','','left',300); }
+
+  // ================= 切りかえ・数値
+  function update(){
+    if(mode==='P'){ const v=PV(); ['速度伝達比','原動プーリの回転数','従動プーリの回転数','回る向き'].forEach((t,i)=>setK('s'+(i+1),t));
+      setV('s1',fmtN(v.i)); setV('s2',v.n1+'回/分'); setV('s3',fmtN(v.n2)+'回/分'); setV('s4',cross?'逆向き':'同じ向き');
+      setShare('【ベルトとプーリ】原動プーリ'+v.d1+'mm・従動プーリ'+v.d2+'mmで速度伝達比'+fmtN(v.i)+'。原動'+v.n1+'回/分 → 従動'+fmtN(v.n2)+'回/分（'+(cross?'十字掛けで逆向き':'平行掛けで同じ向き')+'）｜シミュラボ'); }
+    else { prep(); const c=CP(); ['カムの形','カム（原動節）の回転数','従動節の上下の幅','従動節の動き方'].forEach((t,i)=>setK('s'+(i+1),t));
+      setV('s1',SHAPE[c.sh]); setV('s2',(+$('cr').value)+'回/分'); setV('s3',(Math.round(STROKE*10)/10)+'mm'); setV('s4',motionText(c));
+      setShare('【カム機構】'+SHAPE[c.sh]+'で、従動節は'+(Math.round(STROKE*10)/10)+'mm上下し、'+(c.sh==='ecc'?'なめらかに上下する':c.sh==='egg'?'1回転の約'+Math.round(eggDwell(c.p)*100)+'%は止まっている':'一定の速さで上がって下がる')+'。カム1回転で1往復｜シミュラボ'); } }
+  const HASH={P:'pulley',C:'cam'};
+  function setMode(m){ mode=m; grab=null;
+    [['tP','P'],['tC','C']].forEach((a)=>{ const b=$(a[0]); b.className='btn '+(a[1]===m?'btn-primary':'btn-ghost'); b.setAttribute('aria-pressed',a[1]===m?'true':'false'); });
+    ['d1','d2','n1'].forEach((id)=>{ fld(id).style.display=m==='P'?'':'none'; });
+    fld('shape').style.display=m==='C'?'':'none'; fld('cr').style.display=m==='C'?'':'none';
+    ['ecc','egg','heart'].forEach((id)=>{ fld(id).style.display=(m==='C'&&$('shape').value===id)?'':'none'; });
+    ['crossB','count0'].forEach((id)=>{ $(id).style.display=m==='P'?'':'none'; }); ['step','home'].forEach((id)=>{ $(id).style.display=m==='C'?'':'none'; });
+    run=true; $('pause').textContent='⏸ 一時停止';
+    try{ history.replaceState(null,'',location.pathname+location.search+'#'+HASH[m]); }catch(e){}
+    update(); }
+  ['d1','d2','n1','cr','ecc','egg','heart'].forEach((id)=>$(id).addEventListener('input',update));
+  $('shape').addEventListener('change',()=>{ setMode('C'); });
+  $('tP').addEventListener('click',()=>setMode('P')); $('tC').addEventListener('click',()=>setMode('C'));
+  $('pause').addEventListener('click',()=>{ run=!run; $('pause').textContent=run?'⏸ 一時停止':'▶ 再生'; });
+  $('crossB').addEventListener('click',()=>{ cross=!cross; $('crossB').textContent=cross?'＝ 平行掛けにする':'✖ 十字掛けにする'; update(); });
+  $('count0').addEventListener('click',()=>{ turnA=0; turnB=0; thA=-Math.PI/2; thB=-Math.PI/2; });
+  $('step').addEventListener('click',()=>{ thC+=Math.PI/6; run=false; $('pause').textContent='▶ 再生'; });
+  $('home').addEventListener('click',()=>{ thC=0; run=false; $('pause').textContent='▶ 再生'; });
+  function angAt(x,y){ return mode==='P'?Math.atan2(y-PY,x-(grab==='A'?AX:BX)):Math.atan2(y-OY,x-OX); }
+  cv.addEventListener('pointerdown',(e)=>{ const p=cpos(cv,e), x=p[0]/dpr, y=p[1]/dpr;
+    if(mode==='P'){ const v=PV(); if(Math.hypot(x-AX,y-PY)<=v.r1+10) grab='A'; else if(Math.hypot(x-BX,y-PY)<=v.r2+10) grab='B'; else grab=null; }
+    else { prep(); if(Math.hypot(x-OX,y-OY)<=RMAX*KC+12) grab='C'; else if(x>=GX0-4&&x<=GX1+4&&y>=GY0-10&&y<=GY1+24){ const r=Math.floor(thC/(2*Math.PI)); thC=r*2*Math.PI+clamp((x-GX0)/(GX1-GX0),0,1)*2*Math.PI; run=false; $('pause').textContent='▶ 再生'; grab='G'; } else grab=null; }
+    if(grab){ e.preventDefault(); try{ cv.setPointerCapture(e.pointerId); }catch(er){} if(grab!=='G'){ wasRun=run; run=false; lastAng=angAt(x,y); } } });
+  cv.addEventListener('pointermove',(e)=>{ if(!grab) return; const p=cpos(cv,e), x=p[0]/dpr, y=p[1]/dpr;
+    if(grab==='G'){ const r=Math.floor(thC/(2*Math.PI)); thC=r*2*Math.PI+clamp((x-GX0)/(GX1-GX0),0,0.9999)*2*Math.PI; return; }
+    const a=angAt(x,y), d=wrapPi(a-lastAng); lastAng=a;
+    if(grab==='A') rotP(d); else if(grab==='B'){ const v=PV(); rotP(d*v.d2/v.d1*(cross?-1:1)); } else if(grab==='C') thC+=d; });
+  const endGrab=()=>{ if(grab&&grab!=='G'){ run=wasRun; $('pause').textContent=run?'⏸ 一時停止':'▶ 再生'; } grab=null; };
+  cv.addEventListener('pointerup',endGrab); cv.addEventListener('pointercancel',endGrab);
+  function draw(){ ctx.fillStyle='#ffffff'; ctx.fillRect(0,0,W,H); if(mode==='P') drawP(); else drawC(); }
+  let last=performance.now();
+  function loop(now){ const dt=Math.min(0.05,Math.max(0,(now-last)/1000)); last=now;
+    if(run){ if(mode==='P') rotP(2*Math.PI*(+$('n1').value)/60*dt); else thC+=2*Math.PI*(+$('cr').value)/60*dt; }
+    draw(); requestAnimationFrame(loop); }
+  const h0=(location.hash||'').replace('#','');
+  setMode(h0==='cam'?'C':'P'); draw(); requestAnimationFrame(loop);
+
+  } catch(e) { console.error(e); }
+  (function(){ const fs=$('fsBtn'), panel=document.querySelector('.panel');
+    const req = panel && (panel.requestFullscreen || panel.webkitRequestFullscreen);
+    if (fs && req) { fs.hidden = false; fs.addEventListener('click', () => {
+      const cur = document.fullscreenElement || document.webkitFullscreenElement;
+      if (cur) { (document.exitFullscreen || document.webkitExitFullscreen).call(document); }
+      else { req.call(panel); } }); }
+  })();
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE || document.title)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText((SHARE||document.title)+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'kamu-pulley', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

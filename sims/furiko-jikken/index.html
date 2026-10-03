@@ -35,6 +35,7 @@
 <style>
 .lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
 .lab-ctl .field{margin-bottom:6px;}
+.lab-ctl>*,.lab-stats>*{min-width:0;}
 .lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
 .lab-ctl .slider-head label{margin:0;font-size:13px;}
 .lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
@@ -87,7 +88,7 @@ canvas.lab.light{background:#fff;}
   </div>
 
   <section class="panel">
-    <div style="display:grid;place-items:center;gap:14px;">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;gap:14px;">
       <span class="lab-badge">🔬 小5 振り子の運動</span>
       <canvas id="cv" class="lab light" width="640" height="440"></canvas>
       <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="len">糸の長さ（振り子の長さ）</label><span class="val" id="lenL"></span></div><input type="range" id="len" min="10" max="100" value="50" step="5" data-fmt="{v}cm"></div><div class="field"><div class="slider-head"><label for="wt">おもりの重さ</label><span class="val" id="wtL"></span></div><input type="range" id="wt" min="10" max="50" value="10" step="10" data-fmt="{v}g"></div><div class="field"><div class="slider-head"><label for="amp">振れ幅</label><span class="val" id="ampL"></span></div><input type="range" id="amp" min="10" max="30" value="20" step="5" data-fmt="{v}°"></div><div class="field"><div class="slider-head"><label for="err">手で計ったときのずれ</label></div><select id="err"><option value="0" selected>なし（ぴったり計る）</option><option value="1">あり（±0.2秒くらい）</option></select></div><div class="field"><div class="slider-head"><label for="spd">早送り</label></div><select id="spd"><option value="1" selected>なし（実際の速さ）</option><option value="2">2倍の速さ</option><option value="4">4倍の速さ</option></select></div></div>
