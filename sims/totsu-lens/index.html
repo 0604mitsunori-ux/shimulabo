@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/totsu-lens/">
+<title>凸レンズの像の作図シミュレーター｜実像・虚像と焦点の位置を3本の光で確かめる｜シミュラボ</title>
+<meta name="description" content="凸レンズの像を3本の光で作図する無料シミュレーター。物体や焦点を動かすと、実像（上下左右が逆）・虚像・像ができない位置と、像の位置・大きさ（倍率）の変わり方を確かめられます。中1「光と音」の授業や定期テストの復習に。高校のレンズの式にも対応。">
+<meta property="og:title" content="凸レンズの像（作図）シミュレーター">
+<meta property="og:description" content="物体を動かすと3本の光で像を作図。実像・虚像・像ができない位置が一目でわかる。中1「光と音」の授業向け。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/totsu-lens.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/totsu-lens.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/totsu-lens/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "凸レンズの像（作図）シミュレーター", "url": "https://shimulabo.com/sims/totsu-lens/", "description": "物体を動かすと3本の光で像を作図。実像・虚像・像ができない位置が一目でわかる。中1「光と音」の授業向け。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "educationalLevel": "中学1年、高校（物理）", "learningResourceType": "シミュレーション", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "理科の授業向け", "item": "https://shimulabo.com/rika/"}, {"@type": "ListItem", "position": 3, "name": "凸レンズの像（作図）シミュレーター", "item": "https://shimulabo.com/sims/totsu-lens/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "実像と虚像のちがいは？", "acceptedAnswer": {"@type": "Answer", "text": "実像は、レンズを通った光が実際に集まってできる像で、スクリーンに映ります。凸レンズでできる実像は上下左右が逆向きです。虚像は、光が集まらず、レンズをのぞいたときに光がそこから出ているように見える像で、スクリーンには映りません。凸レンズの虚像は物体と同じ向きで、物体より大きく見えます。"}}, {"@type": "Question", "name": "物体を焦点に置くと像ができないのはなぜ？", "acceptedAnswer": {"@type": "Answer", "text": "焦点から出た光は、凸レンズで屈折したあと光軸に平行に進みます。物体の先端から出た光がどれもたがいに平行になって交わらないため、実像も虚像もできません。物体を外側から焦点に近づけていくと、像はレンズからどんどん遠く、大きくなっていきます。"}}, {"@type": "Question", "name": "凸レンズの上半分をかくすと、像はどうなる？", "acceptedAnswer": {"@type": "Answer", "text": "像は欠けずに全体が映り、暗くなります。物体の1点から出た光は、レンズのいろいろな場所を通って像の1点に集まるので、下半分を通った光だけでも像全体ができます。レンズを通る光の量が減るので暗くなります。"}}, {"@type": "Question", "name": "虫眼鏡で物が大きく見えるのはなぜ？", "acceptedAnswer": {"@type": "Answer", "text": "虫眼鏡は凸レンズです。物体を焦点より内側に置いてのぞくと、物体と同じ向きの大きな虚像が見えます。"}}, {"@type": "Question", "name": "焦点距離を短くすると、像はどう変わる？", "acceptedAnswer": {"@type": "Answer", "text": "物体を同じ位置に置いたままでも、焦点距離が短い（ふくらみの大きい）レンズほど光を大きく曲げるので、実像はレンズに近い位置にでき、小さくなります。焦点距離のスライダーや焦点Fのドラッグで確かめられます。"}}, {"@type": "Question", "name": "カメラや目でも同じことが起きているの？", "acceptedAnswer": {"@type": "Answer", "text": "はい。カメラはレンズでつくった実像を撮像素子に映し、目は水晶体（凸レンズのはたらき）でつくった実像を網膜に映しています。どちらも像は上下左右が逆向きです。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+<style>
+.lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
+.lab-ctl .field{margin-bottom:6px;}
+.lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
+.lab-ctl .slider-head label{margin:0;font-size:13px;}
+.lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
+.lab-ctl input[type=range]{width:100%;}
+.lab-ctl select{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;font-size:14px;background:#fff;}
+.lab-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px;}
+.lab-btns .btn{padding:11px 18px;font-size:14px;width:auto;}
+.lab-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;width:100%;max-width:640px;margin-top:4px;}
+.lab-stats .stat{background:var(--teal-l);border-radius:10px;padding:10px 12px;text-align:center;}
+.lab-stats .k{font-size:11px;color:var(--ink-2);}
+.lab-stats .v{font-size:20px;font-weight:800;color:var(--ink);font-feature-settings:"tnum";}
+.lab-stats .v.accent{color:var(--accent);}
+.lab-legend{text-align:center;color:var(--ink-2);font-size:13px;margin-top:12px;}
+.lab-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;background:rgba(44,107,134,.10);color:var(--teal-d);margin-bottom:8px;}
+canvas.lab{width:100%;max-width:640px;height:auto;border:1px solid var(--line);border-radius:12px;background:#0b1020;touch-action:none;}
+canvas.lab.light{background:#fff;}
+.panel:fullscreen,.panel:-webkit-full-screen{overflow:auto;padding:24px;background:var(--bg,#faf8f3);}
+.panel:fullscreen canvas.lab{max-width:min(96vw,1100px);}
+.panel:fullscreen .lab-ctl,.panel:fullscreen .lab-stats{max-width:min(96vw,1100px);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../rika/">🔬 理科の授業向け</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../rika/">理科の授業向け</a><span>›</span><span class="cur">凸レンズの像（作図）シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">理科の授業向け</div>
+    <h1>凸レンズの像（作図）シミュレーター</h1>
+    <p class="lead">物体を指でドラッグするか、位置のボタンを押すと、凸レンズを通る代表的な3本の光で像を作図します。実像（上下左右が逆）・虚像（同じ向きで大きい）・像ができない位置と、スクリーンを置く場所がわかります。焦点距離も変えられます。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:14px;">
+      <span class="lab-badge">🔬 中1 光と音（凸レンズの働き）／高校物理 レンズの式</span>
+      <canvas id="cv" class="lab" width="640" height="400"></canvas>
+      <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="a">物体とレンズの距離</label><span class="val" id="aL"></span></div><input type="range" id="a" min="1" max="42" value="25" step="0.5" data-fmt="{v} cm"></div><div class="field"><div class="slider-head"><label for="f">焦点距離</label><span class="val" id="fL"></span></div><input type="range" id="f" min="5" max="15" value="10" step="0.5" data-fmt="{v} cm"></div><div class="field"><div class="slider-head"><label for="rays">作図する光</label></div><select id="rays"><option value="all" selected>①②③ の3本</option><option value="12">①と② の2本</option><option value="1">① だけ</option><option value="2">② だけ</option><option value="3">③ だけ</option></select></div><div class="field"><div class="slider-head"><label for="obj">物体</label></div><select id="obj"><option value="arrow" selected>矢印</option><option value="candle">ろうそく</option></select></div></div>
+      <div class="lab-btns"><span style="align-self:center;font-size:13px;font-weight:800;color:var(--ink-2)">物体の位置：</span><button class="btn btn-ghost" id="p3">2fより遠く</button><button class="btn btn-ghost" id="p2">2f</button><button class="btn btn-ghost" id="p15">fと2fの間</button><button class="btn btn-ghost" id="p1">焦点の上</button><button class="btn btn-ghost" id="p05">焦点の内側</button><div style="flex-basis:100%;height:0"></div><button class="btn btn-ghost" id="fan">光の束を表示</button><button class="btn btn-ghost" id="cover">レンズの上半分をかくす</button></div>
+      <div class="lab-stats"><div class="stat"><div class="k">物体の位置（焦点距離の何倍か）</div><div class="v" id="sA">—</div></div><div class="stat"><div class="k">像の位置（レンズから）</div><div class="v" id="sB">—</div></div><div class="stat"><div class="k">像の大きさ（倍率）</div><div class="v accent" id="sM">—</div></div><div class="stat"><div class="k">像の種類</div><div class="v" id="sT">—</div></div></div>
+    </div>
+    <p class="lab-legend">赤①＝光軸に平行に進む光（屈折して反対側の焦点を通る）、緑②＝レンズの中心を通る光（直進）、青③＝焦点を通ってレンズに入る光（屈折して光軸に平行に進む）。F＝焦点、2F＝焦点距離の2倍の位置、f＝焦点距離。物体と焦点Fは指でドラッグできます。点線は、光を逆向きにのばした線です。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-ghost" id="fsBtn" hidden>⛶ 全画面で表示</button>
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+
+<h2>このシミュレーションでわかること</h2>
+<p>物体を凸レンズの焦点より外側に置くと、レンズの反対側に上下左右が逆向きの<b>実像</b>ができ、スクリーンに映ります。物体をレンズに近づけるほど実像はレンズから遠くなって大きくなり、焦点距離の2倍の位置では物体と同じ大きさになります。物体が焦点の上にあると像はできず、焦点より内側では、レンズをのぞくと物体と同じ向きの大きな<b>虚像</b>が見えます。</p>
+<div class="note">対応する単元：中学校第1学年 第1分野（1）身近な物理現象（ア）光と音「凸レンズの働き」。あわせて、高等学校「物理」（2）波（ウ）光で学ぶレンズの式（1/a＋1/b＝1/f）も表示しています。</div>
+<h2>授業での使い方</h2>
+<h3>導入：身近な体験から問いをつくる</h3>
+<p>虫眼鏡で窓の外の景色を紙に映すと逆さまに映り、近くの文字をのぞくと同じ向きで大きく見えます。「同じレンズなのに、なぜ見え方がちがうのか」を問いにして、物体の位置に注目させます。</p>
+<h3>展開：5つの場合を比べて表にまとめる</h3>
+<p>光学台での実験の前後に、「物体の位置」のボタン（2fより遠く／2f／fと2fの間／焦点の上／焦点の内側）で5つの場合を順に映し、像の位置・大きさ・向きを表にまとめさせます。「作図する光」で①だけ・②だけを表示すると、作図の手順を1本ずつ確かめられます。物体をドラッグして少しずつ動かせば、像の位置と大きさが連続して変わる様子も見られます。</p>
+<h3>まとめ：作図と定期テストの確かめ</h3>
+<p>ノートにかいた作図をシミュレーターの図と見比べて確かめます。「光の束を表示」では、物体の1点から出た光がレンズのどこを通っても像の1点に集まることがわかります。「レンズの上半分をかくす」は、定期テストでよく出る問題の確かめに使えます。</p>
+<p><b>生徒への問いの例</b></p>
+<ol>
+<li>物体をレンズから遠ざけていくと、スクリーンにできる像の位置と大きさはどう変わるでしょう。</li>
+<li>物体を焦点の上に置くと、スクリーンをどこに動かしても像が映らないのはなぜでしょう。3本の光を使って説明しましょう。</li>
+<li>凸レンズの上半分を厚紙でかくすと、スクリーンの像はどうなるでしょう。</li>
+</ol>
+<h2>しくみ・解説</h2>
+<h3>作図に使う3本の光</h3>
+<ol>
+<li>光軸に平行に進む光は、レンズで屈折したあと、反対側の焦点を通る（①赤）</li>
+<li>レンズの中心を通る光は、そのまま直進する（②緑）</li>
+<li>焦点を通ってからレンズに入る光は、屈折したあと光軸に平行に進む（③青）</li>
+</ol>
+<p>物体の先端から出たこれらの光が、レンズを通ったあとで交わる点が像の先端です。3本のうち2本をかけば像の位置は決まります。レンズを通った光が広がって交わらないとき（物体が焦点より内側のとき）は、光を逆向きにのばした線（点線）が交わる点に像があるように見えます。これが虚像です。</p>
+<h3>物体の位置と像の早見表</h3>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>物体の位置</th><th>像のできる位置</th><th>像の大きさ</th><th>像の種類と向き</th></tr><tr><td>焦点距離の2倍より遠い</td><td>反対側の焦点と、焦点距離の2倍の位置の間</td><td>物体より小さい</td><td>実像（上下左右が逆）</td></tr><tr><td>焦点距離の2倍の位置</td><td>反対側の焦点距離の2倍の位置</td><td>物体と同じ</td><td>実像（上下左右が逆）</td></tr><tr><td>焦点と、焦点距離の2倍の位置の間</td><td>反対側の焦点距離の2倍の位置より遠く</td><td>物体より大きい</td><td>実像（上下左右が逆）</td></tr><tr><td>焦点の上</td><td>できない</td><td>—</td><td>—</td></tr><tr><td>焦点より内側</td><td>物体と同じ側（レンズをのぞくと見える）</td><td>物体より大きい</td><td>虚像（物体と同じ向き）</td></tr></table></div>
+<h3>焦点距離10 cmのレンズの例</h3>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>物体の位置</th><th>像の位置</th><th>像の大きさ</th><th>像の種類</th></tr><tr><td>30 cm（焦点距離の3倍）</td><td>反対側15 cm</td><td>0.5倍</td><td>実像</td></tr><tr><td>20 cm（2倍）</td><td>反対側20 cm</td><td>1倍</td><td>実像</td></tr><tr><td>15 cm（1.5倍）</td><td>反対側30 cm</td><td>2倍</td><td>実像</td></tr><tr><td>12 cm（1.2倍）</td><td>反対側60 cm</td><td>5倍</td><td>実像</td></tr><tr><td>10 cm（焦点）</td><td>できない</td><td>—</td><td>—</td></tr><tr><td>5 cm（0.5倍）</td><td>物体と同じ側10 cm</td><td>2倍</td><td>虚像</td></tr></table></div>
+<h3>高校：レンズの式</h3>
+<p>レンズから物体までの距離を a、レンズから像までの距離を b、焦点距離を f とすると、次の式が成り立ちます。虚像のときは b をマイナスとして計算します。像の倍率は m＝|b÷a| です。</p>
+<div class="note">1/a＋1/b＝1/f<br>例1：f＝10 cm、a＝30 cm → 1/b＝1/10－1/30＝1/15 → b＝15 cm（実像、倍率0.5倍）<br>例2：f＝10 cm、a＝5 cm → 1/b＝1/10－1/5＝－1/10 → b＝－10 cm（虚像、倍率2倍）</div>
+<h3>このシミュレーションで単純化していること</h3>
+<ul>
+<li>厚さを考えない「薄いレンズ」として、作図と同じようにレンズの中心の線で1回だけ光を曲げています（実際の光は、レンズに入るときと出るときの2回屈折します）。</li>
+<li>光軸に近い光として計算しているので、レンズのふちを通る光のずれ（収差）や、色による焦点のずれは表していません。作図のきまりどおり、レンズの外を通るように見える光も中心の線で曲げています。</li>
+<li>見やすさのため、物体やレンズを実際の実験より大きく描いています（画面の7 pxを1 cmとしています）。</li>
+<li>横から見た図では上下の逆転しかわからないため、右上の「正面から見ると」で上下左右が逆になることを示しています（矢印の旗、ろうそくのろうのたれは、左右を見分けるための目印です）。</li>
+</ul>
+<h2>参考</h2>
+<ul class="seo-refs">
+<li>文部科学省「中学校学習指導要領（平成29年告示）解説 理科編」第1分野（1）身近な物理現象　<a href="https://www.mext.go.jp/a_menu/shotou/new-cs/1387016.htm" target="_blank" rel="noopener">https://www.mext.go.jp/a_menu/shotou/new-cs/1387016.htm</a></li>
+<li>文部科学省「高等学校学習指導要領（平成30年告示）解説 理科編 理数編」物理（2）波　<a href="https://www.mext.go.jp/a_menu/shotou/new-cs/1407074.htm" target="_blank" rel="noopener">https://www.mext.go.jp/a_menu/shotou/new-cs/1407074.htm</a></li>
+<li>中学校理科の教科書（東京書籍「新しい科学」1年、啓林館「未来へひろがるサイエンス」1年 など）の「光と音」の単元</li>
+</ul>
+
+    <h2>引用・転載について</h2>
+    <p>本ページのシミュレーション結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・授業や社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「凸レンズの像（作図）シミュレーター」 https://shimulabo.com/sims/totsu-lens/</code></div>
+    <h2>よくある質問</h2><dl class="faq"><dt>実像と虚像のちがいは？</dt><dd>実像は、レンズを通った光が実際に集まってできる像で、スクリーンに映ります。凸レンズでできる実像は上下左右が逆向きです。虚像は、光が集まらず、レンズをのぞいたときに光がそこから出ているように見える像で、スクリーンには映りません。凸レンズの虚像は物体と同じ向きで、物体より大きく見えます。</dd><dt>物体を焦点に置くと像ができないのはなぜ？</dt><dd>焦点から出た光は、凸レンズで屈折したあと光軸に平行に進みます。物体の先端から出た光がどれもたがいに平行になって交わらないため、実像も虚像もできません。物体を外側から焦点に近づけていくと、像はレンズからどんどん遠く、大きくなっていきます。</dd><dt>凸レンズの上半分をかくすと、像はどうなる？</dt><dd>像は欠けずに全体が映り、暗くなります。物体の1点から出た光は、レンズのいろいろな場所を通って像の1点に集まるので、下半分を通った光だけでも像全体ができます。レンズを通る光の量が減るので暗くなります。</dd><dt>虫眼鏡で物が大きく見えるのはなぜ？</dt><dd>虫眼鏡は凸レンズです。物体を焦点より内側に置いてのぞくと、物体と同じ向きの大きな虚像が見えます。</dd><dt>焦点距離を短くすると、像はどう変わる？</dt><dd>物体を同じ位置に置いたままでも、焦点距離が短い（ふくらみの大きい）レンズほど光を大きく曲げるので、実像はレンズに近い位置にでき、小さくなります。焦点距離のスライダーや焦点Fのドラッグで確かめられます。</dd><dt>カメラや目でも同じことが起きているの？</dt><dd>はい。カメラはレンズでつくった実像を撮像素子に映し、目は水晶体（凸レンズのはたらき）でつくった実像を網膜に映しています。どちらも像は上下左右が逆向きです。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../ripple/"><span class="e">🌊</span><span>波紋シミュレーター</span></a><a class="related-card" href="../double-slit/"><span class="e">⚛️</span><span>ダブルスリット実験</span></a><a class="related-card" href="../wave/"><span class="e">🌊</span><span>波の干渉シミュレーター</span></a><a class="related-card" href="../mosquito-on/"><span class="e">🦟</span><span>モスキート音テスト</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../rika/">🔬 理科の授業向けシミュレーター</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+  const rnd = (a,b) => a + Math.random()*(b-a);
+  const randn = () => { let u=0,v=0; while(!u)u=Math.random(); while(!v)v=Math.random(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
+  let SHARE = '';
+  function setShare(t){ SHARE = t; }
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{ const l=$(s.id+'L'); if(l){ const u=()=>{ l.textContent = (s.dataset.fmt ? s.dataset.fmt.replace('{v}', s.value) : s.value); }; s.addEventListener('input',u); u(); } }); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  function setStat(id, v){ const e=$(id); if(e) e.textContent = v; }
+  try {
+    syncSliders();
+
+  const cv=$('cv'); const dpr=Math.min(2,window.devicePixelRatio||1); const W=cv.width,H=cv.height; cv.width=W*dpr; cv.height=H*dpr; const ctx=cv.getContext('2d'); ctx.setTransform(dpr,0,0,dpr,0,0);
+  const FF='"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic UI","Yu Gothic",Meiryo,sans-serif';
+  const S=7, X0=310, Y0=200, HL=100, HO=6;   // 7px＝1cm、レンズの位置、光軸、レンズの半分の高さ(px)、物体の高さ(cm)
+  const C={bg:'#0b1020',axis:'#64748b',ink:'#e2e8f0',sub:'#94a3b8',r1:'#f87171',r2:'#4ade80',r3:'#60a5fa',lens:'rgba(147,197,253,0.22)',lensS:'#93c5fd',obj:'#fbbf24',img:'#fde68a',foc:'#facc15'};
+  const Q=new URLSearchParams(location.search);
+  ['a','f','rays','obj'].forEach(k=>{ const el=$(k); if(!el||!Q.has(k)) return; const v=Q.get(k); if(el.tagName==='SELECT'&&![].some.call(el.options,o=>o.value===v)) return; el.value=v; el.dispatchEvent(new Event('input')); });
+  let fan=Q.get('fan')==='1', cover=Q.get('cover')==='1', drag=null, last=0, tt=0;
+  const fmt=v=>{ if(!isFinite(v)) return '—'; const a=Math.abs(v); let s=a>=100?v.toFixed(0):a>=10?v.toFixed(1):v.toFixed(2); if(s.indexOf('.')>=0) s=s.replace(/0+$/,'').replace(/\.$/,''); return s; };
+  function sh(id,m,sub){ const e=$(id); if(e) e.innerHTML=m+(sub?'<span style="display:block;font-size:12px;font-weight:700;color:#59616c;margin-top:2px">'+sub+'</span>':''); }
+  function st(){ const f=+$('f').value, a=+$('a').value; if(Math.abs(a-f)<1e-9) return {f:f,a:a,kind:'none',b:Infinity,m:Infinity}; const b=a*f/(a-f), m=Math.abs(b/a); return {f:f,a:a,b:b,m:m,kind:b>0?'real':'virt'}; }
+  function tx(s,x,y,size,col,align,bold){ ctx.font=(bold?'bold ':'')+size+'px '+FF; ctx.textAlign=align||'left'; ctx.fillStyle=col; ctx.fillText(s,x,y); ctx.textAlign='left'; }
+  function tag(s,x,y,size,col,align){ ctx.font='bold '+size+'px '+FF; const w=ctx.measureText(s).width; const x0=align==='right'?x-w:align==='center'?x-w/2:x; ctx.fillStyle='rgba(11,16,32,0.78)'; ctx.fillRect(x0-5,y-size-1,w+10,size+8); tx(s,x0,y,size,col,'left',true); }
+  function rr(x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
+  function arrowMid(x1,y1,x2,y2,col){ const dx=x2-x1, dy=y2-y1, l=Math.hypot(dx,dy); if(l<30) return; const ux=dx/l, uy=dy/l, mx=x1+dx*0.5, my=y1+dy*0.5; ctx.fillStyle=col; ctx.beginPath(); ctx.moveTo(mx+ux*7,my+uy*7); ctx.lineTo(mx-ux*5-uy*5,my-uy*5+ux*5); ctx.lineTo(mx-ux*5+uy*5,my-uy*5-ux*5); ctx.closePath(); ctx.fill(); }
+  // 物体・像（横から見た図）。hp＞0 で上向き、hp＜0 で下向き（倒立）
+  function glyph(kind,x,yb,hp,alpha,dashed,col){ if(Math.abs(hp)<0.5) return; ctx.save(); ctx.globalAlpha=alpha; const sg=hp>0?1:-1, yt=yb-hp;
+    if(kind==='arrow'){ ctx.strokeStyle=col; ctx.fillStyle=col; ctx.lineWidth=4; if(dashed) ctx.setLineDash([5,4]); const hd=Math.min(12,Math.abs(hp)*0.45); ctx.beginPath(); ctx.moveTo(x,yb); ctx.lineTo(x,yt+sg*hd*0.7); ctx.stroke(); ctx.setLineDash([]); ctx.beginPath(); ctx.moveTo(x,yt); ctx.lineTo(x-hd*0.7,yt+sg*hd); ctx.lineTo(x+hd*0.7,yt+sg*hd); ctx.closePath(); ctx.fill(); }
+    else { const ah=Math.abs(hp), w=Math.max(4,Math.min(40,ah*0.3)), yTop=yb-hp*0.66; ctx.fillStyle='#fef3c7'; ctx.fillRect(x-w/2,Math.min(yb,yTop),w,Math.abs(yb-yTop));
+      if(dashed){ ctx.strokeStyle='#fde68a'; ctx.setLineDash([4,3]); ctx.lineWidth=1.5; ctx.strokeRect(x-w/2,Math.min(yb,yTop),w,Math.abs(yb-yTop)); ctx.setLineDash([]); }
+      ctx.strokeStyle='#78350f'; ctx.lineWidth=1.5; ctx.beginPath(); ctx.moveTo(x,yTop); ctx.lineTo(x,yb-hp*0.71); ctx.stroke();
+      const yf=yb-hp*0.70, gl=ctx.createRadialGradient(x,yb-hp*0.84,1,x,yb-hp*0.84,ah*0.45); gl.addColorStop(0,'rgba(253,224,71,0.45)'); gl.addColorStop(1,'rgba(253,224,71,0)'); ctx.fillStyle=gl; ctx.beginPath(); ctx.arc(x,yb-hp*0.84,ah*0.45,0,7); ctx.fill();
+      const g=ctx.createLinearGradient(0,yf,0,yt); g.addColorStop(0,'#f97316'); g.addColorStop(1,'#fde047'); ctx.fillStyle=g; ctx.beginPath(); ctx.moveTo(x,yf); ctx.quadraticCurveTo(x-w*0.9,yb-hp*0.80,x,yt); ctx.quadraticCurveTo(x+w*0.9,yb-hp*0.80,x,yf); ctx.fill(); }
+    ctx.restore(); }
+  // 正面から見た形（左右がわかる目印つき）
+  function front(kind,cx,cy,hp,rot,alpha,col){ ctx.save(); ctx.globalAlpha=alpha; ctx.translate(cx,cy); if(rot) ctx.rotate(Math.PI);
+    if(kind==='arrow'){ ctx.strokeStyle=col; ctx.fillStyle=col; ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(0,hp/2); ctx.lineTo(0,-hp/2+6); ctx.stroke(); ctx.beginPath(); ctx.moveTo(0,-hp/2); ctx.lineTo(-hp*0.17,-hp/2+hp*0.26); ctx.lineTo(hp*0.17,-hp/2+hp*0.26); ctx.closePath(); ctx.fill();
+      ctx.fillStyle='#f87171'; ctx.beginPath(); ctx.moveTo(1.5,-hp*0.16); ctx.lineTo(hp*0.42,-hp*0.02); ctx.lineTo(1.5,hp*0.12); ctx.closePath(); ctx.fill(); }
+    else { const w=hp*0.26; ctx.fillStyle='#fef3c7'; ctx.fillRect(-w/2,-hp*0.14,w,hp*0.64); ctx.fillRect(w/2-1,-hp*0.14,hp*0.07,hp*0.24); ctx.beginPath(); ctx.arc(w/2-1+hp*0.035,hp*0.1,hp*0.035,0,7); ctx.fill();
+      const g=ctx.createLinearGradient(0,-hp*0.14,0,-hp/2); g.addColorStop(0,'#f97316'); g.addColorStop(1,'#fde047'); ctx.fillStyle=g; ctx.beginPath(); ctx.moveTo(0,-hp*0.16); ctx.quadraticCurveTo(-w*0.8,-hp*0.3,0,-hp/2); ctx.quadraticCurveTo(w*0.8,-hp*0.3,0,-hp*0.16); ctx.fill(); }
+    ctx.restore(); }
+  function inset(s,kind){ const x0=494,y0=8,w=138,h=104; ctx.fillStyle='rgba(15,23,42,0.92)'; ctx.strokeStyle='#334155'; ctx.lineWidth=1; rr(x0,y0,w,h,8); ctx.fill(); ctx.stroke();
+    tx('正面から見ると',x0+8,y0+17,11,C.sub,'left',true);
+    const lx=x0+34, rx=x0+102, cy=y0+58; front(kind,lx,cy,34,false,1,C.obj); tx('物体',lx,y0+h-6,11,C.ink,'center'); tx('→',(lx+rx)/2,cy+5,14,C.sub,'center',true);
+    if(s.kind==='none'){ tx('できない',rx,cy+4,12,C.sub,'center',true); tx('像',rx,y0+h-6,11,C.ink,'center'); }
+    else { front(kind,rx,cy,34*clamp(s.m,0.3,1.35),s.kind==='real',s.kind==='real'?1:0.7,C.img); tx(s.kind==='real'?'スクリーン':'のぞくと',rx,y0+h-6,11,C.ink,'center'); } }
+  function dim(x1,x2,y,label){ if(Math.abs(x2-x1)<2) return; ctx.strokeStyle=C.sub; ctx.lineWidth=1.2; ctx.beginPath(); ctx.moveTo(x1,y); ctx.lineTo(x2,y); ctx.moveTo(x1,y-5); ctx.lineTo(x1,y+5); ctx.moveTo(x2,y-5); ctx.lineTo(x2,y+5); ctx.stroke(); tx(label,(x1+x2)/2,y-5,11.5,C.sub,'center'); }
+
+  function draw(){ const s=st(), f=s.f, a=s.a, kind=$('obj').value, sel=$('rays').value;
+    ctx.fillStyle=C.bg; ctx.fillRect(0,0,W,H);
+    // 光軸・目もり・焦点
+    ctx.strokeStyle=C.axis; ctx.lineWidth=1.2; ctx.beginPath(); ctx.moveTo(0,Y0); ctx.lineTo(W,Y0); ctx.stroke(); tx('光軸',W-6,Y0-6,11,C.sub,'right');
+    ctx.strokeStyle='rgba(148,163,184,0.5)'; for(let c=-45;c<=50;c+=5){ const x=X0+c*S, big=c%10===0; ctx.beginPath(); ctx.moveTo(x,Y0-(big?4:2)); ctx.lineTo(x,Y0+(big?4:2)); ctx.stroke(); }
+    [-1,1].forEach(sd=>{ const xf=X0+sd*f*S, x2=X0+sd*2*f*S; ctx.fillStyle=C.foc; ctx.beginPath(); ctx.arc(xf,Y0,5,0,7); ctx.fill(); tx('F',xf,Y0+21,13,C.foc,'center',true);
+      if(x2>-5&&x2<W+5){ ctx.strokeStyle=C.sub; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(x2,Y0-7); ctx.lineTo(x2,Y0+7); ctx.stroke(); tx('2F',x2,Y0+21,12,C.sub,'center',true); } });
+    // レンズ
+    const t=6+100/f; ctx.fillStyle=C.lens; ctx.strokeStyle=C.lensS; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(X0,Y0-HL); ctx.quadraticCurveTo(X0+t,Y0,X0,Y0+HL); ctx.quadraticCurveTo(X0-t,Y0,X0,Y0-HL); ctx.fill(); ctx.stroke();
+    ctx.setLineDash([3,5]); ctx.strokeStyle='rgba(147,197,253,0.35)'; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(X0,10); ctx.lineTo(X0,H-62); ctx.stroke(); ctx.setLineDash([]);
+    tx('凸レンズ',X0-16,Y0-HL-4,12,C.lensS,'right',true);
+    const xo=X0-a*S, yo=Y0-HO*S, xi=isFinite(s.b)?X0+s.b*S:NaN, yi=isFinite(s.b)?Y0+(s.b/a)*HO*S:NaN;
+    const scrOn=s.kind==='real'&&xi<=W-10, xe=scrOn?xi:W;
+    const outK=yL=>(yL-yo)/(X0-xo)-(yL-Y0)/(f*S);
+    const blocked=yL=>cover&&yL<=Y0+0.5;
+    // 光の束
+    if(fan||cover){ ctx.strokeStyle='rgba(255,255,255,0.22)'; ctx.lineWidth=1; for(let k=0;k<=12;k++){ const yL=Y0-HL+k*(2*HL/12); ctx.beginPath(); ctx.moveTo(xo,yo); ctx.lineTo(X0,yL); if(!blocked(yL)){ ctx.lineTo(xe,yL+outK(yL)*(xe-X0)); } ctx.stroke(); } }
+    // 代表的な3本の光
+    const want=sel==='all'?[1,2,3]:sel==='12'?[1,2]:[+sel]; const rays=[];
+    if(want.indexOf(1)>=0) rays.push({n:1,col:C.r1,yL:yo});
+    if(want.indexOf(2)>=0) rays.push({n:2,col:C.r2,yL:Y0});
+    if(want.indexOf(3)>=0&&s.kind!=='none') rays.push({n:3,col:C.r3,yL:yo+a*HO*S/(a-f)});
+    const pass=[];
+    rays.forEach(r=>{ ctx.strokeStyle=r.col; ctx.lineWidth=2.2;
+      if(r.n===3&&s.kind==='virt'){ ctx.save(); ctx.globalAlpha=0.55; ctx.setLineDash([3,4]); ctx.beginPath(); ctx.moveTo(X0-f*S,Y0); ctx.lineTo(xo,yo); ctx.stroke(); ctx.restore(); }
+      ctx.beginPath(); ctx.moveTo(xo,yo); ctx.lineTo(X0,r.yL); ctx.stroke(); arrowMid(xo,yo,X0,r.yL,r.col);
+      const nm=['','①','②','③'][r.n];
+      if(blocked(r.yL)){ tx(nm,X0-24,r.yL-8,14,r.col,'center',true); ctx.strokeStyle=r.col; ctx.lineWidth=2.5; ctx.beginPath(); ctx.moveTo(X0-14,r.yL-6); ctx.lineTo(X0-2,r.yL+6); ctx.moveTo(X0-2,r.yL-6); ctx.lineTo(X0-14,r.yL+6); ctx.stroke(); return; }
+      const ye=r.yL+outK(r.yL)*(xe-X0); ctx.strokeStyle=r.col; ctx.lineWidth=2.2; ctx.beginPath(); ctx.moveTo(X0,r.yL); ctx.lineTo(xe,ye); ctx.stroke(); arrowMid(X0,r.yL,xe,ye,r.col);
+      const ly=r.yL+outK(r.yL)*22; tx(nm,X0+24,ly+(r.n===3&&s.kind==='real'&&ly+18<H-34?18:-9),14,r.col,'center',true);
+      if(s.kind==='virt'){ ctx.save(); ctx.globalAlpha=0.7; ctx.setLineDash([5,5]); ctx.beginPath(); ctx.moveTo(X0,r.yL); ctx.lineTo(xi,yi); ctx.stroke(); ctx.restore(); }
+      pass.push([[xo,yo],[X0,r.yL],[xe,ye],r.col]); });
+    // 光の粒（進む向き）
+    pass.forEach(p=>{ const L1=Math.hypot(p[1][0]-p[0][0],p[1][1]-p[0][1]), L2=Math.hypot(p[2][0]-p[1][0],p[2][1]-p[1][1]); ctx.fillStyle=p[3];
+      for(let d=(tt*90)%46; d<L1+L2; d+=46){ let x,y; if(d<L1){ x=p[0][0]+(p[1][0]-p[0][0])*d/L1; y=p[0][1]+(p[1][1]-p[0][1])*d/L1; } else { const e=(d-L1)/L2; x=p[1][0]+(p[2][0]-p[1][0])*e; y=p[1][1]+(p[2][1]-p[1][1])*e; } ctx.beginPath(); ctx.arc(x,y,2.6,0,7); ctx.fill(); } });
+    if(cover){ ctx.fillStyle='#a16207'; ctx.fillRect(X0-13,Y0-HL-6,26,HL+6); ctx.strokeStyle='#fbbf24'; ctx.lineWidth=1; ctx.strokeRect(X0-13,Y0-HL-6,26,HL+6); tag('厚紙でかくす',X0+18,Y0-HL+10,12,'#fbbf24','left'); }
+    // 物体
+    glyph(kind,xo,Y0,HO*S,1,false,C.obj); tx('物体',xo,Y0+38,12,C.obj,'center',true);
+    // 像・スクリーン
+    const showImg=want.length>=2||fan||cover, ia=cover?0.5:1;
+    if(s.kind==='real'){
+      if(scrOn&&showImg){ const top=Y0-70, bot=Math.min(H-4,Math.max(Y0+80,yi+16)); ctx.fillStyle='rgba(226,232,240,0.85)'; ctx.fillRect(xi+3,top,7,bot-top); if(xi+82<W) tag('スクリーン',xi+16,Y0-40,12,C.ink,'left'); else tag('スクリーン',xi-4,Y0-40,12,C.ink,'right');
+        { glyph(kind,xi,Y0,-s.m*HO*S,ia,false,C.img); tag('実像',xi-8,Math.min(H-78,yi+20),12,C.img,'right'); } }
+      else if(!scrOn&&showImg) tag('像は右の画面外（レンズから'+fmt(s.b)+' cm）→',W-6,Y0+44,12,C.img,'right');
+    } else if(s.kind==='virt'){
+      if(showImg&&xi>-30) { glyph(kind,xi,Y0,s.m*HO*S,0.6*ia,true,C.img); tag('虚像',xi+8,Math.max(26,yi+14),12,C.img,'left'); }
+      if(xi<=-30) tag('← 像は左の画面外（レンズから'+fmt(-s.b)+' cm）',6,Y0-44,12,C.img,'left');
+      const ex=W-34, ey=Y0-24; ctx.strokeStyle=C.ink; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(ex-14,ey); ctx.quadraticCurveTo(ex,ey-10,ex+14,ey); ctx.quadraticCurveTo(ex,ey+10,ex-14,ey); ctx.stroke(); ctx.fillStyle=C.ink; ctx.beginPath(); ctx.arc(ex-3,ey,3.5,0,7); ctx.fill();
+      tag('レンズをのぞくと見える',W-6,ey-18,12,C.ink,'right'); tag('スクリーンには映らない',W-6,Y0+64,12,C.sub,'right');
+    } else tag('光が平行に進むので、像はできない',W-6,Y0+64,12,C.ink,'right');
+    if(!showImg&&s.kind!=='none') tag('もう1本光をかくと、交わる点に像ができる',W-6,Y0+88,12,C.sub,'right');
+    if(cover) tag('像は欠けずに暗くなる',X0+18,Y0-HL+30,12,'#fbbf24','left');
+    // 距離・式・説明
+    dim(xo,X0,H-64,'物体まで '+fmt(a)+' cm');
+    if(showImg&&s.kind==='real'&&xi<=W) dim(X0,xi,H-64,'像まで '+fmt(s.b)+' cm'); else if(showImg&&s.kind==='virt'&&xi>=0) dim(xi,X0,H-44,'像まで '+fmt(-s.b)+' cm（物体と同じ側）');
+    tx('レンズの式（高校）  1/a + 1/b = 1/f',12,20,12,C.sub,'left');
+    tx(s.kind==='none'?'1/'+fmt(a)+' + 1/b = 1/'+fmt(f)+'  → 1/b = 0（像はできない）':'1/'+fmt(a)+' + 1/'+(s.b<0?'(−'+fmt(-s.b)+')':fmt(s.b))+' = 1/'+fmt(f)+(s.kind==='virt'?'（虚像は b がマイナス）':''),12,38,12,C.ink,'left');
+    const r=a/f, cap=s.kind==='none'?'物体が焦点の上 → 光が平行に進み、像はできない':s.kind==='virt'?'物体が焦点の内側 → スクリーンには映らない。のぞくと大きな虚像（同じ向き）':Math.abs(r-2)<1e-9?'物体が焦点距離の2倍の位置 → 反対側の2倍の位置に、同じ大きさの実像':r>2?'物体が焦点距離の2倍より遠い → 焦点と2倍の位置の間に、小さい実像':'物体が焦点と2倍の位置の間 → 2倍の位置より遠くに、大きい実像';
+    tag(cap,10,H-8,13,C.ink,'left');
+    inset(s,kind); }
+
+  function update(){ const s=st();
+    sh('sA',fmt(s.a/s.f)+'倍',fmt(s.a)+' cm（焦点距離 '+fmt(s.f)+' cm）');
+    if(s.kind==='none'){ sh('sB','できない','光が平行に進む'); sh('sM','なし','像ができない'); sh('sT','像なし','物体が焦点の上');
+      setShare('【凸レンズの像】焦点距離'+fmt(s.f)+' cmの凸レンズの焦点の上に物体を置くと、光が平行に進み像はできない｜シミュラボ'); }
+    else if(s.kind==='real'){ const mm=Math.round(s.m*100)/100; sh('sB',fmt(s.b)+' cm','反対側・焦点距離の'+fmt(s.b/s.f)+'倍'); sh('sM',mm+'倍',Math.abs(s.m-1)<0.005?'物体と同じ大きさ':s.m<1?'物体より小さい':'物体より大きい'); sh('sT','実像','上下左右が逆向き');
+      setShare('【凸レンズの像】焦点距離'+fmt(s.f)+' cmのレンズから'+fmt(s.a)+' cm（焦点距離の'+fmt(s.a/s.f)+'倍）に物体を置くと、反対側'+fmt(s.b)+' cmに'+mm+'倍の実像（上下左右が逆）ができる｜シミュラボ'); }
+    else { const mm=Math.round(s.m*100)/100; sh('sB',fmt(-s.b)+' cm','物体と同じ側（のぞくと見える）'); sh('sM',mm+'倍','物体より大きい'); sh('sT','虚像','物体と同じ向き');
+      setShare('【凸レンズの像】焦点距離'+fmt(s.f)+' cmのレンズから'+fmt(s.a)+' cm（焦点の内側）に物体を置くと、'+mm+'倍の虚像（同じ向き）が見える｜シミュラボ'); } }
+
+  function setv(id,v){ const el=$(id); if(+el.value===v) return; el.value=v; el.dispatchEvent(new Event('input')); }
+  const moveA=x=>setv('a',clamp(Math.round((X0-x)/S*2)/2,1,42));
+  ['a','f'].forEach(id=>{ $(id).addEventListener('input',update); $(id).addEventListener('change',update); });
+  const PRE=[['p3',3],['p2',2],['p15',1.5],['p1',1],['p05',0.5]];
+  PRE.forEach(p=>{ $(p[0]).addEventListener('click',()=>{ setv('a',clamp(Math.round(+$('f').value*p[1]*2)/2,1,42)); }); });
+  $('fan').addEventListener('click',()=>{ fan=!fan; $('fan').textContent=fan?'光の束を消す':'光の束を表示'; });
+  $('cover').addEventListener('click',()=>{ cover=!cover; $('cover').textContent=cover?'かくすのをやめる':'レンズの上半分をかくす'; });
+  if(fan) $('fan').textContent='光の束を消す';
+  if(cover) $('cover').textContent='かくすのをやめる';
+  cv.addEventListener('pointerdown',e=>{ const p=cpos(cv,e), x=p[0]/dpr, y=p[1]/dpr, s=st(), xo=X0-s.a*S;
+    if(Math.abs(x-xo)<20&&y>Y0-HO*S-20&&y<Y0+8) drag='a';
+    else if(Math.abs(y-Y0)<20&&(Math.abs(x-(X0-s.f*S))<18||Math.abs(x-(X0+s.f*S))<18)) drag='f';
+    else if(x<X0-4){ drag='a'; moveA(x); }
+    else return;
+    try{ cv.setPointerCapture(e.pointerId); }catch(_){ } e.preventDefault(); });
+  cv.addEventListener('pointermove',e=>{ if(!drag) return; const x=cpos(cv,e)[0]/dpr; if(drag==='a') moveA(x); else setv('f',clamp(Math.round(Math.abs(x-X0)/S*2)/2,5,15)); });
+  const endDrag=()=>{ drag=null; }; cv.addEventListener('pointerup',endDrag); cv.addEventListener('pointercancel',endDrag);
+  function frame(t){ const dt=last?Math.min(0.05,(t-last)/1000):0; last=t; tt+=dt; draw(); requestAnimationFrame(frame); }
+  update(); frame(performance.now());
+
+  } catch(e) { console.error(e); }
+  (function(){ const fs=$('fsBtn'), panel=document.querySelector('.panel');
+    const req = panel && (panel.requestFullscreen || panel.webkitRequestFullscreen);
+    if (fs && req) { fs.hidden = false; fs.addEventListener('click', () => {
+      const cur = document.fullscreenElement || document.webkitFullscreenElement;
+      if (cur) { (document.exitFullscreen || document.webkitExitFullscreen).call(document); }
+      else { req.call(panel); } }); }
+  })();
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE || document.title)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText((SHARE||document.title)+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'totsu-lens', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

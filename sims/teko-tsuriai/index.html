@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/teko-tsuriai/">
+<title>てこの原理・てこのつり合いシミュレーター｜小6理科 実験用てこで「重さ×きょり」のきまりを確かめる｜シミュラボ</title>
+<meta name="description" content="小6理科「てこの規則性」の実験用てこを画面で再現。左右の目盛りをタップして10gのおもりをつるすと、てこが左右どちらにかたむくか、水平につり合うかがアニメで分かります。てこの原理（重さ×支点からのきょり）の計算、ヒント、練習問題つき。">
+<meta property="og:title" content="てこのつり合いシミュレーター（小6 てこの規則性）">
+<meta property="og:description" content="目盛りをタップしておもりをつるし、てこがつり合うきまり「重さ×支点からのきょり」を確かめる。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/teko-tsuriai.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/teko-tsuriai.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/teko-tsuriai/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "てこのつり合いシミュレーター", "url": "https://shimulabo.com/sims/teko-tsuriai/", "description": "目盛りをタップしておもりをつるし、てこがつり合うきまり「重さ×支点からのきょり」を確かめる。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "educationalLevel": "小学6年", "learningResourceType": "シミュレーション", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "理科の授業向け", "item": "https://shimulabo.com/rika/"}, {"@type": "ListItem", "position": 3, "name": "てこのつり合いシミュレーター", "item": "https://shimulabo.com/sims/teko-tsuriai/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "てこが水平につり合うのは、どんなときですか？", "acceptedAnswer": {"@type": "Answer", "text": "左のうでをかたむけるはたらき（おもりの重さ×支点からのきょり）と、右のうでをかたむけるはたらきが等しいときです。たとえば、左の6の目盛りに10g（10×6＝60）、右の3の目盛りに20g（20×3＝60）をつるすと、水平につり合います。"}}, {"@type": "Question", "name": "「てこの原理」とは何ですか？", "acceptedAnswer": {"@type": "Answer", "text": "支点からのきょりが長いところに力を加えるほど、小さな力でものを動かせる、というてこのきまりを指す言葉です。小学校6年の理科では「てこの規則性」として、「おもりの重さ×支点からのきょり」が左右で等しいときにつり合うことを学びます。"}}, {"@type": "Question", "name": "おもりを2か所以上につるしたときは、どう計算しますか？", "acceptedAnswer": {"@type": "Answer", "text": "それぞれの目盛りで「重さ×きょり」を計算し、たし合わせます。左の6に10gと左の2に20gなら、10×6＋20×2＝100 が左のうでをかたむけるはたらきです。"}}, {"@type": "Question", "name": "支点・力点・作用点のならび方で、道具はどう分けられますか？", "acceptedAnswer": {"@type": "Answer", "text": "はさみやくぎぬきは支点が真ん中、せんぬきは作用点が真ん中、ピンセットは力点が真ん中にあります。支点から力点までのきょりが、支点から作用点までのきょりより長いと、小さな力で大きな力を出せます。"}}, {"@type": "Question", "name": "上皿てんびんがつり合うのはなぜですか？", "acceptedAnswer": {"@type": "Answer", "text": "上皿てんびんは、支点から左右の皿までのきょりが同じになっています。そのため、左右にのせたものの重さが等しいときに、てこをかたむけるはたらきも等しくなり、水平につり合います。"}}, {"@type": "Question", "name": "重いものを小さな力で持ち上げるには、どうすればよいですか？", "acceptedAnswer": {"@type": "Answer", "text": "支点から力点までのきょりを長く（力点を支点から遠く）して、支点から作用点までのきょりを短く（作用点を支点に近く）します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+<style>
+.lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
+.lab-ctl .field{margin-bottom:6px;}
+.lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
+.lab-ctl .slider-head label{margin:0;font-size:13px;}
+.lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
+.lab-ctl input[type=range]{width:100%;}
+.lab-ctl select{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;font-size:14px;background:#fff;}
+.lab-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px;}
+.lab-btns .btn{padding:11px 18px;font-size:14px;width:auto;}
+.lab-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;width:100%;max-width:640px;margin-top:4px;}
+.lab-stats .stat{background:var(--teal-l);border-radius:10px;padding:10px 12px;text-align:center;}
+.lab-stats .k{font-size:11px;color:var(--ink-2);}
+.lab-stats .v{font-size:20px;font-weight:800;color:var(--ink);font-feature-settings:"tnum";}
+.lab-stats .v.accent{color:var(--accent);}
+.lab-legend{text-align:center;color:var(--ink-2);font-size:13px;margin-top:12px;}
+.lab-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;background:rgba(44,107,134,.10);color:var(--teal-d);margin-bottom:8px;}
+canvas.lab{width:100%;max-width:640px;height:auto;border:1px solid var(--line);border-radius:12px;background:#0b1020;touch-action:none;}
+canvas.lab.light{background:#fff;}
+.panel:fullscreen,.panel:-webkit-full-screen{overflow:auto;padding:24px;background:var(--bg,#faf8f3);}
+.panel:fullscreen canvas.lab{max-width:min(96vw,1100px);}
+.panel:fullscreen .lab-ctl,.panel:fullscreen .lab-stats{max-width:min(96vw,1100px);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../rika/">🔬 理科の授業向け</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../rika/">理科の授業向け</a><span>›</span><span class="cur">てこのつり合いシミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">理科の授業向け</div>
+    <h1>てこのつり合いシミュレーター</h1>
+    <p class="lead">実験用てこの左右の目盛りをタップして、10gのおもりをつるしたり、はずしたりできます。てこがどちらにかたむくか、水平につり合うのはどんなときかを、「おもりの重さ×支点からのきょり」で確かめましょう。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:14px;">
+      <span class="lab-badge">🔬 小6 てこの規則性</span>
+      <canvas id="cv" class="lab light" width="640" height="480"></canvas>
+      <div class="lab-ctl"></div>
+      <div class="lab-btns"><button class="btn btn-primary" id="quiz">🎯 もんだいを出す</button><button class="btn btn-ghost" id="hintBtn">💡 ヒントをかくす</button><button class="btn btn-ghost" id="clear">ぜんぶはずす</button></div>
+      <div class="lab-stats"><div class="stat"><div class="k">左のうでをかたむけるはたらき</div><div class="v" id="sL">—</div></div><div class="stat"><div class="k">右のうでをかたむけるはたらき</div><div class="v" id="sR">—</div></div><div class="stat"><div class="k">結果</div><div class="v accent" id="sRes">—</div></div><div id="hint" style="grid-column:1/-1;background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:10px 14px;font-size:15px;line-height:1.7;color:#1f2937;text-align:left;">目盛りの上の「+」をタップして、おもりをつるしてみよう。</div></div>
+    </div>
+    <p class="lab-legend">目盛りの上の「+」をタップすると10gのおもりを1こつるし、おもりをタップすると1こはずします（1つの目盛りに100gまで）。青＝左のうで、オレンジ＝右のうで。棒の重さは左右で同じなので、計算には入れていません。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-ghost" id="fsBtn" hidden>⛶ 全画面で表示</button>
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+<h2>このシミュレーションでわかること</h2>
+<div class="note" style="border-left:4px solid var(--teal)"><strong>ポイント</strong>：てこが水平につり合うのは、<b>左のうでをかたむけるはたらき</b>と<b>右のうでをかたむけるはたらき</b>が等しいときです。てこをかたむけるはたらきは「<b>おもりの重さ×支点からのきょり</b>」で表せます。</div>
+<p>小学校6年の理科「てこの規則性」（学習指導要領 第6学年 A（3））で学ぶ内容です。実験用てこの目盛りにおもりをつるし、てこがどちらにかたむくか、どうすれば水平につり合うかを、何度でも試せます。一般に「てこの原理」とよばれるきまりを、自分の手で確かめられます。</p>
+<h2>授業での使い方</h2>
+<ul>
+<li><b>導入</b>：左の目盛りにおもりをつるした画面を見せ、「右のどこに何gつるせば水平になるかな？」と予想させます。</li>
+<li><b>展開</b>：実験用てこを使った実験の前後に使います。左のおもりはそのままにして、右の「きょり」と「重さ」の組み合わせを表に整理すると、「重さ×きょり」のきまりが見つかります（算数の「比例と反比例」ともつながります）。「もんだいを出す」ボタンで、くり返し練習もできます。</li>
+<li><b>まとめ</b>：はさみ・くぎぬき・せんぬき・ピンセットなど、身の回りの道具の支点・力点・作用点を確かめます。</li>
+</ul>
+<p>児童への問いの例：</p>
+<ol>
+<li>左の3の目盛りに20gをつるしました。右の6の目盛りに何gつるすと、水平につり合うでしょう。</li>
+<li>左のおもりはそのままで、右のおもりを支点から遠くへ動かすと、てこはどうなるでしょう。</li>
+<li>くぎぬきで、柄のはしを持つと小さな力でくぎがぬけるのはなぜでしょう。</li>
+</ol>
+<h2>しくみ・解説</h2>
+<h3>てこをかたむけるはたらき</h3>
+<div class="note">てこをかたむけるはたらき ＝ おもりの重さ（g）× 支点からのきょり（目盛りの数）<br>左のはたらき ＝ 右のはたらき のとき、てこは水平につり合います。</div>
+<p>2か所以上におもりをつるしたときは、それぞれの「重さ×きょり」をたし合わせます。たとえば左の6に10g、左の2に20gをつるしたときは、10×6＋20×2＝100 が左のうでをかたむけるはたらきです。</p>
+<h3>計算問題の解き方</h3>
+<p>例：左の4の目盛りに30gをつるしました。右の6の目盛りに何gつるすと、つり合いますか。</p>
+<ol>
+<li>左のはたらきを計算します：30×4＝120</li>
+<li>右のはたらきも120になればよいので：□×6＝120</li>
+<li>□＝120÷6＝20　答え 20g</li>
+</ol>
+<p>右の目盛りを変えると、つり合うおもりの重さは次のようになります。きょりが2倍になると、必要な重さは半分になります。</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>右の目盛り（きょり）</th><th>つり合うおもりの重さ</th><th>右のはたらき</th></tr><tr><td>1</td><td>120g（このシミュレーションでは1か所100gまで）</td><td>120×1＝120</td></tr><tr><td>2</td><td>60g</td><td>60×2＝120</td></tr><tr><td>3</td><td>40g</td><td>40×3＝120</td></tr><tr><td>4</td><td>30g</td><td>30×4＝120</td></tr><tr><td>5</td><td>24g（10gのおもりでは作れない）</td><td>24×5＝120</td></tr><tr><td>6</td><td>20g</td><td>20×6＝120</td></tr></table></div>
+<h3>身の回りのてこ</h3>
+<p>てこには、てこを支えるところ（<b>支点</b>）、力を加えるところ（<b>力点</b>）、ものに力がはたらくところ（<b>作用点</b>）があります。</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>道具</th><th>支点</th><th>力点</th><th>作用点</th><th>ならび方</th></tr><tr><td>はさみ</td><td>刃をとめているねじ</td><td>指を入れる持ち手</td><td>紙を切る刃</td><td>支点が真ん中</td></tr><tr><td>くぎぬき</td><td>板にあたっているところ</td><td>手で持つ柄のはし</td><td>くぎをはさむところ</td><td>支点が真ん中</td></tr><tr><td>せんぬき</td><td>王冠の上にあたる先</td><td>手で持つところ</td><td>王冠のふちにかかるところ</td><td>作用点が真ん中</td></tr><tr><td>ピンセット</td><td>2本がつながった根もと</td><td>指でおさえるところ</td><td>ものをはさむ先</td><td>力点が真ん中</td></tr></table></div>
+<p>支点が真ん中の道具や、作用点が真ん中の道具は、支点から力点までのきょりを長くすると、小さな力で大きな力を出せます。ピンセットのように力点が真ん中の道具は、作用点にはたらく力が小さくなるので、小さなものや、こわれやすいものをやさしくつまむのに向いています。</p>
+<h3>このシミュレーションで単純にしていること</h3>
+<ul>
+<li>棒（てこ）の重さは計算に入れていません。支点が棒の真ん中にあるので、棒の重さは左右で同じになり、つり合いには関係しないからです。</li>
+<li>おもりは1こ10gで、1つの目盛りに100g（10こ）までつるせます。</li>
+<li>わかりやすくするため、てこのかたむきは12°で止まるようにしています。</li>
+<li>高校の物理では、この「重さ×きょり」を「力のモーメント」という考え方で学びます。</li>
+</ul>
+<h2>参考</h2>
+<ul class="seo-refs">
+<li>文部科学省「小学校学習指導要領（平成29年告示）解説 理科編」第6学年 A（3）てこの規則性（<a href="https://www.mext.go.jp/a_menu/shotou/new-cs/1387014.htm" target="_blank" rel="noopener">文部科学省 学習指導要領解説のページ</a>）</li>
+<li>小学校理科の教科書（東京書籍「新しい理科」、啓林館「わくわく理科」、大日本図書「たのしい理科」など）6年の「てこ」の単元</li>
+</ul>
+
+    <h2>引用・転載について</h2>
+    <p>本ページのシミュレーション結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・授業や社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「てこのつり合いシミュレーター」 https://shimulabo.com/sims/teko-tsuriai/</code></div>
+    <h2>よくある質問</h2><dl class="faq"><dt>てこが水平につり合うのは、どんなときですか？</dt><dd>左のうでをかたむけるはたらき（おもりの重さ×支点からのきょり）と、右のうでをかたむけるはたらきが等しいときです。たとえば、左の6の目盛りに10g（10×6＝60）、右の3の目盛りに20g（20×3＝60）をつるすと、水平につり合います。</dd><dt>「てこの原理」とは何ですか？</dt><dd>支点からのきょりが長いところに力を加えるほど、小さな力でものを動かせる、というてこのきまりを指す言葉です。小学校6年の理科では「てこの規則性」として、「おもりの重さ×支点からのきょり」が左右で等しいときにつり合うことを学びます。</dd><dt>おもりを2か所以上につるしたときは、どう計算しますか？</dt><dd>それぞれの目盛りで「重さ×きょり」を計算し、たし合わせます。左の6に10gと左の2に20gなら、10×6＋20×2＝100 が左のうでをかたむけるはたらきです。</dd><dt>支点・力点・作用点のならび方で、道具はどう分けられますか？</dt><dd>はさみやくぎぬきは支点が真ん中、せんぬきは作用点が真ん中、ピンセットは力点が真ん中にあります。支点から力点までのきょりが、支点から作用点までのきょりより長いと、小さな力で大きな力を出せます。</dd><dt>上皿てんびんがつり合うのはなぜですか？</dt><dd>上皿てんびんは、支点から左右の皿までのきょりが同じになっています。そのため、左右にのせたものの重さが等しいときに、てこをかたむけるはたらきも等しくなり、水平につり合います。</dd><dt>重いものを小さな力で持ち上げるには、どうすればよいですか？</dt><dd>支点から力点までのきょりを長く（力点を支点から遠く）して、支点から作用点までのきょりを短く（作用点を支点に近く）します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../gears/"><span class="e">⚙️</span><span>歯車シミュレーター</span></a><a class="related-card" href="../pendulum-wave/"><span class="e">🎐</span><span>振り子の波</span></a><a class="related-card" href="../newtons-cradle/"><span class="e">🟤</span><span>ニュートンのゆりかご</span></a><a class="related-card" href="../gravity/"><span class="e">🌌</span><span>重力シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../rika/">🔬 理科の授業向けシミュレーター</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+  const rnd = (a,b) => a + Math.random()*(b-a);
+  const randn = () => { let u=0,v=0; while(!u)u=Math.random(); while(!v)v=Math.random(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
+  let SHARE = '';
+  function setShare(t){ SHARE = t; }
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{ const l=$(s.id+'L'); if(l){ const u=()=>{ l.textContent = (s.dataset.fmt ? s.dataset.fmt.replace('{v}', s.value) : s.value); }; s.addEventListener('input',u); u(); } }); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  function setStat(id, v){ const e=$(id); if(e) e.textContent = v; }
+  try {
+    syncSliders();
+
+  const cv=$('cv'); const dpr=Math.min(2,window.devicePixelRatio||1); const W=cv.width,H=cv.height; cv.width=W*dpr; cv.height=H*dpr; const ctx=cv.getContext('2d'); ctx.setTransform(dpr,0,0,dpr,0,0);
+  const CX=W/2, CY=190, SP=44, ARM=292, MAXA=12*Math.PI/180, CAP=10, BW=26, BH=11, BG=2, BASE_Y=H-74;
+  const L=[0,0,0,0,0,0,0], R=[0,0,0,0,0,0,0];
+  const COL={L:'#2563eb', Lf:'#bfdbfe', R:'#ea580c', Rf:'#fed7aa'};
+  let ang=0, vel=0, hover=null, showHint=true, quiz=null, msg='', msgT=0;
+  const statBox=document.querySelector('.lab-stats'), hintBox=$('hint');
+  if(statBox && hintBox){ hintBox.style.gridColumn=''; hintBox.style.width='100%'; hintBox.style.maxWidth='640px'; hintBox.style.boxSizing='border-box'; statBox.after(hintBox);
+    const fsSt=document.createElement('style'); fsSt.textContent='.panel:fullscreen #hint,.panel:-webkit-full-screen #hint{max-width:min(96vw,1100px)!important;}'; document.head.appendChild(fsSt); }
+  function sum(a){ let s=0; for(let d=1;d<=6;d++) s+=a[d]*10*d; return s; }
+  function terms(a){ const t=[]; for(let d=1;d<=6;d++) if(a[d]) t.push(a[d]*10+'×'+d); return t; }
+  function pos(side,d){ return (side<0?'左':'右')+'の'+d; }
+  function place(side,d){ const u=side*d*SP, c=Math.cos(ang), s=Math.sin(ang); return [CX+u*c-7*s, CY+u*s+7*c]; }
+  function hit(x,y){ for(const side of [-1,1]){ const a=side<0?L:R; for(let d=1;d<=6;d++){ const p=place(side,d); if(Math.abs(x-p[0])>SP/2) continue;
+        const top=p[1]+10, bot=top+a[d]*(BH+BG)+18;
+        if(a[d]>0 && y>=top-4 && y<=bot) return {side:side,d:d,op:-1};
+        if(y>=p[1]-82 && y<(a[d]>0?top-4:p[1]+44)) return {side:side,d:d,op:1}; } }
+    return null; }
+  function rr(x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
+  function fitText(t,x,y,maxW,size,weight){ let s=size; ctx.font=weight+' '+s+'px sans-serif'; while(ctx.measureText(t).width>maxW && s>10){ s--; ctx.font=weight+' '+s+'px sans-serif'; } ctx.fillText(t,x,y); }
+  function solve2(k,A){ let best=null;
+    for(let d1=6;d1>=2;d1--) for(let n1=1;n1<=CAP-A[d1];n1++){ const rest=k-n1*d1; if(rest<=0) break;
+      for(let d2=d1-1;d2>=1;d2--){ if(rest%d2===0){ const n2=rest/d2; if(n2<=CAP-A[d2] && (!best||n1+n2<best[4])) best=[d1,n1,d2,n2,n1+n2]; } } }
+    return best; }
+  function hintHTML(l,r){
+    let q=''; if(quiz) q='<div style="margin-bottom:6px">🎯 <b>もんだい</b>：'+quiz.text+'</div>';
+    if(quiz && quiz.solved && l===r) return q+'<div style="color:#15803d">🎉 <b>せいかい！</b> 左 '+terms(L).join('＋')+'＝'+l+'、右 '+terms(R).join('＋')+'＝'+r+' で、はたらきが等しくなりました。「もんだいを出す」で次の問題へ。</div>';
+    if(l===0 && r===0) return q+'目盛りの上の「+」をタップして、おもりをつるしてみよう。';
+    if(l===r) return q+'✓ <b>水平につり合っています。</b> 左のはたらき '+l+' ＝ 右のはたらき '+r;
+    const heavy=l>r?-1:1, light=-heavy, diff=Math.abs(l-r), A=light<0?L:R, HV=heavy<0?L:R, k=diff/10;
+    const hs=heavy<0?'左':'右', ls=light<0?'左':'右';
+    let txt=hs+'のはたらきのほうが <b>'+diff+'</b> 大きいので、'+hs+'にかたむきます。';
+    if(!showHint) return q+txt+'<br>💡 ヒントはかくしています（「ヒントを見る」でひょうじ）。';
+    const ops=[]; for(let d=6;d>=1;d--){ if(k%d===0 && k/d<=CAP-A[d]) ops.push([d,k/d*10]); }
+    txt+='<br>💡 つり合わせるには：';
+    if(ops.length){ txt+='<b>'+pos(light,ops[0][0])+'の目盛りに '+ops[0][1]+'g</b> をつるす'; if(ops.length>1) txt+='（'+ops.slice(1,3).map(o=>pos(light,o[0])+'に'+o[1]+'g').join('、')+' でもOK）'; }
+    else { const two=solve2(k,A); if(two) txt+='<b>'+pos(light,two[0])+'に'+two[1]*10+'g と '+pos(light,two[2])+'に'+two[3]*10+'g</b> をつるす'; else txt+=ls+'のはたらきを、あと '+diff+' 大きくする'; }
+    const rem=[]; for(let d=6;d>=1;d--){ if(k%d===0 && k/d<=HV[d]) rem.push([d,k/d*10]); }
+    if(rem.length) txt+='<br>または、'+pos(heavy,rem[0][0])+'の目盛りから '+rem[0][1]+'g はずしても、つり合います。';
+    return q+txt; }
+  function update(){ const l=sum(L), r=sum(R);
+    if(quiz && l===r && l>0) quiz.solved=true;
+    setStat('sL', String(l)); setStat('sR', String(r));
+    const res=l===r?(l===0?'おもりなし':'水平につり合う'):(l>r?'左にかたむく':'右にかたむく'); setStat('sRes', res);
+    $('hint').innerHTML=hintHTML(l,r);
+    const fl=terms(L).join('＋')||'0', fr=terms(R).join('＋')||'0';
+    setShare('【てこのつり合い】左 '+fl+'＝'+l+'、右 '+fr+'＝'+r+' → '+res+'。てこをかたむけるはたらき＝おもりの重さ×支点からのきょり｜シミュラボ'); }
+  function newQuiz(){ let ok=false;
+    for(let tries=0;tries<300&&!ok;tries++){ L.fill(0); R.fill(0); const m=Math.random()<0.6?1:2;
+      for(let i=0;i<m;i++){ const d=1+Math.floor(Math.random()*6), n=1+Math.floor(Math.random()*6); L[d]=Math.min(CAP,L[d]+n); }
+      const k=sum(L)/10; for(let d=2;d<=6;d++) if(k%d===0 && k/d<=CAP) ok=true; }
+    const desc=[]; for(let d=1;d<=6;d++) if(L[d]) desc.push('左の'+d+'の目盛りに'+L[d]*10+'g');
+    quiz={text:desc.join('と、')+'がつるしてあります。右のうでの どこかに おもりをつるして、水平につり合わせよう。', solved:false};
+    showHint=false; $('hintBtn').textContent='💡 ヒントを見る'; update(); }
+  function step(dt){ const l=sum(L), r=sum(R); const tg=l>r?-MAXA:(l<r?MAXA:0);
+    const acc=34*(tg-ang)-6*vel; vel+=acc*dt; ang+=vel*dt;
+    if(ang>MAXA){ ang=MAXA; vel=-0.25*vel; } if(ang<-MAXA){ ang=-MAXA; vel=-0.25*vel; }
+    if(msgT>0) msgT-=dt; }
+  function draw(){ const l=sum(L), r=sum(R); const c=Math.cos(ang), s=Math.sin(ang);
+    ctx.fillStyle='#ffffff'; ctx.fillRect(0,0,W,H);
+    ctx.textAlign='left'; ctx.fillStyle='#64748b'; fitText('てこをかたむけるはたらき ＝ おもりの重さ(g) × 支点からのきょり(目盛り)', 14, 20, W-28, 13, '');
+    ctx.fillStyle=COL.L; fitText('左：'+(terms(L).join(' ＋ ')||'おもりなし')+' ＝ '+l, 14, 44, W-28, 18, 'bold');
+    ctx.fillStyle=COL.R; fitText('右：'+(terms(R).join(' ＋ ')||'おもりなし')+' ＝ '+r, 14, 68, W-28, 18, 'bold');
+    ctx.strokeStyle='#cbd5e1'; ctx.lineWidth=1; ctx.setLineDash([6,6]); ctx.beginPath(); ctx.moveTo(16,CY); ctx.lineTo(W-16,CY); ctx.stroke(); ctx.setLineDash([]);
+    ctx.fillStyle='#94a3b8'; rr(CX-110,BASE_Y,220,12,4); ctx.fill(); ctx.fillStyle='#b6c0cd'; ctx.fillRect(CX-5,CY,10,BASE_Y-CY);
+    ctx.save(); ctx.translate(CX,CY); ctx.rotate(ang);
+    ctx.fillStyle='#e2e8f0'; ctx.strokeStyle='#64748b'; ctx.lineWidth=1.5; rr(-ARM,-7,ARM*2,14,4); ctx.fill(); ctx.stroke();
+    ctx.strokeStyle='#475569'; for(let d=1;d<=6;d++) for(const sd of [-1,1]){ const u=sd*d*SP; ctx.beginPath(); ctx.moveTo(u,-7); ctx.lineTo(u,7); ctx.stroke(); }
+    ctx.restore();
+    ctx.fillStyle='#334155'; ctx.beginPath(); ctx.arc(CX,CY,8,0,Math.PI*2); ctx.fill(); ctx.fillStyle='#fff'; ctx.beginPath(); ctx.arc(CX,CY,3,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle='#334155'; ctx.font='bold 13px sans-serif'; ctx.textAlign='left'; ctx.fillText('支点', CX+12, CY+32);
+    for(const side of [-1,1]){ const a=side<0?L:R, fc=side<0?COL.Lf:COL.Rf, sc=side<0?COL.L:COL.R;
+      for(let d=1;d<=6;d++){ const u=side*d*SP, tx=CX+u*c+7*s, ty=CY+u*s-7*c; const hv=hover&&hover.side===side&&hover.d===d;
+        ctx.textAlign='center'; ctx.fillStyle='#334155'; ctx.font='bold 14px sans-serif'; ctx.fillText(String(d), tx, ty-8);
+        const on=hv&&hover.op>0; ctx.beginPath(); ctx.arc(tx,ty-36,11,0,Math.PI*2); ctx.fillStyle=on?sc:'#f1f5f9'; ctx.fill(); ctx.strokeStyle=on?sc:'#cbd5e1'; ctx.lineWidth=1; ctx.stroke();
+        ctx.fillStyle=on?'#fff':'#94a3b8'; ctx.font='bold 16px sans-serif'; ctx.fillText('+', tx, ty-30);
+        const p=place(side,d); ctx.strokeStyle='#64748b'; ctx.lineWidth=1.5; ctx.beginPath(); ctx.arc(p[0],p[1]+3,3,0,Math.PI*2); ctx.stroke();
+        const n=a[d]; if(!n) continue;
+        ctx.beginPath(); ctx.moveTo(p[0],p[1]+6); ctx.lineTo(p[0],p[1]+10); ctx.stroke();
+        for(let i=0;i<n;i++){ const y=p[1]+10+i*(BH+BG); ctx.fillStyle=fc; ctx.strokeStyle=sc; ctx.lineWidth=1.2; rr(p[0]-BW/2,y,BW,BH,3); ctx.fill(); ctx.stroke(); }
+        const yb=p[1]+10+n*(BH+BG);
+        if(hv&&hover.op<0){ ctx.strokeStyle=sc; ctx.lineWidth=2; ctx.setLineDash([4,3]); rr(p[0]-BW/2-4,p[1]+6,BW+8,yb-p[1]-4,5); ctx.stroke(); ctx.setLineDash([]); }
+        ctx.fillStyle=sc; ctx.font='bold 12px sans-serif'; ctx.fillText(n*10+'g', p[0], yb+12); } }
+    if(quiz && quiz.solved && l===r){ ctx.fillStyle='#16a34a'; rr(CX-95,86,190,36,18); ctx.fill(); ctx.fillStyle='#fff'; ctx.font='bold 19px sans-serif'; ctx.textAlign='center'; ctx.fillText('せいかい！🎉', CX, 111); }
+    else if(msgT>0){ ctx.fillStyle='#f59e0b'; rr(CX-150,86,300,34,17); ctx.fill(); ctx.fillStyle='#fff'; ctx.font='bold 15px sans-serif'; ctx.textAlign='center'; ctx.fillText(msg, CX, 108); }
+    ctx.textAlign='center'; ctx.fillStyle='#64748b'; fitText('「+」や目盛りの上をタップ → おもりを1こ（10g）つるす　／　おもりをタップ → 1こはずす', CX, H-42, W-24, 13, '');
+    ctx.font='bold 22px sans-serif'; ctx.fillStyle=l===r?(l?'#15803d':'#64748b'):(l>r?COL.L:COL.R);
+    ctx.fillText(l>r?'◀ 左にかたむく':(l<r?'右にかたむく ▶':(l?'✓ 水平につり合っている':'目盛りをタップして、おもりをつるそう')), CX, H-12); }
+  cv.addEventListener('pointerdown',(e)=>{ const pp=cpos(cv,e); const h=hit(pp[0]/dpr,pp[1]/dpr); if(!h) return; e.preventDefault(); const a=h.side<0?L:R;
+    if(h.op>0){ if(a[h.d]<CAP) a[h.d]++; else { msg='1つの目盛りには100gまでです'; msgT=1.8; } } else if(a[h.d]>0) a[h.d]--;
+    update(); });
+  cv.addEventListener('pointermove',(e)=>{ if(e.pointerType!=='mouse') return; const pp=cpos(cv,e); hover=hit(pp[0]/dpr,pp[1]/dpr); cv.style.cursor=hover?'pointer':'default'; });
+  cv.addEventListener('pointerleave',()=>{ hover=null; });
+  $('quiz').addEventListener('click',newQuiz);
+  $('hintBtn').addEventListener('click',()=>{ showHint=!showHint; $('hintBtn').textContent=showHint?'💡 ヒントをかくす':'💡 ヒントを見る'; update(); });
+  $('clear').addEventListener('click',()=>{ L.fill(0); R.fill(0); quiz=null; update(); });
+  L[4]=3; update();
+  let last=performance.now();
+  function loop(now){ const dt=Math.min(0.05,Math.max(0,(now-last)/1000)); last=now; step(dt); draw(); requestAnimationFrame(loop); }
+  draw(); requestAnimationFrame(loop);
+
+  } catch(e) { console.error(e); }
+  (function(){ const fs=$('fsBtn'), panel=document.querySelector('.panel');
+    const req = panel && (panel.requestFullscreen || panel.webkitRequestFullscreen);
+    if (fs && req) { fs.hidden = false; fs.addEventListener('click', () => {
+      const cur = document.fullscreenElement || document.webkitFullscreenElement;
+      if (cur) { (document.exitFullscreen || document.webkitExitFullscreen).call(document); }
+      else { req.call(panel); } }); }
+  })();
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE || document.title)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText((SHARE||document.title)+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'teko-tsuriai', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

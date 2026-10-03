@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/jishin-ha/">
+<title>P波・S波と初期微動継続時間のシミュレーター｜震源距離の求め方（中1理科）｜シミュラボ</title>
+<meta name="description" content="震央を動かして地震を起こすと、P波とS波が同心円状に広がり、5つの観測点の地震計に初期微動と主要動が記録されます。初期微動継続時間と震源からの距離の比例をグラフで確かめ、震源距離の求め方や緊急地震速報のしくみも学べる無料シミュレーター。">
+<meta property="og:title" content="地震の伝わり方シミュレーター（P波・S波・初期微動継続時間）">
+<meta property="og:description" content="P波とS波が広がる様子と地震計の記録を同時に表示。初期微動継続時間から震源距離を求める中1理科の教材です。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/jishin-ha.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/jishin-ha.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/jishin-ha/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "地震の伝わり方シミュレーター（P波・S波・初期微動継続時間）", "url": "https://shimulabo.com/sims/jishin-ha/", "description": "P波とS波が広がる様子と地震計の記録を同時に表示。初期微動継続時間から震源距離を求める中1理科の教材です。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "educationalLevel": "中学1年", "learningResourceType": "シミュレーション", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "理科の授業向け", "item": "https://shimulabo.com/rika/"}, {"@type": "ListItem", "position": 3, "name": "地震の伝わり方シミュレーター（P波・S波・初期微動継続時間）", "item": "https://shimulabo.com/sims/jishin-ha/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "初期微動継続時間とは何ですか？", "acceptedAnswer": {"@type": "Answer", "text": "P波が届いてからS波が届くまでの時間で、その間は初期微動（小さな揺れ）が続きます。震源から遠いほど長くなり、震源からの距離にほぼ比例します。"}}, {"@type": "Question", "name": "初期微動継続時間から震源距離を求める式は？", "acceptedAnswer": {"@type": "Answer", "text": "震源距離＝P波の速さ×S波の速さ÷（P波の速さ−S波の速さ）×初期微動継続時間 です。P波6km/秒・S波3.5km/秒なら係数は8.4なので、初期微動継続時間が10秒の地点は震源から84kmです。距離と時間は比例するので、ある地点のデータが分かっていれば、比を使っても求められます。"}}, {"@type": "Question", "name": "P波とS波のちがいは何ですか？", "acceptedAnswer": {"@type": "Answer", "text": "P波は速く伝わり、初期微動（カタカタという小さな揺れ）を起こします。S波はP波よりおそく伝わり、主要動（ユサユサという大きな揺れ）を起こします。P波は波の進む向きに揺れる縦波、S波は進む向きと垂直に揺れる横波です。"}}, {"@type": "Question", "name": "震源と震央のちがいは何ですか？", "acceptedAnswer": {"@type": "Answer", "text": "震源は地下で岩盤が最初にずれ動いた場所、震央は震源の真上にある地表の地点です。初期微動継続時間から求められるのは、震源からの距離（震源距離）です。"}}, {"@type": "Question", "name": "緊急地震速報は、なぜ大きな揺れの前に届くのですか？", "acceptedAnswer": {"@type": "Answer", "text": "震源に近い地震計で速いP波をとらえ、すぐに震源や揺れの大きさを計算して、おそいS波が届く前に通信で知らせるからです。ただし解析と伝達に数秒かかるため、震源に近い場所では間に合わないことがあります。"}}, {"@type": "Question", "name": "P波とS波の速さはいつも同じですか？", "acceptedAnswer": {"@type": "Answer", "text": "地下の岩石の種類や深さによって変わります。気象庁の説明ではP波は秒速約7km、S波は秒速約4kmです。問題集では「P波6km/秒・S波3km/秒」「P波8km/秒・S波4km/秒」のように計算しやすい値が使われることが多いので、スライダーをその値に合わせて確かめてください。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+<style>
+.lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
+.lab-ctl .field{margin-bottom:6px;}
+.lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
+.lab-ctl .slider-head label{margin:0;font-size:13px;}
+.lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
+.lab-ctl input[type=range]{width:100%;}
+.lab-ctl select{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;font-size:14px;background:#fff;}
+.lab-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px;}
+.lab-btns .btn{padding:11px 18px;font-size:14px;width:auto;}
+.lab-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;width:100%;max-width:640px;margin-top:4px;}
+.lab-stats .stat{background:var(--teal-l);border-radius:10px;padding:10px 12px;text-align:center;}
+.lab-stats .k{font-size:11px;color:var(--ink-2);}
+.lab-stats .v{font-size:20px;font-weight:800;color:var(--ink);font-feature-settings:"tnum";}
+.lab-stats .v.accent{color:var(--accent);}
+.lab-legend{text-align:center;color:var(--ink-2);font-size:13px;margin-top:12px;}
+.lab-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;background:rgba(44,107,134,.10);color:var(--teal-d);margin-bottom:8px;}
+canvas.lab{width:100%;max-width:640px;height:auto;border:1px solid var(--line);border-radius:12px;background:#0b1020;touch-action:none;}
+canvas.lab.light{background:#fff;}
+.panel:fullscreen,.panel:-webkit-full-screen{overflow:auto;padding:24px;background:var(--bg,#faf8f3);}
+.panel:fullscreen canvas.lab{max-width:min(96vw,1100px);}
+.panel:fullscreen .lab-ctl,.panel:fullscreen .lab-stats{max-width:min(96vw,1100px);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../rika/">🔬 理科の授業向け</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../rika/">理科の授業向け</a><span>›</span><span class="cur">地震の伝わり方シミュレーター（P波・S波・初期微動継続時間）</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">理科の授業向け</div>
+    <h1>地震の伝わり方シミュレーター（P波・S波・初期微動継続時間）</h1>
+    <p class="lead">震央をドラッグして地震を起こすと、P波（青）とS波（赤）が同心円状に広がり、5つの観測点の地震計に初期微動と主要動が記録されます。初期微動継続時間が震源からの距離に比例することを、グラフと計算で確かめられます。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;place-items:center;gap:14px;">
+      <span class="lab-badge">🔬 中1 火山と地震（地震の伝わり方）</span>
+      <canvas id="cv" class="lab light" width="640" height="600"></canvas>
+      <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="vp">P波の速さ</label><span class="val" id="vpL"></span></div><input type="range" id="vp" min="4" max="8" value="6" step="0.1" data-fmt="{v} km/秒"></div><div class="field"><div class="slider-head"><label for="vs">S波の速さ</label><span class="val" id="vsL"></span></div><input type="range" id="vs" min="2" max="5" value="3.5" step="0.1" data-fmt="{v} km/秒"></div><div class="field"><div class="slider-head"><label for="dep">震源の深さ</label><span class="val" id="depL"></span></div><input type="range" id="dep" min="0" max="100" value="10" step="5" data-fmt="{v} km"></div><div class="field"><div class="slider-head"><label for="st">観測点を選ぶ</label></div><select id="st"><option value="0" selected>A地点</option><option value="1">B地点</option><option value="2">C地点</option><option value="3">D地点</option><option value="4">E地点</option></select></div><div class="field"><div class="slider-head"><label for="tt">地震発生からの時間</label><span class="val" id="ttL"></span></div><input type="range" id="tt" min="0" max="90" value="0" step="0.1" data-fmt="{v} 秒"></div><div class="field"><div class="slider-head"><label for="sp">再生速度</label><span class="val" id="spL"></span></div><input type="range" id="sp" min="1" max="20" value="8" step="1" data-fmt="×{v}"></div><div class="field"><div class="slider-head"><label for="gm">グラフ</label></div><select id="gm"><option value="ps" selected>初期微動継続時間と距離</option><option value="tt">P波・S波の到着時刻と距離</option></select></div><div class="field"><div class="slider-head"><label for="eew">緊急地震速報（発展）</label></div><select id="eew"><option value="off" selected>表示しない</option><option value="on">表示する</option></select></div></div>
+      <div class="lab-btns"><button class="btn btn-primary" id="quake">▶ 地震を起こす</button><button class="btn btn-ghost" id="toggle">⏸ 一時停止</button><button class="btn btn-ghost" id="rand">🎲 震央をランダムに</button></div>
+      <div class="lab-stats"><div class="stat"><div class="k">A地点の震源距離</div><div class="v" id="sD">—</div></div><div class="stat"><div class="k">P波の到着時刻</div><div class="v" id="sP">—</div></div><div class="stat"><div class="k">S波の到着時刻</div><div class="v" id="sS">—</div></div><div class="stat"><div class="k">初期微動継続時間</div><div class="v accent" id="sPS">—</div></div></div>
+    </div>
+    <p class="lab-legend">地図の×＝震央（指やペンでドラッグすると動かせます）、▲＝観測点（タップで選べます。青＝P波が到着、赤＝S波が到着）。下の地震計の記録は震源に近い順に並べ、時刻はすべて地震が発生した瞬間を0秒としています。緊急地震速報を表示すると、紫の点線の円（速報が出た瞬間のS波の位置）の内側では速報が間に合いません。地図と観測点は説明のための架空のもので、地下の波の速さは一定としています。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-ghost" id="fsBtn" hidden>⛶ 全画面で表示</button>
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+
+<h2>このシミュレーションでわかること</h2>
+<p>地震が起きると、震源から速いP波と遅いS波が同時に出て、ほぼ同心円状に広がります。P波が届くと小さな揺れ（<b>初期微動</b>）、S波が届くと大きな揺れ（<b>主要動</b>）が始まり、その時間の差（<b>初期微動継続時間</b>）は震源からの距離に比例します。震源からの距離は「P波の速さ×S波の速さ÷（P波の速さ−S波の速さ）×初期微動継続時間」で求められます。</p>
+<p>対応する単元は、中学校学習指導要領 理科 第2分野（2）「大地の成り立ちと変化」の「火山と地震」（地震の伝わり方と地球内部の働き）で、主に<b>中学1年</b>で学習します。</p>
+
+<h2>授業での使い方</h2>
+<ul>
+<li><b>導入</b>：「地震のとき、はじめにカタカタと小さく揺れて、あとからユサユサと大きく揺れた経験はありますか」と問いかけ、「地震を起こす」で2種類の波が広がる様子を見せます。</li>
+<li><b>展開</b>：観測点ごとの地震計の記録を比べ、震源から遠い地点ほどP波・S波の到着がおそく、初期微動継続時間が長くなることを見つけます。グラフを「初期微動継続時間と距離」にして比例の関係を確かめ、教科書の例題と同じ速さにスライダーを合わせて計算問題を解きます。震央をドラッグして動かしても、どの観測点でも同じ比例の関係が成り立つことを確かめられます。</li>
+<li><b>まとめ</b>：「緊急地震速報（発展）」を表示して、速報が出たときにS波がどこまで届いているかを地図で確かめ、震源に近い場所では速報が間に合わない理由を話し合います。</li>
+</ul>
+<p>生徒への問いの例：</p>
+<ol>
+<li>震源からの距離が2倍になると、初期微動継続時間は何倍になるでしょうか。</li>
+<li>S波の速さだけを速くして、P波の速さに近づけると、同じ地点の初期微動継続時間は長くなるでしょうか、短くなるでしょうか。</li>
+<li>緊急地震速報が、震源の近くでは強い揺れに間に合わないことがあるのはなぜでしょうか。</li>
+</ol>
+
+<h2>しくみ・解説</h2>
+<h3>P波とS波</h3>
+<p>地震は、地下の岩盤がずれ動くことで起こります。最初にずれ動いた場所が<b>震源</b>、その真上の地表の地点が<b>震央</b>です。震源からは、伝わる速さのちがう2種類の波が同時に出ます。</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>波</th><th>伝わる速さ</th><th>起こす揺れ</th><th>揺れ方</th></tr><tr><td>P波（Primary wave）</td><td>速い（気象庁の説明では秒速約7km）</td><td>初期微動（小さな揺れ）</td><td>波の進む向きに揺れる縦波</td></tr><tr><td>S波（Secondary wave）</td><td>おそい（同じく秒速約4km）</td><td>主要動（大きな揺れ）</td><td>進む向きと垂直に揺れる横波</td></tr></table></div>
+<p>速さは地下の岩石の種類や深さによって変わります。このシミュレーターの初期値（P波6km/秒・S波3.5km/秒）は計算しやすい典型的な値で、スライダーで教科書や問題集の例題の値に合わせられます。</p>
+<h3>初期微動継続時間と震源からの距離</h3>
+<p>震源からの距離をD［km］、P波の速さをVp、S波の速さをVs［km/秒］とすると、P波が届くまでの時間はD÷Vp、S波が届くまでの時間はD÷Vs［秒］です。初期微動継続時間はその差なので、次のようになります。</p>
+<div class="note">初期微動継続時間 ＝ D÷Vs − D÷Vp<br>震源距離 D ＝ Vp×Vs÷（Vp−Vs）× 初期微動継続時間</div>
+<p>初期微動継続時間は距離に<b>比例</b>します。P波6km/秒・S波3.5km/秒なら、6×3.5÷（6−3.5）＝8.4なので「震源距離＝8.4×初期微動継続時間」です。この関係は1899年に大森房吉が示したもので「大森公式」とよばれ、係数はふつう6〜8km/秒程度です。</p>
+<p>このシミュレーターでは震源の深さも変えられます。比例の式で使うのは震央からではなく<b>震源からの距離（震源距離）</b>です。震源距離は、震央から観測点までの距離と震源の深さから、三平方の定理（中学3年の数学）で求めています。</p>
+<h3>計算問題の解き方（例題）</h3>
+<p><b>例題1</b>　P波の速さを6km/秒、S波の速さを3.5km/秒とします。ある地点の初期微動継続時間が15秒でした。震源からの距離は何kmですか。<br>
+→ 距離をx kmとすると、x÷3.5−x÷6＝15。通分すると2.5x÷21＝15なので、x＝126。（式にあてはめても 8.4×15＝126）　答え <b>126km</b></p>
+<p><b>例題2</b>　震源からの距離が84kmの地点で、初期微動継続時間は10秒でした。初期微動継続時間が25秒の地点は、震源から何kmですか。<br>
+→ 初期微動継続時間は距離に比例するので、84×25÷10＝210。　答え <b>210km</b></p>
+<p><b>例題3</b>　震源からの距離が42kmのA地点には10時15分27秒に、126kmのB地点には10時15分41秒にP波が届きました。（1）P波の速さ、（2）地震が発生した時刻、（3）S波の速さが3.5km/秒のときのA地点の初期微動継続時間を求めなさい。<br>
+→ （1）距離の差÷時間の差＝（126−42）÷（41−27）＝84÷14＝6km/秒<br>
+→ （2）A地点までP波は42÷6＝7秒かかるので、27秒−7秒＝20秒。発生時刻は<b>10時15分20秒</b><br>
+→ （3）S波はA地点まで42÷3.5＝12秒かかるので、10時15分32秒に到着。32−27＝<b>5秒</b></p>
+<p><b>例題4（発展）</b>　震源から21kmの地点の地震計にP波が届いた5秒後に、緊急地震速報が出されました。震源から105kmのC市では、速報を受けてから何秒後に主要動が始まりますか。P波は6km/秒、S波は3.5km/秒とします。<br>
+→ P波が21kmの地点に届くのは地震発生の21÷6＝3.5秒後なので、速報は3.5＋5＝8.5秒後。S波がC市に届くのは105÷3.5＝30秒後。30−8.5＝21.5。　答え <b>21.5秒後</b></p>
+<div class="note" style="border-left:4px solid var(--teal)"><strong>ポイント</strong>：初期値のまま（P波6km/秒・S波3.5km/秒・深さ10km・震央は左下）で地震を起こすと、A〜E地点の震源距離は約84・126・168・210・252km、初期微動継続時間は10・15・20・25・30秒になります。グラフの点が原点を通る1本の直線にのることを確かめてください。</div>
+<h3>初期微動継続時間から震源距離を求める早見表</h3>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>初期微動継続時間</th><th>P波6・S波3.5 km/秒<br>（係数8.4）</th><th>P波7・S波4 km/秒<br>（係数約9.3）</th><th>P波8・S波4 km/秒<br>（係数8.0）</th><th>P波6・S波3 km/秒<br>（係数6.0）</th></tr><tr><td>1秒</td><td>8.4 km</td><td>9.3 km</td><td>8.0 km</td><td>6.0 km</td></tr><tr><td>2秒</td><td>16.8 km</td><td>18.7 km</td><td>16.0 km</td><td>12.0 km</td></tr><tr><td>5秒</td><td>42.0 km</td><td>46.7 km</td><td>40.0 km</td><td>30.0 km</td></tr><tr><td>10秒</td><td>84.0 km</td><td>93.3 km</td><td>80.0 km</td><td>60.0 km</td></tr><tr><td>15秒</td><td>126.0 km</td><td>140.0 km</td><td>120.0 km</td><td>90.0 km</td></tr><tr><td>20秒</td><td>168.0 km</td><td>186.7 km</td><td>160.0 km</td><td>120.0 km</td></tr><tr><td>30秒</td><td>252.0 km</td><td>280.0 km</td><td>240.0 km</td><td>180.0 km</td></tr></table></div>
+<h3>緊急地震速報のしくみ（発展）</h3>
+<p>気象庁の緊急地震速報は、震源に近い地震計でP波をとらえ、震源の位置や地震の規模、各地の震度をすぐに計算して、S波（主要動）が届く前に知らせるしくみです。地震波よりも、通信で送る情報のほうがはるかに速く伝わることを利用しています。ただし解析と伝達には数秒かかるため、震源に近い場所では、速報が強い揺れに間に合わないことがあります。</p>
+<p>シミュレーターで「表示する」を選ぶと、いちばん近い観測点にP波が届いた5秒後に速報が出ると仮定して、そのときS波が届いている範囲（紫の点線の円の内側＝間に合わない範囲）と、各観測点で速報からS波が届くまでの時間（猶予）を表示します。</p>
+<div class="note"><b>このシミュレーターで単純化している点</b><br>・地下の波の速さは場所によらず一定とし、波は震源を中心とする球面（地表では同心円）で広がるとしています。実際は地下のつくりによって速さが変わるため、きれいな同心円にはなりません。<br>・地図と観測点は説明のための架空のものです。地震計の波形は見た目のためのモデルで、揺れの大きさや周期は実際の記録とは異なります（震源から遠いほど揺れが小さくなる傾向だけを表しています）。<br>・緊急地震速報は「いちばん近い観測点でP波をとらえて5秒後に発表」と単純化しています。実際に発表されるまでの時間は地震によって異なります。</div>
+<h2>参考</h2>
+<ul class="seo-refs">
+<li>文部科学省「中学校学習指導要領（平成29年告示）解説 理科編」（<a href="https://www.mext.go.jp/a_menu/shotou/new-cs/1387016.htm" target="_blank" rel="noopener">中学校学習指導要領解説</a>）</li>
+<li>気象庁「緊急地震速報のしくみ」（<a href="https://www.jma.go.jp/jma/kishou/know/jishin/eew/shikumi/shikumi.html" target="_blank" rel="noopener">気象庁ホームページ</a>）</li>
+<li>中学校理科の教科書（東京書籍「新しい科学」、啓林館「未来へひろがるサイエンス」、大日本図書「理科の世界」、学校図書「中学校科学」、教育出版「自然の探究 中学理科」）の第1学年「大地の成り立ちと変化」の単元</li>
+<li>宇津徳治『地震学』（共立出版）</li>
+</ul>
+
+    <h2>引用・転載について</h2>
+    <p>本ページのシミュレーション結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・授業や社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「地震の伝わり方シミュレーター（P波・S波・初期微動継続時間）」 https://shimulabo.com/sims/jishin-ha/</code></div>
+    <h2>よくある質問</h2><dl class="faq"><dt>初期微動継続時間とは何ですか？</dt><dd>P波が届いてからS波が届くまでの時間で、その間は初期微動（小さな揺れ）が続きます。震源から遠いほど長くなり、震源からの距離にほぼ比例します。</dd><dt>初期微動継続時間から震源距離を求める式は？</dt><dd>震源距離＝P波の速さ×S波の速さ÷（P波の速さ−S波の速さ）×初期微動継続時間 です。P波6km/秒・S波3.5km/秒なら係数は8.4なので、初期微動継続時間が10秒の地点は震源から84kmです。距離と時間は比例するので、ある地点のデータが分かっていれば、比を使っても求められます。</dd><dt>P波とS波のちがいは何ですか？</dt><dd>P波は速く伝わり、初期微動（カタカタという小さな揺れ）を起こします。S波はP波よりおそく伝わり、主要動（ユサユサという大きな揺れ）を起こします。P波は波の進む向きに揺れる縦波、S波は進む向きと垂直に揺れる横波です。</dd><dt>震源と震央のちがいは何ですか？</dt><dd>震源は地下で岩盤が最初にずれ動いた場所、震央は震源の真上にある地表の地点です。初期微動継続時間から求められるのは、震源からの距離（震源距離）です。</dd><dt>緊急地震速報は、なぜ大きな揺れの前に届くのですか？</dt><dd>震源に近い地震計で速いP波をとらえ、すぐに震源や揺れの大きさを計算して、おそいS波が届く前に通信で知らせるからです。ただし解析と伝達に数秒かかるため、震源に近い場所では間に合わないことがあります。</dd><dt>P波とS波の速さはいつも同じですか？</dt><dd>地下の岩石の種類や深さによって変わります。気象庁の説明ではP波は秒速約7km、S波は秒速約4kmです。問題集では「P波6km/秒・S波3km/秒」「P波8km/秒・S波4km/秒」のように計算しやすい値が使われることが多いので、スライダーをその値に合わせて確かめてください。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../jishin-live/"><span class="e">🗾</span><span>日本はいまも揺れている</span></a><a class="related-card" href="../chikyu-yure/"><span class="e">🌐</span><span>地球まるごと地震カウンター</span></a><a class="related-card" href="../tsunami-kishi/"><span class="e">🌊</span><span>津波はなぜ岸で高くなる？</span></a><a class="related-card" href="../building-quake/"><span class="e">🏢</span><span>地震でビルはどう揺れる？</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../rika/">🔬 理科の授業向けシミュレーター</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+  const rnd = (a,b) => a + Math.random()*(b-a);
+  const randn = () => { let u=0,v=0; while(!u)u=Math.random(); while(!v)v=Math.random(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
+  let SHARE = '';
+  function setShare(t){ SHARE = t; }
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{ const l=$(s.id+'L'); if(l){ const u=()=>{ l.textContent = (s.dataset.fmt ? s.dataset.fmt.replace('{v}', s.value) : s.value); }; s.addEventListener('input',u); u(); } }); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  function setStat(id, v){ const e=$(id); if(e) e.textContent = v; }
+  try {
+    syncSliders();
+
+  const cv=$('cv'); const dpr=Math.min(2,window.devicePixelRatio||1); const W=cv.width,H=cv.height; cv.width=W*dpr; cv.height=H*dpr; const ctx=cv.getContext('2d'); ctx.setTransform(dpr,0,0,dpr,0,0);
+  cv.setAttribute('role','img'); cv.setAttribute('aria-label','震央と観測点の地図、P波とS波の広がり、地震計の記録、初期微動継続時間と震源距離のグラフ');
+  cv.style.cursor='pointer';
+  const MX=8, MY=30, MS=300;
+  const GL=374, GR=628, GT=46, GB=292;
+  const RY=360, RH=44, TX0=84, TX1=630;
+  const ST=[{n:'A',x:99.0,y:201.0},{n:'B',x:66.1,y:137.1},{n:'C',x:204.0,y:225.1},{n:'D',x:157.3,y:86.1},{n:'E',x:251.2,y:122.9}];
+  const COAST=[[0,140],[20,150],[38,166],[56,176],[70,192],[86,206],[100,222],[114,240],[126,262],[138,284],[146,300]];
+  const PH=ST.map((_,i)=>[0,1,2,3].map((k)=>(((i+1)*(k+3)*37)%100)/100*Math.PI*2));
+  let ex=40, ey=260, t=0, playing=true, dragging=false, sel=0, dirty=true, last=performance.now();
+  const f1=(v)=>(Math.round(v*10)/10).toFixed(1);
+  const line=(a,b,c,d)=>{ ctx.beginPath(); ctx.moveTo(a,b); ctx.lineTo(c,d); ctx.stroke(); };
+  function txt(s,x,y,font,col,al,halo){ ctx.font=font; ctx.textAlign=al||'left'; if(halo){ ctx.lineJoin='round'; ctx.lineWidth=3.5; ctx.strokeStyle='rgba(255,255,255,.95)'; ctx.strokeText(s,x,y); } ctx.fillStyle=col; ctx.fillText(s,x,y); }
+  function tw(s,font){ ctx.font=font; return ctx.measureText(s).width; }
+  function rr(x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.lineTo(x+w-r,y); ctx.quadraticCurveTo(x+w,y,x+w,y+r); ctx.lineTo(x+w,y+h-r); ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h); ctx.lineTo(x+r,y+h); ctx.quadraticCurveTo(x,y+h,x,y+h-r); ctx.lineTo(x,y+r); ctx.quadraticCurveTo(x,y,x+r,y); ctx.closePath(); }
+  function tri(x,y,r){ ctx.beginPath(); ctx.moveTo(x,y-r); ctx.lineTo(x+r*0.9,y+r*0.6); ctx.lineTo(x-r*0.9,y+r*0.6); ctx.closePath(); }
+  function dot(x,y,r,col){ ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2); ctx.fillStyle=col; ctx.fill(); ctx.strokeStyle='#fff'; ctx.lineWidth=1.5; ctx.stroke(); }
+  function setK(id,s){ const e=$(id); if(e && e.previousElementSibling) e.previousElementSibling.textContent=s; }
+  function vlab(){ $('vpL').textContent=(+$('vp').value).toFixed(1)+' km/秒'; $('vsL').textContent=(+$('vs').value).toFixed(1)+' km/秒'; $('ttL').textContent=(+$('tt').value).toFixed(1)+' 秒'; }
+  const surfR=(R,d)=>R>d?Math.sqrt(R*R-d*d):0;
+  function model(){ const vp=+$('vp').value, vs=+$('vs').value, d=+$('dep').value;
+    const D=ST.map((s)=>{ const dx=s.x-ex, dy=s.y-ey; return Math.sqrt(dx*dx+dy*dy+d*d); });
+    const tp=D.map((x)=>x/vp), ts=D.map((x)=>x/vs);
+    const tend=Math.ceil((Math.max.apply(null,ts)+12)/10)*10;
+    const order=D.map((x,i)=>i).sort((a,b)=>D[a]-D[b]);
+    return {vp:vp,vs:vs,d:d,D:D,tp:tp,ts:ts,tend:tend,order:order,k:vp*vs/(vp-vs),tal:Math.min.apply(null,tp)+5}; }
+  function gsc(m){ const dmax=Math.max.apply(null,m.D); const DX=Math.max(100,Math.ceil(dmax*1.1/50)*50); const ps=$('gm').value==='ps';
+    const raw=ps?DX/m.k:DX/m.vs; const s=raw<=20?2:(raw<=50?5:10); const YM=Math.max(2*s,Math.ceil(raw*1.05/s)*s);
+    return {ps:ps,DX:DX,YM:YM,ys:YM<=20?5:(YM<=60?10:20),xs:DX>300?100:50,X:(v)=>GL+v/DX*(GR-GL),Y:(v)=>GB-v/YM*(GB-GT)}; }
+  function sig(i,tt,m){ const tp=m.tp[i], ts=m.ts[i]; if(tt<tp) return 0; const ph=PH[i]; const u=tt-tp;
+    const eP=Math.min(1,u/0.5)*(tt<ts?1:Math.max(0.35,Math.exp(-(tt-ts)/3)));
+    let y=0.28*eP*(0.6*Math.sin(2*Math.PI*2.6*u+ph[0])+0.4*Math.sin(2*Math.PI*4.1*u+ph[1]));
+    if(tt>=ts){ const w=tt-ts; const eS=Math.min(1,w/1.0)*Math.exp(-w/(8+m.D[i]/25)); y+=eS*(0.62*Math.sin(2*Math.PI*0.75*w+ph[2])+0.38*Math.sin(2*Math.PI*1.25*w+ph[3])); }
+    return y; }
+  function drawMap(m){ const X=(k)=>MX+k, Y=(k)=>MY+k, cx=X(ex), cy=Y(ey), eew=$('eew').value==='on';
+    txt('地図（上から見た図）',MX,20,'bold 13px sans-serif','#0f172a');
+    ctx.lineWidth=3; ctx.strokeStyle='#2563eb'; line(152,15,168,15); txt('P波',171,20,'12px sans-serif','#1e3a8a');
+    ctx.strokeStyle='#dc2626'; line(200,15,216,15); txt('S波',219,20,'12px sans-serif','#7f1d1d');
+    ctx.fillStyle='#334155'; tri(254,14,6); ctx.fill(); txt('観測点',262,20,'12px sans-serif','#334155');
+    ctx.save(); ctx.beginPath(); ctx.rect(MX,MY,MS,MS); ctx.clip();
+    ctx.fillStyle='#dbeafe'; ctx.fillRect(MX,MY,MS,MS);
+    ctx.beginPath(); ctx.moveTo(X(0),Y(0)); ctx.lineTo(X(300),Y(0)); ctx.lineTo(X(300),Y(300)); for(let j=COAST.length-1;j>=0;j--) ctx.lineTo(X(COAST[j][0]),Y(COAST[j][1])); ctx.closePath();
+    ctx.fillStyle='#f7fee7'; ctx.fill(); ctx.strokeStyle='#94a3b8'; ctx.lineWidth=1.2; ctx.stroke();
+    ctx.strokeStyle='rgba(100,116,139,.18)'; ctx.lineWidth=1; for(let k=50;k<300;k+=50){ line(X(k),MY,X(k),MY+MS); line(MX,Y(k),MX+MS,Y(k)); }
+    txt('海',X(14),Y(292),'12px sans-serif','#64748b');
+    const rP=surfR(m.vp*t,m.d), rS=surfR(m.vs*t,m.d);
+    if(rP>0){ ctx.beginPath(); ctx.arc(cx,cy,rP,0,Math.PI*2); if(rS>0){ ctx.moveTo(cx+rS,cy); ctx.arc(cx,cy,rS,0,Math.PI*2,true); } ctx.fillStyle='rgba(59,130,246,.18)'; ctx.fill(); }
+    if(rS>0){ ctx.beginPath(); ctx.arc(cx,cy,rS,0,Math.PI*2); ctx.fillStyle='rgba(239,68,68,.20)'; ctx.fill(); }
+    if(rP>0){ ctx.strokeStyle='#2563eb'; ctx.lineWidth=2.5; ctx.beginPath(); ctx.arc(cx,cy,rP,0,Math.PI*2); ctx.stroke(); }
+    if(rS>0){ ctx.strokeStyle='#dc2626'; ctx.lineWidth=2.5; ctx.beginPath(); ctx.arc(cx,cy,rS,0,Math.PI*2); ctx.stroke(); }
+    if(eew && t>=m.tal){ const rA=surfR(m.vs*m.tal,m.d); if(rA>0){ ctx.setLineDash([6,4]); ctx.strokeStyle='#7c3aed'; ctx.lineWidth=2; ctx.beginPath(); ctx.arc(cx,cy,rA,0,Math.PI*2); ctx.stroke(); ctx.setLineDash([]);
+        const ly=cy-rA-5, lx=clamp(cx,MX+50,MX+MS-50); if(ly>MY+100) txt('速報のときのS波',lx,ly,'bold 11px sans-serif','#6d28d9','center',true); else if(cy+rA+15<MY+MS-20) txt('速報のときのS波',lx,cy+rA+15,'bold 11px sans-serif','#6d28d9','center',true); } }
+    ctx.strokeStyle='#b91c1c'; ctx.lineWidth=3.5; line(cx-7,cy-7,cx+7,cy+7); line(cx-7,cy+7,cx+7,cy-7);
+    txt('震央',cx+10,cy+(cy>MY+MS-24?-8:17),'bold 12px sans-serif','#b91c1c','left',true);
+    ST.forEach((s,i)=>{ const x=X(s.x), y=Y(s.y), k=t>=m.ts[i]?2:(t>=m.tp[i]?1:0);
+      if(i===sel){ ctx.strokeStyle='#f59e0b'; ctx.lineWidth=3; ctx.beginPath(); ctx.arc(x,y-1,13,0,Math.PI*2); ctx.stroke(); }
+      ctx.fillStyle=['#334155','#2563eb','#dc2626'][k]; tri(x,y,9); ctx.fill(); ctx.strokeStyle='#fff'; ctx.lineWidth=1.5; ctx.stroke();
+      txt(s.n,x+11,y-6,'bold 14px sans-serif','#0f172a','left',true); });
+    txt('地震発生から '+f1(t)+' 秒',MX+6,MY+19,'bold 14px sans-serif','#0f172a','left',true);
+    txt('震源の深さ '+m.d+' km',MX+6,MY+37,'12px sans-serif','#334155','left',true);
+    if(eew && t>=m.tal){ const bt='緊急地震速報（発生'+f1(m.tal)+'秒後）', bw=tw(bt,'bold 12px sans-serif')+16; ctx.fillStyle='#6d28d9'; rr(MX+6,MY+44,bw,20,6); ctx.fill(); txt(bt,MX+14,MY+58,'bold 12px sans-serif','#fff'); }
+    ctx.strokeStyle='#0f172a'; ctx.lineWidth=2; line(MX+MS-62,MY+MS-12,MX+MS-12,MY+MS-12); txt('50 km',MX+MS-37,MY+MS-18,'11px sans-serif','#0f172a','center',true);
+    ctx.restore(); ctx.strokeStyle='#64748b'; ctx.lineWidth=1; ctx.strokeRect(MX+0.5,MY+0.5,MS,MS); }
+  function drawGraph(m){ const g=gsc(m);
+    txt(g.ps?'初期微動継続時間と震源からの距離':'P波・S波が届くまでの時間と距離',GL-34,20,'bold 13px sans-serif','#0f172a');
+    txt(g.ps?'初期微動継続時間［秒］':'地震発生からの時間［秒］',GL-34,38,'11px sans-serif','#475569');
+    ctx.strokeStyle='rgba(15,23,42,.08)'; ctx.lineWidth=1;
+    for(let v=g.xs;v<=g.DX;v+=g.xs) line(g.X(v),GT,g.X(v),GB);
+    for(let v=g.ys;v<=g.YM+1e-9;v+=g.ys) line(GL,g.Y(v),GR,g.Y(v));
+    ctx.strokeStyle='#334155'; ctx.lineWidth=1.5; line(GL,GT-4,GL,GB); line(GL,GB,GR,GB);
+    for(let v=0;v<=g.DX;v+=g.xs) txt(String(v),g.X(v),GB+14,'11px sans-serif','#475569','center');
+    for(let v=0;v<=g.YM+1e-9;v+=g.ys) txt(String(v),GL-5,g.Y(v)+4,'11px sans-serif','#475569','right');
+    txt('震源からの距離［km］',GR,GB+30,'11px sans-serif','#475569','right');
+    ctx.save(); ctx.beginPath(); ctx.rect(GL,GT-8,GR-GL+4,GB-GT+8); ctx.clip();
+    if(g.ps){ ctx.setLineDash([6,4]); ctx.strokeStyle='#64748b'; ctx.lineWidth=1.6; line(g.X(0),g.Y(0),g.X(g.DX),g.Y(g.DX/m.k)); ctx.setLineDash([]);
+      ST.forEach((s,i)=>{ if(t>=m.ts[i]){ const x=g.X(m.D[i]), y=g.Y(m.ts[i]-m.tp[i]); dot(x,y,i===sel?7:5,i===sel?'#f59e0b':'#0f172a'); txt(s.n,x+8,y+14,'bold 12px sans-serif','#0f172a','left',true); } }); }
+    else { ctx.lineWidth=2; ctx.strokeStyle='#2563eb'; line(g.X(0),g.Y(0),g.X(g.DX),g.Y(g.DX/m.vp)); ctx.strokeStyle='#dc2626'; line(g.X(0),g.Y(0),g.X(g.DX),g.Y(g.DX/m.vs));
+      if(t>0){ ctx.setLineDash([4,4]); ctx.strokeStyle='rgba(15,23,42,.45)'; ctx.lineWidth=1; line(GL,g.Y(t),GR,g.Y(t)); ctx.setLineDash([]); }
+      const i0=sel; if(t>=m.ts[i0]){ const x=g.X(m.D[i0]); ctx.strokeStyle='#f59e0b'; ctx.lineWidth=4; line(x,g.Y(m.tp[i0]),x,g.Y(m.ts[i0])); }
+      ST.forEach((s,i)=>{ const x=g.X(m.D[i]); if(t>=m.tp[i]){ dot(x,g.Y(m.tp[i]),i===sel?6:4.5,'#2563eb'); txt(s.n,x+6,g.Y(m.tp[i])+14,'bold 11px sans-serif','#0f172a','left',true); } if(t>=m.ts[i]) dot(x,g.Y(m.ts[i]),i===sel?6:4.5,'#dc2626'); }); }
+    ctx.restore();
+    if(g.ps){ txt('震源距離 ＝ '+f1(m.k)+' × 初期微動継続時間',GL+8,GT+14,'bold 12px sans-serif','#0f172a','left',true);
+      txt('（'+m.vp.toFixed(1)+'×'+m.vs.toFixed(1)+'÷('+m.vp.toFixed(1)+'−'+m.vs.toFixed(1)+')＝'+f1(m.k)+'）',GL+8,GT+30,'11px sans-serif','#475569','left',true); }
+    else { txt('S波 '+m.vs.toFixed(1)+' km/秒',GL+8,GT+14,'bold 12px sans-serif','#b91c1c','left',true); txt('P波 '+m.vp.toFixed(1)+' km/秒',GR-4,g.Y(g.DX/m.vp)+18,'bold 12px sans-serif','#1d4ed8','right',true);
+      const i0=sel; if(t>=m.ts[i0]){ const x=g.X(m.D[i0]), y=(g.Y(m.tp[i0])+g.Y(m.ts[i0]))/2+4, lb='初期微動継続時間 '+f1(m.ts[i0]-m.tp[i0])+'秒', w=tw(lb,'bold 11px sans-serif');
+        if(x-8-w>GL+2) txt(lb,x-7,y,'bold 11px sans-serif','#b45309','right',true); else txt(lb,x+7,y,'bold 11px sans-serif','#b45309','left',true); } } }
+  function drawRows(m){ const tx=(v)=>TX0+v/m.tend*(TX1-TX0), tc=Math.min(t,m.tend), eew=$('eew').value==='on', yA=RY+5*RH;
+    txt('地震計の記録（震源に近い順）',MX,RY-10,'bold 13px sans-serif','#0f172a');
+    txt('青い帯＝初期微動　赤い帯＝主要動',W-6,RY-10,'11px sans-serif','#475569','right');
+    m.order.forEach((i,r)=>{ const y0=RY+r*RH, yc=y0+RH/2+3;
+      if(i===sel){ ctx.fillStyle='#fef3c7'; ctx.fillRect(MX,y0+1,W-MX-4,RH-2); }
+      txt(ST[i].n+'地点',MX+4,yc-3,'bold 13px sans-serif','#0f172a'); txt(m.D[i].toFixed(0)+' km',MX+4,yc+13,'11px sans-serif','#475569');
+      ctx.strokeStyle='#cbd5e1'; ctx.lineWidth=1; line(TX0,yc,TX1,yc);
+      if(tc>=m.tp[i]){ ctx.fillStyle='rgba(59,130,246,.14)'; ctx.fillRect(tx(m.tp[i]),y0+3,tx(Math.min(tc,m.ts[i]))-tx(m.tp[i]),RH-6); }
+      if(tc>=m.ts[i]){ ctx.fillStyle='rgba(239,68,68,.10)'; ctx.fillRect(tx(m.ts[i]),y0+3,tx(tc)-tx(m.ts[i]),RH-6); }
+      const amp=6+10*Math.exp(-m.D[i]/150), xe=tx(tc), xs=Math.max(TX0,tx(m.tp[i])-1);
+      ctx.strokeStyle='#0f172a'; ctx.lineWidth=1.1; ctx.beginPath(); ctx.moveTo(TX0,yc);
+      if(xe>xs){ ctx.lineTo(xs,yc); for(let X=xs;X<=xe;X+=0.5){ const v=(X-TX0)/(TX1-TX0)*m.tend; ctx.lineTo(X,yc-sig(i,v,m)*amp); } } else ctx.lineTo(xe,yc);
+      ctx.stroke();
+      if(tc>=m.tp[i]){ ctx.strokeStyle='#2563eb'; ctx.lineWidth=2; line(tx(m.tp[i]),y0+4,tx(m.tp[i]),y0+RH-4); txt('P',tx(m.tp[i])-3,y0+13,'bold 11px sans-serif','#2563eb','right',true); }
+      if(tc>=m.ts[i]){ ctx.strokeStyle='#dc2626'; ctx.lineWidth=2; line(tx(m.ts[i]),y0+4,tx(m.ts[i]),y0+RH-4); txt('S',tx(m.ts[i])+3,y0+13,'bold 11px sans-serif','#dc2626','left',true);
+        const ps=m.ts[i]-m.tp[i], wpx=tx(m.ts[i])-tx(m.tp[i]), L1='初期微動 '+f1(ps)+'秒', L2=f1(ps)+'秒';
+        if(tw(L1,'11px sans-serif')+6<wpx) txt(L1,tx(m.tp[i])+3,y0+RH-6,'11px sans-serif','#1d4ed8','left',true); else if(tw(L2,'11px sans-serif')+6<wpx) txt(L2,tx(m.tp[i])+3,y0+RH-6,'11px sans-serif','#1d4ed8','left',true); }
+      if(eew && tc>=m.tal){ const gsec=m.ts[i]-m.tal; txt(gsec>0?'猶予 '+f1(gsec)+'秒':'間に合わない',TX1-2,y0+13,'bold 11px sans-serif','#6d28d9','right',true); } });
+    ctx.strokeStyle='#334155'; ctx.lineWidth=1; line(TX0,yA,TX1,yA);
+    const stp=m.tend<=60?5:(m.tend<=120?10:20);
+    for(let v=0;v<=m.tend;v+=stp){ const x=tx(v); line(x,yA,x,yA+4); txt(String(v),x,yA+15,'11px sans-serif','#475569','center'); }
+    txt('時間（秒）',MX+4,yA+15,'11px sans-serif','#475569');
+    if(tc>0){ ctx.strokeStyle='rgba(15,23,42,.45)'; ctx.lineWidth=1; line(tx(tc),RY,tx(tc),yA); }
+    if(eew && tc>=m.tal){ ctx.setLineDash([5,4]); ctx.strokeStyle='#7c3aed'; ctx.lineWidth=1.5; line(tx(m.tal),RY,tx(m.tal),yA); ctx.setLineDash([]); txt('速報',tx(m.tal)+3,yA-4,'bold 11px sans-serif','#6d28d9','left',true); } }
+  function draw(m){ ctx.clearRect(0,0,W,H); ctx.fillStyle='#fff'; ctx.fillRect(0,0,W,H); drawMap(m); drawGraph(m); drawRows(m);
+    const i=sel, n=ST[i].n+'地点', ps=m.ts[i]-m.tp[i];
+    setK('sD',n+'の震源距離'); setStat('sD',f1(m.D[i])+' km'); setStat('sP',f1(m.tp[i])+' 秒後'); setStat('sS',f1(m.ts[i])+' 秒後'); setStat('sPS',f1(ps)+' 秒');
+    setShare('【P波・S波】'+n+'（震源から'+f1(m.D[i])+'km）の初期微動継続時間は'+f1(ps)+'秒。P波'+m.vp.toFixed(1)+'km/秒・S波'+m.vs.toFixed(1)+'km/秒なら、震源距離＝'+f1(m.k)+'×初期微動継続時間｜シミュラボ'); }
+  function tog(){ $('toggle').textContent=playing?'⏸ 一時停止':'▶ 再生'; }
+  function frame(now){ const dt=Math.min(0.05,Math.max(0,(now-last)/1000)); last=now; const m=model();
+    if(playing){ t+=dt*(+$('sp').value); if(t>=m.tend){ t=m.tend; playing=false; tog(); } dirty=true; }
+    if(dirty){ dirty=false; const s=$('tt'); s.max=m.tend; s.value=Math.min(t,m.tend).toFixed(1); vlab(); draw(m); }
+    requestAnimationFrame(frame); }
+  function fixV(){ const vp=+$('vp').value, vs=+$('vs').value; if(vs>vp-0.5) $('vs').value=(vp-0.5).toFixed(1); }
+  $('vp').addEventListener('input',fixV); $('vs').addEventListener('input',fixV);
+  document.querySelectorAll('.lab-ctl input, .lab-ctl select').forEach((el)=>{ el.addEventListener('input',()=>{ dirty=true; }); el.addEventListener('change',()=>{ dirty=true; }); });
+  $('tt').addEventListener('input',()=>{ playing=false; tog(); t=+$('tt').value; });
+  $('st').addEventListener('change',()=>{ sel=+$('st').value; });
+  $('quake').addEventListener('click',()=>{ t=0; playing=true; tog(); dirty=true; });
+  $('toggle').addEventListener('click',()=>{ if(!playing && t>=model().tend-1e-6) t=0; playing=!playing; tog(); dirty=true; });
+  $('rand').addEventListener('click',()=>{ ex=Math.round(rnd(15,285)); ey=Math.round(rnd(15,285)); t=0; playing=true; tog(); dirty=true; });
+  function pxy(e){ const p=cpos(cv,e); return [p[0]/dpr,p[1]/dpr]; }
+  function moveEpi(kx,ky){ ex=clamp(kx,4,296); ey=clamp(ky,4,296); t=0; playing=false; tog(); dirty=true; }
+  function choose(i){ sel=i; $('st').value=String(i); dirty=true; }
+  cv.addEventListener('pointerdown',(e)=>{ const q=pxy(e), x=q[0], y=q[1], m=model();
+    if(x>=MX && x<=MX+MS && y>=MY && y<=MY+MS){ const kx=x-MX, ky=y-MY; let hit=-1, best=16; ST.forEach((s,i)=>{ const d=Math.hypot(s.x-kx,s.y-ky); if(d<best){ best=d; hit=i; } });
+      if(hit>=0){ choose(hit); return; }
+      dragging=true; try{ cv.setPointerCapture(e.pointerId); }catch(err){ } moveEpi(kx,ky); e.preventDefault(); return; }
+    if(y>=RY && y<RY+5*RH){ choose(m.order[Math.floor((y-RY)/RH)]); return; }
+    if(x>=GL-10 && x<=GR+10 && y>=GT-10 && y<=GB+10){ const g=gsc(m); let hit=-1, best=18;
+      ST.forEach((s,i)=>{ const pts=g.ps?(t>=m.ts[i]?[m.ts[i]-m.tp[i]]:[]):[].concat(t>=m.tp[i]?[m.tp[i]]:[],t>=m.ts[i]?[m.ts[i]]:[]);
+        pts.forEach((v)=>{ const d=Math.hypot(g.X(m.D[i])-x,g.Y(v)-y); if(d<best){ best=d; hit=i; } }); });
+      if(hit>=0) choose(hit); } });
+  cv.addEventListener('pointermove',(e)=>{ if(!dragging) return; const q=pxy(e); moveEpi(q[0]-MX,q[1]-MY); });
+  const up=()=>{ if(dragging){ dragging=false; t=0; playing=true; tog(); dirty=true; } };
+  cv.addEventListener('pointerup',up); cv.addEventListener('pointercancel',up);
+  tog(); vlab(); draw(model()); requestAnimationFrame(frame);
+
+  } catch(e) { console.error(e); }
+  (function(){ const fs=$('fsBtn'), panel=document.querySelector('.panel');
+    const req = panel && (panel.requestFullscreen || panel.webkitRequestFullscreen);
+    if (fs && req) { fs.hidden = false; fs.addEventListener('click', () => {
+      const cur = document.fullscreenElement || document.webkitFullscreenElement;
+      if (cur) { (document.exitFullscreen || document.webkitExitFullscreen).call(document); }
+      else { req.call(panel); } }); }
+  })();
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE || document.title)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText((SHARE||document.title)+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'jishin-ha', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

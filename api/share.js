@@ -137,6 +137,8 @@ const ALLOW = new Set([
   'yuyake-yohou',
   // fable20
   'lotka-volterra', 'queue-docchi', 'elevator-sim', 'shinrai-shinka', 'uwasa-kakusan', 'echo-chamber', 'ryukou-curve', 'tasuketsu-wana', 'manin-densha', 'jisa-shukkin', 'heya-chirakaru', 'neural-play', 'ga-route', 'coffee-milk', 'building-quake', 'tsunami-kishi', 'bank-run', 'maze-ai', 'markov-bunsho', 'kansen-agent',
+  // rika
+  'tsuki-michikake', 'gesshoku-nisshoku', 'denki-kairo', 'totsu-lens', 'shitsudo-roten', 'jishin-ha', 'teko-tsuriai', 'furiko-jikken', 'joutai-henka', 'mendel-iden',
 ]);
 
 export default async function handler(req, res) {
