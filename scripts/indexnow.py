@@ -12,8 +12,9 @@
   python scripts/indexnow.py --all        … サイトマップの全URLを送る（初回・大きく作り直したとき）
   python scripts/indexnow.py --dry-run    … 送らずに対象URLだけ表示
 """
-import json, os, re, subprocess, sys, urllib.request, urllib.error
+import json, os, re, subprocess, sys, time, urllib.request, urllib.error
 
+sys.stdout.reconfigure(encoding='utf-8')
 HOST = 'shimulabo.com'
 KEY = '933a329ec8704289ac09bfb350ade738'
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -69,13 +70,17 @@ def main():
     for i in range(0, len(urls), 10000):
         payload = json.dumps({'host': HOST, 'key': KEY, 'keyLocation': f'https://{HOST}/{KEY}.txt',
                               'urlList': urls[i:i + 10000]}).encode('utf-8')
-        req = urllib.request.Request(ENDPOINT, data=payload, method='POST',
-                                     headers={'Content-Type': 'application/json; charset=utf-8'})
-        try:
-            with urllib.request.urlopen(req, timeout=60) as r:
-                code = r.status
-        except urllib.error.HTTPError as e:
-            code = e.code
+        # キーのファイルを置いた直後は403が返ることがある（2026-10-03に実際に発生し、1分後には通った）→待って再送
+        for attempt in range(4):
+            req = urllib.request.Request(ENDPOINT, data=payload, method='POST',
+                                         headers={'Content-Type': 'application/json; charset=utf-8'})
+            try:
+                with urllib.request.urlopen(req, timeout=60) as r:
+                    code = r.status
+            except urllib.error.HTTPError as e:
+                code = e.code
+            if code != 403 or attempt == 3: break
+            print('403 のため30秒待って再送します…'); time.sleep(30)
         print(f'送信 {len(urls[i:i + 10000])}件 → {code} {MEANING.get(code, "")}')
 
 
