@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/kafun-yohou/">
+<title>今日の花粉飛散 予測指数｜気温・風・雨から花粉の飛びやすさを5段階判定（都道府県別・3日間）｜シミュラボ</title>
+<meta name="description" content="今日は花粉が多い？都道府県を選ぶと、予想気温・最大風速・降水・湿度と季節（スギ・ヒノキ・イネ科・ブタクサ）から花粉の飛びやすさを5段階で予測する無料ツール。今日・明日・明後日の3日分。花粉が飛びやすい気象条件の解説つき。">
+<meta property="og:title" content="今日の花粉飛散 予測指数">
+<meta property="og:description" content="気温・風・雨・湿度と季節から花粉の飛びやすさを5段階予測。3日分。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/kafun-yohou.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/kafun-yohou.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/kafun-yohou/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "今日の花粉飛散 予測指数（気温・風・雨から判定）", "url": "https://shimulabo.com/sims/kafun-yohou/", "description": "気温・風・雨・湿度と季節から花粉の飛びやすさを5段階予測。3日分。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ライブデータラボ", "item": "https://shimulabo.com/live/"}, {"@type": "ListItem", "position": 3, "name": "今日の花粉飛散 予測指数（気温・風・雨から判定）", "item": "https://shimulabo.com/sims/kafun-yohou/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "これは実測の花粉情報？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。予想気温・風・雨・湿度と季節から「飛びやすさ」を推定した予測指数です。実測値は各観測機関の情報をご確認ください。"}}, {"@type": "Question", "name": "雨の翌日はなぜ多い？", "acceptedAnswer": {"@type": "Answer", "text": "雨の日は花粉が落ちて飛散が減りますが、その分が翌日の晴れと風でまとめて舞い上がるためです。"}}, {"@type": "Question", "name": "秋も花粉症になる？", "acceptedAnswer": {"@type": "Answer", "text": "はい。8〜10月はブタクサ・ヨモギ・カナムグラの花粉が飛び、秋の花粉症の原因になります。背の低い草なので、河川敷や空き地の近くで症状が出やすいです。"}}, {"@type": "Question", "name": "入力データは送信される？", "acceptedAnswer": {"@type": "Answer", "text": "都道府県の緯度経度が気象APIに送られるだけで、個人情報は送信しません。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../live/">⚡ ライブデータ一覧</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../live/">ライブデータラボ</a><span>›</span><span class="cur">今日の花粉飛散 予測指数（気温・風・雨から判定）</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">健康・カラダ</div>
+    <h1>今日の花粉飛散 予測指数（気温・風・雨から判定）</h1>
+    <p class="lead">今日は花粉、飛びそう？ 花粉は<b>晴れて気温が高く、風が強く、雨上がりの翌日</b>にどっと飛びます。お住まいの都道府県の予報からこの条件を点数化し、今日・明日・明後日の<b>飛びやすさを5段階</b>で予測します。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🌾 場所を選ぶ</h2>
+    <div class="field"><label>都道府県</label><select id="pref"></select></div>
+    <button class="btn btn-ghost" id="geoBtn" type="button" style="width:100%;">📍 現在地を使う</button>
+  </section>
+  <section class="panel" id="resultPanel">
+    <div class="result">
+      <div class="label"><span id="whereLbl">東京都</span>・今日の花粉飛散 予測</div>
+      <div class="big" style="font-size:min(11vw,44px);"><span id="big">—</span></div>
+      <div class="sub" id="sub">予報を取得中…</div>
+      <canvas id="cv" style="width:100%;height:auto;display:block;margin-top:12px;background:#fdfcf8;border:1px solid var(--line);border-radius:8px;"></canvas>
+      <div class="statline" id="days3"></div>
+      <div class="statline"><div class="stat"><div class="k">いまの主な花粉</div><div class="v" id="kind">—</div></div>
+      <div class="stat"><div class="k">最高気温／風</div><div class="v" id="tw">—</div></div>
+      <div class="stat"><div class="k">雨</div><div class="v accent" id="rn">—</div></div></div>
+      <div class="alert good" id="advice" style="margin-top:12px;">—</div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>花粉が飛びやすい気象条件</h2>
+    <div class="tbl-scroll"><table class="seo-table"><tr><th>条件</th><th>飛散への影響</th></tr>
+    <tr><td>晴れて気温が高い</td><td>◎ 多い（スギは最高気温15℃前後から急増）</td></tr>
+    <tr><td>風が強い（風速7m/s以上）</td><td>◎ 遠くから運ばれ多い</td></tr>
+    <tr><td>湿度が低く乾燥</td><td>○ 多い</td></tr>
+    <tr><td>雨の日</td><td>× 少ない（花粉が地面に落ちる）</td></tr>
+    <tr><td>雨上がりの翌日</td><td>◎ 非常に多い（溜まった分がまとめて飛ぶ）</td></tr></table></div>
+    <h2>季節ごとの花粉の種類</h2>
+    <p>2〜4月が<b>スギ・ヒノキ</b>（患者数最多）、5〜6月は<b>イネ科</b>（カモガヤなど）、8〜10月は<b>ブタクサ・ヨモギ</b>（秋の花粉症）。11〜1月はほぼ飛散しません。本ツールはこの季節ごとの基礎レベルに、気象条件の点数をかけ合わせて指数を出しています。</p>
+    <div class="note"><b>これは気象条件からの予測指数で、花粉の実測値ではありません。</b>実際の飛散量は環境省「はなこさん」の後継となる各機関の観測データや、気象会社の花粉情報をあわせてご確認ください。症状がつらいときは耳鼻科・アレルギー科にご相談を。</div>
+    <p>年間の花粉症の出費は<a href="../kafun-cost/">花粉症の年間費用</a>、空気の状態は<a href="../kuuki-kirei/">空気きれいメーター</a>、洗濯物を外に干せるかは<a href="../sentaku-kawaku/">洗濯物 乾く時間メーター</a>でどうぞ。</p>
+    <h2>引用・転載について</h2>
+    <p>本ページの計算結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「今日の花粉飛散 予測指数（気温・風・雨から判定）」 https://shimulabo.com/sims/kafun-yohou/</code><br>Webでご利用の際は上記URLへのリンク設置をお願いします。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>これは実測の花粉情報？</dt><dd>いいえ。予想気温・風・雨・湿度と季節から「飛びやすさ」を推定した予測指数です。実測値は各観測機関の情報をご確認ください。</dd><dt>雨の翌日はなぜ多い？</dt><dd>雨の日は花粉が落ちて飛散が減りますが、その分が翌日の晴れと風でまとめて舞い上がるためです。</dd><dt>秋も花粉症になる？</dt><dd>はい。8〜10月はブタクサ・ヨモギ・カナムグラの花粉が飛び、秋の花粉症の原因になります。背の低い草なので、河川敷や空き地の近くで症状が出やすいです。</dd><dt>入力データは送信される？</dt><dd>都道府県の緯度経度が気象APIに送られるだけで、個人情報は送信しません。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../kafun-cost/"><span class="e">💊</span><span>花粉症の年間費用</span></a><a class="related-card" href="../kuuki-kirei/"><span class="e">🌫️</span><span>空気きれいメーター</span></a><a class="related-card" href="../sentaku-kawaku/"><span class="e">👕</span><span>洗濯物 乾く時間メーター</span></a><a class="related-card" href="../kasa-iru/"><span class="e">☂️</span><span>今日、傘いる？</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../live/">⚡ ライブデータラボ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function bindShare(){
+    $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+    $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+  }
+  function fitCanvas(cv, ratio){ const par=cv.parentElement, cs=getComputedStyle(par), pl=parseFloat(cs.paddingLeft)||0, pr=parseFloat(cs.paddingRight)||0;
+    if(innerWidth<640 && pl>0){ cv.style.marginLeft=(-pl)+'px'; cv.style.marginRight=(-pr)+'px'; cv.style.width='calc(100% + '+(pl+pr)+'px)'; } else { cv.style.marginLeft=''; cv.style.marginRight=''; cv.style.width='100%'; }
+    const W=cv.clientWidth || par.clientWidth; let H=Math.round(W*ratio); const dpr=Math.min(window.devicePixelRatio||1,2); cv.style.height=H+'px'; H=cv.clientHeight||H; cv.width=Math.floor(W*dpr); cv.height=Math.floor(H*dpr); const x=cv.getContext('2d'); x.setTransform(dpr,0,0,dpr,0,0); return {x,W,H}; }
+  const pad2 = n => String(n).padStart(2,'0');
+  const ymd = d => d.getFullYear()+'-'+pad2(d.getMonth()+1)+'-'+pad2(d.getDate());
+  const jaDate = d => d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日('+'日月火水木金土'[d.getDay()]+')';
+  const PREFS = [
+    ['北海道(札幌)',43.06,141.35],
+    ['青森県',40.82,140.74],
+    ['岩手県',39.7,141.15],
+    ['宮城県(仙台)',38.27,140.87],
+    ['秋田県',39.72,140.1],
+    ['山形県',38.24,140.36],
+    ['福島県',37.75,140.47],
+    ['茨城県',36.34,140.45],
+    ['栃木県',36.57,139.88],
+    ['群馬県',36.39,139.06],
+    ['埼玉県',35.86,139.65],
+    ['千葉県',35.61,140.12],
+    ['東京都',35.69,139.69],
+    ['神奈川県(横浜)',35.45,139.64],
+    ['新潟県',37.9,139.02],
+    ['富山県',36.7,137.21],
+    ['石川県(金沢)',36.59,136.63],
+    ['福井県',36.07,136.22],
+    ['山梨県',35.66,138.57],
+    ['長野県',36.65,138.18],
+    ['岐阜県',35.39,136.72],
+    ['静岡県',34.98,138.38],
+    ['愛知県(名古屋)',35.18,136.91],
+    ['三重県',34.73,136.51],
+    ['滋賀県',35.0,135.87],
+    ['京都府',35.02,135.76],
+    ['大阪府',34.69,135.52],
+    ['兵庫県(神戸)',34.69,135.18],
+    ['奈良県',34.69,135.83],
+    ['和歌山県',34.23,135.17],
+    ['鳥取県',35.5,134.24],
+    ['島根県(松江)',35.47,133.05],
+    ['岡山県',34.66,133.93],
+    ['広島県',34.4,132.46],
+    ['山口県',34.19,131.47],
+    ['徳島県',34.07,134.56],
+    ['香川県(高松)',34.34,134.04],
+    ['愛媛県(松山)',33.84,132.77],
+    ['高知県',33.56,133.53],
+    ['福岡県',33.61,130.42],
+    ['佐賀県',33.25,130.3],
+    ['長崎県',32.74,129.87],
+    ['熊本県',32.79,130.74],
+    ['大分県',33.24,131.61],
+    ['宮崎県',31.91,131.42],
+    ['鹿児島県',31.56,130.56],
+    ['沖縄県(那覇)',26.21,127.68],
+  ];
+  $('pref').innerHTML = PREFS.map((p,i) => '<option value="' + i + '"' + (i===12?' selected':'') + '>' + p[0] + '</option>').join('');
+  function useGeo(cb){ if(!navigator.geolocation){ alert('この端末では現在地を取得できません'); return; }
+    $('geoBtn').textContent='取得中…';
+    navigator.geolocation.getCurrentPosition(p => { $('geoBtn').textContent='📍 現在地で表示中'; cb(p.coords.latitude, p.coords.longitude, '現在地'); },
+      () => { $('geoBtn').textContent='📍 現在地を使う'; alert('位置情報が取得できませんでした。都道府県を選んでください。'); }, {timeout: 8000}); }
+  const SEASON={1:.3,2:.9,3:1,4:.9,5:.55,6:.45,7:.2,8:.45,9:.6,10:.5,11:.2,12:.15};
+  const KIND=m=> m>=2&&m<=4?'スギ・ヒノキ': m>=5&&m<=6?'イネ科（カモガヤ等）': m>=8&&m<=10?'ブタクサ・ヨモギ':'ほぼ飛散なし';
+  const LV=[[20,'少ない','#8fbf9f'],[40,'やや多い','#c9c56a'],[60,'多い','#e8a14b'],[85,'非常に多い','#d9642f'],[999,'極めて多い','#b3261e']];
+  const lvOf=s=>LV.find(l=>s<l[0]);
+  let data=null, where='東京都', parts=[];
+  function score(i){ const d=data.daily; const m=new Date(d.time[i]+'T00:00:00').getMonth()+1;
+    const t=d.temperature_2m_max[i], w=d.wind_speed_10m_max[i], r=d.precipitation_sum[i], ry=i>0?d.precipitation_sum[i-1]:0;
+    const hum=d.relative_humidity_2m_mean? d.relative_humidity_2m_mean[i] : 60;
+    const fT= t<8?0.4: t<15?0.7: t<25?1.0: 0.9;
+    const fR= r>=1?0.35: (ry>=1?1.3:1.0);
+    const fW= w<3?0.7: w<7?1.0: 1.3;
+    const fH= hum<40?1.2: hum<=70?1.0: 0.75;
+    return {s:Math.min(100, SEASON[m]*fT*fR*fW*fH*100), t,w,r,m}; }
+  async function load(lat,lon,name){
+    where=name; $('whereLbl').textContent=name; $('sub').textContent='予報を取得中…';
+    try{ const r=await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=temperature_2m_max,precipitation_sum,wind_speed_10m_max,relative_humidity_2m_mean&timezone=Asia%2FTokyo&past_days=1&forecast_days=3`); data=await r.json(); render(); }
+    catch(e){ $('sub').textContent='⚠️ 予報を取得できませんでした。時間をおいて再度お試しください。'; }
+  }
+  function render(){
+    if(!data) return;
+    const rs=[1,2,3].map(i=>score(i));           // index0は昨日（past_days=1）
+    const t=rs[0], lv=lvOf(t.s);
+    $('big').textContent=lv[1]; $('big').style.color=lv[2];
+    $('sub').textContent=`予測指数 ${Math.round(t.s)}／100（${data.daily.time[1].replace(/-/g,'/')}・気象条件ベース）`;
+    $('kind').textContent=KIND(t.m); $('tw').textContent=Math.round(t.t)+'℃ / '+t.w.toFixed(0)+'m/s'; $('rn').textContent= t.r>=1? '雨（飛散↓）': (data.daily.precipitation_sum[0]>=1? '昨日雨→今日↑':'なし');
+    $('days3').innerHTML=['今日','明日','明後日'].map((n,i)=>{ const l=lvOf(rs[i].s); return `<div class="stat"><div class="k">${n}</div><div class="v" style="color:${l[2]}">${l[1]}</div></div>`; }).join('');
+    const adv= t.s>=60? '😷 マスク・メガネ、帰宅時は玄関前で払い落とし、洗濯物は室内干しがおすすめ。' : t.s>=40? '🙂 敏感な人は対策を。外出後の洗顔・うがいで症状を軽く。' : t.s>=20? '🙂 飛散はやや多め。症状が出やすい人はマスクがあると安心。' : '😌 飛散は少なめの予測。それでも症状が出るなら他のアレルゲンも疑ってみて。';
+    $('advice').textContent= (t.m>=11||t.m<=1)? '❄️ この時期は花粉はほぼ飛びません。鼻炎なら寒暖差やハウスダストが原因かも。' : adv;
+    draw(rs.map(r=>r.s));
+    SHARE=`${where}の今日の花粉飛散予測は「${lv[1]}」（指数${Math.round(t.s)}）🌾 明日は「${lvOf(rs[1].s)[1]}」。気象条件からの予測はこちら👇`;
+  }
+  let raf=0;
+  function draw(sc){
+    cancelAnimationFrame(raf);
+    const cv=$('cv'); const {x,W,H}=fitCanvas(cv,0.38);
+    const n=Math.round(sc[0]/100*160)+6; parts=[]; for(let i=0;i<n;i++) parts.push({x:Math.random()*W*0.62,y:Math.random()*H,vx:0.3+Math.random()*0.7,vy:(Math.random()-0.5)*0.4,r:1.5+Math.random()*2.2,ph:Math.random()*6.283});
+    const bw=W*0.11, bx=W*0.66;
+    function frame(){
+      x.fillStyle='#fdfcf8'; x.fillRect(0,0,W,H);
+      x.fillStyle='rgba(20,24,29,.06)'; x.fillRect(0,0,W*0.62,H);
+      // 花粉の粒
+      for(const p of parts){ p.x+=p.vx; p.y+=p.vy+Math.sin(p.ph+=0.05)*0.3; if(p.x>W*0.62) p.x=-4; if(p.y<0) p.y=H; if(p.y>H) p.y=0;
+        x.fillStyle='rgba(232,161,75,.75)'; x.beginPath(); x.arc(p.x,p.y,p.r,0,6.283); x.fill(); }
+      x.fillStyle='#59616c'; x.font='11px system-ui,sans-serif'; x.textAlign='left'; x.fillText('今日の飛びやすさイメージ', 10, 16);
+      // 3日棒
+      ['今日','明日','明後日'].forEach((nm,i)=>{ const l=lvOf(sc[i]); const h=(sc[i]/100)*(H-58), X=bx+i*bw;
+        x.fillStyle=l[2]; x.fillRect(X,H-28-h,bw*0.7,h); x.fillStyle='#14181d'; x.font='700 12px system-ui,sans-serif'; x.textAlign='center'; x.fillText(Math.round(sc[i]), X+bw*0.35, H-32-h); x.fillStyle='#59616c'; x.font='11px system-ui,sans-serif'; x.fillText(nm, X+bw*0.35, H-10); });
+      raf=requestAnimationFrame(frame);
+    }
+    frame();
+  }
+  const go=()=>{ const p=PREFS[+$('pref').value]; load(p[1],p[2],p[0].replace(/\(.*\)/,'')); };
+  $('pref').addEventListener('change',go); $('geoBtn').addEventListener('click',()=>useGeo(load));
+  let rt; addEventListener('resize',()=>{ clearTimeout(rt); rt=setTimeout(render,200); });
+  go(); bindShare();
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'kafun-yohou', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/result-fx.js?v=4"></script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

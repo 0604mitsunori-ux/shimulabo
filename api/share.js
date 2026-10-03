@@ -19,6 +19,7 @@ import { kv } from '@vercel/kv';
 
 // 受け付けるシミュID（不正キーでKVを汚さないためのホワイトリスト）
 const ALLOW = new Set([
+  'dollar-yen-chart', 'sekai-jisa', 'kyou-fukusou', 'kyou-no-tsuki', 'kin-souba', 'shukujitsu-calendar', 'kaigai-shukujitsu', 'kakutei-shinkoku-itsu', 'obon-itsu', 'kafun-yohou',
   'kaigi-cost', 'jutai', 'scroll-distance', 'machi-jikan',
   'catchcopy', 'influencer-soroban', 'kuchikomi-hakyu',
   'subsc', 'caffeine', 'sleep-debt', 'warikan', 'takarakuji',

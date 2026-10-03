@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/sekai-jisa/">
+<title>世界の時差・いま何時？｜シンガポール・アメリカ・韓国・ハワイ…30都市の時差計算と日照マップ｜シミュラボ</title>
+<meta name="description" content="海外は今何時？シンガポール・アメリカ（ニューヨーク/ロサンゼルス）・韓国・台湾・タイ・ハワイ・イギリス・フランス・ドイツなど30都市の現在時刻と日本との時差を一覧表示する無料ツール。昼と夜の境目が動く世界地図つき。サマータイムも自動反映。">
+<meta property="og:title" content="世界の時差・いま何時？">
+<meta property="og:description" content="30都市の現在時刻と日本との時差を日照マップで一目で。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/sekai-jisa.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/sekai-jisa.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/sekai-jisa/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "世界の時差・いま何時？（日照マップ付き）", "url": "https://shimulabo.com/sims/sekai-jisa/", "description": "30都市の現在時刻と日本との時差を日照マップで一目で。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ライブデータラボ", "item": "https://shimulabo.com/live/"}, {"@type": "ListItem", "position": 3, "name": "世界の時差・いま何時？（日照マップ付き）", "item": "https://shimulabo.com/sims/sekai-jisa/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "時差はどう計算する？", "acceptedAnswer": {"@type": "Answer", "text": "現地の標準時（UTCからの差）と日本（UTC+9）の差です。例えばニューヨークは標準時UTC−5なので日本より14時間遅れ、夏時間中はUTC−4で13時間遅れになります。"}}, {"@type": "Question", "name": "サマータイムは自動で反映される？", "acceptedAnswer": {"@type": "Answer", "text": "はい。ブラウザに内蔵された世界のタイムゾーン情報を使うため、現在夏時間かどうかを自動で判定します。"}}, {"@type": "Question", "name": "アメリカの時差はひとつじゃない？", "acceptedAnswer": {"@type": "Answer", "text": "アメリカ本土だけで東部・中部・山岳部・太平洋の4つ、ハワイ・アラスカを含めると6つの時間帯があります。都市で選んでください。"}}, {"@type": "Question", "name": "入力データは送信される？", "acceptedAnswer": {"@type": "Answer", "text": "このページは外部にデータを送信しません。時刻計算はすべてブラウザ内で行います。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../live/">⚡ ライブデータ一覧</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../live/">ライブデータラボ</a><span>›</span><span class="cur">世界の時差・いま何時？（日照マップ付き）</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">旅行・おでかけ</div>
+    <h1>世界の時差・いま何時？（日照マップ付き）</h1>
+    <p class="lead">「あの国は、いま何時？」を一目で。都市を選ぶと現在時刻と日本との時差を表示し、<b>地球のどこが昼でどこが夜か</b>を世界地図に描きます。サマータイム中かどうかも自動で反映されます。</p>
+  </div>
+
+  <section class="panel" id="resultPanel">
+    <div class="result">
+      <div class="label"><span id="cityName">ニューヨーク</span>は、いま</div>
+      <div class="big" style="font-size:min(15vw,72px);"><span id="big">--:--</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">日本との時差</div><div class="v accent" id="jisa">—</div></div>
+      <div class="stat"><div class="k">現地の日付</div><div class="v" id="ldate">—</div></div>
+      <div class="stat"><div class="k">サマータイム</div><div class="v" id="dst">—</div></div></div>
+      <canvas id="cv" style="width:100%;height:auto;display:block;margin-top:16px;background:#eef3f6;border:1px solid var(--line);border-radius:8px;"></canvas>
+      <div class="field" style="margin:14px 0 0;text-align:left;"><label>都市を選ぶ</label><select id="city"></select></div>
+      <div id="clocks" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:14px;text-align:left;"></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>時差の見かた</h2>
+    <p>時差は、日本（UTC+9）との差で表しています。「−13時間」なら日本より13時間遅れ＝日本が朝9時のとき、現地は前日の夜8時です。海外へ電話やビデオ会議をするときは「相手の営業時間が日本の何時にあたるか」を先に確認しておくと失敗しません。</p>
+    <h2>主な国・都市の時差 早見表（日本基準）</h2>
+    <div class="tbl-scroll"><table class="seo-table"><tr><th>都市（国）</th><th>タイムゾーン</th></tr><tr><td>ニューヨーク（アメリカ東部）</td><td>America/New_York</td></tr><tr><td>ロサンゼルス（アメリカ西部）</td><td>America/Los_Angeles</td></tr><tr><td>シカゴ（アメリカ中部）</td><td>America/Chicago</td></tr><tr><td>ホノルル（ハワイ）</td><td>Pacific/Honolulu</td></tr><tr><td>バンクーバー（カナダ）</td><td>America/Vancouver</td></tr><tr><td>メキシコシティ</td><td>America/Mexico_City</td></tr><tr><td>サンパウロ（ブラジル）</td><td>America/Sao_Paulo</td></tr><tr><td>ロンドン（イギリス）</td><td>Europe/London</td></tr><tr><td>パリ（フランス）</td><td>Europe/Paris</td></tr><tr><td>ベルリン（ドイツ）</td><td>Europe/Berlin</td></tr><tr><td>ローマ・ミラノ（イタリア）</td><td>Europe/Rome</td></tr><tr><td>マドリード（スペイン）</td><td>Europe/Madrid</td></tr><tr><td>イスタンブール（トルコ）</td><td>Europe/Istanbul</td></tr><tr><td>モスクワ（ロシア）</td><td>Europe/Moscow</td></tr><tr><td>カイロ（エジプト）</td><td>Africa/Cairo</td></tr><tr><td>ドバイ（UAE）</td><td>Asia/Dubai</td></tr><tr><td>デリー（インド）</td><td>Asia/Kolkata</td></tr><tr><td>バンコク（タイ）</td><td>Asia/Bangkok</td></tr><tr><td>ハノイ・ホーチミン（ベトナム）</td><td>Asia/Ho_Chi_Minh</td></tr><tr><td>シンガポール</td><td>Asia/Singapore</td></tr><tr><td>クアラルンプール（マレーシア）</td><td>Asia/Kuala_Lumpur</td></tr><tr><td>ジャカルタ（インドネシア）</td><td>Asia/Jakarta</td></tr><tr><td>マニラ（フィリピン）</td><td>Asia/Manila</td></tr><tr><td>香港</td><td>Asia/Hong_Kong</td></tr><tr><td>上海・北京（中国）</td><td>Asia/Shanghai</td></tr><tr><td>台北（台湾）</td><td>Asia/Taipei</td></tr><tr><td>ソウル（韓国）</td><td>Asia/Seoul</td></tr><tr><td>シドニー（オーストラリア）</td><td>Australia/Sydney</td></tr><tr><td>オークランド（ニュージーランド）</td><td>Pacific/Auckland</td></tr><tr><td>ヨハネスブルグ（南アフリカ）</td><td>Africa/Johannesburg</td></tr></table></div>
+    <p>※時差はサマータイム（夏時間）で1時間変わります。アメリカ・カナダは3月〜11月、ヨーロッパは3月末〜10月末、オーストラリア（シドニー）は10月〜4月が夏時間。本ツールはブラウザの世界時計機能で自動判定しているため、選んだ都市の「いまの時差」がそのまま出ます。日本・韓国・中国・東南アジア諸国にサマータイムはありません。</p>
+    <h2>昼と夜が動く地図の仕組み</h2>
+    <p>地図の暗い部分は、いまこの瞬間に夜になっている地域です。太陽が真上に来る地点（☀）は1時間に15度ずつ西へ移動し、季節によって北半球側・南半球側へ傾きます。夏至のころは北極周辺が一日中昼（白夜）、冬至のころは一日中夜（極夜）になる様子も、この地図で確認できます。</p>
+    <p>時差ボケの回復日数は<a href="../jisa-boke/">時差ボケ回復シミュレーター</a>、旅先の祝日は<a href="../kaigai-shukujitsu/">海外の祝日カレンダー</a>でどうぞ。</p>
+    <h2>引用・転載について</h2>
+    <p>本ページの計算結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「世界の時差・いま何時？（日照マップ付き）」 https://shimulabo.com/sims/sekai-jisa/</code><br>Webでご利用の際は上記URLへのリンク設置をお願いします。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>時差はどう計算する？</dt><dd>現地の標準時（UTCからの差）と日本（UTC+9）の差です。例えばニューヨークは標準時UTC−5なので日本より14時間遅れ、夏時間中はUTC−4で13時間遅れになります。</dd><dt>サマータイムは自動で反映される？</dt><dd>はい。ブラウザに内蔵された世界のタイムゾーン情報を使うため、現在夏時間かどうかを自動で判定します。</dd><dt>アメリカの時差はひとつじゃない？</dt><dd>アメリカ本土だけで東部・中部・山岳部・太平洋の4つ、ハワイ・アラスカを含めると6つの時間帯があります。都市で選んでください。</dd><dt>入力データは送信される？</dt><dd>このページは外部にデータを送信しません。時刻計算はすべてブラウザ内で行います。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../jisa-boke/"><span class="e">✈️</span><span>時差ボケ回復シミュレーター</span></a><a class="related-card" href="../kaigai-shukujitsu/"><span class="e">📅</span><span>海外の祝日カレンダー</span></a><a class="related-card" href="../sekai-kion/"><span class="e">🌡️</span><span>世界の気温いま</span></a><a class="related-card" href="../hiruma-nagasa/"><span class="e">🌅</span><span>昼の長さメーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../live/">⚡ ライブデータラボ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function bindShare(){
+    $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+    $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+  }
+  function fitCanvas(cv, ratio){ const par=cv.parentElement, cs=getComputedStyle(par), pl=parseFloat(cs.paddingLeft)||0, pr=parseFloat(cs.paddingRight)||0;
+    if(innerWidth<640 && pl>0){ cv.style.marginLeft=(-pl)+'px'; cv.style.marginRight=(-pr)+'px'; cv.style.width='calc(100% + '+(pl+pr)+'px)'; } else { cv.style.marginLeft=''; cv.style.marginRight=''; cv.style.width='100%'; }
+    const W=cv.clientWidth || par.clientWidth; let H=Math.round(W*ratio); const dpr=Math.min(window.devicePixelRatio||1,2); cv.style.height=H+'px'; H=cv.clientHeight||H; cv.width=Math.floor(W*dpr); cv.height=Math.floor(H*dpr); const x=cv.getContext('2d'); x.setTransform(dpr,0,0,dpr,0,0); return {x,W,H}; }
+  const pad2 = n => String(n).padStart(2,'0');
+  const ymd = d => d.getFullYear()+'-'+pad2(d.getMonth()+1)+'-'+pad2(d.getDate());
+  const jaDate = d => d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日('+'日月火水木金土'[d.getDay()]+')';
+  const CITIES = [["ニューヨーク（アメリカ東部）", "America/New_York", 40.7, -74.0], ["ロサンゼルス（アメリカ西部）", "America/Los_Angeles", 34.1, -118.2], ["シカゴ（アメリカ中部）", "America/Chicago", 41.9, -87.6], ["ホノルル（ハワイ）", "Pacific/Honolulu", 21.3, -157.9], ["バンクーバー（カナダ）", "America/Vancouver", 49.3, -123.1], ["メキシコシティ", "America/Mexico_City", 19.4, -99.1], ["サンパウロ（ブラジル）", "America/Sao_Paulo", -23.5, -46.6], ["ロンドン（イギリス）", "Europe/London", 51.5, -0.1], ["パリ（フランス）", "Europe/Paris", 48.9, 2.4], ["ベルリン（ドイツ）", "Europe/Berlin", 52.5, 13.4], ["ローマ・ミラノ（イタリア）", "Europe/Rome", 41.9, 12.5], ["マドリード（スペイン）", "Europe/Madrid", 40.4, -3.7], ["イスタンブール（トルコ）", "Europe/Istanbul", 41.0, 29.0], ["モスクワ（ロシア）", "Europe/Moscow", 55.8, 37.6], ["カイロ（エジプト）", "Africa/Cairo", 30.0, 31.2], ["ドバイ（UAE）", "Asia/Dubai", 25.2, 55.3], ["デリー（インド）", "Asia/Kolkata", 28.6, 77.2], ["バンコク（タイ）", "Asia/Bangkok", 13.8, 100.5], ["ハノイ・ホーチミン（ベトナム）", "Asia/Ho_Chi_Minh", 10.8, 106.7], ["シンガポール", "Asia/Singapore", 1.3, 103.8], ["クアラルンプール（マレーシア）", "Asia/Kuala_Lumpur", 3.1, 101.7], ["ジャカルタ（インドネシア）", "Asia/Jakarta", -6.2, 106.8], ["マニラ（フィリピン）", "Asia/Manila", 14.6, 121.0], ["香港", "Asia/Hong_Kong", 22.3, 114.2], ["上海・北京（中国）", "Asia/Shanghai", 31.2, 121.5], ["台北（台湾）", "Asia/Taipei", 25.0, 121.5], ["ソウル（韓国）", "Asia/Seoul", 37.6, 127.0], ["シドニー（オーストラリア）", "Australia/Sydney", -33.9, 151.2], ["オークランド（ニュージーランド）", "Pacific/Auckland", -36.8, 174.8], ["ヨハネスブルグ（南アフリカ）", "Africa/Johannesburg", -26.2, 28.0]];
+  const WORLD = [[[-59.6,-80.0],[-60.2,-81.0],[-66.3,-80.3],[-59.6,-80.0]],[[-45.2,-78.0],[-43.3,-80.0],[-54.2,-80.6],[-48.7,-78.0],[-45.2,-78.0]],[[-99.0,-71.9],[-96.2,-72.5],[-102.3,-71.9],[-99.0,-71.9]],[[-68.5,-71.0],[-68.8,-72.2],[-71.1,-72.5],[-75.0,-71.7],[-72.1,-71.2],[-70.3,-68.9],[-68.5,-71.0]],[[-58.6,-64.2],[-62.0,-64.8],[-62.1,-66.2],[-65.7,-68.0],[-61.8,-70.7],[-60.8,-73.7],[-70.6,-76.6],[-77.2,-76.7],[-73.7,-77.9],[-78.0,-79.2],[-58.2,-83.2],[-28.5,-80.3],[-29.7,-79.3],[-35.6,-79.5],[-35.8,-78.3],[-17.5,-75.1],[-15.4,-73.1],[-6.9,-70.9],[27.1,-70.5],[33.9,-68.5],[38.6,-69.8],[54.5,-65.8],[61.4,-68.0],[68.9,-67.9],[69.7,-69.2],[67.8,-70.3],[69.1,-70.7],[67.9,-71.9],[69.9,-72.3],[73.9,-69.9],[88.0,-66.2],[95.8,-67.4],[99.7,-67.2],[102.8,-65.6],[106.2,-66.9],[113.6,-65.9],[119.8,-67.3],[134.8,-66.2],[135.1,-65.3],[137.5,-67.0],[145.5,-66.9],[171.2,-71.7],[163.6,-76.2],[164.7,-78.2],[167.0,-78.8],[161.8,-79.2],[159.8,-80.9],[169.4,-83.8],[180,-84.7],[180,-90],[-180,-90],[-179.1,-84.1],[-143.1,-85.0],[-153.6,-83.7],[-152.9,-82.0],[-156.8,-81.1],[-146.4,-80.3],[-155.3,-79.1],[-158.4,-76.9],[-151.3,-77.4],[-146.1,-76.5],[-146.2,-75.4],[-135.2,-74.3],[-113.9,-73.7],[-107.6,-75.2],[-100.1,-74.9],[-103.7,-72.6],[-74.9,-73.9],[-67.4,-72.5],[-68.5,-69.7],[-67.7,-67.3],[-63.0,-64.6],[-57.2,-63.5],[-58.6,-64.2]],[[-67.8,-53.9],[-65.0,-54.7],[-69.2,-55.5],[-74.7,-52.8],[-71.1,-54.1],[-69.3,-52.5],[-67.8,-53.9]],[[145.4,-40.8],[148.3,-40.9],[147.9,-43.2],[146.0,-43.5],[145.4,-40.8]],[[173.0,-40.9],[174.2,-41.3],[173.1,-43.9],[169.3,-46.6],[166.7,-46.2],[173.0,-40.9]],[[174.6,-36.2],[178.5,-37.7],[175.2,-41.7],[173.8,-39.5],[174.7,-37.4],[172.6,-34.5],[174.6,-36.2]],[[50.1,-13.6],[50.4,-15.7],[47.1,-24.9],[44.0,-25.0],[43.3,-22.1],[44.4,-16.2],[47.7,-14.6],[49.2,-12.0],[50.1,-13.6]],[[143.6,-13.8],[145.4,-15.0],[146.4,-19.0],[153.1,-26.1],[152.9,-31.6],[150.0,-37.4],[146.3,-39.0],[145.0,-37.9],[143.6,-38.8],[140.6,-38.0],[138.2,-34.4],[136.8,-35.3],[137.8,-32.9],[136.0,-34.9],[131.3,-31.5],[118.0,-35.1],[115.0,-34.2],[115.7,-31.6],[113.3,-26.1],[114.2,-26.3],[114.1,-21.8],[120.9,-19.7],[125.7,-14.2],[129.6,-15.0],[132.4,-11.1],[136.5,-11.9],[135.5,-15.0],[140.2,-17.7],[142.5,-10.7],[143.6,-13.8]],[[108.6,-6.8],[115.7,-8.4],[105.4,-6.9],[106.1,-5.9],[108.6,-6.8]],[[152.0,-5.5],[148.3,-5.7],[151.5,-4.2],[152.0,-5.5]],[[134.1,-1.2],[135.5,-3.4],[138.3,-1.7],[144.6,-3.9],[150.7,-10.6],[144.7,-7.6],[142.6,-9.3],[137.6,-8.4],[138.7,-7.3],[137.9,-5.4],[133.0,-4.1],[132.0,-2.8],[133.7,-2.2],[130.5,-0.9],[134.1,-1.2]],[[125.2,1.4],[120.2,0.2],[120.9,-1.4],[123.3,-0.6],[121.5,-1.9],[123.2,-5.3],[121.0,-2.6],[120.4,-5.5],[119.4,-5.4],[118.8,-2.8],[120.0,0.6],[125.2,1.4]],[[105.8,-5.9],[102.6,-4.2],[95.3,5.5],[97.5,5.2],[103.8,0.1],[106.1,-3.1],[105.8,-5.9]],[[117.9,1.8],[119.0,0.9],[117.8,0.8],[116.1,-4.0],[110.2,-2.9],[109.1,-0.5],[109.7,2.0],[113.0,3.1],[116.7,6.9],[119.2,5.4],[117.3,3.2],[117.9,1.8]],[[126.4,8.4],[125.4,5.6],[123.6,7.8],[121.9,7.2],[125.4,9.8],[126.4,8.4]],[[81.2,6.2],[79.9,6.8],[80.1,9.8],[81.8,7.5],[81.2,6.2]],[[121.3,18.5],[122.5,17.1],[121.7,14.3],[124.0,13.8],[124.1,12.5],[120.1,15.0],[121.3,18.5]],[[-72.6,19.9],[-68.3,18.6],[-71.4,17.6],[-74.5,18.3],[-72.3,18.7],[-73.4,19.6],[-72.6,19.9]],[[110.3,18.7],[108.6,19.4],[110.8,20.1],[110.3,18.7]],[[-79.7,22.8],[-74.2,20.3],[-77.8,19.9],[-77.1,20.4],[-78.7,21.6],[-81.8,22.6],[-85.0,21.9],[-79.7,22.8]],[[121.2,22.8],[120.7,22.0],[120.1,23.6],[121.5,25.3],[121.2,22.8]],[[15.5,38.2],[15.1,36.6],[12.4,37.6],[15.5,38.2]],[[9.2,41.2],[8.8,38.9],[8.2,41.0],[9.2,41.2]],[[141.0,37.1],[140.3,35.1],[135.8,33.5],[135.1,34.6],[131.0,33.9],[132.0,33.1],[130.2,31.4],[129.4,33.3],[132.6,35.4],[135.7,35.5],[141.4,41.4],[141.0,37.1]],[[143.9,44.2],[145.3,44.4],[145.5,43.3],[140.0,41.6],[142.0,45.6],[143.9,44.2]],[[-56.1,50.7],[-56.8,49.8],[-53.5,49.2],[-53.1,46.7],[-54.2,47.8],[-59.3,47.6],[-55.4,51.6],[-56.1,50.7]],[[143.6,50.7],[144.7,49.0],[143.2,49.3],[143.5,46.1],[142.1,46.0],[142.2,54.2],[143.6,50.7]],[[-6.8,52.3],[-10.0,51.8],[-9.7,53.9],[-6.7,55.2],[-5.7,54.6],[-6.8,52.3]],[[-3.0,58.6],[-4.1,57.6],[-2.0,57.7],[-3.1,56.0],[1.7,52.7],[1.4,51.3],[-5.2,50.0],[-3.4,51.4],[-5.3,52.0],[-4.6,53.5],[-2.9,54.0],[-6.1,56.8],[-5.0,58.6],[-3.0,58.6]],[[-85.2,65.7],[-80.1,63.7],[-87.2,63.5],[-85.2,65.7]],[[-14.5,66.5],[-13.6,65.1],[-18.7,63.5],[-22.8,64.0],[-21.8,64.4],[-24.0,64.9],[-22.2,65.4],[-24.3,65.6],[-14.5,66.5]],[[-175.0,66.6],[-169.9,66.0],[-173.0,64.3],[-178.7,66.1],[-180,65.0],[-180,69.0],[-175.0,66.6]],[[-95.6,69.1],[-99.8,69.4],[-98.2,70.1],[-95.6,69.1]],[[-90.5,69.5],[-87.4,67.2],[-85.5,69.9],[-82.6,69.7],[-81.3,67.6],[-85.8,66.6],[-93.2,62.0],[-94.7,58.9],[-92.3,57.1],[-82.3,55.1],[-79.9,51.2],[-78.6,52.6],[-79.8,54.7],[-76.5,56.5],[-78.5,58.8],[-77.3,59.9],[-78.1,62.3],[-73.8,62.4],[-69.6,61.1],[-69.3,59.0],[-67.6,58.2],[-64.6,60.3],[-61.8,56.3],[-57.3,54.6],[-55.7,52.1],[-60.0,50.2],[-66.4,50.2],[-71.1,46.8],[-65.1,49.2],[-64.5,46.2],[-61.5,45.9],[-60.5,47.0],[-59.8,45.9],[-65.4,43.5],[-66.2,44.5],[-64.4,45.3],[-67.1,45.1],[-70.7,43.0],[-70.0,41.6],[-75.5,39.5],[-75.9,37.2],[-76.3,39.2],[-75.7,35.6],[-81.3,31.4],[-80.4,25.2],[-84.1,30.1],[-93.8,29.7],[-96.6,28.3],[-97.9,22.4],[-96.3,19.3],[-94.4,18.1],[-92.0,18.7],[-90.3,21.0],[-87.1,21.5],[-88.9,15.9],[-83.4,15.3],[-83.8,11.1],[-81.4,8.8],[-79.6,9.6],[-76.8,8.6],[-71.8,12.4],[-71.7,9.1],[-69.9,12.2],[-68.2,10.6],[-61.9,10.7],[-62.4,9.9],[-57.1,6.0],[-51.3,4.2],[-50.4,-0.1],[-44.9,-1.6],[-44.6,-2.7],[-40.0,-2.9],[-35.6,-5.1],[-34.7,-7.3],[-38.7,-13.1],[-40.9,-21.9],[-47.6,-24.9],[-48.9,-28.7],[-53.8,-34.4],[-58.4,-33.9],[-56.8,-36.9],[-59.2,-38.7],[-62.3,-38.8],[-62.7,-41.0],[-65.1,-41.1],[-63.5,-42.6],[-67.3,-45.6],[-66.0,-48.1],[-69.1,-50.7],[-68.2,-52.3],[-71.0,-53.8],[-74.9,-52.3],[-75.6,-48.7],[-74.1,-46.9],[-75.6,-46.6],[-72.7,-42.4],[-74.3,-43.2],[-73.6,-37.2],[-71.4,-32.4],[-70.2,-19.8],[-71.5,-17.4],[-76.0,-14.6],[-81.2,-6.1],[-79.8,-2.7],[-80.9,-1.1],[-77.1,3.8],[-78.2,8.3],[-79.6,8.9],[-80.9,7.2],[-85.7,9.9],[-87.5,13.3],[-103.5,18.3],[-105.5,19.9],[-106.0,22.8],[-114.8,31.8],[-109.4,23.2],[-112.2,24.7],[-115.1,27.7],[-114.2,28.6],[-117.3,33.0],[-120.6,34.6],[-124.4,40.3],[-124.7,48.2],[-122.6,47.1],[-122.8,49.0],[-127.4,50.8],[-134.1,58.1],[-147.1,60.9],[-151.7,59.2],[-150.6,61.3],[-158.4,56.0],[-164.8,54.4],[-157.0,58.9],[-162.0,58.7],[-166.1,61.5],[-164.6,63.1],[-160.8,63.8],[-160.8,64.8],[-168.1,65.7],[-161.7,66.1],[-166.8,68.4],[-156.6,71.4],[-136.5,68.9],[-128.1,70.5],[-108.9,67.4],[-106.2,68.8],[-101.5,67.6],[-97.7,68.6],[-96.1,67.3],[-94.2,69.1],[-96.5,70.1],[-95.2,71.9],[-90.5,69.5]],[[-114.2,73.1],[-109.9,73.0],[-108.2,71.7],[-108.4,73.1],[-106.5,73.1],[-101.1,69.6],[-113.3,68.5],[-117.3,70.0],[-112.4,70.4],[-119.4,71.6],[-114.2,73.1]],[[-86.6,73.2],[-82.3,73.8],[-80.7,72.1],[-77.8,72.7],[-72.2,71.6],[-67.0,69.2],[-68.8,68.7],[-61.9,66.9],[-63.9,65.0],[-68.0,66.3],[-64.7,63.4],[-68.8,63.7],[-66.2,61.9],[-74.8,64.7],[-77.7,64.2],[-77.9,65.3],[-74.0,65.5],[-72.9,67.7],[-79.0,70.2],[-89.9,71.2],[-89.4,73.1],[-85.8,73.8],[-86.6,73.2]],[[-100.4,73.8],[-97.4,73.8],[-98.1,73.0],[-96.7,71.7],[-102.5,72.5],[-100.4,72.7],[-101.5,73.4],[-100.4,73.8]],[[-93.2,72.8],[-95.4,72.1],[-96.0,73.4],[-90.5,73.9],[-93.2,72.8]],[[-120.5,71.4],[-125.9,71.9],[-123.9,73.7],[-124.9,74.3],[-115.5,73.5],[-120.5,71.4]],[[-98.5,76.7],[-98.2,75],[-102.5,75.6],[-98.5,76.7]],[[-108.2,76.2],[-105.7,75.5],[-112.2,74.4],[-113.9,74.7],[-111.8,75.2],[-117.7,75.2],[-115.4,76.5],[-108.2,76.2]],[[57.5,70.7],[51.5,72.0],[55.6,75.1],[68.9,76.5],[58.5,74.3],[55.4,72.4],[57.5,70.7]],[[-94.7,77.1],[-79.8,74.9],[-89.8,74.5],[-97.1,76.8],[-94.7,77.1]],[[-116.2,77.6],[-117.1,76.5],[-122.9,76.1],[-116.2,77.6]],[[107.0,77.0],[114.1,75.8],[109.4,74.2],[127.0,73.6],[131.3,70.8],[132.3,71.8],[139.9,71.5],[139.1,72.4],[140.5,72.8],[169.6,68.7],[170.8,69.0],[170.5,70.1],[175.7,69.9],[180,69.0],[180,65.0],[177.4,64.6],[179.2,62.3],[170.3,59.9],[163.5,59.9],[162.0,58.2],[163.2,57.6],[162.1,54.9],[156.8,51.0],[155.9,56.8],[164.5,62.6],[160.1,60.5],[159.3,61.8],[156.7,61.4],[154.2,59.8],[155.0,59.1],[142.2,59.0],[135.1,54.7],[139.9,54.2],[141.4,52.2],[138.2,46.3],[127.5,39.8],[129.5,36.8],[129.1,35.1],[126.5,34.4],[126.9,36.9],[124.7,38.1],[125.3,39.6],[121.1,38.9],[121.6,40.9],[118.0,39.2],[118.9,37.4],[122.4,37.5],[119.2,34.9],[121.9,31.7],[121.7,28.2],[115.9,22.8],[110.4,20.3],[108.5,21.7],[105.9,19.8],[109.3,13.4],[109.2,11.7],[105.2,8.6],[105.1,9.9],[100.1,13.4],[99.2,9.2],[103.0,5.5],[104.2,1.3],[101.4,2.8],[98.3,7.8],[98.8,11.4],[97.2,16.9],[94.2,16.0],[94.3,18.2],[91.4,22.8],[87.0,21.5],[80.3,15.9],[79.9,10.4],[77.5,8.0],[73.5,16.0],[72.6,21.4],[70.5,20.9],[66.4,25.4],[57.4,25.7],[56.5,27.1],[54.7,26.5],[51.5,27.9],[50.1,30.1],[48.0,30.0],[51.8,24.0],[54.0,24.1],[56.4,26.4],[56.8,24.2],[59.8,22.3],[55.3,17.2],[43.5,12.6],[42.6,16.8],[34.6,28.1],[34.9,29.5],[33.9,27.6],[32.4,29.9],[37.5,18.6],[43.3,12.4],[42.7,11.7],[44.6,10.4],[51.1,12.0],[51.0,10.6],[47.7,4.2],[39.2,-4.7],[40.8,-14.7],[34.8,-19.8],[35.6,-23.7],[32.6,-25.7],[32.2,-28.8],[25.8,-33.9],[18.4,-34.1],[11.8,-18.1],[13.7,-10.7],[11.9,-5.0],[8.8,-1.1],[9.4,3.7],[8.5,4.8],[5.9,4.3],[4.3,6.3],[-2.0,4.7],[-9.0,4.8],[-16.6,12.2],[-17.6,14.7],[-16.1,18.1],[-17.0,21.9],[-5.9,35.8],[-2.2,35.2],[9.5,37.4],[11.1,36.9],[10.3,33.8],[19.1,30.3],[21.5,32.8],[33.8,31.0],[36.2,36.7],[27.6,36.7],[26.2,39.5],[33.5,42.0],[38.3,40.9],[41.7,42.0],[36.7,45.2],[39.1,47.3],[35.0,46.3],[36.3,45.1],[33.9,44.4],[32.5,45.3],[33.3,46.1],[30.7,46.6],[27.7,42.6],[28.8,41.1],[22.6,40.3],[24.0,37.7],[22.5,36.4],[19.5,41.7],[13.1,45.7],[12.6,44.1],[18.5,40.2],[16.9,40.4],[16.1,38.0],[15.4,40.0],[8.9,44.4],[3.1,43.1],[-2.1,36.7],[-8.9,36.9],[-9.4,43.0],[-1.4,44.0],[-1.2,46.0],[-4.6,48.7],[-1.6,48.6],[-1.9,49.8],[8.1,53.5],[8.5,57.1],[10.6,57.7],[9.7,55.5],[10.9,54.0],[19.7,54.4],[21.3,55.2],[21.6,57.4],[24.1,57.0],[23.3,59.2],[29.1,60.0],[21.3,60.7],[21.5,63.2],[25.4,65.1],[22.2,65.7],[17.8,62.7],[17.1,61.3],[18.8,60.1],[15.9,56.1],[12.9,55.4],[10.4,59.5],[5.7,58.6],[5.0,62.0],[14.8,67.8],[24.5,71.0],[28.2,71.2],[41.1,67.5],[38.4,66.0],[33.2,66.6],[37.0,63.8],[37.2,65.1],[39.6,64.5],[42.1,66.5],[43.9,66.1],[43.5,68.6],[46.3,68.3],[46.3,66.7],[53.7,68.9],[59.9,68.3],[60.6,69.9],[68.5,68.1],[66.7,71.0],[69.2,72.8],[72.6,72.8],[71.8,71.4],[73.7,68.4],[71.3,66.3],[72.4,66.2],[75.1,67.8],[73.1,71.4],[74.7,72.8],[76.4,71.2],[77.6,72.3],[81.5,71.8],[80.5,73.6],[86.8,73.9],[86.0,74.5],[87.2,75.1],[104.4,77.7],[107.0,77.0]],[[-100.1,78.3],[-105.2,78.4],[-104.2,78.7],[-105.5,79.3],[-100.1,78.3]],[[105.1,78.3],[99.4,77.9],[102.1,79.3],[105.1,78.3]],[[18.3,79.7],[21.5,79.0],[15.9,76.8],[10.4,79.7],[18.3,79.7]],[[25.4,80.4],[27.4,80.1],[17.4,80.3],[25.4,80.4]],[[99.9,78.9],[91.2,80.3],[95.9,81.3],[100.2,79.8],[99.9,78.9]],[[-87.0,79.7],[-85.8,79.3],[-90.8,78.2],[-96.7,80.2],[-92.4,81.3],[-87.0,79.7]],[[-68.5,83.1],[-61.9,82.6],[-76.9,79.3],[-75.4,78.5],[-80.6,76.2],[-89.5,76.5],[-88.3,77.9],[-85.0,77.5],[-88.0,78.4],[-85.1,79.3],[-86.9,80.3],[-81.8,80.5],[-91.6,81.9],[-68.5,83.1]],[[-27.1,83.5],[-20.8,82.7],[-31.9,82.2],[-12.2,81.3],[-20.0,80.2],[-17.7,80.1],[-19.7,78.8],[-18.5,77.0],[-21.7,76.6],[-19.8,76.1],[-20.7,75.2],[-19.4,74.3],[-23.6,73.3],[-22.3,72.2],[-24.8,72.3],[-21.8,70.7],[-25.5,71.4],[-26.4,70.2],[-22.3,70.1],[-39.8,65.5],[-42.8,62.7],[-43.4,60.1],[-48.3,60.9],[-51.6,63.6],[-54.0,67.2],[-50.9,69.9],[-54.7,69.6],[-54.4,70.8],[-51.4,70.6],[-55.8,71.7],[-54.7,72.6],[-58.6,75.5],[-68.5,76.1],[-71.4,77.0],[-66.8,77.4],[-73.3,78.0],[-65.7,79.4],[-68.0,80.1],[-62.7,81.8],[-44.5,81.7],[-46.8,82.6],[-27.1,83.5]]];
+  let sel = 0;
+  $('city').innerHTML = CITIES.map((c,i)=>`<option value="${i}"${i===0?' selected':''}>${c[0]}</option>`).join('');
+  function offsetMin(tz, date){ // タイムゾーンのUTCオフセット（分）
+    const p = new Intl.DateTimeFormat('en-US',{timeZone:tz,hourCycle:'h23',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit'}).formatToParts(date);
+    const o={}; p.forEach(q=>o[q.type]=q.value);
+    return Math.round((Date.UTC(+o.year, +o.month-1, +o.day, +o.hour, +o.minute, +o.second) - date.getTime())/60000);
+  }
+  function localParts(tz, date){
+    const p = new Intl.DateTimeFormat('ja-JP',{timeZone:tz,hourCycle:'h23',weekday:'short',month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'}).formatToParts(date);
+    const o={}; p.forEach(q=>o[q.type]=q.value); return o;
+  }
+  function sun(date){ // NOAAの近似式：太陽直下点の緯度・経度
+    const start=Date.UTC(date.getUTCFullYear(),0,1), doy=Math.floor((date-start)/86400000);
+    const g=2*Math.PI/365*(doy + (date.getUTCHours()-12)/24);
+    const eot=229.18*(0.000075+0.001868*Math.cos(g)-0.032077*Math.sin(g)-0.014615*Math.cos(2*g)-0.040849*Math.sin(2*g));
+    const dec=0.006918-0.399912*Math.cos(g)+0.070257*Math.sin(g)-0.006758*Math.cos(2*g)+0.000907*Math.sin(2*g)-0.002697*Math.cos(3*g)+0.00148*Math.sin(3*g);
+    const tmin=date.getUTCHours()*60+date.getUTCMinutes()+date.getUTCSeconds()/60;
+    let lon=(720-tmin-eot)/4; lon=((lon+540)%360)-180;
+    return {lat:dec*180/Math.PI, lon};
+  }
+  function draw(){
+    const cv=$('cv'); const {x,W,H}=fitCanvas(cv,0.5);
+    const px=lon=>(lon+180)/360*W, py=lat=>(90-lat)/180*H;
+    x.fillStyle='#e6edf2'; x.fillRect(0,0,W,H);
+    // 陸地
+    x.fillStyle='#cdd5cc'; x.strokeStyle='rgba(20,24,29,.25)'; x.lineWidth=.6;
+    for(const ring of WORLD){ x.beginPath(); ring.forEach((p,i)=> i?x.lineTo(px(p[0]),py(p[1])):x.moveTo(px(p[0]),py(p[1]))); x.closePath(); x.fill(); x.stroke(); }
+    // 夜の影
+    const s=sun(new Date()); const dec=s.lat*Math.PI/180;
+    x.beginPath();
+    for(let lon=-180;lon<=180;lon+=2){ const Hh=(lon-s.lon)*Math.PI/180; let lat=Math.atan(-Math.cos(Hh)/Math.tan(dec))*180/Math.PI; if(!isFinite(lat)) lat=0; lon===-180?x.moveTo(px(lon),py(lat)):x.lineTo(px(lon),py(lat)); }
+    const poleY = dec>=0 ? H : 0;               // 北半球が夏なら夜は南極側へ
+    x.lineTo(W,poleY); x.lineTo(0,poleY); x.closePath();
+    x.fillStyle='rgba(16,22,52,.42)'; x.fill();
+    // 太陽
+    x.fillStyle='#f4c542'; x.beginPath(); x.arc(px(s.lon),py(s.lat),7,0,6.283); x.fill();
+    x.strokeStyle='rgba(244,197,66,.6)'; x.lineWidth=2; x.beginPath(); x.arc(px(s.lon),py(s.lat),11,0,6.283); x.stroke();
+    // 都市
+    CITIES.forEach((c,i)=>{ const cx=px(c[3]), cy=py(c[2]); x.fillStyle= i===sel?'#c4442b':'rgba(27,74,99,.85)'; x.beginPath(); x.arc(cx,cy,i===sel?5:2.6,0,6.283); x.fill(); });
+    // 東京
+    const tx=px(139.7), ty=py(35.7); x.fillStyle='#14181d'; x.beginPath(); x.arc(tx,ty,3.5,0,6.283); x.fill();
+    x.font='600 11px system-ui,sans-serif'; x.fillStyle='#14181d'; x.textAlign='left'; x.fillText('東京', tx+6, ty+4);
+    const c=CITIES[sel]; x.fillStyle='#c4442b'; x.fillText(c[0].split('（')[0], px(c[3])+7, py(c[2])-6);
+  }
+  function tick(){
+    const now=new Date(), c=CITIES[sel];
+    const o=localParts(c[1], now);
+    $('cityName').textContent=c[0].split('（')[0];
+    $('big').textContent=o.hour+':'+o.minute;
+    const off=offsetMin(c[1],now), jp=540, d=(off-jp)/60;
+    $('jisa').textContent=(d>0?'+':'')+(Number.isInteger(d)?d:d.toFixed(1))+'時間';
+    const jan=offsetMin(c[1], new Date(now.getFullYear(),0,15)), jul=offsetMin(c[1], new Date(now.getFullYear(),6,15));
+    const hasDst = jan!==jul, inDst = hasDst && off===Math.max(jan,jul);
+    $('dst').textContent= !hasDst ? 'なし' : (inDst ? '実施中（+1時間）' : '期間外');
+    $('ldate').textContent=o.month+'/'+o.day+'（'+o.weekday+'）';
+    const jpH=now.getHours();
+    $('sub').textContent=`日本は ${pad2(jpH)}:${pad2(now.getMinutes())}。${c[0].split('（')[0]}は日本より${Math.abs(d)}時間${d>=0?'進んで':'遅れて'}います`;
+    $('clocks').innerHTML=CITIES.map((cc,i)=>{ const p=localParts(cc[1],now); const dd=(offsetMin(cc[1],now)-jp)/60; return `<div style="padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:${i===sel?'var(--teal-l)':'#fff'};cursor:pointer;" data-i="${i}"><div style="font-size:11px;color:var(--ink-3);">${cc[0].split('（')[0]}</div><div style="font-size:18px;font-weight:700;font-variant-numeric:tabular-nums;">${p.hour}:${p.minute} <span style="font-size:11px;color:var(--ink-2);font-weight:600;">${dd>=0?'+':''}${dd}h</span></div></div>`; }).join('');
+    SHARE=`${c[0].split('（')[0]}はいま${o.hour}:${o.minute}（日本との時差${d>0?'+':''}${d}時間）🌐 昼と夜が動く世界地図で見る👇`;
+    draw();
+  }
+  $('city').addEventListener('change',()=>{ sel=+$('city').value; tick(); });
+  $('clocks').addEventListener('click',e=>{ const t=e.target.closest('[data-i]'); if(!t) return; sel=+t.dataset.i; $('city').value=sel; tick(); });
+  let rt; addEventListener('resize',()=>{ clearTimeout(rt); rt=setTimeout(draw,200); });
+  tick(); setInterval(tick, 15000); bindShare();
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'sekai-jisa', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/result-fx.js?v=4"></script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

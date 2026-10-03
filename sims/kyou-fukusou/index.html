@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/kyou-fukusou/">
+<title>今日の服装指数｜気温から「何を着る？」を判定（都道府県別・明日の服装も）｜シミュラボ</title>
+<meta name="description" content="今日は半袖？上着はいる？都道府県を選ぶと今日と明日の予想気温・風・降水確率から服装の目安（服装指数）を判定する無料ツール。朝昼夜の寒暖差、羽織りの要否、傘の要否まで。気温別の服装早見表つき。">
+<meta property="og:title" content="今日の服装指数｜気温から何を着る？">
+<meta property="og:description" content="今日・明日の予想気温から服装を判定。朝昼夜の寒暖差も。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/kyou-fukusou.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/kyou-fukusou.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/kyou-fukusou/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "今日の服装指数（気温から何を着る？）", "url": "https://shimulabo.com/sims/kyou-fukusou/", "description": "今日・明日の予想気温から服装を判定。朝昼夜の寒暖差も。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ライブデータラボ", "item": "https://shimulabo.com/live/"}, {"@type": "ListItem", "position": 3, "name": "今日の服装指数（気温から何を着る？）", "item": "https://shimulabo.com/sims/kyou-fukusou/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "気温何度から上着がいる？", "acceptedAnswer": {"@type": "Answer", "text": "目安は最高気温20℃を下回ったら長袖、15℃を下回ったら上着（ジャケット）です。ただし風が強い日・朝晩の冷え込みでは一段暖かめが正解です。"}}, {"@type": "Question", "name": "子どもや高齢者は同じでいい？", "acceptedAnswer": {"@type": "Answer", "text": "子どもは体温が高く動き回るため大人より一枚薄め、高齢者は体温調節が苦手なため一枚厚めが目安です。"}}, {"@type": "Question", "name": "明日の服装も見られる？", "acceptedAnswer": {"@type": "Answer", "text": "「明日」タブで翌日の予報に切り替わります。予報は日々更新されるので当日朝の再確認をおすすめします。"}}, {"@type": "Question", "name": "入力データは送信される？", "acceptedAnswer": {"@type": "Answer", "text": "都道府県の緯度経度が気象データAPIに送られるだけで、個人情報は送信しません。現在地を使う場合も位置情報は端末内で処理されます。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../live/">⚡ ライブデータ一覧</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../live/">ライブデータラボ</a><span>›</span><span class="cur">今日の服装指数（気温から何を着る？）</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">美容・ファッション</div>
+    <h1>今日の服装指数（気温から何を着る？）</h1>
+    <p class="lead">今日、何を着ればいい？ お住まいの都道府県を選ぶと、今日と明日の予想気温・風・雨から<b>服装の目安</b>を判定します。朝と夜の寒暖差が大きい日は「羽織りを一枚」もお知らせ。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🧥 場所と日を選ぶ</h2>
+    <div class="row"><div class="field"><label>都道府県</label><select id="pref"></select></div>
+    <div class="field"><label>いつ？</label><div style="display:flex;gap:8px;"><button class="chip is-on" data-day="0" type="button">今日</button><button class="chip" data-day="1" type="button">明日</button></div></div></div>
+    <button class="btn btn-ghost" id="geoBtn" type="button" style="width:100%;">📍 現在地を使う</button>
+    <div class="hint" id="state" style="margin-top:8px;"></div>
+  </section>
+  <section class="panel" id="resultPanel">
+    <div class="result">
+      <div class="label"><span id="whereLbl">東京都</span>・<span id="dayLbl">今日</span>の服装</div>
+      <div class="big" style="font-size:min(9vw,38px);line-height:1.3;"><span id="big">—</span></div>
+      <div class="sub" id="sub">予報を取得中…</div>
+      <canvas id="cv" style="width:100%;height:auto;display:block;margin-top:14px;background:#fdfcf8;border:1px solid var(--line);border-radius:8px;"></canvas>
+      <div class="statline"><div class="stat"><div class="k">最高／最低</div><div class="v" id="temps">—</div></div>
+      <div class="stat"><div class="k">降水確率</div><div class="v accent" id="rain">—</div></div>
+      <div class="stat"><div class="k">最大風速</div><div class="v" id="wind">—</div></div></div>
+      <div class="alert good" id="advice" style="margin-top:14px;">—</div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>気温別の服装 早見表</h2>
+    <div class="tbl-scroll"><table class="seo-table"><tr><th>最高気温</th><th>服装の目安</th></tr>
+    <tr><td>30℃以上</td><td>半袖・薄手。日差し対策と水分補給を</td></tr>
+    <tr><td>25〜29℃</td><td>半袖。屋内の冷房用に薄い羽織りがあると安心</td></tr>
+    <tr><td>20〜24℃</td><td>長袖シャツ・薄手カーディガン</td></tr>
+    <tr><td>15〜19℃</td><td>薄手のジャケット・パーカー・ニット</td></tr>
+    <tr><td>10〜14℃</td><td>ジャケット＋セーター、薄手コート</td></tr>
+    <tr><td>5〜9℃</td><td>コート・マフラー</td></tr>
+    <tr><td>5℃未満</td><td>厚手コート・ダウン・手袋</td></tr></table></div>
+    <p>服装選びで最高気温と同じくらい大事なのが<b>朝晩との寒暖差</b>です。日中25℃でも朝が15℃なら、脱ぎ着できる羽織りが正解。また風速が強い日は体感温度が数℃下がり、雨の日は湿気で暑さ・寒さが増して感じられます。本ツールはそれらを加味して判定しています。</p>
+    <h2>判定の仕組み</h2>
+    <p>Open-Meteo（気象データAPI）の予報から、その日の最高・最低気温、朝（7時）・昼（13時）・夜（19時）の気温、最大風速、降水確率を取得し、最高気温で基本の服装レベルを決めたうえで「寒暖差8℃以上」「風速8m/s以上」「降水確率50%以上」で補正しています。予報は更新されるため、出かける直前に見直すのがおすすめです。</p>
+    <p>暑さ・寒さの体感は<a href="../taikan-ondo/">体感温度 計算</a>、雨の判断は<a href="../kasa-iru/">今日、傘いる？</a>もどうぞ。</p>
+    <h2>引用・転載について</h2>
+    <p>本ページの計算結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「今日の服装指数（気温から何を着る？）」 https://shimulabo.com/sims/kyou-fukusou/</code><br>Webでご利用の際は上記URLへのリンク設置をお願いします。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>気温何度から上着がいる？</dt><dd>目安は最高気温20℃を下回ったら長袖、15℃を下回ったら上着（ジャケット）です。ただし風が強い日・朝晩の冷え込みでは一段暖かめが正解です。</dd><dt>子どもや高齢者は同じでいい？</dt><dd>子どもは体温が高く動き回るため大人より一枚薄め、高齢者は体温調節が苦手なため一枚厚めが目安です。</dd><dt>明日の服装も見られる？</dt><dd>「明日」タブで翌日の予報に切り替わります。予報は日々更新されるので当日朝の再確認をおすすめします。</dd><dt>入力データは送信される？</dt><dd>都道府県の緯度経度が気象データAPIに送られるだけで、個人情報は送信しません。現在地を使う場合も位置情報は端末内で処理されます。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../kasa-iru/"><span class="e">☂️</span><span>今日、傘いる？</span></a><a class="related-card" href="../taikan-ondo/"><span class="e">🌡️</span><span>体感温度 計算</span></a><a class="related-card" href="../kion-kandansa/"><span class="e">🥶</span><span>寒暖差疲労チェッカー</span></a><a class="related-card" href="../sentaku-kawaku/"><span class="e">👕</span><span>洗濯物 乾く時間メーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../live/">⚡ ライブデータラボ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function bindShare(){
+    $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+    $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+  }
+  function fitCanvas(cv, ratio){ const par=cv.parentElement, cs=getComputedStyle(par), pl=parseFloat(cs.paddingLeft)||0, pr=parseFloat(cs.paddingRight)||0;
+    if(innerWidth<640 && pl>0){ cv.style.marginLeft=(-pl)+'px'; cv.style.marginRight=(-pr)+'px'; cv.style.width='calc(100% + '+(pl+pr)+'px)'; } else { cv.style.marginLeft=''; cv.style.marginRight=''; cv.style.width='100%'; }
+    const W=cv.clientWidth || par.clientWidth; let H=Math.round(W*ratio); const dpr=Math.min(window.devicePixelRatio||1,2); cv.style.height=H+'px'; H=cv.clientHeight||H; cv.width=Math.floor(W*dpr); cv.height=Math.floor(H*dpr); const x=cv.getContext('2d'); x.setTransform(dpr,0,0,dpr,0,0); return {x,W,H}; }
+  const pad2 = n => String(n).padStart(2,'0');
+  const ymd = d => d.getFullYear()+'-'+pad2(d.getMonth()+1)+'-'+pad2(d.getDate());
+  const jaDate = d => d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日('+'日月火水木金土'[d.getDay()]+')';
+  const PREFS = [
+    ['北海道(札幌)',43.06,141.35],
+    ['青森県',40.82,140.74],
+    ['岩手県',39.7,141.15],
+    ['宮城県(仙台)',38.27,140.87],
+    ['秋田県',39.72,140.1],
+    ['山形県',38.24,140.36],
+    ['福島県',37.75,140.47],
+    ['茨城県',36.34,140.45],
+    ['栃木県',36.57,139.88],
+    ['群馬県',36.39,139.06],
+    ['埼玉県',35.86,139.65],
+    ['千葉県',35.61,140.12],
+    ['東京都',35.69,139.69],
+    ['神奈川県(横浜)',35.45,139.64],
+    ['新潟県',37.9,139.02],
+    ['富山県',36.7,137.21],
+    ['石川県(金沢)',36.59,136.63],
+    ['福井県',36.07,136.22],
+    ['山梨県',35.66,138.57],
+    ['長野県',36.65,138.18],
+    ['岐阜県',35.39,136.72],
+    ['静岡県',34.98,138.38],
+    ['愛知県(名古屋)',35.18,136.91],
+    ['三重県',34.73,136.51],
+    ['滋賀県',35.0,135.87],
+    ['京都府',35.02,135.76],
+    ['大阪府',34.69,135.52],
+    ['兵庫県(神戸)',34.69,135.18],
+    ['奈良県',34.69,135.83],
+    ['和歌山県',34.23,135.17],
+    ['鳥取県',35.5,134.24],
+    ['島根県(松江)',35.47,133.05],
+    ['岡山県',34.66,133.93],
+    ['広島県',34.4,132.46],
+    ['山口県',34.19,131.47],
+    ['徳島県',34.07,134.56],
+    ['香川県(高松)',34.34,134.04],
+    ['愛媛県(松山)',33.84,132.77],
+    ['高知県',33.56,133.53],
+    ['福岡県',33.61,130.42],
+    ['佐賀県',33.25,130.3],
+    ['長崎県',32.74,129.87],
+    ['熊本県',32.79,130.74],
+    ['大分県',33.24,131.61],
+    ['宮崎県',31.91,131.42],
+    ['鹿児島県',31.56,130.56],
+    ['沖縄県(那覇)',26.21,127.68],
+  ];
+  $('pref').innerHTML = PREFS.map((p,i) => '<option value="' + i + '"' + (i===12?' selected':'') + '>' + p[0] + '</option>').join('');
+  function useGeo(cb){ if(!navigator.geolocation){ alert('この端末では現在地を取得できません'); return; }
+    $('geoBtn').textContent='取得中…';
+    navigator.geolocation.getCurrentPosition(p => { $('geoBtn').textContent='📍 現在地で表示中'; cb(p.coords.latitude, p.coords.longitude, '現在地'); },
+      () => { $('geoBtn').textContent='📍 現在地を使う'; alert('位置情報が取得できませんでした。都道府県を選んでください。'); }, {timeout: 8000}); }
+  let day=0, data=null, where='東京都';
+  const LV=[[30,'半袖・薄手'],[25,'半袖'],[20,'長袖シャツ・薄手カーディガン'],[15,'薄手のジャケット・パーカー'],[10,'ジャケット＋セーター'],[5,'コート・マフラー'],[-99,'厚手コート・ダウン・手袋']];
+  function level(t){ for(let i=0;i<LV.length;i++) if(t>=LV[i][0]) return i; return LV.length-1; }
+  async function load(lat,lon,name){
+    where=name; $('whereLbl').textContent=name; $('sub').textContent='予報を取得中…';
+    try{
+      const r=await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max,wind_speed_10m_max,weather_code&hourly=temperature_2m&timezone=Asia%2FTokyo&forecast_days=2`);
+      data=await r.json(); render();
+    }catch(e){ $('sub').textContent='⚠️ 予報を取得できませんでした。時間をおいて再度お試しください。'; }
+  }
+  function render(){
+    if(!data) return;
+    const d=data.daily, hi=d.temperature_2m_max[day], lo=d.temperature_2m_min[day], rain=d.precipitation_probability_max[day]??0, wind=d.wind_speed_10m_max[day];
+    const h=data.hourly.temperature_2m, base=day*24;
+    const t7=h[base+7], t13=h[base+13], t19=h[base+19];
+    let lv=level(Math.round(hi)); const tips=[];
+    if(wind>=8){ lv=Math.min(LV.length-1, lv+1); tips.push('風が強く体感は一段寒め'); }
+    if(hi-lo>=8) tips.push('朝晩との寒暖差'+(hi-lo).toFixed(0)+'℃。脱ぎ着できる羽織りを一枚');
+    if(rain>=50) tips.push('降水確率'+rain+'%。傘と濡れてもいい靴を');
+    if(hi>=30) tips.push('日差し対策と水分補給を');
+    $('big').textContent=LV[lv][1];
+    $('dayLbl').textContent= day? '明日':'今日';
+    $('sub').textContent=`朝${Math.round(t7)}℃ → 昼${Math.round(t13)}℃ → 夜${Math.round(t19)}℃（${d.time[day].replace(/-/g,'/')}の予報）`;
+    $('temps').textContent=Math.round(hi)+'℃ / '+Math.round(lo)+'℃';
+    $('rain').textContent=rain+'%'; $('wind').textContent=wind.toFixed(0)+' m/s';
+    $('advice').textContent= tips.length ? '💡 '+tips.join('。')+'。' : '💡 一日を通して服装の切り替えは少なくてOK。';
+    draw(lv, t7, t13, t19, rain>=50, hi>=30);
+    SHARE=`${where}の${day?'明日':'今日'}の服装は「${LV[lv][1]}」🧥 朝${Math.round(t7)}℃/昼${Math.round(t13)}℃/夜${Math.round(t19)}℃。あなたの街は？👇`;
+  }
+  function draw(lv,t7,t13,t19,rain,hot){
+    const cv=$('cv'); const {x,W,H}=fitCanvas(cv,0.5);
+    x.fillStyle='#fdfcf8'; x.fillRect(0,0,W,H);
+    // 朝昼夜の気温ストリップ（左）
+    const cols=[['朝 7時',t7,'#9ec5d9'],['昼 13時',t13,'#f2c14e'],['夜 19時',t19,'#5d6d8a']];
+    const sw=W*0.5, bx=24, bw=(sw-48)/3, base=H-34, maxT=Math.max(35,...cols.map(c=>c[1])), minT=Math.min(0,...cols.map(c=>c[1]));
+    cols.forEach((c,i)=>{ const hgt=(c[1]-minT)/(maxT-minT)*(H-90); const X=bx+i*bw+bw*0.2;
+      x.fillStyle=c[2]; x.fillRect(X, base-hgt, bw*0.6, hgt);
+      x.fillStyle='#14181d'; x.font='700 15px system-ui,sans-serif'; x.textAlign='center'; x.fillText(Math.round(c[1])+'℃', X+bw*0.3, base-hgt-8);
+      x.fillStyle='#59616c'; x.font='11px system-ui,sans-serif'; x.fillText(c[0], X+bw*0.3, base+18); });
+    // 人物（右）
+    const cx=W*0.75, top=22, scale=Math.min(1,(H-40)/240);
+    x.save(); x.translate(cx, top); x.scale(scale,scale);
+    const coat=lv>=4, longSleeve=lv>=2, scarf=lv>=5, gloves=lv>=6;
+    const palette=['#e5735f','#e9a23b','#7fae6c','#4f8fc0','#3b5f8a','#4a3f70','#2d3140'][lv];
+    // 頭
+    x.fillStyle='#f1d3b8'; x.beginPath(); x.arc(0,30,22,0,6.283); x.fill();
+    x.fillStyle='#3b2f2a'; x.beginPath(); x.arc(0,24,22,Math.PI,2*Math.PI); x.fill();
+    // 胴体（服）
+    const bodyW = coat? 78 : 62, bodyH = coat? 118 : 96;
+    x.fillStyle=palette; roundRect(x,-bodyW/2,56,bodyW,bodyH,14); x.fill();
+    // 袖
+    const sl = longSleeve? 78 : 34;
+    x.fillStyle=palette; roundRect(x,-bodyW/2-22,60,22,sl,10); x.fill(); roundRect(x,bodyW/2,60,22,sl,10); x.fill();
+    if(!longSleeve){ x.fillStyle='#f1d3b8'; roundRect(x,-bodyW/2-20,94,18,44,9); x.fill(); roundRect(x,bodyW/2+2,94,18,44,9); x.fill(); }
+    if(gloves){ x.fillStyle='#8a3b2f'; roundRect(x,-bodyW/2-22,132,22,18,8); x.fill(); roundRect(x,bodyW/2,132,22,18,8); x.fill(); }
+    // コートのボタン列
+    if(coat){ x.fillStyle='rgba(0,0,0,.25)'; for(let k=0;k<4;k++){ x.beginPath(); x.arc(0,80+k*22,3,0,6.283); x.fill(); } }
+    // マフラー
+    if(scarf){ x.fillStyle='#c4442b'; roundRect(x,-30,48,60,16,8); x.fill(); roundRect(x,8,58,14,46,6); x.fill(); }
+    // 脚
+    x.fillStyle= lv>=3? '#2f3a4a' : '#6b7d8f'; roundRect(x,-26,56+bodyH-6,22,58,8); x.fill(); roundRect(x,4,56+bodyH-6,22,58,8); x.fill();
+    // 傘 / 太陽
+    if(rain){ x.strokeStyle='#1b4a63'; x.lineWidth=3; x.beginPath(); x.moveTo(-72,130); x.lineTo(-72,60); x.stroke(); x.fillStyle='#2c6b86'; x.beginPath(); x.arc(-72,60,40,Math.PI,2*Math.PI); x.fill(); }
+    if(hot&&!rain){ x.fillStyle='#f4c542'; x.beginPath(); x.arc(-84,26,18,0,6.283); x.fill(); x.strokeStyle='#f4c542'; x.lineWidth=3; for(let k=0;k<8;k++){ const a=k*Math.PI/4; x.beginPath(); x.moveTo(-84+Math.cos(a)*24,26+Math.sin(a)*24); x.lineTo(-84+Math.cos(a)*32,26+Math.sin(a)*32); x.stroke(); } }
+    x.restore();
+    function roundRect(c,X,Y,w,h,r){ c.beginPath(); c.moveTo(X+r,Y); c.arcTo(X+w,Y,X+w,Y+h,r); c.arcTo(X+w,Y+h,X,Y+h,r); c.arcTo(X,Y+h,X,Y,r); c.arcTo(X,Y,X+w,Y,r); c.closePath(); }
+  }
+  const go=()=>{ const p=PREFS[+$('pref').value]; load(p[1],p[2],p[0].replace(/\(.*\)/,'')); };
+  $('pref').addEventListener('change',go);
+  document.querySelectorAll('[data-day]').forEach(b=>b.addEventListener('click',()=>{ document.querySelectorAll('[data-day]').forEach(c=>c.classList.remove('is-on')); b.classList.add('is-on'); day=+b.dataset.day; render(); }));
+  $('geoBtn').addEventListener('click',()=>useGeo(load));
+  let rt; addEventListener('resize',()=>{ clearTimeout(rt); rt=setTimeout(render,200); });
+  go(); bindShare();
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'kyou-fukusou', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/result-fx.js?v=4"></script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

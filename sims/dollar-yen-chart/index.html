@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/dollar-yen-chart/">
+<title>ドル円 為替チャート｜今日のレートと30〜180日の推移（ユーロ・ポンド・豪ドル対応）｜シミュラボ</title>
+<meta name="description" content="今日のドル円レートはいくら？欧州中央銀行（ECB）公表の為替レートを取得し、最新値・前日比・30〜180日の推移チャートを表示する無料ツール。ユーロ・ポンド・豪ドル・元・ウォンにも対応。円換算の計算もできます。">
+<meta property="og:title" content="ドル円 為替チャート｜今日のレートと推移">
+<meta property="og:description" content="ECB公表レートで今日のドル円と推移チャートをライブ表示。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/dollar-yen-chart.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/dollar-yen-chart.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/dollar-yen-chart/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "ドル円 為替チャート（今日のレートと推移）", "url": "https://shimulabo.com/sims/dollar-yen-chart/", "description": "ECB公表レートで今日のドル円と推移チャートをライブ表示。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ライブデータラボ", "item": "https://shimulabo.com/live/"}, {"@type": "ListItem", "position": 3, "name": "ドル円 為替チャート（今日のレートと推移）", "item": "https://shimulabo.com/sims/dollar-yen-chart/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "レートはいつ更新される？", "acceptedAnswer": {"@type": "Answer", "text": "欧州中央銀行の公表に合わせて、毎営業日1回（日本時間の夜）更新されます。土日祝は前営業日の値が表示されます。"}}, {"@type": "Question", "name": "銀行の両替レートと違うのはなぜ？", "acceptedAnswer": {"@type": "Answer", "text": "銀行や両替所は基準レートに手数料（TTS/TTB）を上乗せするため、片道で1〜3円程度の差が出るのが一般的です。"}}, {"@type": "Question", "name": "リアルタイムのレートが知りたい", "acceptedAnswer": {"@type": "Answer", "text": "分単位で動く為替市場の相場は証券会社・FX会社の取引画面をご確認ください。本ツールは日次の基準値です。"}}, {"@type": "Question", "name": "入力データは送信される？", "acceptedAnswer": {"@type": "Answer", "text": "換算に入れた金額はブラウザ内でのみ計算され、外部には送信されません。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../live/">⚡ ライブデータ一覧</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../live/">ライブデータラボ</a><span>›</span><span class="cur">ドル円 為替チャート（今日のレートと推移）</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">お金・時間</div>
+    <h1>ドル円 為替チャート（今日のレートと推移）</h1>
+    <p class="lead">今日のドル円は、いくら？ 欧州中央銀行が毎営業日公表する為替レートを取得して、<b>最新値・前日比・推移チャート</b>を表示します。通貨を切り替えれば、ユーロや豪ドル、ウォンも見られます。</p>
+  </div>
+
+  <section class="panel" id="resultPanel">
+    <div class="result">
+      <div class="label">今日の <span id="curName">米ドル</span>／円</div>
+      <div class="big"><span id="big">—</span><span class="unit" id="unitLbl">円</span></div>
+      <div class="sub" id="sub">レートを取得中…</div>
+      <div class="statline"><div class="stat"><div class="k">前日比</div><div class="v accent" id="diff">—</div></div>
+      <div class="stat"><div class="k"><span id="periodHi">90</span>日の高値</div><div class="v" id="hi">—</div></div>
+      <div class="stat"><div class="k"><span id="periodLo">90</span>日の安値</div><div class="v" id="lo">—</div></div></div>
+      <canvas id="cv" style="width:100%;height:auto;display:block;margin-top:16px;background:#fff;border:1px solid var(--line);border-radius:8px;"></canvas>
+      <div class="row" style="margin-top:14px;text-align:left;">
+        <div class="field" style="margin-bottom:0;"><label>通貨</label><select id="cur"><option value="USD" selected>米ドル（USD）</option><option value="EUR">ユーロ（EUR）</option><option value="GBP">英ポンド（GBP）</option><option value="AUD">豪ドル（AUD）</option><option value="CNY">中国元（CNY）</option><option value="KRW">韓国ウォン（KRW）</option><option value="THB">タイバーツ（THB）</option><option value="CHF">スイスフラン（CHF）</option></select></div>
+        <div class="field" style="margin-bottom:0;"><label>期間</label><div style="display:flex;gap:8px;"><button class="chip" data-days="30" type="button">30日</button><button class="chip is-on" data-days="90" type="button">90日</button><button class="chip" data-days="180" type="button">180日</button></div></div>
+      </div>
+      <div class="row" style="margin-top:12px;text-align:left;">
+        <div class="field" style="margin-bottom:0;"><label><span id="amtLbl">米ドル</span> → 円</label><input type="number" id="amt" value="100" min="0" inputmode="decimal"></div>
+        <div class="field" style="margin-bottom:0;"><label>円換算</label><div class="v" id="conv" style="font-size:22px;font-weight:700;padding:11px 0;font-variant-numeric:tabular-nums;">—</div></div>
+      </div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>このチャートについて</h2>
+    <p>表示しているのは<b>欧州中央銀行（ECB）が毎営業日1回公表する参考為替レート</b>です。金融機関のリアルタイム相場（分単位で動く為替市場の気配値）ではなく、日次の基準値のため、「今日はだいたい1ドル何円か」「この3ヶ月でどれくらい円安・円高に動いたか」を把握する用途に向いています。土日・祝日は更新されません。</p>
+    <h2>円安・円高は、どっちが得？</h2>
+    <p>1ドル＝150円が160円になるのが<b>円安</b>（円の価値が下がる）、140円になるのが<b>円高</b>です。海外旅行・輸入品・海外サービスの支払いは円高のほうが安く済み、輸出企業の業績や海外資産の円換算額は円安で増えます。為替は日米の金利差、貿易収支、政府・日銀の介入観測などで日々動きます。</p>
+    <div class="tbl-scroll"><table class="seo-table"><tr><th>ドル円が10円動くと…</th><th>影響の例</th></tr>
+    <tr><td>1,000ドルの海外旅行費用</td><td>約1万円 変わる</td></tr>
+    <tr><td>月3万円の米国株積立（ドル建て）</td><td>買える口数が約6〜7%変わる</td></tr>
+    <tr><td>100万円の外貨預金（米ドル）</td><td>評価額が約6〜7万円 変わる</td></tr></table></div>
+    <p>手元の外貨を円にしたい・円を外貨にしたい計算は、下の換算欄でどうぞ。海外で1万円が現地通貨でいくらになるかは<a href="../genchi-ikura/">1万円、現地でいくら？</a>、円安の体感は<a href="../enyasu-taikan/">円安体感メーター</a>もあわせて。</p>
+    <div class="note">為替レートは投資判断の根拠にはしないでください。実際の両替・送金レートは金融機関ごとの手数料（TTS/TTBのスプレッド）で本レートと数円異なります。</div>
+    <h2>引用・転載について</h2>
+    <p>本ページの計算結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「ドル円 為替チャート（今日のレートと推移）」 https://shimulabo.com/sims/dollar-yen-chart/</code><br>Webでご利用の際は上記URLへのリンク設置をお願いします。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>レートはいつ更新される？</dt><dd>欧州中央銀行の公表に合わせて、毎営業日1回（日本時間の夜）更新されます。土日祝は前営業日の値が表示されます。</dd><dt>銀行の両替レートと違うのはなぜ？</dt><dd>銀行や両替所は基準レートに手数料（TTS/TTB）を上乗せするため、片道で1〜3円程度の差が出るのが一般的です。</dd><dt>リアルタイムのレートが知りたい</dt><dd>分単位で動く為替市場の相場は証券会社・FX会社の取引画面をご確認ください。本ツールは日次の基準値です。</dd><dt>入力データは送信される？</dt><dd>換算に入れた金額はブラウザ内でのみ計算され、外部には送信されません。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../genchi-ikura/"><span class="e">💴</span><span>1万円、現地でいくら？</span></a><a class="related-card" href="../enyasu-taikan/"><span class="e">📉</span><span>円安体感メーター</span></a><a class="related-card" href="../kin-souba/"><span class="e">🥇</span><span>18金 相場 1g 今日</span></a><a class="related-card" href="../btc-tara/"><span class="e">₿</span><span>もしビットコイン買ってたら</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../live/">⚡ ライブデータラボ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = '';
+  function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
+  function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function bindShare(){
+    $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+    $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText(SHARE+'\\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+  }
+  function fitCanvas(cv, ratio){ const par=cv.parentElement, cs=getComputedStyle(par), pl=parseFloat(cs.paddingLeft)||0, pr=parseFloat(cs.paddingRight)||0;
+    if(innerWidth<640 && pl>0){ cv.style.marginLeft=(-pl)+'px'; cv.style.marginRight=(-pr)+'px'; cv.style.width='calc(100% + '+(pl+pr)+'px)'; } else { cv.style.marginLeft=''; cv.style.marginRight=''; cv.style.width='100%'; }
+    const W=cv.clientWidth || par.clientWidth; let H=Math.round(W*ratio); const dpr=Math.min(window.devicePixelRatio||1,2); cv.style.height=H+'px'; H=cv.clientHeight||H; cv.width=Math.floor(W*dpr); cv.height=Math.floor(H*dpr); const x=cv.getContext('2d'); x.setTransform(dpr,0,0,dpr,0,0); return {x,W,H}; }
+  const pad2 = n => String(n).padStart(2,'0');
+  const ymd = d => d.getFullYear()+'-'+pad2(d.getMonth()+1)+'-'+pad2(d.getDate());
+  const jaDate = d => d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日('+'日月火水木金土'[d.getDay()]+')';
+  const NAMES={USD:'米ドル',EUR:'ユーロ',GBP:'英ポンド',AUD:'豪ドル',CNY:'中国元',KRW:'韓国ウォン',THB:'タイバーツ',CHF:'スイスフラン'};
+  let cur='USD', days=90, series=[];
+  const per = () => cur==='KRW' ? 100 : 1;                      // ウォンは100単位で表示
+  const fmt = v => (v*per()).toFixed(2)+'円';
+  async function load(){
+    $('sub').textContent='レートを取得中…';
+    try{
+      const end=new Date(), start=new Date(end.getTime()-(days+12)*86400000);
+      const r=await fetch(`https://api.frankfurter.dev/v1/${ymd(start)}..${ymd(end)}?base=${cur}&symbols=JPY`);
+      const j=await r.json();
+      const keys=Object.keys(j.rates).sort().slice(-days);
+      series=keys.map(k=>({d:k,v:j.rates[k].JPY}));
+      if(series.length<2) throw new Error('short');
+      const last=series[series.length-1], prev=series[series.length-2];
+      const dv=(last.v-prev.v)*per();
+      $('curName').textContent=NAMES[cur];
+      $('big').textContent=(last.v*per()).toFixed(2);
+      $('unitLbl').textContent= per()===100 ? '円/100ウォン' : '円';
+      $('sub').textContent=last.d.replace(/-/g,'/')+' 公表（欧州中央銀行の参考レート・毎営業日更新）';
+      $('diff').textContent=(dv>=0?'+':'')+dv.toFixed(2)+'円'+(dv>=0?'（円安）':'（円高）');
+      $('diff').style.color= dv>=0 ? '#c4442b' : '#1b4a63';
+      const vals=series.map(s=>s.v);
+      $('hi').textContent=fmt(Math.max(...vals)); $('lo').textContent=fmt(Math.min(...vals));
+      $('periodHi').textContent=days; $('periodLo').textContent=days;
+      $('amtLbl').textContent=NAMES[cur];
+      draw(); conv();
+      SHARE=`今日の${NAMES[cur]}は ${(last.v*per()).toFixed(2)}円（前日比${dv>=0?'+':''}${dv.toFixed(2)}円）💱 ${days}日の推移チャートはこちら👇`;
+    }catch(e){ $('sub').textContent='⚠️ レートを取得できませんでした。時間をおいて再度お試しください。'; }
+  }
+  function draw(){
+    const cv=$('cv'); const {x,W,H}=fitCanvas(cv,0.5);
+    x.fillStyle='#fff'; x.fillRect(0,0,W,H);
+    if(!series.length) return;
+    const L=54,R=14,T=18,B=30, w=W-L-R, h=H-T-B;
+    const vals=series.map(s=>s.v*per()); let lo=Math.min(...vals), hi=Math.max(...vals);
+    const span=Math.max(hi-lo, 0.5); lo-=span*0.08; hi+=span*0.08;
+    const X=i=>L+i/(series.length-1)*w, Y=v=>T+(1-(v-lo)/(hi-lo))*h;
+    // グリッド＋目盛
+    x.strokeStyle='rgba(20,24,29,.08)'; x.lineWidth=1; x.font='11px system-ui,sans-serif'; x.fillStyle='#8b929c'; x.textAlign='right';
+    for(let k=0;k<=4;k++){ const v=lo+(hi-lo)*k/4, y=Y(v); x.beginPath(); x.moveTo(L,y); x.lineTo(W-R,y); x.stroke(); x.fillText(v.toFixed(per()===100?2:1), L-6, y+4); }
+    // 面のグラデ
+    const g=x.createLinearGradient(0,T,0,T+h); g.addColorStop(0,'rgba(44,107,134,.22)'); g.addColorStop(1,'rgba(44,107,134,0)');
+    x.beginPath(); x.moveTo(X(0),Y(vals[0])); vals.forEach((v,i)=>x.lineTo(X(i),Y(v))); x.lineTo(X(vals.length-1),T+h); x.lineTo(X(0),T+h); x.closePath(); x.fillStyle=g; x.fill();
+    // 線
+    x.beginPath(); vals.forEach((v,i)=> i?x.lineTo(X(i),Y(v)):x.moveTo(X(i),Y(v))); x.strokeStyle='#2c6b86'; x.lineWidth=2; x.lineJoin='round'; x.stroke();
+    // 高値・安値マーカー
+    const iH=vals.indexOf(Math.max(...vals)), iL=vals.indexOf(Math.min(...vals));
+    x.textAlign='center'; x.font='600 11px system-ui,sans-serif';
+    x.fillStyle='#c4442b'; x.beginPath(); x.arc(X(iH),Y(vals[iH]),3.5,0,6.283); x.fill(); x.fillText('高 '+vals[iH].toFixed(2), X(iH), Y(vals[iH])-9);
+    x.fillStyle='#1b4a63'; x.beginPath(); x.arc(X(iL),Y(vals[iL]),3.5,0,6.283); x.fill(); x.fillText('安 '+vals[iL].toFixed(2), X(iL), Y(vals[iL])+17);
+    // 最新点
+    const n=vals.length-1; x.fillStyle='#c4442b'; x.beginPath(); x.arc(X(n),Y(vals[n]),5,0,6.283); x.fill(); x.fillStyle='#fff'; x.beginPath(); x.arc(X(n),Y(vals[n]),2.2,0,6.283); x.fill();
+    // 日付ラベル
+    x.fillStyle='#8b929c'; x.font='11px system-ui,sans-serif';
+    [0, Math.floor(n/2), n].forEach((i,k)=>{ x.textAlign= k===0?'left':k===1?'center':'right'; x.fillText(series[i].d.slice(5).replace('-','/'), X(i), H-8); });
+  }
+  function conv(){ if(!series.length) return; const v=series[series.length-1].v, a=+$('amt').value||0; $('conv').textContent=Math.round(a*v).toLocaleString('ja-JP')+' 円'; }
+  document.querySelectorAll('[data-days]').forEach(b=>b.addEventListener('click',()=>{ document.querySelectorAll('[data-days]').forEach(c=>c.classList.remove('is-on')); b.classList.add('is-on'); days=+b.dataset.days; load(); }));
+  $('cur').addEventListener('change',()=>{ cur=$('cur').value; load(); });
+  $('amt').addEventListener('input',conv);
+  let rt; addEventListener('resize',()=>{ clearTimeout(rt); rt=setTimeout(draw,200); });
+  load(); bindShare();
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'dollar-yen-chart', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/result-fx.js?v=4"></script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>
