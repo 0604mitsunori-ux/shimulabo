@@ -13,9 +13,9 @@
     <meta property="og:image" content="https://shimulabo.com/ogp/gears.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://shimulabo.com/ogp/gears.png">
-<title>歯車シミュレーター｜かみ合う歯車と回転比｜シミュラボ</title>
-<meta name="description" content="かみ合って回る歯車の歯数を変えると、回転の速さの比（ギア比）がどう変わるかを目と数字で確かめられる無料シミュレーター。">
-<meta property="og:title" content="歯車シミュレーター｜かみ合う歯車と回転比">
+<title>歯車シミュレーター｜ギア比・回転数の計算（速度伝達比）｜シミュラボ</title>
+<meta name="description" content="かみ合う歯車の歯数を変えると、ギア比と回転数がどう変わるかを目と数字で確かめられる無料シミュレーター。回転数（rpm）と速度伝達比の計算、回転カウンター、一時停止・全画面表示つきで、中学校の技術の授業にも使えます。">
+<meta property="og:title" content="歯車シミュレーター｜ギア比・回転数の計算">
 <meta property="og:description" content="歯数を変えてギア比＝回転速度の比を体感。">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="../../assets/style.css?v=4">
@@ -25,7 +25,7 @@
     <meta name="robots" content="index,follow">
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "歯車シミュレーター", "url": "https://shimulabo.com/sims/gears/", "description": "歯数を変えて回転比（ギア比）を体感。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "歯車シミュレーター", "item": "https://shimulabo.com/sims/gears/"}]}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "なぜ逆向きに回る？", "acceptedAnswer": {"@type": "Answer", "text": "かみ合う歯車は必ず反対方向に回ります。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動きます。"}}, {"@type": "Question", "name": "トルクって何？", "acceptedAnswer": {"@type": "Answer", "text": "回転させる力のことです。歯車で回転数を半分にすると、トルクは2倍になります（摩擦を無視した場合）。"}}, {"@type": "Question", "name": "3つ以上つなぐとどうなる？", "acceptedAnswer": {"@type": "Answer", "text": "間の歯車（アイドラー）は回転方向を反転させるだけで、ギア比は両端の歯数だけで決まります。"}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "ギア比の計算方法は？", "acceptedAnswer": {"@type": "Answer", "text": "ギア比（速度伝達比）＝ 従動車の歯数 ÷ 原動車の歯数 です。従動車の回転数は「原動車の回転数 × 原動車の歯数 ÷ 従動車の歯数」で求められます。"}}, {"@type": "Question", "name": "速度伝達比とは？", "acceptedAnswer": {"@type": "Answer", "text": "中学校の技術で使う言葉で、原動車（回す側）の回転数 ÷ 従動車（回される側）の回転数のことです。歯車では「従動車の歯数 ÷ 原動車の歯数」と同じ値になります。"}}, {"@type": "Question", "name": "なぜ逆向きに回る？", "acceptedAnswer": {"@type": "Answer", "text": "かみ合う歯車は必ず反対方向に回ります。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動きます。"}}, {"@type": "Question", "name": "トルクって何？", "acceptedAnswer": {"@type": "Answer", "text": "回転させる力のことです。歯車で回転数を半分にすると、トルクは2倍になります（摩擦を無視した場合）。"}}, {"@type": "Question", "name": "3つ以上つなぐとどうなる？", "acceptedAnswer": {"@type": "Answer", "text": "間の歯車（アイドラー）は回転方向を反転させるだけで、ギア比は両端の歯数だけで決まります。"}}]}</script>
     <!-- ga4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
@@ -68,6 +68,11 @@
       <canvas id="cv" width="600" height="420" style="width:100%;max-width:600px;height:auto;background:#0b1020;border:1px solid var(--line);border-radius:12px;"></canvas>
       <div style="width:100%;max-width:560px;"><div class="field" style="margin-bottom:10px;"><div class="slider-head" style="display:flex;justify-content:space-between;"><label style="margin:0;">左の歯数</label><span class="val" id="t1L" style="font-weight:800;color:var(--teal-d);">24</span></div><input type="range" id="t1" min="8" max="40" value="24" step="1" style="width:100%;"></div><div class="field" style="margin-bottom:10px;"><div class="slider-head" style="display:flex;justify-content:space-between;"><label style="margin:0;">右の歯数</label><span class="val" id="t2L" style="font-weight:800;color:var(--teal-d);">12</span></div><input type="range" id="t2" min="8" max="40" value="12" step="1" style="width:100%;"></div></div>
     </div>
+    <div class="row" style="max-width:560px;margin:12px auto 0;"><div class="field"><label>左（原動車）の回転数 <span class="hint">（rpm＝1分あたりの回転数）</span></label><input type="number" id="rpm" value="60" min="0" step="any" inputmode="decimal"></div></div>
+    <div class="statline" style="max-width:560px;margin:0 auto;"><div class="stat"><div class="k">右（従動車）の回転数</div><div class="v accent" id="rpm2">—</div></div>
+    <div class="stat"><div class="k">速度伝達比</div><div class="v" id="ratio">—</div></div>
+    <div class="stat"><div class="k">回る向き</div><div class="v">左と反対</div></div></div>
+    <div class="share-row" style="margin-top:4px;"><button class="btn btn-ghost" id="pauseBtn" type="button">⏸ 一時停止</button><button class="btn btn-ghost" id="resetBtn" type="button">↺ 回転数を0に</button><button class="btn btn-ghost" id="fsBtn" type="button">⛶ 全画面（電子黒板用）</button></div>
     <p style="text-align:center;color:var(--ink-2);font-size:13px;margin-top:14px;">歯数の比が、そのまま回転数の逆比に。歯数が半分の歯車は2倍速く回ります。</p>
     <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
     <div class="share-row"><button class="btn btn-x" id="shareBtn">𝕏 でシェア</button></div>
@@ -76,13 +81,24 @@
   <article class="article">
     <h2>ギア比のしくみ</h2>
     <p>かみ合う歯車は、歯のかみ合う数が同じになるよう回ります。だから歯数が半分の歯車は2倍の速さで回転。自転車の変速、車のミッション、時計の針——すべてこの原理です。</p>
-    <!-- enriched-2026-09 -->
+    <!-- improved-2026-10 -->
+<h2>回転数と速度伝達比の計算（中学校 技術）</h2>
+<p>中学校の技術では、回す側の歯車を<b>原動車</b>、回される側を<b>従動車</b>と呼び、回転の速さがどれだけ変わるかを<b>速度伝達比</b>で表します。</p>
+<div class="note"><strong>計算式</strong><br>速度伝達比 ＝ 原動車の回転数 ÷ 従動車の回転数 ＝ 従動車の歯数 ÷ 原動車の歯数<br>従動車の回転数 ＝ 原動車の回転数 × 原動車の歯数 ÷ 従動車の歯数</div>
+<p>たとえば原動車24歯・従動車12歯なら、速度伝達比は 12÷24＝<b>0.5</b>。原動車が60rpmで回ると、従動車は 60×24÷12＝<b>120rpm</b> で回ります。速度伝達比が1より小さいと速く、1より大きいとゆっくり（そのぶん力が強く）回ります。上のシミュレーターに歯数と回転数を入れると、同じ計算がすぐに確かめられます。</p>
+<h2>授業で使える問い</h2>
+<details><summary>問1　原動車20歯・従動車40歯。原動車が1分間に60回転すると、従動車は何回転？</summary><p>60×20÷40＝<b>30回転</b>（速度伝達比は2）。</p></details>
+<details><summary>問2　自転車の前のギア48歯・後ろのギア16歯。ペダルを1回こぐと、後輪は何回転？</summary><p>48÷16＝<b>3回転</b>。後ろのギアを大きくすると、こぐのは軽くなり、進む距離は短くなります。</p></details>
+<details><summary>問3　歯車を3つ並べたとき、真ん中の歯車の歯数を変えると、右端の回転数は変わる？</summary><p><b>変わりません</b>。真ん中の歯車（アイドラー）は回る向きを変えるだけで、回転数の比は両端の歯数だけで決まります。</p></details>
+<details><summary>問4　ゆっくり大きな力で回したいとき、速度伝達比は1より大きくする？小さくする？</summary><p><b>大きくします</b>。従動車の歯数を多くすると回転はゆっくりになり、回す力（トルク）は大きくなります。</p></details>
+<p class="hint">先生向け：「全画面」で電子黒板に大きく映せます。「一時停止」で止めて歯の数を数えさせたり、「回転数を0に」で回転カウンターを戻して「左が2回転する間に右は何回転？」を数えさせたりできます。</p>
+<!-- enriched-2026-09 -->
 <h2>ギア比の計算</h2>
 <p>かみ合う2つの歯車では、<b>回転数の比は歯数の逆比</b>になります。左20歯・右40歯なら、左が2回転する間に右は1回転（ギア比2:1）。速度が半分になる代わりに、回す力（トルク）は2倍になります。速度と力はトレードオフ、というのが歯車の本質です。</p>
 <div class="tbl-scroll"><table class="seo-table"><tr><th>例</th><th>ギア比のはたらき</th></tr><tr><td>自転車（前50T・後25T）</td><td>ペダル1回転で後輪2回転（速い・重い）</td></tr><tr><td>自転車（前34T・後34T）</td><td>ペダル1回転で後輪1回転（遅い・軽い）</td></tr><tr><td>時計の秒針→分針</td><td>60:1（秒針60回転で分針1回転）</td></tr><tr><td>自動車の1速</td><td>約3〜4:1で力を優先</td></tr></table></div>
 <h2>歯数に“奇数”や“互いに素”を使う理由</h2>
 <p>工業用の歯車は、20:40のような割り切れる比を避け、20:41 のように互いに素な歯数を選ぶことがよくあります。同じ歯同士がいつも当たると偏った摩耗が起きるため、当たる歯の組み合わせをずらす工夫（ハンチング歯）です。</p>
-    <h2>よくある質問</h2><dl class="faq"><dt>なぜ逆向きに回る？</dt><dd>かみ合う歯車は必ず反対方向に回ります。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動きます。</dd><dt>トルクって何？</dt><dd>回転させる力のことです。歯車で回転数を半分にすると、トルクは2倍になります（摩擦を無視した場合）。</dd><dt>3つ以上つなぐとどうなる？</dt><dd>間の歯車（アイドラー）は回転方向を反転させるだけで、ギア比は両端の歯数だけで決まります。</dd></dl>
+    <h2>よくある質問</h2><dl class="faq"><dt>ギア比の計算方法は？</dt><dd>ギア比（速度伝達比）＝ 従動車の歯数 ÷ 原動車の歯数 です。従動車の回転数は「原動車の回転数 × 原動車の歯数 ÷ 従動車の歯数」で求められます。</dd><dt>速度伝達比とは？</dt><dd>中学校の技術で使う言葉で、原動車（回す側）の回転数 ÷ 従動車（回される側）の回転数のことです。歯車では「従動車の歯数 ÷ 原動車の歯数」と同じ値になります。</dd><dt>なぜ逆向きに回る？</dt><dd>かみ合う歯車は必ず反対方向に回ります。</dd><dt>データは送信されますか？</dt><dd>いいえ。すべてブラウザ内で動きます。</dd><dt>トルクって何？</dt><dd>回転させる力のことです。歯車で回転数を半分にすると、トルクは2倍になります（摩擦を無視した場合）。</dd><dt>3つ以上つなぐとどうなる？</dt><dd>間の歯車（アイドラー）は回転方向を反転させるだけで、ギア比は両端の歯数だけで決まります。</dd></dl>
   </article>
 
   <nav class="related" aria-label="related">
@@ -115,7 +131,7 @@
   try {
     syncSliders();
 
-    const cv=$('cv'),x=cv.getContext('2d');const W=cv.width,H=cv.height;let a=0;
+    const cv=$('cv'),x=cv.getContext('2d');const W=cv.width,H=cv.height;let a=0,paused=false;
     function gear(cx,cy,teeth,rot,col){
       const pr=teeth*4.2, ad=6; x.fillStyle=col;x.beginPath();
       for(let i=0;i<teeth;i++){const t0=rot+i/teeth*Math.PI*2,t1=rot+(i+0.5)/teeth*Math.PI*2;
@@ -131,11 +147,22 @@
     function loop(){
       const t1=+$('t1').value,t2=+$('t2').value; x.fillStyle='#0b1020';x.fillRect(0,0,W,H);
       const r1=t1*4.2,r2=t2*4.2,gap=r1+r2+12; const cx1=W/2-gap/2+10,cx2=cx1+gap-0; const cy=H/2;
-      a+=0.012; gear(cx1,cy,t1,a,'#5eead4'); gear(cx2,cy,t2,-a*t1/t2+Math.PI/t2,'#a78bfa');
+      if(!paused) a+=0.012; gear(cx1,cy,t1,a,'#5eead4'); gear(cx2,cy,t2,-a*t1/t2+Math.PI/t2,'#a78bfa');
       x.fillStyle='#fff';x.font='bold 15px sans-serif';x.textAlign='center';
       x.fillText('×'+(t1/t2).toFixed(2)+'倍速',W/2,H-14);
+      const n1=a/(Math.PI*2), n2=n1*t1/t2; x.font='bold 14px sans-serif';
+      x.fillStyle='#5eead4';x.textAlign='left';x.fillText('左 '+t1+'歯：'+n1.toFixed(1)+'回転',12,22);
+      x.fillStyle='#a78bfa';x.textAlign='right';x.fillText('右 '+t2+'歯：'+n2.toFixed(1)+'回転',W-12,22);
       requestAnimationFrame(loop);
     } loop();
+    function calcRpm(){ const t1=+$('t1').value,t2=+$('t2').value,r=+$('rpm').value;
+      $('rpm2').textContent=(isFinite(r)?(Math.round(r*t1/t2*100)/100):'—')+' rpm';
+      $('ratio').textContent=(Math.round(t2/t1*100)/100)+'（'+t2+'÷'+t1+'）';
+      SHARE='歯車シミュレーターで計算：左'+t1+'歯×'+r+'rpm → 右'+t2+'歯は'+(Math.round(r*t1/t2*100)/100)+'rpm（速度伝達比 '+(Math.round(t2/t1*100)/100)+'）⚙️'; }
+    ['t1','t2','rpm'].forEach(id=>$(id).addEventListener('input',calcRpm)); calcRpm();
+    $('pauseBtn').addEventListener('click',()=>{ paused=!paused; $('pauseBtn').textContent=paused?'▶ 再開':'⏸ 一時停止'; });
+    $('resetBtn').addEventListener('click',()=>{ a=0; });
+    $('fsBtn').addEventListener('click',()=>{ const el=cv; (el.requestFullscreen||el.webkitRequestFullscreen||function(){}).call(el); });
 
   } catch(e) { console.error(e); }
   const sb=$('shareBtn'); if(sb) sb.addEventListener('click',()=>window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));

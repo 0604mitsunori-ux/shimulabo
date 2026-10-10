@@ -13,9 +13,9 @@
     <meta property="og:image" content="https://shimulabo.com/ogp/kaibatsu-check.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://shimulabo.com/ogp/kaibatsu-check.png">
-<title>うちの海抜チェッカー｜住所を入れるだけで標高がわかる｜シミュラボ</title>
-<meta name="description" content="住所や駅名を入れるだけで、その場所の海抜（標高）を国土地理院の公式データから即計算。マンション階数換算や過去の津波の高さとの比較も。現在地からのチェックにも対応した無料ツール。">
-<meta property="og:title" content="うちの海抜チェッカー｜住所を入れるだけで標高がわかる">
+<title>うちの海抜チェッカー｜住所で海抜（標高）を調べる・ハザードマップも｜シミュラボ</title>
+<meta name="description" content="住所や駅名を入れるだけで、その場所の海抜（標高）を国土地理院の公式データから即計算。結果からその地点のハザードマップ（洪水・津波・高潮・土砂災害）をワンタップで開けます。海抜と標高の違い、海抜ゼロメートル地帯の解説つき。">
+<meta property="og:title" content="うちの海抜チェッカー｜住所で海抜（標高）を調べる">
 <meta property="og:description" content="住所や駅名から海抜を国土地理院データで即計算。津波の高さとの比較も。">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="../../assets/style.css?v=4">
@@ -25,7 +25,7 @@
     <meta name="robots" content="index,follow">
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "うちの海抜チェッカー", "url": "https://shimulabo.com/sims/kaibatsu-check/", "description": "住所や駅名から海抜（標高）を国土地理院データで即計算。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "うちの海抜チェッカー", "item": "https://shimulabo.com/sims/kaibatsu-check/"}]}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "標高データの出典は？", "acceptedAnswer": {"@type": "Answer", "text": "国土地理院の標高API（公式オープンデータ）をその場で参照しています。地点によって5m/10mメッシュ等の精度が異なり、結果に精度も表示されます。"}}, {"@type": "Question", "name": "入力した住所は保存されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。住所検索と標高取得は国土地理院のAPIに直接問い合わせるだけで、当サイトが入力内容を保存することはありません。"}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "標高データの出典は？", "acceptedAnswer": {"@type": "Answer", "text": "国土地理院の標高API（公式オープンデータ）をその場で参照しています。地点によって5m/10mメッシュ等の精度が異なり、結果に精度も表示されます。"}}, {"@type": "Question", "name": "入力した住所は保存されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。住所検索と標高取得は国土地理院のAPIに直接問い合わせるだけで、当サイトが入力内容を保存することはありません。"}}, {"@type": "Question", "name": "海抜と標高の違いは？", "acceptedAnswer": {"@type": "Answer", "text": "日本ではどちらも東京湾の平均海面を0mとして測った同じ高さです。地図や登山では「標高」、沿岸部の看板や防災の場面では「海抜」と書かれることが多いという違いです。"}}, {"@type": "Question", "name": "海抜何メートルなら安全？", "acceptedAnswer": {"@type": "Answer", "text": "海抜だけで安全かどうかは決まりません。津波・高潮は海抜が低い場所ほど影響を受けやすい一方、洪水は川との位置関係、土砂災害はむしろ高い場所の斜面で起きます。結果の「ハザードマップを開く」でその地点の想定を確認してください。"}}, {"@type": "Question", "name": "海抜ゼロメートル地帯とは？", "acceptedAnswer": {"@type": "Answer", "text": "地面の高さが満潮時の海面より低い土地のことです。堤防で守られていますが、浸水すると水が引きにくいのが特徴です。"}}]}</script>
     <!-- ga4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
@@ -80,6 +80,12 @@
       <div class="statline"><div class="stat"><div class="k">マンション換算</div><div class="v" id="floor">—</div></div>
       <div class="stat"><div class="k">東日本大震災の最大津波遡上高（40.1m）</div><div class="v" id="tsunami">—</div></div>
       <div class="stat"><div class="k">データ精度</div><div class="v accent" id="acc">—</div></div></div>
+      <div class="note" id="levelNote" style="margin-top:14px;text-align:left;"></div>
+      <div class="share-row" style="margin-top:6px;">
+        <a class="btn btn-primary" id="hazardBtn" href="https://disaportal.gsi.go.jp/" target="_blank" rel="noopener">🗺️ この場所のハザードマップを開く</a>
+        <a class="btn btn-ghost" id="reliefBtn" href="https://maps.gsi.go.jp/" target="_blank" rel="noopener">⛰️ 地理院地図で周りの高さを見る</a>
+      </div>
+      <p class="hint" style="text-align:center;margin-top:4px;">国土地理院「重ねるハザードマップ」で、洪水・津波・高潮・土砂災害の想定をこの地点の地図で確認できます。</p>
       <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
       <div class="share-row">
         <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
@@ -92,10 +98,26 @@
     <h2>この計算について</h2>
     <p>海抜（標高）は、豪雨・高潮・津波のリスクを考えるうえで一番基本の数字なのに、自分の家の海抜を即答できる人はほとんどいません。このツールは、国土地理院の住所検索APIで場所を特定し、同じく国土地理院の標高APIでその地点の標高を取得しています。地点により5mメッシュ（レーザー測量）〜10mメッシュの精度差があるため、結果には精度も表示します。</p>
     <div class="note">⚠️ ここで表示する標高は「土地の高さ」であり、浸水リスクそのものではありません。実際の防災判断は、お住まいの自治体が公開しているハザードマップ（<a href="https://disaportal.gsi.go.jp/" target="_blank" rel="noopener">重ねるハザードマップ</a>）を必ず確認してください。</div>
+<!-- improved-2026-10 -->
+    <h2>海抜とは？標高との違い</h2>
+    <p><b>海抜</b>は「海面からの高さ」、<b>標高</b>は「基準となる海面からの土地の高さ」のことで、日本ではどちらも<b>東京湾の平均海面（T.P.）を0m</b>として測った同じ高さを指します。地図や登山では「標高」、海辺の電柱や避難誘導の看板では「海抜」と書かれることが多い、という使い分けです。このツールが表示する数字も、国土地理院が東京湾平均海面を基準に測った標高です。</p>
+    <div class="tbl-scroll"><table class="seo-table"><tr><th>言葉</th><th>意味</th><th>よく見る場所</th></tr>
+    <tr><td>標高</td><td>東京湾平均海面を0mとした土地の高さ</td><td>地図・登山・国土地理院のデータ</td></tr>
+    <tr><td>海抜</td><td>海面からの高さ（日本では標高と同じ値）</td><td>沿岸部の電柱・避難看板・防災マップ</td></tr>
+    <tr><td>高さ（比高）</td><td>地面から建物などのてっぺんまで</td><td>ビルの高さ・タワーの高さ</td></tr></table></div>
+    <h2>海抜ゼロメートル地帯とは</h2>
+    <p>地面の高さが満潮時の海面より低い土地のことです。東京の江東区・墨田区・江戸川区の一部や、大阪湾・伊勢湾の沿岸などに広がっています。堤防で守られていますが、いったん浸水すると水が自然には引かないため、長い間水につかる想定になっている地域があります。</p>
+    <h2>海抜を調べたあとにやること</h2>
+    <ol>
+    <li>結果の「この場所のハザードマップを開く」から、<b>洪水・高潮・津波・土砂災害</b>の想定を確認する</li>
+    <li>浸水が想定されている場合は、その深さ（0.5m以上で床上浸水、3m以上で2階まで浸水 が目安）を確認する</li>
+    <li>お住まいの自治体の指定緊急避難場所・避難所と、そこまでの道を確認する</li>
+    <li>家族の人数分の水（1人1日3L）と食料を、最低3日分そなえる</li>
+    </ol>
     <h2>引用・転載について</h2>
     <p>本ページの計算結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・社内資料への引用を歓迎します。事前連絡は不要です。</p>
     <div class="note">推奨クレジット表記：<code>出典：シミュラボ「うちの海抜チェッカー」 https://shimulabo.com/sims/kaibatsu-check/</code><br>Webでご利用の際は上記URLへのリンク設置をお願いします。</div>
-    <h2>よくある質問</h2><dl class="faq"><dt>標高データの出典は？</dt><dd>国土地理院の標高API（公式オープンデータ）をその場で参照しています。地点によって5m/10mメッシュ等の精度が異なり、結果に精度も表示されます。</dd><dt>入力した住所は保存されますか？</dt><dd>いいえ。住所検索と標高取得は国土地理院のAPIに直接問い合わせるだけで、当サイトが入力内容を保存することはありません。</dd><dt>「東日本大震災の最大津波遡上高」とは？</dt><dd>2011年の東日本大震災で記録された、津波が陸地を駆け上がった最大の高さ（岩手県宮古市で約40.1m）です。海岸からの距離や地形で実際の到達高は大きく変わるため、あくまで「高さの感覚」をつかむ比較として表示しています。</dd></dl>
+    <h2>よくある質問</h2><dl class="faq"><dt>標高データの出典は？</dt><dd>国土地理院の標高API（公式オープンデータ）をその場で参照しています。地点によって5m/10mメッシュ等の精度が異なり、結果に精度も表示されます。</dd><dt>入力した住所は保存されますか？</dt><dd>いいえ。住所検索と標高取得は国土地理院のAPIに直接問い合わせるだけで、当サイトが入力内容を保存することはありません。</dd><dt>「東日本大震災の最大津波遡上高」とは？</dt><dd>2011年の東日本大震災で記録された、津波が陸地を駆け上がった最大の高さ（岩手県宮古市で約40.1m）です。海岸からの距離や地形で実際の到達高は大きく変わるため、あくまで「高さの感覚」をつかむ比較として表示しています。</dd><dt>海抜と標高の違いは？</dt><dd>日本ではどちらも東京湾の平均海面を0mとして測った同じ高さです。地図や登山では「標高」、沿岸部の看板や防災の場面では「海抜」と書かれることが多いという違いです。</dd><dt>海抜何メートルなら安全？</dt><dd>海抜だけで安全かどうかは決まりません。津波・高潮は海抜が低い場所ほど影響を受けやすい一方、洪水は川との位置関係、土砂災害はむしろ高い場所の斜面で起きます。結果の「ハザードマップを開く」でその地点の想定を確認してください。</dd><dt>海抜ゼロメートル地帯とは？</dt><dd>地面の高さが満潮時の海面より低い土地のことです。堤防で守られていますが、浸水すると水が引きにくいのが特徴です。</dd></dl>
   </article>
 
   <nav class="related" aria-label="related">
@@ -141,6 +163,15 @@
       $('floor').textContent = ele < 3 ? '1階の高さ未満' : 'ビルの約' + floors + '階';
       $('tsunami').textContent = ele >= 40.1 ? 'より高い ✅' : 'より低い（差 ' + (40.1 - ele).toFixed(1) + 'm）';
       $('acc').textContent = j.hsrc || '—';
+      const la = (+lat).toFixed(6), lo = (+lon).toFixed(6);
+      $('hazardBtn').href = 'https://disaportal.gsi.go.jp/maps/?ll=' + la + ',' + lo + '&z=16&base=pale';
+      $('reliefBtn').href = 'https://maps.gsi.go.jp/#16/' + la + '/' + lo + '/&base=std&ls=std%7Crelief&disp=11';
+      let lv;
+      if(ele < 0) lv = '<strong>海抜0m未満（海抜ゼロメートル地帯の可能性）</strong><br>まわりの海面より低い土地です。大雨や高潮のときに水が引きにくいため、ハザードマップで浸水の深さと避難先を必ず確認してください。';
+      else if(ele < 5) lv = '<strong>海抜5m未満（低い土地）</strong><br>海や川に近い場合は、高潮・津波・洪水の想定区域に入っていることがあります。ハザードマップで浸水の深さを確認しましょう。';
+      else if(ele < 20) lv = '<strong>海抜5〜20m</strong><br>海抜だけでは安全とも危険とも言えません。近くの川の氾濫や、低い場所へ水が集まる地形かどうかをハザードマップで確認しましょう。';
+      else lv = '<strong>海抜20m以上</strong><br>津波・高潮の影響は受けにくい高さですが、がけ崩れ・土石流など土砂災害の警戒区域は高い場所に多くあります。ハザードマップの「土砂災害」も確認しましょう。';
+      $('levelNote').innerHTML = lv;
       SHARE = (placeName || 'うちの場所') + 'の海抜は ' + ele.toFixed(1) + 'm だった⛰️\nあなたの家の海抜、言えますか？👇';
       show(); anim($('big'), 0, ele, 900, ele < 100 ? 1 : 0);
     }catch{ $('state').textContent = '⚠️ 標高の取得に失敗しました。時間をおいて再度お試しください。'; }
