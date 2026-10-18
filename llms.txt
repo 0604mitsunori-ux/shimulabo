@@ -2,7 +2,7 @@
 
 > 身近な疑問や理科の現象を、数字を入れるだけで計算・アニメーションで確かめられる無料のWebシミュレーター集。ログイン不要・ブラウザだけで動き、入力した内容はサーバーに送らない。理科の授業（小学校〜高校）、日々の計算、気象庁などの公開データを使ったライブ表示（地震・潮・天気・星空など）を扱う。
 
-- シミュの数: 894本（42カテゴリ）
+- 掲載しているシミュ: 667本（42カテゴリ）
 - 引用: 出典「シミュラボ」とページのURLを書けば、記事・授業資料・SNSへの引用は自由（事前連絡不要）
 - サイトマップ: https://shimulabo.com/sitemap.xml
 
@@ -173,7 +173,7 @@
 - [ブラックホール 光の曲がり](https://shimulabo.com/sims/black-hole/): 地学 宇宙の構造（発展）。強い重力で光の進路が曲がる様子（重力レンズ）。
 
 ## カテゴリ別の全シミュ
-### お金・時間（26本）
+### お金・時間（21本）
 - [会議コストシミュレーター](https://shimulabo.com/sims/kaigi-cost/): その会議、いくら燃えてる？参加人数と年収から、1分ごとに溶けていくお金をリアルタイム表示。
 - [サブスク墓場シミュレーター](https://shimulabo.com/sims/subsc/): 使ってないサブスク、1年・10年でいくら捨ててる？解約で取り戻せる額を可視化。
 - [宝くじ買い続けたら](https://shimulabo.com/sims/takarakuji/): 総額・期待回収・運用との差で、期待値の現実を直視する残酷シミュ。
@@ -182,18 +182,13 @@
 - [物価2倍まで何年？](https://shimulabo.com/sims/infure/): インフレでお金が目減り。今の100万円が何年で実質半分になる？
 - [FIRE達成シミュレーター](https://shimulabo.com/sims/fire/): 毎月の投資と利回りから、経済的自由まであと何年かを試算。
 - [あと何回給料日](https://shimulabo.com/sims/kyuryobi/): 定年まで受け取る給料日の残り回数。働く時間の有限さを実感。
-- [コーヒー一生分](https://shimulabo.com/sims/coffee-life/): 一生で飲むコーヒーの杯数・総額・カフェイン量はどれくらい？
 - [ガチャ天井シミュレーター](https://shimulabo.com/sims/gacha/): 推しを引くのに平均いくら？期待課金額と天井までの最大額を試算。
-- [格安SIM乗り換えメーター](https://shimulabo.com/sims/kakuyasu-sim/): スマホ代を見直すと、残りの人生で通信費がいくら浮く？
-- [自販機 損失メーター](https://shimulabo.com/sims/jihanki/): 毎日の1本、まとめ買いと比べていくら多く払ってる？
-- [ポイ活 還元シミュレーター](https://shimulabo.com/sims/point-katsu/): 決済額と還元率から、貯まるポイントを年間で計算。
 - [ATM手数料 生涯コストシミュレーター](https://shimulabo.com/sims/atm-tesuuryo/): ATM手数料の回数から、生涯の手数料総額を計算。
 - [つみたて複利シミュレーター](https://shimulabo.com/sims/tsumitate-fukuri/): 毎月の積立と利回りから、複利の将来額を計算。
 - [割引計算機](https://shimulabo.com/sims/waribiki/): 元の価格と割引率から割引後価格・節約額・税込を計算。
 - [クレジット分割手数料 計算](https://shimulabo.com/sims/credit-bunkatsu/): 利用額・回数・実質年率から分割手数料と月々の支払を計算。
 - [固定費 見直し 節約シミュレーター](https://shimulabo.com/sims/koteihi/): スマホ・保険・サブスクの削減額から年間・生涯の節約額を計算。
 - [家計の黄金比 計算シミュレーター](https://shimulabo.com/sims/kakeibo-wari/): 手取りから理想の家計バランス(各費目の目安額)を計算。
-- [金銭感覚診断](https://shimulabo.com/sims/kinsen-kankaku/): 質問に答えて金銭感覚タイプを診断。
 - [ボーナス平均 比較シミュレーター](https://shimulabo.com/sims/bonus-heikin/): 年間ボーナスを年代別・企業規模別の平均と比較して自分の位置を判定。
 - [円安体感メーター](https://shimulabo.com/sims/enyasu-taikan/): そのiPhone、超円高の2011年なら9万円だった。最新レートで「あの頃」と比較。
 - [もしビットコイン買ってたら](https://shimulabo.com/sims/btc-tara/): 1年前にビットコインを買ってたら、いまいくら？実際の価格データでタラレバを清算。
@@ -249,7 +244,7 @@
 - [津波はなぜ岸で高くなる？ シミュレーター](https://shimulabo.com/sims/tsunami-kishi/): 沖では1mの津波が岸で数倍に。水深と海底の傾斜を変えて、津波が高くなる瞬間を再現。
 - [今日の月（月齢・満ち欠け・次の満月はいつ？）](https://shimulabo.com/sims/kyou-no-tsuki/): 今夜の月はどんな形？月齢・輝面比・月の名前と、次の満月・新月の日付を計算。30日分の満ち欠けも。
 
-### 人生・自分ごと（26本）
+### 人生・自分ごと（22本）
 - [スクロール距離メーター](https://shimulabo.com/sims/scroll-distance/): 今年あなたの親指が登る高さ＝エベレスト何個分？スマホ時間から距離を計算。
 - [人生の「待ち時間」](https://shimulabo.com/sims/machi-jikan/): レジ・信号・ロード画面…生涯で何日を「待つ」だけに使うか年齢から計算。
 - [あと何回、親に会えるか](https://shimulabo.com/sims/oyako/): 親に会える残り回数を計算。当たり前に思える時間にも、限りがあります。
@@ -263,64 +258,43 @@
 - [人生カレンダーシミュレーター](https://shimulabo.com/sims/jinsei-calendar/): 年齢と寿命から、人生の消化率と残り日数を可視化。
 - [一生で寝てる時間シミュレーター](https://shimulabo.com/sims/seimei-suimin/): 1日の睡眠時間から、一生で眠る時間を計算。
 - [スマホ生涯時間シミュレーター](https://shimulabo.com/sims/sumaho-shogai/): 1日のスマホ時間から、生涯のスマホ時間を可視化。
-- [年齢計算ツール](https://shimulabo.com/sims/nenrei-keisan/): 生年月日から満年齢・数え年・干支・生まれてからの日数を計算。
 - [何曜日 計算ツール](https://shimulabo.com/sims/youbi-keisan/): 任意の日付の曜日・平日休日・今日からの日数を計算。
 - [おじさん度診断](https://shimulabo.com/sims/ojisan-do/): 10のあるあるチェックであなたのおじさん度を％診断。
 - [おばさん度診断](https://shimulabo.com/sims/obasan-do/): 10のあるあるチェックであなたのおばさん度を％診断。
 - [若者度（Z世代度）診断](https://shimulabo.com/sims/wakamono-do/): 10のイマドキ行動チェックで若者度（Z世代度）を％診断。
 - [アラサー・アラフォー 判定](https://shimulabo.com/sims/arasa-hantei/): アラサー/アラフォー/アラフィフを年齢から判定。諸説の範囲も解説。
-- [桜をあと何回見られるか](https://shimulabo.com/sims/sakura-kaisu/): 桜が咲くのは年に一度、ほんの2週間。人生であと何回見られるかを数える。
 - [人生に残された週末カウンター](https://shimulabo.com/sims/shuumatsu-nokori/): 「また今度の週末でいいか」——その週末、人生にあと何回ある？
-- [祖父母と過ごせる残り時間](https://shimulabo.com/sims/sofubo-jikan/): おじいちゃん・おばあちゃんに会えるのはあと何回か、会う頻度から計算。
-- [友達とあと何回会えるか](https://shimulabo.com/sims/tomodachi-kaisu/): 「また今度ね」のあの友達。今のペースだと、人生であと何回会える？
 - [あなたの誕生日、何が起きた日？](https://shimulabo.com/sims/tanjobi-jiken/): 誕生日を入れると、その日に歴史が何回動いたかをWikipediaから集計。
 - [生まれた日の天気](https://shimulabo.com/sims/umareta-hi-tenki/): あなたが生まれた日、空はどうだった？1940年からの気象アーカイブで答え合わせ。
 - [満員電車 混雑率シミュレーター](https://shimulabo.com/sims/manin-densha/): 混雑率150%と200%、実際どれくらい違う？車両の中に人を並べて、密度と圧力を可視化。
 
-### マーケティング（27本）
+### マーケティング（17本）
 - [うさんくさいキャッチコピー製造機](https://shimulabo.com/sims/catchcopy/): 商品名を入れるだけで「99%が知らない…」系のうさんくさい広告コピーを量産。
 - [インフルエンサー皮算用](https://shimulabo.com/sims/influencer-soroban/): フォロワー数を入れると、脳内の月収とインフルエンサーランクを皮算用（※案件が来れば）。
 - [もしあなたが会社だったら](https://shimulabo.com/sims/if-company/): 年収・支出からあなたの「時価総額」と格付けを査定（半分ネタ）。
 - [バズ偏差値メーター](https://shimulabo.com/sims/buzz/): いいね・保存とフォロワー数から、その投稿の「バズ偏差値」を判定。
 - [松竹梅の法則シミュレーター](https://shimulabo.com/sims/kakaku-matsu/): 3段階価格にすると真ん中はどれだけ選ばれる？平均客単価も試算。
-- [ネーミングバズ度診断](https://shimulabo.com/sims/naming-buzz/): その商品名、覚えやすい？文字数やリズムからバズ度を点数化。
 - [検索順位別クリック率シミュレーター](https://shimulabo.com/sims/seo-ctr/): 検索順位を上げると流入はどれだけ増える？順位別CTRで試算。
-- [検索流入のお金換算メーター](https://shimulabo.com/sims/seo-kachi/): あなたのSEO流入、広告で買うといくら？資産価値を可視化。
-- [ゼロクリック検索シミュレーター](https://shimulabo.com/sims/zero-click/): AI Overviewが出ると検索流入は何%消える？AI検索時代の試算。
 - [AI被引用ポテンシャル診断](https://shimulabo.com/sims/ai-inyou/): あなたのコンテンツ、AIに引用される？5観点でLLMOを点数化。
-- [リピート率改善シミュレーター](https://shimulabo.com/sims/repeat-rieki/): 常連が増えると売上はどれだけ伸びる？リピート率の効果を試算。
-- [CVR×売上シミュレーター](https://shimulabo.com/sims/cvr-uriage/): アクセス・CVR・客単価から月商と改善効果を試算。
 - [フォロワーの資産価値シミュレーター](https://shimulabo.com/sims/follower-kachi/): フォロワー数とPR単価から、SNSの収益価値を試算。
 - [メルマガ効果シミュレーター](https://shimulabo.com/sims/email-cv/): 配信数と開封・クリック・成約率から、メルマガ売上を試算。
-- [コンバージョン率(CVR)計算機](https://shimulabo.com/sims/cvr-keisan/): CV数とアクセスからCVRを一発計算。
 - [CPA計算機](https://shimulabo.com/sims/cpa-keisan/): 広告費とCV数から顧客獲得単価を計算。
-- [CPC計算機](https://shimulabo.com/sims/cpc-keisan/): 広告費とクリック数からクリック単価を計算。
-- [CPM計算機](https://shimulabo.com/sims/cpm-keisan/): 広告費と表示回数から1000回表示単価を計算。
 - [解約率(チャーンレート)計算機](https://shimulabo.com/sims/churn-keisan/): 継続率・平均継続月数も。サブスクに。
 - [客単価計算機](https://shimulabo.com/sims/kyakutanka-keisan/): 売上と客数から客単価を計算（目標逆算も）。
 - [リスティング広告 費用シミュ](https://shimulabo.com/sims/listing-hiyou/): 月額予算とCV数・CPAの目安を試算。
 - [集客ファネル試算](https://shimulabo.com/sims/funnel-cv/): アクセス→CV→売上とCVR改善の効果。
-- [MEO来店効果シミュ](https://shimulabo.com/sims/meo-raiten/): 地図検索からの来店数を試算。
-- [広告予算シミュレーター](https://shimulabo.com/sims/kokoku-yosan/): 予算からCV・売上・ROASを試算。
 - [店舗のLLMO対応度診断](https://shimulabo.com/sims/llmo-check/): AIに選ばれる店か8問でチェック。
 - [その言葉、まだ流行ってる？](https://shimulabo.com/sims/kotoba-trend/): 話題のあの言葉、実は下火かも。半年分の閲覧数データでトレンドの生死を判定。
 - [流行はなぜ急に終わる？ 普及曲線シミュレーター](https://shimulabo.com/sims/ryukou-curve/): 広告で知る人・口コミで知る人・飽きる人。3つの流れで流行の山と急な終わりを再現。
 
-### 恋愛・婚活（25本）
+### 恋愛・婚活（16本）
 - [運命の人に出会う確率](https://shimulabo.com/sims/unmei/): あなたの「運命の人」候補は街に何人？ドレイク方程式の恋愛版で試算。
 - [婚活マッチ診断](https://shimulabo.com/sims/konkatsu-match/): 年齢と条件から、釣り合いやすい相手像と向いてる出会い方を試算（点数化はしません）。
-- [婚活 条件マッチ診断](https://shimulabo.com/sims/konkatsu-jouken/): 理想の条件、全部そろう人は何人？1つ緩めると候補は何倍に増える？
 - [婚活 相性タイプ診断](https://shimulabo.com/sims/konkatsu-type/): 5つの質問で、あなたの価値観タイプと相性の良い相手・婚活法を診断。
-- [告白成功率シミュレーター](https://shimulabo.com/sims/kokuhaku/): 相手との関係や脈ありサインから、告白の成功率を診断。背中を押すアドバイス付き。
 - [両思い度診断](https://shimulabo.com/sims/ryomoi/): 相手の言動についての5つの質問で、両思いの可能性を診断。
 - [名前で相性占い](https://shimulabo.com/sims/aisho-name/): 二人の名前を入れるだけ。学校でもSNSでも盛り上がる定番の相性占い。
 - [好きな人と同じクラスになる確率](https://shimulabo.com/sims/same-class/): クラスの数から、好きな人と同じクラスになれる確率を計算（中高生向け）。
 - [モテ期はいつ来る？診断](https://shimulabo.com/sims/moteki/): 年齢と最近の調子から、次のモテ期がいつ来るかを占う。
-- [記念日カウンター](https://shimulabo.com/sims/kinenbi/): 付き合って何日？次の記念日まであと何日かを表示。
-- [遠距離恋愛シミュレーター](https://shimulabo.com/sims/enkyori/): 年間の交通費・会える回数・移動時間を見える化。
-- [星座の相性占い](https://shimulabo.com/sims/aishou-seiza/): ふたりの星座から、火・地・風・水の相性を占う定番エンタメ。
-- [デート費用 年間シミュレーター](https://shimulabo.com/sims/deto-yosan/): 1回のデート費用と回数から、年間のデート代を計算。
-- [結婚式 費用シミュレーター](https://shimulabo.com/sims/kekkonshiki-hiyou/): ゲスト数から結婚式の総額と自己負担額を試算。
 - [誕生日で相性占い](https://shimulabo.com/sims/birthday-aishou/): ふたりの誕生日から、相性とアドバイスを占う。
 - [モテタイプ診断](https://shimulabo.com/sims/mote-type/): 質問に答えてモテタイプを診断。
 - [ツンデレ診断](https://shimulabo.com/sims/tsundere-shindan/): 質問に答えてツンデレ度を診断。
@@ -328,45 +302,22 @@
 - [ヤンデレ診断](https://shimulabo.com/sims/yandere-shindan/): 質問に答えてヤンデレ度を診断。
 - [ツインレイ診断](https://shimulabo.com/sims/tsuinrei-shindan/): 質問に答えてツインレイ傾向を診断。
 - [嫉妬深さ診断](https://shimulabo.com/sims/shitto-do/): 質問に答えて嫉妬深さを診断。
-- [恋愛体質診断](https://shimulabo.com/sims/renai-taishitsu/): 質問に答えて恋愛体質度を診断。
 - [草食・肉食系診断](https://shimulabo.com/sims/soushoku-nikushoku/): 質問に答えて草食・肉食系を診断。
-- [脈あり診断](https://shimulabo.com/sims/myakuari-shindan/): 質問に答えて相手の脈あり度を診断。
 - [結婚願望診断](https://shimulabo.com/sims/kekkon-ganbou/): 質問に答えて結婚願望の強さを診断。
 
-### 店舗・ビジネス（18本）
+### 店舗・ビジネス（6本）
 - [出店集客シミュレーター](https://shimulabo.com/sims/shutten/): 業種×立地×商圏で、出店1年目の集客を試算。MEO対策でどれだけ増えるかも同時に。
 - [口コミ波及シミュレーター](https://shimulabo.com/sims/kuchikomi-hakyu/): お店の口コミは集客にどれだけ波及する？満足度を動かすと、年間集客がプラスにも“逆波及”にも。
 - [値上げ客数シミュレーター](https://shimulabo.com/sims/neage/): 値上げしたら客数はどれだけ減る？売上はプラス？を弾力性から試算。
-- [広告ROAS試算](https://shimulabo.com/sims/ad-roas/): その広告、利益は出てる？費用対効果と差引利益を試算。
-- [LTV（顧客生涯価値）](https://shimulabo.com/sims/ltv/): 1人のお客さんはいくらの価値？新規獲得にかけられる上限も。
-- [クーポン採算シミュ](https://shimulabo.com/sims/coupon/): その割引、利益は残る？初回＋リピートで採算を試算。
-- [チラシ vs Web広告](https://shimulabo.com/sims/chirashi-web/): 同じ予算でどっちが多く集客できる？を比較。
-- [損益分岐点シミュレーター](https://shimulabo.com/sims/bep/): 固定費から、黒字に必要な売上と1日の客数を逆算。
 - [ノーショー損失シミュ](https://shimulabo.com/sims/noshow/): 予約の無断キャンセルで毎月いくら失ってる？を試算。
-- [人件費率診断](https://shimulabo.com/sims/jinkenhi/): うちの人件費、高すぎ？適正？業種の目安と比較。
 - [回転率シミュ](https://shimulabo.com/sims/kaiten/): 飲食店の1日・月の売上は？席数×回転×客単価で。
-- [LINE・メルマガ配信効果](https://shimulabo.com/sims/line-cv/): 1回の配信で売上いくら？登録者と反応率から試算。
-- [在庫の持ちすぎコスト](https://shimulabo.com/sims/zaiko/): 眠る在庫、置くだけで年いくら？保管・廃棄を試算。
-- [原価率→粗利シミュレーター](https://shimulabo.com/sims/genka-rieki/): 売上と原価率から、粗利益・粗利率・年間粗利を計算。
-- [客単価アップ効果シミュレーター](https://shimulabo.com/sims/kyakutanka-up/): 客単価を上げると年商がどれだけ増えるかを試算。
-- [月額会員ビジネス シミュレーター](https://shimulabo.com/sims/kaiin-monthly/): 会員数・会費・継続率から月商とLTVを試算。
 - [労働分配率 計算シミュレーター](https://shimulabo.com/sims/roudou-bunpai/): 粗利と人件費から労働分配率を計算し目安と比較。
-- [利益率 計算ツール](https://shimulabo.com/sims/riekiritsu/): 売価と原価から粗利率・原価率・値入率を計算。
 
-### マネー・保険・不動産（19本）
+### マネー・保険・不動産（10本）
 - [住宅ローン返済シミュ](https://shimulabo.com/sims/jutaku-loan/): 毎月いくら？総利息は？借入・金利・年数から計算。
-- [繰上返済 効果シミュ](https://shimulabo.com/sims/kuriage/): 繰上返済で利息はいくら減る？何年早く返せる？
-- [必要保障額シミュ](https://shimulabo.com/sims/hosho/): 生命保険、いくら必要？入りすぎ・少なすぎ防止に。
-- [老後資金シミュ](https://shimulabo.com/sims/rougo/): 2000万円で足りる？年金と生活費から不足額を試算。
-- [NISA積立シミュ](https://shimulabo.com/sims/nisa/): 毎月の積立、複利で何年でいくらになる？
 - [車の維持費シミュ](https://shimulabo.com/sims/kuruma-iji/): 年間・生涯でいくら？ガソリン〜駐車場まで。
 - [ふるさと納税 上限額](https://shimulabo.com/sims/furusato/): 年収と家族構成から、お得な上限の目安を試算。
-- [目標金額までの積立](https://shimulabo.com/sims/chochiku-mokuhyo/): ◯年で◯万円、毎月いくら積み立てればいい？
 - [リボ払い 利息シミュ](https://shimulabo.com/sims/reborisk/): 完済まで何年？払う利息の総額は？リボの怖さ。
-- [72の法則](https://shimulabo.com/sims/fukuri72/): お金が2倍になるのは何年後？複利の力を体感。
-- [iDeCo節税シミュレーター](https://shimulabo.com/sims/ideco-setsuzei/): iDeCoの掛金と税率から、年間・生涯の節税額を試算。
-- [配当生活の必要資産シミュレーター](https://shimulabo.com/sims/haitou-shisan/): 欲しい月の配当と利回りから、必要な資産額を逆算。
-- [相続税ざっくりシミュレーター](https://shimulabo.com/sims/souzoku-zei/): 遺産総額と相続人数から、相続税の目安を試算。
 - [住宅ローン 借入可能額シミュレーター](https://shimulabo.com/sims/kariire-kanou/): 年収・返済負担率・審査金利から借入可能額と年収倍率を計算。
 - [固定資産税 計算シミュレーター](https://shimulabo.com/sims/kotei-shisanzei/): 評価額から固定資産税・都市計画税の年額を概算（住宅用地軽減対応）。
 - [住宅ローン控除 計算シミュレーター](https://shimulabo.com/sims/loan-koujo/): 年末ローン残高から住宅ローン控除の年額・総額を概算。
@@ -374,30 +325,20 @@
 - [貯金タイプ診断](https://shimulabo.com/sims/chokin-type/): 質問に答えて合う貯金タイプを診断。
 - [銀行の取り付け騒ぎシミュレーター](https://shimulabo.com/sims/bank-run/): 健全な銀行でも「危ないらしい」の噂で倒産する。準備率と預金保険で結果がどう変わるか。
 
-### 仕事・働き方（29本）
+### 仕事・働き方（19本）
 - [転職 年収ifシミュレーター](https://shimulabo.com/sims/tenshoku/): 転職した場合としない場合、生涯年収はどれだけ変わる？昇給率込みで。
 - [残業代シミュレーター](https://shimulabo.com/sims/zangyo/): あなたの残業、お金にするといくら？月・年で計算。
 - [有給消化シミュ](https://shimulabo.com/sims/yukyu/): 使わない有給、いくら捨ててる？金額に換算。
 - [フリーランス手取り](https://shimulabo.com/sims/freelance/): 売上から税・保険を引くと手取りは？ざっくり試算。
 - [通勤時間の生涯コスト](https://shimulabo.com/sims/tsukin/): 人生で何日 通勤してる？生涯の通勤時間を可視化。
-- [実質時給シミュ](https://shimulabo.com/sims/jikkou-jikyu/): 残業込み、あなたの本当の時給は？
 - [副業の税金・手取り](https://shimulabo.com/sims/fukugyo-zei/): 確定申告は必要？副業の手取りを試算。
-- [ボーナス手取りシミュ](https://shimulabo.com/sims/shouyo-tedori/): 額面からいくら引かれる？手取りの目安。
-- [退職金 手取り](https://shimulabo.com/sims/taishokukin/): 税金を引くといくら？退職金は税優遇が大きい。
-- [年金見込み](https://shimulabo.com/sims/nenkin-mikomi/): 将来もらえる年金は月いくら？年収と加入年数から。
-- [在宅勤務 節約](https://shimulabo.com/sims/zaitaku-setsuyaku/): テレワークで年いくら・何時間 浮く？
-- [年収手取りシミュレーター](https://shimulabo.com/sims/nenshu-tedori/): 額面年収から手取り・月収・控除額を概算で試算。
-- [昇進の生涯賃金差シミュレーター](https://shimulabo.com/sims/shoushin-sa/): 昇進前後の年収から、生涯賃金の差を試算。
 - [副業 目標達成シミュレーター](https://shimulabo.com/sims/fukugyo-mokuhyou/): 目標月収と単価から、必要な件数・作業時間を試算。
 - [失業保険（基本手当）計算ツール](https://shimulabo.com/sims/shitsugyo-hoken/): 月給・年齢・加入年数・退職理由から基本手当の総額の目安を計算。
 - [社会保険料 計算シミュレーター](https://shimulabo.com/sims/shakaihoken-ryou/): 月給・年齢から健康保険・厚生年金などの本人負担を概算。
 - [傷病手当金 計算シミュレーター](https://shimulabo.com/sims/shoubyo-teate/): 月給と休んだ日数から傷病手当金の日額・総額を概算。
 - [雇用保険料 計算シミュレーター](https://shimulabo.com/sims/koyouhoken/): 月給と業種から雇用保険料の本人負担を計算。
 - [再就職手当 計算シミュレーター](https://shimulabo.com/sims/saishushoku-teate/): 基本手当日額と残日数から再就職手当を計算。
-- [通勤交通費 非課税限度 計算](https://shimulabo.com/sims/koutsuhi-hikazei/): 通勤費の非課税限度額と課税される超過分を計算。
-- [年収 計算シミュレーター](https://shimulabo.com/sims/nenshu-keisan/): 月給と賞与から額面年収と手取りの目安を計算。
 - [ロールモデル診断](https://shimulabo.com/sims/rolemodel-shindan/): 質問に答えて働き方・キャリアタイプを診断。
-- [給料 手取り 計算シミュレーター](https://shimulabo.com/sims/kyuryo-tedori/): 額面月給から手取り額・社会保険・税の目安を計算。
 - [勤務時間 計算ツール](https://shimulabo.com/sims/kinmu-jikan/): 出勤・退勤・休憩から実働時間と残業を計算。
 - [適職診断](https://shimulabo.com/sims/tekishoku/): 質問に答えて向いてる仕事タイプを診断。
 - [有給休暇 付与日数 計算](https://shimulabo.com/sims/yukyu-fuyo/): 勤続年数と週の労働日数から法定の有給付与日数を表示。パート比例付与対応。
@@ -405,7 +346,7 @@
 - [今日、世界のどこが祝日？](https://shimulabo.com/sims/sekai-yasumi/): あなたが働いている今日、世界のどこかは休んでいる。祝日データをライブ取得。
 - [時差出勤の効果シミュレーター](https://shimulabo.com/sims/jisa-shukkin/): 全体の何割が何分ずらすと朝のピーク混雑率が何%下がるか。自分だけずらした場合の混雑率も。
 
-### 学生・勉強（15本）
+### 学生・勉強（13本）
 - [合格可能性シミュ](https://shimulabo.com/sims/goukaku/): 偏差値で志望校の合格可能性をチェック＆やる気アップ。
 - [勉強時間シミュ](https://shimulabo.com/sims/benkyo-time/): 受験までの総勉強時間とライバルとの差を可視化。
 - [学費総額シミュ](https://shimulabo.com/sims/gakuhi/): 大学卒業まで教育費はいくら？進路別に試算。
@@ -414,28 +355,19 @@
 - [奨学金返済シミュ](https://shimulabo.com/sims/shogakukin/): 毎月いくら・何年で返す？社会人前にチェック。
 - [目標点までの勉強量](https://shimulabo.com/sims/benkyo-target/): 目標点まで1日何時間やればいい？を逆算。
 - [内申点シミュ](https://shimulabo.com/sims/naishin/): 9教科の評定から内申点の目安を計算（実技2倍対応）。
-- [受験費用シミュ](https://shimulabo.com/sims/juken-hiyou/): 受験にいくらかかる？受験料・入学金・交通費。
 - [夏休みの宿題](https://shimulabo.com/sims/natsuyasumi/): 1日何ページやれば終わる？間に合うか診断。
 - [塾代 総額シミュレーター](https://shimulabo.com/sims/juku-sougaku/): 月の塾代と年数・講習費から、塾の総額を試算。
-- [学歴別 生涯賃金シミュレーター](https://shimulabo.com/sims/gakureki-chingin/): 最終学歴から生涯賃金の目安と学歴間の差を表示。
 - [勉強計画ポモドーロシミュレーター](https://shimulabo.com/sims/pomodoro/): 目標勉強時間から、ポモドーロのセット数と所要を計算。
 - [語彙力診断](https://shimulabo.com/sims/goiryoku-shindan/): 質問に答えて語彙力レベルを診断。
 - [あと何回休めるか計算](https://shimulabo.com/sims/yasumeru-kaisu/): 授業の全回数と必要な出席率から、単位を落とさず「あと何回休めるか」を計算。
 
-### 子ども・育児（19本）
+### 子ども・育児（12本）
 - [子育て費用 総額](https://shimulabo.com/sims/kosodate-hiyou/): 子ども1人にいくら？養育費＋教育費の総額を進路から試算。
 - [子どもと過ごせる残り時間](https://shimulabo.com/sims/kodomo-jikan/): 巣立ちまであと何日一緒にいられる？今ある時間を大切に。
 - [育休手当シミュ](https://shimulabo.com/sims/ikukyu/): 育児休業給付金はいくら？月給と育休月数から。
 - [児童手当 総額](https://shimulabo.com/sims/jidou-teate/): 18歳までにもらえる児童手当の総額は？
-- [保育園 vs 幼稚園](https://shimulabo.com/sims/hoiku-youchi/): 総額でどっちが安い？月額から比較。
-- [おむつ 総数・費用](https://shimulabo.com/sims/omutsu/): 卒業まで何枚・いくら？毎日の積み重ね。
 - [子どもの身長予測](https://shimulabo.com/sims/shinchou/): 両親の身長から、大人になった時の身長を予測。
-- [寝かしつけ 生涯時間](https://shimulabo.com/sims/nezukashi/): 毎晩の寝かしつけ、トータルで何時間？
 - [学資 積立シミュ](https://shimulabo.com/sims/gakushi/): 大学費用、毎月いくら貯めればいい？18歳まで逆算。
-- [おこづかい 生涯総額](https://shimulabo.com/sims/okozukai/): 子に渡すおこづかい、総額いくら？
-- [0歳の育児費シミュレーター](https://shimulabo.com/sims/nyuuji-hiyou/): ミルク・おむつ・用品から、0歳の年間育児費を試算。
-- [子どもの生涯食費シミュレーター](https://shimulabo.com/sims/kodomo-shokuhi/): 1日の食費から、子どもの成人までの食費総額を試算。
-- [習い事 総額シミュレーター](https://shimulabo.com/sims/narai-goto/): 月謝と年数・追加費用から、習い事の総額を試算。
 - [出産予定日 計算ツール](https://shimulabo.com/sims/shussan-yotei/): 最終月経開始日から出産予定日と妊娠週数を計算（目安）。
 - [子供の肥満度チェック](https://shimulabo.com/sims/kodomo-himan/): カウプ指数・ローレル指数で判定
 - [七五三 年齢早見ツール](https://shimulabo.com/sims/shichigosan/): 生年と性別から七五三を数え年・満年齢で自動判定。
@@ -443,33 +375,25 @@
 - [メンタルリープ 計算ツール](https://shimulabo.com/sims/mental-leap/): 赤ちゃんの週数からメンタルリープ(ぐずり期)を判定。
 - [幼稚園・保育園 入園年齢 計算](https://shimulabo.com/sims/nyuen-nenrei/): 生年月日から年少・年中・年長の年度と小学校入学年をすべて表示。早生まれ対応。
 
-### ペット（15本）
+### ペット（11本）
 - [犬・猫の年齢 人間換算](https://shimulabo.com/sims/pet-age/): うちの子、人間でいうと何歳？意外と大人かも。
 - [ペットの生涯費用](https://shimulabo.com/sims/pet-hiyou/): 一生でいくらかかる？お迎え前の心づもりに。
 - [ペットと過ごせる残り時間](https://shimulabo.com/sims/pet-jikan/): あと何日一緒にいられる？今日のなでなでを大切に。
 - [ペット保険 元が取れる？](https://shimulabo.com/sims/pet-hoken/): 入る価値ある？保険料と医療費から損得を試算。
 - [犬の散歩 生涯距離](https://shimulabo.com/sims/sanpo/): 一生で何km歩く？地球何周分かな。
-- [猫が寝てる時間](https://shimulabo.com/sims/neko-nemuri/): 一生でどれだけ寝てる？人生の何%？
 - [ペットの適正フード量](https://shimulabo.com/sims/food-ryou/): 体重から1日のごはん量・カロリーを計算。
-- [多頭飼い 費用](https://shimulabo.com/sims/tatou/): 何匹で生涯いくら？頭数×年間費用。
-- [ペットの肥満度](https://shimulabo.com/sims/pet-taiju/): うちの子、太りすぎ？適正体重と比較。
 - [一生で食べるフード量](https://shimulabo.com/sims/pet-gohan-life/): 総量は何kg・何袋？毎日のごはんが体をつくる。
 - [ペットの生涯医療費シミュレーター](https://shimulabo.com/sims/pet-iryou/): 年間の通院費と手術費から、生涯医療費を試算。
 - [ペットのトイレ用品 年間費シミュレーター](https://shimulabo.com/sims/pet-toilet/): 猫砂・シーツの価格と消費から、年間費用を計算。
-- [ペットのトリミング 年間費シミュレーター](https://shimulabo.com/sims/pet-trim/): 1回の料金と頻度から、トリミングの年間費用を計算。
 - [ペット予防薬の年間費用](https://shimulabo.com/sims/pet-yobou-hiyou/): 犬・猫のフィラリア・ノミダニ予防はいくら？費用の目安を計算。
 - [いま、犬の散歩できる？](https://shimulabo.com/sims/inu-sanpo-ok/): 夏のアスファルトは60℃になる。いまの推定路面温度から肉球やけどリスクを判定。
 
-### 健康・カラダ（29本）
+### 健康・カラダ（25本）
 - [BMI・適正体重チェック](https://shimulabo.com/sims/bmi/): 身長と体重でBMIと適正体重をすぐ計算。
 - [基礎代謝＆必要カロリー](https://shimulabo.com/sims/kiso-taisha/): 1日に必要なカロリーを体格から計算。
 - [体内年齢診断](https://shimulabo.com/sims/tainai-nenrei/): 生活習慣5問でカラダの若さを診断。
 - [1日の水分必要量](https://shimulabo.com/sims/suibun/): 体重と活動量で必要な水分量を計算。
-- [体脂肪率ざっくり推定](https://shimulabo.com/sims/taishibo/): 体組成計なしで体脂肪率の目安を。
-- [歩数の消費カロリー](https://shimulabo.com/sims/hosu-karori/): 今日の歩数で何kcal燃えた？
 - [お酒のカロリー](https://shimulabo.com/sims/sake-karori/): 飲み会は何kcal？ごはん何杯分？
-- [快眠の起床時刻](https://shimulabo.com/sims/suimin-cycle/): 何時に寝ればスッキリ起きられる？
-- [座りすぎメーター](https://shimulabo.com/sims/suwari/): 1年でどれだけ座ってる？
 - [体の水分量](https://shimulabo.com/sims/mizu-body/): カラダの何kgが水？おもしろ雑学。
 - [喫煙の生涯コストシミュレーター](https://shimulabo.com/sims/tabako-cost/): 1日の本数と価格から、タバコ代の生涯コストを計算。
 - [角砂糖シミュレーター](https://shimulabo.com/sims/kakuzato/): 飲み物の量と糖分から、砂糖を角砂糖の個数に換算。
@@ -491,18 +415,12 @@
 - [感染はこう広がる SIRシミュレーター](https://shimulabo.com/sims/kansen-agent/): 街を動く人々の間で感染が広がる。マスク・ワクチン・外出制限でピークの高さがどう変わるか。
 - [今日の花粉飛散 予測指数（気温・風・雨から判定）](https://shimulabo.com/sims/kafun-yohou/): 今日・明日・明後日の花粉の飛びやすさを、予想気温・風・雨・湿度と季節から5段階で予測。都道府県別。
 
-### 占い・診断（27本）
+### 占い・診断（21本）
 - [誕生日でわかる運命数](https://shimulabo.com/sims/tanjyobi-uranai/): 数秘術であなたの本質を占う。
 - [前世診断](https://shimulabo.com/sims/zensei/): あなたの前世は何者だった？
 - [今年の運勢占い](https://shimulabo.com/sims/kotoshi-unsei/): 総合運・金運・恋愛運・仕事運を占う。
 - [名前占い](https://shimulabo.com/sims/namae-uranai/): 名前に秘められた運勢と性格。
 - [ソウルカラー診断](https://shimulabo.com/sims/soul-color/): あなたの魂の色は何色？
-- [誕生月の動物キャラ占い](https://shimulabo.com/sims/doubutsu-uranai/): あなたは何の動物タイプ？
-- [血液型相性占い](https://shimulabo.com/sims/ketsueki-aishou/): あの人との相性は何％？
-- [今日の運勢＆ラッキー](https://shimulabo.com/sims/lucky-today/): 毎日変わる今日の運気とアイテム。
-- [九星気学 本命星占い](https://shimulabo.com/sims/kyusei/): 生まれ年であなたの星を占う。
-- [今日の一枚タロット](https://shimulabo.com/sims/tarot-today/): 今日のあなたへのメッセージ。
-- [誕生石・誕生花診断](https://shimulabo.com/sims/birthstone/): 生まれ月から誕生石・誕生花と石言葉を表示。
 - [イエス・ノー占い](https://shimulabo.com/sims/yesno-uranai/): 迷いごとにYES/NOとアドバイスを占う。
 - [バイオリズム診断](https://shimulabo.com/sims/biorhythm/): 生年月日から身体・感情・知性のバイオリズムを計算。
 - [ツインレイ診断](https://shimulabo.com/sims/twinray/): あなたの魂の片割れのサインは？
@@ -520,20 +438,16 @@
 - [守護霊の強さ（レベル）診断](https://shimulabo.com/sims/shugorei-level/): 生年月日から守護霊の強さ（レベル）とタイプを占う。
 - [守護のパワーストーン診断](https://shimulabo.com/sims/power-stone/): 生年月日からあなたの守護パワーストーンを占う。
 
-### クルマ・乗り物（20本）
+### クルマ・乗り物（16本）
 - [年間ガソリン代](https://shimulabo.com/sims/nenpi-gas/): 車のガソリン代、年いくら？
-- [EV vs ガソリン燃料費](https://shimulabo.com/sims/ev-vs-gas/): 電気とガソリン、どっちが得？
 - [車購入予算](https://shimulabo.com/sims/kuruma-yosan/): 年収でいくらの車が買える？
 - [高速 vs 下道](https://shimulabo.com/sims/kousoku-shita/): 時間を取る？お金を取る？
 - [車の維持費 毎月積立](https://shimulabo.com/sims/shaken-tsumitate/): 車検・税金、毎月いくら貯める？
-- [生涯走行距離](https://shimulabo.com/sims/souko-kyori/): あなたの車、地球を何周する？
-- [中古車 値落ち](https://shimulabo.com/sims/chuko-nedan/): 何年後にいくらになる？
 - [ドライブ費用](https://shimulabo.com/sims/drive-yosan/): 日帰りドライブ、1人いくら？
 - [車通勤 vs 電車通勤](https://shimulabo.com/sims/tsukin-car/): どっちが安い？
 - [マイカー vs カーシェア](https://shimulabo.com/sims/kuruma-hoyuu/): 持つ？持たない？損益分岐。
 - [車の生涯総額シミュレーター](https://shimulabo.com/sims/kuruma-shogai/): 購入・維持・台数から、車にかかる生涯総額を試算。
 - [自動車税シミュレーター](https://shimulabo.com/sims/jidousha-zei/): 排気量から自動車税の目安と生涯の総額を表示。
-- [タイヤ生涯コストシミュレーター](https://shimulabo.com/sims/taiya-cost/): タイヤの価格と交換頻度から、生涯のタイヤ代を試算。
 - [自動車保険 等級割引シミュレーター](https://shimulabo.com/sims/jidoshahoken/): 等級と基準保険料から割引後の保険料を計算。
 - [駐車場 月極 vs コインパーキング](https://shimulabo.com/sims/chushajo/): 月極とコインパーキングの年間コストを比較。
 - [定期代 元取りシミュレーター](https://shimulabo.com/sims/teikidai/): 片道運賃・定期代・通勤日数から定期の損得を計算。
@@ -542,20 +456,15 @@
 - [タクシー vs 電車 どっちが得？](https://shimulabo.com/sims/taxi-densha/): 距離・人数・深夜割増からタクシーと電車の料金を概算比較。
 - [ジュニアシート 何歳から何歳まで？ 判定](https://shimulabo.com/sims/junior-seat/): 年齢と身長からチャイルドシート/ジュニアシート/ベルトOKを判定。法律6歳・安全140cm。
 
-### 旅行・おでかけ（20本）
+### 旅行・おでかけ（15本）
 - [旅行費用 総額](https://shimulabo.com/sims/ryohi/): その旅行、ぜんぶでいくら？
 - [マイル特典航空券](https://shimulabo.com/sims/mile-tamaru/): カード払いで何ヶ月で旅に？
-- [時差ボケ回復](https://shimulabo.com/sims/jisa-boke/): 現地に慣れるまで何日？
 - [海外移住の生活費](https://shimulabo.com/sims/kaigai-iju/): あの国で暮らすと月いくら？
 - [旅行貯金](https://shimulabo.com/sims/tabi-tsumitate/): あの旅まで毎月いくら貯める？
-- [LCC vs 新幹線](https://shimulabo.com/sims/lcc-shinkansen/): 安さと速さ、どっちを取る？
 - [満タンでどこまで](https://shimulabo.com/sims/gasolin-doko/): 満タンで走れる距離は？
 - [全国制覇まで何年？](https://shimulabo.com/sims/onsen-seiha/): 47都道府県・温泉めぐり。
 - [世界一周](https://shimulabo.com/sims/sekai-isshu/): 夢の世界一周、いくらかかる？
-- [テーマパーク1日予算](https://shimulabo.com/sims/theme-park/): 1日遊ぶと1人いくら？
 - [生涯旅行回数シミュレーター](https://shimulabo.com/sims/shogai-ryokou/): 年の旅行回数から、生涯であと何回旅行できるかを可視化。
-- [外貨両替シミュレーター](https://shimulabo.com/sims/gaika-ryougae/): 円・レート・手数料から、受け取れる外貨を計算。
-- [キャンプ装備 元取りシミュレーター](https://shimulabo.com/sims/camp-hiyou/): 装備費とホテルとの差額から、元取り泊数を試算。
 - [今夜の星空指数](https://shimulabo.com/sims/hoshizora-shisu/): 今夜、星は見える？雲量予報×月の明るさから星空指数を計算。ベスト時間帯も。
 - [1万円、現地でいくら？](https://shimulabo.com/sims/genchi-ikura/): 旅行先で1万円はいくらに化ける？最新レートで即換算、1年前との比較つき。
 - [世界の都市、いま何度？](https://shimulabo.com/sims/sekai-kion/): ホノルルは？パリは？世界13都市の現在気温をライブで一斉表示。東京との差も。
@@ -564,41 +473,25 @@
 - [世界の時差・いま何時？（日照マップ付き）](https://shimulabo.com/sims/sekai-jisa/): シンガポール・アメリカ・韓国…30都市の現在時刻と日本との時差を、昼と夜が動く世界地図で。
 - [海外の祝日カレンダー（アメリカ・韓国・中国・香港…）](https://shimulabo.com/sims/kaigai-shukujitsu/): アメリカ・韓国・中国・香港・ベトナム・イギリス…20カ国の今年の祝日一覧を1年タイムラインで。旅行・海外取引の日程確認に。
 
-### 住まい・暮らし（19本）
+### 住まい・暮らし（11本）
 - [適正家賃チェック](https://shimulabo.com/sims/yachin-tekisei/): 手取りからいくらの家賃が無理ない？
 - [引っ越し費用](https://shimulabo.com/sims/hikkoshi-hiyou/): 荷物量・距離・時期で費用を試算。
 - [賃貸 vs 持ち家](https://shimulabo.com/sims/chintai-mochiie/): 生涯コストはどっちが得？
-- [電気代 節約](https://shimulabo.com/sims/denki-setsuyaku/): ちょっとの工夫で年いくら浮く？
-- [ひとり暮らし初期費用](https://shimulabo.com/sims/hitorigurashi/): 引っ越しに最初いくら必要？
 - [光熱費の平均](https://shimulabo.com/sims/kounetsu/): うちの光熱費、高い？普通？
-- [ネット代見直し](https://shimulabo.com/sims/net-hikari/): 乗り換えで生涯いくら浮く？
-- [家事の生涯時間](https://shimulabo.com/sims/kaji-jikan/): 一生で家事に何日使ってる？
 - [家具・家電 買い替え積立](https://shimulabo.com/sims/kagu-tsumitate/): 毎月いくら貯めれば慌てない？
-- [部屋の広さ換算](https://shimulabo.com/sims/tatami-henkan/): 畳・㎡・坪と坪単価をすぐ計算。
-- [更新料 生涯コストシミュレーター](https://shimulabo.com/sims/koushinryo/): 家賃と更新間隔から、生涯の更新料総額を試算。
-- [家電別 電気代シミュレーター](https://shimulabo.com/sims/kaden-denkidai/): 家電の種類と電気単価から、年間電気代を表示。
 - [節水 効果シミュレーター](https://shimulabo.com/sims/mizu-setsuyaku/): 1日の節水量から、節水で浮く水道代を試算。
-- [賃貸の初期費用シミュレーター](https://shimulabo.com/sims/shoki-hiyou/): 家賃から契約時の総額を計算
 - [うちの海抜チェッカー](https://shimulabo.com/sims/kaibatsu-check/): 自分の家の海抜、言えますか？住所を入れるだけで国土地理院データから即計算。
 - [洗濯物 乾く時間メーター](https://shimulabo.com/sims/sentaku-kawaku/): 今日干すと何時間で乾く？湿度・気温・風の予報から乾燥時間と「干しどき」を計算。
 - [コンビニ密度チェッカー](https://shimulabo.com/sims/conbini-mitsudo/): あなたの街、徒歩圏にコンビニ何軒ある？地図データから500m圏をライブ集計。
 - [神社とお寺、どっちが多い街？](https://shimulabo.com/sims/jinja-tera/): あなたの街は神社派？お寺派？半径2kmの寺社を地図データからライブ集計。
 - [部屋はなぜ勝手に散らかる？ エントロピーシミュレーター](https://shimulabo.com/sims/heya-chirakaru/): 使って戻すだけで部屋は必ず散らかる。「片付いた配置」は場合の数が圧倒的に少ないから。
 
-### グルメ・食（13本）
+### グルメ・食（5本）
 - [ラーメン1杯の労働時間](https://shimulabo.com/sims/ramen-roudou/): 何分働けば一杯食べられる？
 - [外食 vs 自炊](https://shimulabo.com/sims/gaishoku-jisui/): 自炊すると年いくら浮く？
 - [一生で食べる量](https://shimulabo.com/sims/issho-tabemono/): 一生で食べるお米は何kg？
 - [コンビニ vs スーパー](https://shimulabo.com/sims/conveni-super/): 多用で年いくら損してる？
-- [食べ物のカロリー消費](https://shimulabo.com/sims/karori-undou/): この一品、運動で消すと何分？
-- [カフェ代 年間](https://shimulabo.com/sims/cafe-nenkan/): カフェ通い、年いくら使ってる？
-- [お弁当 vs 外食ランチ](https://shimulabo.com/sims/obento-lunch/): お弁当にすると年いくら浮く？
 - [食べ放題の元取り](https://shimulabo.com/sims/tabehoudai/): あと何皿で元が取れる？
-- [デリバリー vs 自炊](https://shimulabo.com/sims/uber-jisui/): デリバリー、年いくら高い？
-- [飲み会の年間予算](https://shimulabo.com/sims/nomikai-nenkan/): 飲み会、年いくら使ってる？
-- [適正食費シミュレーター](https://shimulabo.com/sims/shokuhi-tekisei/): 手取りと人数から、適正な食費の目安を表示。
-- [一生で飲むお酒シミュレーター](https://shimulabo.com/sims/osake-shogai/): 週の杯数から、一生で飲むお酒の量と金額を計算。
-- [お菓子・間食 年間費シミュレーター](https://shimulabo.com/sims/okashi-nenkan/): 1日のおやつ代から、年間費と摂取カロリーを計算。
 
 ### あそぶ・実験（27本）
 - [ローレンツ・アトラクタ](https://shimulabo.com/sims/lorenz/): カオスの蝶を回転描画。ずっと見られる。
@@ -629,19 +522,12 @@
 - [迷路をAIが解く 探索アルゴリズム対決](https://shimulabo.com/sims/maze-ai/): 自動生成した迷路を4つのアルゴリズムが解く。調べたマス数と経路の長さで「賢さ」を比較。
 - [AIはこうやって文章を作る マルコフ連鎖シミュレーター](https://shimulabo.com/sims/markov-bunsho/): 文章を貼ると「次の文字の確率」を数えて学習し、それっぽい文を生成。ChatGPTの原理の最小版。
 
-### 美容・ファッション（27本）
+### 美容・ファッション（20本）
 - [脱毛の総額](https://shimulabo.com/sims/datsumo-sougaku/): 全身脱毛、結局いくらかかる？
-- [コスメ代 年間](https://shimulabo.com/sims/cosme-nenkan/): 美容にかけてるお金、年いくら？
 - [服の生涯コスト](https://shimulabo.com/sims/fuku-shogai/): 一生で服にいくら使う？
-- [美容院 年間費用](https://shimulabo.com/sims/biyoin-nenkan/): 髪にかけるお金、年いくら？
-- [ダイエット目標カロリー](https://shimulabo.com/sims/diet-mokuhyou/): 1日何kcal減らせばいい？
-- [ネイル・まつエク 年間](https://shimulabo.com/sims/nail-matsu/): 指先と目元の維持費は？
 - [肌年齢診断](https://shimulabo.com/sims/hada-nenrei/): あなたの肌、実年齢より若い？
 - [クローゼット稼働率](https://shimulabo.com/sims/wardrobe/): 持ってる服、ちゃんと着てる？
 - [髪が伸びるまで](https://shimulabo.com/sims/kami-nobiru/): 目標の長さまであと何ヶ月？
-- [デパコス vs プチプラ](https://shimulabo.com/sims/depacos/): 生涯でどれだけ差がつく？
-- [靴・バッグ 生涯コストシミュレーター](https://shimulabo.com/sims/kutsu-shogai/): 月の靴・バッグ代から、生涯の費用と個数を計算。
-- [ジム会費 元取りシミュレーター](https://shimulabo.com/sims/gym-motodori/): 月会費と利用回数から、1回あたりの単価を計算。
 - [サプリ・美容ドリンク 年間費シミュレーター](https://shimulabo.com/sims/supple-nenkan/): 1日のサプリ・美容ドリンク代から、年間費を計算。
 - [美容体重・モデル体重 計算](https://shimulabo.com/sims/biyo-taiju/): 身長から理想体重の目安
 - [前髪診断](https://shimulabo.com/sims/maegami-shindan/): 質問に答えて似合う前髪タイプを提案。
@@ -658,93 +544,59 @@
 - [日焼けタイマー](https://shimulabo.com/sims/hiyake-timer/): 今日のUV指数をリアルタイム取得。あなたの肌だと何分で焼け始めるかを計算。
 - [今日の服装指数（気温から何を着る？）](https://shimulabo.com/sims/kyou-fukusou/): 今日・明日の予想気温から「半袖？上着？コート？」を判定。朝昼夜の寒暖差と雨・風も考慮。都道府県別。
 
-### スポーツ・運動（20本）
-- [フルマラソン完走予測](https://shimulabo.com/sims/marathon-yosoku/): 今の走力でフルは何時間？
+### スポーツ・運動（12本）
 - [ランニング目標ペース](https://shimulabo.com/sims/run-pace/): 目標タイムには1km何分？
-- [1RM計算機](https://shimulabo.com/sims/kintore-1rm/): あなたのMAXは何kg？
 - [体力年齢診断](https://shimulabo.com/sims/tairyoku-nenrei/): 体力、実年齢より若い？
-- [運動の消費カロリー](https://shimulabo.com/sims/shomou-undou/): その運動、何kcal燃える？
-- [ゴルフ ハンデ目安](https://shimulabo.com/sims/golf-handi/): あなたのハンデはどのくらい？
 - [水泳ペース換算](https://shimulabo.com/sims/swim-pace/): 100mあたり何秒？
 - [サイクリング所要＆消費](https://shimulabo.com/sims/jitensha/): その距離、何分で何kcal？
-- [体脂肪を落とす運動量](https://shimulabo.com/sims/taishibo-otoshi/): 何時間運動すればいい？
-- [心拍ゾーン計算](https://shimulabo.com/sims/shinpaku-zone/): 脂肪燃焼に効く心拍数は？
 - [球速→反応時間シミュレーター](https://shimulabo.com/sims/yakyu-kyusoku/): 球速と距離から、ボールが届くまでの時間を計算。
 - [垂直跳び 評価シミュレーター](https://shimulabo.com/sims/vertical-jump/): 垂直跳びの記録から、滞空時間と評価レベルを判定。
-- [運動習慣カロリーシミュレーター](https://shimulabo.com/sims/undou-shukan/): 週の運動から、年間・生涯の消費カロリーを計算。
 - [ランニング消費カロリー計算](https://shimulabo.com/sims/ranning-calorie/): 距離・体重から消費カロリー
-- [運動神経 自己診断](https://shimulabo.com/sims/undou-shinkei/): 質問に答えて運動神経レベルをセルフ診断。
 - [握力 平均 比較シミュレーター](https://shimulabo.com/sims/akuryoku-heikin/): 年齢別・男女別の握力平均とあなたの記録を比較して判定。
 - [波乗り日和チェッカー](https://shimulabo.com/sims/naminori-biyori/): 明日の朝イチ、波ある？主要サーフポイントの波高・周期を予報データから判定。
 - [ゲレンデ積雪ライブ](https://shimulabo.com/sims/gelande-yuki/): ニセコ・白馬・苗場…主要スキー場のいまの積雪と直近の降雪をライブ表示。
 - [いま走っていい？ランニング指数](https://shimulabo.com/sims/running-shisu/): 気温・湿度・紫外線・PM2.5をまとめて判定。今日のベストなラン時間帯も。
 - [今日の潮、いつ満ちる？](https://shimulabo.com/sims/shio-live/): 釣り・潮干狩りの基本情報。今日の満潮・干潮の時刻をエリア別にライブ表示。
 
-### 推し活・エンタメ（14本）
+### 推し活・エンタメ（6本）
 - [推し活 年間費用](https://shimulabo.com/sims/oshi-nenkan/): 推しにかけてるお金、年いくら？
 - [ライブ遠征費](https://shimulabo.com/sims/live-ensei/): 遠征、年でいくら使ってる？
-- [動画サブスク 元取り](https://shimulabo.com/sims/subsc-motodori/): 月何本観れば元が取れる？
 - [積みゲー消化](https://shimulabo.com/sims/tsumige/): 全部クリアに何年かかる？
 - [一生で観る映画](https://shimulabo.com/sims/eiga-shougai/): あと何本観られる？
-- [漫画 大人買い](https://shimulabo.com/sims/manga-otomegai/): 全巻そろえると総額は？
 - [推しに使う時間](https://shimulabo.com/sims/oshi-jikan/): 一生で何日、推しと過ごす？
 - [チケット当選確率](https://shimulabo.com/sims/ticket-tousen/): 何口応募すれば当たる？
-- [一生で行けるライブ回数](https://shimulabo.com/sims/live-sankai/): あと何回参戦できる？
-- [推しグッズ収納](https://shimulabo.com/sims/goods-shuunou/): うちのグッズ、何箱分？
-- [推しの誕生日カウントダウン](https://shimulabo.com/sims/oshi-anniv/): 推しの誕生日から、次の生誕祭までの日数を表示。
-- [コスプレ費用シミュレーター](https://shimulabo.com/sims/cosplay-hiyou/): 衣装・ウィッグ・小物から、コスプレ費用を試算。
-- [箱推し費用シミュレーター](https://shimulabo.com/sims/hakooshi/): 推しの人数と1人あたり費用から、箱推しの費用を試算。
-- [オタク度診断](https://shimulabo.com/sims/otaku-do/): 質問に答えてオタク度を診断。
 
-### メンタル・自己分析（25本）
-- [ストレス度診断](https://shimulabo.com/sims/stress-do/): 今のストレスはどのくらい？
+### メンタル・自己分析（16本）
 - [性格タイプ診断](https://shimulabo.com/sims/seikaku-type/): あなたはどんなタイプ？
 - [燃え尽き度チェック](https://shimulabo.com/sims/moeotsuki-do/): 頑張りすぎていませんか？
-- [自己肯定感チェック](https://shimulabo.com/sims/jiko-koutei/): 自己肯定感はどのくらい？
-- [コミュ力タイプ診断](https://shimulabo.com/sims/komyu-type/): あなたの対人スタイルは？
 - [価値観診断](https://shimulabo.com/sims/kachikan/): 本当に大事にしているものは？
 - [朝型・夜型診断](https://shimulabo.com/sims/chrono/): あなたの最適な時間帯は？
 - [決断スタイル診断](https://shimulabo.com/sims/ketsudan/): 直感型？熟考型？
 - [レジリエンス診断](https://shimulabo.com/sims/resilience/): あなたの立ち直る力は？
-- [心の余裕度チェック](https://shimulabo.com/sims/kokoro-yoyuu/): 今のあなたに、ゆとりはある？
 - [モチベーションタイプ診断](https://shimulabo.com/sims/motivation-type/): 質問からあなたのモチベーションの源泉を診断。
-- [幸福度・感謝度チェック](https://shimulabo.com/sims/kansha-do/): 6項目で幸福度・感謝度をチェック＋上げるヒント。
 - [集中タイプ診断](https://shimulabo.com/sims/shuuchu-type/): 5問であなたの集中タイプを診断＋集中のコツ。
 - [酒タイプ診断](https://shimulabo.com/sims/sake-type/): 質問に答えてお酒の飲み方タイプを診断。
 - [愛着スタイル診断](https://shimulabo.com/sims/aichaku-style/): 質問に答えて愛着スタイルの傾向を診断。
-- [界隈診断](https://shimulabo.com/sims/kaiwai-shindan/): 質問に答えてネット界隈タイプを診断。
 - [陰キャ陽キャ診断](https://shimulabo.com/sims/inkya-shindan/): 質問に答えて陰キャ陽キャ傾向を診断。
-- [天然度診断](https://shimulabo.com/sims/tennen-do/): 質問に答えて天然度を診断。
 - [動物顔タイプ診断](https://shimulabo.com/sims/doubutsu-kao/): 質問に答えて動物顔タイプを診断（カメラ不要）。
 - [完璧主義度診断](https://shimulabo.com/sims/kanpeki-shugi/): 質問に答えて完璧主義度を診断。
 - [心理傾向タイプ診断](https://shimulabo.com/sims/shinri-kinou/): 質問に答えて心理傾向タイプを診断。
 - [サイコパス診断](https://shimulabo.com/sims/psychopath-shindan/): 質問に答えてサイコパス度を診断。
-- [メンヘラ診断](https://shimulabo.com/sims/menhera-shindan/): 質問に答えてメンヘラ度を診断。
 - [共感力診断（エンパス度チェック）](https://shimulabo.com/sims/kyokan-shindan/): 質問に答えて共感力（エンパス度）を診断。
-- [似合う方言診断](https://shimulabo.com/sims/hougen-shindan/): 質問に答えて似合う方言を診断。
 
-### 教員・先生（29本）
+### 教員・先生（20本）
 - [観点別評価→評定シミュレーター](https://shimulabo.com/sims/seiseki-hyotei/): 3観点のA/B/Cから5段階評定の目安を算出。
 - [テスト統計シミュレーター](https://shimulabo.com/sims/test-toukei/): 点数を貼り付けて平均・最高最低・標準偏差を計算。
 - [内申点 計算シミュレーター](https://shimulabo.com/sims/naishin-keisan/): 9教科の評定と傾斜配点から内申点の目安を計算。
-- [所見作成 時短シミュレーター](https://shimulabo.com/sims/shoken-jitan/): 人数と1人の所見時間から総作業時間と時短効果を試算。
-- [採点時間シミュレーター](https://shimulabo.com/sims/saiten-jikan/): 人数・問題数・1問の採点時間から総採点時間を試算。
 - [席替えパターン数シミュレーター](https://shimulabo.com/sims/sekigae-pattern/): 人数から席替えの並び方の通り数を計算。
-- [クラス分け組み合わせシミュレーター](https://shimulabo.com/sims/class-kumiawase/): 人数とクラス数からクラス分けの組み合わせ数を計算。
 - [班分けシミュレーター](https://shimulabo.com/sims/han-wake/): 人数と1班の人数から班の数・余りを計算。
 - [出席率シミュレーター](https://shimulabo.com/sims/shusseki-ritsu/): 授業日数と欠席日数から出席率を計算。
 - [プリント印刷枚数・コストシミュレーター](https://shimulabo.com/sims/print-cost/): 人数・1日の枚数・授業日数から年間の印刷枚数を計算。
-- [忘却曲線シミュレーター](https://shimulabo.com/sims/wasure-kyokusen/): 復習なし／ありで1ヶ月後の定着率を比較。
 - [偏差値計算シミュレーター](https://shimulabo.com/sims/hensachi/): 点数・平均・標準偏差から偏差値と上位％を計算。
-- [教員の残業時間シミュレーター](https://shimulabo.com/sims/zangyo-kyoin/): 出退勤と持ち帰りから教員の残業時間を試算。
-- [体力テスト評価シミュレーター](https://shimulabo.com/sims/tairyoku-hyouka/): 種目と記録から体力テストの評価段階の目安を表示。
-- [集金計算シミュレーター](https://shimulabo.com/sims/kyushoku-shukin/): 月額と人数・月数からクラスの集金総額を計算。
 - [評定平均値 計算シミュレーター](https://shimulabo.com/sims/hyoutei-heikin/): 全科目の評定から評定平均値を自動計算。推薦基準の目安も。
-- [GPA計算ツール](https://shimulabo.com/sims/gpa/): 成績の科目数を入れるだけでGPAを自動計算。
 - [年間授業時数シミュレーター](https://shimulabo.com/sims/jugyou-jisuu/): 週時数と実施週数から年間授業時数と標準との過不足を計算。
 - [欠課時数・単位シミュレーター](https://shimulabo.com/sims/kekka-tani/): 年間時数と欠課数から、単位を落とさず休める残り回数を計算。
 - [教員の給料シミュレーター](https://shimulabo.com/sims/kyoin-kyuryo/): 経験年数と学歴・地域手当から教員の給料の目安を試算。
-- [教員採用試験 倍率シミュレーター](https://shimulabo.com/sims/kyosai-bairitsu/): 受験者数と採用数から教採の倍率と合格率を計算。
 - [学級編成シミュレーター](https://shimulabo.com/sims/gakkyu-hensei/): 児童生徒数と上限人数からクラス数・平均人数を計算。
 - [必要出席日数 計算](https://shimulabo.com/sims/hisho-nissu/): 目標出席率まで、あと何日出席が必要か・あと何日休めるかを計算。
 - [皆勤・精勤 判定](https://shimulabo.com/sims/kaikin-hantei/): 欠席・遅刻の回数から皆勤・精勤に当てはまるか判定。
@@ -754,21 +606,13 @@
 - [卒業単位 計算](https://shimulabo.com/sims/sotsugyo-tani/): 必要単位・取得単位・残り学期から卒業までの単位を計算。
 - [進級・留年 単位ボーダー 判定](https://shimulabo.com/sims/ryunen-tani/): 進級に必要な単位と取得見込みから、進級/留年を判定。
 
-### シニア・終活・介護（12本）
-- [終活 総費用シミュレーター](https://shimulabo.com/sims/shukatsu-sougaku/): お墓・葬儀・生前整理・遺言から終活の総額を試算。
-- [お墓の費用比較シミュレーター](https://shimulabo.com/sims/ohaka-hiyou/): 墓石・永代供養・樹木葬など供養の形別に費用を比較。
-- [葬儀費用シミュレーター](https://shimulabo.com/sims/sougi-hiyou/): 直葬・家族葬・一般葬と参列者数から葬儀費用を試算。
+### シニア・終活・介護（4本）
 - [介護費用シミュレーター](https://shimulabo.com/sims/kaigo-hiyou/): 在宅と施設の月額と期間から生涯の介護費用を比較。
-- [年金繰下げ受給シミュレーター](https://shimulabo.com/sims/nenkin-kurisage/): 繰下げ受給の増額率と損益分岐年齢を計算。
-- [生前贈与シミュレーター](https://shimulabo.com/sims/seizen-zoyo/): 暦年贈与で無税で渡せる総額と相続税圧縮を試算。
-- [高額療養費シミュレーター](https://shimulabo.com/sims/kougaku-ryoyo/): 医療費と所得区分から高額療養費の自己負担上限を計算。
-- [終活準備度チェック](https://shimulabo.com/sims/ending-do/): 終活の準備状況を診断し、次にやることを提案。
 - [健康寿命シミュレーター](https://shimulabo.com/sims/kenkou-jumyo/): 年齢から平均寿命・健康寿命までの残り時間を計算。
-- [遺産分割シミュレーター](https://shimulabo.com/sims/isan-bunkatsu/): 遺産総額と家族構成から法定相続分を計算。
 - [介護保険料 計算シミュレーター](https://shimulabo.com/sims/kaigohoken-ryou/): 40〜64歳・65歳以上の介護保険料の目安を計算。
 - [高齢者は何歳から？ 判定ツール](https://shimulabo.com/sims/koreisha-itsu/): 年齢から前期/後期高齢者・介護保険・高齢者マークなど該当制度をまとめて判定。
 
-### 税金・確定申告（15本）
+### 税金・確定申告（14本）
 - [住民税シミュレーター](https://shimulabo.com/sims/juuminzei/): 年収から住民税の目安を概算で計算。
 - [所得税シミュレーター](https://shimulabo.com/sims/shotokuzei/): 年収から課税所得を出し、累進税率で所得税を計算。
 - [医療費控除シミュレーター](https://shimulabo.com/sims/iryouhi-koujo/): 年間医療費と所得から医療費控除と還付額を計算。
@@ -776,7 +620,6 @@
 - [扶養控除シミュレーター](https://shimulabo.com/sims/fuyou-koujo/): 扶養人数と区分から扶養控除の節税額を計算。
 - [株の税金シミュレーター](https://shimulabo.com/sims/kabu-zei/): 譲渡益・配当から税金(20.315%)と手取りを計算。
 - [消費税計算ツール](https://shimulabo.com/sims/shouhizei/): 金額から消費税の税込・税抜・税額を計算。
-- [個人事業主の税金シミュレーター](https://shimulabo.com/sims/kojin-jigyo/): 事業所得から税・社会保険の合計負担と手取りを試算。
 - [贈与税シミュレーター](https://shimulabo.com/sims/zoyozei/): もらった額から基礎控除110万を引いて贈与税を計算。
 - [退職金の税金シミュレーター](https://shimulabo.com/sims/taishokukin-zei/): 退職金と勤続年数から退職所得控除・税・手取りを計算。
 - [生命保険料控除 計算シミュレーター](https://shimulabo.com/sims/seiho-koujo/): 3区分の保険料から控除額と節税額を計算（新制度）。
@@ -785,29 +628,21 @@
 - [「独身税」はいくら？ 支援金 目安計算](https://shimulabo.com/sims/dokushin-zei/): 子ども・子育て支援金（2026年4月〜）の月負担目安を年収から概算。
 - [確定申告はいつまで？期限カウントダウン](https://shimulabo.com/sims/kakutei-shinkoku-itsu/): 今年（令和8年分）の確定申告はいつからいつまで？受付開始・期限までのカウントダウンと、還付申告・消費税・贈与税の期限も。
 
-### 受験・進学（10本）
+### 受験・進学（8本）
 - [併願校 合格確率シミュレーター](https://shimulabo.com/sims/heigan-goukaku/): 各校の合格率から、少なくとも1校合格する確率を計算。
 - [必要偏差値シミュレーター](https://shimulabo.com/sims/hitsuyo-hensachi/): 今と志望校の偏差値差から必要な勉強量を計算。
 - [受験総費用シミュレーター](https://shimulabo.com/sims/juken-sougaku/): 受験料・入学金・塾代から受験の総額を試算。
 - [受験までの勉強時間シミュレーター](https://shimulabo.com/sims/juken-jikan/): 残り月数と1日の勉強時間から総勉強時間を計算。
 - [中学受験 費用シミュレーター](https://shimulabo.com/sims/chugaku-juken/): 塾代・受験料・入学金から中学受験の総費用を試算。
 - [模試判定シミュレーター](https://shimulabo.com/sims/moshi-hantei/): 点数と志望校偏差値から合格判定A〜Eの目安を表示。
-- [合格最低点まであと何点シミュレーター](https://shimulabo.com/sims/goukaku-saiteiten/): 今の点数と合格最低点から、あと必要な点数を計算。
 - [入試方式 診断](https://shimulabo.com/sims/nyushi-shindan/): あなたの強みから向いている入試方式を診断。
-- [予備校 vs 宅浪 費用シミュレーター](https://shimulabo.com/sims/yobikou-hiyou/): 予備校と宅浪の費用を比較して差額を試算。
 - [志願倍率シミュレーター](https://shimulabo.com/sims/shigan-bairitsu/): 志願者数と定員から倍率と合格ラインの順位を計算。
 
-### 季節・行事（18本）
+### 季節・行事（12本）
 - [今年あと何％シミュレーター](https://shimulabo.com/sims/kotoshi-pct/): 今日の日付から今年の進捗％と残り日数を表示。
-- [お年玉 総額シミュレーター](https://shimulabo.com/sims/otoshidama/): 人数と相場からお年玉の総額を計算。
 - [ボーナス使い道シミュレーター](https://shimulabo.com/sims/bonus-haibun/): ボーナスを貯金・投資・ご褒美に賢く配分。
 - [クリスマス予算シミュレーター](https://shimulabo.com/sims/christmas-yosan/): プレゼント・ケーキ・ごちそうからクリスマス予算を試算。
 - [年賀状コストシミュレーター](https://shimulabo.com/sims/nengajo-cost/): 枚数とはがき代・印刷代から年賀状の総額を計算。
-- [帰省費用シミュレーター](https://shimulabo.com/sims/kisei-hiyou/): 交通費・お土産・お年玉から帰省費用を試算。
-- [ご祝儀・香典の相場シミュレーター](https://shimulabo.com/sims/goshugi-souba/): 関係と行事からご祝儀・香典の相場の目安を表示。
-- [花見・BBQ予算シミュレーター](https://shimulabo.com/sims/hanami-yosan/): 人数と食材・飲み物から花見・BBQの会費を計算。
-- [バレンタイン予算シミュレーター](https://shimulabo.com/sims/valentine-yosan/): 本命・義理・友チョコの個数からバレンタイン予算を計算。
-- [行事カウントダウン](https://shimulabo.com/sims/gyouji-countdown/): 選んだ年中行事まであと何日かを表示。
 - [全国いま暑いランキング](https://shimulabo.com/sims/atsusa-ranking/): あなたの県はいま全国何位に暑い？47都道府県の現在気温をライブで一斉計測。
 - [次の3連休カウントダウン](https://shimulabo.com/sims/tsugi-renkyuu/): 次の3連休、あと何日？最新の祝日データから連休カレンダーを自動生成。
 - [昼の長さメーター](https://shimulabo.com/sims/hiruma-nagasa/): 今日の昼は何時間何分？昨日との差を秒単位で表示。季節が動く音が聞こえる。
@@ -817,17 +652,12 @@
 - [祝日カレンダー（今年・来年の祝日一覧と連休）](https://shimulabo.com/sims/shukujitsu-calendar/): 今年と来年の祝日を12ヶ月カレンダーと一覧で。3連休以上を自動で色分けし、次の祝日まであと何日かも。
 - [お盆はいつ？お盆休み・お彼岸カウントダウン](https://shimulabo.com/sims/obon-itsu/): 今年・来年のお盆（8月13〜16日）と、山の日・土日とつながるお盆休みの最長連休を自動計算。春・秋のお彼岸の日程も。
 
-### 音声入力・時短（30本）
+### 音声入力・時短（19本）
 - [音声入力 時短シミュレーター](https://shimulabo.com/sims/input-jitan/): タイピングを音声入力にした時の年間の時短と節約額を計算。
-- [議事録 音声入力シミュレーター](https://shimulabo.com/sims/gijiroku-jitan/): 音声入力で議事録づくりの作業時間と人件費をどれだけ削減できるか計算。
 - [メール作成 音声入力シミュレーター](https://shimulabo.com/sims/mail-jitan/): メール作成を音声入力にした時の年間の時短と節約額を計算。
-- [記事・ブログ執筆 音声入力シミュレーター](https://shimulabo.com/sims/blog-shippitsu/): 執筆を音声入力にした時の年間の時短と金額換算を計算。
 - [文字起こし外注費 削減シミュレーター](https://shimulabo.com/sims/moji-okoshi/): 外注の文字起こしをAI自動化した時の年間削減額を計算。
-- [書類・レポート作成 音声入力シミュレーター](https://shimulabo.com/sims/shorui-jitan/): 文書作成を音声入力にした時の年間の時短と金額を計算。
-- [チャット・SNS 音声入力シミュレーター](https://shimulabo.com/sims/chat-jitan/): チャット返信を音声入力にした時の年間の時短を計算。
 - [メモ・記録 音声入力シミュレーター](https://shimulabo.com/sims/memo-jitan/): メモや記録を音声入力にした時の年間の時短を計算。
 - [生涯タイピング時間シミュレーター](https://shimulabo.com/sims/shogai-typing/): 生涯のタイピング時間と音声入力で取り戻せる時間を計算。
-- [タイピングの手の負担シミュレーター](https://shimulabo.com/sims/kenshouen/): 年間の打鍵数と手の負担を、音声入力で軽減する効果を計算。
 - [ボイスメモ文字起こし時短](https://shimulabo.com/sims/voice-memo/): 録音を手作業 vs 音声入力。聞き返す時間のムダを可視化。
 - [音声日記＝生涯の自分史](https://shimulabo.com/sims/voice-diary/): 1日1分の音声日記が生涯で文庫本何冊分になる？
 - [卒論・レポート執筆時間](https://shimulabo.com/sims/sotsuron-jitan/): 音声入力なら卒論は何日早く終わる？締切まで逆算。
@@ -839,59 +669,34 @@
 - [頭の中の棚卸し](https://shimulabo.com/sims/atama-tana/): 書き出せずに失う時間は？話せば一瞬で整理。
 - [人生の入力総決算](https://shimulabo.com/sims/jinsei-input/): 一生でキーボードに何日費やす？音声で取り戻す。
 - [文字起こし 所要時間 計算](https://shimulabo.com/sims/moji-jikan/): 録音時間から手作業の文字起こし時間とAI短縮効果を計算。
-- [ボイスメモ 文字起こし 時短シミュレーター](https://shimulabo.com/sims/voicememo-okoshi/): ボイスメモの文字起こしをAIにした時の年間時短を計算。
-- [YouTube・動画 文字起こし時間シミュレーター](https://shimulabo.com/sims/youtube-moji/): 動画の字幕作成の手作業時間とAI短縮を計算。
-- [音声入力 vs フリック入力 速度シミュレーター](https://shimulabo.com/sims/flick-voice/): スマホの入力量からフリックと音声入力の時間差を計算。
 - [タイピングを速くする vs 音声入力 診断](https://shimulabo.com/sims/typing-kotsu/): 今のタイピング速度から音声入力との速さを比較。
 - [文字起こし副業 収入シミュレーター](https://shimulabo.com/sims/fukugyo-okoshi/): 録音時間と単価から文字起こし副業の月収を計算。
-- [レポート・論文 音声執筆 時短シミュレーター](https://shimulabo.com/sims/ronbun-voice/): 文字数から論文・レポートを音声執筆した時の時短を計算。
-- [日報・週報 音声入力 時短シミュレーター](https://shimulabo.com/sims/nippou-voice/): 日報の作成を音声入力にした時の年間時短を計算。
-- [Web会議(Zoom)議事録 時短シミュレーター](https://shimulabo.com/sims/zoom-gijiroku/): Web会議の議事録をAI文字起こしにした時の年間削減を計算。
 - [就活ES 音声入力 時短シミュレーター](https://shimulabo.com/sims/shukatsu-voice/): ES作成の総時間と音声入力での短縮を計算。
 
-### 16タイプ性格診断（10本）
+### 16タイプ性格診断（6本）
 - [動物に例えると診断](https://shimulabo.com/sims/doubutsu-type/): 12問であなたを動物に例える。相性の動物も分かる。
 - [あなたに合うペット診断](https://shimulabo.com/sims/pet-aisho-type/): 性格でわかる、相性ぴったりの犬・猫。
-- [戦国武将タイプ診断](https://shimulabo.com/sims/sengoku-busho/): あなたに似た戦国武将は？信長型？家康型？
 - [三国志武将タイプ診断](https://shimulabo.com/sims/sangokushi-type/): あなたに似た三国志の英雄を診断。
 - [お酒タイプ診断](https://shimulabo.com/sims/osake-type/): あなたをお酒に例えると？相性のお酒も。
-- [色に例えると診断](https://shimulabo.com/sims/iro-type/): 性格でわかるあなたのパーソナルカラー。
 - [花に例えると診断](https://shimulabo.com/sims/hana-type/): あなたを花に例えると何の花？花言葉も。
-- [四字熟語であらわす診断](https://shimulabo.com/sims/yoji-jukugo-type/): あなたを四字熟語であらわすと？座右の銘に。
-- [天職・向いてる仕事診断](https://shimulabo.com/sims/tenshoku-type/): 性格でわかる、向いてる仕事の方向性。
 - [16タイプ相性診断](https://shimulabo.com/sims/aisho-16type/): 自分と相手のタイプを選ぶだけで相性を％診断。恋愛・友達・仕事に。
 
-### 便利ツール（37本）
-- [パーセント計算機](https://shimulabo.com/sims/percent-keisan/): 割合・何％・増減率を一発計算。
-- [分数計算機](https://shimulabo.com/sims/bunsuu-keisan/): 分数の＋−×÷を約分つきで計算。
+### 便利ツール（22本）
 - [時間計算機](https://shimulabo.com/sims/jikan-keisan/): 2つの時刻の差・経過時間を計算（夜勤対応）。
-- [進数変換ツール](https://shimulabo.com/sims/shinsu-henkan/): 2進・8進・10進・16進を相互変換。
-- [西暦・和暦変換](https://shimulabo.com/sims/wareki-henkan/): 令和・平成は何年？年齢・干支も。
-- [日数計算機](https://shimulabo.com/sims/nissu-keisan/): 2つの日付の間は何日？あと何日も。
-- [確率計算機](https://shimulabo.com/sims/kakuritsu-keisan/): ○％を何回引けば当たる？ガチャの確率。
 - [単位変換ツール](https://shimulabo.com/sims/tani-henkan/): 長さ・重さ・面積・容量をまとめて換算。
 - [速さ・距離・時間](https://shimulabo.com/sims/hayasa-keisan/): 2つ入れると残り1つを計算（はじき）。
-- [文字数カウント](https://shimulabo.com/sims/moji-count/): 貼るだけで文字数・原稿用紙・読了時間。
-- [素因数分解ツール](https://shimulabo.com/sims/soinsu-bunkai/): 数を素数の積に分解。約数の個数も。
 - [パスワード生成](https://shimulabo.com/sims/password-gen/): 安全で強いランダムパスワードを作成。
-- [最小公倍数・最大公約数](https://shimulabo.com/sims/koubaisu-yakusu/): 2〜3つの数のLCM・GCDを計算。
 - [温度変換](https://shimulabo.com/sims/ondo-henkan/): 摂氏・華氏・ケルビンを相互変換。
 - [アスペクト比計算](https://shimulabo.com/sims/aspect-keisan/): 縦横比を求める・サイズを比から計算。
 - [ローマ字変換](https://shimulabo.com/sims/romaji-henkan/): ひらがな・カタカナをローマ字に。
-- [平均値計算](https://shimulabo.com/sims/heikin-keisan/): 平均・合計・中央値をまとめて計算。
 - [時給計算機](https://shimulabo.com/sims/jikyu-keisan/): 時給から日給・月収・年収を計算。
-- [全角・半角変換](https://shimulabo.com/sims/zenkaku-hankaku/): 英数字・記号・カナを一括変換。
 - [面積計算ツール](https://shimulabo.com/sims/menseki-keisan/): 円・三角形・台形などの面積を計算。
 - [消費税計算機](https://shimulabo.com/sims/zeikomi-keisan/): 税込・税抜・消費税額をすぐ計算
 - [割引計算機](https://shimulabo.com/sims/waribiki-keisan/): ○％OFF・二重割引の価格を計算
 - [偏差値計算機](https://shimulabo.com/sims/hensachi-keisan/): 点数・平均・標準偏差から偏差値
 - [比率計算機](https://shimulabo.com/sims/hiritsu-keisan/): A:B＝C:X の X をすぐ計算
 - [ローマ数字変換](https://shimulabo.com/sims/roma-suji/): 数字⇔ローマ数字を相互変換
-- [標準偏差計算機](https://shimulabo.com/sims/hyojun-hensa/): 平均・分散・標準偏差を計算
 - [体積計算機](https://shimulabo.com/sims/taiseki-keisan/): 立方体・円柱・球などの体積
-- [約分計算機](https://shimulabo.com/sims/yakubun-keisan/): 分数を約分・帯分数・小数に
-- [順列・組み合わせ計算](https://shimulabo.com/sims/junretsu-keisan/): nPr・nCr・階乗をすぐ計算
-- [ルート計算機（平方根）](https://shimulabo.com/sims/root-keisan/): √の値を計算・簡単な形に変形
 - [二次方程式の解の計算機](https://shimulabo.com/sims/nijihoteishiki/): ax²+bx+c=0 を解の公式で
 - [円の面積・円周の計算機](https://shimulabo.com/sims/en-menseki/): 半径や直径からすぐ計算
 - [今日、傘いる？メーター](https://shimulabo.com/sims/kasa-iru/): 出がけの3秒判定。今日の降水確率から「いらない/折りたたみ/ガチ傘」を即答。
@@ -900,7 +705,7 @@
 - [いまの雨雲マップ](https://shimulabo.com/sims/amagumo-now/): 日本列島のいまの雨雲をレーダー合成画像でさっと確認。10分ごと更新。
 - [週間予報、どこまで信じる？](https://shimulabo.com/sims/yohou-shinrai/): 気象庁は予報に「信頼度A/B/C」を付けている。今週の怪しい日をあぶり出す。
 
-### 脳トレ・診断テスト（40本）
+### 脳トレ・診断テスト（37本）
 - [ストレスチェック](https://shimulabo.com/sims/stress-check/): 10問で今のストレス度をセルフ診断。
 - [HSP診断（繊細さん）](https://shimulabo.com/sims/hsp-shindan/): あなたの繊細さレベルを12問でチェック。
 - [EQ診断](https://shimulabo.com/sims/eq-shindan/): 心の知能指数を10問でチェック。
@@ -924,11 +729,9 @@
 - [間違い探しゲーム](https://shimulabo.com/sims/machigai-sagashi/): 60秒で違う絵文字を何問見つける？
 - [神経衰弱ゲーム](https://shimulabo.com/sims/shinkei-suijaku/): 1人で遊べる記憶力ゲーム
 - [瞬間記憶テスト](https://shimulabo.com/sims/shunkan-kioku/): 一瞬の数字を何桁覚えられる？
-- [順番記憶ゲーム](https://shimulabo.com/sims/simon-game/): 光る順番を覚えて再現（サイモン）
 - [逆唱テスト](https://shimulabo.com/sims/gyakushou-kioku/): 数字を逆から言えるか？
 - [図形回転テスト](https://shimulabo.com/sims/mental-rotation/): 同じ向き？それとも鏡文字？
 - [仲間はずれ探しクイズ](https://shimulabo.com/sims/nakama-hazure/): 1つだけ違うものはどれ？
-- [位置記憶テスト](https://shimulabo.com/sims/ichi-kioku/): 光ったマスの場所を覚えて再現
 - [単語記憶テスト](https://shimulabo.com/sims/tango-kioku/): いくつ覚えられる？記憶力チェック
 - [数字探し（シュルテ）](https://shimulabo.com/sims/schulte/): 1〜25を順に速くタップ
 - [モスキート音テスト](https://shimulabo.com/sims/mosquito-on/): 何歳まで聞こえる？聴力年齢チェック
@@ -937,49 +740,36 @@
 - [視力テスト](https://shimulabo.com/sims/shiryoku-test/): ランドルト環の切れ目はどっち？
 - [色の識別テスト](https://shimulabo.com/sims/shikikaku-test/): 1つだけ違う色を探せ
 - [IQテスト（簡易版）](https://shimulabo.com/sims/iq-test/): 10問で論理思考力をチェック
-- [タイピング速度テスト](https://shimulabo.com/sims/typing-sokudo/): CPM・正確性を測定
 - [リズム感テスト](https://shimulabo.com/sims/rhythm-test/): ビートに合わせてタップ
 - [的当て反応テスト](https://shimulabo.com/sims/mato-tap/): 30秒で何個タップできる？
 - [集中力テスト（Go/No-Go）](https://shimulabo.com/sims/gonogo-test/): 青はタップ・赤は我慢！
 
-### 結婚式・ブライダル（9本）
+### 結婚式・ブライダル（3本）
 - [結婚式スタイル診断](https://shimulabo.com/sims/wedding-style/): ふたりに合う挙式は？教会式・神前式・人前式。
-- [結婚式場タイプ診断](https://shimulabo.com/sims/venue-type/): ホテル・専門式場・ゲストハウス・レストラン。
-- [結婚式の演出タイプ診断](https://shimulabo.com/sims/enshutsu-type/): 感動派？盛り上げ派？ふたりに合う演出。
-- [結婚式テーマ診断](https://shimulabo.com/sims/wedding-theme/): ナチュラル？エレガント？ふたりのテーマ。
-- [結婚式の自己負担額シミュ](https://shimulabo.com/sims/kekkon-jikofutan/): ご祝儀を引いた持ち出しはいくら？
-- [結婚式 準備スケジュール診断](https://shimulabo.com/sims/kekkon-junbi/): いつから始める？間に合う？を診断。
 - [結婚指輪・婚約指輪の予算](https://shimulabo.com/sims/yubiwa-yosan/): 相場とお給料からの目安
-- [二次会の会費シミュレーター](https://shimulabo.com/sims/nijikai-kaihi/): 赤字にならない会費はいくら？
 - [ハネムーン費用シミュレーター](https://shimulabo.com/sims/honeymoon-hiyou/): 行き先・日数から新婚旅行の予算
 
-### マッチング・恋活（10本）
+### マッチング・恋活（9本）
 - [恋愛診断](https://shimulabo.com/sims/renai-shindan/): あなたの恋愛傾向タイプは？
 - [恋愛タイプ診断](https://shimulabo.com/sims/renai-type/): 肉食？草食？あなたの恋のスタンス。
 - [恋愛偏差値診断](https://shimulabo.com/sims/renai-hensachi/): あなたの恋愛偏差値は？数値で判定。
 - [モテ度診断](https://shimulabo.com/sims/mote-do/): あなたのモテ度は何％？
 - [理想の相手診断](https://shimulabo.com/sims/risou-aite/): あなたに合うパートナーは？
-- [恋愛価値観診断](https://shimulabo.com/sims/renai-kachikan/): 恋で大切にするものは？
 - [恋の駆け引きタイプ診断](https://shimulabo.com/sims/kakehiki-type/): 追う派？追われる派？
 - [マッチングアプリ相性診断](https://shimulabo.com/sims/matchapp-aisho/): 合う使い方・相手タイプは？
 - [結婚適齢期診断](https://shimulabo.com/sims/kekkon-tekireiki/): あなたの結婚への準備度は？
 - [恋人ができるまで診断](https://shimulabo.com/sims/koibito-itsu/): 次に恋人ができるのはいつ？
 
-### 子どもの学習・英語（10本）
-- [子どもの英語学習タイプ診断](https://shimulabo.com/sims/kid-eigo-type/): わが子に合う英語の学び方は？
+### 子どもの学習・英語（6本）
 - [子どもの英語いつから？診断](https://shimulabo.com/sims/kid-eigo-itsukara/): わが家の英語の始めどきは
 - [タブレット学習 向いてる？診断](https://shimulabo.com/sims/kid-tablet-muki/): わが子の適性をチェック
-- [子どもの学習タイプ診断](https://shimulabo.com/sims/kid-gakushu-type/): 合う勉強のさせ方は？
 - [子どもの勉強やる気診断](https://shimulabo.com/sims/kid-yaruki/): わが子のやる気は何点？
-- [子どもの通信教育 費用比較シミュ](https://shimulabo.com/sims/kid-kyozai-hiyou/): 月いくら？タブレット/英会話/塾
 - [子どもの英語耳 育て度チェック](https://shimulabo.com/sims/kid-eigomimi/): わが子の英語耳は育ってる？
 - [子どもの自宅学習 習慣度診断](https://shimulabo.com/sims/kid-jitaku/): 家庭学習は身についてる？
-- [家庭学習時間の目安シミュ](https://shimulabo.com/sims/kid-gakushu-jikan/): 学年別に1日どれくらい？
 - [子どもに合う習い事診断](https://shimulabo.com/sims/kid-naraigoto/): わが子にぴったりの習い事は？
 
-### 浮気・調査・離婚（10本）
+### 浮気・調査・離婚（9本）
 - [浮気度チェック](https://shimulabo.com/sims/uwaki-do/): 相手の浮気の可能性を診断
-- [浮気のサイン診断](https://shimulabo.com/sims/uwaki-sign/): どのタイプのサインが出てる？
 - [不倫・浮気の慰謝料シミュ](https://shimulabo.com/sims/isharyo-furin/): 慰謝料の相場の目安はいくら？
 - [浮気調査・探偵費用シミュ](https://shimulabo.com/sims/tantei-hiyou/): 調査費用の目安はいくら？
 - [養育費シミュレーター](https://shimulabo.com/sims/youikuhi/): 毎月いくら？相場の目安
@@ -989,26 +779,16 @@
 - [倦怠期度診断](https://shimulabo.com/sims/kentaiki/): 二人の倦怠期はどれくらい？
 - [浮気の悩み どうすべき診断](https://shimulabo.com/sims/uwaki-nayami/): 問い詰める？証拠？相談？
 
-### 光熱費・節約（11本）
-- [ガソリン代計算機](https://shimulabo.com/sims/gasolinedai/): 走行距離・燃費からガソリン代を計算
-- [エアコンの電気代計算](https://shimulabo.com/sims/aircon-denki/): 畳数・時間から1日・1ヶ月いくら？
+### 光熱費・節約（6本）
 - [電気代計算機](https://shimulabo.com/sims/denkidai-keisan/): 消費電力(W)と時間から計算
 - [家電別 電気代早見](https://shimulabo.com/sims/kaden-denki/): 冷蔵庫・ドライヤー等の電気代
-- [水道代の平均・目安](https://shimulabo.com/sims/suidoudai/): 世帯人数別に月いくら？
 - [ガス代の平均・目安](https://shimulabo.com/sims/gasudai/): 世帯人数・都市/プロパン別
 - [LED電球の節約シミュ](https://shimulabo.com/sims/led-setsuyaku/): 白熱から替えるといくら得？
 - [暖房の電気代比較](https://shimulabo.com/sims/danbou-hikaku/): エアコン・こたつ・ストーブどれが安い？
-- [EV vs ガソリン車 燃料費比較](https://shimulabo.com/sims/ev-vs-gasoline/): どっちが安い？
-- [光熱費 高すぎ？診断](https://shimulabo.com/sims/kounetsuhi-shindan/): わが家は平均より高い？
 - [今日のソーラー発電シミュ](https://shimulabo.com/sims/solar-hatsuden/): 今日の日射量だと、ソーラーパネルはいくら分発電する？電気代換算つき。
 
-### 冠婚葬祭・贈り物（12本）
+### 冠婚葬祭・贈り物（7本）
 - [香典の相場早見](https://shimulabo.com/sims/koden-souba/): 関係・年代別にいくら包む？
-- [ご祝儀の相場早見](https://shimulabo.com/sims/shukugi-souba/): 結婚式でいくら包む？
-- [お年玉の相場早見](https://shimulabo.com/sims/otoshidama-souba/): 年齢・学年別にいくら渡す？
-- [出産祝いの相場早見](https://shimulabo.com/sims/shussan-iwai-souba/): 関係別にいくら贈る？
-- [結婚祝いの相場早見](https://shimulabo.com/sims/kekkon-iwai-souba/): 出席しない場合・品物でいくら？
-- [内祝い・お返しの金額計算](https://shimulabo.com/sims/uchiiwai-keisan/): 半返し・三分の一をすぐ計算
 - [入学・卒業祝いの相場早見](https://shimulabo.com/sims/nyugaku-iwai-souba/): 関係・学齢別にいくら？
 - [喪中の範囲チェッカー](https://shimulabo.com/sims/mochu-checker/): この続柄は喪中？はがきはいつ？
 - [寒中・暑中見舞いの時期](https://shimulabo.com/sims/kanchu-mimai/): いつ出す？
@@ -1016,30 +796,23 @@
 - [厄年 早見ツール](https://shimulabo.com/sims/yakudoshi/): 生年月日から数え年と前厄・本厄・後厄を自動判定（男女別）。
 - [お中元・お歳暮 相場 早見](https://shimulabo.com/sims/chugen-seibo/): 相手別のお中元・お歳暮の相場と贈る時期の早見。
 
-### 妊娠・出産・妊活（7本）
+### 妊娠・出産・妊活（6本）
 - [排卵日計算機](https://shimulabo.com/sims/hairan-keisan/): 排卵日・妊娠しやすい時期を予測
 - [妊娠週数計算機](https://shimulabo.com/sims/ninshin-shusu/): 今は妊娠何週？出産予定日も
-- [生理周期計算機](https://shimulabo.com/sims/seiri-cycle/): 次の生理日・排卵日・今の時期
 - [基礎体温 高温期・低温期 判定](https://shimulabo.com/sims/kiso-taion/): 今日は高温相？低温相？
 - [産休・育休の期間計算機](https://shimulabo.com/sims/sankyu-ikukyu/): 産休はいつから？育休いつまで？
 - [陣痛間隔タイマー](https://shimulabo.com/sims/jintsuu-kankaku/): タップで間隔を計測・病院連絡の目安
 - [出産費用シミュレーター](https://shimulabo.com/sims/shussan-hiyou/): 一時金を引いた自己負担はいくら？
 
-### 料理・キッチン（20本）
+### 料理・キッチン（14本）
 - [調味料 大さじ・小さじ→グラム換算](https://shimulabo.com/sims/chomiryo-gram/): 塩・砂糖・味噌などの大さじ小さじをグラムに換算。
-- [米の水加減 計算ツール](https://shimulabo.com/sims/kome-mizu/): 合数と好みから炊飯の水の量を計算（無洗米対応）。
-- [オンス⇔グラム 換算ツール](https://shimulabo.com/sims/onsu-gram/): オンスとグラムを相互換算（1oz=28.35g）。
 - [ml⇔グラム 換算ツール](https://shimulabo.com/sims/ml-gram/): 食材の比重別にmlとグラムを相互換算。
-- [レシピ 人数分 換算ツール](https://shimulabo.com/sims/ninzu-bunryo/): 元の人数と作りたい人数から材料の分量を換算。
 - [計量カップ 換算ツール](https://shimulabo.com/sims/cup-kanzan/): カップをml・グラムに換算（米用180ml対応）。
-- [食材の重さ目安ツール](https://shimulabo.com/sims/shokuzai-omosa/): 卵・豆腐などの食材の重さ目安と合計gを計算。
-- [オーブン温度 換算ツール（℃⇔℉）](https://shimulabo.com/sims/oven-ondo/): オーブン温度を摂氏と華氏で相互換算。
 - [揚げ物の油の温度 目安](https://shimulabo.com/sims/age-abura/): 料理別の揚げ油の適温と見極め方を表示。
 - [パスタの量 計算ツール](https://shimulabo.com/sims/pasta-ryou/): 人数からパスタのg・ゆで湯・塩を計算。
 - [ご飯のカロリー 計算ツール](https://shimulabo.com/sims/gohan-cal/): ご飯の量からカロリー・糖質・角砂糖換算を計算。
 - [めんつゆ・だしの黄金比 計算](https://shimulabo.com/sims/dashi-wari/): 用途別にだし・醤油・みりんの黄金比と分量を計算。
 - [圧力鍋 時短 計算ツール](https://shimulabo.com/sims/atsuryoku-jikan/): 通常の調理時間から圧力鍋の加圧時間・時短率を計算。
-- [ホットケーキミックス 代用 計算](https://shimulabo.com/sims/hgm-daiyo/): HMの必要量から薄力粉・BP・砂糖の代用分量を計算。
 - [調味料の塩分 計算ツール](https://shimulabo.com/sims/enbun-chomiryo/): 醤油・味噌などの量から塩分(食塩相当量)を計算。
 - [解凍時間の目安ツール](https://shimulabo.com/sims/kaitou-jikan/): 重さと解凍方法から解凍時間の目安を表示。
 - [米の浸水時間の目安ツール](https://shimulabo.com/sims/kome-shinsui/): 季節と米の種類から浸水時間の目安を表示。

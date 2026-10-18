@@ -19,6 +19,8 @@ for m in re.finditer(r'<a class="sim-card" data-cat="([a-z0-9]+)" href="sims/([^
     cat, slug, body = m.groups()
     t = re.search(r"<h3>(.*?)</h3>", body, re.S); d = re.search(r"<p>(.*?)</p>", body, re.S)
     cards.setdefault(slug, (cat, txt(t.group(1)) if t else slug, txt(d.group(1)) if d else ""))
+# noindex のページ（scripts/noindex_thin.txt）は載せない
+cards = {s: v for s, v in cards.items() if "noindex" not in rd(f"sims/{s}/index.html")[:3000]}
 
 U = json.load(io.open(os.path.join(ROOT, "scripts", "rika", "units.json"), encoding="utf-8"))
 out = [
@@ -28,7 +30,7 @@ out = [
     "ログイン不要・ブラウザだけで動き、入力した内容はサーバーに送らない。理科の授業（小学校〜高校）、日々の計算、"
     "気象庁などの公開データを使ったライブ表示（地震・潮・天気・星空など）を扱う。",
     "",
-    f"- シミュの数: {len(cards)}本（{len(cats)}カテゴリ）",
+    f"- 掲載しているシミュ: {len(cards)}本（{len(cats)}カテゴリ）",
     "- 引用: 出典「シミュラボ」とページのURLを書けば、記事・授業資料・SNSへの引用は自由（事前連絡不要）",
     f"- サイトマップ: {BASE}/sitemap.xml",
     "",
