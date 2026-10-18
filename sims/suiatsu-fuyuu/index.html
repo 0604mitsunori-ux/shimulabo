@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/suiatsu-fuyuu/">
+<title>水圧と浮力のシミュレーター｜ばねばかりで浮力をはかる・深さと水圧の関係（中3理科 水中の物体に働く力）｜シミュラボ</title>
+<meta name="description" content="ばねばかりにつるした物体を水に沈めると、深さとともに水圧の矢印が大きくなり、ばねばかりの値が浮力の分だけ減ります。浮力は水中にある部分の体積に比例し、全部沈むと一定。ゴム膜をはった筒、穴のあいたペットボトルの水圧の実験も。中3理科「水中の物体に働く力」向け。">
+<meta property="og:title" content="水圧と浮力のシミュレーター（ばねばかり・ゴム膜・ペットボトル）">
+<meta property="og:description" content="物体を沈めるとばねばかりの値が減る＝浮力。深さと水圧の関係、浮力は体積で決まることをグラフで確かめられます。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/suiatsu-fuyuu.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/suiatsu-fuyuu.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/suiatsu-fuyuu/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": ["WebApplication", "LearningResource"], "name": "水圧と浮力のシミュレーター（ばねばかり・ゴム膜・ペットボトル）", "url": "https://shimulabo.com/sims/suiatsu-fuyuu/", "description": "物体を沈めるとばねばかりの値が減る＝浮力。深さと水圧の関係、浮力は体積で決まることをグラフで確かめられます。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "educationalLevel": "中学3年", "learningResourceType": "シミュレーション", "teaches": "中3 水中の物体に働く力（水圧・浮力）", "educationalUse": ["授業", "自習"], "audience": {"@type": "EducationalAudience", "educationalRole": ["teacher", "student"]}, "educationalAlignment": {"@type": "AlignmentObject", "alignmentType": "educationalSubject", "educationalFramework": "学習指導要領（平成29・30年告示）", "targetName": "中学校 第1分野（5）運動とエネルギー"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "理科の授業向け", "item": "https://shimulabo.com/rika/"}, {"@type": "ListItem", "position": 3, "name": "水圧と浮力のシミュレーター（ばねばかり・ゴム膜・ペットボトル）", "item": "https://shimulabo.com/sims/suiatsu-fuyuu/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "水圧とは何ですか？", "acceptedAnswer": {"@type": "Answer", "text": "水の重さによって生じる圧力です。水中の物体の表面に垂直に、あらゆる向きからはたらき、深さに比例して大きくなります。深さ1cmごとに約0.01 N/cm²（約100 Pa）、1mで約10 kPa大きくなります。"}}, {"@type": "Question", "name": "浮力の大きさはどうやって求めますか？", "acceptedAnswer": {"@type": "Answer", "text": "空気中でのばねばかりの値から、水中でのばねばかりの値を引いて求めます。空気中で3.0N、水中で2.0Nなら、浮力は1.0Nです。浮力は、物体の下の面と上の面を押す水圧の差によって生じます。"}}, {"@type": "Question", "name": "物体を深く沈めるほど、浮力は大きくなりますか？", "acceptedAnswer": {"@type": "Answer", "text": "物体の一部が水の上に出ている間は、沈めるほど（水中にある部分の体積が大きくなるほど）浮力は大きくなります。全部沈んだあとは、深さを変えても浮力は変わりません。上面と下面の深さの差（物体の高さ）が変わらず、水圧の差も同じだからです。"}}, {"@type": "Question", "name": "重い物体ほど、浮力は大きくなりますか？", "acceptedAnswer": {"@type": "Answer", "text": "なりません。浮力の大きさは、水中にある部分の体積で決まります。同じ体積なら、鉄でもアルミニウムでも、全部沈めたときの浮力は同じです（100cm³なら約1N）。"}}, {"@type": "Question", "name": "物体が水に浮くか沈むかは、何で決まりますか？", "acceptedAnswer": {"@type": "Answer", "text": "物体にはたらく重力と、全部沈めたときの浮力の大きさで決まります。浮力のほうが大きければ浮き、重力のほうが大きければ沈みます。物体の密度が水の密度（約1 g/cm³）より小さいと浮き、大きいと沈むともいえます。"}}, {"@type": "Question", "name": "鉄でできた船が水に浮くのはなぜですか？", "acceptedAnswer": {"@type": "Answer", "text": "船は中が空洞になっているので、船全体として押しのける水の体積が大きく、その分の大きな浮力がはたらくからです。船全体の平均の密度は水より小さくなっています。浮力が押しのけた水の重さに等しいことを、アルキメデスの原理といいます。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+<style>
+.lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
+.lab-ctl .field{margin-bottom:6px;}
+.lab-ctl>*,.lab-stats>*{min-width:0;}
+.lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
+.lab-ctl .slider-head label{margin:0;font-size:13px;}
+.lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
+.lab-ctl input[type=range]{width:100%;}
+.lab-ctl select{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;font-size:14px;background:#fff;}
+.lab-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px;}
+.lab-btns .btn{padding:11px 18px;font-size:14px;width:auto;}
+.lab-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;width:100%;max-width:640px;margin-top:4px;}
+.lab-stats .stat{background:var(--teal-l);border-radius:10px;padding:10px 12px;text-align:center;}
+.lab-stats .k{font-size:11px;color:var(--ink-2);}
+.lab-stats .v{font-size:20px;font-weight:800;color:var(--ink);font-feature-settings:"tnum";}
+.lab-stats .v.accent{color:var(--accent);}
+.lab-legend{text-align:center;color:var(--ink-2);font-size:13px;margin-top:12px;}
+.lab-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;background:rgba(44,107,134,.10);color:var(--teal-d);margin-bottom:8px;}
+canvas.lab{width:100%;max-width:640px;height:auto;border:1px solid var(--line);border-radius:12px;background:#0b1020;touch-action:none;}
+canvas.lab.light{background:#fff;}
+.panel:fullscreen,.panel:-webkit-full-screen{overflow:auto;padding:24px;background:var(--bg,#faf8f3);}
+.panel:fullscreen canvas.lab{max-width:min(96vw,1100px);}
+.panel:fullscreen .lab-ctl,.panel:fullscreen .lab-stats{max-width:min(96vw,1100px);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../rika/">🔬 理科の授業向け</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../rika/">理科の授業向け</a><span>›</span><span class="cur">水圧と浮力のシミュレーター（ばねばかり・ゴム膜・ペットボトル）</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">理科の授業向け</div>
+    <h1>水圧と浮力のシミュレーター（ばねばかり・ゴム膜・ペットボトル）</h1>
+    <p class="lead">ばねばかりにつるした物体を指で水に沈めると、深いほど水圧の矢印が大きくなり、ばねばかりの値が浮力の分だけ小さくなります。大きさや質量を変えて浮力が何で決まるかを確かめ、ゴム膜をはった筒・穴のあいたペットボトルの実験にも切り替えられます。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;gap:14px;">
+      <span class="lab-badge">🔬 中3 水中の物体に働く力（水圧・浮力）</span>
+      <canvas id="cv" class="lab light" width="640" height="460"></canvas>
+      <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="mode">実験</label></div><select id="mode"><option value="bane" selected>ばねばかりで浮力</option><option value="gomu">ゴム膜をはった筒</option><option value="bottle">穴のあいたペットボトル</option></select></div><div class="field"><div class="slider-head"><label for="sz">物体の大きさ</label></div><select id="sz"><option value="4" selected>中 100cm³（高さ4cm）</option><option value="2">小 50cm³（高さ2cm）</option><option value="8">大 200cm³（高さ8cm）</option></select></div><div class="field"><div class="slider-head"><label for="m">物体の質量</label><span class="val" id="mL"></span></div><input type="range" id="m" min="10" max="500" value="300" step="10" data-fmt="{v}g"></div><div class="field"><div class="slider-head"><label for="dep">沈める深さ（底面）</label><span class="val" id="depL"></span></div><input type="range" id="dep" min="0" max="15" value="6" step="0.5" data-fmt="{v}cm"></div><div class="field"><div class="slider-head"><label for="dir">筒の向き</label></div><select id="dir"><option value="v" selected>縦向き（上下にゴム膜）</option><option value="h">横向き（左右にゴム膜）</option></select></div></div>
+      <div class="lab-btns"><button class="btn btn-ghost" id="toAir">⤒ 水から出す</button><button class="btn btn-ghost" id="toFull">⤓ 全部沈める</button></div>
+      <div class="lab-stats"><div class="stat"><div class="k">ばねばかりの値</div><div class="v accent" id="sRead">—</div></div><div class="stat"><div class="k">空気中での値（重力）</div><div class="v" id="sAir">—</div></div><div class="stat"><div class="k">浮力</div><div class="v" id="sBuoy">—</div></div><div class="stat"><div class="k">下面の水圧</div><div class="v" id="sP">—</div></div></div>
+    </div>
+    <p class="lab-legend">物体は底面5cm×5cmの直方体。青い矢印＝水圧（矢印の長さ＝水圧の大きさ。見やすいように強調しています）。100gの物体にはたらく重力を1N、水の密度を1 g/cm³として計算しています（水圧は深さ1cmごとに0.01 N/cm²）。物体を沈めても水面の高さは変わらないものとしています。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-ghost" id="fsBtn" hidden>⛶ 全画面で表示</button>
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+
+<h2>このシミュレーションでわかること</h2>
+<div class="note" style="border-left:4px solid var(--teal)"><strong>ポイント</strong>：<b>水圧</b>は水の重さによって生じる圧力で、<b>深いほど大きく</b>、水中の物体に<b>あらゆる向きから</b>はたらきます。水中の物体の下の面を押す水圧は上の面を押す水圧より大きいので、その差によって上向きの力＝<b>浮力</b>がはたらきます。ばねばかりの値は、浮力の分だけ小さくなります。</div>
+<p>中学3年 第1分野（5）運動とエネルギー「力のつり合いと合成・分解」の「水中の物体に働く力」の内容です。学習指導要領の解説では、ゴム膜を張った円筒を水中に沈める実験で水圧と深さの関係や水圧があらゆる向きに働くことに気付かせること、ばねばかりにつるした物体を水中に沈めると示す値が小さくなることから浮力を理解させ、浮力を上面と下面の水圧の差から定性的に捉えさせることが示されています。このシミュレーションでは、その3つの実験（ばねばかり・ゴム膜をはった筒・穴のあいたペットボトル）を切り替えて試せます。</p>
+<h2>授業での使い方</h2>
+<ul>
+<li><b>導入</b>：「穴のあいたペットボトル」に切り替え、下の穴ほど水が勢いよく飛ぶことを見せます。「なぜ下の穴ほど勢いがよいのだろう」と問いかけ、2年で学んだ大気圧と結びつけて水圧の予想を立てます。</li>
+<li><b>展開</b>：「ゴム膜をはった筒」で、深くするとゴム膜のへこみが大きくなること、筒を横向きにすると左右のへこみが同じになることを確かめます。次に「ばねばかりで浮力をはかる」で物体を少しずつ沈め、ばねばかりの値と浮力の変わり方を右のグラフで読み取ります。実物の実験の結果とくらべるのにも使えます。</li>
+<li><b>まとめ</b>：物体の大きさ（体積）や質量を変えて、浮力は「水中にある部分の体積」で決まり、物体の重さでは決まらないこと、全部沈めると深さを変えても浮力は変わらないことを確かめます。質量を小さくして、物体が浮く条件も考えます。</li>
+</ul>
+<p>生徒への問いの例：</p>
+<ol>
+<li>物体を全部沈めたあと、さらに深く沈めると、ばねばかりの値はどうなるだろう。それはなぜだろう。</li>
+<li>同じ大きさで、質量が100gの物体と300gの物体では、はたらく浮力はどちらが大きいだろう。</li>
+<li>ゴム膜をはった筒を縦向きにして沈めたとき、上と下のゴム膜のへこみ方がちがうのはなぜだろう。このちがいと浮力には、どんな関係があるだろう。</li>
+</ol>
+<h2>しくみ・解説</h2>
+<h3>用語の意味</h3>
+<ul>
+<li><b>水圧</b>とは、水の重さによって生じる圧力のことで、水中の物体の表面に垂直に、あらゆる向きからはたらきます。</li>
+<li><b>浮力</b>とは、水中にある物体にはたらく上向きの力のことで、物体の下の面と上の面にはたらく水圧の差によって生じます。</li>
+<li><b>圧力</b>とは、面を垂直に押す力の、1m²（または1cm²）あたりの大きさです。単位はパスカル（Pa）で、1 Pa＝1 N/m²です。</li>
+</ul>
+<h3>水圧の式と早見表</h3>
+<div class="note">水圧〔Pa〕＝ 水の密度〔kg/m³〕× 9.8 × 水の深さ〔m〕<br>中学校の約束（100gの物体にはたらく重力＝1N）では、<b>深さ1cmごとに約0.01 N/cm²（約100 Pa）</b>、<b>1mで約10 kPa</b>大きくなります。</div>
+<p>深さ1cmの水圧は、底面積1cm²・高さ1cmの水（1cm³＝1g）の重さ、0.01Nが1cm²の面を押していると考えるとわかります。深さが2倍、3倍になると、上にある水の重さも2倍、3倍になるので、水圧は深さに比例します。</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>水の深さ</th><th>水圧（1cm²あたりの力）</th><th>水圧（パスカル）</th></tr><tr><td>1cm</td><td>0.01 N/cm²</td><td>100 Pa（1 hPa）</td></tr><tr><td>10cm</td><td>0.1 N/cm²</td><td>1,000 Pa（1 kPa）</td></tr><tr><td>50cm</td><td>0.5 N/cm²</td><td>5,000 Pa（5 kPa）</td></tr><tr><td>1m</td><td>1 N/cm²</td><td>10,000 Pa（10 kPa）</td></tr><tr><td>10m</td><td>10 N/cm²</td><td>100,000 Pa（100 kPa）＝大気圧（約101 kPa）とほぼ同じ</td></tr></table></div>
+<p>正確に9.8 N/kgで計算すると、深さ1mの水圧は9.8 kPaです。海で10m深くもぐるごとに、およそ1気圧ずつ大きな圧力がかかることになります。</p>
+<h3>浮力の求め方</h3>
+<div class="note">浮力〔N〕＝ 空気中でのばねばかりの値〔N〕－ 水中でのばねばかりの値〔N〕<br>力のつり合い：物体にはたらく重力 ＝ 浮力 ＋ ばねばかりが引く力</div>
+<p>例：体積100cm³（5cm×5cm×高さ4cm）、質量300gの物体は、空気中でばねばかりが3.00Nを示します。全部水に沈めると2.00Nになったので、浮力は 3.00－2.00＝1.00N です。</p>
+<p>水圧の差で確かめると、上面が深さ2cmのとき、上面を押す力は 0.02 N/cm²×25cm²＝0.50N（下向き）、下面（深さ6cm）を押す力は 0.06 N/cm²×25cm²＝1.50N（上向き）。その差 1.50－0.50＝1.00N が浮力になります。横から押す力は、左右で同じ大きさなので打ち消し合います。</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>物体（直方体）</th><th>体積</th><th>水中に1cm沈めるごとにふえる浮力</th><th>全部沈めたときの浮力</th></tr><tr><td>小（5cm×5cm×高さ2cm）</td><td>50 cm³</td><td>0.25 N</td><td>0.50 N</td></tr><tr><td>中（5cm×5cm×高さ4cm）</td><td>100 cm³</td><td>0.25 N</td><td>1.00 N</td></tr><tr><td>大（5cm×5cm×高さ8cm）</td><td>200 cm³</td><td>0.25 N</td><td>2.00 N</td></tr></table></div>
+<p>物体を少しずつ沈めると、水中にある部分の体積に比例して浮力が大きくなります。全部沈んだあとは、深くしても上面と下面の水圧の差（＝物体の高さ分の水圧）が変わらないので、浮力は一定です。浮力の大きさは物体の体積（水中にある部分）で決まり、物体の質量や材質には関係しません。</p>
+<h3>浮くか、沈むか</h3>
+<p>物体を全部沈めたときの浮力が物体の重力より大きいと、物体は浮き上がり、水中にある部分の浮力と重力がつり合ったところで浮かびます。これは、物体の密度（1cm³あたりの質量）が水の密度（約1 g/cm³）より小さいときです。このシミュレーションでは、質量が体積の数値より小さいと浮き、ばねばかりの値は0Nになります。</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>物質</th><th>密度〔g/cm³〕</th><th>水に入れると</th></tr><tr><td>鉄</td><td>7.87</td><td>沈む</td></tr><tr><td>銅</td><td>8.96</td><td>沈む</td></tr><tr><td>アルミニウム</td><td>2.70</td><td>沈む</td></tr><tr><td>水（4℃）</td><td>1.00</td><td>—</td></tr><tr><td>氷（0℃）</td><td>0.92</td><td>浮く</td></tr><tr><td>ポリプロピレン</td><td>約0.9</td><td>浮く</td></tr><tr><td>木（スギ・乾燥）</td><td>約0.4</td><td>浮く</td></tr></table></div>
+<h3>発展：アルキメデスの原理（高校 物理基礎・物理）</h3>
+<p>水中の物体にはたらく浮力の大きさは、物体が押しのけた水の重さに等しくなります（<b>アルキメデスの原理</b>）。式では F＝ρVg（ρ：水の密度、V：水中にある部分の体積、g：重力加速度）です。体積100cm³の物体を全部沈めると100cm³＝100gの水を押しのけるので、浮力は約1Nになります。鉄でできた船が浮くのは、中が空洞になっていて、船全体として押しのける水の体積が大きいからです。</p>
+<h3>ペットボトルの穴から出る水</h3>
+<p>深い位置の穴ほど水圧が大きいので、水が勢いよく出ます。高校の物理では、穴から出る水の速さが v＝√(2gh)（h：水面から穴までの深さ）になることを学びます。深さ4cmで約0.9 m/s、16cmで約1.8 m/sです。同じ深さの穴なら、向きがちがっても同じ勢いで出ます。</p>
+<div class="note"><b>このシミュレーションで単純にしていること</b>：100gの物体にはたらく重力を1N、水の密度を1 g/cm³としています。水面にはたらく大気圧は、物体の上下や筒の内外で打ち消し合うので省いています。物体を沈めても容器の水面は上がらないものとし、ペットボトルは水を足し続けて水面の高さを一定にしているものとします。穴から出る水の飛び方は空気の抵抗などを考えない計算なので、実際は少し手前に落ちます。矢印やゴム膜のへこみは、見やすいように大きさを強調しています。</div>
+<h2>参考</h2>
+<ul class="seo-refs">
+<li>文部科学省「中学校学習指導要領（平成29年告示）」理科 第1分野（5）運動とエネルギー（ア）（ｱ）力のつり合いと合成・分解／「中学校学習指導要領（平成29年告示）解説 理科編」（水圧の実験、浮力と水圧の定性的な関係）</li>
+<li><a href="https://www.mext.go.jp/a_menu/shotou/new-cs/1384661.htm" target="_blank" rel="noopener">文部科学省「平成29・30・31年改訂学習指導要領（本文、解説）」</a></li>
+<li>国立天文台 編『理科年表』（物質の密度）</li>
+<li>中学校理科の教科書（第3学年）「水中の物体に働く力」、高等学校「物理基礎」「物理」の教科書（浮力・アルキメデスの原理）</li>
+</ul>
+
+    <h2>引用・転載について</h2>
+    <p>本ページのシミュレーション結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・授業や社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「水圧と浮力のシミュレーター（ばねばかり・ゴム膜・ペットボトル）」 https://shimulabo.com/sims/suiatsu-fuyuu/</code></div>
+    <h2>よくある質問</h2><dl class="faq"><dt>水圧とは何ですか？</dt><dd>水の重さによって生じる圧力です。水中の物体の表面に垂直に、あらゆる向きからはたらき、深さに比例して大きくなります。深さ1cmごとに約0.01 N/cm²（約100 Pa）、1mで約10 kPa大きくなります。</dd><dt>浮力の大きさはどうやって求めますか？</dt><dd>空気中でのばねばかりの値から、水中でのばねばかりの値を引いて求めます。空気中で3.0N、水中で2.0Nなら、浮力は1.0Nです。浮力は、物体の下の面と上の面を押す水圧の差によって生じます。</dd><dt>物体を深く沈めるほど、浮力は大きくなりますか？</dt><dd>物体の一部が水の上に出ている間は、沈めるほど（水中にある部分の体積が大きくなるほど）浮力は大きくなります。全部沈んだあとは、深さを変えても浮力は変わりません。上面と下面の深さの差（物体の高さ）が変わらず、水圧の差も同じだからです。</dd><dt>重い物体ほど、浮力は大きくなりますか？</dt><dd>なりません。浮力の大きさは、水中にある部分の体積で決まります。同じ体積なら、鉄でもアルミニウムでも、全部沈めたときの浮力は同じです（100cm³なら約1N）。</dd><dt>物体が水に浮くか沈むかは、何で決まりますか？</dt><dd>物体にはたらく重力と、全部沈めたときの浮力の大きさで決まります。浮力のほうが大きければ浮き、重力のほうが大きければ沈みます。物体の密度が水の密度（約1 g/cm³）より小さいと浮き、大きいと沈むともいえます。</dd><dt>鉄でできた船が水に浮くのはなぜですか？</dt><dd>船は中が空洞になっているので、船全体として押しのける水の体積が大きく、その分の大きな浮力がはたらくからです。船全体の平均の密度は水より小さくなっています。浮力が押しのけた水の重さに等しいことを、アルキメデスの原理といいます。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../bane-nobi/"><span class="e">🪀</span><span>ばねののびと力のシミュレーター（フックの法則・重さと質量）</span></a><a class="related-card" href="../kassha-shigoto/"><span class="e">🏗️</span><span>滑車と仕事の原理シミュレーター（仕事・仕事率）</span></a><a class="related-card" href="../teko-tsuriai/"><span class="e">⚖️</span><span>てこのつり合いシミュレーター</span></a><a class="related-card" href="../kiatsu-jet/"><span class="e">🎢</span><span>気圧ジェットコースター指数</span></a><a class="related-card" href="../joutai-henka/"><span class="e">🧊</span><span>状態変化と粒子のシミュレーター（固体・液体・気体）</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../rika/">🔬 理科の授業向けシミュレーター</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+  const rnd = (a,b) => a + Math.random()*(b-a);
+  const randn = () => { let u=0,v=0; while(!u)u=Math.random(); while(!v)v=Math.random(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
+  let SHARE = '';
+  function setShare(t){ SHARE = t; }
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{ const l=$(s.id+'L'); if(l){ const u=()=>{ l.textContent = (s.dataset.fmt ? s.dataset.fmt.replace('{v}', s.value) : s.value); }; s.addEventListener('input',u); u(); } }); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  function setStat(id, v){ const e=$(id); if(e) e.textContent = v; }
+  try {
+    syncSliders();
+
+  const cv=$('cv'); const dpr=Math.min(2,window.devicePixelRatio||1); const W=cv.width,H=cv.height; cv.width=W*dpr; cv.height=H*dpr; const ctx=cv.getContext('2d'); ctx.setTransform(dpr,0,0,dpr,0,0);
+  const PX=12, SY=232, FL=SY+16*PX, OX=195, CL=72, CR=318, S=25, PB=9, BX0=206, BX1=286, BB=300, TRAY=448, PC='#0369a1';
+  const HOLES=[{sd:1,h:14,n:'上の穴'},{sd:1,h:8,n:'真ん中の穴'},{sd:1,h:2,n:'下の穴'},{sd:-1,h:14,n:'左の穴'}];
+  let mode='bane', dB=+$('dep').value, dG=6, wl=18, drag=null, tt=0, last=0, statKey='';
+  const lab=document.querySelector('label[for=dep]');
+  function fld(id){ return $(id).closest('.field'); }
+  function f2(v){ return (Math.round(v*100)/100).toFixed(2); }
+  function f1(v){ return (Math.round(v*10)/10).toFixed(1); }
+  function pr(z){ return Math.max(0,z)*0.01; }
+  function rr(x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
+  function fit(t,x,y,maxW,size,weight){ let s=size; ctx.font=weight+' '+s+'px sans-serif'; while(ctx.measureText(t).width>maxW && s>9){ s--; ctx.font=weight+' '+s+'px sans-serif'; } ctx.fillText(t,x,y); }
+  function arrow(x0,y0,x1,y1,col,w){ const L=Math.hypot(x1-x0,y1-y0); if(L<3) return; const hs=Math.min(7,L*0.55), a=Math.atan2(y1-y0,x1-x0);
+    ctx.strokeStyle=col; ctx.fillStyle=col; ctx.lineWidth=w||2; ctx.beginPath(); ctx.moveTo(x0,y0); ctx.lineTo(x1-Math.cos(a)*hs*0.8,y1-Math.sin(a)*hs*0.8); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x1-Math.cos(a-0.45)*hs,y1-Math.sin(a-0.45)*hs); ctx.lineTo(x1-Math.cos(a+0.45)*hs,y1-Math.sin(a+0.45)*hs); ctx.closePath(); ctx.fill(); }
+  function phys(d){ const h=+$('sz').value, m=+$('m').value, V=S*h, Wt=m/100, fl=m<V, dF=m/S; const dObj=(fl&&d>dF)?dF:d, sub=clamp(dObj,0,h), Fb=sub*S*0.01;
+    return {h:h,m:m,V:V,Wt:Wt,fl:fl,dObj:dObj,sub:sub,Fb:Fb,rd:Math.max(0,Wt-Fb),top:dObj-h,slack:fl&&d>dF+1e-9,dens:m/V}; }
+  function tank(){ ctx.fillStyle='rgba(56,189,248,.22)'; ctx.fillRect(CL,SY,CR-CL,FL-SY); ctx.strokeStyle='#0284c7'; ctx.lineWidth=1.5; ctx.beginPath(); ctx.moveTo(CL,SY); ctx.lineTo(CR,SY); ctx.stroke();
+    ctx.strokeStyle='#475569'; ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(CL,SY-34); ctx.lineTo(CL,FL); ctx.lineTo(CR,FL); ctx.lineTo(CR,SY-34); ctx.stroke();
+    ctx.fillStyle='#0369a1'; ctx.font='10px sans-serif'; ctx.textAlign='left';
+    for(let c=0;c<=16;c++){ const y=SY+c*PX; ctx.fillRect(CL+1,y-0.5,c%2===0?9:5,1); if(c%4===0 && c>0 && c<16) ctx.fillText(c+'cm',CL+12,y+4); }
+    ctx.fillText('深さ',CL+12,SY+14); ctx.textAlign='right'; ctx.fillText('水面',CR-4,SY-4); }
+  function stand(yArm){ ctx.fillStyle='#94a3b8'; ctx.fillRect(28,6,7,FL-6); ctx.fillRect(14,FL,40,7); ctx.fillRect(28,6,OX-28+4,6); }
+  function springScale(rd){ const y0=18, y1=88; ctx.fillStyle='#64748b'; ctx.fillRect(OX-2,12,4,6);
+    ctx.fillStyle='#f8fafc'; ctx.strokeStyle='#64748b'; ctx.lineWidth=1.5; rr(OX-15,16,30,86,6); ctx.fill(); ctx.stroke();
+    const py=y0+Math.min(rd,5)/5*(y1-y0);
+    ctx.strokeStyle='#94a3b8'; ctx.lineWidth=1.2; ctx.beginPath(); ctx.moveTo(OX,19); for(let i=1;i<=12;i++){ ctx.lineTo(OX+(i%2?6:-6),19+(py-19)*i/12); } ctx.lineTo(OX,py); ctx.stroke();
+    ctx.fillStyle='#334155'; ctx.font='9px sans-serif'; ctx.textAlign='right';
+    for(let v=0;v<=10;v++){ const y=y0+v/10*(y1-y0); ctx.fillRect(OX+9,y-0.5,v%2?3:6,1); if(v%2===0) ctx.fillText(String(v/2),OX-6+0,y+3); }
+    ctx.fillStyle='#dc2626'; ctx.fillRect(OX-12,py-1.5,24,3);
+    ctx.fillStyle='#64748b'; ctx.fillRect(OX-1.5,102,3,8); ctx.strokeStyle='#64748b'; ctx.lineWidth=2; ctx.beginPath(); ctx.arc(OX,113,4,-Math.PI*0.5,Math.PI*0.9); ctx.stroke();
+    ctx.fillStyle='#0f172a'; rr(OX+22,34,92,34,8); ctx.fill(); ctx.fillStyle='#86efac'; ctx.font='bold 19px ui-monospace,Menlo,Consolas,monospace'; ctx.textAlign='right'; ctx.fillText(f2(rd)+' N',OX+108,58);
+    ctx.fillStyle='#475569'; ctx.font='11px sans-serif'; ctx.textAlign='left'; ctx.fillText('ばねばかり',OX+24,28); }
+  function graphBox(x0,y0,x1,y1,xmax,ymax,xt,yt,xlab,ylab,yfmt){ ctx.strokeStyle='#e2e8f0'; ctx.lineWidth=1; ctx.font='10px sans-serif'; ctx.fillStyle='#64748b';
+    for(let v=0;v<=ymax+1e-9;v+=yt){ const y=y1-v/ymax*(y1-y0); ctx.beginPath(); ctx.moveTo(x0,y); ctx.lineTo(x1,y); ctx.stroke(); ctx.textAlign='right'; ctx.fillText(yfmt(v),x0-4,y+3); }
+    for(let v=0;v<=xmax+1e-9;v+=xt){ const x=x0+v/xmax*(x1-x0); ctx.beginPath(); ctx.moveTo(x,y0); ctx.lineTo(x,y1); ctx.stroke(); ctx.textAlign='center'; ctx.fillText(String(v),x,y1+12); }
+    ctx.strokeStyle='#64748b'; ctx.lineWidth=1.3; ctx.beginPath(); ctx.moveTo(x0,y0); ctx.lineTo(x0,y1); ctx.lineTo(x1,y1); ctx.stroke();
+    ctx.fillStyle='#475569'; ctx.textAlign='right'; ctx.fillText(xlab,x1,y1+25); ctx.textAlign='left'; ctx.fillText(ylab,x0-30,y0-7); }
+  // ---------- ばねばかりで浮力 ----------
+  function drawBane(){ const c=phys(dB), top=SY+c.top*PX, bot=SY+c.dObj*PX, OW=60;
+    stand(); tank(); springScale(c.rd);
+    ctx.strokeStyle='#334155'; ctx.lineWidth=1.5; ctx.beginPath(); ctx.moveTo(OX,117);
+    if(c.slack){ const sg=Math.min(40,(dB-c.dObj)*PX*0.8+8); ctx.bezierCurveTo(OX+sg,117+(top-117)*0.3,OX+sg,117+(top-117)*0.7,OX,top); } else ctx.lineTo(OX,top); ctx.stroke();
+    const light=c.dens<1; ctx.fillStyle=light?'#e7c38f':'#a8b3c2'; ctx.strokeStyle='#334155'; ctx.lineWidth=2; ctx.fillRect(OX-OW/2,top,OW,bot-top); ctx.strokeRect(OX-OW/2,top,OW,bot-top);
+    const wt=Math.max(top,SY); if(bot>wt){ ctx.fillStyle='rgba(56,189,248,.28)'; ctx.fillRect(OX-OW/2,wt,OW,bot-wt); }
+    ctx.fillStyle='#0f172a'; ctx.textAlign='center';
+    if(c.h>=4){ fit(c.V+'cm³',OX,(top+bot)/2-3,OW-6,12,'bold'); fit(c.m+'g',OX,(top+bot)/2+12,OW-6,12,'bold'); } else fit(c.V+'cm³・'+c.m+'g',OX,(top+bot)/2+4,OW-4,11,'bold');
+    ctx.save(); ctx.beginPath(); ctx.rect(CL+2,SY,CR-CL-4,FL-SY-2); ctx.clip();
+    if(c.dObj>0){ const L=3*c.dObj; [-18,0,18].forEach(function(dx){ arrow(OX+dx,bot+L+3,OX+dx,bot+1,PC,2); }); }
+    if(c.top>0){ const L=3*c.top; [-18,0,18].forEach(function(dx){ arrow(OX+dx,top-L-3,OX+dx,top-1,PC,2); }); }
+    const fr=c.h>=8?[0.12,0.37,0.63,0.88]:(c.h>=4?[0.2,0.5,0.8]:[0.5]);
+    fr.forEach(function(f){ const z=c.top+f*c.h; if(z<=0) return; const L=3*z, y=SY+z*PX; arrow(OX-OW/2-L-3,y,OX-OW/2-1,y,PC,2); arrow(OX+OW/2+L+3,y,OX+OW/2+1,y,PC,2); });
+    ctx.restore();
+    if(c.slack){ ctx.fillStyle='#b45309'; ctx.font='bold 13px sans-serif'; ctx.textAlign='center'; ctx.fillText('浮いている（糸がたるむ）',OX,FL+22); }
+    else { ctx.fillStyle='#475569'; ctx.font='12px sans-serif'; ctx.textAlign='center'; ctx.fillText('物体を上下にドラッグして沈められます',OX,FL+22); }
+    // 右パネル
+    const X=352; ctx.textAlign='left'; ctx.fillStyle='#475569'; ctx.font='13px sans-serif'; ctx.fillText('ばねばかりの値',X,20);
+    ctx.fillStyle='#1d4ed8'; ctx.font='bold 30px sans-serif'; ctx.fillText(f2(c.rd)+' N',X,52);
+    if(c.slack){ ctx.font='bold 13px sans-serif'; ctx.fillStyle='#b45309'; ctx.fillText('浮力＝重力で浮いている',X+130,48); }
+    ctx.fillStyle='#334155'; fit('空気中での値（重力）：'+f2(c.Wt)+' N',X,76,W-X-8,13,'');
+    ctx.fillStyle='#c2410c'; fit('浮力 ＝ '+f2(c.Wt)+' － '+f2(c.rd)+' ＝ '+f2(c.Fb)+' N',X,98,W-X-8,15,'bold');
+    ctx.fillStyle='#334155'; fit('水中にある部分の体積：'+Math.round(c.sub*S)+' cm³（全体 '+c.V+' cm³）',X,118,W-X-8,12,'');
+    ctx.fillStyle=PC; fit('上面の水圧：'+(c.top>0?f2(pr(c.top))+' N/cm²（'+Math.round(pr(c.top)*10000)+' Pa）':'0（水の外）'),X,138,W-X-8,12,'');
+    fit('下面の水圧：'+f2(pr(c.dObj))+' N/cm²（'+Math.round(pr(c.dObj)*10000)+' Pa）',X,156,W-X-8,12,'');
+    ctx.fillStyle=c.dens<1?'#b45309':'#334155'; fit('密度 '+f2(c.dens)+' g/cm³ → 水（1.00）より'+(c.dens<1?'小さいので浮く':(c.dens>1?'大きいので沈む':'と同じ')),X,176,W-X-8,12,'bold');
+    const gx0=388, gx1=626, gy0=214, gy1=392, ymax=Math.max(0.5,Math.ceil(c.Wt*2-1e-9)/2), yt=ymax>3?1:(ymax>1.5?0.5:0.25);
+    ctx.fillStyle='#0f172a'; ctx.font='bold 12px sans-serif'; ctx.textAlign='left'; ctx.fillText('沈めた深さと、ばねばかりの値・浮力',X,198);
+    graphBox(gx0,gy0,gx1,gy1,15,ymax,3,yt,'物体の底面の深さ（cm）','（N）',function(v){ return v.toFixed(yt<0.5?2:1); });
+    function gx(d){ return gx0+d/15*(gx1-gx0); } function gy(v){ return gy1-v/ymax*(gy1-gy0); }
+    [['rd','#1d4ed8'],['Fb','#ea580c']].forEach(function(s){ ctx.strokeStyle=s[1]; ctx.lineWidth=2.4; ctx.beginPath(); for(let i=0;i<=150;i++){ const d=i/10, q=phys(d); if(i) ctx.lineTo(gx(d),gy(q[s[0]])); else ctx.moveTo(gx(d),gy(q[s[0]])); } ctx.stroke();
+      ctx.fillStyle=s[1]; ctx.beginPath(); ctx.arc(gx(dB),gy(c[s[0]]),5,0,6.283); ctx.fill(); });
+    ctx.font='bold 12px sans-serif'; ctx.textAlign='left'; ctx.fillStyle='#1d4ed8'; ctx.fillText('━ ばねばかりの値',X+8,H-12); ctx.fillStyle='#ea580c'; ctx.fillText('━ 浮力',X+130,H-12);
+    return c; }
+  // ---------- ゴム膜をはった筒 ----------
+  function drawGomu(){ const vert=$('dir').value==='v', cd=clamp(dG,0,vert?11.5:14), cy=SY+cd*PX;
+    stand(); tank();
+    const topY=vert?cy-48:cy-24; ctx.fillStyle='#64748b'; ctx.fillRect(OX-3,12,6,topY-12);
+    let z1, z2;
+    if(vert){ z1=cd-4; z2=cd+4; const bt=1.5*Math.max(0,z1), bb=1.5*Math.max(0,z2), t=cy-48, b=cy+48;
+      ctx.beginPath(); ctx.moveTo(OX-24,t); ctx.quadraticCurveTo(OX,t+2*bt,OX+24,t); ctx.lineTo(OX+24,b); ctx.quadraticCurveTo(OX,b-2*bb,OX-24,b); ctx.closePath(); ctx.fillStyle='#ffffff'; ctx.fill();
+      ctx.strokeStyle='#334155'; ctx.lineWidth=2.5; ctx.beginPath(); ctx.moveTo(OX-24,t); ctx.lineTo(OX-24,b); ctx.moveTo(OX+24,t); ctx.lineTo(OX+24,b); ctx.stroke();
+      ctx.strokeStyle='#f59e0b'; ctx.lineWidth=3.5; ctx.beginPath(); ctx.moveTo(OX-24,t); ctx.quadraticCurveTo(OX,t+2*bt,OX+24,t); ctx.stroke(); ctx.beginPath(); ctx.moveTo(OX-24,b); ctx.quadraticCurveTo(OX,b-2*bb,OX+24,b); ctx.stroke();
+      [-12,0,12].forEach(function(dx){ const tt2=(dx+24)/48, k=4*tt2*(1-tt2); if(z1>0) arrow(OX+dx,t+bt*k-3*z1-4,OX+dx,t+bt*k-1,PC,2); if(z2>0) arrow(OX+dx,b-bb*k+3*z2+4,OX+dx,b-bb*k+1,PC,2); });
+      ctx.font='bold 12px sans-serif'; ctx.textAlign='right'; ctx.fillStyle='#b45309'; ctx.fillText('上の膜',OX-30,t+4); ctx.fillText('下の膜',OX-30,b+4); }
+    else { z1=cd; z2=cd; const bl=1.5*Math.max(0,cd), l=OX-48, r=OX+48;
+      ctx.beginPath(); ctx.moveTo(l,cy-24); ctx.lineTo(r,cy-24); ctx.quadraticCurveTo(r-2*bl,cy,r,cy+24); ctx.lineTo(l,cy+24); ctx.quadraticCurveTo(l+2*bl,cy,l,cy-24); ctx.closePath(); ctx.fillStyle='#ffffff'; ctx.fill();
+      ctx.strokeStyle='#334155'; ctx.lineWidth=2.5; ctx.beginPath(); ctx.moveTo(l,cy-24); ctx.lineTo(r,cy-24); ctx.moveTo(l,cy+24); ctx.lineTo(r,cy+24); ctx.stroke();
+      ctx.strokeStyle='#f59e0b'; ctx.lineWidth=3.5; ctx.beginPath(); ctx.moveTo(l,cy-24); ctx.quadraticCurveTo(l+2*bl,cy,l,cy+24); ctx.stroke(); ctx.beginPath(); ctx.moveTo(r,cy-24); ctx.quadraticCurveTo(r-2*bl,cy,r,cy+24); ctx.stroke();
+      if(cd>0) [-12,0,12].forEach(function(dy){ const tt2=(dy+24)/48, k=4*tt2*(1-tt2), L=3*cd; arrow(l+bl*k-L-4,cy+dy,l+bl*k-1,cy+dy,PC,2); arrow(r-bl*k+L+4,cy+dy,r-bl*k+1,cy+dy,PC,2); });
+      ctx.font='bold 12px sans-serif'; ctx.textAlign='center'; ctx.fillStyle='#b45309'; ctx.fillText('左の膜',l,cy+42); ctx.fillText('右の膜',r,cy+42); }
+    ctx.fillStyle='#475569'; ctx.font='12px sans-serif'; ctx.textAlign='center'; ctx.fillText('筒を上下にドラッグして深さを変えられます',OX,FL+22);
+    const X=352, n1=vert?'上':'左', n2=vert?'下':'右';
+    ctx.textAlign='left'; ctx.fillStyle='#0f172a'; ctx.font='bold 15px sans-serif'; ctx.fillText('ゴム膜のへこみ方（'+(vert?'縦向き':'横向き')+'）',X,22);
+    ctx.fillStyle='#334155'; fit(n1+'の膜：深さ '+f1(Math.max(0,z1))+' cm → 水圧 '+f2(pr(z1))+' N/cm²',X,48,W-X-8,13,'');
+    fit(n2+'の膜：深さ '+f1(z2)+' cm → 水圧 '+f2(pr(z2))+' N/cm²',X,70,W-X-8,13,'');
+    ctx.fillStyle='#b45309';
+    if(vert){ fit('下の膜のほうが大きくへこむ（深いほど水圧が大きい）',X,96,W-X-8,13,'bold'); ctx.fillStyle='#334155'; fit('上下の水圧の差 '+f2(pr(z2)-pr(z1))+' N/cm² が、浮力のもとになる',X,118,W-X-8,12,''); }
+    else { fit('左右の膜は同じだけへこむ（同じ深さなら同じ水圧）',X,96,W-X-8,13,'bold'); ctx.fillStyle='#334155'; fit('水圧は、横向きにもはたらいている',X,118,W-X-8,12,''); }
+    ctx.fillStyle='#334155'; fit('筒の向きを変えてくらべよう（あらゆる向きからはたらく）',X,140,W-X-8,12,'');
+    const gx0=388, gx1=626, gy0=214, gy1=392;
+    ctx.fillStyle='#0f172a'; ctx.font='bold 12px sans-serif'; ctx.textAlign='left'; ctx.fillText('水の深さと水圧（1cmごとに0.01 N/cm²）',X,198);
+    graphBox(gx0,gy0,gx1,gy1,16,0.16,4,0.04,'水の深さ（cm）','（N/cm²）',function(v){ return v.toFixed(2); });
+    ctx.strokeStyle=PC; ctx.lineWidth=2.4; ctx.beginPath(); ctx.moveTo(gx0,gy1); ctx.lineTo(gx1,gy0); ctx.stroke();
+    [[z1,'#f59e0b'],[z2,'#b45309']].forEach(function(s){ if(s[0]<0) return; const x=gx0+s[0]/16*(gx1-gx0), y=gy1-pr(s[0])/0.16*(gy1-gy0); ctx.fillStyle=s[1]; ctx.beginPath(); ctx.arc(x,y,5.5,0,6.283); ctx.fill(); });
+    ctx.font='bold 12px sans-serif'; ctx.fillStyle='#b45309'; ctx.textAlign='left'; ctx.fillText('● ゴム膜の位置の水圧',X+8,H-12);
+    return {z1:z1,z2:z2,vert:vert,cd:cd}; }
+  // ---------- 穴のあいたペットボトル ----------
+  function drawBottle(){ const wy=BB-wl*PB;
+    ctx.strokeStyle='#94a3b8'; ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(10,TRAY); ctx.lineTo(W-10,TRAY); ctx.stroke();
+    ctx.fillStyle='#e2e8f0'; ctx.strokeStyle='#94a3b8'; ctx.lineWidth=1.5; ctx.fillRect(BX0-8,BB,BX1-BX0+16,TRAY-BB); ctx.strokeRect(BX0-8,BB,BX1-BX0+16,TRAY-BB);
+    ctx.fillStyle='#64748b'; ctx.font='11px sans-serif'; ctx.textAlign='center'; ctx.fillText('台',(BX0+BX1)/2,BB+30);
+    ctx.fillStyle='rgba(56,189,248,.35)'; ctx.fillRect(BX0+2,wy,BX1-BX0-4,BB-wy);
+    ctx.strokeStyle='#0284c7'; ctx.lineWidth=1.5; ctx.beginPath(); ctx.moveTo(BX0+2,wy); ctx.lineTo(BX1-2,wy); ctx.stroke();
+    ctx.strokeStyle='#475569'; ctx.lineWidth=2.5; ctx.beginPath(); ctx.moveTo(236,78); ctx.lineTo(236,92); ctx.quadraticCurveTo(BX0,100,BX0,124); ctx.lineTo(BX0,BB); ctx.lineTo(BX1,BB); ctx.lineTo(BX1,124); ctx.quadraticCurveTo(BX1,100,256,92); ctx.lineTo(256,78); ctx.stroke();
+    ctx.fillStyle='#38bdf8'; ctx.fillRect(232,70,28,9);
+    ctx.fillStyle='#0369a1'; ctx.font='11px sans-serif'; ctx.textAlign='left'; ctx.fillText('水面',BX1+6,wy+4);
+    const jets=[];
+    HOLES.forEach(function(ho){ const x0=ho.sd>0?BX1:BX0, y0=BB-ho.h*PB, hd=wl-ho.h;
+      ctx.fillStyle='#0f172a'; ctx.beginPath(); ctx.arc(x0,y0,3,0,6.283); ctx.fill();
+      if(hd<=0.05){ jets.push(0); return; } const v=Math.sqrt(2*980*hd), drop=(TRAY-y0)/PB, tl=Math.sqrt(2*drop/980); jets.push(v);
+      const pts=[]; for(let i=0;i<=40;i++){ const t=tl*i/40, x=x0+ho.sd*v*t*PB, y=y0+490*t*t*PB; if(x<4||x>W-4) break; pts.push([x,y]); }
+      ctx.save(); ctx.lineCap='round'; ctx.strokeStyle='rgba(14,165,233,.35)'; ctx.lineWidth=4; ctx.beginPath(); pts.forEach(function(q,i){ if(i) ctx.lineTo(q[0],q[1]); else ctx.moveTo(q[0],q[1]); }); ctx.stroke();
+      ctx.strokeStyle='#0284c7'; ctx.lineWidth=2.5; ctx.setLineDash([9,7]); ctx.lineDashOffset=-tt*90; ctx.stroke(); ctx.restore();
+      const lp=pts[pts.length-1]; if(lp && lp[1]>TRAY-6){ ctx.fillStyle='rgba(14,165,233,.5)'; ctx.beginPath(); ctx.ellipse(lp[0],TRAY-2,9,3,0,0,6.283); ctx.fill(); } });
+    ctx.fillStyle='#0f172a'; ctx.font='bold 11px sans-serif'; ctx.textAlign='center';
+    [14,8,2].forEach(function(h){ const hd=wl-h; ctx.fillText(hd>0.05?('深さ'+f1(hd)+'cm'):'水の外',(BX0+BX1)/2,BB-h*PB+4); });
+    ctx.fillStyle='#475569'; ctx.font='12px sans-serif'; ctx.textAlign='left'; ctx.fillText('上下にドラッグして',14,24); ctx.fillText('水面の高さを変えられます',14,42);
+    const X=330; ctx.textAlign='left'; ctx.fillStyle='#0f172a'; ctx.font='bold 15px sans-serif'; ctx.fillText('穴の深さと水圧（水面からの深さ）',X,22);
+    HOLES.slice(0,3).forEach(function(ho,i){ const hd=wl-ho.h; ctx.fillStyle=hd>0.05?'#334155':'#94a3b8';
+      fit(ho.n+'：'+(hd>0.05?('深さ '+f1(hd)+' cm → 水圧 '+f2(pr(hd))+' N/cm²'):'水面より上なので水が出ない'),X,46+i*21,W-X-8,13,i===2?'bold':''); });
+    ctx.fillStyle='#334155'; fit('左の穴：上の穴と同じ深さ → 同じ勢いで出る',X,110,W-X-8,13,'');
+    ctx.fillStyle='#b45309'; fit('深いところの穴ほど、水が勢いよく遠くまで飛ぶ',X,134,W-X-8,14,'bold');
+    return {wl:wl}; }
+  function setK(id,t,v){ const el=$(id); if(!el) return; el.textContent=v; const k=el.parentNode.querySelector('.k'); if(k) k.textContent=t; }
+  function stats(r){ let rows, sh;
+    if(mode==='bane'){ rows=[['sRead','ばねばかりの値',f2(r.rd)+' N'],['sAir','空気中での値（重力）',f2(r.Wt)+' N'],['sBuoy','浮力',f2(r.Fb)+' N'],['sP','下面の水圧',f2(pr(r.dObj))+' N/cm²']];
+      sh='【水圧と浮力】体積'+r.V+'cm³・'+r.m+'gの物体を底面の深さ'+f1(dB)+'cmまで沈めると、ばねばかり'+f2(r.rd)+'N・浮力'+f2(r.Fb)+'N（空気中'+f2(r.Wt)+'N）｜シミュラボ'; }
+    else if(mode==='gomu'){ const a=r.vert?'上':'左', b=r.vert?'下':'右'; rows=[['sRead',a+'と'+b+'の水圧の差',f2(pr(r.z2)-pr(r.z1))+' N/cm²'],['sAir',a+'の膜の水圧',f2(pr(r.z1))+' N/cm²'],['sBuoy',b+'の膜の水圧',f2(pr(r.z2))+' N/cm²'],['sP','筒の中心の深さ',f1(r.cd)+' cm']];
+      sh='【水圧】ゴム膜をはった筒を'+(r.vert?'縦':'横')+'向きに沈めると、'+a+'の膜'+f2(pr(r.z1))+'N/cm²・'+b+'の膜'+f2(pr(r.z2))+'N/cm²。深いほど水圧は大きく、あらゆる向きからはたらく｜シミュラボ'; }
+    else { const p=function(h){ return f2(pr(wl-h))+' N/cm²'; }; rows=[['sRead','下の穴の水圧',p(2)],['sAir','上の穴の水圧',p(14)],['sBuoy','真ん中の穴の水圧',p(8)],['sP','水面の高さ（底から）',f1(wl)+' cm']];
+      sh='【水圧】ペットボトルの穴：上の穴'+p(14)+'、下の穴'+p(2)+'。深いところの穴ほど水が勢いよく出る｜シミュラボ'; }
+    const key=JSON.stringify(rows); if(key===statKey) return; statKey=key; rows.forEach(function(x){ setK(x[0],x[1],x[2]); }); setShare(sh); }
+  function depVal(){ return mode==='bottle'?wl:(mode==='gomu'?dG:dB); }
+  function setDep(v){ const sl=$('dep'), mx=+sl.max; v=clamp(v,0,mx); if(mode==='bottle') wl=v; else if(mode==='gomu') dG=v; else dB=v; sl.value=v; $('depL').textContent=f1(v)+'cm'; }
+  function draw(){ ctx.fillStyle='#ffffff'; ctx.fillRect(0,0,W,H); const r=mode==='bane'?drawBane():(mode==='gomu'?drawGomu():drawBottle()); stats(r); }
+  function setMode(m){ mode=m; statKey=''; const sl=$('dep');
+    $('toAir').style.display=mode==='bane'?'':'none'; $('toFull').style.display=mode==='bane'?'':'none';
+    fld('sz').style.display=mode==='bane'?'':'none'; fld('m').style.display=mode==='bane'?'':'none'; fld('dir').style.display=mode==='gomu'?'':'none';
+    if(mode==='bottle'){ sl.max=18; lab.textContent='水面の高さ（底から）'; } else if(mode==='gomu'){ sl.max=15; lab.textContent='筒の中心の深さ'; } else { sl.max=15; lab.textContent='沈める深さ（底面）'; }
+    setDep(depVal()); draw(); }
+  $('mode').addEventListener('change',function(){ setMode($('mode').value); });
+  $('dep').addEventListener('input',function(){ setDep(+$('dep').value); });
+  $('toAir').addEventListener('click',function(){ setDep(0); });
+  $('toFull').addEventListener('click',function(){ setDep(+$('sz').value+2); });
+  ['sz','m','dir'].forEach(function(id){ $(id).addEventListener('input',function(){ statKey=''; }); $(id).addEventListener('change',function(){ statKey=''; }); });
+  cv.addEventListener('pointerdown',function(e){ const q=cpos(cv,e), x=q[0]/dpr, y=q[1]/dpr; if(x>(mode==='bottle'?320:345)) return;
+    drag={y0:y,v0:depVal()}; try{ cv.setPointerCapture(e.pointerId); }catch(err){} if(mode==='bottle') setDep((BB-y)/PB); });
+  cv.addEventListener('pointermove',function(e){ if(!drag) return; const q=cpos(cv,e), y=q[1]/dpr;
+    if(mode==='bottle') setDep((BB-y)/PB); else setDep(drag.v0+(y-drag.y0)/PX); });
+  const up=function(){ drag=null; }; cv.addEventListener('pointerup',up); cv.addEventListener('pointercancel',up);
+  function frame(ts){ const dt=last?Math.min(0.05,(ts-last)/1000):0; last=ts; tt+=dt; draw(); requestAnimationFrame(frame); }
+  setMode('bane'); draw();
+  requestAnimationFrame(frame);
+
+  } catch(e) { console.error(e); }
+  (function(){ const fs=$('fsBtn'), panel=document.querySelector('.panel');
+    const req = panel && (panel.requestFullscreen || panel.webkitRequestFullscreen);
+    if (fs && req) { fs.hidden = false; fs.addEventListener('click', () => {
+      const cur = document.fullscreenElement || document.webkitFullscreenElement;
+      if (cur) { (document.exitFullscreen || document.webkitExitFullscreen).call(document); }
+      else { req.call(panel); } }); }
+  })();
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE || document.title)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText((SHARE||document.title)+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'suiatsu-fuyuu', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

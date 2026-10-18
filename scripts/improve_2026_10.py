@@ -343,7 +343,7 @@ def live():
     (ROOT / "assets" / "live-remember.js").write_text(LIVE_JS, encoding="utf-8")
     hub = (ROOT / "live" / "index.html").read_text(encoding="utf-8")
     slugs = sorted(set(re.findall(r'href="\.\./sims/([a-z0-9-]+)/"', hub)))
-    tag = '<script src="../../assets/live-remember.js?v=1"></script>'
+    tag = '<script src="../../assets/live-remember.js?v=2"></script>'
     n = 0
     for s in slugs:
         p = page(s); h = p.read_text(encoding="utf-8")

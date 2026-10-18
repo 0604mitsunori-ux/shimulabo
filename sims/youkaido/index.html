@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/youkaido/">
+<title>溶解度曲線・再結晶のシミュレーター｜物の溶け方（ミョウバン・食塩・硝酸カリウム）と質量パーセント濃度の計算｜シミュラボ</title>
+<meta name="description" content="水の量・水温・溶かす物（食塩・ミョウバン・硝酸カリウム・ホウ酸）を変えて物を加えると、溶け残りが出る量や、冷やす・水を蒸発させると出てくる結晶の量が溶解度曲線の上で分かる無料シミュレーター。溶けても重さが変わらないことや質量パーセント濃度の計算も。小5・中1の理科の授業向け。">
+<meta property="og:title" content="物の溶け方と溶解度シミュレーター（溶け残り・再結晶・濃度）">
+<meta property="og:description" content="水の量・水温・溶かす物を変えて溶け残りを観察。溶解度曲線で再結晶と質量パーセント濃度を確かめる。小5・中1の授業向け。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/youkaido.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/youkaido.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/youkaido/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": ["WebApplication", "LearningResource"], "name": "物の溶け方と溶解度シミュレーター（溶け残り・再結晶・濃度）", "url": "https://shimulabo.com/sims/youkaido/", "description": "水の量・水温・溶かす物を変えて溶け残りを観察。溶解度曲線で再結晶と質量パーセント濃度を確かめる。小5・中1の授業向け。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "educationalLevel": "小学5年、中学1年", "learningResourceType": "シミュレーション", "teaches": "小5 物の溶け方／中1 水溶液（溶解度・再結晶）", "educationalUse": ["授業", "自習"], "audience": {"@type": "EducationalAudience", "educationalRole": ["teacher", "student"]}, "educationalAlignment": {"@type": "AlignmentObject", "alignmentType": "educationalSubject", "educationalFramework": "学習指導要領（平成29・30年告示）", "targetName": "小学校 第5学年 A（1）物の溶け方／中学校 第1分野（2）身の回りの物質 ア（イ）水溶液"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "理科の授業向け", "item": "https://shimulabo.com/rika/"}, {"@type": "ListItem", "position": 3, "name": "物の溶け方と溶解度シミュレーター（溶け残り・再結晶・濃度）", "item": "https://shimulabo.com/sims/youkaido/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "溶解度とは何ですか？", "acceptedAnswer": {"@type": "Answer", "text": "100gの水に溶ける物質の最大の質量［g］のことです。物質の種類と水の温度によって決まり、たとえば20℃の溶解度は食塩が35.8g、ミョウバンが11.4g、硝酸カリウムが31.6gです。水の量が50gなら、溶ける量はその半分になります。"}}, {"@type": "Question", "name": "ミョウバンは冷やすと出てくるのに、食塩はほとんど出てこないのはなぜですか？", "acceptedAnswer": {"@type": "Answer", "text": "ミョウバンは水温によって溶ける量が大きく変わりますが、食塩は水温が変わっても溶ける量がほとんど変わらないからです。水100gの場合、60℃から20℃に冷やすと、ミョウバンは57.4−11.4＝46.0g出てきますが、食塩は37.1−35.8＝1.3gしか出てきません。食塩は水を蒸発させて取り出します。"}}, {"@type": "Question", "name": "物が水に溶けても重さが変わらないのはなぜですか？", "acceptedAnswer": {"@type": "Answer", "text": "溶けた物は、目に見えないほど小さな粒になって水の中に均一に広がっているだけで、なくなったわけではないからです。水50gに食塩5gを溶かすと、食塩水の重さは55gになります。"}}, {"@type": "Question", "name": "質量パーセント濃度はどうやって求めますか？", "acceptedAnswer": {"@type": "Answer", "text": "質量パーセント濃度［%］＝溶質の質量÷（溶質の質量＋溶媒の質量）×100 で求めます。水100gに食塩25gを溶かした食塩水なら、25÷125×100＝20%です。分母は水の質量ではなく、水溶液全体の質量です。"}}, {"@type": "Question", "name": "溶け残りがあるとき、溶けている物と溶け残りを分けるにはどうしますか？", "acceptedAnswer": {"@type": "Answer", "text": "ろ過します。ろ紙の上に溶け残り（結晶）が残り、ろ紙を通った液（ろ液）には溶けている物がふくまれています。ろ液を冷やしたり、水を蒸発させたりすると、溶けていた物を取り出せます。"}}, {"@type": "Question", "name": "教科書の溶解度の値と少しちがいます。", "acceptedAnswer": {"@type": "Answer", "text": "溶解度の表は、教科書や資料によって小数第1位などが少しちがうことがあります。特にミョウバンは、結晶（水をふくむ形）の質量で表すか、水をふくまない形で表すかで値が大きくちがいます。このシミュレーターは結晶の質量で表した値（20℃で11.4g）を使っています。授業やテストでは、使っている教科書や問題の値で計算してください。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+<style>
+.lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
+.lab-ctl .field{margin-bottom:6px;}
+.lab-ctl>*,.lab-stats>*{min-width:0;}
+.lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
+.lab-ctl .slider-head label{margin:0;font-size:13px;}
+.lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
+.lab-ctl input[type=range]{width:100%;}
+.lab-ctl select{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;font-size:14px;background:#fff;}
+.lab-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px;}
+.lab-btns .btn{padding:11px 18px;font-size:14px;width:auto;}
+.lab-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;width:100%;max-width:640px;margin-top:4px;}
+.lab-stats .stat{background:var(--teal-l);border-radius:10px;padding:10px 12px;text-align:center;}
+.lab-stats .k{font-size:11px;color:var(--ink-2);}
+.lab-stats .v{font-size:20px;font-weight:800;color:var(--ink);font-feature-settings:"tnum";}
+.lab-stats .v.accent{color:var(--accent);}
+.lab-legend{text-align:center;color:var(--ink-2);font-size:13px;margin-top:12px;}
+.lab-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;background:rgba(44,107,134,.10);color:var(--teal-d);margin-bottom:8px;}
+canvas.lab{width:100%;max-width:640px;height:auto;border:1px solid var(--line);border-radius:12px;background:#0b1020;touch-action:none;}
+canvas.lab.light{background:#fff;}
+.panel:fullscreen,.panel:-webkit-full-screen{overflow:auto;padding:24px;background:var(--bg,#faf8f3);}
+.panel:fullscreen canvas.lab{max-width:min(96vw,1100px);}
+.panel:fullscreen .lab-ctl,.panel:fullscreen .lab-stats{max-width:min(96vw,1100px);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../rika/">🔬 理科の授業向け</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../rika/">理科の授業向け</a><span>›</span><span class="cur">物の溶け方と溶解度シミュレーター（溶け残り・再結晶・濃度）</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">理科の授業向け</div>
+    <h1>物の溶け方と溶解度シミュレーター（溶け残り・再結晶・濃度）</h1>
+    <p class="lead">スプーンをタップして物を水に加えていくと、ある量から溶け残りが出ます。水温・水の量・溶かす物（食塩・ミョウバン・硝酸カリウム・ホウ酸）を変えると、溶ける限度が溶解度曲線の上でどう変わるかが分かります。冷やしたり水を蒸発させたりして結晶を取り出せ、水と物とを合わせた重さが変わらないことも電子てんびんで確かめられます。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;gap:14px;">
+      <span class="lab-badge">🔬 小5 物の溶け方／中1 水溶液（溶解度・再結晶）</span>
+      <canvas id="cv" class="lab light" width="640" height="440"></canvas>
+      <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="sub">溶かす物</label></div><select id="sub"><option value="alum" selected>ミョウバン</option><option value="salt">食塩（塩化ナトリウム）</option><option value="kno3">硝酸カリウム</option><option value="boric">ホウ酸</option></select></div><div class="field"><div class="slider-head"><label for="wa">水の量</label><span class="val" id="waL"></span></div><input type="range" id="wa" min="10" max="200" value="50" step="10" data-fmt="{v} g"></div><div class="field"><div class="slider-head"><label for="tt">水温</label><span class="val" id="ttL"></span></div><input type="range" id="tt" min="0" max="80" value="20" step="1" data-fmt="{v}℃"></div><div class="field"><div class="slider-head"><label for="mm">加えた量</label><span class="val" id="mmL"></span></div><input type="range" id="mm" min="0" max="200" value="10" step="0.1" data-fmt="{v} g"></div></div>
+      <div class="lab-btns"><button class="btn btn-primary" id="add1">🥄 1g 加える</button><button class="btn btn-ghost" id="add10">🥄 10g 加える</button><button class="btn btn-ghost" id="heat">🔥 10℃ あたためる</button><button class="btn btn-ghost" id="cool">❄ 10℃ 冷やす</button><button class="btn btn-ghost" id="evap">♨ 水を10g 蒸発</button><button class="btn btn-ghost" id="empty">↺ 水だけにもどす</button></div>
+      <div class="lab-stats"><div class="stat"><div class="k">溶けている量</div><div class="v accent" id="sDis">—</div></div><div class="stat"><div class="k">溶け残り（出てきた結晶）</div><div class="v accent" id="sRes">—</div></div><div class="stat"><div class="k">この水に溶ける限度</div><div class="v" id="sLim">—</div></div><div class="stat"><div class="k">全体の重さ（水＋物）</div><div class="v" id="sTot">—</div></div><div class="stat"><div class="k">濃度（質量パーセント濃度）</div><div class="v" id="sCon">—</div></div><div class="stat"><div class="k">全部溶ける温度（＝結晶が出始める温度）</div><div class="v" id="sSat">—</div></div><div class="stat"><div class="k">水を10g蒸発させると出てくる量</div><div class="v" id="sEv">—</div></div></div>
+    </div>
+    <p class="lab-legend">左上：ビーカーと電子てんびん（スプーンやビーカーをタップすると1gずつ加わります）。右上：溶解度曲線（水100gあたりの値。グラフを指でなぞると水温と加えた量を変えられます）。●＝溶けている量、○と赤い線＝溶け残り。左下：粒子のモデル（水の粒は省略）。右下：重さ・限度・濃度の計算。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-ghost" id="fsBtn" hidden>⛶ 全画面で表示</button>
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+
+<h2>このシミュレーションでわかること</h2>
+<p>物が水に溶ける量には限度があり、その量は<b>水の温度・水の量・溶かす物</b>によってちがいます。限度をこえた分は溶け残り、温度の高い水に溶かした物は、冷やしたり水を蒸発させたりすると<b>結晶</b>として出てきます。物が水に溶けても、水と物とを合わせた重さは変わりません。</p>
+<div class="note">対応する単元：小学校 第5学年 A（1）物の溶け方／中学校 第1学年 第1分野（2）身の回りの物質 ア（イ）水溶液（溶解度・再結晶・質量パーセント濃度、溶解度曲線）</div>
+<h2>授業での使い方</h2>
+<h3>導入（小5）：溶けた物はどこへ行った？</h3>
+<p>水50gにミョウバンを10g入れたときの電子てんびんの値（60.0g）を見せ、「溶けたら重さはどうなるか」を予想させます。スプーンをタップして少しずつ加えても、全体の重さは「水＋入れた物」のままであることを確かめます。下の粒子のモデルで、溶けた物は見えなくなっても、水の中に均一に広がっていることを示します。</p>
+<h3>展開（小5・中1）：条件を1つずつ変える</h3>
+<p>水の量だけ、水温だけ、溶かす物だけを変えて、溶ける限度がどう変わるかを調べます。「🔥 あたためる」で水温を上げると溶け残りが溶け、「❄ 冷やす」で下げると結晶が出てきます（ミョウバン・硝酸カリウムでははっきり出てきますが、食塩はほとんど出てきません）。食塩は「♨ 水を10g蒸発」で取り出せることを比べます。中1では右の溶解度曲線を指でなぞり、点の位置（曲線の上か下か）と溶け残りの関係を読み取らせます。</p>
+<h3>まとめ（中1）：計算で確かめる</h3>
+<p>下の例題を解いてから、同じ条件をシミュレーターに入れて答え合わせをします。統計欄の「溶けている量」「溶け残り」「濃度」と、図の下の式がそのまま計算の手順になっています。</p>
+<p><b>児童・生徒への問いの例</b></p>
+<ol>
+<li>20℃の水50gにミョウバンを10g入れました。溶け残りを全部溶かすには、水温を何℃以上にすればよいでしょう。（答え：約35℃）</li>
+<li>ミョウバンの水溶液は冷やすと結晶が出てくるのに、食塩水を冷やしてもほとんど出てこないのはなぜでしょう。溶解度曲線の形から説明しましょう。</li>
+<li>水100gに食塩25gを溶かした食塩水の重さと、質量パーセント濃度はいくつでしょう。（答え：125g、20%）</li>
+</ol>
+<h2>しくみ・解説</h2>
+<h3>用語の意味</h3>
+<ul>
+<li><b>水溶液</b>とは、物が水に溶けてできた、すき通った液のことです（色がついていても、すき通っていれば水溶液です）。</li>
+<li><b>溶質</b>は溶けている物質、<b>溶媒</b>は溶質を溶かしている液体（水溶液では水）、<b>溶液</b>は溶質が溶媒に溶けた液のことです。</li>
+<li><b>溶解度</b>とは、100gの水に溶ける物質の最大の質量［g］のことで、物質の種類と水の温度によって決まります。</li>
+<li><b>飽和水溶液</b>とは、物質が溶解度まで溶けていて、それ以上は溶けない水溶液のことです。</li>
+<li><b>溶解度曲線</b>とは、水の温度と溶解度の関係を表したグラフのことです。</li>
+<li><b>再結晶</b>とは、固体の物質をいったん水に溶かし、水溶液を冷やしたり水を蒸発させたりして、再び結晶として取り出すことです。</li>
+<li><b>質量パーセント濃度</b>とは、溶液の質量に対する溶質の質量の割合を百分率［%］で表したものです。</li>
+</ul>
+<h3>式の早見表</h3>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>求めるもの</th><th>式</th><th>例</th></tr><tr><td>水 x g に溶ける限度</td><td>溶解度 × x ÷ 100</td><td>20℃のミョウバン、水50g：11.4 × 50 ÷ 100 ＝ 5.7 g</td></tr><tr><td>溶け残り</td><td>入れた量 − 溶ける限度</td><td>10 − 5.7 ＝ 4.3 g</td></tr><tr><td>水溶液の重さ</td><td>水の重さ ＋ 溶けた物の重さ</td><td>50 ＋ 5.7 ＝ 55.7 g（溶け残りも合わせると 60 g）</td></tr><tr><td>冷やして出てくる結晶</td><td>溶けていた量 − 冷やした温度での限度</td><td>硝酸カリウム 水100g 60℃→20℃：109.2 − 31.6 ＝ 77.6 g</td></tr><tr><td>水を蒸発させて出てくる結晶</td><td>溶けていた量 − 残った水に溶ける限度</td><td>20℃の水100gの食塩水（食塩30g）から水50gを蒸発：30 − 17.9 ＝ 12.1 g</td></tr><tr><td>質量パーセント濃度［%］</td><td>溶質の質量 ÷（溶質の質量 ＋ 溶媒の質量）× 100</td><td>食塩25g＋水100g：25 ÷ 125 × 100 ＝ 20 %</td></tr></table></div>
+<h3>溶けても重さが変わらないわけ（粒子のモデル）</h3>
+<p>物が水に溶けると、目に見えないほど小さな粒になって、水の粒の間に<b>均一に広がります</b>。粒はなくなったわけではないので、水と物とを合わせた重さは変わりません。時間がたっても、溶けた物が下にたまることはなく、水溶液の濃さはどこも同じです（色のついたコーヒーシュガーや硫酸銅を溶かすと、色が全体に同じように広がることで確かめられます）。図の左下の「粒子のモデル」では、溶けた粒が動き回りながら広がる様子と、限度をこえた分が粒の集まり（固体）として残る様子を表しています。</p>
+<h3>冷やす？ 蒸発させる？ 取り出し方は物によってちがう</h3>
+<p>ミョウバンや硝酸カリウムは、水温によって溶解度が大きく変わる（溶解度曲線の傾きが大きい）ので、高い温度で溶かして<b>冷やす</b>と多くの結晶が出てきます。食塩は水温が変わっても溶解度がほとんど変わらない（60℃で37.1g、20℃で35.8g）ので、冷やしても水100gあたり1.3gしか出てきません。食塩を取り出すには、<b>水を蒸発させる</b>方法が向いています。結晶の形も物質によって決まっていて、食塩は立方体、ミョウバンは正八面体、硝酸カリウムは柱状（針状）、ホウ酸はうろこ状（板状）です。</p>
+<h3>溶解度の表（水100gに溶ける量［g］）</h3>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>水温</th><th>食塩</th><th>ミョウバン</th><th>硝酸カリウム</th><th>ホウ酸</th></tr><tr><td>0℃</td><td>35.7</td><td>5.7</td><td>13.3</td><td>2.8</td></tr><tr><td>10℃</td><td>35.7</td><td>7.6</td><td>22.0</td><td>3.6</td></tr><tr><td>20℃</td><td>35.8</td><td>11.4</td><td>31.6</td><td>4.9</td></tr><tr><td>30℃</td><td>36.1</td><td>16.6</td><td>45.6</td><td>6.8</td></tr><tr><td>40℃</td><td>36.3</td><td>23.8</td><td>63.9</td><td>8.9</td></tr><tr><td>50℃</td><td>36.7</td><td>36.4</td><td>85.2</td><td>11.4</td></tr><tr><td>60℃</td><td>37.1</td><td>57.4</td><td>109.2</td><td>14.9</td></tr><tr><td>70℃</td><td>37.5</td><td>110.5</td><td>138.0</td><td>18.7</td></tr><tr><td>80℃</td><td>38.0</td><td>321.6</td><td>168.8</td><td>23.5</td></tr></table></div>
+<p>小学校の実験でよく使う水50g（50mL）の場合は、この表の値の半分になります。</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>水温</th><th>食塩</th><th>ミョウバン</th></tr><tr><td>0℃</td><td>17.9 g</td><td>2.9 g</td></tr><tr><td>20℃</td><td>17.9 g</td><td>5.7 g</td></tr><tr><td>40℃</td><td>18.2 g</td><td>11.9 g</td></tr><tr><td>60℃</td><td>18.6 g</td><td>28.7 g</td></tr><tr><td>80℃</td><td>19.0 g</td><td>160.8 g</td></tr></table></div>
+<h3>計算問題の解き方（例題）</h3>
+<p><b>例題1（小5）</b>　20℃の水50gに、ミョウバンは何gまで溶けますか。また、10g入れると何g溶け残りますか。<br>
+→ 20℃の溶解度は11.4gなので、11.4×50÷100＝<b>5.7g</b>。溶け残りは 10−5.7＝<b>4.3g</b>。</p>
+<p><b>例題2（小5）</b>　例題1の液を40℃にすると、溶け残りはどうなりますか。そのあと20℃にもどすとどうなりますか。<br>
+→ 40℃の水50gには 23.8×50÷100＝11.9g まで溶けるので、10gは<b>全部溶けます</b>。20℃にもどすと、5.7gまでしか溶けていられないので、10−5.7＝<b>4.3gの結晶が出てきます</b>。</p>
+<p><b>例題3（中1・再結晶）</b>　60℃の水100gに硝酸カリウムを溶けるだけ溶かし、20℃まで冷やしました。出てくる結晶は何gですか。<br>
+→ 60℃で109.2g溶けていて、20℃では31.6gまでしか溶けないので、109.2−31.6＝<b>77.6g</b>。</p>
+<p><b>例題4（中1・質量パーセント濃度）</b>　20℃の食塩の飽和水溶液の質量パーセント濃度は何%ですか。<br>
+→ 水100gに35.8g溶けているので、35.8÷（35.8＋100）×100＝26.36…　<b>約26.4%</b>。</p>
+<p><b>例題5（中1・蒸発）</b>　20℃の水100gに食塩30gを溶かしました。20℃のまま水を50g蒸発させると、何gの食塩が出てきますか。<br>
+→ 残った水50gに溶けるのは 35.8×50÷100＝17.9g なので、30−17.9＝<b>12.1g</b>。</p>
+<div class="note" style="border-left:4px solid var(--teal)"><strong>ポイント</strong>：例題1〜2は、物質「ミョウバン」・水の量50g・水温20℃・加えた量10gで確かめられます（はじめの画面の設定です）。「🔥 あたためる」を2回押すと溶け残りがなくなり、「❄ 冷やす」を2回押すと4.3gの結晶が出てきます。例題3は、硝酸カリウム・水100g・60℃で加えた量を109.2gにしてから冷やします。</div><div class="note"><b>このシミュレーターで単純化している点</b><br>・溶解度は、理科年表や教科書で一般的に使われる値です。<b>教科書や問題集によって、小数第1位などが少しちがうことがあります</b>。授業やテストでは、使っている教科書や問題に書かれた値で計算してください。表の間の温度は、となりの2つの値を直線で結んで計算しています。<br>・ミョウバンの値は、教科書と同じく結晶（硫酸カリウムアルミニウム十二水和物）の質量で表しています。理科年表のように水を含まない形（無水物）で表すと、20℃で5.9g、60℃で24.8gと小さな値になります。ミョウバンは70℃をこえると溶ける量が急に増えるため、80℃の値（321.6g）はグラフの外に出ています。<br>・水1mLを1gとしています。溶けるまでの時間（かき混ぜる時間）や、冷やしてもすぐには結晶が出ない「過飽和」の状態は扱っていません。あたためたときに自然に蒸発する水も考えず、水は「♨ 水を10g蒸発」を押したときだけ減ります。<br>・粒子のモデルは、粒の数を水100gあたりの溶けた量に比例させた見本の図で、実際の粒の大きさや数ではありません（水の粒はかいていません）。</div>
+<h2>参考</h2>
+<ul class="seo-refs">
+<li>文部科学省「小学校学習指導要領（平成29年告示）解説 理科編」第5学年 A（1）物の溶け方（<a href="https://www.mext.go.jp/a_menu/shotou/new-cs/1387014.htm" target="_blank" rel="noopener">小学校学習指導要領解説</a>）</li>
+<li>文部科学省「中学校学習指導要領（平成29年告示）解説 理科編」第1分野（2）ア（イ）水溶液（<a href="https://www.mext.go.jp/a_menu/shotou/new-cs/1387016.htm" target="_blank" rel="noopener">中学校学習指導要領解説</a>）</li>
+<li>小学校理科の教科書（東京書籍「新しい理科」、啓林館「わくわく理科」、大日本図書「たのしい理科」など）5年の「物のとけ方」の単元、中学校理科の教科書（東京書籍「新しい科学」、啓林館「未来へひろがるサイエンス」、大日本図書「理科の世界」など）1年の「水溶液」の単元</li>
+<li>国立天文台 編『理科年表』（丸善出版）物理/化学部「溶解度」</li>
+<li>日本化学会 編『化学便覧 基礎編』（丸善出版）</li>
+</ul>
+
+    <h2>引用・転載について</h2>
+    <p>本ページのシミュレーション結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・授業や社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「物の溶け方と溶解度シミュレーター（溶け残り・再結晶・濃度）」 https://shimulabo.com/sims/youkaido/</code></div>
+    <h2>よくある質問</h2><dl class="faq"><dt>溶解度とは何ですか？</dt><dd>100gの水に溶ける物質の最大の質量［g］のことです。物質の種類と水の温度によって決まり、たとえば20℃の溶解度は食塩が35.8g、ミョウバンが11.4g、硝酸カリウムが31.6gです。水の量が50gなら、溶ける量はその半分になります。</dd><dt>ミョウバンは冷やすと出てくるのに、食塩はほとんど出てこないのはなぜですか？</dt><dd>ミョウバンは水温によって溶ける量が大きく変わりますが、食塩は水温が変わっても溶ける量がほとんど変わらないからです。水100gの場合、60℃から20℃に冷やすと、ミョウバンは57.4−11.4＝46.0g出てきますが、食塩は37.1−35.8＝1.3gしか出てきません。食塩は水を蒸発させて取り出します。</dd><dt>物が水に溶けても重さが変わらないのはなぜですか？</dt><dd>溶けた物は、目に見えないほど小さな粒になって水の中に均一に広がっているだけで、なくなったわけではないからです。水50gに食塩5gを溶かすと、食塩水の重さは55gになります。</dd><dt>質量パーセント濃度はどうやって求めますか？</dt><dd>質量パーセント濃度［%］＝溶質の質量÷（溶質の質量＋溶媒の質量）×100 で求めます。水100gに食塩25gを溶かした食塩水なら、25÷125×100＝20%です。分母は水の質量ではなく、水溶液全体の質量です。</dd><dt>溶け残りがあるとき、溶けている物と溶け残りを分けるにはどうしますか？</dt><dd>ろ過します。ろ紙の上に溶け残り（結晶）が残り、ろ紙を通った液（ろ液）には溶けている物がふくまれています。ろ液を冷やしたり、水を蒸発させたりすると、溶けていた物を取り出せます。</dd><dt>教科書の溶解度の値と少しちがいます。</dt><dd>溶解度の表は、教科書や資料によって小数第1位などが少しちがうことがあります。特にミョウバンは、結晶（水をふくむ形）の質量で表すか、水をふくまない形で表すかで値が大きくちがいます。このシミュレーターは結晶の質量で表した値（20℃で11.4g）を使っています。授業やテストでは、使っている教科書や問題の値で計算してください。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../joutai-henka/"><span class="e">🧊</span><span>状態変化と粒子のシミュレーター（固体・液体・気体）</span></a><a class="related-card" href="../shitsudo-roten/"><span class="e">☁️</span><span>湿度と雲のでき方シミュレーター（飽和水蒸気量・露点）</span></a><a class="related-card" href="../diffusion/"><span class="e">🫧</span><span>拡散シミュレーター</span></a><a class="related-card" href="../kagaku-shitsuryou/"><span class="e">🧪</span><span>化学変化と質量シミュレーター（銅・マグネシウムの酸化）</span></a><a class="related-card" href="../nenshou/"><span class="e">🕯️</span><span>ものの燃え方と空気シミュレーター（集気びん・酸素と二酸化炭素）</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../rika/">🔬 理科の授業向けシミュレーター</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+  const rnd = (a,b) => a + Math.random()*(b-a);
+  const randn = () => { let u=0,v=0; while(!u)u=Math.random(); while(!v)v=Math.random(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
+  let SHARE = '';
+  function setShare(t){ SHARE = t; }
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{ const l=$(s.id+'L'); if(l){ const u=()=>{ l.textContent = (s.dataset.fmt ? s.dataset.fmt.replace('{v}', s.value) : s.value); }; s.addEventListener('input',u); u(); } }); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  function setStat(id, v){ const e=$(id); if(e) e.textContent = v; }
+  try {
+    syncSliders();
+
+  const cv=$('cv'); const dpr=Math.min(2,window.devicePixelRatio||1); const W=cv.width,H=cv.height; cv.width=W*dpr; cv.height=H*dpr; const ctx=cv.getContext('2d'); ctx.setTransform(dpr,0,0,dpr,0,0);
+  cv.setAttribute('role','img'); cv.setAttribute('aria-label','ビーカーと溶解度曲線。物を加えたり、冷やしたり、水を蒸発させたりすると、溶ける量と溶け残りが分かります');
+  const FF='"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic UI","Yu Gothic",Meiryo,sans-serif';
+  const SUB={"alum": {"n": "ミョウバン", "S": [5.7, 7.6, 11.4, 16.6, 23.8, 36.4, 57.4, 110.5, 321.6], "c": "#7c3aed", "sh": "oct"}, "salt": {"n": "食塩", "S": [35.7, 35.7, 35.8, 36.1, 36.3, 36.7, 37.1, 37.5, 38.0], "c": "#475569", "sh": "cube"}, "kno3": {"n": "硝酸カリウム", "S": [13.3, 22.0, 31.6, 45.6, 63.9, 85.2, 109.2, 138.0, 168.8], "c": "#ea580c", "sh": "needle"}, "boric": {"n": "ホウ酸", "S": [2.8, 3.6, 4.9, 6.8, 8.9, 11.4, 14.9, 18.7, 23.5], "c": "#0891b2", "sh": "plate"}}, KEYS=['alum','salt','kno3','boric'];
+  const r1=(v)=>Math.round(v*10+1e-7)/10, f1=(v)=>r1(v).toFixed(1);
+  function sol(k,t){ const S=SUB[k].S; t=clamp(t,0,80); const i=Math.min(7,Math.floor(t/10)); return S[i]+(S[i+1]-S[i])*(t/10-i); }
+  function satT(k,a){ const S=SUB[k].S; if(a<=S[0]+1e-9) return -1; for(let i=0;i<8;i++){ if(a<=S[i+1]+1e-9) return (i+(a-S[i])/(S[i+1]-S[i]))*10; } return 999; }
+  // ---------- 描画の部品 ----------
+  function tx(s,x,y,size,col,align,bold){ ctx.font=(bold?'bold ':'')+size+'px '+FF; ctx.textAlign=align||'left'; ctx.fillStyle=col; ctx.fillText(s,x,y); ctx.textAlign='left'; }
+  function tw(s,size,bold){ ctx.font=(bold?'bold ':'')+size+'px '+FF; return ctx.measureText(s).width; }
+  function halo(s,x,y,size,col,align,bold){ ctx.font=(bold?'bold ':'')+size+'px '+FF; ctx.textAlign=align||'left'; ctx.lineJoin='round'; ctx.lineWidth=3.5; ctx.strokeStyle='rgba(255,255,255,.95)'; ctx.strokeText(s,x,y); ctx.fillStyle=col; ctx.fillText(s,x,y); ctx.textAlign='left'; }
+  function fit(s,x,y,size,col,maxW,bold){ let z=size; while(z>9 && tw(s,z,bold)>maxW) z-=0.5; tx(s,x,y,z,col,'left',bold); }
+  function rr(x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
+  function panel(x,y,w,h,title){ ctx.fillStyle='#fff'; ctx.strokeStyle='#cbd5e1'; ctx.lineWidth=1.2; rr(x,y,w,h,10); ctx.fill(); ctx.stroke(); if(title) tx(title,x+10,y+19,12.5,'#0f172a','left',true); }
+  function line(a,b,c,d){ ctx.beginPath(); ctx.moveTo(a,b); ctx.lineTo(c,d); ctx.stroke(); }
+  function dot(x,y,r,col){ ctx.fillStyle=col; ctx.beginPath(); ctx.arc(x,y,r,0,7); ctx.fill(); }
+  function crystal(x,y,s,sh,col,rot){ ctx.save(); ctx.translate(x,y); ctx.rotate(rot); ctx.fillStyle='#f8fafc'; ctx.strokeStyle=col; ctx.lineWidth=1.1; ctx.beginPath();
+    if(sh==='cube'){ ctx.rect(-s/2,-s/2,s,s); }
+    else if(sh==='oct'){ ctx.moveTo(0,-s*0.78); ctx.lineTo(s*0.62,0); ctx.lineTo(0,s*0.78); ctx.lineTo(-s*0.62,0); ctx.closePath(); }
+    else if(sh==='needle'){ ctx.rect(-s*1.15,-s*0.2,s*2.3,s*0.4); }
+    else { for(let i=0;i<6;i++){ const a=i*Math.PI/3, px=Math.cos(a)*s*0.75, py=Math.sin(a)*s*0.34; if(i) ctx.lineTo(px,py); else ctx.moveTo(px,py); } ctx.closePath(); }
+    ctx.fill(); ctx.stroke(); if(sh==='oct'){ ctx.beginPath(); ctx.moveTo(-s*0.62,0); ctx.lineTo(s*0.62,0); ctx.stroke(); } ctx.restore(); }
+  const pr=(i)=>{ const v=Math.sin(i*12.9898+4.1)*43758.5453; return v-Math.floor(v); };
+  const PILE=[]; for(let j=0;j<60;j++){ const row=Math.floor(j/12), k=j%12; PILE.push([(k-5.5)*9.4*(1-row*0.14)+(pr(j)-0.5)*4, -5-row*7.4+(pr(j+99)-0.5)*3, (pr(j+7)-0.5)*1.3]); }
+  // ---------- 状態 ----------
+  let K='alum', WA=50, TT=20, M=10, evap=0, disV=0, anim=null, trail=null, drops=[], parts=[], last=performance.now(), drag=false, frozen=null, YM=40, pulse=0;
+  function calc(){ const S1=r1(sol(K,TT)), lim=r1(S1*WA/100), dis=r1(Math.min(M,lim)), res=r1(M-dis), a=M/WA*100, conc=dis/(dis+WA)*100;
+    const lim10=r1(S1*Math.max(0,WA-10)/100), ev=Math.max(0,r1(dis-lim10));
+    return {S1:S1,lim:lim,dis:dis,res:res,a:a,conc:conc,st:satT(K,a),ev:ev,tot:r1(WA+M)}; }
+  // ---------- 粒子のモデル ----------
+  const MB={x0:16,x1:240,y0:332,y1:428}, KP=1.5, CAP=150;
+  function partTargets(){ const a=M/WA*100; let nT=Math.round(a*KP), nD=Math.round(disV/WA*100*KP); if(nT>CAP){ nD=Math.round(nD*CAP/nT); nT=CAP; } return [nT,Math.min(nD,nT)]; }
+  function slot(j){ const col=j%18, row=Math.floor(j/18); return [128-8.5*6.4+col*6.4+(row%2)*3.2, MB.y1-4-row*6.2]; }
+  function seedParts(){ parts=[]; const tg=partTargets(), nS=tg[0]-tg[1]; for(let i=0;i<tg[0];i++){ if(i<nS){ const s=slot(i); parts.push({x:s[0],y:s[1],vx:0,vy:0,d:false}); } else parts.push({x:rnd(MB.x0+5,MB.x1-5),y:rnd(MB.y0+5,MB.y1-5),vx:rnd(-20,20),vy:rnd(-20,20),d:true}); } }
+  function updParts(dt){ const tg=partTargets(), nT=tg[0], nD=tg[1];
+    while(parts.length<nT) parts.push({x:128+rnd(-40,40),y:MB.y0+2,vx:0,vy:0,d:false});
+    if(parts.length>nT) parts.length=nT;
+    let cD=0; parts.forEach(p=>{ if(p.d) cD++; });
+    while(cD<nD){ let p=null; for(let i=parts.length-1;i>=0;i--){ if(!parts[i].d){ p=parts[i]; break; } } if(!p) break; p.d=true; p.vx=rnd(-15,15); p.vy=rnd(-35,-10); cD++; }
+    while(cD>nD){ let p=null; for(let i=0;i<parts.length;i++){ if(parts[i].d){ p=parts[i]; break; } } if(!p) break; p.d=false; cD--; }
+    let j=0; parts.forEach(p=>{ if(!p.d){ const s=slot(j++); p.tx=s[0]; p.ty=s[1]; } });
+    const k=Math.min(1,dt*3);
+    parts.forEach(p=>{ if(p.d){ p.vx+=randn()*160*dt; p.vy+=randn()*160*dt; p.vx*=0.96; p.vy*=0.96; const sp=Math.hypot(p.vx,p.vy); if(sp>45){ p.vx*=45/sp; p.vy*=45/sp; }
+        p.x+=p.vx*dt; p.y+=p.vy*dt; if(p.x<MB.x0+4){ p.x=MB.x0+4; p.vx=Math.abs(p.vx); } if(p.x>MB.x1-4){ p.x=MB.x1-4; p.vx=-Math.abs(p.vx); } if(p.y<MB.y0+4){ p.y=MB.y0+4; p.vy=Math.abs(p.vy); } if(p.y>MB.y1-4){ p.y=MB.y1-4; p.vy=-Math.abs(p.vy); } }
+      else { p.x+=(p.tx-p.x)*k; p.y+=(p.ty-p.y)*k; } }); }
+  // ---------- 描画 ----------
+  const BX0=30, BX1=166, BT=74, BB=228, PCX=90;
+  const wy=(g)=>BB-4-g/200*(BB-BT-22);
+  function drawBeaker(c){ const sb=SUB[K];
+    panel(6,6,244,294,sb.n+'を水に溶かす');
+    // スプーン（タップで1g）
+    const sx=200, sy=44, sc=1+pulse*0.4;
+    ctx.save(); ctx.translate(sx,sy); ctx.scale(sc,sc); ctx.strokeStyle='#94a3b8'; ctx.lineWidth=4; ctx.lineCap='round'; line(10,-3,38,-16); ctx.lineCap='butt';
+    ctx.fillStyle='#e2e8f0'; ctx.strokeStyle='#64748b'; ctx.lineWidth=1.5; ctx.beginPath(); ctx.ellipse(0,0,13,7.5,-0.25,0,7); ctx.fill(); ctx.stroke();
+    ctx.fillStyle='#fff'; ctx.strokeStyle=sb.c; ctx.beginPath(); ctx.ellipse(0,-2,9,4.5,-0.25,0,7); ctx.fill(); ctx.stroke(); ctx.restore();
+    tx('タップで1g',212,68,10.5,'#64748b','center',true);
+    // 水
+    const top=wy(WA);
+    ctx.fillStyle='rgba(125,211,252,.30)'; ctx.fillRect(BX0+1.5,top,BX1-BX0-3,BB-top-1.5);
+    ctx.strokeStyle='#38bdf8'; ctx.lineWidth=1.5; line(BX0+2,top,BX1-2,top);
+    // 溶け残り・結晶
+    const resV=Math.max(0,M-disV), nC=resV>0.04?Math.min(60,Math.ceil(Math.sqrt(resV)*6)):0;
+    for(let j=0;j<nC;j++){ const q=PILE[j]; crystal(PCX+q[0],BB-3+q[1],sb.sh==='needle'?6.5:7.6,sb.sh,sb.c,q[2]); }
+    // 落ちていく粒
+    drops.forEach(d=>{ const p=clamp(d.p,0,1), x=d.x0+(d.x1-d.x0)*p, y=d.y0+(d.y1-d.y0)*p-Math.sin(p*Math.PI)*30; dot(x,y,2.2,sb.c); });
+    // 目盛り
+    ctx.strokeStyle='#64748b'; ctx.lineWidth=1; for(let g=50;g<=200;g+=50){ const y=wy(g); line(BX0,y,BX0+8,y); tx(String(g),BX0-4,y+3.5,9,'#64748b','right'); }
+    tx('mL',BX0-4,BT+4,9,'#64748b','right');
+    // ビーカー
+    ctx.strokeStyle='#475569'; ctx.lineWidth=2.5; ctx.beginPath(); ctx.moveTo(BX0-6,BT); ctx.lineTo(BX0,BT+5); ctx.lineTo(BX0,BB-6); ctx.quadraticCurveTo(BX0,BB,BX0+6,BB); ctx.lineTo(BX1-6,BB); ctx.quadraticCurveTo(BX1,BB,BX1,BB-6); ctx.lineTo(BX1,BT+5); ctx.lineTo(BX1+6,BT); ctx.stroke();
+    tx('水 '+Math.round(WA)+' g',BX0+8,top+15,11,'#0369a1','left',true);
+    // 温度計
+    const tx0=150; ctx.fillStyle='#fff'; ctx.strokeStyle='#64748b'; ctx.lineWidth=1.2; rr(tx0-3.5,52,7,BB-62,3.5); ctx.fill(); ctx.stroke();
+    const ty=BB-14-TT/80*(BB-14-62); ctx.fillStyle='#ef4444'; ctx.fillRect(tx0-1.5,ty,3,BB-12-ty); dot(tx0,BB-12,5,'#ef4444');
+    halo(Math.round(TT)+'℃',tx0,48,12,'#dc2626','center',true);
+    // 電子てんびん
+    ctx.fillStyle='#cbd5e1'; rr(16,BB+5,152,6,3); ctx.fill(); ctx.fillStyle='#e2e8f0'; ctx.strokeStyle='#94a3b8'; ctx.lineWidth=1.2; rr(12,BB+11,158,52,8); ctx.fill(); ctx.stroke();
+    tx('電子',22,BB+33,10.5,'#475569','left',true); tx('てんびん',18,BB+48,10.5,'#475569','left',true);
+    ctx.fillStyle='#0f172a'; rr(66,BB+18,96,36,5); ctx.fill(); tx(f1(c.tot)+' g',155,BB+43,19,'#4ade80','right',true);
+    tx('水＋入れた物',208,BB+30,10,'#64748b','center',true); tx('の重さ',208,BB+44,10,'#64748b','center',true); }
+  function niceMax(v){ const L=[10,20,30,40,50,60,80,100,120,150,180,240,300,360]; for(let i=0;i<L.length;i++) if(v<=L[i]) return L[i]; return 360; }
+  const PL=298, PR=618, PT=68, PB=262;
+  const gx=(t)=>PL+t/80*(PR-PL), gy=(v)=>PB-v/YM*(PB-PT);
+  function drawGraph(c){ const sb=SUB[K];
+    panel(256,6,378,294,'溶解度曲線（水100gに溶ける量）');
+    let lx=268; KEYS.forEach(k=>{ const sel=k===K; ctx.globalAlpha=sel?1:0.55; ctx.strokeStyle=SUB[k].c; ctx.lineWidth=sel?3.2:2; line(lx,37,lx+14,37); ctx.globalAlpha=1; tx(SUB[k].n,lx+18,41,11,sel?SUB[k].c:'#64748b','left',sel); lx+=30+tw(SUB[k].n,11,sel)+8; });
+    tx(WA===100?'水100gなので、グラフの値がそのまま溶ける量':'水'+Math.round(WA)+'gなので、溶ける量はグラフの値×'+Math.round(WA)+'÷100',300,57,10.5,'#64748b');
+    const cap=K==='alum'?60:sb.S[8]*1.04; YM=frozen||niceMax(Math.max(cap,c.a*1.06));
+    const stp=[2,5,10,20,30,40,50,60,100].find(s=>YM/s<=6)||100;
+    ctx.strokeStyle='rgba(15,23,42,.08)'; ctx.lineWidth=1; for(let t=10;t<=80;t+=10) line(gx(t),PT,gx(t),PB); for(let v=stp;v<=YM+1e-9;v+=stp) line(PL,gy(v),PR,gy(v));
+    ctx.strokeStyle='#334155'; ctx.lineWidth=1.5; line(PL,PT-4,PL,PB); line(PL,PB,PR+4,PB);
+    for(let t=0;t<=80;t+=10) tx(String(t),gx(t),PB+14,10,'#475569','center');
+    for(let v=0;v<=YM+1e-9;v+=stp) tx(String(v),PL-5,gy(v)+3.5,10,'#475569','right');
+    tx('［g］',PL-5,PT-6,10,'#475569','right'); tx('水温［℃］',PR,PB+30,10.5,'#475569','right');
+    ctx.save(); ctx.beginPath(); ctx.rect(PL,PT-2,PR-PL+2,PB-PT+2); ctx.clip();
+    const order=KEYS.filter(k=>k!==K).concat([K]);
+    order.forEach(k=>{ const sel=k===K; ctx.globalAlpha=sel?1:0.35; ctx.strokeStyle=SUB[k].c; ctx.lineWidth=sel?3:1.6; ctx.beginPath(); for(let t=0;t<=80.001;t+=0.5){ const X=gx(t),Y=gy(sol(k,t)); if(t===0) ctx.moveTo(X,Y); else ctx.lineTo(X,Y); } ctx.stroke(); });
+    ctx.globalAlpha=1;
+    if(trail && trail.M===M && trail.WA===WA && trail.K===K && Math.abs(trail.T0-TT)>0.3){ ctx.strokeStyle='rgba(13,148,136,.75)'; ctx.lineWidth=4; ctx.lineCap='round'; ctx.beginPath(); const s=trail.T0>TT?-0.25:0.25; let first=true; for(let t=trail.T0; s<0?t>=TT-1e-9:t<=TT+1e-9; t+=s){ const X=gx(t),Y=gy(Math.min(c.a,sol(K,t))); if(first){ ctx.moveTo(X,Y); first=false; } else ctx.lineTo(X,Y); } ctx.lineTo(gx(TT),gy(Math.min(c.a,sol(K,TT)))); ctx.stroke(); ctx.lineCap='butt'; }
+    ctx.restore();
+    if(K==='alum' && YM<330) halo('↑ 80℃では321.6g（グラフの外）',PR-4,PT+12,10.5,sb.c,'right',true);
+    const S=sol(K,TT), x=gx(TT), aC=Math.min(c.a,YM), yS=gy(Math.min(c.a,S)), yA=gy(aC);
+    // 結晶が出始める（全部溶ける）温度
+    if(c.st>=0 && c.st<=80 && c.a<=YM && Math.abs(c.st-TT)>0.3){ const xs=gx(c.st); ctx.setLineDash([5,4]); ctx.strokeStyle='#64748b'; ctx.lineWidth=1.3; line(x,yA,xs,yA); line(xs,yA,xs,PB); ctx.setLineDash([]);
+      ctx.fillStyle='#fff'; ctx.strokeStyle=sb.c; ctx.lineWidth=2; ctx.beginPath(); ctx.arc(xs,yA,4.5,0,7); ctx.fill(); ctx.stroke();
+      const lab=(c.res>0?'全部溶ける ':'結晶が出始める ')+f1(c.st)+'℃', lw=tw(lab,11,true), up=clamp(yA-8,PT+12,PB-6), dn=clamp(yA+17,PT+12,PB-6);
+      if(c.res>0){ if(xs+8+lw<PR+8) halo(lab,xs+8,up,11,'#334155','left',true); else halo(lab,xs-8,dn,11,'#334155','right',true); }
+      else { if(xs-8-lw>PL+2) halo(lab,xs-8,up,11,'#334155','right',true); else halo(lab,xs+8,dn,11,'#334155','left',true); } }
+    if(c.a>S+1e-6){ ctx.strokeStyle='#dc2626'; ctx.lineWidth=3; line(x,yS,x,yA+5);
+      ctx.strokeStyle='#dc2626'; ctx.lineWidth=2.2; ctx.fillStyle='#fff'; ctx.beginPath(); ctx.arc(x,yA,6,0,7); ctx.fill(); ctx.stroke();
+      if(c.a>YM){ ctx.fillStyle='#dc2626'; ctx.beginPath(); ctx.moveTo(x,PT-6); ctx.lineTo(x-5,PT+2); ctx.lineTo(x+5,PT+2); ctx.closePath(); ctx.fill(); }
+      const l1='溶け残り', w1=tw(l1,11.5,true), my=(yS+yA)/2+4; if(x+10+w1<PR) halo(l1,x+9,my,11.5,'#dc2626','left',true); else halo(l1,x-9,my,11.5,'#dc2626','right',true);
+      const l2='入れた量', w2=tw(l2,11,true); if(x+10+w2<PR) halo(l2,x+9,yA-6,11,'#b91c1c','left',true); else halo(l2,x-9,yA-6,11,'#b91c1c','right',true); }
+    ctx.fillStyle=sb.c; ctx.strokeStyle='#fff'; ctx.lineWidth=2.2; ctx.beginPath(); ctx.arc(x,yS,7,0,7); ctx.fill(); ctx.stroke();
+    const l3=c.res>0?'溶けている量（飽和）':(c.a>=S-1e-6?'溶けている量（飽和）':'溶けている量'), w3=tw(l3,11,true), y3=c.res>0?yS+17:yS-10;
+    if(x+10+w3<PR+6) halo(l3,x+9,clamp(y3,PT+10,PB-18),11,sb.c,'left',true); else halo(l3,x-9,clamp(y3,PT+10,PB-18),11,sb.c,'right',true); }
+  function drawModel(){ const sb=SUB[K];
+    panel(6,306,244,128,'粒子のモデル');
+    tx('●＝'+sb.n+'の粒',244,325,10.5,sb.c,'right',true);
+    ctx.fillStyle='rgba(186,230,253,.45)'; rr(MB.x0,MB.y0,MB.x1-MB.x0,MB.y1-MB.y0,6); ctx.fill();
+    parts.forEach(p=>{ ctx.fillStyle=sb.c; ctx.beginPath(); ctx.arc(p.x,p.y,2.9,0,7); ctx.fill(); if(!p.d){ ctx.strokeStyle='rgba(15,23,42,.55)'; ctx.lineWidth=0.8; ctx.stroke(); } });
+    if(!parts.length) tx('まだ何も溶かしていません',128,384,11,'#64748b','center'); }
+  function drawBand(c){ const sb=SUB[K], X=268, MW=356;
+    panel(256,306,378,128,'');
+    const L1='重さ：水 '+Math.round(WA)+' g ＋ '+sb.n+' '+f1(M)+' g ＝ '+f1(c.tot)+' g'+(evap>0.05?'（蒸発した水'+Math.round(evap)+' gの分は軽い）':'（溶けても変わらない）');
+    fit(L1,X,330,13,'#0f172a',MW,true);
+    fit('溶ける限度：'+f1(c.S1)+' × '+Math.round(WA)+' ÷ 100 ＝ '+f1(c.lim)+' g（'+Math.round(TT)+'℃）',X,356,13,'#0369a1',MW,true);
+    let L3, col3='#dc2626'; if(c.res>0) L3='溶け残り：'+f1(M)+' − '+f1(c.lim)+' ＝ '+f1(c.res)+' g'; else if(c.lim-M<0.05 && M>0) { L3='ちょうど限度まで溶けている（飽和水溶液）'; col3='#7c2d12'; } else { L3='あと '+f1(c.lim-M)+' g 溶ける（全部溶けている）'; col3='#15803d'; }
+    fit(L3,X,382,13,col3,MW,true);
+    fit('濃度：'+f1(c.dis)+' ÷（'+f1(c.dis)+' ＋ '+Math.round(WA)+'）× 100 ＝ '+f1(c.conc)+' %',X,408,13,'#334155',MW,true);
+    fit('（質量パーセント濃度＝溶けている物の重さ÷水溶液の重さ×100）',X,426,10.5,'#64748b',MW,false); }
+  function draw(){ const c=calc(); ctx.clearRect(0,0,W,H); ctx.fillStyle='#f8fafc'; ctx.fillRect(0,0,W,H);
+    drawBeaker(c); drawGraph(c); drawModel(); drawBand(c);
+    setStat('sDis',f1(c.dis)+' g'); setStat('sRes',f1(c.res)+' g'); setStat('sLim',f1(c.lim)+' g'); setStat('sTot',f1(c.tot)+' g'); setStat('sCon',f1(c.conc)+' %');
+    setStat('sSat',c.st<0?'0℃でも全部溶ける':(c.st>80?'80℃でも溶けきらない':f1(c.st)+'℃')); setStat('sEv',WA<=10?'—':f1(c.ev)+' g');
+    const sb=SUB[K], head='【物の溶け方】'+Math.round(TT)+'℃の水'+Math.round(WA)+'gに'+sb.n+'は'+f1(c.lim)+'gまで溶ける。';
+    setShare(head+(c.res>0?f1(M)+'g入れると'+f1(c.res)+'gが溶け残る':f1(M)+'gは全部溶けて濃度'+f1(c.conc)+'%')+'｜シミュラボ'); }
+  // ---------- 操作 ----------
+  function syncUI(){ const a=$('wa'); a.value=Math.round(WA); $('waL').textContent=Math.round(WA)+' g'; const b=$('tt'); b.value=Math.round(TT); $('ttL').textContent=Math.round(TT)+'℃'; const m=$('mm'); m.value=M; $('mmL').textContent=f1(M)+' g';
+    $('cool').disabled=TT<=0.01; $('heat').disabled=TT>=79.99; $('evap').disabled=WA<=10.01; $('add1').disabled=M>=200; $('add10').disabled=M>=200; }
+  function grains(g){ const n=Math.min(9,2+Math.round(g)); for(let i=0;i<n;i++) drops.push({p:-i*0.06,x0:200+rnd(-5,5),y0:44,x1:PCX+rnd(-28,28),y1:BB-8,}); }
+  function add(g){ if(M>=200) return; M=r1(Math.min(200,M+g)); trail=null; grains(g); pulse=1; syncUI(); }
+  function tempTo(d){ if(!trail || trail.M!==M || trail.WA!==WA || trail.K!==K) trail={T0:TT,M:M,WA:WA,K:K}; const base=anim&&anim.k==='T'?anim.to:Math.round(TT); anim={k:'T',to:clamp(base+d,0,80)}; }
+  $('sub').addEventListener('change',()=>{ K=$('sub').value; trail=null; anim=null; disV=calc().dis; seedParts(); });
+  $('wa').addEventListener('input',()=>{ anim=null; WA=+$('wa').value; evap=0; trail=null; syncUI(); });
+  $('tt').addEventListener('input',()=>{ anim=null; TT=+$('tt').value; syncUI(); });
+  $('mm').addEventListener('input',()=>{ M=r1(+$('mm').value); trail=null; syncUI(); });
+  $('add1').addEventListener('click',()=>add(1)); $('add10').addEventListener('click',()=>add(10));
+  $('cool').addEventListener('click',()=>tempTo(-10)); $('heat').addEventListener('click',()=>tempTo(10));
+  $('evap').addEventListener('click',()=>{ if(WA<=10.01) return; trail=null; const base=anim&&anim.k==='W'?anim.to:WA; anim={k:'W',to:Math.max(10,base-10)}; });
+  $('empty').addEventListener('click',()=>{ anim=null; M=0; evap=0; trail=null; disV=0; drops=[]; seedParts(); syncUI(); });
+  function pxy(e){ const p=cpos(cv,e); return [p[0]/dpr,p[1]/dpr]; }
+  function setG(q){ TT=clamp(Math.round((q[0]-PL)/(PR-PL)*80),0,80); const a=clamp((PB-q[1])/(PB-PT)*YM,0,YM); M=r1(clamp(a*WA/100,0,200)); syncUI(); }
+  cv.style.cursor='pointer';
+  cv.addEventListener('pointerdown',(e)=>{ const q=pxy(e);
+    if(q[0]>=PL-16 && q[0]<=PR+16 && q[1]>=PT-14 && q[1]<=PB+16){ drag=true; frozen=YM; trail=null; anim=null; try{ cv.setPointerCapture(e.pointerId); }catch(err){} setG(q); e.preventDefault(); return; }
+    if(q[0]<250 && q[1]<BB+4){ add(1); e.preventDefault(); } });
+  cv.addEventListener('pointermove',(e)=>{ if(!drag) return; setG(pxy(e)); e.preventDefault(); });
+  ['pointerup','pointercancel','pointerleave'].forEach(n=>cv.addEventListener(n,()=>{ drag=false; frozen=null; }));
+  function step(dt){
+    if(anim){ if(anim.k==='T'){ const d=anim.to-TT, s=Math.sign(d)*Math.min(Math.abs(d),12*dt); TT+=s; if(Math.abs(anim.to-TT)<1e-6){ TT=anim.to; anim=null; } }
+      else { const s=Math.min(WA-anim.to,15*dt); WA-=s; evap+=s; if(WA-anim.to<1e-6){ evap+=WA-anim.to; WA=anim.to; anim=null; } } syncUI(); }
+    const c=calc(), g=c.dis-disV; if(Math.abs(g)<1e-4) disV=c.dis; else { const r=Math.max(1.2,Math.abs(g)*1.6)*dt; disV+=g>0?Math.min(g,r):Math.max(g,-r); }
+    drops.forEach(d=>{ d.p+=dt/0.55; }); drops=drops.filter(d=>d.p<1);
+    if(pulse>0) pulse=Math.max(0,pulse-dt*4);
+    updParts(dt); }
+  function loop(now){ const dt=Math.min(0.05,Math.max(0,(now-last)/1000)); last=now; step(dt); draw(); requestAnimationFrame(loop); }
+  disV=calc().dis; seedParts(); syncUI(); draw(); requestAnimationFrame(loop);
+
+  } catch(e) { console.error(e); }
+  (function(){ const fs=$('fsBtn'), panel=document.querySelector('.panel');
+    const req = panel && (panel.requestFullscreen || panel.webkitRequestFullscreen);
+    if (fs && req) { fs.hidden = false; fs.addEventListener('click', () => {
+      const cur = document.fullscreenElement || document.webkitFullscreenElement;
+      if (cur) { (document.exitFullscreen || document.webkitExitFullscreen).call(document); }
+      else { req.call(panel); } }); }
+  })();
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE || document.title)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText((SHARE||document.title)+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'youkaido', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

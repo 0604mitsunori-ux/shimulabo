@@ -141,6 +141,8 @@ const ALLOW = new Set([
   'tsuki-michikake', 'gesshoku-nisshoku', 'denki-kairo', 'totsu-lens', 'shitsudo-roten', 'jishin-ha', 'teko-tsuriai', 'furiko-jikken', 'joutai-henka', 'mendel-iden',
   // rika
   'taiyou-ugoki', 'hoshi-ugoki', 'chisou', 'kazan-kaseigan', 'zensen-tenki', 'nagareru-mizu', 'denryu-jikai', 'kagaku-shitsuryou', 'hito-karada', 'kamu-pulley', 'kinsei-michikake',
+  // rika
+  'hikari-kussetsu', 'bane-nobi', 'youkaido', 'nenshou', 'chuwa-ion', 'kuuki-mizu', 'kiroku-timer', 'kassha-shigoto', 'kougousei', 'hatsuga-jouken', 'saibou-bunretsu', 'suiatsu-fuyuu',
 ]);
 
 export default async function handler(req, res) {

@@ -222,10 +222,16 @@ def related(items):
     return "".join('<a class="related-card" href="../%s/"><span class="e">%s</span><span>%s</span></a>' % (s, e, t) for s, e, t in items)
 
 def render(s):
-    ld_app = json.dumps({"@context": "https://schema.org", "@type": "WebApplication", "name": s["title"],
+    # 2026-10-18: 教材として読まれるよう LearningResource を併記（単元＝学習指導要領への対応・対象＝先生と児童生徒）
+    ld_app = json.dumps({"@context": "https://schema.org", "@type": ["WebApplication", "LearningResource"], "name": s["title"],
         "url": "%s/sims/%s/" % (BASE, s["slug"]), "description": s["og_desc"],
         "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja",
-        "isAccessibleForFree": True, "educationalLevel": s.get("level", ""), "learningResourceType": "シミュレーション", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"},
+        "isAccessibleForFree": True, "educationalLevel": s.get("level", ""), "learningResourceType": "シミュレーション",
+        "teaches": s["model"], "educationalUse": ["授業", "自習"],
+        "audience": {"@type": "EducationalAudience", "educationalRole": ["teacher", "student"]},
+        "educationalAlignment": {"@type": "AlignmentObject", "alignmentType": "educationalSubject",
+                                 "educationalFramework": "学習指導要領（平成29・30年告示）", "targetName": s["unit"]},
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"},
         "publisher": {"@type": "Organization", "name": "シミュラボ", "url": BASE + "/"}}, ensure_ascii=False)
     ld_bread = json.dumps({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "ホーム", "item": BASE + "/"},

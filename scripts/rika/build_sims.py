@@ -17,7 +17,8 @@ sys.stdout.reconfigure(encoding="utf-8")
 from common import render, G, CATJP, BASE, TODAY
 
 MODULES = ["sims_tenmon", "sims_denki_hikari", "sims_kishou_jishin", "sims_chikara", "sims_ryushi_iden",   # 第1弾
-           "sims_tentai", "sims_chisou", "sims_kishou2", "sims_denki_kagaku", "sims_karada_gijutsu", "sims_kinsei"]   # 第2弾
+           "sims_tentai", "sims_chisou", "sims_kishou2", "sims_denki_kagaku", "sims_karada_gijutsu", "sims_kinsei",   # 第2弾
+           "sims_hikari_bane", "sims_youkai_nenshou", "sims_suiyoueki_kuuki", "sims_undou_shigoto", "sims_shokubutsu", "sims_saibou_fuyuu"]   # 第3弾
 REQUIRED = ["slug", "cat", "title", "title_tag", "meta_desc", "og_title", "og_desc", "lead", "model", "level", "unit",
             "emoji", "card_desc", "score", "article", "faqs", "rel", "js"]
 
@@ -39,6 +40,13 @@ def load(names):
         assert re.fullmatch(r"[a-z0-9]+(-[a-z0-9]+)*", s["slug"]), s["slug"]
     slugs = [s["slug"] for s in sims]
     assert len(slugs) == len(set(slugs)), "slug重複"
+    # 同時に作った担当どうしの rel は名前・絵文字が仮のことがあるので、実際の定義にそろえる（--module のときは全モジュールから引く）
+    every = {x["slug"]: x for x in sims}
+    for n in MODULES:
+        if os.path.exists(os.path.join(HERE, n + ".py")):
+            for x in importlib.import_module(n).SIMS: every.setdefault(x["slug"], x)
+    for s in sims:
+        s["rel"] = [(sl, every[sl]["emoji"], every[sl]["title"]) if sl in every else (sl, e, t) for sl, e, t in s["rel"]]
     return sims
 
 

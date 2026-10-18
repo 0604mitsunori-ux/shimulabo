@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/kiroku-timer/">
+<title>記録タイマー・テープグラフのシミュレーター｜斜面を下る台車の運動・等速直線運動・自由落下（中3理科 運動の規則性）｜シミュラボ</title>
+<meta name="description" content="中3理科「運動の規則性」の記録タイマーの実験を再現。斜面の角度（0°〜90°）を決めて台車を走らせると、1秒間に50回（東日本）・60回（西日本）の打点が記録テープに並び、0.1秒ごとに切ったテープグラフと移動距離・速さのグラフができます。等速直線運動・自由落下も。">
+<meta property="og:title" content="記録タイマーと台車の運動シミュレーター（中3 運動の規則性）">
+<meta property="og:description" content="斜面の角度を変えて台車を走らせると、記録テープの打点・テープグラフ・速さと移動距離のグラフができる。水平で等速、90°で自由落下。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/kiroku-timer.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/kiroku-timer.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/kiroku-timer/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": ["WebApplication", "LearningResource"], "name": "記録タイマーと台車の運動シミュレーター（斜面の運動・自由落下）", "url": "https://shimulabo.com/sims/kiroku-timer/", "description": "斜面の角度を変えて台車を走らせると、記録テープの打点・テープグラフ・速さと移動距離のグラフができる。水平で等速、90°で自由落下。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "educationalLevel": "中学3年、高校 物理基礎", "learningResourceType": "シミュレーション", "teaches": "中3 運動の規則性（記録タイマー・斜面の運動）", "educationalUse": ["授業", "自習"], "audience": {"@type": "EducationalAudience", "educationalRole": ["teacher", "student"]}, "educationalAlignment": {"@type": "AlignmentObject", "alignmentType": "educationalSubject", "educationalFramework": "学習指導要領（平成29・30年告示）", "targetName": "中学校 第1分野（5）ア（ｲ）運動の規則性／高等学校 物理基礎（1）ア（ｱ）運動の表し方"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "理科の授業向け", "item": "https://shimulabo.com/rika/"}, {"@type": "ListItem", "position": 3, "name": "記録タイマーと台車の運動シミュレーター（斜面の運動・自由落下）", "item": "https://shimulabo.com/sims/kiroku-timer/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "記録タイマーのテープを5打点ごと（6打点ごと）に切るのはなぜですか？", "acceptedAnswer": {"@type": "Answer", "text": "0.1秒ごとの移動距離を比べるためです。1秒間に50回打点する記録タイマー（東日本）は打点の間かくが0.02秒なので、5打点分で0.1秒になります。1秒間に60回打点する記録タイマー（西日本）は6打点分で0.1秒です。"}}, {"@type": "Question", "name": "テープグラフの見方を教えてください。", "acceptedAnswer": {"@type": "Answer", "text": "テープグラフは、0.1秒ごとに切ったテープを時間の順にならべたグラフです。テープの長さは0.1秒間に進んだ距離なので、速さに比例します。テープの上の端をつなぐと速さ－時間のグラフと同じ形になり、斜面を下る台車では右上がりの直線になります。"}}, {"@type": "Question", "name": "斜面の角度を大きくすると、台車の運動はどう変わりますか？", "acceptedAnswer": {"@type": "Answer", "text": "斜面に沿った力（重力×sinθ）が大きくなるので、速さの増え方が大きくなります。摩擦がないとき、速さの増え方は 9.8×sinθ（m/s²）で、15°で約2.54、30°で4.9、90°（自由落下）で9.8 です。斜面の角度が90°のときが自由落下で、速さの増え方がいちばん大きくなります。"}}, {"@type": "Question", "name": "水平面で台車を押して手をはなすと、どんな運動になりますか？", "acceptedAnswer": {"@type": "Answer", "text": "台車の運動の向きに力がはたらかないので、手をはなしたときの速さのまま一直線上を進む等速直線運動になります（慣性の法則）。0.1秒ごとのテープの長さがすべて同じになります。実際は摩擦があるので、少しずつおそくなります。"}}, {"@type": "Question", "name": "台車を重くすると、斜面を下る速さの増え方は変わりますか？", "acceptedAnswer": {"@type": "Answer", "text": "摩擦や空気の抵抗がなければ変わりません。台車が重くなると斜面に沿った力も同じ割合で大きくなるため、速さの増え方は 9.8×sinθ のままです。実際の実験では、摩擦の影響で少しちがいが出ることがあります。"}}, {"@type": "Question", "name": "東日本と西日本で、記録タイマーが1秒間に打つ点の数がちがうのはなぜですか？", "acceptedAnswer": {"@type": "Answer", "text": "記録タイマーは家庭用の交流電源の周波数に合わせて点を打つからです。電源の周波数は東日本が50Hz、西日本が60Hzなので、1秒間に打つ点の数はそれぞれ50回と60回になります。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+<style>
+.lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
+.lab-ctl .field{margin-bottom:6px;}
+.lab-ctl>*,.lab-stats>*{min-width:0;}
+.lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
+.lab-ctl .slider-head label{margin:0;font-size:13px;}
+.lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
+.lab-ctl input[type=range]{width:100%;}
+.lab-ctl select{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;font-size:14px;background:#fff;}
+.lab-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px;}
+.lab-btns .btn{padding:11px 18px;font-size:14px;width:auto;}
+.lab-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;width:100%;max-width:640px;margin-top:4px;}
+.lab-stats .stat{background:var(--teal-l);border-radius:10px;padding:10px 12px;text-align:center;}
+.lab-stats .k{font-size:11px;color:var(--ink-2);}
+.lab-stats .v{font-size:20px;font-weight:800;color:var(--ink);font-feature-settings:"tnum";}
+.lab-stats .v.accent{color:var(--accent);}
+.lab-legend{text-align:center;color:var(--ink-2);font-size:13px;margin-top:12px;}
+.lab-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;background:rgba(44,107,134,.10);color:var(--teal-d);margin-bottom:8px;}
+canvas.lab{width:100%;max-width:640px;height:auto;border:1px solid var(--line);border-radius:12px;background:#0b1020;touch-action:none;}
+canvas.lab.light{background:#fff;}
+.panel:fullscreen,.panel:-webkit-full-screen{overflow:auto;padding:24px;background:var(--bg,#faf8f3);}
+.panel:fullscreen canvas.lab{max-width:min(96vw,1100px);}
+.panel:fullscreen .lab-ctl,.panel:fullscreen .lab-stats{max-width:min(96vw,1100px);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../rika/">🔬 理科の授業向け</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../rika/">理科の授業向け</a><span>›</span><span class="cur">記録タイマーと台車の運動シミュレーター（斜面の運動・自由落下）</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">理科の授業向け</div>
+    <h1>記録タイマーと台車の運動シミュレーター（斜面の運動・自由落下）</h1>
+    <p class="lead">斜面の角度を決めて「スタート」をおすと、台車が斜面を下り、記録タイマーの打点が記録テープに並びます。0.1秒ごとに切ったテープを並べたテープグラフと、移動距離（速さ）－時間のグラフが同時にできあがります。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;gap:14px;">
+      <span class="lab-badge">🔬 中3 運動の規則性（記録タイマー・斜面の運動）</span>
+      <canvas id="cv" class="lab light" width="640" height="490"></canvas>
+      <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="ang">斜面の角度</label><span class="val" id="angL"></span></div><input type="range" id="ang" min="0" max="90" value="15" step="5" data-fmt="{v}°"></div><div class="field"><div class="slider-head"><label for="v0">最初に押す速さ</label><span class="val" id="v0L"></span></div><input type="range" id="v0" min="0" max="100" value="0" step="10" data-fmt="{v}cm/s"></div><div class="field"><div class="slider-head"><label for="hz">記録タイマー</label></div><select id="hz"><option value="50" selected>1秒間に50回打点（東日本）</option><option value="60">1秒間に60回打点（西日本）</option></select></div><div class="field"><div class="slider-head"><label for="spd">再生の速さ</label></div><select id="spd"><option value="0.2" selected>スロー（1/5）</option><option value="0.1">スロー（1/10）</option><option value="0.5">スロー（1/2）</option><option value="1">実際の速さ</option></select></div><div class="field"><div class="slider-head"><label for="gb">右のグラフ</label></div><select id="gb"><option value="x" selected>移動距離－時間</option><option value="v">速さ－時間</option></select></div></div>
+      <div class="lab-btns"><button class="btn btn-primary" id="start">▶ スタート（台車をはなす）</button><button class="btn btn-ghost" id="b0">水平（0°）で押す</button><button class="btn btn-ghost" id="b90">自由落下（90°）</button><button class="btn btn-ghost" id="reset">↺ 記録を消す</button></div>
+      <div class="lab-stats"><div class="stat"><div class="k">運動のようす</div><div class="v accent" id="s1">—</div></div><div class="stat"><div class="k">0.1秒ごとのテープの増え方</div><div class="v" id="s2">—</div></div><div class="stat"><div class="k">打点の間かく</div><div class="v" id="s3">—</div></div><div class="stat"><div class="k">0.5秒後の速さ</div><div class="v" id="s4">—</div></div></div>
+    </div>
+    <p class="lab-legend">斜面の角度は0°で水平、90°で自由落下です。「最初に押す速さ」は台車を押し出す速さです（斜面では0のとき静止からはなします）。テープは0.1秒（50回打点なら5打点、60回打点なら6打点）ごとに黄色と水色で色分けしています。テープグラフの赤い点線は、テープの上の端をつないだ線（速さ－時間のグラフと同じ形）です。条件を変えて記録すると、前の記録が灰色の点線で残ります。摩擦と空気の抵抗は考えていません（g＝9.8m/s²）。斜面の長さは2.0mで、図の大きさは見やすく変えています。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-ghost" id="fsBtn" hidden>⛶ 全画面で表示</button>
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+<h2>このシミュレーションでわかること</h2>
+<div class="note" style="border-left:4px solid var(--teal)"><strong>ポイント</strong>：斜面を下る台車は、斜面に沿った一定の力を受け続けるので、<b>速さが時間に比例して一定の割合で増えます</b>。斜面の角度が大きいほど速さの増え方は大きくなり、角度が90°のとき（自由落下）にいちばん大きくなります。水平面で力がはたらかないときは、台車は<b>等速直線運動</b>をします。</div>
+<p>中学校3年の理科「運動とエネルギー」の（ｲ）運動の規則性（学習指導要領 第1分野（5）ア（ｲ）㋑「力と運動」）で学ぶ内容です。高校の物理基礎「運動の表し方」「直線運動の加速度」の導入にも使えます。</p>
+<p>斜面の角度（0°＝水平、90°＝自由落下）を決めて「スタート」をおすと、記録タイマーが1秒間に50回（東日本）または60回（西日本）テープに打点します。テープは0.1秒ごと（5打点ごと／6打点ごと）に色分けされ、切ったテープを順にならべた<b>テープグラフ</b>と、移動距離－時間（または速さ－時間）のグラフが同時にできあがります。</p>
+<h2>授業での使い方</h2>
+<ul>
+<li><b>導入</b>：水平（0°）で台車を押した記録と、斜面（15°など）を下る記録を見せ、「テープの打点の間かくのちがいから、どんな運動かわかるかな？」と問いかけます。</li>
+<li><b>展開</b>：記録タイマーを使った実験の前後に使います。斜面の角度を変えて何回か記録すると、前の記録が点線で残るので、テープグラフの階段の「上がり方」を比べられます。テープをタップすると、そのテープの長さと、その0.1秒間の平均の速さが表示されます。録画した映像で確かめる代わりに、スロー再生（1/10）で台車の動きと打点の関係を見せることもできます。</li>
+<li><b>まとめ</b>：角度を90°にして自由落下にし、「斜面の角度が90°になると自由落下になり、速さの変わり方がいちばん大きくなる」ことを確かめます。水平で押した場合は、テープの長さがそろう（等速直線運動）ことから、慣性の法則にふれます。</li>
+</ul>
+<p>生徒への問いの例：</p>
+<ol>
+<li>テープグラフのテープの上の端をつなぐと、どんな形の線になるでしょう。その線は何を表しているでしょう。</li>
+<li>斜面の角度を2倍にすると、速さの増え方も2倍になるでしょうか。（15°と30°で比べてみよう）</li>
+<li>西日本（1秒間に60回）の記録タイマーでは、何打点ごとに切れば0.1秒ごとのテープになるでしょう。</li>
+</ol>
+<h2>しくみ・解説</h2>
+<h3>用語の意味</h3>
+<ul>
+<li><b>記録タイマー</b>とは、一定の時間ごと（1秒間に50回または60回）に記録テープに点を打ち、物体の運動のようすを記録する装置です。</li>
+<li><b>テープグラフ</b>とは、記録テープを一定の時間（0.1秒）ごとに切り、左から時間の順にならべてはったグラフで、テープの長さが速さを表します。</li>
+<li><b>等速直線運動</b>とは、一直線上を一定の速さで進む運動です。</li>
+<li><b>慣性の法則</b>とは、物体に力がはたらかないか、はたらく力がつり合っているとき、静止している物体は静止し続け、運動している物体は等速直線運動を続けるという法則です。</li>
+<li><b>自由落下</b>とは、静止していた物体が重力だけを受けて真下に落ちる運動です。</li>
+</ul>
+<h3>打点の間かくと0.1秒の区切り方</h3>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>地域（電源の周波数）</th><th>1秒間に打つ点の数</th><th>打点の間かく</th><th>0.1秒分のテープ</th></tr><tr><td>東日本（50Hz）</td><td>50回</td><td>1/50秒＝0.02秒</td><td>5打点ごと（打点の間が5つ）</td></tr><tr><td>西日本（60Hz）</td><td>60回</td><td>1/60秒＝約0.017秒</td><td>6打点ごと（打点の間が6つ）</td></tr></table></div>
+<p>記録タイマーは、コンセントの交流（東日本50Hz・西日本60Hz）に合わせて振動して点を打つので、地域によって1秒間に打つ点の数がちがいます。0.1秒ごとに切れば、どちらの地域でもテープの長さは同じになります（このシミュレーションの「打点の数」を切りかえて確かめられます）。最初の打点が重なって見分けにくい部分は、実際の実験では切り捨ててから区切ります。</p>
+<h3>テープの長さから速さを求める</h3>
+<div class="note">0.1秒間の平均の速さ（cm/s）＝ 0.1秒分のテープの長さ（cm）÷ 0.1（秒）＝ テープの長さ × 10<br>例：0.1秒分のテープが6.3cmなら、6.3 ÷ 0.1 ＝ 63cm/s</div>
+<p>テープグラフのテープの長さは「0.1秒間に進んだ距離」なので、速さに比例します。テープの上の端の真ん中をつないだ線は、<b>速さ－時間のグラフ</b>と同じ形になります。斜面を下る台車では右上がりの直線、水平面で押した台車では横に平らな直線になります。</p>
+<h3>斜面の角度と速さの増え方（早見表）</h3>
+<div class="note">斜面に沿った力 ＝ 重力 × sinθ（斜面のどこでも一定）<br>速さの増え方（加速度）a ＝ g × sinθ（g＝9.8m/s²）<br>t秒後の速さ v ＝ a × t、t秒間の移動距離 x ＝ ½ × a × t²<br>0.1秒ごとのテープは、1本ごとに a × 0.1² ＝ a（cm）ずつ長くなる</div><div class="tbl-scroll"><table class="seo-table"><tr><th>斜面の角度</th><th>sinθ</th><th>速さの増え方 a（m/s²）</th><th>0.1秒ごとのテープの長さ ①〜⑤（cm）</th><th>1本ごとに長くなる長さ</th><th>0.5秒後の速さ（cm/s）</th></tr><tr><td>0°（50cm/sで押す）</td><td>0.000</td><td>0.00</td><td>5.00、5.00、5.00、5.00、5.00</td><td>0（同じ長さ）</td><td>50</td></tr><tr><td>10°</td><td>0.174</td><td>1.70</td><td>0.85、2.55、4.25、5.96、7.66</td><td>1.70cm</td><td>85</td></tr><tr><td>15°</td><td>0.259</td><td>2.54</td><td>1.27、3.80、6.34、8.88、11.41</td><td>2.54cm</td><td>127</td></tr><tr><td>20°</td><td>0.342</td><td>3.35</td><td>1.68、5.03、8.38、11.73、15.08</td><td>3.35cm</td><td>168</td></tr><tr><td>30°</td><td>0.500</td><td>4.90</td><td>2.45、7.35、12.25、17.15、22.05</td><td>4.90cm</td><td>245</td></tr><tr><td>45°</td><td>0.707</td><td>6.93</td><td>3.46、10.39、17.32、24.25、31.18</td><td>6.93cm</td><td>346</td></tr><tr><td>60°</td><td>0.866</td><td>8.49</td><td>4.24、12.73、21.22、29.70、38.19</td><td>8.49cm</td><td>424</td></tr><tr><td>90°（自由落下）</td><td>1.000</td><td>9.80</td><td>4.90、14.70、24.50、34.30、44.10</td><td>9.80cm</td><td>490</td></tr></table></div>
+<p>表の数値は、摩擦や空気の抵抗がないとして a＝9.8×sinθ で計算したものです（このシミュレーションと同じ計算）。たとえば15°では、0.1秒ごとのテープが 1.27、3.80、6.34 … cm と、1本ごとに2.54cmずつ長くなります。中学校では速さの変わり方を「斜面の角度が大きいほど、速さの増え方が大きい」と定性的に扱い、a＝g sinθ の式は高校の物理基礎で学びます。</p>
+<h3>計算問題の解き方</h3>
+<p>例：1秒間に50回打点する記録タイマーで、台車の運動を記録しました。5打点ごとに切ったテープの長さが、順に 2.0cm、4.0cm、6.0cm でした。3本目のテープの間の平均の速さは何cm/sですか。</p>
+<ol>
+<li>5打点分は 0.02秒 × 5 ＝ 0.1秒</li>
+<li>3本目は0.1秒間に6.0cm進んだので、6.0 ÷ 0.1 ＝ 60cm/s</li>
+<li>テープが1本ごとに2.0cmずつ長くなっているので、速さは0.1秒ごとに20cm/sずつ増えている（一定の割合で速くなる運動）</li>
+</ol>
+<h3>このシミュレーションで単純にしていること</h3>
+<ul>
+<li>台車と斜面・記録タイマーとテープの間の摩擦や、空気の抵抗は考えていません。実際の実験では摩擦があるため、速さの増え方は表の値より少し小さくなります。</li>
+<li>摩擦がなければ、斜面を下る速さの増え方は台車の質量によらないので、質量は設定していません。</li>
+<li>斜面の長さは2.0mとし、台車が斜面の下に着くか、1.0秒たったところで記録を終えます。図の斜面の長さや台車の大きさは見やすいように変えています。</li>
+<li>斜面の台車は静止の状態から手をはなし、水平（0°）のときは「最初に押す速さ」で押し出したあと、手をはなしたものとしています。</li>
+</ul>
+<h2>参考</h2>
+<ul class="seo-refs">
+<li>文部科学省「中学校学習指導要領（平成29年告示）解説 理科編」第1分野（5）運動とエネルギー（ｲ）運動の規則性（pp.54〜56）（<a href="https://www.mext.go.jp/a_menu/shotou/new-cs/1387016.htm" target="_blank" rel="noopener">文部科学省 中学校学習指導要領解説のページ</a>）</li>
+<li>文部科学省「高等学校学習指導要領（平成30年告示）解説 理科編 理数編」物理基礎（1）ア（ｱ）運動の表し方（<a href="https://www.mext.go.jp/a_menu/shotou/new-cs/1407074.htm" target="_blank" rel="noopener">文部科学省 高等学校学習指導要領解説のページ</a>）</li>
+<li>中学校理科の教科書（東京書籍「新しい科学」、啓林館「未来へひろがるサイエンス」、大日本図書「理科の世界」など）3年「運動とエネルギー」</li>
+<li>重力加速度 g＝9.8m/s²（高等学校「物理基礎」の教科書で用いられる値）</li>
+</ul>
+
+    <h2>引用・転載について</h2>
+    <p>本ページのシミュレーション結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・授業や社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「記録タイマーと台車の運動シミュレーター（斜面の運動・自由落下）」 https://shimulabo.com/sims/kiroku-timer/</code></div>
+    <h2>よくある質問</h2><dl class="faq"><dt>記録タイマーのテープを5打点ごと（6打点ごと）に切るのはなぜですか？</dt><dd>0.1秒ごとの移動距離を比べるためです。1秒間に50回打点する記録タイマー（東日本）は打点の間かくが0.02秒なので、5打点分で0.1秒になります。1秒間に60回打点する記録タイマー（西日本）は6打点分で0.1秒です。</dd><dt>テープグラフの見方を教えてください。</dt><dd>テープグラフは、0.1秒ごとに切ったテープを時間の順にならべたグラフです。テープの長さは0.1秒間に進んだ距離なので、速さに比例します。テープの上の端をつなぐと速さ－時間のグラフと同じ形になり、斜面を下る台車では右上がりの直線になります。</dd><dt>斜面の角度を大きくすると、台車の運動はどう変わりますか？</dt><dd>斜面に沿った力（重力×sinθ）が大きくなるので、速さの増え方が大きくなります。摩擦がないとき、速さの増え方は 9.8×sinθ（m/s²）で、15°で約2.54、30°で4.9、90°（自由落下）で9.8 です。斜面の角度が90°のときが自由落下で、速さの増え方がいちばん大きくなります。</dd><dt>水平面で台車を押して手をはなすと、どんな運動になりますか？</dt><dd>台車の運動の向きに力がはたらかないので、手をはなしたときの速さのまま一直線上を進む等速直線運動になります（慣性の法則）。0.1秒ごとのテープの長さがすべて同じになります。実際は摩擦があるので、少しずつおそくなります。</dd><dt>台車を重くすると、斜面を下る速さの増え方は変わりますか？</dt><dd>摩擦や空気の抵抗がなければ変わりません。台車が重くなると斜面に沿った力も同じ割合で大きくなるため、速さの増え方は 9.8×sinθ のままです。実際の実験では、摩擦の影響で少しちがいが出ることがあります。</dd><dt>東日本と西日本で、記録タイマーが1秒間に打つ点の数がちがうのはなぜですか？</dt><dd>記録タイマーは家庭用の交流電源の周波数に合わせて点を打つからです。電源の周波数は東日本が50Hz、西日本が60Hzなので、1秒間に打つ点の数はそれぞれ50回と60回になります。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../kassha-shigoto/"><span class="e">🏗️</span><span>滑車と仕事の原理シミュレーター（仕事・仕事率）</span></a><a class="related-card" href="../furiko-jikken/"><span class="e">⏱️</span><span>振り子の実験シミュレーター（1往復の時間を調べよう）</span></a><a class="related-card" href="../bane-nobi/"><span class="e">🪀</span><span>ばねののびと力のシミュレーター（フックの法則・重さと質量）</span></a><a class="related-card" href="../newtons-cradle/"><span class="e">🟤</span><span>ニュートンのゆりかご</span></a><a class="related-card" href="../gravity/"><span class="e">🌌</span><span>重力シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../rika/">🔬 理科の授業向けシミュレーター</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+  const rnd = (a,b) => a + Math.random()*(b-a);
+  const randn = () => { let u=0,v=0; while(!u)u=Math.random(); while(!v)v=Math.random(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
+  let SHARE = '';
+  function setShare(t){ SHARE = t; }
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{ const l=$(s.id+'L'); if(l){ const u=()=>{ l.textContent = (s.dataset.fmt ? s.dataset.fmt.replace('{v}', s.value) : s.value); }; s.addEventListener('input',u); u(); } }); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  function setStat(id, v){ const e=$(id); if(e) e.textContent = v; }
+  try {
+    syncSliders();
+
+  const cv=$('cv'); const dpr=Math.min(2,window.devicePixelRatio||1); const W=cv.width,H=cv.height; cv.width=W*dpr; cv.height=H*dpr; const ctx=cv.getContext('2d'); ctx.setTransform(dpr,0,0,dpr,0,0);
+  const h1=document.querySelector('.sim-head h1'); if(h1&&!h1.children.length){ const t0=h1.textContent, i=t0.indexOf('（'); if(i>0){ h1.textContent=t0.slice(0,i); const sp=document.createElement('span'); sp.style.display='inline-block'; sp.textContent=t0.slice(i); h1.appendChild(sp); } }
+  const bt=document.querySelector('.lab-btns'); if(bt){ cv.parentNode.insertBefore(bt,cv.nextSibling); bt.style.marginTop='0'; }
+  const G=9.8, TMAX=1.0, LTR=2.0;
+  const GA={x0:46,x1:316,y0:268,y1:440}, GB={x0:380,x1:626,y0:268,y1:440};
+  const PC=['#fef08a','#bae6fd'], PCS=['#ca8a04','#0284c7'];
+  function setV(id,s){ const e=$(id); if(!e) return; e.textContent=s; e.style.fontSize=s.length>10?'14px':(s.length>7?'16px':''); }
+  function rrect(x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
+  function txt(t,x,y,size,col,weight,align,maxW){ ctx.textAlign=align||'left'; let s=size; ctx.font=(weight||'')+' '+s+'px sans-serif';
+    if(maxW){ while(ctx.measureText(t).width>maxW&&s>8){ s-=0.5; ctx.font=(weight||'')+' '+s+'px sans-serif'; } }
+    ctx.fillStyle=col||'#0f172a'; ctx.fillText(t,x,y); }
+  function dot(x,y,r,c){ ctx.fillStyle=c; ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2); ctx.fill(); }
+  function line(x1,y1,x2,y2,w,c,dash){ ctx.strokeStyle=c; ctx.lineWidth=w; if(dash) ctx.setLineDash(dash); ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke(); if(dash) ctx.setLineDash([]); }
+  function arrow(x,y,dx,dy,c,w){ const L=Math.hypot(dx,dy); if(L<3) return; const ux=dx/L, uy=dy/L; line(x,y,x+dx-ux*6,y+dy-uy*6,w||3,c);
+    ctx.fillStyle=c; ctx.beginPath(); ctx.moveTo(x+dx,y+dy); ctx.lineTo(x+dx-ux*9-uy*5,y+dy-uy*9+ux*5); ctx.lineTo(x+dx-ux*9+uy*5,y+dy-uy*9-ux*5); ctx.closePath(); ctx.fill(); }
+  const f1=(v)=>(Math.round(v*10)/10).toFixed(1);
+  const f2=(v)=>(Math.round(v*100)/100).toFixed(2);
+  const CIR='①②③④⑤⑥⑦⑧⑨⑩';
+  function niceMax(v){ const L=[5,10,20,30,40,50,60,80,100,120,150,200,250,300,400,500,600]; for(const x of L){ if(v<=x*1.0001) return x; } return Math.ceil(v/100)*100; }
+  function calc(){ const th=+$('ang').value, v0=+$('v0').value/100, hz=+$('hz').value, n=hz/10, a=G*Math.sin(th*Math.PI/180);
+    const X=(t)=>v0*t+a*t*t/2; let tEnd=TMAX;
+    if(X(TMAX)>LTR) tEnd=a>1e-9?(-v0+Math.sqrt(v0*v0+2*a*LTR))/a:LTR/v0;
+    const nd=Math.floor(tEnd*hz+1e-9), dots=[]; for(let k=0;k<=nd;k++) dots.push(X(k/hz));
+    const np=Math.floor(tEnd*10+1e-9), pcs=[]; for(let j=0;j<np;j++) pcs.push({x0:X(j/10),L:X((j+1)/10)-X(j/10)});
+    return {th:th,v0:v0,hz:hz,n:n,a:a,tEnd:tEnd,X:X,dots:dots,pcs:pcs,len:X(tEnd),done:false}; }
+  let cur=calc(), ghost=null, st='done', t=0, sel=-1, anims=[], doneSeen=0;
+  cur.done=true; t=cur.tEnd; doneSeen=cur.pcs.length;
+  function kind(c){ if(c.th>=90) return 'fall'; if(c.th>0) return 'slope'; return c.v0>0?'uniform':'rest'; }
+  function update(){ const c=calc(), k=kind(c);
+    setV('s1',{fall:'自由落下（どんどん速くなる）',slope:'だんだん速くなる',uniform:'等速直線運動',rest:'静止したまま'}[k]);
+    setV('s2',f2(c.a)+' cm'); setV('s3',(c.hz===50?'0.02秒（5打点で0.1秒）':'約0.017秒（6打点で0.1秒）')); setV('s4',Math.round((c.v0+c.a*0.5)*100)+' cm/s');
+    if(k==='rest') setShare('【記録タイマー】水平面で押さない台車は静止したまま。打点はすべて同じ所に重なる（慣性の法則）｜シミュラボ');
+    else if(k==='uniform') setShare('【記録タイマー】水平面で'+Math.round(c.v0*100)+'cm/sで押した台車は、0.1秒ごとのテープの長さがすべて'+f1(c.v0*10)+'cmの等速直線運動（慣性の法則）｜シミュラボ');
+    else setShare('【記録タイマー】斜面の角度'+c.th+'°'+(k==='fall'?'（自由落下）':'')+'では、0.1秒ごとのテープが'+f2(c.a)+'cmずつ長くなる（速さの増え方 9.8×sin'+c.th+'°＝'+f2(c.a)+'m/s²）｜シミュラボ'); }
+  function prepare(){ if(cur.done) ghost=cur; cur=calc(); st='idle'; t=0; sel=-1; anims=[]; doneSeen=0; $('start').textContent='▶ スタート（台車をはなす）'; update(); }
+  function start(){ if(cur.done) ghost=cur; cur=calc(); st='run'; t=0; sel=-1; anims=[]; doneSeen=0; $('start').textContent='▶ もう一度記録する'; update(); }
+  function setVal(id,v){ const e=$(id); e.value=v; e.dispatchEvent(new Event('input')); }
+  ['ang','v0'].forEach((id)=>$(id).addEventListener('input',prepare));
+  $('hz').addEventListener('change',prepare);
+  $('start').addEventListener('click',start);
+  $('reset').addEventListener('click',()=>{ ghost=null; cur=calc(); st='idle'; t=0; sel=-1; anims=[]; doneSeen=0; $('start').textContent='▶ スタート（台車をはなす）'; update(); });
+  $('b0').addEventListener('click',()=>{ setVal('ang',0); if(+$('v0').value===0) setVal('v0',50); });
+  $('b90').addEventListener('click',()=>{ setVal('ang',90); setVal('v0',0); });
+  function tapeRect(j){ const c=cur, sx=608/Math.max(c.len,1e-6), p=c.pcs[j]; return [16+p.x0*sx,206,Math.max(1,p.L*sx),22]; }
+  function slotRect(j,ymax){ const c=cur, sw=(GA.x1-GA.x0)/10, sy=(GA.y1-GA.y0)/ymax, L=c.pcs[j].L*100; return [GA.x0+j*sw+2,GA.y1-L*sy,sw-4,L*sy]; }
+  // ---------- 実験のようす
+  function scene(){ const c=cur, th=c.th*Math.PI/180, co=Math.cos(th), si=Math.sin(th), k=kind(c);
+    ctx.fillStyle='#f8fafc'; rrect(6,6,326,178,10); ctx.fill(); ctx.strokeStyle='#e2e8f0'; ctx.lineWidth=1; ctx.stroke();
+    const Lpx=Math.min(co>1e-6?250/co:1e9, si>1e-6?116/si:1e9), Ey=162;
+    const Sx=175-Lpx*co/2, Sy=Ey-Lpx*si, Ex=Sx+Lpx*co, nx=si, ny=-co;
+    const tt=st==='idle'?0:Math.min(t,c.tEnd), u=(k==='fall'?28:6)+c.X(tt)/LTR*(Lpx-(k==='fall'?58:52)), Px=Sx+co*u, Py=Sy+si*u;
+    if(k==='fall'){ line(Sx-50,Ey+4,Sx+70,Ey+4,3,'#94a3b8'); line(Sx-40,Ey+4,Sx-40,20,4,'#94a3b8'); line(Sx-40,22,Sx,22,4,'#94a3b8'); line(Sx+10,Sy,Sx+10,Ey,1,'#cbd5e1',[4,4]); }
+    else if(k==='slope'){ ctx.fillStyle='#e2e8f0'; ctx.beginPath(); ctx.moveTo(Sx,Sy+3); ctx.lineTo(Ex,Ey+3); ctx.lineTo(Sx,Ey+3); ctx.closePath(); ctx.fill(); line(Sx,Sy,Ex,Ey,5,'#94a3b8');
+      ctx.strokeStyle='#ea580c'; ctx.lineWidth=1.5; ctx.beginPath(); ctx.arc(Ex,Ey+3,30,Math.PI,Math.PI+th,false); ctx.stroke();
+      txt(c.th+'°',Ex-46*Math.cos(th/2),Ey+3-46*Math.sin(th/2)+5,13,'#c2410c','bold','center'); }
+    else line(16,Ey+3,322,Ey+3,5,'#94a3b8');
+    // 記録タイマー
+    const Tx=Sx-co*22+nx*10, Ty=Sy-si*22+ny*10;
+    ctx.save(); ctx.translate(Tx,Ty); ctx.rotate(th); ctx.fillStyle='#334155'; rrect(-16,-10,32,20,4); ctx.fill(); ctx.fillStyle='#f97316'; ctx.fillRect(10,-3,6,6); ctx.restore();
+    if(k==='fall') txt('記録タイマー',Tx+16,Ty+4,11,'#334155','bold','left'); else txt('記録タイマー',Math.max(10,Tx-28),Ty-16,11,'#334155','bold','left');
+    // テープ
+    const bx=Px+nx*10, by=Py+ny*10;
+    line(Tx+co*14,Ty+si*14,bx,by,4,'#fcd34d');
+    // 台車（自由落下はおもり）
+    if(k==='fall'){ ctx.fillStyle='#0e7490'; rrect(bx-13,by,26,26,5); ctx.fill(); txt('おもり',bx-18,by+17,11,'#0e7490','bold','right'); arrow(bx+22,by+2,0,24,'#64748b',2.5); txt('重力',bx+30,by+20,11,'#475569','bold','left'); }
+    else { ctx.save(); ctx.translate(Px,Py); ctx.rotate(th); ctx.fillStyle='#0e7490'; rrect(0,-24,46,16,4); ctx.fill(); ctx.fillStyle='#1e293b'; ctx.beginPath(); ctx.arc(10,-5,5,0,Math.PI*2); ctx.arc(36,-5,5,0,Math.PI*2); ctx.fill(); ctx.restore();
+      const cx=Px+co*23+nx*16, cy=Py+si*23+ny*16;
+      if(k==='slope'){ arrow(cx,cy,0,32,'#64748b',2.5); arrow(cx,cy,co*32*si,si*32*si,'#dc2626',3);
+        txt('↓ 重力',14,178,11,'#475569','bold','left'); txt('→ 斜面に沿った力（重力×sin'+c.th+'°）',62,178,11,'#dc2626','bold','left',200); }
+      else txt('台車',cx,cy-14,11,'#0e7490','bold','center'); }
+    if(k==='uniform') txt('運動の向きに力ははたらかない',322,26,11,'#475569','bold','right');
+    if(k==='rest') txt('押さないと台車は動かない（静止し続ける）',322,26,11,'#b91c1c','bold','right',300); }
+  // ---------- 数値パネル
+  function panel(){ const c=cur, k=kind(c), tt=st==='idle'?0:Math.min(t,c.tEnd);
+    ctx.fillStyle='#fff'; rrect(340,6,294,178,10); ctx.fill(); ctx.strokeStyle='#e2e8f0'; ctx.lineWidth=1; ctx.stroke();
+    const nd=st==='idle'?0:Math.floor(tt*c.hz+1e-9)+1;
+    [['経過時間',f2(tt)+' 秒',352,24],['速さ',Math.round((c.v0+c.a*tt)*100)+' cm/s',496,24],['移動距離',f1(c.X(tt)*100)+' cm',352,80],['打点の数',nd+' 個',496,80]].forEach((q)=>{
+      txt(q[0],q[2],q[3],11.5,'#64748b','bold','left'); txt(q[1],q[2],q[3]+28,24,'#0f172a','bold','left',134); });
+    const rule={fall:'自由落下：速さの増え方がいちばん大きい',slope:'斜面に沿った力が一定 → 速さが一定の割合で増える',uniform:'力がはたらかない → 等速直線運動（慣性）',rest:'力がはたらかない → 静止し続ける（慣性）'}[k];
+    txt(rule,352,130,12.5,'#c2410c','bold','left',272);
+    txt(k==='slope'||k==='fall'?'0.1秒ごとのテープが '+f2(c.a)+' cm ずつ長くなる（'+f2(c.a)+'＝9.8×sin'+c.th+'°）':'0.1秒ごとのテープの長さは、どれも '+f1(c.v0*10)+' cm',352,150,11.5,'#334155','','left',272);
+    const sl={'0.1':'1/10','0.2':'1/5','0.5':'1/2','1':'実際の速さ'}[$('spd').value]||'';
+    txt(st==='run'?'● 記録中（スロー '+sl+'）':(st==='done'?'■ 記録終了：0.1秒分のテープ '+c.pcs.length+' 本':'▶「スタート」で'+(k==='uniform'?'台車を押す':'台車をはなす')),352,172,11.5,st==='run'?'#15803d':'#475569','bold','left',272); }
+  // ---------- 記録テープ
+  function strip(){ const c=cur, tt=st==='idle'?0:Math.min(t,c.tEnd);
+    txt('記録テープ（'+c.n+'打点＝0.1秒ごとに色分け。全長 '+f1(c.len*100)+' cm を縮めて表示）',16,200,11.5,'#334155','bold','left',608);
+    ctx.fillStyle='#f1f5f9'; ctx.fillRect(16,206,608,22);
+    if(c.len<1e-6){ if(st!=='idle'){ ctx.fillStyle='#fef9c3'; ctx.fillRect(16,206,30,22); dot(22,217,3.5,'#111'); txt('台車が動かないので、打点がすべて同じ所に重なる',54,222,12,'#b91c1c','bold','left'); } return; }
+    const sx=608/c.len, xt=c.X(tt);
+    ctx.fillStyle='#fffbeb'; ctx.fillRect(16,206,xt*sx,22);
+    c.pcs.forEach((p,j)=>{ if(p.x0>=xt) return; const w=Math.min(p.L,xt-p.x0)*sx; ctx.fillStyle=PC[j%2]; ctx.fillRect(16+p.x0*sx,206,Math.max(0.5,w),22);
+      if(sel===j){ ctx.strokeStyle='#dc2626'; ctx.lineWidth=2; ctx.strokeRect(16+p.x0*sx,206,p.L*sx,22); }
+      if(p.x0+p.L<=xt+1e-9&&p.L*sx>13) txt(CIR[j],16+(p.x0+p.L/2)*sx,242,11,PCS[j%2],'bold','center'); });
+    const nd=Math.floor(tt*c.hz+1e-9); for(let k=0;k<=nd&&k<c.dots.length;k++) dot(16+c.dots[k]*sx,217,1.7,'#111827'); }
+  // ---------- テープグラフ
+  function graphA(){ const c=cur, sw=(GA.x1-GA.x0)/10;
+    let mx=5; c.pcs.forEach((p)=>{ mx=Math.max(mx,p.L*100); }); if(ghost) ghost.pcs.forEach((p)=>{ mx=Math.max(mx,p.L*100); }); const ym=niceMax(mx), sy=(GA.y1-GA.y0)/ym;
+    txt('テープグラフ（0.1秒ごとに切ってならべる・cm）',GA.x0-38,258,12.5,'#0f172a','bold','left',312);
+    const step=ym<=10?2:(ym<=30?5:(ym<=60?10:(ym<=150?25:50)));
+    for(let v=0;v<=ym+1e-9;v+=step){ const y=GA.y1-v*sy; line(GA.x0,y,GA.x1,y,1,'#eef2f7'); txt(String(v),GA.x0-5,y+4,10.5,'#64748b','','right'); }
+    for(let j=0;j<=10;j+=2){ const x=GA.x0+j*sw; txt(j===10?'1.0秒':(j/10).toFixed(1),x,GA.y1+15,10.5,'#64748b','','center'); }
+    line(GA.x0,GA.y1,GA.x1,GA.y1,1.5,'#94a3b8'); line(GA.x0,GA.y0,GA.x0,GA.y1,1.5,'#94a3b8');
+    if(ghost){ ctx.strokeStyle='#94a3b8'; ctx.lineWidth=1.2; ctx.setLineDash([4,3]); ghost.pcs.forEach((p,j)=>{ const L=p.L*100; ctx.strokeRect(GA.x0+j*sw+2,GA.y1-L*sy,sw-4,L*sy); }); ctx.setLineDash([]); }
+    const fly={}; anims.forEach((a)=>{ fly[a.j]=1; });
+    const tops=[];
+    for(let j=0;j<doneSeen;j++){ if(fly[j]) continue; const r=slotRect(j,ym); ctx.fillStyle=PC[j%2]; ctx.fillRect(r[0],r[1],r[2],r[3]); ctx.strokeStyle=sel===j?'#dc2626':PCS[j%2]; ctx.lineWidth=sel===j?2.5:1; ctx.strokeRect(r[0],r[1],r[2],r[3]);
+      const x0=c.pcs[j].x0; for(let k=0;k<=c.n;k++){ const d=c.dots[j*c.n+k]; if(d===undefined) break; dot(r[0]+r[2]/2,GA.y1-(d-x0)*100*sy,1.4,'#111827'); }
+      tops.push([r[0]+r[2]/2,r[1]]); }
+    if(tops.length>=2){ ctx.strokeStyle='#dc2626'; ctx.lineWidth=2; ctx.setLineDash([5,3]); ctx.beginPath(); tops.forEach((p,i)=>{ if(i) ctx.lineTo(p[0],p[1]); else ctx.moveTo(p[0],p[1]); }); ctx.stroke(); ctx.setLineDash([]); }
+    anims.forEach((a)=>{ const r0=tapeRect(a.j), r1=slotRect(a.j,ym), e=a.s<0.5?2*a.s*a.s:1-Math.pow(-2*a.s+2,2)/2; ctx.fillStyle=PC[a.j%2]; ctx.globalAlpha=0.9;
+      ctx.fillRect(r0[0]+(r1[0]-r0[0])*e,r0[1]+(r1[1]-r0[1])*e,r0[2]+(r1[2]-r0[2])*e,r0[3]+(r1[3]-r0[3])*e); ctx.globalAlpha=1; });
+    return ym; }
+  // ---------- 移動距離／速さ－時間のグラフ
+  function graphB(){ const c=cur, vel=$('gb').value==='v', tt=st==='idle'?0:Math.min(t,c.tEnd), sw=(GB.x1-GB.x0)/10;
+    const f=(r,x)=>vel?(r.v0+r.a*x)*100:r.X(x)*100;
+    let mx=5; mx=Math.max(mx,f(c,c.tEnd)); if(ghost) mx=Math.max(mx,f(ghost,ghost.tEnd)); const ym=niceMax(mx), sy=(GB.y1-GB.y0)/ym;
+    txt(vel?'速さ－時間のグラフ（cm/s）':'移動距離－時間のグラフ（cm）',GB.x0-34,258,12.5,'#0f172a','bold','left',260);
+    const step=ym/5;
+    for(let i=0;i<=5;i++){ const v=step*i, y=GB.y1-v*sy; line(GB.x0,y,GB.x1,y,1,'#eef2f7'); txt(String(Math.round(v)),GB.x0-5,y+4,10.5,'#64748b','','right'); }
+    for(let j=0;j<=10;j+=2){ const x=GB.x0+j*sw; txt(j===10?'1.0秒':(j/10).toFixed(1),x,GB.y1+15,10.5,'#64748b','','center'); }
+    line(GB.x0,GB.y1,GB.x1,GB.y1,1.5,'#94a3b8'); line(GB.x0,GB.y0,GB.x0,GB.y1,1.5,'#94a3b8');
+    const gx=(x)=>GB.x0+x*10*sw, gy=(v)=>GB.y1-v*sy;
+    function curve(r,te,col,w,dash){ ctx.strokeStyle=col; ctx.lineWidth=w; if(dash) ctx.setLineDash(dash); ctx.beginPath(); const n=Math.max(1,Math.ceil(te/0.005)); for(let i=0;i<=n;i++){ const x=te*i/n; if(i) ctx.lineTo(gx(x),gy(f(r,x))); else ctx.moveTo(gx(x),gy(f(r,x))); } ctx.stroke(); if(dash) ctx.setLineDash([]); }
+    if(ghost){ curve(ghost,ghost.tEnd,'#94a3b8',1.5,[5,4]); txt('点線：前の記録（'+ghost.th+'°）',GB.x0+6,GB.y0+12,10.5,'#64748b','','left'); }
+    if(tt>0){ curve(c,tt,'#0e7490',2.5); for(let j=1;j<=10&&j/10<=tt+1e-9;j++) dot(gx(j/10),gy(f(c,j/10)),3,'#0e7490'); dot(gx(tt),gy(f(c,tt)),4.5,'#dc2626'); } }
+  function draw(){ ctx.fillStyle='#fff'; ctx.fillRect(0,0,W,H); scene(); panel(); strip(); graphA(); graphB();
+    const c=cur;
+    if(sel>=0&&sel<c.pcs.length){ const L=c.pcs[sel].L*100; txt(CIR[sel]+' '+(sel/10).toFixed(1)+'〜'+((sel+1)/10).toFixed(1)+'秒のテープ：'+f1(L)+' cm → この0.1秒間の平均の速さ '+Math.round(L*10)+' cm/s',320,480,12.5,'#b91c1c','bold','center',620); }
+    else txt('テープグラフのテープをタップすると、長さと平均の速さが出ます。摩擦・空気の抵抗なし、g＝9.8m/s²',320,480,11.5,'#64748b','','center',620); }
+  function stepF(dt){ if(st==='run'){ t+=dt*(+$('spd').value);
+      while(doneSeen<cur.pcs.length&&(doneSeen+1)/10<=t+1e-9){ anims.push({j:doneSeen,s:0}); doneSeen++; }
+      if(t>=cur.tEnd){ t=cur.tEnd; st='done'; cur.done=true; } }
+    anims.forEach((a)=>{ a.s+=dt/0.55; }); anims=anims.filter((a)=>a.s<1); }
+  cv.addEventListener('pointerdown',(e)=>{ const p=cpos(cv,e), x=p[0]/dpr, y=p[1]/dpr;
+    if(x>=GA.x0&&x<=GA.x1&&y>=GA.y0-10&&y<=GA.y1+4){ const j=Math.floor((x-GA.x0)/((GA.x1-GA.x0)/10)); if(j>=0&&j<doneSeen){ sel=(sel===j)?-1:j; e.preventDefault(); } return; }
+    if(x>=16&&x<=624&&y>=200&&y<=234&&cur.len>0){ const xs=(x-16)/608*cur.len; const j=cur.pcs.findIndex((q)=>xs>=q.x0&&xs<q.x0+q.L); if(j>=0&&j<doneSeen){ sel=(sel===j)?-1:j; e.preventDefault(); } return; }
+    if(x<=332&&y<=184&&st!=='run'){ e.preventDefault(); start(); } });
+  update();
+  let last=performance.now();
+  function loop(now){ const dt=Math.min(0.05,Math.max(0,(now-last)/1000)); last=now; stepF(dt); draw(); requestAnimationFrame(loop); }
+  draw(); requestAnimationFrame(loop);
+
+  } catch(e) { console.error(e); }
+  (function(){ const fs=$('fsBtn'), panel=document.querySelector('.panel');
+    const req = panel && (panel.requestFullscreen || panel.webkitRequestFullscreen);
+    if (fs && req) { fs.hidden = false; fs.addEventListener('click', () => {
+      const cur = document.fullscreenElement || document.webkitFullscreenElement;
+      if (cur) { (document.exitFullscreen || document.webkitExitFullscreen).call(document); }
+      else { req.call(panel); } }); }
+  })();
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE || document.title)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText((SHARE||document.title)+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'kiroku-timer', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

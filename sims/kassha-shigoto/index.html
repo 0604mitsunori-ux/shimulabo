@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/kassha-shigoto/">
+<title>仕事の原理・滑車のシミュレーター｜定滑車・動滑車・斜面・てこで仕事と仕事率を計算（中3理科 仕事とエネルギー）｜シミュラボ</title>
+<meta name="description" content="中3理科「仕事とエネルギー」の仕事の原理をブラウザで確かめられます。物体の質量と高さを決めて、直接・定滑車・動滑車・動滑車2個・斜面・てこを切りかえると、必要な力（N）・動かす距離（m）・仕事（J）が表に並び、仕事はどれも同じに。かかった時間から仕事率（W）も計算。">
+<meta property="og:title" content="滑車と仕事の原理シミュレーター（中3 仕事とエネルギー）">
+<meta property="og:description" content="動滑車なら力は半分、でもひもを引く距離は2倍。直接・定滑車・動滑車・斜面・てこで仕事（J）が同じになることを確かめる。仕事率（W）も。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/kassha-shigoto.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/kassha-shigoto.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/kassha-shigoto/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": ["WebApplication", "LearningResource"], "name": "滑車と仕事の原理シミュレーター（仕事・仕事率）", "url": "https://shimulabo.com/sims/kassha-shigoto/", "description": "動滑車なら力は半分、でもひもを引く距離は2倍。直接・定滑車・動滑車・斜面・てこで仕事（J）が同じになることを確かめる。仕事率（W）も。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "educationalLevel": "中学3年", "learningResourceType": "シミュレーション", "teaches": "中3 仕事とエネルギー（仕事の原理・仕事率）", "educationalUse": ["授業", "自習"], "audience": {"@type": "EducationalAudience", "educationalRole": ["teacher", "student"]}, "educationalAlignment": {"@type": "AlignmentObject", "alignmentType": "educationalSubject", "educationalFramework": "学習指導要領（平成29・30年告示）", "targetName": "中学校 第1分野（5）ア（ｳ）力学的エネルギー ㋐仕事とエネルギー"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "理科の授業向け", "item": "https://shimulabo.com/rika/"}, {"@type": "ListItem", "position": 3, "name": "滑車と仕事の原理シミュレーター（仕事・仕事率）", "item": "https://shimulabo.com/sims/kassha-shigoto/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "仕事の原理とは何ですか？", "acceptedAnswer": {"@type": "Answer", "text": "道具を使っても使わなくても、物体を同じ状態にするための仕事の大きさは変わらないという原理です。動滑車や斜面・てこを使うと必要な力は小さくなりますが、そのぶん力を加えて動かす距離が長くなるので、力×距離の仕事は同じになります。"}}, {"@type": "Question", "name": "動滑車を使うと、なぜ力が半分になるのですか？", "acceptedAnswer": {"@type": "Answer", "text": "動滑車は物体といっしょに動き、物体を左右2本のひもで支えるからです。1本のひもにかかる力は重力の半分になります。そのかわり、物体を1m上げるには左右のひもを1mずつ、合わせて2m引く必要があります。"}}, {"@type": "Question", "name": "定滑車を使うと、どんな良いことがありますか？", "acceptedAnswer": {"@type": "Answer", "text": "力の大きさは変わりませんが、力の向きを変えられます。物体を上に持ち上げるのに、ひもを下向きに引けばよいので、自分の体重も使えて作業しやすくなります。"}}, {"@type": "Question", "name": "仕事率はどうやって求めますか？ 単位は何ですか？", "acceptedAnswer": {"@type": "Answer", "text": "仕事率（W）＝ 仕事（J）÷ かかった時間（秒）で求め、単位はワット（W）です。1Wは1秒間に1Jの仕事をする仕事率です。同じ仕事でも、短い時間でするほど仕事率は大きくなります。"}}, {"@type": "Question", "name": "物体を持ったまま水平に歩くと、仕事をしたことになりますか？", "acceptedAnswer": {"@type": "Answer", "text": "理科でいう仕事は0です。物体を支える力は上向きですが、物体は水平に動いていて、力の向きには動いていないからです。仕事は「力の向きに動いた距離」で計算します。"}}, {"@type": "Question", "name": "100gの物体にはたらく重力が1Nなのはなぜですか？", "acceptedAnswer": {"@type": "Answer", "text": "中学校の教科書では、計算しやすいように「100gの物体にはたらく重力の大きさを1N」とする約束で問題を解きます。正確には、100gの物体にはたらく重力は約0.98N（0.1kg×9.8m/s²）です。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+<style>
+.lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
+.lab-ctl .field{margin-bottom:6px;}
+.lab-ctl>*,.lab-stats>*{min-width:0;}
+.lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
+.lab-ctl .slider-head label{margin:0;font-size:13px;}
+.lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
+.lab-ctl input[type=range]{width:100%;}
+.lab-ctl select{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;font-size:14px;background:#fff;}
+.lab-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px;}
+.lab-btns .btn{padding:11px 18px;font-size:14px;width:auto;}
+.lab-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;width:100%;max-width:640px;margin-top:4px;}
+.lab-stats .stat{background:var(--teal-l);border-radius:10px;padding:10px 12px;text-align:center;}
+.lab-stats .k{font-size:11px;color:var(--ink-2);}
+.lab-stats .v{font-size:20px;font-weight:800;color:var(--ink);font-feature-settings:"tnum";}
+.lab-stats .v.accent{color:var(--accent);}
+.lab-legend{text-align:center;color:var(--ink-2);font-size:13px;margin-top:12px;}
+.lab-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;background:rgba(44,107,134,.10);color:var(--teal-d);margin-bottom:8px;}
+canvas.lab{width:100%;max-width:640px;height:auto;border:1px solid var(--line);border-radius:12px;background:#0b1020;touch-action:none;}
+canvas.lab.light{background:#fff;}
+.panel:fullscreen,.panel:-webkit-full-screen{overflow:auto;padding:24px;background:var(--bg,#faf8f3);}
+.panel:fullscreen canvas.lab{max-width:min(96vw,1100px);}
+.panel:fullscreen .lab-ctl,.panel:fullscreen .lab-stats{max-width:min(96vw,1100px);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../rika/">🔬 理科の授業向け</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../rika/">理科の授業向け</a><span>›</span><span class="cur">滑車と仕事の原理シミュレーター（仕事・仕事率）</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">理科の授業向け</div>
+    <h1>滑車と仕事の原理シミュレーター（仕事・仕事率）</h1>
+    <p class="lead">物体の質量と持ち上げる高さを決め、持ち上げ方（直接・定滑車・動滑車・斜面・てこ など）を切りかえると、必要な力・動かす距離・仕事が表に並びます。かかった時間を決めると、仕事率も計算されます。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;gap:14px;">
+      <span class="lab-badge">🔬 中3 仕事とエネルギー（仕事の原理・仕事率）</span>
+      <canvas id="cv" class="lab light" width="640" height="524"></canvas>
+      <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="meth">持ち上げ方</label></div><select id="meth"><option value="move" selected>動滑車</option><option value="direct">直接持ち上げる</option><option value="fixed">定滑車</option><option value="combo">定滑車＋動滑車</option><option value="move2">動滑車2個（＋定滑車）</option><option value="slope">斜面</option><option value="lever">てこ</option></select></div><div class="field"><div class="slider-head"><label for="mass">物体の質量</label><span class="val" id="massL"></span></div><input type="range" id="mass" min="100" max="3000" value="1000" step="100" data-fmt="{v}g"></div><div class="field"><div class="slider-head"><label for="ht">持ち上げる高さ</label><span class="val" id="htL"></span></div><input type="range" id="ht" min="10" max="100" value="50" step="10" data-fmt="{v}cm"></div><div class="field"><div class="slider-head"><label for="tm">持ち上げるのにかかる時間</label><span class="val" id="tmL"></span></div><input type="range" id="tm" min="1" max="20" value="5" step="1" data-fmt="{v}秒"></div><div class="field"><div class="slider-head"><label for="sl">斜面の長さ</label><span class="val" id="slL"></span></div><input type="range" id="sl" min="20" max="300" value="100" step="10" data-fmt="{v}cm"></div><div class="field"><div class="slider-head"><label for="lk">てこ：力点のきょり（作用点の何倍）</label><span class="val" id="lkL"></span></div><input type="range" id="lk" min="2" max="4" value="2" step="1" data-fmt="{v}倍"></div></div>
+      <div class="lab-btns"><button class="btn btn-primary" id="go">▶ 持ち上げる（5秒）</button><button class="btn btn-ghost" id="down">↺ 下ろす</button></div>
+      <div class="lab-stats"><div class="stat"><div class="k">必要な力</div><div class="v accent" id="s1">—</div></div><div class="stat"><div class="k">ひもを引く距離</div><div class="v" id="s2">—</div></div><div class="stat"><div class="k">仕事</div><div class="v" id="s3">—</div></div><div class="stat"><div class="k">仕事率</div><div class="v" id="s4">—</div></div></div>
+    </div>
+    <p class="lab-legend">赤い矢印が手で加える力です。右の長方形は、たて＝力、横＝動かす距離で、面積が仕事を表します（点線は直接持ち上げるとき）。下の表の行をタップすると持ち上げ方が切りかわり、図を指でドラッグすると手で動かせます。滑車・ひも・棒の質量と摩擦は考えていません。100gの物体にはたらく重力を1Nとしています。図は模式図です。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-ghost" id="fsBtn" hidden>⛶ 全画面で表示</button>
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+<h2>このシミュレーションでわかること</h2>
+<div class="note" style="border-left:4px solid var(--teal)"><strong>ポイント</strong>：定滑車・動滑車・斜面・てこなどの道具を使うと、物体を持ち上げるのに必要な力を小さくできますが、そのぶん力を加えて動かす距離が長くなり、<b>仕事（力×距離）の大きさは道具を使わないときと変わりません</b>。これを<b>仕事の原理</b>といいます。</div>
+<p>中学校3年の理科「運動とエネルギー」の（ｳ）力学的エネルギー ㋐仕事とエネルギー（学習指導要領 第1分野（5）ア（ｳ））で学ぶ内容です。学習指導要領の内容の取扱いでは「仕事の原理にも触れること」とされています。</p>
+<p>物体の質量と持ち上げる高さを決め、「直接持ち上げる／定滑車／動滑車／定滑車＋動滑車／動滑車2個／斜面／てこ」を切りかえると、必要な力・力を加えて動かす距離・仕事（J）が表に並びます。持ち上げるのにかかった時間を決めると、仕事率（W）も計算されます。</p>
+<h2>授業での使い方</h2>
+<ul>
+<li><b>導入</b>：「重い物を楽に持ち上げるには、どんな道具を使えばよいかな？」と問いかけ、動滑車を選んで、必要な力が半分になることを見せます。</li>
+<li><b>展開</b>：ばねばかりと滑車を使った実験の前後に使います。表の「必要な力」と「距離」をかけ算すると、どの方法でも同じ値になることに気づかせます。右側の長方形（たて＝力、横＝距離）の面積が仕事で、形が変わっても面積は同じです。図を指でドラッグすると、手を動かした長さと物体が上がった高さを比べられます。</li>
+<li><b>まとめ</b>：かかった時間を変えて、同じ仕事でも短い時間でするほど仕事率が大きいことを確かめます。</li>
+</ul>
+<p>生徒への問いの例：</p>
+<ol>
+<li>動滑車を使うと、ひもを引く力は半分になります。では、ひもを引く距離はどうなるでしょう。</li>
+<li>定滑車を使っても力の大きさは変わりません。それでも定滑車を使うのはなぜでしょう。</li>
+<li>同じ物体を、Aさんは5秒、Bさんは10秒かけて同じ高さまで持ち上げました。仕事と仕事率をそれぞれ比べましょう。</li>
+</ol>
+<h2>しくみ・解説</h2>
+<h3>用語の意味</h3>
+<ul>
+<li><b>仕事</b>とは、物体に力を加えてその力の向きに物体を動かしたときの「力の大きさ × 力の向きに動かした距離」で、単位はジュール（J）です。</li>
+<li><b>仕事の原理</b>とは、道具を使っても使わなくても、同じ状態にするための仕事の大きさは変わらないという原理です。</li>
+<li><b>仕事率</b>とは、1秒間あたりにする仕事の大きさで、単位はワット（W）です。</li>
+<li><b>定滑車</b>とは、天井などに固定されて回るだけの滑車で、力の向きを変えられますが、力の大きさは変わりません。</li>
+<li><b>動滑車</b>とは、物体といっしょに動く滑車で、2本のひもで物体を支えるので、ひもを引く力は半分になりますが、引く距離は2倍になります。</li>
+</ul>
+<div class="note">仕事（J）＝ 力の大きさ（N）× 力の向きに動かした距離（m）<br>仕事率（W）＝ 仕事（J）÷ かかった時間（s）<br>物体を持ち上げる仕事 ＝ 物体にはたらく重力（N）× 持ち上げる高さ（m）<br>100gの物体にはたらく重力の大きさ ＝ 1N（教科書の約束。正確には約0.98N）</div>
+<h3>道具ごとの力・距離・仕事（早見表）</h3>
+<p>1000g（重力10N）の物体を50cm（0.5m）持ち上げるときの値です（滑車・ひも・棒の質量と摩擦は考えません）。</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>持ち上げ方</th><th>必要な力</th><th>力を加えて動かす距離</th><th>仕事（力×距離）</th><th>ポイント</th></tr><tr><td>直接持ち上げる</td><td>10 N</td><td>0.5 m</td><td>5 J</td><td>—</td></tr><tr><td>定滑車</td><td>10 N</td><td>0.5 m</td><td>5 J</td><td>力の向きを変えられる（下に引ける）</td></tr><tr><td>動滑車</td><td>5 N</td><td>1 m</td><td>5 J</td><td>2本のひもで支えるので力は半分</td></tr><tr><td>定滑車＋動滑車</td><td>5 N</td><td>1 m</td><td>5 J</td><td>力は半分で、下向きに引ける</td></tr><tr><td>動滑車2個（＋定滑車）</td><td>2.5 N</td><td>2 m</td><td>5 J</td><td>力は1/4、引く距離は4倍</td></tr><tr><td>斜面（長さ100cm）</td><td>5 N</td><td>1 m</td><td>5 J</td><td>力 ＝ 重力 × 高さ ÷ 斜面の長さ</td></tr><tr><td>てこ（支点からのきょり 2:1）</td><td>5 N</td><td>1 m</td><td>5 J</td><td>力点を支点から遠くする</td></tr></table></div>
+<p>どの方法でも、仕事は 10N × 0.5m ＝ 5J になります。力が半分なら距離は2倍、力が1/4なら距離は4倍と、力と距離は反比例の関係になっています。斜面では「力 × 斜面の長さ ＝ 重力 × 高さ」、てこでは「支点から力点までのきょり ÷ 支点から作用点までのきょり」の倍だけ力が小さくなり、そのぶん大きく動かす必要があります。</p>
+<h3>仕事率の早見表</h3>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>かかった時間</th><th>仕事</th><th>仕事率（仕事÷時間）</th></tr><tr><td>1秒</td><td>5 J</td><td>5 W</td></tr><tr><td>2秒</td><td>5 J</td><td>2.5 W</td></tr><tr><td>5秒</td><td>5 J</td><td>1 W</td></tr><tr><td>10秒</td><td>5 J</td><td>0.5 W</td></tr><tr><td>20秒</td><td>5 J</td><td>0.25 W</td></tr></table></div>
+<h3>計算問題の解き方</h3>
+<p>例：質量2kgの物体を、動滑車を使って1.5mの高さまで、6秒かけて引き上げました。100gの物体にはたらく重力の大きさを1Nとします。</p>
+<ol>
+<li>物体にはたらく重力：2kg＝2000g なので 20N</li>
+<li>動滑車なので、ひもを引く力は 20 ÷ 2 ＝ 10N、ひもを引く距離は 1.5 × 2 ＝ 3m</li>
+<li>仕事：10N × 3m ＝ 30J（直接持ち上げても 20N × 1.5m ＝ 30J で同じ）</li>
+<li>仕事率：30J ÷ 6秒 ＝ 5W</li>
+</ol>
+<h3>このシミュレーションで単純にしていること</h3>
+<ul>
+<li>滑車・ひも・てこの棒の質量と、滑車の軸・斜面の摩擦は考えていません。実際の実験では、動滑車の重さや摩擦のぶん、ひもを引く力が少し大きくなり、道具を使ったほうが仕事は少し大きくなります。</li>
+<li>物体はゆっくり一定の速さで持ち上げるものとし、力の大きさは物体を支えてつり合うときの値です。</li>
+<li>100gの物体にはたらく重力の大きさを1Nとして計算しています（中学校の教科書と同じ約束）。</li>
+<li>図の大きさ（滑車の位置や動く長さ）は見やすいように変えた模式図です。正しい数値は右側と下の表を見てください。</li>
+</ul>
+<h2>参考</h2>
+<ul class="seo-refs">
+<li>文部科学省「中学校学習指導要領（平成29年告示）解説 理科編」第1分野（5）運動とエネルギー（ｳ）力学的エネルギー ㋐仕事とエネルギー（pp.56〜57）（<a href="https://www.mext.go.jp/a_menu/shotou/new-cs/1387016.htm" target="_blank" rel="noopener">文部科学省 中学校学習指導要領解説のページ</a>）</li>
+<li>中学校理科の教科書（東京書籍「新しい科学」、啓林館「未来へひろがるサイエンス」、大日本図書「理科の世界」など）3年「運動とエネルギー」の仕事の単元</li>
+</ul>
+
+    <h2>引用・転載について</h2>
+    <p>本ページのシミュレーション結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・授業や社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「滑車と仕事の原理シミュレーター（仕事・仕事率）」 https://shimulabo.com/sims/kassha-shigoto/</code></div>
+    <h2>よくある質問</h2><dl class="faq"><dt>仕事の原理とは何ですか？</dt><dd>道具を使っても使わなくても、物体を同じ状態にするための仕事の大きさは変わらないという原理です。動滑車や斜面・てこを使うと必要な力は小さくなりますが、そのぶん力を加えて動かす距離が長くなるので、力×距離の仕事は同じになります。</dd><dt>動滑車を使うと、なぜ力が半分になるのですか？</dt><dd>動滑車は物体といっしょに動き、物体を左右2本のひもで支えるからです。1本のひもにかかる力は重力の半分になります。そのかわり、物体を1m上げるには左右のひもを1mずつ、合わせて2m引く必要があります。</dd><dt>定滑車を使うと、どんな良いことがありますか？</dt><dd>力の大きさは変わりませんが、力の向きを変えられます。物体を上に持ち上げるのに、ひもを下向きに引けばよいので、自分の体重も使えて作業しやすくなります。</dd><dt>仕事率はどうやって求めますか？ 単位は何ですか？</dt><dd>仕事率（W）＝ 仕事（J）÷ かかった時間（秒）で求め、単位はワット（W）です。1Wは1秒間に1Jの仕事をする仕事率です。同じ仕事でも、短い時間でするほど仕事率は大きくなります。</dd><dt>物体を持ったまま水平に歩くと、仕事をしたことになりますか？</dt><dd>理科でいう仕事は0です。物体を支える力は上向きですが、物体は水平に動いていて、力の向きには動いていないからです。仕事は「力の向きに動いた距離」で計算します。</dd><dt>100gの物体にはたらく重力が1Nなのはなぜですか？</dt><dd>中学校の教科書では、計算しやすいように「100gの物体にはたらく重力の大きさを1N」とする約束で問題を解きます。正確には、100gの物体にはたらく重力は約0.98N（0.1kg×9.8m/s²）です。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../teko-tsuriai/"><span class="e">⚖️</span><span>てこのつり合いシミュレーター</span></a><a class="related-card" href="../kiroku-timer/"><span class="e">🛒</span><span>記録タイマーと台車の運動シミュレーター（斜面の運動・自由落下）</span></a><a class="related-card" href="../kamu-pulley/"><span class="e">🔩</span><span>カムとベルト・プーリのシミュレーター（動力伝達の機構）</span></a><a class="related-card" href="../gears/"><span class="e">⚙️</span><span>歯車シミュレーター</span></a><a class="related-card" href="../bane-nobi/"><span class="e">🪀</span><span>ばねののびと力のシミュレーター（フックの法則・重さと質量）</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../rika/">🔬 理科の授業向けシミュレーター</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+  const rnd = (a,b) => a + Math.random()*(b-a);
+  const randn = () => { let u=0,v=0; while(!u)u=Math.random(); while(!v)v=Math.random(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
+  let SHARE = '';
+  function setShare(t){ SHARE = t; }
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{ const l=$(s.id+'L'); if(l){ const u=()=>{ l.textContent = (s.dataset.fmt ? s.dataset.fmt.replace('{v}', s.value) : s.value); }; s.addEventListener('input',u); u(); } }); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  function setStat(id, v){ const e=$(id); if(e) e.textContent = v; }
+  try {
+    syncSliders();
+
+  const cv=$('cv'); const dpr=Math.min(2,window.devicePixelRatio||1); const W=cv.width,H=cv.height; cv.width=W*dpr; cv.height=H*dpr; const ctx=cv.getContext('2d'); ctx.setTransform(dpr,0,0,dpr,0,0);
+  const h1=document.querySelector('.sim-head h1'); if(h1&&!h1.children.length){ const t0=h1.textContent, i=t0.indexOf('（'); if(i>0){ h1.textContent=t0.slice(0,i); const sp=document.createElement('span'); sp.style.display='inline-block'; sp.textContent=t0.slice(i); h1.appendChild(sp); } }
+  const bt=document.querySelector('.lab-btns'); if(bt){ cv.parentNode.insertBefore(bt,cv.nextSibling); bt.style.marginTop='0'; }
+  const M=[['direct','直接持ち上げる'],['fixed','定滑車'],['move','動滑車'],['combo','定滑車＋動滑車'],['move2','動滑車2個（＋定滑車）'],['slope','斜面'],['lever','てこ']];
+  const FY=266, OW=58, OH=42, TY=300, RH=23;
+  let mode='move', p=0, run=false, el=0, grab=null, g0=null, finished=false;
+  const fld=(id)=>$(id).closest('.field');
+  function setV(id,s){ const e=$(id); if(!e) return; e.textContent=s; e.style.fontSize=s.length>10?'14px':(s.length>7?'16px':''); }
+  function setK(id,s){ const e=$(id); if(e&&e.previousElementSibling) e.previousElementSibling.textContent=s; }
+  function rrect(x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
+  function txt(t,x,y,size,col,weight,align,maxW){ ctx.textAlign=align||'left'; let s=size; ctx.font=(weight||'')+' '+s+'px sans-serif';
+    if(maxW){ while(ctx.measureText(t).width>maxW&&s>8){ s-=0.5; ctx.font=(weight||'')+' '+s+'px sans-serif'; } }
+    ctx.fillStyle=col||'#0f172a'; ctx.fillText(t,x,y); }
+  function dot(x,y,r,c){ ctx.fillStyle=c; ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2); ctx.fill(); }
+  function line(x1,y1,x2,y2,w,c,dash){ ctx.strokeStyle=c; ctx.lineWidth=w; ctx.lineCap='round'; if(dash) ctx.setLineDash(dash); ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke(); if(dash) ctx.setLineDash([]); }
+  function arrow(x,y,dx,dy,c,w){ const L=Math.hypot(dx,dy); if(L<3) return; const ux=dx/L, uy=dy/L; line(x,y,x+dx-ux*6,y+dy-uy*6,w||3,c);
+    ctx.fillStyle=c; ctx.beginPath(); ctx.moveTo(x+dx,y+dy); ctx.lineTo(x+dx-ux*10-uy*5.5,y+dy-uy*10+ux*5.5); ctx.lineTo(x+dx-ux*10+uy*5.5,y+dy-uy*10-ux*5.5); ctx.closePath(); ctx.fill(); }
+  function nf(v){ const r=Math.round(v*100)/100; return (Math.abs(v-r)>1e-9?'約':'')+String(r); }
+  function V(){ const m=+$('mass').value, hc=+$('ht').value; return {m:m,hc:hc,T:+$('tm').value,Lc:+$('sl').value,k:+$('lk').value,Wt:m/100,h:hc/100}; }
+  function FD(id,v){ const Wt=v.Wt, h=v.h;
+    if(id==='move'||id==='combo') return [Wt/2,2*h]; if(id==='move2') return [Wt/4,4*h];
+    if(id==='slope') return [Wt*h/(v.Lc/100),v.Lc/100]; if(id==='lever') return [Wt/v.k,v.k*h]; return [Wt,h]; }
+  function rowName(id,v){ const n=M.find((q)=>q[0]===id)[1]; if(id==='slope') return n+'（長さ'+v.Lc+'cm）'; if(id==='lever') return n+'（支点からのきょり '+v.k+':1）'; return n; }
+  function distName(id){ return id==='slope'?'斜面に沿って引く距離':(id==='lever'?'押し下げる距離':(id==='direct'?'持ち上げる距離':'ひもを引く距離')); }
+  // ---------- 描画の部品
+  function ceiling(x0,x1){ ctx.fillStyle='#cbd5e1'; ctx.fillRect(x0,12,x1-x0,10); ctx.strokeStyle='#94a3b8'; ctx.lineWidth=1; for(let x=x0+4;x<x1;x+=10){ ctx.beginPath(); ctx.moveTo(x,12); ctx.lineTo(x+6,6); ctx.stroke(); } }
+  function pulley(x,y,r,fill){ ctx.fillStyle=fill; ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2); ctx.fill(); ctx.strokeStyle='#475569'; ctx.lineWidth=2; ctx.stroke(); ctx.globalAlpha=0.5; ctx.beginPath(); ctx.arc(x,y,r-5,0,Math.PI*2); ctx.stroke(); ctx.globalAlpha=1; dot(x,y,3.5,'#334155'); }
+  function rope(pts){ ctx.strokeStyle='#92400e'; ctx.lineWidth=2.4; ctx.lineJoin='round'; ctx.beginPath(); pts.forEach((q,i)=>{ if(i) ctx.lineTo(q[0],q[1]); else ctx.moveTo(q[0],q[1]); }); ctx.stroke(); }
+  function ropeArc(x,y,r,a0,a1,ccw){ ctx.strokeStyle='#92400e'; ctx.lineWidth=2.4; ctx.beginPath(); ctx.arc(x,y,r,a0,a1,!!ccw); ctx.stroke(); }
+  function obj(cx,top,v){ ctx.fillStyle='#0e7490'; rrect(cx-OW/2,top,OW,OH,6); ctx.fill(); txt(v.m+'g',cx,top+18,12.5,'#fff','bold','center',OW-6); txt(nf(v.Wt)+'N',cx,top+34,11,'#cffafe','','center',OW-6); }
+  function hand(x,y,dx,dy,F){ arrow(x,y,dx*36,dy*36,'#dc2626',3.5); ctx.fillStyle='#fcd34d'; ctx.beginPath(); ctx.arc(x,y,9,0,Math.PI*2); ctx.fill(); ctx.strokeStyle='#b45309'; ctx.lineWidth=1.5; ctx.stroke();
+    if(Math.abs(dx)<1e-6) txt(nf(F)+'N',x+12,y+dy*22+4,13,'#dc2626','bold','left'); else txt(nf(F)+'N',x+dx*36+6,y+dy*36+4,13,'#dc2626','bold','left'); }
+  function hookLine(x,y1,y2){ line(x,y1,x,y2,2,'#475569'); }
+  // ---------- 方法ごとの図（模式図。動く長さは見やすく縮めている）
+  function geo(v){ const base=Math.min(120,v.hc*1.2), r={};
+    r.direct=base; r.fixed=base; r.move=Math.min(base,58); r.combo=Math.min(base,55); r.move2=Math.min(base,27);
+    const ratio=Math.max(1.05,v.Lc/v.hc); r.slope=Math.min(base,150,170/Math.sqrt(ratio*ratio-1)); r.lever=Math.min(base,40); return r; }
+  function travel(v){ const g=geo(v), id=mode;
+    if(id==='direct') return [0,-1,g.direct]; if(id==='fixed') return [0,1,g.fixed]; if(id==='move') return [0,-1,2*g.move]; if(id==='combo') return [0,1,2*g.combo]; if(id==='move2') return [0,1,4*g.move2];
+    if(id==='slope'){ const ratio=Math.max(1.05,v.Lc/v.hc), Hs=g.slope, Lp=Hs*ratio, hz=Math.sqrt(Lp*Lp-Hs*Hs); return [hz/Lp,-Hs/Lp,Lp]; }
+    return [0,1,v.k*g.lever]; }
+  function drawApp(v){ const g=geo(v), fd=FD(mode,v), F=fd[0], id=mode;
+    ctx.fillStyle='#f8fafc'; rrect(4,4,330,290,10); ctx.fill();
+    line(10,FY,328,FY,3,'#94a3b8');
+    if(id==='direct'){ const top=FY-OH-p*g.direct; obj(166,top,v); hand(166,top-12,0,-1,F); }
+    else if(id==='fixed'){ const top=FY-OH-p*g.fixed, px=170, py=56, r=18; ceiling(130,210); hookLine(px,22,py); pulley(px,py,r,'#e2e8f0');
+      ropeArc(px,py,r,Math.PI,0); rope([[px-r,py],[px-r,top]]); const hy=100+p*g.fixed; rope([[px+r,py],[px+r,hy]]); obj(px-r,top,v); hand(px+r,hy,0,1,F);
+      txt('定滑車',px-r-6,py-6,11,'#475569','bold','right'); }
+    else if(id==='move'){ const top=FY-OH-p*g.move, r=18, px=130, py=top-26; ceiling(84,200); obj(px,top,v); hookLine(px,py,top);
+      pulley(px,py,r,'#fde68a'); ropeArc(px,py,r,Math.PI,0,true); const hy=165-2*p*g.move; rope([[px-r,22],[px-r,py]]); rope([[px+r,py],[px+r,hy]]); hand(px+r,hy,0,-1,F);
+      txt('動滑車',px-r-6,py+4,11,'#92400e','bold','right'); }
+    else if(id==='combo'){ const top=FY-OH-p*g.combo, r=18, mx=128, my=top-26, fx=164, fy=56; ceiling(96,210); hookLine(fx,22,fy); obj(mx,top,v); hookLine(mx,my,top);
+      pulley(mx,my,r,'#fde68a'); pulley(fx,fy,r,'#e2e8f0'); ropeArc(mx,my,r,Math.PI,0,true); ropeArc(fx,fy,r,Math.PI,0); const hy=112+2*p*g.combo;
+      rope([[mx-r,22],[mx-r,my]]); rope([[mx+r,my],[fx-r,fy]]); rope([[fx+r,fy],[fx+r,hy]]); hand(fx+r,hy,0,1,F);
+      txt('動滑車',mx-r-6,my+4,11,'#92400e','bold','right'); txt('定滑車',fx,fy+r+14,11,'#475569','bold','center'); }
+    else if(id==='move2'){ const d=p*g.move2, top=FY-OH-d, r=16, ax=110, ay=top-22, bx=126, by=150-2*d, cx=158, cy=56; ceiling(80,200); hookLine(cx,22,cy); obj(ax,top,v); hookLine(ax,ay,top);
+      pulley(ax,ay,r,'#fde68a'); pulley(bx,by,r,'#fde68a'); pulley(cx,cy,r,'#e2e8f0'); hookLine(bx,by,by+r+7); ctx.fillStyle='#475569'; ctx.fillRect(bx-4,by+r+5,8,4);
+      ropeArc(ax,ay,r,Math.PI,0,true); rope([[ax-r,22],[ax-r,ay]]); rope([[ax+r,ay],[bx,by+r+8]]);
+      ropeArc(bx,by,r,Math.PI,0,true); rope([[bx-r,22],[bx-r,by]]); rope([[bx+r,by],[cx-r,cy]]); ropeArc(cx,cy,r,Math.PI,0); const hy=96+4*d; rope([[cx+r,cy],[cx+r,hy]]); hand(cx+r,hy,0,1,F);
+      txt('動滑車A',ax-r-4,ay+4,10.5,'#92400e','bold','right'); txt('動滑車B',bx-r-4,by+4,10.5,'#92400e','bold','right'); }
+    else if(id==='slope'){ const tv=travel(v), ux=tv[0], uy=tv[1], Lp=tv[2], Hs=-uy*Lp, hz=ux*Lp, x0=22, x1=x0+hz, y1=FY-Hs, ang=Math.atan2(uy,ux);
+      ctx.fillStyle='#e2e8f0'; ctx.beginPath(); ctx.moveTo(x0,FY); ctx.lineTo(x1,y1); ctx.lineTo(x1,FY); ctx.closePath(); ctx.fill(); ctx.fillRect(x1,y1,326-x1,FY-y1);
+      line(x0,FY,x1,y1,3,'#94a3b8'); line(x1,y1,326,y1,3,'#94a3b8');
+      line(x1+14,FY-2,x1+14,y1+2,1.2,'#64748b',[3,3]); txt('高さ '+v.hc+'cm',x1+18,(FY+y1)/2+4,11,'#475569','bold','left');
+      ctx.save(); ctx.translate(x0+hz/2,FY-Hs/2); ctx.rotate(ang); txt('斜面の長さ '+v.Lc+'cm',0,16,11,'#475569','bold','center'); ctx.restore();
+      const s=p*Lp, bw=40, bh=26, px=x0+ux*s, py=FY+uy*s;
+      ctx.save(); ctx.translate(px,py); ctx.rotate(ang); ctx.fillStyle='#0e7490'; rrect(0,-bh,bw,bh,5); ctx.fill(); txt(v.m+'g',bw/2,-bh/2+4,11,'#fff','bold','center',36); ctx.restore();
+      const ax=px+ux*bw+uy*bh/2, ay=py+uy*bw-ux*bh/2, hx=ax+ux*34, hy=ay+uy*34; rope([[ax,ay],[hx,hy]]); hand(hx,hy,ux,uy,F); }
+    else { const k=v.k, a=52, fx=100, fy=150, s0=g.lever/(2*a), sn=s0*(1-2*p), cs=Math.sqrt(1-sn*sn);
+      ctx.fillStyle='#94a3b8'; ctx.beginPath(); ctx.moveTo(fx,fy); ctx.lineTo(fx-16,FY); ctx.lineTo(fx+16,FY); ctx.closePath(); ctx.fill();
+      const lx=fx-a*cs, ly=fy+a*sn, rx=fx+k*a*cs, ry=fy-k*a*sn; line(lx-8*cs,ly+8*sn,rx,ry,7,'#a16207'); dot(fx,fy,4,'#334155');
+      obj(lx,ly-OH-3,v); hand(rx,ry-4,0,1,F); txt('支点',fx+12,fy+24,11,'#334155','bold','left'); txt('作用点',lx,ly+18,10.5,'#475569','','center'); txt('力点',rx-12,ry+20,10.5,'#475569','','right'); }
+    const d=fd[1]*p*100;
+    txt('上がった高さ '+Math.round(p*v.hc)+' cm',160,287,12,'#0e7490','bold','right',150); txt('／',167,287,12,'#94a3b8','','center');
+    txt((id==='direct'?'手を動かした距離':distName(id))+' '+Math.round(d)+' cm',174,287,12,'#dc2626','bold','left',152); }
+  // ---------- 右の数値と「力×距離」の長方形
+  function drawPanel(v){ const id=mode, fd=FD(id,v), F=fd[0], d=fd[1], Wk=F*d, P=Wk/v.T;
+    ctx.fillStyle='#fff'; rrect(340,4,296,290,10); ctx.fill(); ctx.strokeStyle='#e2e8f0'; ctx.lineWidth=1; ctx.stroke();
+    txt(rowName(id,v),352,28,16,'#0f172a','bold','left',272);
+    txt('必要な力 F ＝ '+nf(F)+' N',352,54,15,'#dc2626','bold','left',272);
+    txt(distName(id)+' d ＝ '+nf(d)+' m',352,76,13.5,'#334155','bold','left',272);
+    txt('仕事 ＝ '+nf(F)+' N × '+nf(d)+' m ＝ '+nf(Wk)+' J',352,100,15,'#0e7490','bold','left',272);
+    // 長方形：横＝距離、たて＝力
+    let dmax=v.h; M.forEach((q)=>{ dmax=Math.max(dmax,FD(q[0],v)[1]); });
+    const X0=378, X1=620, Y0=120, Y1=228, sx=(X1-X0)/dmax, sy=(Y1-Y0)/v.Wt;
+    line(X0,Y1,X1+6,Y1,1.5,'#94a3b8'); line(X0,Y0-4,X0,Y1,1.5,'#94a3b8');
+    txt('力',X0-4,Y0-6,10,'#64748b','','right'); txt(nf(v.Wt)+'N',X0-4,Y0+4,10,'#64748b','','right'); txt('0',X0-4,Y1+4,10,'#64748b','','right'); txt('→ 距離',X1+8,Y1-5,10,'#64748b','','right');
+    ctx.strokeStyle='#94a3b8'; ctx.lineWidth=1.2; ctx.setLineDash([4,3]); ctx.strokeRect(X0,Y0,v.h*sx,v.Wt*sy); ctx.setLineDash([]);
+    ctx.fillStyle='rgba(14,116,144,.28)'; ctx.fillRect(X0,Y1-F*sy,d*sx*p,F*sy);
+    ctx.strokeStyle='#0e7490'; ctx.lineWidth=2; ctx.strokeRect(X0,Y1-F*sy,d*sx,F*sy);
+    txt(nf(d)+'m',Math.min(X0+d*sx,X1-6),Y1+14,10,'#0e7490','bold','center'); if(Math.abs(d-v.h)*sx>34) txt(nf(v.h)+'m',X0+v.h*sx,Y1+14,10,'#94a3b8','','center');
+    txt('面積＝仕事 '+nf(Wk)+' J',X0+Math.max(d*sx,96)/2+2,Y1-F*sy/2+(F*sy<22?-F*sy/2-6:4),11.5,'#0e7490','bold','center',200);
+    if(id!=='direct'&&id!=='fixed') txt('点線＝直接持ち上げるとき',X1,Y0+4,10,'#64748b','','right');
+    txt('仕事率 ＝ '+nf(Wk)+' J ÷ '+v.T+' 秒 ＝ '+nf(P)+' W',352,256,14,'#7c3aed','bold','left',272);
+    const msg=run?'⏱ 経過 '+el.toFixed(1)+' / '+v.T+' 秒':(finished?'✓ '+v.T+'秒で持ち上げた（仕事率 '+nf(P)+' W）':(p>0?'手で動かし中（時間は計らない）':'▶「持ち上げる」または図をドラッグ'));
+    txt(msg,352,280,12,run?'#15803d':'#475569','bold','left',272); }
+  // ---------- 下の表
+  function drawTable(v){ const cols=[16,300,436,560];
+    ctx.fillStyle='#ecfeff'; ctx.fillRect(6,TY,628,22);
+    ['持ち上げ方（タップで切りかえ）','必要な力','動かす距離','仕事（力×距離）'].forEach((h,i)=>txt(h,cols[i],TY+15,11.5,'#155e75','bold',i?'center':'left',i?120:270));
+    M.forEach((q,j)=>{ const y=TY+22+j*RH, fd=FD(q[0],v), on=q[0]===mode;
+      if(on){ ctx.fillStyle='#fef3c7'; ctx.fillRect(6,y,628,RH); } else if(j%2){ ctx.fillStyle='#f8fafc'; ctx.fillRect(6,y,628,RH); }
+      line(6,y+RH,634,y+RH,1,'#e5e7eb');
+      txt((on?'▶ ':'')+rowName(q[0],v),cols[0],y+16,12.5,'#0f172a',on?'bold':'','left',270);
+      txt(nf(fd[0])+' N',cols[1],y+16,13,'#dc2626',on?'bold':'','center',120); txt(nf(fd[1])+' m',cols[2],y+16,13,'#334155',on?'bold':'','center',120);
+      txt(nf(fd[0]*fd[1])+' J',cols[3],y+16,13,'#15803d','bold','center',120); });
+    const yb=TY+22+M.length*RH;
+    txt('→ どの方法でも仕事は '+nf(v.Wt*v.h)+' J で同じ（仕事の原理）',320,yb+19,14,'#15803d','bold','center',620);
+    txt('滑車・ひも・棒の質量と摩擦は考えない。100gの物体にはたらく重力＝1N として計算',320,yb+35,11,'#64748b','','center',620); }
+  function draw(){ const v=V(); ctx.fillStyle='#fff'; ctx.fillRect(0,0,W,H); drawApp(v); drawPanel(v); drawTable(v); }
+  function update(){ const v=V(), fd=FD(mode,v), Wk=fd[0]*fd[1];
+    setK('s2',distName(mode)); setV('s1',nf(fd[0])+' N'); setV('s2',nf(fd[1])+' m'); setV('s3',nf(Wk)+' J'); setV('s4',nf(Wk/v.T)+' W');
+    $('go').textContent='▶ 持ち上げる（'+v.T+'秒）';
+    setShare('【仕事の原理】'+v.m+'gの物体を'+v.hc+'cm持ち上げる：'+rowName(mode,v)+'なら力'+nf(fd[0])+'N・'+nf(fd[1])+'m動かして仕事'+nf(Wk)+'J。直接でも動滑車でも斜面でも仕事は同じ'+nf(v.Wt*v.h)+'J｜シミュラボ'); }
+  function setMode(m){ mode=m; $('meth').value=m; fld('sl').style.display=m==='slope'?'':'none'; fld('lk').style.display=m==='lever'?'':'none'; p=0; run=false; el=0; finished=false; update(); }
+  function fixSlope(){ const h=+$('ht').value, s=$('sl'); s.min=String(h+10); if(+s.value<h+10) s.value=String(h+10); const l=$('slL'); if(l) l.textContent=s.value+'cm'; }
+  ['mass','ht','tm','sl','lk'].forEach((id)=>$(id).addEventListener('input',()=>{ if(id==='ht') fixSlope(); if(id!=='tm'){ p=0; run=false; el=0; finished=false; } update(); }));
+  $('meth').addEventListener('change',()=>setMode($('meth').value));
+  $('go').addEventListener('click',()=>{ p=0; el=0; run=true; finished=false; });
+  $('down').addEventListener('click',()=>{ p=0; el=0; run=false; finished=false; });
+  cv.addEventListener('pointerdown',(e)=>{ const q=cpos(cv,e), x=q[0]/dpr, y=q[1]/dpr;
+    if(y>=TY+22&&y<TY+22+M.length*RH){ const j=Math.floor((y-TY-22)/RH); e.preventDefault(); setMode(M[j][0]); return; }
+    if(x<=334&&y<=294){ e.preventDefault(); run=false; finished=false; g0=[x,y,p]; grab=true; try{ cv.setPointerCapture(e.pointerId); }catch(er){} } });
+  cv.addEventListener('pointermove',(e)=>{ if(!grab) return; const q=cpos(cv,e), x=q[0]/dpr, y=q[1]/dpr, tv=travel(V()); p=clamp(g0[2]+((x-g0[0])*tv[0]+(y-g0[1])*tv[1])/tv[2],0,1); });
+  const endG=()=>{ grab=false; }; cv.addEventListener('pointerup',endG); cv.addEventListener('pointercancel',endG);
+  fixSlope(); setMode('move');
+  let last=performance.now();
+  function loop(now){ const dt=Math.min(0.05,Math.max(0,(now-last)/1000)); last=now;
+    if(run){ const T=+$('tm').value; el=Math.min(T,el+dt); p=el/T; if(el>=T){ run=false; finished=true; p=1; } }
+    draw(); requestAnimationFrame(loop); }
+  draw(); requestAnimationFrame(loop);
+
+  } catch(e) { console.error(e); }
+  (function(){ const fs=$('fsBtn'), panel=document.querySelector('.panel');
+    const req = panel && (panel.requestFullscreen || panel.webkitRequestFullscreen);
+    if (fs && req) { fs.hidden = false; fs.addEventListener('click', () => {
+      const cur = document.fullscreenElement || document.webkitFullscreenElement;
+      if (cur) { (document.exitFullscreen || document.webkitExitFullscreen).call(document); }
+      else { req.call(panel); } }); }
+  })();
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE || document.title)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText((SHARE||document.title)+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'kassha-shigoto', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>
