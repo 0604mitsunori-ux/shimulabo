@@ -23,7 +23,7 @@
     <link rel="canonical" href="https://shimulabo.com/sims/ticket-tousen/">
     <meta property="og:locale" content="ja_JP">
     <meta name="robots" content="index,follow">
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "チケット当選確率シミュレーター", "url": "https://shimulabo.com/sims/ticket-tousen/", "description": "倍率と応募口数からチケット当選確率を計算。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "チケット当選確率シミュレーター", "url": "https://shimulabo.com/sims/ticket-tousen/", "description": "倍率と応募口数からチケット当選確率を計算。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}, "image": ["https://shimulabo.com/sims/ticket-tousen/ticket-tousen-1.png", "https://shimulabo.com/sims/ticket-tousen/ticket-tousen-2.png"]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "チケット当選確率シミュレーター", "item": "https://shimulabo.com/sims/ticket-tousen/"}]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "当落シミュレーターとは？", "acceptedAnswer": {"@type": "Answer", "text": "抽選の倍率と応募口数から、少なくとも1枚当たる確率を計算するツールです。1口の当選率を1÷倍率とし、口数ぶん申し込んだときに全部外れる確率を1から引いて求めます。"}}, {"@type": "Question", "name": "名義や公演を増やすと、どれくらい当たりやすくなる？", "acceptedAnswer": {"@type": "Answer", "text": "倍率10倍なら、1口で10%、3口で約27%、10口で約65%です。結果の下に口数ごとの確率表が出ます。ただし名義の貸し借りや、同じ公演への重複申し込みを禁止している公演も多いので、必ず申し込みのルールを確認してください。"}}, {"@type": "Question", "name": "FC先行と一般発売はどちらが当たりやすい？", "acceptedAnswer": {"@type": "Answer", "text": "一般に、申し込める人が会員に限られるFC先行の方が倍率は低くなりやすいです。ただし配分される席数は公演ごとに異なり、公表されないことがほとんどです。"}}, {"@type": "Question", "name": "倍率が分からない", "acceptedAnswer": {"@type": "Answer", "text": "SNSの体感や過去実績を参考に。10〜数十倍の人気公演も珍しくありません。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
     <!-- ga4 -->
@@ -32,6 +32,7 @@
     <!-- adsense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
          crossorigin="anonymous"></script>
+<style id="rika-fig-style">.rika-figs{margin:8px 0 22px}.rika-fig{margin:0 0 18px}.rika-fig a.zoom{display:block}.rika-fig img{display:block;width:100%;height:auto;border:1px solid var(--line,#e2ded4);border-radius:8px;background:#faf8f3}.rika-fig figcaption{font-size:13.5px;line-height:1.7;margin-top:6px;color:var(--ink-2,#3d434b)}.rika-fig .dl{white-space:nowrap;margin-left:6px;font-size:12.5px}.rika-figs .fig-note{font-size:12.5px;color:var(--ink-2,#3d434b);margin:0}</style>
 </head>
 <body>
 
@@ -97,6 +98,19 @@
     <h2>計算方法</h2>
     <div class="note"><strong>計算式</strong><br>1口の当選率 ＝ 1 ÷ 倍率<br>少なくとも1当選 ＝ 1 −（1 − 当選率）^口数</div>
     <p>口数を増やすほど当選確率は上がりますが、倍率が高いと頭打ちに。複数名義・複数公演・先行抽選の活用が当選への近道。ただしルールやマナーは守って楽しみましょう。</p>
+<!-- rika-figs:start -->
+<div class="rika-figs">
+  <figure class="rika-fig" id="zu1">
+    <a class="zoom" href="ticket-tousen-1.png" target="_blank" rel="noopener"><img src="ticket-tousen-1.svg" width="1200" height="675" loading="lazy" decoding="async" alt="チケット当選確率の計算のしくみの図。1口の当選率＝1÷倍率、全部外れる確率＝（1−当選率）の口数乗、少なくとも1枚当たる確率＝1−全部外れる確率（倍率10倍・3口で27.1%）の3ステップと、倍率5倍・10倍・20倍・50倍で口数1〜20口のときの当選確率のグラフ。"></a>
+    <figcaption><b>図1</b>　当選確率の計算のしくみ。少なくとも1枚当たる確率＝1 −（1 − 1÷倍率）^口数。口数を増やしても確率は比例しては増えない。<span class="dl"><a href="ticket-tousen-1.png" download>PNGで保存</a>・<a href="ticket-tousen-1.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <figure class="rika-fig" id="zu2">
+    <a class="zoom" href="ticket-tousen-2.png" target="_blank" rel="noopener"><img src="ticket-tousen-2.svg" width="1200" height="675" loading="lazy" decoding="async" alt="当落シミュレーターの早見表。倍率2倍・3倍・5倍・10倍・20倍・30倍・50倍・100倍ごとに、1口の当選率と、少なくとも1枚当たる確率が50%・80%・90%に届く口数、10口申し込んだときの当選確率をまとめた表。"></a>
+    <figcaption><b>図2</b>　何口申し込めば当たりやすいかの早見表。倍率10倍なら7口で50%、16口で80%、22口で90%を超える。<span class="dl"><a href="ticket-tousen-2.png" download>PNGで保存</a>・<a href="ticket-tousen-2.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <p class="fig-note">図はタップすると大きく表示されます。資料やSNSに使うときは、出典「シミュラボ」とページのURLを添えてください。</p>
+</div>
+<!-- rika-figs:end -->
 <!-- improved-2026-10 -->
     <h2>口数ごとの当選確率（早見表）</h2>
     <div class="tbl-scroll"><table class="seo-table"><tr><th>倍率</th><th>1口</th><th>3口</th><th>5口</th><th>10口</th><th>20口</th></tr>

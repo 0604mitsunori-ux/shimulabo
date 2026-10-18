@@ -23,7 +23,7 @@
     <link rel="canonical" href="https://shimulabo.com/sims/shio-live/">
     <meta property="og:locale" content="ja_JP">
     <meta name="robots" content="index,follow">
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "今日の潮、いつ満ちる？", "url": "https://shimulabo.com/sims/shio-live/", "description": "満潮・干潮の時刻をエリア別にライブ表示。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "今日の潮、いつ満ちる？", "url": "https://shimulabo.com/sims/shio-live/", "description": "満潮・干潮の時刻をエリア別にライブ表示。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}, "image": ["https://shimulabo.com/sims/shio-live/shio-live-1.png", "https://shimulabo.com/sims/shio-live/shio-live-2.png"]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ライブデータラボ", "item": "https://shimulabo.com/live/"}, {"@type": "ListItem", "position": 3, "name": "今日の潮、いつ満ちる？", "item": "https://shimulabo.com/sims/shio-live/"}]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "データの出典は？", "acceptedAnswer": {"@type": "Answer", "text": "海洋予報オープンデータAPI（Open-Meteo Marine）の潮位（海面高）予測値から満潮・干潮を算出しています。"}}, {"@type": "Question", "name": "公式の潮汐表と違う", "acceptedAnswer": {"@type": "Answer", "text": "モデル推定のため多少ずれます。レジャーの目安にはなりますが、航海用途は海上保安庁の潮汐表を使用してください。"}}, {"@type": "Question", "name": "入力データは送信される？", "acceptedAnswer": {"@type": "Answer", "text": "エリアの選択のみを使います。個人情報は一切送信されません。"}}]}</script>
     <!-- ga4 -->
@@ -32,6 +32,7 @@
     <!-- adsense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
          crossorigin="anonymous"></script>
+<style id="rika-fig-style">.rika-figs{margin:8px 0 22px}.rika-fig{margin:0 0 18px}.rika-fig a.zoom{display:block}.rika-fig img{display:block;width:100%;height:auto;border:1px solid var(--line,#e2ded4);border-radius:8px;background:#faf8f3}.rika-fig figcaption{font-size:13.5px;line-height:1.7;margin-top:6px;color:var(--ink-2,#3d434b)}.rika-fig .dl{white-space:nowrap;margin-left:6px;font-size:12.5px}.rika-figs .fig-note{font-size:12.5px;color:var(--ink-2,#3d434b);margin:0}</style>
 </head>
 <body>
 
@@ -107,7 +108,20 @@
   <article class="article">
     <h2>この潮時表について</h2>
     <p>このツールは海洋予報オープンデータAPI（Open-Meteo Marine）の潮位（海面高）予測から、今日の極大・極小＝満潮・干潮の時刻を割り出しています。潮が動く時間帯（満潮・干潮の前後）は魚の活性が上がり、干潮前後は潮干狩り・磯遊びの時間です。</p>
-    <div class="note">数値モデルの推定のため、公式の潮汐表と時刻が前後することがあります。航海・業務用途は海上保安庁の潮汐表を必ず使用してください。</div>
+    <!-- rika-figs:start -->
+<div class="rika-figs">
+  <figure class="rika-fig" id="zu1">
+    <a class="zoom" href="shio-live-1.png" target="_blank" rel="noopener"><img src="shio-live-1.svg" width="1200" height="675" loading="lazy" decoding="async" alt="満潮と干潮のしくみの図。北極の上から見た地球で、月の側とその反対側の2か所の海面が盛り上がって満潮になり、その間が干潮になる。地球の自転で多くの場所では1日に満潮と干潮が2回ずつ来て、満潮から次の満潮まで約12時間25分、次の日は約50分おそくなることを潮位のグラフで示している。"></a>
+    <figcaption><b>図1</b>　満潮・干潮のしくみ。月の側と反対側の海面が盛り上がり、地球の自転で1日に2回ずつ満潮と干潮が来る。<span class="dl"><a href="shio-live-1.png" download>PNGで保存</a>・<a href="shio-live-1.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <figure class="rika-fig" id="zu2">
+    <a class="zoom" href="shio-live-2.png" target="_blank" rel="noopener"><img src="shio-live-2.svg" width="1200" height="675" loading="lazy" decoding="async" alt="大潮と小潮の図。新月・満月のころは月と太陽と地球が一直線に並び、起潮力の向きが重なって干満の差が大きい大潮になる。上弦・下弦のころは月と太陽の向きが直角にずれて打ち消し合い、差が小さい小潮になる。月齢と大潮・小潮のくり返し（約15日ごと）も示す。"></a>
+    <figcaption><b>図2</b>　大潮と小潮。新月・満月のころは干満の差が大きい大潮、上弦・下弦のころは差が小さい小潮。<span class="dl"><a href="shio-live-2.png" download>PNGで保存</a>・<a href="shio-live-2.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <p class="fig-note">図はタップすると大きく表示されます。資料やSNSに使うときは、出典「シミュラボ」とページのURLを添えてください。</p>
+</div>
+<!-- rika-figs:end -->
+<div class="note">数値モデルの推定のため、公式の潮汐表と時刻が前後することがあります。航海・業務用途は海上保安庁の潮汐表を必ず使用してください。</div>
     <h2>引用・転載について</h2>
     <p>本ページの計算結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・社内資料への引用を歓迎します。事前連絡は不要です。</p>
     <div class="note">推奨クレジット表記：<code>出典：シミュラボ「今日の潮、いつ満ちる？」 https://shimulabo.com/sims/shio-live/</code><br>Webでご利用の際は上記URLへのリンク設置をお願いします。</div>
@@ -119,7 +133,7 @@
     <h2 style="margin-top:0;">🔬 理科の授業で使うとき</h2>
     <ul style="margin:0 0 12px;padding-left:1.2em;line-height:1.7;"><li><b>地学 地球の大気と海洋（潮汐）</b>　今日の満潮・干潮の時刻をエリア別に（ライブ）。</li></ul>
     <p style="font-size:13.5px;font-weight:700;margin:0 0 8px;">同じ単元の授業向けシミュ</p><div class="related-grid"><a class="related-card" href="../coriolis-henseifu/"><span class="e">🔬</span><span>コリオリの力と大気の大循環シミュレーター（偏西風・貿易風）</span></a><a class="related-card" href="../eratosthenes/"><span class="e">🔬</span><span>エラトステネスの方法で地球の大きさを測るシミュレーター（地球の全周の求め方）</span></a><a class="related-card" href="../chisou/"><span class="e">🔬</span><span>地層のでき方と柱状図シミュレーター（鍵層・化石・断層・しゅう曲）</span></a><a class="related-card" href="../kazan-kaseigan/"><span class="e">🔬</span><span>火山の形と火成岩シミュレーター（マグマのねばりけ・冷え方）</span></a></div>
-    <p style="margin:12px 0 0;"><a href="../../rika/#ko">高校の単元から授業向けシミュを探す（小学校〜高校・91本）→</a></p>
+    <p style="margin:12px 0 0;"><a href="../../rika/#ko">高校の単元から授業向けシミュを探す（小学校〜高校・101本）→</a></p>
   </section>
 <!-- rika-links:end -->
   <nav class="related" aria-label="related">

@@ -353,7 +353,7 @@ add(id='kakuzato', cat='健康・カラダ', emoji='🧊',
   h1='角砂糖シミュレーター',
   lead='甘い飲み物に、砂糖はどれくらい入ってる？飲み物を選ぶと、含まれる砂糖を「角砂糖の個数」に換算します。見えると、ちょっと飲み方を考えたくなるかも。',
   inputs='''    <h2>🧊 条件を選ぶ</h2>
-    <div class="field"><label>飲み物</label><select id="drink"><option value="11">コーラ(500ml)</option><option value="13" selected>エナジードリンク(500ml)</option><option value="7">スポーツドリンク(500ml)</option><option value="12">フルーツジュース(500ml)</option><option value="5">微糖カフェラテ(300ml)</option><option value="20">タピオカミルクティー(500ml)</option></select></div>
+    <div class="field"><label>飲み物</label><select id="drink"><option value="11" data-ml="500">コーラ(500ml)</option><option value="13" data-ml="500" selected>エナジードリンク(500ml)</option><option value="7" data-ml="500">スポーツドリンク(500ml)</option><option value="12" data-ml="500">フルーツジュース(500ml)</option><option value="5" data-ml="300">微糖カフェラテ(300ml)</option><option value="20" data-ml="500">タピオカミルクティー(500ml)</option></select></div>
     <div class="field"><label>1日に飲む杯数 <span class="hint">（杯）</span></label><input type="number" id="n" value="1" min="0" max="20" inputmode="numeric"></div>
     <button class="btn btn-primary" id="calcBtn">角砂糖に換算する</button>''',
   result='''      <div class="label">含まれる砂糖（角砂糖）</div>
@@ -363,10 +363,10 @@ add(id='kakuzato', cat='健康・カラダ', emoji='🧊',
       <div class="stat"><div class="k">1年で(毎日)</div><div class="v accent" id="year">—</div></div>
       <div class="stat"><div class="k">カロリー</div><div class="v" id="kcal">—</div></div></div>''',
   article='''    <h2>角砂糖換算で見える化</h2>
-    <div class="note"><strong>換算の目安</strong><br>角砂糖1個 ＝ 約4g／砂糖1g ＝ 約4kcal</div>
+    <div class="note"><strong>換算の目安</strong><br>角砂糖1個 ＝ 約4g／砂糖1g ＝ 約4kcal／1杯の砂糖 ＝ 100mlあたりの砂糖（目安）× 量（ml）÷ 100</div>
     <p>液体の糖分は気づかないうちに摂りすぎがち。WHO は1日の糖類を約25g（角砂糖6個分）以下にと推奨しています。たまの楽しみはOK、毎日の習慣は見直しのきっかけに。</p>
     <h2>よくある質問</h2>'''+faq([('砂糖ゼロ飲料なら？','糖類ゼロ表示の飲み物は角砂糖換算もほぼゼロになります。'),('データは送信されますか？','いいえ。計算はすべてブラウザ内で完結します。')]),
-  js='''  function calc(){const g=(+$('drink').value||0),n=Math.max(0,+$('n').value||0);const totalG=g*n,cubes=totalG/4;
+  js='''  function calc(){const o=sel('drink'),g=(+o.value||0)*(+(o.dataset.ml||100))/100,n=Math.max(0,+$('n').value||0);const totalG=g*n,cubes=totalG/4;
     $('sub').textContent=`${sel('drink').text} × ${n}杯`;$('g').textContent=num(totalG)+'g';$('year').textContent=num(totalG*365/1000)+'kg';$('kcal').textContent=num(totalG*4)+'kcal';
     SHARE=`角砂糖シミュ、${sel('drink').text}には角砂糖約${Math.round(cubes)}個分の砂糖が🧊\\n見えると飲み方考えるなぁ…！👇`;show();anim($('big'),0,cubes,900);}''')
 

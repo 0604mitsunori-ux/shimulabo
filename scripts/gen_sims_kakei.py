@@ -158,10 +158,10 @@ add(id='ketsuen', emoji='🩸',
     const v=($('rel').value||'50|兄弟姉妹').split('|');
     const pct=+v[0], rel=v[1];
     const denom=Math.round(100/pct);
-    const shintoMap={'50':'1〜2親等','25':'2〜3親等','12.5':'4親等','3.125':'6親等'};
+    const shintoMap={'親子':'1親等','兄弟姉妹（両親が同じ）':'2親等','祖父母と孫':'2親等','おじ・おば／甥・姪':'3親等','異母・異父きょうだい':'2親等','いとこ':'4親等','曾祖父母とひ孫':'3親等','はとこ（またいとこ）':'6親等'};   // 続柄から親等（血縁度が同じでも親等はちがう：いとこ12.5%＝4親等、曾祖父母とひ孫12.5%＝3親等）
     $('sub').textContent=`${rel}の血のつながり`;
     $('bunsu').textContent=denom+'分の1'; $('rel2').textContent=rel;
-    $('shinto').textContent=shintoMap[String(pct)]||'—';
+    $('shinto').textContent=shintoMap[rel]||'—';
     show();anim($('big'),0,pct,700, pct<10?1:0);
     SHARE=`血のつながり、${rel}は「${pct}%（${denom}分の1）」でした🩸`;
   }''')

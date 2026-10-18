@@ -19,7 +19,8 @@ from common import render, G, CATJP, BASE, TODAY
 MODULES = ["sims_tenmon", "sims_denki_hikari", "sims_kishou_jishin", "sims_chikara", "sims_ryushi_iden",   # 第1弾
            "sims_tentai", "sims_chisou", "sims_kishou2", "sims_denki_kagaku", "sims_karada_gijutsu", "sims_kinsei",   # 第2弾
            "sims_hikari_bane", "sims_youkai_nenshou", "sims_suiyoueki_kuuki", "sims_undou_shigoto", "sims_shokubutsu", "sims_saibou_fuyuu",   # 第3弾
-           "sims_kou_butsuri", "sims_kou_kagaku_seibutsu", "sims_kou_chigaku"]   # 第4弾（高校）
+           "sims_kou_butsuri", "sims_kou_kagaku_seibutsu", "sims_kou_chigaku",   # 第4弾（高校）
+           "sims_sho3_a", "sims_sho3_b", "sims_sho34_seibutsu", "sims_sho4_a", "sims_sho4_b"]   # 第5弾（小3・小4）
 REQUIRED = ["slug", "cat", "title", "title_tag", "meta_desc", "og_title", "og_desc", "lead", "model", "level", "unit",
             "emoji", "card_desc", "score", "article", "faqs", "rel", "js"]
 
@@ -56,6 +57,8 @@ def write_pages(sims):
         d = os.path.join(ROOT, "sims", s["slug"]); os.makedirs(d, exist_ok=True)
         wr(os.path.join(d, "index.html"), render(s))
     print("生成:", ", ".join(s["slug"] for s in sims))
+    sys.path.insert(0, os.path.dirname(HERE)); import build_figs   # 授業で使える図（scripts/figs/）を差し込み直す
+    build_figs.inject_for([s["slug"] for s in sims])
 
 
 args = sys.argv[1:]

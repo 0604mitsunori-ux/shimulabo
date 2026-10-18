@@ -23,7 +23,7 @@
     <link rel="canonical" href="https://shimulabo.com/sims/kaibatsu-check/">
     <meta property="og:locale" content="ja_JP">
     <meta name="robots" content="index,follow">
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "うちの海抜チェッカー", "url": "https://shimulabo.com/sims/kaibatsu-check/", "description": "住所や駅名から海抜（標高）を国土地理院データで即計算。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "うちの海抜チェッカー", "url": "https://shimulabo.com/sims/kaibatsu-check/", "description": "住所や駅名から海抜（標高）を国土地理院データで即計算。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}, "image": ["https://shimulabo.com/sims/kaibatsu-check/kaibatsu-check-1.png", "https://shimulabo.com/sims/kaibatsu-check/kaibatsu-check-2.png"]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "うちの海抜チェッカー", "item": "https://shimulabo.com/sims/kaibatsu-check/"}]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "標高データの出典は？", "acceptedAnswer": {"@type": "Answer", "text": "国土地理院の標高API（公式オープンデータ）をその場で参照しています。地点によって5m/10mメッシュ等の精度が異なり、結果に精度も表示されます。"}}, {"@type": "Question", "name": "入力した住所は保存されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。住所検索と標高取得は国土地理院のAPIに直接問い合わせるだけで、当サイトが入力内容を保存することはありません。"}}, {"@type": "Question", "name": "海抜と標高の違いは？", "acceptedAnswer": {"@type": "Answer", "text": "日本ではどちらも東京湾の平均海面を0mとして測った同じ高さです。地図や登山では「標高」、沿岸部の看板や防災の場面では「海抜」と書かれることが多いという違いです。"}}, {"@type": "Question", "name": "海抜何メートルなら安全？", "acceptedAnswer": {"@type": "Answer", "text": "海抜だけで安全かどうかは決まりません。津波・高潮は海抜が低い場所ほど影響を受けやすい一方、洪水は川との位置関係、土砂災害はむしろ高い場所の斜面で起きます。結果の「ハザードマップを開く」でその地点の想定を確認してください。"}}, {"@type": "Question", "name": "海抜ゼロメートル地帯とは？", "acceptedAnswer": {"@type": "Answer", "text": "地面の高さが満潮時の海面より低い土地のことです。堤防で守られていますが、浸水すると水が引きにくいのが特徴です。"}}]}</script>
     <!-- ga4 -->
@@ -32,6 +32,7 @@
     <!-- adsense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
          crossorigin="anonymous"></script>
+<style id="rika-fig-style">.rika-figs{margin:8px 0 22px}.rika-fig{margin:0 0 18px}.rika-fig a.zoom{display:block}.rika-fig img{display:block;width:100%;height:auto;border:1px solid var(--line,#e2ded4);border-radius:8px;background:#faf8f3}.rika-fig figcaption{font-size:13.5px;line-height:1.7;margin-top:6px;color:var(--ink-2,#3d434b)}.rika-fig .dl{white-space:nowrap;margin-left:6px;font-size:12.5px}.rika-figs .fig-note{font-size:12.5px;color:var(--ink-2,#3d434b);margin:0}</style>
 </head>
 <body>
 
@@ -112,6 +113,19 @@
     <tr><td>標高</td><td>東京湾平均海面を0mとした土地の高さ</td><td>地図・登山・国土地理院のデータ</td></tr>
     <tr><td>海抜</td><td>海面からの高さ（日本では標高と同じ値）</td><td>沿岸部の電柱・避難看板・防災マップ</td></tr>
     <tr><td>高さ（比高）</td><td>地面から建物などのてっぺんまで</td><td>ビルの高さ・タワーの高さ</td></tr></table></div>
+<!-- rika-figs:start -->
+<div class="rika-figs">
+  <figure class="rika-fig" id="zu1">
+    <a class="zoom" href="kaibatsu-check-1.png" target="_blank" rel="noopener"><img src="kaibatsu-check-1.svg" width="1200" height="675" loading="lazy" decoding="async" alt="海抜と標高の違いを示す断面図。海抜と標高はどちらも東京湾平均海面（T.P.）を0mとして測る同じ高さで、高さ（比高）は地面から建物のてっぺんまでの高さ。満潮の海面より低い海抜ゼロメートル地帯が堤防で守られている様子も描いている。"></a>
+    <figcaption><b>図1</b>　海抜・標高・高さのちがい。海抜と標高はどちらも東京湾の平均海面を0mとした「土地の高さ」。<span class="dl"><a href="kaibatsu-check-1.png" download>PNGで保存</a>・<a href="kaibatsu-check-1.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <figure class="rika-fig" id="zu2">
+    <a class="zoom" href="kaibatsu-check-2.png" target="_blank" rel="noopener"><img src="kaibatsu-check-2.svg" width="1200" height="675" loading="lazy" decoding="async" alt="海抜の目安（20m以上・5〜20m・0〜5m・0m未満）ごとにハザードマップで確認すべきこと（土砂災害・洪水・浸水の深さ・避難先）と、ハザードマップの浸水深の色分け（0.5m未満・0.5〜3m・3〜5m・5〜10m・10〜20m・20m以上）を2階建ての家の高さと比べた図。"></a>
+    <figcaption><b>図2</b>　海抜の目安と浸水の深さの色。0.5mで1階の床、3mで2階の床に届き、5mで2階が水没する。<span class="dl"><a href="kaibatsu-check-2.png" download>PNGで保存</a>・<a href="kaibatsu-check-2.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <p class="fig-note">図はタップすると大きく表示されます。資料やSNSに使うときは、出典「シミュラボ」とページのURLを添えてください。</p>
+</div>
+<!-- rika-figs:end -->
     <h2>海抜ゼロメートル地帯とは</h2>
     <p>地面の高さが満潮時の海面より低い土地のことです。東京の江東区・墨田区・江戸川区の一部や、大阪湾・伊勢湾の沿岸などに広がっています。堤防で守られていますが、いったん浸水すると水が自然には引かないため、長い間水につかる想定になっている地域があります。</p>
     <h2>海抜を調べたあとにやること</h2>
@@ -132,7 +146,7 @@
     <h2 style="margin-top:0;">🔬 理科の授業で使うとき</h2>
     <ul style="margin:0 0 12px;padding-left:1.2em;line-height:1.7;"><li><b>中1 自然の恵みと火山災害・地震災害</b>　学校や家の標高（海抜）を国土地理院のデータで調べ、津波・浸水への備えを考える。</li></ul>
     <p style="font-size:13.5px;font-weight:700;margin:0 0 8px;">同じ単元の授業向けシミュ</p><div class="related-grid"><a class="related-card" href="../kougousei/"><span class="e">🔬</span><span>光合成と呼吸のシミュレーター（気体の出入り・BTB溶液・ヨウ素液・蒸散）</span></a><a class="related-card" href="../saibou-bunretsu/"><span class="e">🔬</span><span>細胞分裂シミュレーター（体細胞分裂・減数分裂と受精）</span></a><a class="related-card" href="../chisou/"><span class="e">🔬</span><span>地層のでき方と柱状図シミュレーター（鍵層・化石・断層・しゅう曲）</span></a><a class="related-card" href="../kazan-kaseigan/"><span class="e">🔬</span><span>火山の形と火成岩シミュレーター（マグマのねばりけ・冷え方）</span></a></div>
-    <p style="margin:12px 0 0;"><a href="../../rika/#chu">中学校の単元から授業向けシミュを探す（小学校〜高校・91本）→</a></p>
+    <p style="margin:12px 0 0;"><a href="../../rika/#chu">中学校の単元から授業向けシミュを探す（小学校〜高校・101本）→</a></p>
   </section>
 <!-- rika-links:end -->
   <nav class="related" aria-label="related">

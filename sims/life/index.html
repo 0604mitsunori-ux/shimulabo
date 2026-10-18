@@ -23,7 +23,7 @@
     <link rel="canonical" href="https://shimulabo.com/sims/life/">
     <meta property="og:locale" content="ja_JP">
     <meta name="robots" content="index,follow">
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "ライフゲーム", "url": "https://shimulabo.com/sims/life/", "description": "3つのルールだけで生命のようなパターンが生まれるライフゲーム。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "ライフゲーム", "url": "https://shimulabo.com/sims/life/", "description": "3つのルールだけで生命のようなパターンが生まれるライフゲーム。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}, "image": ["https://shimulabo.com/sims/life/life-1.png", "https://shimulabo.com/sims/life/life-2.png"]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ライフゲーム", "item": "https://shimulabo.com/sims/life/"}]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "何の役に立つの？", "acceptedAnswer": {"@type": "Answer", "text": "創発・複雑系を直感的に理解できる教材として有名です。眺めるだけでも面白いですよ。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動作します。"}}, {"@type": "Question", "name": "最初の密度はどのくらいが面白い？", "acceptedAnswer": {"@type": "Answer", "text": "セルの3〜4割を生きた状態にすると、数百世代にわたって動きが続きやすいです。多すぎると一気に死に絶え、少なすぎるとすぐ固定物だけになります。"}}, {"@type": "Question", "name": "必ず終わりが来る？", "acceptedAnswer": {"@type": "Answer", "text": "多くの配置はやがて固定物と振動子だけになりますが、グライダー銃のように永遠に成長し続ける配置もあります。「この配置がどうなるか」を一般的に予測する方法は存在しないことが証明されています。"}}]}</script>
     <!-- ga4 -->
@@ -32,6 +32,7 @@
     <!-- adsense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
          crossorigin="anonymous"></script>
+<style id="rika-fig-style">.rika-figs{margin:8px 0 22px}.rika-fig{margin:0 0 18px}.rika-fig a.zoom{display:block}.rika-fig img{display:block;width:100%;height:auto;border:1px solid var(--line,#e2ded4);border-radius:8px;background:#faf8f3}.rika-fig figcaption{font-size:13.5px;line-height:1.7;margin-top:6px;color:var(--ink-2,#3d434b)}.rika-fig .dl{white-space:nowrap;margin-left:6px;font-size:12.5px}.rika-figs .fig-note{font-size:12.5px;color:var(--ink-2,#3d434b);margin:0}</style>
 </head>
 <body>
 
@@ -76,6 +77,19 @@
   <article class="article">
     <h2>3つのルール</h2>
     <ul><li>生きているセルの周りに2〜3個の仲間 → 生存</li><li>死んでいるセルの周りにちょうど3個 → 誕生</li><li>それ以外 → 死</li></ul>
+<!-- rika-figs:start -->
+<div class="rika-figs">
+  <figure class="rika-fig" id="zu1">
+    <a class="zoom" href="life-1.png" target="_blank" rel="noopener"><img src="life-1.svg" width="1200" height="675" loading="lazy" decoding="async" alt="ライフゲームの4つのルールの図。死んでいるマスのまわり8マスに生きているマスがちょうど3つなら誕生、生きているマスのまわりが2つか3つなら生存、0か1つなら過疎で死、4つ以上なら過密で死になることを3×3のマスで示している。"></a>
+    <figcaption><b>図1</b>　ライフゲームのルール。まわり8マスの「生きているマスの数」だけで、次の世代の生死が決まる。<span class="dl"><a href="life-1.png" download>PNGで保存</a>・<a href="life-1.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <figure class="rika-fig" id="zu2">
+    <a class="zoom" href="life-2.png" target="_blank" rel="noopener"><img src="life-2.svg" width="1200" height="675" loading="lazy" decoding="async" alt="ライフゲームの有名なパターンの世代ごとの変化。ブロック（2×2で変わらない固定物）、ブリンカー（横3つとたて3つを2世代でくり返す振動子）、グライダー（4世代でななめに1マス進む移動体）を第0世代から順に並べた図。"></a>
+    <figcaption><b>図2</b>　有名なパターンの動き。固定物・振動子・移動体が、同じルールから生まれる。<span class="dl"><a href="life-2.png" download>PNGで保存</a>・<a href="life-2.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <p class="fig-note">図はタップすると大きく表示されます。資料やSNSに使うときは、出典「シミュラボ」とページのURLを添えてください。</p>
+</div>
+<!-- rika-figs:end -->
     <p>1970年に数学者コンウェイが考案。単純なルールから、移動する「グライダー」や永遠に動く構造など、驚くほど複雑なパターンが生まれます。これは「単純なルールから複雑さが生まれる（創発）」の代表例です。</p>
     <!-- enriched-2026-09 -->
 <h2>覚えておきたい有名パターン</h2>

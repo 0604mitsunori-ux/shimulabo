@@ -23,7 +23,7 @@
     <link rel="canonical" href="https://shimulabo.com/sims/turing/">
     <meta property="og:locale" content="ja_JP">
     <meta name="robots" content="index,follow">
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "模様が生まれるシミュレーター", "url": "https://shimulabo.com/sims/turing/", "description": "反応拡散でヒョウ柄やシマ模様が生まれるチューリングパターン。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "模様が生まれるシミュレーター", "url": "https://shimulabo.com/sims/turing/", "description": "反応拡散でヒョウ柄やシマ模様が生まれるチューリングパターン。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}, "image": ["https://shimulabo.com/sims/turing/turing-1.png", "https://shimulabo.com/sims/turing/turing-2.png"]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "模様が生まれるシミュレーター", "item": "https://shimulabo.com/sims/turing/"}]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "ランダムに描いてるの？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。物質の反応と拡散の数式から、模様が自然に立ち上がります。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動作します。"}}, {"@type": "Question", "name": "ランダムに描いているの？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。上の式を格子上で毎フレーム計算しています。最初の小さなノイズが、式に従って自然に模様へ成長します。"}}, {"@type": "Question", "name": "人間にも当てはまる？", "acceptedAnswer": {"@type": "Answer", "text": "指紋の渦や、歯の並び、毛包の間隔などに反応拡散の考え方が使われています。砂漠の植生パターンや砂丘の縞模様も同じ仕組みで説明されます。"}}]}</script>
     <!-- ga4 -->
@@ -32,6 +32,7 @@
     <!-- adsense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
          crossorigin="anonymous"></script>
+<style id="rika-fig-style">.rika-figs{margin:8px 0 22px}.rika-fig{margin:0 0 18px}.rika-fig a.zoom{display:block}.rika-fig img{display:block;width:100%;height:auto;border:1px solid var(--line,#e2ded4);border-radius:8px;background:#faf8f3}.rika-fig figcaption{font-size:13.5px;line-height:1.7;margin-top:6px;color:var(--ink-2,#3d434b)}.rika-fig .dl{white-space:nowrap;margin-left:6px;font-size:12.5px}.rika-figs .fig-note{font-size:12.5px;color:var(--ink-2,#3d434b);margin:0}</style>
 </head>
 <body>
 
@@ -76,7 +77,20 @@
   <article class="article">
     <h2>チューリングパターン</h2>
     <p>計算機科学の父アラン・チューリングが提唱した理論です。「広がる速さの違う2つの物質が反応し合う」だけで、自然に規則的な模様が生まれることを示しました。シマウマ・ヒョウ・熱帯魚・貝殻など、生き物の模様の説明に使われています。</p>
-    <!-- enriched-2026-09 -->
+    <!-- rika-figs:start -->
+<div class="rika-figs">
+  <figure class="rika-fig" id="zu1">
+    <a class="zoom" href="turing-1.png" target="_blank" rel="noopener"><img src="turing-1.svg" width="1200" height="675" loading="lazy" decoding="async" alt="反応拡散で模様が生まれるしくみの図。ふえる物質 v はゆっくり広がり、材料 u は速く広がる。水玉模様の断面のグラフでは、v の山の所で u が大きく減っている。v がふえるとまわりの u が足りなくなり、少しはなれた所に次の山ができることを3つの段階で示している。"></a>
+    <figcaption><b>図1</b>　反応拡散（チューリングパターン）のしくみ。近くでふえ、はなれた所ではおさえられることで、間かくのそろった模様になる。<span class="dl"><a href="turing-1.png" download>PNGで保存</a>・<a href="turing-1.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <figure class="rika-fig" id="zu2">
+    <a class="zoom" href="turing-2.png" target="_blank" rel="noopener"><img src="turing-2.svg" width="1200" height="675" loading="lazy" decoding="async" alt="グレイ・スコット模型で、水玉・ヒョウ柄（F=0.035、k=0.065）、しま模様（F=0.055、k=0.062）、迷路（F=0.029、k=0.057）の3つの設定ごとに、1,000・4,000・8,000・16,000ステップ後の模様の育ち方を並べた図。"></a>
+    <figcaption><b>図2</b>　F と k による模様のちがい（シミュと同じ計算）。真ん中の小さな四角から、設定ごとにちがう模様が広がる。<span class="dl"><a href="turing-2.png" download>PNGで保存</a>・<a href="turing-2.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <p class="fig-note">図はタップすると大きく表示されます。資料やSNSに使うときは、出典「シミュラボ」とページのURLを添えてください。</p>
+</div>
+<!-- rika-figs:end -->
+<!-- enriched-2026-09 -->
 <h2>反応拡散の式（グレイ・スコット模型）</h2>
 <p>2つの物質 u と v が「反応して増減しながら、広がる」様子を式にします。u は速く広がり、v は遅く広がる——この<b>拡散速度の差</b>が模様の源です。</p>
 <div class="note">∂u/∂t = Dᵤ∇²u − uv² + F(1 − u)<br>∂v/∂t = Dᵥ∇²v + uv² − (F + k)v</div>
@@ -92,7 +106,7 @@
     <h2 style="margin-top:0;">🔬 理科の授業で使うとき</h2>
     <ul style="margin:0 0 12px;padding-left:1.2em;line-height:1.7;"><li><b>化学 化学反応と化学平衡（発展：反応拡散）</b>　2種類の物質の反応と拡散だけで、しま模様やまだら模様が自然にできる。</li><li><b>生物 遺伝情報の発現と発生（発展）</b>　生き物の体の模様ができる仕組みの一つとされる反応拡散のパターン。</li></ul>
     <p style="font-size:13.5px;font-weight:700;margin:0 0 8px;">同じ単元の授業向けシミュ</p><div class="related-grid"><a class="related-card" href="../denshi-haichi/"><span class="e">🔬</span><span>原子の構造と電子配置のシミュレーター（周期表・価電子・イオン）</span></a><a class="related-card" href="../chuwa-ion/"><span class="e">🔬</span><span>酸・アルカリと中和のシミュレーター（BTB溶液の色とイオンのモデル）</span></a><a class="related-card" href="../kagaku-shitsuryou/"><span class="e">🔬</span><span>化学変化と質量シミュレーター（銅・マグネシウムの酸化）</span></a><a class="related-card" href="../iden-fudou/"><span class="e">🔬</span><span>遺伝的浮動とハーディー・ワインベルグの法則のシミュレーター</span></a></div>
-    <p style="margin:12px 0 0;"><a href="../../rika/#ko">高校の単元から授業向けシミュを探す（小学校〜高校・91本）→</a></p>
+    <p style="margin:12px 0 0;"><a href="../../rika/#ko">高校の単元から授業向けシミュを探す（小学校〜高校・101本）→</a></p>
   </section>
 <!-- rika-links:end -->
   <nav class="related" aria-label="related">

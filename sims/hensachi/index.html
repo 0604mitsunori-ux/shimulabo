@@ -23,7 +23,7 @@
     <link rel="canonical" href="https://shimulabo.com/sims/hensachi/">
     <meta property="og:locale" content="ja_JP">
     <meta name="robots" content="index,follow">
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "偏差値計算シミュレーター", "url": "https://shimulabo.com/sims/hensachi/", "description": "自分の点数とクラスの平均点・標準偏差から、偏差値と上位何％かの目安を計算する先生・生徒向け無料ツール。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "偏差値計算シミュレーター", "url": "https://shimulabo.com/sims/hensachi/", "description": "自分の点数とクラスの平均点・標準偏差から、偏差値と上位何％かの目安を計算する先生・生徒向け無料ツール。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}, "image": ["https://shimulabo.com/sims/hensachi/hensachi-1.png", "https://shimulabo.com/sims/hensachi/hensachi-2.png"]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "偏差値計算シミュレーター", "item": "https://shimulabo.com/sims/hensachi/"}]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "上位％はどう出す？", "acceptedAnswer": {"@type": "Answer", "text": "正規分布を仮定した近似で算出しています。実際の分布で多少ずれます。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
     <!-- adsense -->
@@ -32,6 +32,7 @@
     <!-- ga4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+<style id="rika-fig-style">.rika-figs{margin:8px 0 22px}.rika-fig{margin:0 0 18px}.rika-fig a.zoom{display:block}.rika-fig img{display:block;width:100%;height:auto;border:1px solid var(--line,#e2ded4);border-radius:8px;background:#faf8f3}.rika-fig figcaption{font-size:13.5px;line-height:1.7;margin-top:6px;color:var(--ink-2,#3d434b)}.rika-fig .dl{white-space:nowrap;margin-left:6px;font-size:12.5px}.rika-figs .fig-note{font-size:12.5px;color:var(--ink-2,#3d434b);margin:0}</style>
 </head>
 <body>
 
@@ -96,6 +97,19 @@
     <h2>偏差値の計算</h2>
     <div class="note"><strong>計算式</strong><br>偏差値 ＝ 50 ＋ 10 ×（点数 − 平均）÷ 標準偏差</div>
     <p>偏差値50が平均、60で上位約16％、70で上位約2％が目安。点数の分布が正規分布に近いほど精度が上がります。標準偏差が分からないときは15前後で概算を。</p>
+<!-- rika-figs:start -->
+<div class="rika-figs">
+  <figure class="rika-fig" id="zu1">
+    <a class="zoom" href="hensachi-1.png" target="_blank" rel="noopener"><img src="hensachi-1.svg" width="1200" height="675" loading="lazy" decoding="async" alt="偏差値のしくみの図。偏差値＝50＋10×（点数−平均点）÷標準偏差の式（70点・平均60点・標準偏差15で偏差値56.7）と、正規分布の山に偏差値20〜80と点数の例を並べ、偏差値40〜60に約68%、偏差値60以上が上位約15.9%、70以上が上位約2.3%であることを示す。"></a>
+    <figcaption><b>図1</b>　偏差値のしくみ。偏差値50が平均で、60以上は上位約16%、70以上は上位約2%（正規分布を仮定）。<span class="dl"><a href="hensachi-1.png" download>PNGで保存</a>・<a href="hensachi-1.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <figure class="rika-fig" id="zu2">
+    <a class="zoom" href="hensachi-2.png" target="_blank" rel="noopener"><img src="hensachi-2.svg" width="1200" height="675" loading="lazy" decoding="async" alt="偏差値と上位％の早見表。偏差値35〜75について上位およそ何％か・100人中の順位・平均60点標準偏差15のテストでの点数と、上位1%・5%・10%・20%・30%・50%に入るのに必要な偏差値と点数をまとめた表。"></a>
+    <figcaption><b>図2</b>　偏差値と上位％の早見表。上位10%に入るには偏差値約62.8、上位1%なら約73.3が目安。<span class="dl"><a href="hensachi-2.png" download>PNGで保存</a>・<a href="hensachi-2.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <p class="fig-note">図はタップすると大きく表示されます。資料やSNSに使うときは、出典「シミュラボ」とページのURLを添えてください。</p>
+</div>
+<!-- rika-figs:end -->
     <h2>よくある質問</h2><dl class="faq"><dt>上位％はどう出す？</dt><dd>正規分布を仮定した近似で算出しています。実際の分布で多少ずれます。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
   </article>
 

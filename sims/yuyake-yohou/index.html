@@ -23,7 +23,7 @@
     <link rel="canonical" href="https://shimulabo.com/sims/yuyake-yohou/">
     <meta property="og:locale" content="ja_JP">
     <meta name="robots" content="index,follow">
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "今日の夕焼け予報", "url": "https://shimulabo.com/sims/yuyake-yohou/", "description": "日没時刻の雲量から夕焼けの当たり日を予測。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "今日の夕焼け予報", "url": "https://shimulabo.com/sims/yuyake-yohou/", "description": "日没時刻の雲量から夕焼けの当たり日を予測。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}, "image": ["https://shimulabo.com/sims/yuyake-yohou/yuyake-yohou-1.png", "https://shimulabo.com/sims/yuyake-yohou/yuyake-yohou-2.png"]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "今日の夕焼け予報", "item": "https://shimulabo.com/sims/yuyake-yohou/"}]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "データの出典は？", "acceptedAnswer": {"@type": "Answer", "text": "気象オープンデータAPI（Open-Meteo）から、選んだ地点の今日の日没時刻と雲量予報を取得しています。"}}, {"@type": "Question", "name": "なぜ雲があるほうが焼けるの？", "acceptedAnswer": {"@type": "Answer", "text": "沈んだ直後の太陽光は地平線の下から雲の底を赤く照らします。雲がないと光を受け止めるスクリーンがなく、グラデーションだけで終わります。"}}, {"@type": "Question", "name": "入力データは送信される？", "acceptedAnswer": {"@type": "Answer", "text": "地域の選択のみを気象APIへの問い合わせに使います。個人情報は一切送信されません。"}}]}</script>
     <!-- ga4 -->
@@ -32,6 +32,7 @@
     <!-- adsense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
          crossorigin="anonymous"></script>
+<style id="rika-fig-style">.rika-figs{margin:8px 0 22px}.rika-fig{margin:0 0 18px}.rika-fig a.zoom{display:block}.rika-fig img{display:block;width:100%;height:auto;border:1px solid var(--line,#e2ded4);border-radius:8px;background:#faf8f3}.rika-fig figcaption{font-size:13.5px;line-height:1.7;margin-top:6px;color:var(--ink-2,#3d434b)}.rika-fig .dl{white-space:nowrap;margin-left:6px;font-size:12.5px}.rika-figs .fig-note{font-size:12.5px;color:var(--ink-2,#3d434b);margin:0}</style>
 </head>
 <body>
 
@@ -89,7 +90,20 @@
   <article class="article">
     <h2>この予報について</h2>
     <p>意外なことに、快晴の夕焼けは平凡です。空が燃えるように焼けるのは、上空に適度な雲（目安2〜6割）があって、沈んだ太陽の光を下から照らすとき。逆に雲が厚すぎると光が届かず、ただ暗くなります。この予報は気象オープンデータAPI（Open-Meteo）から今日の日没時刻とその時間帯の雲量を取得し、「焼け度」を0〜100点で表します。</p>
-    <div class="note">いちばん焼けるのは日没の5〜20分後、いわゆるマジックアワーです。太陽が沈んだからと帰るのは、いちばんおいしいところを捨てています。</div>
+    <!-- rika-figs:start -->
+<div class="rika-figs">
+  <figure class="rika-fig" id="zu1">
+    <a class="zoom" href="yuyake-yohou-1.png" target="_blank" rel="noopener"><img src="yuyake-yohou-1.svg" width="1200" height="675" loading="lazy" decoding="async" alt="夕焼けが赤い理由を示す図。太陽が高い昼は光が空気の中を通る道のりが短く、散らばりやすい青い光が空いっぱいに広がって空が青く見える。太陽が地平線の近くにある夕方は道のりが約38倍になり、青い光が途中で散乱して減り、赤・オレンジの光が届いて夕焼けになる。"></a>
+    <figcaption><b>図1</b>　夕焼けが赤いしくみ。地平線近くの太陽の光は空気の中を長く通り、青い光が散らばって赤い光が残る。<span class="dl"><a href="yuyake-yohou-1.png" download>PNGで保存</a>・<a href="yuyake-yohou-1.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <figure class="rika-fig" id="zu2">
+    <a class="zoom" href="yuyake-yohou-2.png" target="_blank" rel="noopener"><img src="yuyake-yohou-2.svg" width="1200" height="675" loading="lazy" decoding="async" alt="今日の夕焼け予報の判定の決まり。日の入りのころの雲量が0〜5%なら55点、6〜15%は70点、16〜40%は88点、41〜65%は74点、66〜85%は40点、86%以上は15点。日没後に地平線の下の太陽が雲の底を照らす様子と、ベスト観賞タイム（日の入りの5〜20分後）も示す。"></a>
+    <figcaption><b>図2</b>　焼け度の決まり。日の入りのころの雲量が16〜40%の日がいちばん高い88点。見ごろは日の入りの5〜20分後。<span class="dl"><a href="yuyake-yohou-2.png" download>PNGで保存</a>・<a href="yuyake-yohou-2.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <p class="fig-note">図はタップすると大きく表示されます。資料やSNSに使うときは、出典「シミュラボ」とページのURLを添えてください。</p>
+</div>
+<!-- rika-figs:end -->
+<div class="note">いちばん焼けるのは日没の5〜20分後、いわゆるマジックアワーです。太陽が沈んだからと帰るのは、いちばんおいしいところを捨てています。</div>
     <h2>引用・転載について</h2>
     <p>本ページの計算結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・社内資料への引用を歓迎します。事前連絡は不要です。</p>
     <div class="note">推奨クレジット表記：<code>出典：シミュラボ「今日の夕焼け予報」 https://shimulabo.com/sims/yuyake-yohou/</code><br>Webでご利用の際は上記URLへのリンク設置をお願いします。</div>

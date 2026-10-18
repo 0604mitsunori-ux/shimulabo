@@ -23,7 +23,7 @@
     <link rel="canonical" href="https://shimulabo.com/sims/shusseki-ritsu/">
     <meta property="og:locale" content="ja_JP">
     <meta name="robots" content="index,follow">
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "出席率シミュレーター", "url": "https://shimulabo.com/sims/shusseki-ritsu/", "description": "授業日数と欠席日数から、出席率と「皆勤まであと何日休めるか」の目安を計算する先生・保護者向け無料ツール。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "出席率シミュレーター", "url": "https://shimulabo.com/sims/shusseki-ritsu/", "description": "授業日数と欠席日数から、出席率と「皆勤まであと何日休めるか」の目安を計算する先生・保護者向け無料ツール。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}, "image": ["https://shimulabo.com/sims/shusseki-ritsu/shusseki-ritsu-1.png", "https://shimulabo.com/sims/shusseki-ritsu/shusseki-ritsu-2.png"]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "出席率シミュレーター", "item": "https://shimulabo.com/sims/shusseki-ritsu/"}]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "出席率80%だと何回休める？", "acceptedAnswer": {"@type": "Answer", "text": "授業15回なら3回、30回なら6回、年間200日なら40日まで休めます（欠席回数 ≦ 授業回数 × 0.2）。"}}, {"@type": "Question", "name": "3分の2以上の出席は何回？", "acceptedAnswer": {"@type": "Answer", "text": "授業15回なら10回以上の出席（欠席5回まで）、30回なら20回以上の出席（欠席10回まで）が必要です。"}}, {"@type": "Question", "name": "出席率は何％あればいい？", "acceptedAnswer": {"@type": "Answer", "text": "学校段階や学校の規定によって異なります。高校・大学では「3分の2以上（約66.7％以上）」を単位・進級の要件とすることが多いですが、必ず在籍校の規定をご確認ください。"}}, {"@type": "Question", "name": "遅刻・早退はどう数える？", "acceptedAnswer": {"@type": "Answer", "text": "本ツールは欠席日数のみで計算します。遅刻・早退を欠席に換算したい場合は、遅刻・早退→欠席換算ツールをご利用ください。換算ルールは校則に従ってください。"}}, {"@type": "Question", "name": "欠席が何日まで大丈夫か知りたい", "acceptedAnswer": {"@type": "Answer", "text": "年間授業日数を入れると「9割維持まであと何日休めるか」の目安を表示します。目標出席率で細かく計算したい場合は皆勤・精勤 判定や必要出席日数 計算もどうぞ。"}}, {"@type": "Question", "name": "出席停止（インフルエンザ等）は欠席になる？", "acceptedAnswer": {"@type": "Answer", "text": "学校保健安全法に基づく出席停止や忌引きは「欠席日数」に含めない扱いが一般的ですが、記録の仕方は学校によります。詳しくは学校にご確認ください。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてあなたのブラウザ内で完結します。"}}]}</script>
     <!-- adsense -->
@@ -32,6 +32,7 @@
     <!-- ga4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+<style id="rika-fig-style">.rika-figs{margin:8px 0 22px}.rika-fig{margin:0 0 18px}.rika-fig a.zoom{display:block}.rika-fig img{display:block;width:100%;height:auto;border:1px solid var(--line,#e2ded4);border-radius:8px;background:#faf8f3}.rika-fig figcaption{font-size:13.5px;line-height:1.7;margin-top:6px;color:var(--ink-2,#3d434b)}.rika-fig .dl{white-space:nowrap;margin-left:6px;font-size:12.5px}.rika-figs .fig-note{font-size:12.5px;color:var(--ink-2,#3d434b);margin:0}</style>
 </head>
 <body>
 
@@ -96,6 +97,19 @@
     <h2>出席率の計算方法</h2>
     <div class="note"><strong>計算式</strong><br>出席率（％）＝（授業日数 − 欠席日数）÷ 授業日数 × 100</div>
     <p>出席率は「これまでの授業日数のうち、実際に出席した日数の割合」です。たとえば授業日数120日で欠席が5日なら、出席率は (120−5)÷120×100 ＝ <b>約95.8％</b> になります。進級・進学・皆勤の判定、保護者面談の資料づくりなどに使われる基本の数字です。</p>
+<!-- rika-figs:start -->
+<div class="rika-figs">
+  <figure class="rika-fig" id="zu1">
+    <a class="zoom" href="shusseki-ritsu-1.png" target="_blank" rel="noopener"><img src="shusseki-ritsu-1.svg" width="1200" height="675" loading="lazy" decoding="async" alt="出席率の計算方法の図。出席率（%）＝（授業日数−欠席日数）÷授業日数×100の式と、授業日数120日・欠席5日で出席率約95.8%になる計算例、年間200日で9割を保てる欠席は20日までであること、欠席0〜60日の出席率の早見表。"></a>
+    <figcaption><b>図1</b>　出席率の計算方法。出席率＝（授業日数−欠席日数）÷授業日数×100。年間200日なら欠席20日で90%。<span class="dl"><a href="shusseki-ritsu-1.png" download>PNGで保存</a>・<a href="shusseki-ritsu-1.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <figure class="rika-fig" id="zu2">
+    <a class="zoom" href="shusseki-ritsu-2.png" target="_blank" rel="noopener"><img src="shusseki-ritsu-2.svg" width="1200" height="675" loading="lazy" decoding="async" alt="出席率90%・80%・75%・3分の2以上を保つために休める回数の早見表。授業15回（大学の半期）・30回（大学の通年）・35回（高校の週1科目）・年間200日ごとの欠席の上限と、15回で3分の2以上なら欠席5回までになる例。"></a>
+    <figcaption><b>図2</b>　出席率を保てる欠席回数の早見表。欠席回数 ≦ 授業回数 ×（1 − 出席率）、端数は切り捨て。<span class="dl"><a href="shusseki-ritsu-2.png" download>PNGで保存</a>・<a href="shusseki-ritsu-2.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <p class="fig-note">図はタップすると大きく表示されます。資料やSNSに使うときは、出典「シミュラボ」とページのURLを添えてください。</p>
+</div>
+<!-- rika-figs:end -->
     <h2>出席率の早見表（年間200日の場合）</h2>
     <p>年間授業日数を200日としたときの、欠席日数ごとの出席率の目安です。自分の状況に近いところを確認してみてください。</p>
     <div style="overflow-x:auto;">

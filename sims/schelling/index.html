@@ -23,7 +23,7 @@
     <link rel="canonical" href="https://shimulabo.com/sims/schelling/">
     <meta property="og:locale" content="ja_JP">
     <meta name="robots" content="index,follow">
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "街の分断シミュレーター", "url": "https://shimulabo.com/sims/schelling/", "description": "弱い好みだけで街が分断されるシェリングの分居モデル。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "街の分断シミュレーター", "url": "https://shimulabo.com/sims/schelling/", "description": "弱い好みだけで街が分断されるシェリングの分居モデル。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}, "image": ["https://shimulabo.com/sims/schelling/schelling-1.png", "https://shimulabo.com/sims/schelling/schelling-2.png"]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "街の分断シミュレーター", "item": "https://shimulabo.com/sims/schelling/"}]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "差別の話ですか？", "acceptedAnswer": {"@type": "Answer", "text": "むしろ逆で、強い差別意識がなくても分離が起きうることを示すモデルです。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動作します。"}}, {"@type": "Question", "name": "現実の街でも同じことが起きている？", "acceptedAnswer": {"@type": "Answer", "text": "アメリカの都市の人種別居住分布や、SNSでの意見の分極（フィルターバブル）を説明するモデルとしてよく引用されます。「本人の意図」と「全体の結果」が一致しないことを示す代表例です。"}}, {"@type": "Question", "name": "分断を防ぐには？", "acceptedAnswer": {"@type": "Answer", "text": "モデル上では、空き地を増やす／満足ラインを下げる／「同類が多すぎても不満」という条件を足す、などで混合状態が保たれます。現実の都市政策でもこうした示唆が議論されています。"}}]}</script>
     <!-- ga4 -->
@@ -32,6 +32,7 @@
     <!-- adsense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
          crossorigin="anonymous"></script>
+<style id="rika-fig-style">.rika-figs{margin:8px 0 22px}.rika-fig{margin:0 0 18px}.rika-fig a.zoom{display:block}.rika-fig img{display:block;width:100%;height:auto;border:1px solid var(--line,#e2ded4);border-radius:8px;background:#faf8f3}.rika-fig figcaption{font-size:13.5px;line-height:1.7;margin-top:6px;color:var(--ink-2,#3d434b)}.rika-fig .dl{white-space:nowrap;margin-left:6px;font-size:12.5px}.rika-figs .fig-note{font-size:12.5px;color:var(--ink-2,#3d434b);margin:0}</style>
 </head>
 <body>
 
@@ -76,7 +77,20 @@
   <article class="article">
     <h2>シェリングの分居モデル</h2>
     <p>経済学者シェリングが示した有名なモデルです。各住人は「近所の◯％以上が同じ仲間なら満足、足りなければ引っ越す」というルールだけで動きます。<strong>「相手を排除したい」という気持ちはゼロ</strong>。それでも、わずかな好みが積み重なると、街全体は強く分断されてしまいます。</p>
-    <p>社会の分断やフィルターバブルを考えるうえで示唆に富んだモデルです。</p>
+    <!-- rika-figs:start -->
+<div class="rika-figs">
+  <figure class="rika-fig" id="zu1">
+    <a class="zoom" href="schelling-1.png" target="_blank" rel="noopener"><img src="schelling-1.svg" width="1200" height="675" loading="lazy" decoding="async" alt="シェリングの分居モデルのしくみの図。真ん中の住人のまわり8マスで、同じ仲間の割合が満足ライン35%以上なら満足（例：3人÷7人＝43%）、未満なら不満で空き地へ引っ越す（例：2人÷7人＝29%）ことと、引っ越しが別の人の不満を生んで連鎖することを示している。"></a>
+    <figcaption><b>図1</b>　街の分断のしくみ。近所の同じ仲間の割合が満足ラインに届かない人だけが引っ越し、それが連鎖する。<span class="dl"><a href="schelling-1.png" download>PNGで保存</a>・<a href="schelling-1.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <figure class="rika-fig" id="zu2">
+    <a class="zoom" href="schelling-2.png" target="_blank" rel="noopener"><img src="schelling-2.svg" width="1200" height="675" loading="lazy" decoding="async" alt="シェリングの分居モデルを同じスタートから満足ライン20%・35%・50%・70%で動かした結果の比較。はじめは近所の同じ仲間の割合が約50%だが、満足ライン35%でも約8割、70%ではほぼ全員が同じ仲間に囲まれるほど街が分かれる。"></a>
+    <figcaption><b>図2</b>　満足ラインと分かれ方の比較（シミュと同じ計算の一例）。「3割ほどでいい」という弱い好みでも、街ははっきり分かれる。<span class="dl"><a href="schelling-2.png" download>PNGで保存</a>・<a href="schelling-2.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <p class="fig-note">図はタップすると大きく表示されます。資料やSNSに使うときは、出典「シミュラボ」とページのURLを添えてください。</p>
+</div>
+<!-- rika-figs:end -->
+<p>社会の分断やフィルターバブルを考えるうえで示唆に富んだモデルです。</p>
     <!-- enriched-2026-09 -->
 <h2>数字で見る「弱い好み」の威力</h2>
 <p>1971年にトーマス・シェリングが示したこのモデルでは、住人が「近所の<b>3割</b>が同じ仲間なら満足」という、むしろ多様性に寛容といえる条件でも、街はくっきり分かれます。満足ラインを上げていくと分離はさらに進み、7割前後になると「どこに引っ越しても満足できない人」が出て、街が落ち着かなくなります。</p>

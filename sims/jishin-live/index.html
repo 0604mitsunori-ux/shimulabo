@@ -23,7 +23,7 @@
     <link rel="canonical" href="https://shimulabo.com/sims/jishin-live/">
     <meta property="og:locale" content="ja_JP">
     <meta name="robots" content="index,follow">
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "日本はいまも揺れている", "url": "https://shimulabo.com/sims/jishin-live/", "description": "直近24時間に日本で起きた地震の回数をリアルタイム集計。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "日本はいまも揺れている", "url": "https://shimulabo.com/sims/jishin-live/", "description": "直近24時間に日本で起きた地震の回数をリアルタイム集計。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}, "image": ["https://shimulabo.com/sims/jishin-live/jishin-live-1.png", "https://shimulabo.com/sims/jishin-live/jishin-live-2.png"]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "日本はいまも揺れている", "item": "https://shimulabo.com/sims/jishin-live/"}]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "いま起きた地震の震源と震度は？", "acceptedAnswer": {"@type": "Answer", "text": "このページの先頭「最新の地震」に、気象庁が発表した最新の地震の発生時刻・震源・マグニチュード・深さ・最大震度・津波の情報・各地の震度を表示しています。「最新に更新」で読み直せます。"}}, {"@type": "Question", "name": "震度とマグニチュードの違いは？", "acceptedAnswer": {"@type": "Answer", "text": "震度はその場所の揺れの強さ（震度0〜7の10段階）、マグニチュードは地震そのものの規模です。1つの地震でマグニチュードは1つですが、震度は場所ごとに違います。"}}, {"@type": "Question", "name": "この地震で津波の心配はありますか？", "acceptedAnswer": {"@type": "Answer", "text": "「最新の地震」の津波の情報に、気象庁の発表（津波の心配なし／若干の海面変動／調査中／津波注意報・警報）を表示しています。注意報・警報が出ているときは、ページを見るより先に海岸から離れて高い所へ避難してください。"}}, {"@type": "Question", "name": "地震データの出典は？", "acceptedAnswer": {"@type": "Answer", "text": "気象庁の地震情報を中継配信しているオープンAPI（P2P地震情報）から、ページを開くたびに最新の地震履歴を取得しています。"}}, {"@type": "Question", "name": "掲載されるのはどんな地震？", "acceptedAnswer": {"@type": "Answer", "text": "気象庁が発表した震度1以上の地震情報です。体に感じない無感地震を含めると、日本の地震回数はこの何倍にもなります。"}}]}</script>
     <!-- ga4 -->
@@ -49,6 +49,7 @@
 .quake-now .qn-links a{font-size:13px}
 @media (max-width:520px){.quake-now .qn-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.quake-now .qn-main{font-size:17px}}
 </style>
+<style id="rika-fig-style">.rika-figs{margin:8px 0 22px}.rika-fig{margin:0 0 18px}.rika-fig a.zoom{display:block}.rika-fig img{display:block;width:100%;height:auto;border:1px solid var(--line,#e2ded4);border-radius:8px;background:#faf8f3}.rika-fig figcaption{font-size:13.5px;line-height:1.7;margin-top:6px;color:var(--ink-2,#3d434b)}.rika-fig .dl{white-space:nowrap;margin-left:6px;font-size:12.5px}.rika-figs .fig-note{font-size:12.5px;color:var(--ink-2,#3d434b);margin:0}</style>
 </head>
 <body>
 
@@ -136,6 +137,19 @@
       <tr><td>1つの地震で</td><td>場所ごとに違う</td><td>1つ</td></tr>
       <tr><td>段階</td><td>0・1・2・3・4・5弱・5強・6弱・6強・7（10段階）</td><td>M1増えるとエネルギー約32倍</td></tr>
     </table>
+<!-- rika-figs:start -->
+<div class="rika-figs">
+  <figure class="rika-fig" id="zu1">
+    <a class="zoom" href="jishin-live-1.png" target="_blank" rel="noopener"><img src="jishin-live-1.svg" width="1200" height="675" loading="lazy" decoding="async" alt="震度とマグニチュードの違いを示す図。震源で起きた1つの地震（マグニチュードは1つ）でも、震源に近い町・少しはなれた町・遠い町で震度が6弱・4・2のように場所ごとに違う例と、マグニチュードが1大きいとエネルギーが約32倍、2大きいと約1000倍になること、気象庁の震度は0〜7の10階級であることをまとめている。"></a>
+    <figcaption><b>図1</b>　震度はその場所の揺れの強さ、マグニチュードは地震そのものの規模。1つの地震でマグニチュードは1つ、震度は場所ごとにちがう。<span class="dl"><a href="jishin-live-1.png" download>PNGで保存</a>・<a href="jishin-live-1.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <figure class="rika-fig" id="zu2">
+    <a class="zoom" href="jishin-live-2.png" target="_blank" rel="noopener"><img src="jishin-live-2.svg" width="1200" height="675" loading="lazy" decoding="async" alt="気象庁の震度階級（震度0・1・2・3・4・5弱・5強・6弱・6強・7の10階級）ごとに、人の感じ方・行動と屋内のようす（つり下げ物・食器・家具など）の目安をまとめた早見表。"></a>
+    <figcaption><b>図2</b>　震度階級の目安。震度5弱から家具が動き始め、6弱では立っていることが困難になる。<span class="dl"><a href="jishin-live-2.png" download>PNGで保存</a>・<a href="jishin-live-2.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <p class="fig-note">図はタップすると大きく表示されます。資料やSNSに使うときは、出典「シミュラボ」とページのURLを添えてください。</p>
+</div>
+<!-- rika-figs:end -->
     <h2>地震の情報が出る順番</h2>
     <p>大きな揺れを観測すると、気象庁はおよそ次の順に情報を発表します。①<b>震度速報</b>（震度3以上の地域）→ ②<b>震源に関する情報</b>（震源・マグニチュード・津波の心配の有無）→ ③<b>震源・震度に関する情報</b>（各地の震度）。このページの「最新の地震」は、届いた情報をまとめて表示しているため、発生直後は震源やマグニチュードが「調査中」になり、数分後に埋まっていきます。</p>
     <div class="note">揺れを感じたら、まず身の安全を確保してください。津波の心配があるときは、このページを見るより先に、海岸や川から離れて高い所へ移動してください。</div>
@@ -152,7 +166,7 @@
     <h2 style="margin-top:0;">🔬 理科の授業で使うとき</h2>
     <ul style="margin:0 0 12px;padding-left:1.2em;line-height:1.7;"><li><b>小6 土地のつくりと変化</b>　日本では毎日のように地震が起きていることを、直近24時間の実データで確かめる（ライブ）。</li><li><b>中1 火山と地震</b>　日本で起きている地震の回数と規模を、直近24時間の実データで（ライブ）。</li><li><b>地学基礎 活動する地球</b>　日本付近の地震の発生状況を実データで（ライブ）。</li></ul>
     <p style="font-size:13.5px;font-weight:700;margin:0 0 8px;">同じ単元の授業向けシミュ</p><div class="related-grid"><a class="related-card" href="../chisou/"><span class="e">🔬</span><span>地層のでき方と柱状図シミュレーター（鍵層・化石・断層・しゅう曲）</span></a><a class="related-card" href="../nenshou/"><span class="e">🔬</span><span>ものの燃え方と空気シミュレーター（集気びん・酸素と二酸化炭素）</span></a><a class="related-card" href="../chuwa-ion/"><span class="e">🔬</span><span>酸・アルカリと中和のシミュレーター（BTB溶液の色とイオンのモデル）</span></a><a class="related-card" href="../kougousei/"><span class="e">🔬</span><span>光合成と呼吸のシミュレーター（気体の出入り・BTB溶液・ヨウ素液・蒸散）</span></a></div>
-    <p style="margin:12px 0 0;"><a href="../../rika/#sho">小学校の単元から授業向けシミュを探す（小学校〜高校・91本）→</a></p>
+    <p style="margin:12px 0 0;"><a href="../../rika/#sho">小学校の単元から授業向けシミュを探す（小学校〜高校・101本）→</a></p>
   </section>
 <!-- rika-links:end -->
   <nav class="related" aria-label="related">

@@ -23,7 +23,7 @@
     <link rel="canonical" href="https://shimulabo.com/sims/furiko-jikken/">
     <meta property="og:locale" content="ja_JP">
     <meta name="robots" content="index,follow">
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": ["WebApplication", "LearningResource"], "name": "振り子の実験シミュレーター（1往復の時間を調べよう）", "url": "https://shimulabo.com/sims/furiko-jikken/", "description": "糸の長さ・おもりの重さ・振れ幅を1つずつ変えて10往復の時間を計測。振り子の1往復の時間は何で決まる？", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "educationalLevel": "小学5年", "learningResourceType": "シミュレーション", "teaches": "小5 振り子の運動", "educationalUse": ["授業", "自習"], "audience": {"@type": "EducationalAudience", "educationalRole": ["teacher", "student"]}, "educationalAlignment": {"@type": "AlignmentObject", "alignmentType": "educationalSubject", "educationalFramework": "学習指導要領（平成29・30年告示）", "targetName": "小学校 第5学年 A（2）振り子の運動"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": ["WebApplication", "LearningResource"], "name": "振り子の実験シミュレーター（1往復の時間を調べよう）", "url": "https://shimulabo.com/sims/furiko-jikken/", "description": "糸の長さ・おもりの重さ・振れ幅を1つずつ変えて10往復の時間を計測。振り子の1往復の時間は何で決まる？", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "educationalLevel": "小学5年", "learningResourceType": "シミュレーション", "teaches": "小5 振り子の運動", "educationalUse": ["授業", "自習"], "audience": {"@type": "EducationalAudience", "educationalRole": ["teacher", "student"]}, "educationalAlignment": {"@type": "AlignmentObject", "alignmentType": "educationalSubject", "educationalFramework": "学習指導要領（平成29・30年告示）", "targetName": "小学校 第5学年 A（2）振り子の運動"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}, "image": ["https://shimulabo.com/sims/furiko-jikken/furiko-jikken-1.png", "https://shimulabo.com/sims/furiko-jikken/furiko-jikken-2.png"]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "理科の授業向け", "item": "https://shimulabo.com/rika/"}, {"@type": "ListItem", "position": 3, "name": "振り子の実験シミュレーター（1往復の時間を調べよう）", "item": "https://shimulabo.com/sims/furiko-jikken/"}]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "振り子が1往復する時間は、何によって変わりますか？", "acceptedAnswer": {"@type": "Answer", "text": "振り子の長さ（糸をつるした所からおもりの中心までの長さ）によって変わります。おもりの重さや振れ幅を変えても、1往復の時間はほとんど変わりません。振り子が長いほど、1往復の時間は長くなります。"}}, {"@type": "Question", "name": "なぜ10往復の時間を計って10でわるのですか？", "acceptedAnswer": {"@type": "Answer", "text": "1往復は1〜2秒くらいと短く、ストップウォッチをおすタイミングのずれが大きく効くからです。10往復の時間を計って10でわると、ずれの影響が10分の1になります。同じ条件で何回か計って平均をとると、さらに正確になります。"}}, {"@type": "Question", "name": "振り子の長さは、どこからどこまでですか？", "acceptedAnswer": {"@type": "Answer", "text": "糸をつるした所（支点）から、おもりの中心までです。おもりのはしではなく、中心までを計ることに注意しましょう。"}}, {"@type": "Question", "name": "おもりの数をふやすとき、下につなげてはいけないのはなぜですか？", "acceptedAnswer": {"@type": "Answer", "text": "おもりを下につなげると、おもり全体の中心が下にずれて、振り子の長さまで長くなってしまうからです。重さだけを変えたいときは、おもりを同じ所に重ねてつるし、振り子の長さを変えないようにします。"}}, {"@type": "Question", "name": "1往復がちょうど1秒になる振り子の長さは？", "acceptedAnswer": {"@type": "Answer", "text": "約25cm（計算では24.8cm）です。1往復が2秒になる長さは約1m（99.3cm）です。長さを4倍にすると、1往復の時間は2倍になります。"}}, {"@type": "Question", "name": "振れ幅を大きくしても、本当に時間は変わらないのですか？", "acceptedAnswer": {"@type": "Answer", "text": "振れ幅が小さいうちは、ほとんど変わりません。くわしく計ると、振れ幅が大きいほどほんの少し長くなり、振れ幅30°では約1.7%長くなります。これは高校の物理で学ぶ内容で、小学校の実験では手で計るずれにかくれてしまうくらいの小さな差です。"}}]}</script>
     <!-- ga4 -->
@@ -56,6 +56,7 @@ canvas.lab.light{background:#fff;}
 .panel:fullscreen canvas.lab{max-width:min(96vw,1100px);}
 .panel:fullscreen .lab-ctl,.panel:fullscreen .lab-stats{max-width:min(96vw,1100px);}
 </style>
+<style id="rika-fig-style">.rika-figs{margin:8px 0 22px}.rika-fig{margin:0 0 18px}.rika-fig a.zoom{display:block}.rika-fig img{display:block;width:100%;height:auto;border:1px solid var(--line,#e2ded4);border-radius:8px;background:#faf8f3}.rika-fig figcaption{font-size:13.5px;line-height:1.7;margin-top:6px;color:var(--ink-2,#3d434b)}.rika-fig .dl{white-space:nowrap;margin-left:6px;font-size:12.5px}.rika-figs .fig-note{font-size:12.5px;color:var(--ink-2,#3d434b);margin:0}</style>
 </head>
 <body>
 
@@ -121,6 +122,19 @@ canvas.lab.light{background:#fff;}
 <li>1往復ではなく、10往復の時間を計って10でわるのはなぜでしょう。</li>
 </ol>
 <h2>しくみ・解説</h2>
+<!-- rika-figs:start -->
+<div class="rika-figs">
+  <figure class="rika-fig" id="zu1">
+    <a class="zoom" href="furiko-jikken-1.png" target="_blank" rel="noopener"><img src="furiko-jikken-1.svg" width="1200" height="675" loading="lazy" decoding="async" alt="振り子の実験のしくみの図。支点（糸をつるした所）、糸、おもり、振れ幅、振り子の長さ（支点からおもりの中心まで）を示し、手をはなした所アから反対側ウへ行ってアにもどるまでが1往復であること、1往復の時間＝10往復の時間÷10（長さ50cmで10往復14.19秒→約1.42秒）の求め方を示す。"></a>
+    <figcaption><b>図1</b>　振り子の1往復と振り子の長さ。1往復の時間は、10往復の時間を計って10でわって求める。<span class="dl"><a href="furiko-jikken-1.png" download>PNGで保存</a>・<a href="furiko-jikken-1.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <figure class="rika-fig" id="zu2">
+    <a class="zoom" href="furiko-jikken-2.png" target="_blank" rel="noopener"><img src="furiko-jikken-2.svg" width="1200" height="675" loading="lazy" decoding="async" alt="振り子の1往復の時間を、条件を1つだけ変えて比べたまとめ図。おもりの重さ（10g・30g・50g）や振れ幅（10°・20°・30°）を変えても1往復は1.42秒で変わらず、振り子の長さを25cm・50cm・100cmにすると1.00秒・1.42秒・2.01秒と長くなる。"></a>
+    <figcaption><b>図2</b>　条件を1つだけ変えて比べた結果。1往復の時間を変えるのは、振り子の長さだけ。<span class="dl"><a href="furiko-jikken-2.png" download>PNGで保存</a>・<a href="furiko-jikken-2.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <p class="fig-note">図はタップすると大きく表示されます。授業のプリント・スライド・板書計画に自由に使えます（出典「シミュラボ」とページのURLを添えてください）。</p>
+</div>
+<!-- rika-figs:end -->
 <h3>1往復と振り子の長さ</h3>
 <p><b>1往復</b>は、おもりが手をはなした所から反対側まで行き、また元の所にもどってくるまでです。<b>振り子の長さ</b>は、糸をつるした所（支点）から、おもりの中心までの長さです。</p>
 <h3>10往復の時間から1往復の時間を求める</h3>

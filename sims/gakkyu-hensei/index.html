@@ -23,7 +23,7 @@
     <link rel="canonical" href="https://shimulabo.com/sims/gakkyu-hensei/">
     <meta property="og:locale" content="ja_JP">
     <meta name="robots" content="index,follow">
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "学級編成シミュレーター", "url": "https://shimulabo.com/sims/gakkyu-hensei/", "description": "学年の児童生徒数と1クラスの上限人数（35人・40人）から、何クラスに編成されるか・1クラスの平均人数・あと何人で1クラス増えるかを計算する先生向け無料ツール。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "学級編成シミュレーター", "url": "https://shimulabo.com/sims/gakkyu-hensei/", "description": "学年の児童生徒数と1クラスの上限人数（35人・40人）から、何クラスに編成されるか・1クラスの平均人数・あと何人で1クラス増えるかを計算する先生向け無料ツール。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}, "image": ["https://shimulabo.com/sims/gakkyu-hensei/gakkyu-hensei-1.png", "https://shimulabo.com/sims/gakkyu-hensei/gakkyu-hensei-2.png"]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "学級編成シミュレーター", "item": "https://shimulabo.com/sims/gakkyu-hensei/"}]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "1人の差でクラスが変わる？", "acceptedAnswer": {"@type": "Answer", "text": "はい。上限を1人超えると1クラス増えます。本ツールでボーダーを確認できます。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
     <!-- adsense -->
@@ -32,6 +32,7 @@
     <!-- ga4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+<style id="rika-fig-style">.rika-figs{margin:8px 0 22px}.rika-fig{margin:0 0 18px}.rika-fig a.zoom{display:block}.rika-fig img{display:block;width:100%;height:auto;border:1px solid var(--line,#e2ded4);border-radius:8px;background:#faf8f3}.rika-fig figcaption{font-size:13.5px;line-height:1.7;margin-top:6px;color:var(--ink-2,#3d434b)}.rika-fig .dl{white-space:nowrap;margin-left:6px;font-size:12.5px}.rika-figs .fig-note{font-size:12.5px;color:var(--ink-2,#3d434b);margin:0}</style>
 </head>
 <body>
 
@@ -66,7 +67,7 @@
   <section class="panel">
     <h2>🏫 条件を入れる</h2>
     <div class="row"><div class="field"><label>学年の児童生徒数 <span class="hint">（人）</span></label><input type="number" id="n" value="72" min="1" inputmode="numeric"></div>
-    <div class="field"><label>1クラスの上限</label><select id="cap"><option value="35" selected>35人（小学校・中学）</option><option value="40">40人</option><option value="30">30人</option></select></div></div>
+    <div class="field"><label>1クラスの上限</label><select id="cap"><option value="35" selected>35人（小学校／中学校は2026年度の中1から順に）</option><option value="40">40人</option><option value="30">30人</option></select></div></div>
     <button class="btn btn-primary" id="calcBtn">クラス数を見る</button>
   </section>
 
@@ -95,6 +96,19 @@
     <h2>学級編制の標準</h2>
     <div class="note"><strong>計算式</strong><br>クラス数 ＝ 児童生徒数 ÷ 1クラスの上限（端数は切り上げ）<br>1クラス平均 ＝ 児童生徒数 ÷ クラス数</div>
     <p>公立小中学校の1学級の人数は「学級編制の標準」で定められ、小学校は段階的に35人学級へ。1人増えるだけでクラス数が変わり、教員配置にも影響します。実際は特別支援学級なども含めた配置になります。</p>
+<!-- rika-figs:start -->
+<div class="rika-figs">
+  <figure class="rika-fig" id="zu1">
+    <a class="zoom" href="gakkyu-hensei-1.png" target="_blank" rel="noopener"><img src="gakkyu-hensei-1.svg" width="1200" height="675" loading="lazy" decoding="async" alt="学級編成のしくみの図。35人学級で学年70人なら35人ずつ2クラス、71人になると3クラス（24人・24人・23人、平均23.7人）に分かれることを座席の丸で示し、クラス数＝人数÷35（切り上げ）、1クラス平均、あと何人で1クラス増えるかの計算をまとめている。"></a>
+    <figcaption><b>図1</b>　学級編成のしくみ。クラス数＝人数÷35（端数は切り上げ）。1人の差でクラス数と1クラスの人数が大きく変わる。<span class="dl"><a href="gakkyu-hensei-1.png" download>PNGで保存</a>・<a href="gakkyu-hensei-1.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <figure class="rika-fig" id="zu2">
+    <a class="zoom" href="gakkyu-hensei-2.png" target="_blank" rel="noopener"><img src="gakkyu-hensei-2.svg" width="1200" height="675" loading="lazy" decoding="async" alt="学年の人数とクラス数の早見表。35人学級と40人学級で1〜6クラスになる学年の人数の範囲と1クラス平均の幅、公立小中学校の学級編制の標準（小学校35人、中学校は2026年度から段階的に40人から35人へ、特別支援学級8人）をまとめた図。"></a>
+    <figcaption><b>図2</b>　学年の人数とクラス数の早見表。35人学級では36人・71人・106人…でクラスが1つ増える。<span class="dl"><a href="gakkyu-hensei-2.png" download>PNGで保存</a>・<a href="gakkyu-hensei-2.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <p class="fig-note">図はタップすると大きく表示されます。資料やSNSに使うときは、出典「シミュラボ」とページのURLを添えてください。</p>
+</div>
+<!-- rika-figs:end -->
     <h2>よくある質問</h2><dl class="faq"><dt>1人の差でクラスが変わる？</dt><dd>はい。上限を1人超えると1クラス増えます。本ツールでボーダーを確認できます。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
   </article>
 

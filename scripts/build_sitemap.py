@@ -69,6 +69,14 @@ def noindex(rel):
     return re.search(r'<meta[^>]+name="robots"[^>]+noindex', head) is not None
 
 
+def images(u):
+    """ページの図（scripts/build_figs.py が作る sims/<slug>/<slug>-<n>.png）を画像サイトマップに載せる（2026-10-18）"""
+    if not u.startswith("/sims/"): return ""
+    slug = u.split("/")[2]; d = os.path.join(ROOT, "sims", slug)
+    pngs = sorted((f for f in os.listdir(d) if re.fullmatch(re.escape(slug) + r"-\d+\.png", f)), key=lambda f: int(f[len(slug) + 1:-4]))
+    return "".join(f"<image:image><image:loc>{BASE}{u}{f}</image:loc></image:image>" for f in pngs)
+
+
 def alt(ja, en):
     return (f'<xhtml:link rel="alternate" hreflang="ja" href="{BASE}{ja}"/>'
             f'<xhtml:link rel="alternate" hreflang="en" href="{BASE}{en}"/>'
@@ -87,13 +95,13 @@ def main():
         a = ""
         if u == "/" and "/en/" in en_set: a = alt("/", "/en/")
         elif u.startswith("/sims/") and "/en" + u in en_set: a = alt(u, "/en" + u)
-        rows.append(f"  <url><loc>{BASE}{u}</loc><lastmod>{lm(rel)}</lastmod>{a}<changefreq>weekly</changefreq><priority>{pr}</priority></url>")
+        rows.append(f"  <url><loc>{BASE}{u}</loc><lastmod>{lm(rel)}</lastmod>{a}{images(u)}<changefreq>weekly</changefreq><priority>{pr}</priority></url>")
     for u, rel in en:
         if noindex(rel): continue
         ja_u = "/" if u == "/en/" else u[3:]
         rows.append(f"  <url><loc>{BASE}{u}</loc><lastmod>{lm(rel)}</lastmod>{alt(ja_u, u)}<changefreq>weekly</changefreq><priority>{'0.9' if u == '/en/' else '0.8'}</priority></url>")
     xml = ('<?xml version="1.0" encoding="UTF-8"?>\n'
-           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
+           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n'
            + "\n".join(rows) + "\n</urlset>\n")
     with open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8", newline="\n") as f:
         f.write(xml)

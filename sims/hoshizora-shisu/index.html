@@ -23,7 +23,7 @@
     <link rel="canonical" href="https://shimulabo.com/sims/hoshizora-shisu/">
     <meta property="og:locale" content="ja_JP">
     <meta name="robots" content="index,follow">
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "今夜の星空指数", "url": "https://shimulabo.com/sims/hoshizora-shisu/", "description": "雲量予報×月の明るさで星空指数を計算。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "今夜の星空指数", "url": "https://shimulabo.com/sims/hoshizora-shisu/", "description": "雲量予報×月の明るさで星空指数を計算。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}, "image": ["https://shimulabo.com/sims/hoshizora-shisu/hoshizora-shisu-1.png", "https://shimulabo.com/sims/hoshizora-shisu/hoshizora-shisu-2.png"]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "今夜の星空指数", "item": "https://shimulabo.com/sims/hoshizora-shisu/"}]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "雲量データはどこから？", "acceptedAnswer": {"@type": "Answer", "text": "気象オープンデータAPI（Open-Meteo）から、選んだ地点の今夜の雲量予報を1時間単位で取得しています。"}}, {"@type": "Question", "name": "月の明るさはどう計算？", "acceptedAnswer": {"@type": "Answer", "text": "月齢周期（約29.53日）から満ち欠けを計算し、満月に近いほど指数が下がる補正をかけています。"}}, {"@type": "Question", "name": "入力データは送信される？", "acceptedAnswer": {"@type": "Answer", "text": "地域の選択のみを気象APIへの問い合わせに使います。個人情報は一切送信されません。"}}]}</script>
     <!-- ga4 -->
@@ -32,6 +32,7 @@
     <!-- adsense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
          crossorigin="anonymous"></script>
+<style id="rika-fig-style">.rika-figs{margin:8px 0 22px}.rika-fig{margin:0 0 18px}.rika-fig a.zoom{display:block}.rika-fig img{display:block;width:100%;height:auto;border:1px solid var(--line,#e2ded4);border-radius:8px;background:#faf8f3}.rika-fig figcaption{font-size:13.5px;line-height:1.7;margin-top:6px;color:var(--ink-2,#3d434b)}.rika-fig .dl{white-space:nowrap;margin-left:6px;font-size:12.5px}.rika-figs .fig-note{font-size:12.5px;color:var(--ink-2,#3d434b);margin:0}</style>
 </head>
 <body>
 
@@ -96,7 +97,20 @@
   <article class="article">
     <h2>この指数について</h2>
     <p>星が見えるかどうかは「雲」と「月」でほぼ決まります。この指数は、気象オープンデータAPI（Open-Meteo）から今夜21時〜翌1時の雲量予報を取得し、さらに月齢から計算した月の明るさで補正して0〜100点にしたものです。満月の夜は空が明るく、天の川クラスの淡い星は見えにくくなります。</p>
-    <div class="note">街灯りの影響（光害）は場所によって大きく異なるため含めていません。同じ指数でも、山や海辺に行くほど見える星は増えます。</div>
+    <!-- rika-figs:start -->
+<div class="rika-figs">
+  <figure class="rika-fig" id="zu1">
+    <a class="zoom" href="hoshizora-shisu-1.png" target="_blank" rel="noopener"><img src="hoshizora-shisu-1.svg" width="1200" height="675" loading="lazy" decoding="async" alt="今夜の星空指数の決め方。星空指数＝（100−雲量）×（1−0.55×月の光って見える割合）で、雲量0〜100%と月の形（新月・三日月・上弦の月・十三夜の月・満月）ごとの指数の早見表。新月で雲量0%なら100点、満月で雲量0%なら45点。"></a>
+    <figcaption><b>図1</b>　星空指数の決め方。雲が少なく、月が細いほど点が高い。満月の夜は雲がなくても45点まで。<span class="dl"><a href="hoshizora-shisu-1.png" download>PNGで保存</a>・<a href="hoshizora-shisu-1.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <figure class="rika-fig" id="zu2">
+    <a class="zoom" href="hoshizora-shisu-2.png" target="_blank" rel="noopener"><img src="hoshizora-shisu-2.svg" width="1200" height="675" loading="lazy" decoding="async" alt="月齢（0〜29.5日）と月の光って見える割合のグラフ。新月で0%、上弦・下弦で50%、満月で100%になり、星空指数にかける数は新月1.00・上弦0.73・満月0.45。新月・上弦・満月・下弦の月が夜空に出ている時間の目安の表もつけている。"></a>
+    <figcaption><b>図2</b>　月齢と月の光って見える割合。満月に近いほど月明かりで淡い星が見えにくくなる。<span class="dl"><a href="hoshizora-shisu-2.png" download>PNGで保存</a>・<a href="hoshizora-shisu-2.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <p class="fig-note">図はタップすると大きく表示されます。資料やSNSに使うときは、出典「シミュラボ」とページのURLを添えてください。</p>
+</div>
+<!-- rika-figs:end -->
+<div class="note">街灯りの影響（光害）は場所によって大きく異なるため含めていません。同じ指数でも、山や海辺に行くほど見える星は増えます。</div>
     <h2>引用・転載について</h2>
     <p>本ページの計算結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・社内資料への引用を歓迎します。事前連絡は不要です。</p>
     <div class="note">推奨クレジット表記：<code>出典：シミュラボ「今夜の星空指数」 https://shimulabo.com/sims/hoshizora-shisu/</code><br>Webでご利用の際は上記URLへのリンク設置をお願いします。</div>
@@ -107,8 +121,8 @@
   <section class="rika-box" aria-label="理科の授業で使うとき" style="margin:28px 0;padding:18px 18px 14px;border:1px solid var(--line,#e3ded3);border-radius:12px;">
     <h2 style="margin-top:0;">🔬 理科の授業で使うとき</h2>
     <ul style="margin:0 0 12px;padding-left:1.2em;line-height:1.7;"><li><b>小4 月と星</b>　今夜、星や月が観察できそうかを、雲の量と月の明るさから判定（ライブ）。観察日の判断に。</li></ul>
-    <p style="font-size:13.5px;font-weight:700;margin:0 0 8px;">同じ単元の授業向けシミュ</p><div class="related-grid"><a class="related-card" href="../hoshi-ugoki/"><span class="e">🔬</span><span>星の1日・1年の動き（日周運動・年周運動・季節の星座）</span></a><a class="related-card" href="../tsuki-michikake/"><span class="e">🔬</span><span>月の満ち欠けの仕組みシミュレーター（月の形と見える時刻・方角）</span></a><a class="related-card" href="../kuuki-mizu/"><span class="e">🔬</span><span>とじこめた空気と水のシミュレーター（注射器をおすと）</span></a><a class="related-card" href="../denki-kairo/"><span class="e">🔬</span><span>電気回路シミュレーター（直列・並列・オームの法則）</span></a></div>
-    <p style="margin:12px 0 0;"><a href="../../rika/#sho">小学校の単元から授業向けシミュを探す（小学校〜高校・91本）→</a></p>
+    <p style="font-size:13.5px;font-weight:700;margin:0 0 8px;">同じ単元の授業向けシミュ</p><div class="related-grid"><a class="related-card" href="../hoshi-ugoki/"><span class="e">🔬</span><span>星の1日・1年の動き（日周運動・年周運動・季節の星座）</span></a><a class="related-card" href="../tsuki-michikake/"><span class="e">🔬</span><span>月の満ち欠けの仕組みシミュレーター（月の形と見える時刻・方角）</span></a><a class="related-card" href="../hone-kinniku/"><span class="e">🔬</span><span>ほねときん肉のシミュレーター（うでの曲げのばし・関節）</span></a><a class="related-card" href="../kisetsu-seibutsu/"><span class="e">🔬</span><span>季節と生き物シミュレーター（気温と動物の活動・植物の成長・冬ごし）</span></a></div>
+    <p style="margin:12px 0 0;"><a href="../../rika/#sho">小学校の単元から授業向けシミュを探す（小学校〜高校・101本）→</a></p>
   </section>
 <!-- rika-links:end -->
   <nav class="related" aria-label="related">

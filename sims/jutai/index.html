@@ -23,7 +23,7 @@
     <link rel="canonical" href="https://shimulabo.com/sims/jutai/">
     <meta property="og:locale" content="ja_JP">
     <meta name="robots" content="index,follow">
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "渋滞は勝手に生まれる", "url": "https://shimulabo.com/sims/jutai/", "description": "事故ゼロでも渋滞の波が発生する自然渋滞をリング道路で再現。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "渋滞は勝手に生まれる", "url": "https://shimulabo.com/sims/jutai/", "description": "事故ゼロでも渋滞の波が発生する自然渋滞をリング道路で再現。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}, "image": ["https://shimulabo.com/sims/jutai/jutai-1.png", "https://shimulabo.com/sims/jutai/jutai-2.png"]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "渋滞は勝手に生まれる", "item": "https://shimulabo.com/sims/jutai/"}]}</script>
     <!-- ga4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
@@ -32,6 +32,7 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
          crossorigin="anonymous"></script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "自然渋滞はどのくらいの密度で起きる？", "acceptedAnswer": {"@type": "Answer", "text": "高速道路では1車線あたり1kmに約25台（車間およそ40m）を超えたあたりから、わずかなブレーキが後方へ増幅して伝わり始めるとされます。本シミュレーターでも混雑度を上げるとこの状態が再現されます。"}}, {"@type": "Question", "name": "渋滞の波はなぜ後ろへ動く？", "acceptedAnswer": {"@type": "Answer", "text": "各車は「前の車が減速してから」減速するため、減速の起点が1台ずつ後ろへずれていきます。実際の高速道路でも渋滞の波は時速約20kmで後方へ進むことが観測されています。"}}, {"@type": "Question", "name": "データは送信される？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動作します。"}}]}</script>
+<style id="rika-fig-style">.rika-figs{margin:8px 0 22px}.rika-fig{margin:0 0 18px}.rika-fig a.zoom{display:block}.rika-fig img{display:block;width:100%;height:auto;border:1px solid var(--line,#e2ded4);border-radius:8px;background:#faf8f3}.rika-fig figcaption{font-size:13.5px;line-height:1.7;margin-top:6px;color:var(--ink-2,#3d434b)}.rika-fig .dl{white-space:nowrap;margin-left:6px;font-size:12.5px}.rika-figs .fig-note{font-size:12.5px;color:var(--ink-2,#3d434b);margin:0}</style>
 </head>
 <body>
 
@@ -99,7 +100,20 @@
     <p>渋滞というと「事故」や「工事」を思い浮かべますが、実は高速道路の渋滞の多くは、はっきりした原因のない<strong>「自然渋滞」</strong>です。車の数がある密度を超えると、誰か一人のわずかなブレーキが後ろの車に次々と伝わり、その「ブレーキの波」が後方へ広がっていきます。これが渋滞の正体です。</p>
     <p>このシミュレーターでは、すべての車が同じシンプルなルール（前の車との距離が近ければ緩め、遠ければ加速する）で動いています。それでも混雑度を上げると、誰も悪くないのに渋滞の波が生まれます。</p>
 
-    <h2>自然渋滞を防ぐコツ</h2>
+    <!-- rika-figs:start -->
+<div class="rika-figs">
+  <figure class="rika-fig" id="zu1">
+    <a class="zoom" href="jutai-1.png" target="_blank" rel="noopener"><img src="jutai-1.svg" width="1200" height="675" loading="lazy" decoding="async" alt="自然渋滞のしくみの図。リング道路を走る42台の車のようすを時間ごとに並べ、ほぼ等間隔で走っていた車の中から、わずかなゆらぎで止まりかけの車のかたまり（渋滞）が生まれ、その渋滞の波が車の進む向きとは逆の後ろへ進んでいくことを示す。前との車間でブレーキと加速を決める同じルールと、ブレーキが後ろへ伝わる4つの段階の説明つき。"></a>
+    <figcaption><b>図1</b>　自然渋滞のしくみ。少しのブレーキが後ろの車へ大きくなって伝わり、渋滞の波は後ろへ進む（シミュと同じ計算）。<span class="dl"><a href="jutai-1.png" download>PNGで保存</a>・<a href="jutai-1.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <figure class="rika-fig" id="zu2">
+    <a class="zoom" href="jutai-2.png" target="_blank" rel="noopener"><img src="jutai-2.svg" width="1200" height="675" loading="lazy" decoding="async" alt="渋滞シミュレーターで混雑度（車の間隔）を変えたときの平均速度のグラフ。車間がせまいと渋滞の波ができて平均速度が下がり、ある間隔より広いと渋滞しなくなる境目を示し、車間距離を広めにとる・一定の速度を保つ・合流はゆずり合うという自然渋滞を防ぐコツをまとめた図。"></a>
+    <figcaption><b>図2</b>　混雑度と平均速度。車間がある広さより狭いと渋滞の波が生まれ、平均速度ががくんと下がる。<span class="dl"><a href="jutai-2.png" download>PNGで保存</a>・<a href="jutai-2.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <p class="fig-note">図はタップすると大きく表示されます。資料やSNSに使うときは、出典「シミュラボ」とページのURLを添えてください。</p>
+</div>
+<!-- rika-figs:end -->
+<h2>自然渋滞を防ぐコツ</h2>
     <ul>
       <li><strong>車間距離を広めにとる</strong> ― 急ブレーキの連鎖を吸収でき、渋滞の発生・悪化を防げます。</li>
       <li><strong>一定の速度を保つ</strong> ― 加減速を減らすほど、後ろへ伝わる「波」が小さくなります。</li>

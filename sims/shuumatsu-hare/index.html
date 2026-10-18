@@ -23,7 +23,7 @@
     <link rel="canonical" href="https://shimulabo.com/sims/shuumatsu-hare/">
     <meta property="og:locale" content="ja_JP">
     <meta name="robots" content="index,follow">
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "今週末、晴れる？", "url": "https://shimulabo.com/sims/shuumatsu-hare/", "description": "土日の天気をまとめて即答。おでかけ判定つき。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "今週末、晴れる？", "url": "https://shimulabo.com/sims/shuumatsu-hare/", "description": "土日の天気をまとめて即答。おでかけ判定つき。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}, "image": ["https://shimulabo.com/sims/shuumatsu-hare/shuumatsu-hare-1.png", "https://shimulabo.com/sims/shuumatsu-hare/shuumatsu-hare-2.png"]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ライブデータラボ", "item": "https://shimulabo.com/live/"}, {"@type": "ListItem", "position": 3, "name": "今週末、晴れる？", "item": "https://shimulabo.com/sims/shuumatsu-hare/"}]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "データの出典は？", "acceptedAnswer": {"@type": "Answer", "text": "気象オープンデータAPI（Open-Meteo）の週間予報（天気・降水確率・最高気温）を取得しています。"}}, {"@type": "Question", "name": "どっちの日がおすすめかも分かる？", "acceptedAnswer": {"@type": "Answer", "text": "はい。土日それぞれのおでかけ日和度を計算して、良い方の日を表示します。"}}, {"@type": "Question", "name": "入力データは送信される？", "acceptedAnswer": {"@type": "Answer", "text": "地域の選択のみを使います。個人情報は一切送信されません。"}}]}</script>
     <!-- ga4 -->
@@ -32,6 +32,7 @@
     <!-- adsense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
          crossorigin="anonymous"></script>
+<style id="rika-fig-style">.rika-figs{margin:8px 0 22px}.rika-fig{margin:0 0 18px}.rika-fig a.zoom{display:block}.rika-fig img{display:block;width:100%;height:auto;border:1px solid var(--line,#e2ded4);border-radius:8px;background:#faf8f3}.rika-fig figcaption{font-size:13.5px;line-height:1.7;margin-top:6px;color:var(--ink-2,#3d434b)}.rika-fig .dl{white-space:nowrap;margin-left:6px;font-size:12.5px}.rika-figs .fig-note{font-size:12.5px;color:var(--ink-2,#3d434b);margin:0}</style>
 </head>
 <body>
 
@@ -89,7 +90,20 @@
   <article class="article">
     <h2>この判定について</h2>
     <p>このツールは気象オープンデータAPI（Open-Meteo）の週間予報から、次の土曜・日曜の天気・降水確率・最高気温を取り出して1画面にまとめます。おでかけ日和度は降水確率と天気から計算しており、どちらの日に予定を入れるべきかがひと目で分かります。</p>
-    <div class="note">週間予報は先になるほど精度が下がります。週の前半に見た週末予報は、前日にもう一度確認するのが確実です。</div>
+    <!-- rika-figs:start -->
+<div class="rika-figs">
+  <figure class="rika-fig" id="zu1">
+    <a class="zoom" href="shuumatsu-hare-1.png" target="_blank" rel="noopener"><img src="shuumatsu-hare-1.svg" width="1200" height="675" loading="lazy" decoding="async" alt="降水確率の意味を示す図。降水確率30%の予報が100回出たら、そのうち約30回は1mm以上の雨か雪が降るという意味を100個の印で表し、降水確率は雨の量や強さ・降る時間の長さ・降る範囲の広さではないこと、10%きざみで0%は5%未満であることをまとめている。"></a>
+    <figcaption><b>図1</b>　降水確率30%は「同じ予報が100回出たら約30回は1mm以上の雨か雪が降る」という意味。雨の量や強さではない。<span class="dl"><a href="shuumatsu-hare-1.png" download>PNGで保存</a>・<a href="shuumatsu-hare-1.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <figure class="rika-fig" id="zu2">
+    <a class="zoom" href="shuumatsu-hare-2.png" target="_blank" rel="noopener"><img src="shuumatsu-hare-2.svg" width="1200" height="675" loading="lazy" decoding="async" alt="今週末のおでかけ日和度の決め方。おでかけ日和度＝（100−降水確率）×天気の係数（快晴・晴れ・くもり×1、霧×0.8、雨・雪・雷雨など×0.45）で、降水確率ごとの点数と判定（75点以上おでかけ日和・50点以上まずまず・30点以上傘と相談・それ未満インドア推奨）をグラフで示す。"></a>
+    <figcaption><b>図2</b>　おでかけ日和度の決め方。降水確率が低く、天気が晴れ〜くもりの日ほど点が高い。<span class="dl"><a href="shuumatsu-hare-2.png" download>PNGで保存</a>・<a href="shuumatsu-hare-2.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <p class="fig-note">図はタップすると大きく表示されます。資料やSNSに使うときは、出典「シミュラボ」とページのURLを添えてください。</p>
+</div>
+<!-- rika-figs:end -->
+<div class="note">週間予報は先になるほど精度が下がります。週の前半に見た週末予報は、前日にもう一度確認するのが確実です。</div>
     <h2>引用・転載について</h2>
     <p>本ページの計算結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・社内資料への引用を歓迎します。事前連絡は不要です。</p>
     <div class="note">推奨クレジット表記：<code>出典：シミュラボ「今週末、晴れる？」 https://shimulabo.com/sims/shuumatsu-hare/</code><br>Webでご利用の際は上記URLへのリンク設置をお願いします。</div>
@@ -101,7 +115,7 @@
     <h2 style="margin-top:0;">🔬 理科の授業で使うとき</h2>
     <ul style="margin:0 0 12px;padding-left:1.2em;line-height:1.7;"><li><b>小5 天気の変化</b>　週末の天気を予想してから、予報と見比べる（ライブ）。</li></ul>
     <p style="font-size:13.5px;font-weight:700;margin:0 0 8px;">同じ単元の授業向けシミュ</p><div class="related-grid"><a class="related-card" href="../hatsuga-jouken/"><span class="e">🔬</span><span>種子の発芽と成長の条件シミュレーター（インゲンマメ・条件をそろえる実験）</span></a><a class="related-card" href="../youkaido/"><span class="e">🔬</span><span>物の溶け方と溶解度シミュレーター（溶け残り・再結晶・濃度）</span></a><a class="related-card" href="../nagareru-mizu/"><span class="e">🔬</span><span>流れる水の働きシミュレーター（しん食・運ぱん・たい積）</span></a><a class="related-card" href="../denryu-jikai/"><span class="e">🔬</span><span>電流と磁界シミュレーター（電磁石・モーター・発電機）</span></a></div>
-    <p style="margin:12px 0 0;"><a href="../../rika/#sho">小学校の単元から授業向けシミュを探す（小学校〜高校・91本）→</a></p>
+    <p style="margin:12px 0 0;"><a href="../../rika/#sho">小学校の単元から授業向けシミュを探す（小学校〜高校・101本）→</a></p>
   </section>
 <!-- rika-links:end -->
   <nav class="related" aria-label="related">

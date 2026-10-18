@@ -23,7 +23,7 @@
     <link rel="canonical" href="https://shimulabo.com/sims/gears/">
     <meta property="og:locale" content="ja_JP">
     <meta name="robots" content="index,follow">
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "歯車シミュレーター", "url": "https://shimulabo.com/sims/gears/", "description": "歯数を変えて回転比（ギア比）を体感。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "歯車シミュレーター", "url": "https://shimulabo.com/sims/gears/", "description": "歯数を変えて回転比（ギア比）を体感。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}, "image": ["https://shimulabo.com/sims/gears/gears-1.png", "https://shimulabo.com/sims/gears/gears-2.png"]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "歯車シミュレーター", "item": "https://shimulabo.com/sims/gears/"}]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "ギア比の計算方法は？", "acceptedAnswer": {"@type": "Answer", "text": "ギア比（速度伝達比）＝ 従動車の歯数 ÷ 原動車の歯数 です。従動車の回転数は「原動車の回転数 × 原動車の歯数 ÷ 従動車の歯数」で求められます。"}}, {"@type": "Question", "name": "速度伝達比とは？", "acceptedAnswer": {"@type": "Answer", "text": "中学校の技術で使う言葉で、原動車（回す側）の回転数 ÷ 従動車（回される側）の回転数のことです。歯車では「従動車の歯数 ÷ 原動車の歯数」と同じ値になります。"}}, {"@type": "Question", "name": "なぜ逆向きに回る？", "acceptedAnswer": {"@type": "Answer", "text": "かみ合う歯車は必ず反対方向に回ります。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動きます。"}}, {"@type": "Question", "name": "トルクって何？", "acceptedAnswer": {"@type": "Answer", "text": "回転させる力のことです。歯車で回転数を半分にすると、トルクは2倍になります（摩擦を無視した場合）。"}}, {"@type": "Question", "name": "3つ以上つなぐとどうなる？", "acceptedAnswer": {"@type": "Answer", "text": "間の歯車（アイドラー）は回転方向を反転させるだけで、ギア比は両端の歯数だけで決まります。"}}]}</script>
     <!-- ga4 -->
@@ -32,6 +32,7 @@
     <!-- adsense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
          crossorigin="anonymous"></script>
+<style id="rika-fig-style">.rika-figs{margin:8px 0 22px}.rika-fig{margin:0 0 18px}.rika-fig a.zoom{display:block}.rika-fig img{display:block;width:100%;height:auto;border:1px solid var(--line,#e2ded4);border-radius:8px;background:#faf8f3}.rika-fig figcaption{font-size:13.5px;line-height:1.7;margin-top:6px;color:var(--ink-2,#3d434b)}.rika-fig .dl{white-space:nowrap;margin-left:6px;font-size:12.5px}.rika-figs .fig-note{font-size:12.5px;color:var(--ink-2,#3d434b);margin:0}</style>
 </head>
 <body>
 
@@ -81,7 +82,20 @@
   <article class="article">
     <h2>ギア比のしくみ</h2>
     <p>かみ合う歯車は、歯のかみ合う数が同じになるよう回ります。だから歯数が半分の歯車は2倍の速さで回転。自転車の変速、車のミッション、時計の針——すべてこの原理です。</p>
-    <!-- improved-2026-10 -->
+    <!-- rika-figs:start -->
+<div class="rika-figs">
+  <figure class="rika-fig" id="zu1">
+    <a class="zoom" href="gears-1.png" target="_blank" rel="noopener"><img src="gears-1.svg" width="1200" height="675" loading="lazy" decoding="async" alt="かみ合う歯車のしくみの図。24歯の原動車が時計回りに60rpmで回ると、12歯の従動車は反対向きの反時計回りに120rpmで回ることと、速度伝達比＝従動車の歯数÷原動車の歯数、従動車の回転数＝原動車の回転数×原動車の歯数÷従動車の歯数の計算式を示す。"></a>
+    <figcaption><b>図1</b>　かみ合う歯車は反対向きに回り、回転数は歯数の逆の比になる（24歯→12歯なら2倍の速さ）。<span class="dl"><a href="gears-1.png" download>PNGで保存</a>・<a href="gears-1.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <figure class="rika-fig" id="zu2">
+    <a class="zoom" href="gears-2.png" target="_blank" rel="noopener"><img src="gears-2.svg" width="1200" height="675" loading="lazy" decoding="async" alt="12歯・18歯・24歯の歯車を3つつないだ図で、まん中の歯車は回る向きを変えるだけで、右はしの回転数は両はしの歯数で決まる（60rpm→30rpm）ことを示し、速度伝達比が1より小さい・1・1より大きいときの回る速さと回す力（トルク）の変化をまとめた早見表。"></a>
+    <figcaption><b>図2</b>　歯車を3つつなぐとき、まん中の歯車は向きを変えるだけ。速度伝達比が大きいほどゆっくり・力強く回る。<span class="dl"><a href="gears-2.png" download>PNGで保存</a>・<a href="gears-2.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <p class="fig-note">図はタップすると大きく表示されます。資料やSNSに使うときは、出典「シミュラボ」とページのURLを添えてください。</p>
+</div>
+<!-- rika-figs:end -->
+<!-- improved-2026-10 -->
 <h2>回転数と速度伝達比の計算（中学校 技術）</h2>
 <p>中学校の技術では、回す側の歯車を<b>原動車</b>、回される側を<b>従動車</b>と呼び、回転の速さがどれだけ変わるかを<b>速度伝達比</b>で表します。</p>
 <div class="note"><strong>計算式</strong><br>速度伝達比 ＝ 原動車の回転数 ÷ 従動車の回転数 ＝ 従動車の歯数 ÷ 原動車の歯数<br>従動車の回転数 ＝ 原動車の回転数 × 原動車の歯数 ÷ 従動車の歯数</div>
@@ -106,7 +120,7 @@
     <h2 style="margin-top:0;">🔬 理科の授業で使うとき</h2>
     <ul style="margin:0 0 12px;padding-left:1.2em;line-height:1.7;"><li><b>中学 技術 エネルギー変換の技術（動力伝達の機構）</b>　かみ合う歯車の歯数を変えると、回る速さの比（速度伝達比）が変わる。</li></ul>
     <p style="font-size:13.5px;font-weight:700;margin:0 0 8px;">同じ単元の授業向けシミュ</p><div class="related-grid"><a class="related-card" href="../kamu-pulley/"><span class="e">🔬</span><span>カムとベルト・プーリのシミュレーター（動力伝達の機構）</span></a></div>
-    <p style="margin:12px 0 0;"><a href="../../rika/#chu">中学校の単元から授業向けシミュを探す（小学校〜高校・91本）→</a></p>
+    <p style="margin:12px 0 0;"><a href="../../rika/#chu">中学校の単元から授業向けシミュを探す（小学校〜高校・101本）→</a></p>
   </section>
 <!-- rika-links:end -->
   <nav class="related" aria-label="related">

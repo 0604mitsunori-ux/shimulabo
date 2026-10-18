@@ -23,7 +23,7 @@
     <link rel="canonical" href="https://shimulabo.com/sims/kakuzato/">
     <meta property="og:locale" content="ja_JP">
     <meta name="robots" content="index,follow">
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "角砂糖シミュレーター", "url": "https://shimulabo.com/sims/kakuzato/", "description": "飲み物の量と糖分濃度から、含まれる砂糖の量を角砂糖の個数に換算するエンタメシミュレーター。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "角砂糖シミュレーター", "url": "https://shimulabo.com/sims/kakuzato/", "description": "飲み物の量と糖分濃度から、含まれる砂糖の量を角砂糖の個数に換算するエンタメシミュレーター。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}, "image": ["https://shimulabo.com/sims/kakuzato/kakuzato-1.png"]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "角砂糖シミュレーター", "item": "https://shimulabo.com/sims/kakuzato/"}]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "砂糖ゼロ飲料なら？", "acceptedAnswer": {"@type": "Answer", "text": "糖類ゼロ表示の飲み物は角砂糖換算もほぼゼロになります。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
     <!-- ga4 -->
@@ -32,6 +32,7 @@
     <!-- adsense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
          crossorigin="anonymous"></script>
+<style id="rika-fig-style">.rika-figs{margin:8px 0 22px}.rika-fig{margin:0 0 18px}.rika-fig a.zoom{display:block}.rika-fig img{display:block;width:100%;height:auto;border:1px solid var(--line,#e2ded4);border-radius:8px;background:#faf8f3}.rika-fig figcaption{font-size:13.5px;line-height:1.7;margin-top:6px;color:var(--ink-2,#3d434b)}.rika-fig .dl{white-space:nowrap;margin-left:6px;font-size:12.5px}.rika-figs .fig-note{font-size:12.5px;color:var(--ink-2,#3d434b);margin:0}</style>
 </head>
 <body>
 
@@ -65,7 +66,7 @@
 
   <section class="panel">
     <h2>🧊 条件を選ぶ</h2>
-    <div class="field"><label>飲み物</label><select id="drink"><option value="11">コーラ(500ml)</option><option value="13" selected>エナジードリンク(500ml)</option><option value="7">スポーツドリンク(500ml)</option><option value="12">フルーツジュース(500ml)</option><option value="5">微糖カフェラテ(300ml)</option><option value="20">タピオカミルクティー(500ml)</option></select></div>
+    <div class="field"><label>飲み物</label><select id="drink"><option value="11" data-ml="500">コーラ(500ml)</option><option value="13" data-ml="500" selected>エナジードリンク(500ml)</option><option value="7" data-ml="500">スポーツドリンク(500ml)</option><option value="12" data-ml="500">フルーツジュース(500ml)</option><option value="5" data-ml="300">微糖カフェラテ(300ml)</option><option value="20" data-ml="500">タピオカミルクティー(500ml)</option></select></div>
     <div class="field"><label>1日に飲む杯数 <span class="hint">（杯）</span></label><input type="number" id="n" value="1" min="0" max="20" inputmode="numeric"></div>
     <button class="btn btn-primary" id="calcBtn">角砂糖に換算する</button>
   </section>
@@ -88,8 +89,17 @@
 
   <article class="article">
     <h2>角砂糖換算で見える化</h2>
-    <div class="note"><strong>換算の目安</strong><br>角砂糖1個 ＝ 約4g／砂糖1g ＝ 約4kcal</div>
+    <div class="note"><strong>換算の目安</strong><br>角砂糖1個 ＝ 約4g／砂糖1g ＝ 約4kcal／1杯の砂糖 ＝ 100mlあたりの砂糖（目安）× 量（ml）÷ 100</div>
     <p>液体の糖分は気づかないうちに摂りすぎがち。WHO は1日の糖類を約25g（角砂糖6個分）以下にと推奨しています。たまの楽しみはOK、毎日の習慣は見直しのきっかけに。</p>
+<!-- rika-figs:start -->
+<div class="rika-figs">
+  <figure class="rika-fig" id="zu1">
+    <a class="zoom" href="kakuzato-1.png" target="_blank" rel="noopener"><img src="kakuzato-1.svg" width="1200" height="675" loading="lazy" decoding="async" alt="砂糖の量を角砂糖の個数に換算した早見表。角砂糖1個＝約4gとして、4g・10g・20g・25g・40g・60g・80gの砂糖が角砂糖何個分か、何kcalか、毎日とると1年で何kgになるかを角砂糖の絵で示し、WHOがすすめる1日約25g（角砂糖6個分）の目安を強調している。"></a>
+    <figcaption><b>図1</b>　砂糖の量と角砂糖の個数の早見表。角砂糖1個＝約4g、砂糖1g＝約4kcal。<span class="dl"><a href="kakuzato-1.png" download>PNGで保存</a>・<a href="kakuzato-1.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <p class="fig-note">図はタップすると大きく表示されます。資料やSNSに使うときは、出典「シミュラボ」とページのURLを添えてください。</p>
+</div>
+<!-- rika-figs:end -->
     <h2>よくある質問</h2><dl class="faq"><dt>砂糖ゼロ飲料なら？</dt><dd>糖類ゼロ表示の飲み物は角砂糖換算もほぼゼロになります。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
   </article>
 
@@ -124,7 +134,7 @@
   let SHARE = '';
   function anim(el, from, to, dur, dec){ const t0=performance.now(); (function s(n){const p=Math.min(1,(n-t0)/dur);const e=1-Math.pow(1-p,3);const v=from+(to-from)*e;el.textContent=(dec!=null?v.toFixed(dec):Math.round(v).toLocaleString('ja-JP'));if(p<1)requestAnimationFrame(s);})(performance.now()); }
   function show(){ $('resultPanel').style.display=''; $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'}); }
-  function calc(){const g=(+$('drink').value||0),n=Math.max(0,+$('n').value||0);const totalG=g*n,cubes=totalG/4;
+  function calc(){const o=sel('drink'),g=(+o.value||0)*(+(o.dataset.ml||100))/100,n=Math.max(0,+$('n').value||0);const totalG=g*n,cubes=totalG/4;
     $('sub').textContent=`${sel('drink').text} × ${n}杯`;$('g').textContent=num(totalG)+'g';$('year').textContent=num(totalG*365/1000)+'kg';$('kcal').textContent=num(totalG*4)+'kcal';
     SHARE=`角砂糖シミュ、${sel('drink').text}には角砂糖約${Math.round(cubes)}個分の砂糖が🧊\n見えると飲み方考えるなぁ…！👇`;show();anim($('big'),0,cubes,900);}
   $('calcBtn').addEventListener('click', calc);

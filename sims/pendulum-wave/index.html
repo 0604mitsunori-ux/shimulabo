@@ -23,7 +23,7 @@
     <link rel="canonical" href="https://shimulabo.com/sims/pendulum-wave/">
     <meta property="og:locale" content="ja_JP">
     <meta name="robots" content="index,follow">
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "振り子の波", "url": "https://shimulabo.com/sims/pendulum-wave/", "description": "長さの違う15個の振り子が作る波模様を体感。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "振り子の波", "url": "https://shimulabo.com/sims/pendulum-wave/", "description": "長さの違う15個の振り子が作る波模様を体感。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}, "image": ["https://shimulabo.com/sims/pendulum-wave/pendulum-wave-1.png", "https://shimulabo.com/sims/pendulum-wave/pendulum-wave-2.png"]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "振り子の波", "item": "https://shimulabo.com/sims/pendulum-wave/"}]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "実際に作れる？", "acceptedAnswer": {"@type": "Answer", "text": "はい。科学館の展示でも人気です。長さの精密な調整がポイント。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動きます。"}}, {"@type": "Question", "name": "実物を作るには何が必要？", "acceptedAnswer": {"@type": "Answer", "text": "糸とナット、支柱だけで作れますが、長さの精度が命です。一番長い糸を1mにすると、一番短い糸は約61.6cmになります（周期比65:51の2乗）。"}}, {"@type": "Question", "name": "おもりを重くしても同じ？", "acceptedAnswer": {"@type": "Answer", "text": "はい。周期は長さだけで決まるので、重さを変えても模様は変わりません（空気抵抗を無視した場合）。"}}]}</script>
     <!-- ga4 -->
@@ -32,6 +32,7 @@
     <!-- adsense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
          crossorigin="anonymous"></script>
+<style id="rika-fig-style">.rika-figs{margin:8px 0 22px}.rika-fig{margin:0 0 18px}.rika-fig a.zoom{display:block}.rika-fig img{display:block;width:100%;height:auto;border:1px solid var(--line,#e2ded4);border-radius:8px;background:#faf8f3}.rika-fig figcaption{font-size:13.5px;line-height:1.7;margin-top:6px;color:var(--ink-2,#3d434b)}.rika-fig .dl{white-space:nowrap;margin-left:6px;font-size:12.5px}.rika-figs .fig-note{font-size:12.5px;color:var(--ink-2,#3d434b);margin:0}</style>
 </head>
 <body>
 
@@ -76,7 +77,20 @@
   <article class="article">
     <h2>なぜ波模様になる？</h2>
     <p>振り子の周期は「長さ」で決まります。一定時間にちょうど51回・52回・53回…と揺れるよう長さを調整すると、最初はそろっていた振り子が少しずつずれて波模様になり、一定時間ごとに再びそろいます。物理の美しさを体感できる定番デモです。</p>
-    <!-- enriched-2026-09 -->
+    <!-- rika-figs:start -->
+<div class="rika-figs">
+  <figure class="rika-fig" id="zu1">
+    <a class="zoom" href="pendulum-wave-1.png" target="_blank" rel="noopener"><img src="pendulum-wave-1.svg" width="1200" height="675" loading="lazy" decoding="async" alt="振り子の波の15個の振り子の長さを同じ縮尺で並べた図。60秒間に51回往復する一番長い振り子（34.4cm）から65回往復する一番短い振り子（21.2cm）まで、周期T＝2π√(L/g)で長さが決まり、長い振り子ほど1往復に時間がかかることを示す。"></a>
+    <figcaption><b>図1</b>　振り子の長さと1往復する時間。周期は長さだけで決まり、長いほどゆっくり往復する。<span class="dl"><a href="pendulum-wave-1.png" download>PNGで保存</a>・<a href="pendulum-wave-1.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <figure class="rika-fig" id="zu2">
+    <a class="zoom" href="pendulum-wave-2.png" target="_blank" rel="noopener"><img src="pendulum-wave-2.svg" width="1200" height="675" loading="lazy" decoding="async" alt="振り子の波の模様が時間とともに変わる様子の図。出発・7.5秒後・15秒後・20秒後・30秒後・60秒後の15個のおもりの位置を並べ、波の形、3つのグループ、1つおきに逆側、60秒後に再びそろう様子を示す。"></a>
+    <figcaption><b>図2</b>　時間とともに変わる模様。となりどうしのずれが積み重なって波になり、60秒でまたそろう。<span class="dl"><a href="pendulum-wave-2.png" download>PNGで保存</a>・<a href="pendulum-wave-2.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <p class="fig-note">図はタップすると大きく表示されます。資料やSNSに使うときは、出典「シミュラボ」とページのURLを添えてください。</p>
+</div>
+<!-- rika-figs:end -->
+<!-- enriched-2026-09 -->
 <h2>振り子の長さの決め方</h2>
 <p>振り子の周期は <b>T = 2π√(L/g)</b>（L：長さ、g：重力加速度）で、おもりの重さには関係しません。本シミュレーターでは、一番長い振り子が60秒間に51回、次が52回、…、一番短い振り子が65回振れるように長さを調整しています。周期がすべて「60秒の整数分の1」なので、ちょうど60秒後に全員が同時にスタート位置へ戻ります。</p>
 <div class="tbl-scroll"><table class="seo-table"><tr><th>経過時間</th><th>見える模様</th></tr><tr><td>0秒</td><td>全員そろって出発</td></tr><tr><td>約7〜8秒</td><td>波打つ模様（進行波）</td></tr><tr><td>約15秒</td><td>2つのグループに分かれて交互に</td></tr><tr><td>20秒</td><td>3グループ</td></tr><tr><td>30秒</td><td>2グループが完全に逆向き（折り返し点）</td></tr><tr><td>60秒</td><td>再びぴったりそろう</td></tr></table></div>
@@ -90,7 +104,7 @@
     <h2 style="margin-top:0;">🔬 理科の授業で使うとき</h2>
     <ul style="margin:0 0 12px;padding-left:1.2em;line-height:1.7;"><li><b>小5 振り子の運動</b>　長さが少しずつ違う15個の振り子。長い振り子ほど1往復に時間がかかることが、並んだ動きで分かる。</li><li><b>中3 力学的エネルギー</b>　振り子が下で速く上で遅くなる＝位置エネルギーと運動エネルギーの移り変わり。</li><li><b>物理 円運動と単振動（単振り子）</b>　長さの違う振り子の周期の違い（T＝2π√(L/g)）が、波やらせんの模様になる。</li></ul>
     <p style="font-size:13.5px;font-weight:700;margin:0 0 8px;">同じ単元の授業向けシミュ</p><div class="related-grid"><a class="related-card" href="../furiko-jikken/"><span class="e">🔬</span><span>振り子の実験シミュレーター（1往復の時間を調べよう）</span></a><a class="related-card" href="../hatsuga-jouken/"><span class="e">🔬</span><span>種子の発芽と成長の条件シミュレーター（インゲンマメ・条件をそろえる実験）</span></a><a class="related-card" href="../youkaido/"><span class="e">🔬</span><span>物の溶け方と溶解度シミュレーター（溶け残り・再結晶・濃度）</span></a><a class="related-card" href="../nagareru-mizu/"><span class="e">🔬</span><span>流れる水の働きシミュレーター（しん食・運ぱん・たい積）</span></a></div>
-    <p style="margin:12px 0 0;"><a href="../../rika/#sho">小学校の単元から授業向けシミュを探す（小学校〜高校・91本）→</a></p>
+    <p style="margin:12px 0 0;"><a href="../../rika/#sho">小学校の単元から授業向けシミュを探す（小学校〜高校・101本）→</a></p>
   </section>
 <!-- rika-links:end -->
   <nav class="related" aria-label="related">

@@ -23,7 +23,7 @@
     <link rel="canonical" href="https://shimulabo.com/sims/teko-tsuriai/">
     <meta property="og:locale" content="ja_JP">
     <meta name="robots" content="index,follow">
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": ["WebApplication", "LearningResource"], "name": "てこのつり合いシミュレーター", "url": "https://shimulabo.com/sims/teko-tsuriai/", "description": "目盛りをタップしておもりをつるし、てこがつり合うきまり「重さ×支点からのきょり」を確かめる。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "educationalLevel": "小学6年", "learningResourceType": "シミュレーション", "teaches": "小6 てこの規則性", "educationalUse": ["授業", "自習"], "audience": {"@type": "EducationalAudience", "educationalRole": ["teacher", "student"]}, "educationalAlignment": {"@type": "AlignmentObject", "alignmentType": "educationalSubject", "educationalFramework": "学習指導要領（平成29・30年告示）", "targetName": "小学校 第6学年 A（3）てこの規則性"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": ["WebApplication", "LearningResource"], "name": "てこのつり合いシミュレーター", "url": "https://shimulabo.com/sims/teko-tsuriai/", "description": "目盛りをタップしておもりをつるし、てこがつり合うきまり「重さ×支点からのきょり」を確かめる。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "educationalLevel": "小学6年", "learningResourceType": "シミュレーション", "teaches": "小6 てこの規則性", "educationalUse": ["授業", "自習"], "audience": {"@type": "EducationalAudience", "educationalRole": ["teacher", "student"]}, "educationalAlignment": {"@type": "AlignmentObject", "alignmentType": "educationalSubject", "educationalFramework": "学習指導要領（平成29・30年告示）", "targetName": "小学校 第6学年 A（3）てこの規則性"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}, "image": ["https://shimulabo.com/sims/teko-tsuriai/teko-tsuriai-1.png", "https://shimulabo.com/sims/teko-tsuriai/teko-tsuriai-2.png"]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "理科の授業向け", "item": "https://shimulabo.com/rika/"}, {"@type": "ListItem", "position": 3, "name": "てこのつり合いシミュレーター", "item": "https://shimulabo.com/sims/teko-tsuriai/"}]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "てこが水平につり合うのは、どんなときですか？", "acceptedAnswer": {"@type": "Answer", "text": "左のうでをかたむけるはたらき（おもりの重さ×支点からのきょり）と、右のうでをかたむけるはたらきが等しいときです。たとえば、左の6の目盛りに10g（10×6＝60）、右の3の目盛りに20g（20×3＝60）をつるすと、水平につり合います。"}}, {"@type": "Question", "name": "「てこの原理」とは何ですか？", "acceptedAnswer": {"@type": "Answer", "text": "支点からのきょりが長いところに力を加えるほど、小さな力でものを動かせる、というてこのきまりを指す言葉です。小学校6年の理科では「てこの規則性」として、「おもりの重さ×支点からのきょり」が左右で等しいときにつり合うことを学びます。"}}, {"@type": "Question", "name": "おもりを2か所以上につるしたときは、どう計算しますか？", "acceptedAnswer": {"@type": "Answer", "text": "それぞれの目盛りで「重さ×きょり」を計算し、たし合わせます。左の6に10gと左の2に20gなら、10×6＋20×2＝100 が左のうでをかたむけるはたらきです。"}}, {"@type": "Question", "name": "支点・力点・作用点のならび方で、道具はどう分けられますか？", "acceptedAnswer": {"@type": "Answer", "text": "はさみやくぎぬきは支点が真ん中、せんぬきは作用点が真ん中、ピンセットは力点が真ん中にあります。支点から力点までのきょりが、支点から作用点までのきょりより長いと、小さな力で大きな力を出せます。"}}, {"@type": "Question", "name": "上皿てんびんがつり合うのはなぜですか？", "acceptedAnswer": {"@type": "Answer", "text": "上皿てんびんは、支点から左右の皿までのきょりが同じになっています。そのため、左右にのせたものの重さが等しいときに、てこをかたむけるはたらきも等しくなり、水平につり合います。"}}, {"@type": "Question", "name": "重いものを小さな力で持ち上げるには、どうすればよいですか？", "acceptedAnswer": {"@type": "Answer", "text": "支点から力点までのきょりを長く（力点を支点から遠く）して、支点から作用点までのきょりを短く（作用点を支点に近く）します。"}}]}</script>
     <!-- ga4 -->
@@ -56,6 +56,7 @@ canvas.lab.light{background:#fff;}
 .panel:fullscreen canvas.lab{max-width:min(96vw,1100px);}
 .panel:fullscreen .lab-ctl,.panel:fullscreen .lab-stats{max-width:min(96vw,1100px);}
 </style>
+<style id="rika-fig-style">.rika-figs{margin:8px 0 22px}.rika-fig{margin:0 0 18px}.rika-fig a.zoom{display:block}.rika-fig img{display:block;width:100%;height:auto;border:1px solid var(--line,#e2ded4);border-radius:8px;background:#faf8f3}.rika-fig figcaption{font-size:13.5px;line-height:1.7;margin-top:6px;color:var(--ink-2,#3d434b)}.rika-fig .dl{white-space:nowrap;margin-left:6px;font-size:12.5px}.rika-figs .fig-note{font-size:12.5px;color:var(--ink-2,#3d434b);margin:0}</style>
 </head>
 <body>
 
@@ -121,6 +122,19 @@ canvas.lab.light{background:#fff;}
 <li>くぎぬきで、柄のはしを持つと小さな力でくぎがぬけるのはなぜでしょう。</li>
 </ol>
 <h2>しくみ・解説</h2>
+<!-- rika-figs:start -->
+<div class="rika-figs">
+  <figure class="rika-fig" id="zu1">
+    <a class="zoom" href="teko-tsuriai-1.png" target="_blank" rel="noopener"><img src="teko-tsuriai-1.svg" width="1200" height="675" loading="lazy" decoding="async" alt="てこのつり合いのしくみの図。実験用てこの左の4の目盛りに30g、右の6の目盛りに20gのおもりをつるすと、左のうでをかたむけるはたらき30×4＝120と右のはたらき20×6＝120が等しくなり、水平につり合うことを示す。てこをかたむけるはたらき＝おもりの重さ×支点からのきょり。"></a>
+    <figcaption><b>図1</b>　てこのつり合いのしくみ。左右の「おもりの重さ×支点からのきょり」が等しいとき、てこは水平につり合う。<span class="dl"><a href="teko-tsuriai-1.png" download>PNGで保存</a>・<a href="teko-tsuriai-1.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <figure class="rika-fig" id="zu2">
+    <a class="zoom" href="teko-tsuriai-2.png" target="_blank" rel="noopener"><img src="teko-tsuriai-2.svg" width="1200" height="675" loading="lazy" decoding="async" alt="てこのきまりのまとめ図。左の4に30g（はたらき120）とつり合う右のおもりは、目盛り1で120g・2で60g・3で40g・4で30g・5で24g・6で20gになる（きょりと重さは反比例）。はさみ・くぎぬき（支点が真ん中）、せんぬき（作用点が真ん中）、ピンセット（力点が真ん中）の支点・力点・作用点のならび方。"></a>
+    <figcaption><b>図2</b>　てこのきまりのまとめ。きょりが2倍になると、つり合う重さは半分。身の回りの道具の支点・力点・作用点。<span class="dl"><a href="teko-tsuriai-2.png" download>PNGで保存</a>・<a href="teko-tsuriai-2.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <p class="fig-note">図はタップすると大きく表示されます。授業のプリント・スライド・板書計画に自由に使えます（出典「シミュラボ」とページのURLを添えてください）。</p>
+</div>
+<!-- rika-figs:end -->
 <h3>てこをかたむけるはたらき</h3>
 <div class="note">てこをかたむけるはたらき ＝ おもりの重さ（g）× 支点からのきょり（目盛りの数）<br>左のはたらき ＝ 右のはたらき のとき、てこは水平につり合います。</div>
 <p>2か所以上におもりをつるしたときは、それぞれの「重さ×きょり」をたし合わせます。たとえば左の6に10g、左の2に20gをつるしたときは、10×6＋20×2＝100 が左のうでをかたむけるはたらきです。</p>

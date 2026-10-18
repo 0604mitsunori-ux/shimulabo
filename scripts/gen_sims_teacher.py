@@ -808,7 +808,7 @@ add(id='gakkyu-hensei', cat=T, emoji='🏫',
   lead='学年の人数から、何クラスに分かれるかを計算します。35人学級・40人学級の上限に対応。1クラスの平均人数や、「あと何人で1クラス増える（減る）」のボーダーも分かります。',
   inputs='''    <h2>🏫 条件を入れる</h2>
     <div class="row"><div class="field"><label>学年の児童生徒数 <span class="hint">（人）</span></label><input type="number" id="n" value="72" min="1" inputmode="numeric"></div>
-    <div class="field"><label>1クラスの上限</label><select id="cap"><option value="35" selected>35人（小学校・中学）</option><option value="40">40人</option><option value="30">30人</option></select></div></div>
+    <div class="field"><label>1クラスの上限</label><select id="cap"><option value="35" selected>35人（小学校／中学校は2026年度の中1から順に）</option><option value="40">40人</option><option value="30">30人</option></select></div></div>
     <button class="btn btn-primary" id="calcBtn">クラス数を見る</button>''',
   result='''      <div class="label">編成されるクラス数</div>
       <div class="big"><span id="big">0</span><span class="unit">クラス</span></div>

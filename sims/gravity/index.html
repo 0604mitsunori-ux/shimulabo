@@ -23,7 +23,7 @@
     <link rel="canonical" href="https://shimulabo.com/sims/gravity/">
     <meta property="og:locale" content="ja_JP">
     <meta name="robots" content="index,follow">
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "重力シミュレーター", "url": "https://shimulabo.com/sims/gravity/", "description": "クリックで星を放つと重力で軌道が生まれる。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "重力シミュレーター", "url": "https://shimulabo.com/sims/gravity/", "description": "クリックで星を放つと重力で軌道が生まれる。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}, "image": ["https://shimulabo.com/sims/gravity/gravity-1.png", "https://shimulabo.com/sims/gravity/gravity-2.png"]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "重力シミュレーター", "item": "https://shimulabo.com/sims/gravity/"}]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "安定した軌道を作るコツは？", "acceptedAnswer": {"@type": "Answer", "text": "中心から少し離れた場所をクリックすると、自動でほどよい初速がつきます。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべてブラウザ内で動きます。"}}, {"@type": "Question", "name": "人工衛星はなぜ落ちてこない？", "acceptedAnswer": {"@type": "Answer", "text": "落ち続けていますが、横向きの速さが十分あるため「落ちても地面が離れていく」状態です。国際宇宙ステーションは秒速約7.7 kmで、90分で地球を1周しています。"}}, {"@type": "Question", "name": "星同士は引き合わない？", "acceptedAnswer": {"@type": "Answer", "text": "本シミュレーターでは太陽の重力だけを計算しています（星同士は無視）。星同士も計算すると三体問題になり、軌道はカオスになります。"}}]}</script>
     <!-- ga4 -->
@@ -32,6 +32,7 @@
     <!-- adsense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
          crossorigin="anonymous"></script>
+<style id="rika-fig-style">.rika-figs{margin:8px 0 22px}.rika-fig{margin:0 0 18px}.rika-fig a.zoom{display:block}.rika-fig img{display:block;width:100%;height:auto;border:1px solid var(--line,#e2ded4);border-radius:8px;background:#faf8f3}.rika-fig figcaption{font-size:13.5px;line-height:1.7;margin-top:6px;color:var(--ink-2,#3d434b)}.rika-fig .dl{white-space:nowrap;margin-left:6px;font-size:12.5px}.rika-figs .fig-note{font-size:12.5px;color:var(--ink-2,#3d434b);margin:0}</style>
 </head>
 <body>
 
@@ -76,7 +77,20 @@
   <article class="article">
     <h2>軌道が生まれるしくみ</h2>
     <p>星は中心の太陽に向かって落ちますが、横向きの速度があると「落ち続けながら回る」＝公転になります。速すぎると飛び去り、遅すぎると落下。地球が太陽を回るのも同じ原理です。万有引力（距離の2乗に反比例）で計算しています。</p>
-    <!-- enriched-2026-09 -->
+    <!-- rika-figs:start -->
+<div class="rika-figs">
+  <figure class="rika-fig" id="zu1">
+    <a class="zoom" href="gravity-1.png" target="_blank" rel="noopener"><img src="gravity-1.svg" width="1200" height="675" loading="lazy" decoding="async" alt="万有引力の法則の図。質量Mとmの2つの物体が同じ大きさの力Fで引き合い、F＝G×M×m÷r²で表されることと、きょりrが2倍になると力は4分の1、3倍で9分の1になる（きょりの2乗に反比例する）ことを示すグラフ。"></a>
+    <figcaption><b>図1</b>　万有引力の式。引き合う力はきょりの2乗に反比例し、きょりが2倍なら力は1/4になる。<span class="dl"><a href="gravity-1.png" download>PNGで保存</a>・<a href="gravity-1.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <figure class="rika-fig" id="zu2">
+    <a class="zoom" href="gravity-2.png" target="_blank" rel="noopener"><img src="gravity-2.svg" width="1200" height="675" loading="lazy" decoding="async" alt="太陽のまわりで同じ点から横向きに打ち出した星の軌道の図。打ち出す速さが円軌道の速さの0.4倍だと太陽に落ち、0.9倍と1.2倍は楕円、1倍は円、√2倍は放物線、1.7倍は双曲線になることと、第一宇宙速度約7.9km/s・第二宇宙速度約11.2km/sを示す。"></a>
+    <figcaption><b>図2</b>　打ち出す速さと軌道の形。速さが円軌道の√2倍をこえると、星は戻ってこない。<span class="dl"><a href="gravity-2.png" download>PNGで保存</a>・<a href="gravity-2.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <p class="fig-note">図はタップすると大きく表示されます。資料やSNSに使うときは、出典「シミュラボ」とページのURLを添えてください。</p>
+</div>
+<!-- rika-figs:end -->
+<!-- enriched-2026-09 -->
 <h2>使っている式は「万有引力の法則」だけ</h2>
 <p>中心の太陽が星を引く力は <b>F = G·M·m ÷ r²</b>。距離が2倍になれば力は4分の1です。この加速度を毎フレーム速度に足し、速度を位置に足す——それだけで公転が生まれます。</p>
 <div class="tbl-scroll"><table class="seo-table"><tr><th>条件</th><th>式</th><th>数値例</th></tr><tr><td>円軌道になる速さ</td><td>v = √(GM/r)</td><td>地球の場合 約7.9 km/s（第一宇宙速度）</td></tr><tr><td>脱出する速さ</td><td>円軌道速度の √2 倍</td><td>地球の場合 約11.2 km/s（第二宇宙速度）</td></tr><tr><td>それより遅い</td><td>楕円軌道→さらに遅いと落下</td><td>高度が下がるとやがて太陽に衝突</td></tr></table></div>
@@ -90,7 +104,7 @@
     <h2 style="margin-top:0;">🔬 理科の授業で使うとき</h2>
     <ul style="margin:0 0 12px;padding-left:1.2em;line-height:1.7;"><li><b>中3 太陽系と恒星（発展）</b>　太陽の重力に引かれて、星が公転したり落ちたりする様子。</li><li><b>物理 万有引力</b>　初速の違いで、円・楕円の軌道になったり、落下したり飛び去ったりする。</li></ul>
     <p style="font-size:13.5px;font-weight:700;margin:0 0 8px;">同じ単元の授業向けシミュ</p><div class="related-grid"><a class="related-card" href="../kougousei/"><span class="e">🔬</span><span>光合成と呼吸のシミュレーター（気体の出入り・BTB溶液・ヨウ素液・蒸散）</span></a><a class="related-card" href="../saibou-bunretsu/"><span class="e">🔬</span><span>細胞分裂シミュレーター（体細胞分裂・減数分裂と受精）</span></a><a class="related-card" href="../chisou/"><span class="e">🔬</span><span>地層のでき方と柱状図シミュレーター（鍵層・化石・断層・しゅう曲）</span></a><a class="related-card" href="../kazan-kaseigan/"><span class="e">🔬</span><span>火山の形と火成岩シミュレーター（マグマのねばりけ・冷え方）</span></a></div>
-    <p style="margin:12px 0 0;"><a href="../../rika/#chu">中学校の単元から授業向けシミュを探す（小学校〜高校・91本）→</a></p>
+    <p style="margin:12px 0 0;"><a href="../../rika/#chu">中学校の単元から授業向けシミュを探す（小学校〜高校・101本）→</a></p>
   </section>
 <!-- rika-links:end -->
   <nav class="related" aria-label="related">

@@ -23,7 +23,7 @@
     <link rel="canonical" href="https://shimulabo.com/sims/takarakuji/">
     <meta property="og:locale" content="ja_JP">
     <meta name="robots" content="index,follow">
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "宝くじ買い続けたらシミュレーター", "url": "https://shimulabo.com/sims/takarakuji/", "description": "買い続けた総額・期待回収・運用との差を計算。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "宝くじ買い続けたらシミュレーター", "url": "https://shimulabo.com/sims/takarakuji/", "description": "買い続けた総額・期待回収・運用との差を計算。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}, "image": ["https://shimulabo.com/sims/takarakuji/takarakuji-1.png", "https://shimulabo.com/sims/takarakuji/takarakuji-2.png"]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "宝くじ買い続けたらシミュレーター", "item": "https://shimulabo.com/sims/takarakuji/"}]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "夢を買うのも無駄ですか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。期待値は低くても、ワクワクへの対価と割り切るのは個人の自由です。本ツールは「もし運用していたら」という比較を示すだけです。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
     <!-- ga4 -->
@@ -32,6 +32,7 @@
     <!-- adsense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
          crossorigin="anonymous"></script>
+<style id="rika-fig-style">.rika-figs{margin:8px 0 22px}.rika-fig{margin:0 0 18px}.rika-fig a.zoom{display:block}.rika-fig img{display:block;width:100%;height:auto;border:1px solid var(--line,#e2ded4);border-radius:8px;background:#faf8f3}.rika-fig figcaption{font-size:13.5px;line-height:1.7;margin-top:6px;color:var(--ink-2,#3d434b)}.rika-fig .dl{white-space:nowrap;margin-left:6px;font-size:12.5px}.rika-figs .fig-note{font-size:12.5px;color:var(--ink-2,#3d434b);margin:0}</style>
 </head>
 <body>
 
@@ -95,6 +96,19 @@
     <h2>計算方法</h2>
     <div class="note"><strong>計算式</strong><br>総額 ＝ 1回の額 × 年の回数 × 年数<br>期待回収 ＝ 総額 × 47%（宝くじの還元率の目安）<br>運用比較 ＝ 毎年の購入額を年利3%で積立運用した場合の将来価値</div>
     <p>宝くじの還元率は約47%とされ、長く買い続けるほど期待値では半分以上が手元に戻りません。同じお金を堅実に積立運用していたら…という比較も並べました（あくまで概算で、当選の夢を否定するものではありません）。</p>
+<!-- rika-figs:start -->
+<div class="rika-figs">
+  <figure class="rika-fig" id="zu1">
+    <a class="zoom" href="takarakuji-1.png" target="_blank" rel="noopener"><img src="takarakuji-1.svg" width="1200" height="675" loading="lazy" decoding="async" alt="宝くじの還元率と期待値のしくみの図。買ったお金のうち当せん金として戻るのは約47%で53%は戻らないこと、1回3,000円買うと期待値は1,410円であること、年1万円・3万円・6万円・12万円を30年買い続けたときの総額・期待回収・実質の損失の早見表。"></a>
+    <figcaption><b>図1</b>　還元率と期待値のしくみ。期待回収＝買った総額×47%（還元率の目安）。<span class="dl"><a href="takarakuji-1.png" download>PNGで保存</a>・<a href="takarakuji-1.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <figure class="rika-fig" id="zu2">
+    <a class="zoom" href="takarakuji-2.png" target="_blank" rel="noopener"><img src="takarakuji-2.svg" width="1200" height="675" loading="lazy" decoding="async" alt="宝くじを1回3,000円・年10回、30年買い続けたときのグラフ。使った総額は90万円、期待される回収は42.3万円で差は47.7万円、同じ額を年3%で積み立て運用した場合は約147万円になることを示す。"></a>
+    <figcaption><b>図2</b>　30年買い続けたときの使った額・期待される回収・同額を年3%で運用した場合の比較（年3万円の例）。<span class="dl"><a href="takarakuji-2.png" download>PNGで保存</a>・<a href="takarakuji-2.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <p class="fig-note">図はタップすると大きく表示されます。資料やSNSに使うときは、出典「シミュラボ」とページのURLを添えてください。</p>
+</div>
+<!-- rika-figs:end -->
     <h2>よくある質問</h2><dl class="faq"><dt>夢を買うのも無駄ですか？</dt><dd>いいえ。期待値は低くても、ワクワクへの対価と割り切るのは個人の自由です。本ツールは「もし運用していたら」という比較を示すだけです。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
   </article>
 

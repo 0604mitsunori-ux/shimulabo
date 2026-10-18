@@ -23,7 +23,7 @@
     <link rel="canonical" href="https://shimulabo.com/sims/iss-doko/">
     <meta property="og:locale" content="ja_JP">
     <meta name="robots" content="index,follow">
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "ISSはいまどこ？", "url": "https://shimulabo.com/sims/iss-doko/", "description": "ISSの現在位置をライブ取得して距離を計算。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "ISSはいまどこ？", "url": "https://shimulabo.com/sims/iss-doko/", "description": "ISSの現在位置をライブ取得して距離を計算。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}, "image": ["https://shimulabo.com/sims/iss-doko/iss-doko-1.png", "https://shimulabo.com/sims/iss-doko/iss-doko-2.png"]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ISSはいまどこ？", "item": "https://shimulabo.com/sims/iss-doko/"}]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "位置データの出典は？", "acceptedAnswer": {"@type": "Answer", "text": "公開の衛星位置API（wheretheiss.at）から、ISSの現在の緯度・経度・高度・速度を取得しています。"}}, {"@type": "Question", "name": "ISSは肉眼で見える？", "acceptedAnswer": {"@type": "Answer", "text": "見えます。日の出前・日没後の空が暗い時間に上空を通過すると、飛行機より速く動く明るい光点として数分間見えます。"}}, {"@type": "Question", "name": "入力データは送信される？", "acceptedAnswer": {"@type": "Answer", "text": "地域の選択は距離計算だけに使い、外部には送信されません。"}}]}</script>
     <!-- ga4 -->
@@ -32,6 +32,7 @@
     <!-- adsense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
          crossorigin="anonymous"></script>
+<style id="rika-fig-style">.rika-figs{margin:8px 0 22px}.rika-fig{margin:0 0 18px}.rika-fig a.zoom{display:block}.rika-fig img{display:block;width:100%;height:auto;border:1px solid var(--line,#e2ded4);border-radius:8px;background:#faf8f3}.rika-fig figcaption{font-size:13.5px;line-height:1.7;margin-top:6px;color:var(--ink-2,#3d434b)}.rika-fig .dl{white-space:nowrap;margin-left:6px;font-size:12.5px}.rika-figs .fig-note{font-size:12.5px;color:var(--ink-2,#3d434b);margin:0}</style>
 </head>
 <body>
 
@@ -90,7 +91,20 @@
   <article class="article">
     <h2>このメーターについて</h2>
     <p>ISS（国際宇宙ステーション）は高度約400kmを秒速約7.7kmで飛行し、およそ90分で地球を1周しています。このメーターは公開の衛星位置API（wheretheiss.at）からISSの現在位置を取得し、あなたの選んだ地点との距離を球面距離で計算しています。「更新」を押すたびに位置が変わる＝それだけ速く動いている、ということです。</p>
-    <div class="note">距離が1,000km前後まで近づいた夜の時間帯は、条件がよければ「動く明るい星」として肉眼でも見えます（JAXAの目視予報「きぼうを見よう」が便利です）。</div>
+    <!-- rika-figs:start -->
+<div class="rika-figs">
+  <figure class="rika-fig" id="zu1">
+    <a class="zoom" href="iss-doko-1.png" target="_blank" rel="noopener"><img src="iss-doko-1.svg" width="1200" height="675" loading="lazy" decoding="async" alt="ISS（国際宇宙ステーション）の軌道の図。半径約6,400kmの地球と高度約400kmのISSの通り道を同じ縮尺で描き、400kmは東京〜大阪の直線距離と同じくらいであること、秒速約7.7km（時速約2万7,600km）、約92分（約90分）で地球を1周し、1日に約15.6周、1周ごとに通る場所が西へ約23°ずれることをまとめている。"></a>
+    <figcaption><b>図1</b>　ISSの軌道。高度約400kmを秒速約7.7kmで飛び、約90分で地球を1周する。<span class="dl"><a href="iss-doko-1.png" download>PNGで保存</a>・<a href="iss-doko-1.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <figure class="rika-fig" id="zu2">
+    <a class="zoom" href="iss-doko-2.png" target="_blank" rel="noopener"><img src="iss-doko-2.svg" width="1200" height="675" loading="lazy" decoding="async" alt="ISSが見えるしくみの図。日没後や日の出前、地上の人は暗い空の下にいるが、上空のISSには太陽の光が当たっているため明るく光って見える。真夜中はISSも地球の影に入るので見えない。ページに出るISSまでの距離（500km・1,000km・1,500km・2,000km）ごとの見上げる高さの目安の表もつけている。"></a>
+    <figcaption><b>図2</b>　ISSが見えるしくみ。日没後・日の出前の暗い空で、ISSに日が当たっているときに見える。<span class="dl"><a href="iss-doko-2.png" download>PNGで保存</a>・<a href="iss-doko-2.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <p class="fig-note">図はタップすると大きく表示されます。資料やSNSに使うときは、出典「シミュラボ」とページのURLを添えてください。</p>
+</div>
+<!-- rika-figs:end -->
+<div class="note">距離が1,000km前後まで近づいた夜の時間帯は、条件がよければ「動く明るい星」として肉眼でも見えます（JAXAの目視予報「きぼうを見よう」が便利です）。</div>
     <h2>引用・転載について</h2>
     <p>本ページの計算結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・社内資料への引用を歓迎します。事前連絡は不要です。</p>
     <div class="note">推奨クレジット表記：<code>出典：シミュラボ「ISSはいまどこ？」 https://shimulabo.com/sims/iss-doko/</code><br>Webでご利用の際は上記URLへのリンク設置をお願いします。</div>
@@ -102,7 +116,7 @@
     <h2 style="margin-top:0;">🔬 理科の授業で使うとき</h2>
     <ul style="margin:0 0 12px;padding-left:1.2em;line-height:1.7;"><li><b>物理 円運動と単振動（人工衛星）</b>　高度約400kmを秒速約8kmで回るISSの位置をライブで（ライブ）。</li></ul>
     <p style="font-size:13.5px;font-weight:700;margin:0 0 8px;">同じ単元の授業向けシミュ</p><div class="related-grid"><a class="related-card" href="../tan-shindou/"><span class="e">🔬</span><span>単振動シミュレーター（ばね振り子・単振り子）</span></a><a class="related-card" href="../unari-teijouha/"><span class="e">🔬</span><span>うなりと定常波のシミュレーター（弦・気柱の固有振動）</span></a><a class="related-card" href="../kiroku-timer/"><span class="e">🔬</span><span>記録タイマーと台車の運動シミュレーター（斜面の運動・自由落下）</span></a><a class="related-card" href="../denryu-jikai/"><span class="e">🔬</span><span>電流と磁界シミュレーター（電磁石・モーター・発電機）</span></a></div>
-    <p style="margin:12px 0 0;"><a href="../../rika/#ko">高校の単元から授業向けシミュを探す（小学校〜高校・91本）→</a></p>
+    <p style="margin:12px 0 0;"><a href="../../rika/#ko">高校の単元から授業向けシミュを探す（小学校〜高校・101本）→</a></p>
   </section>
 <!-- rika-links:end -->
   <nav class="related" aria-label="related">

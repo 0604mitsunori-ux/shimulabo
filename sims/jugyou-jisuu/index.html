@@ -23,7 +23,7 @@
     <link rel="canonical" href="https://shimulabo.com/sims/jugyou-jisuu/">
     <meta property="og:locale" content="ja_JP">
     <meta name="robots" content="index,follow">
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "年間授業時数シミュレーター", "url": "https://shimulabo.com/sims/jugyou-jisuu/", "description": "週の授業時数と実施週数から年間の授業時数を計算し、学年ごとの標準授業時数を満たしているか・過不足を確認できる先生向け無料ツール。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "年間授業時数シミュレーター", "url": "https://shimulabo.com/sims/jugyou-jisuu/", "description": "週の授業時数と実施週数から年間の授業時数を計算し、学年ごとの標準授業時数を満たしているか・過不足を確認できる先生向け無料ツール。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}, "image": ["https://shimulabo.com/sims/jugyou-jisuu/jugyou-jisuu-1.png", "https://shimulabo.com/sims/jugyou-jisuu/jugyou-jisuu-2.png"]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "年間授業時数シミュレーター", "item": "https://shimulabo.com/sims/jugyou-jisuu/"}]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "教科ごとに見たい？", "acceptedAnswer": {"@type": "Answer", "text": "教科ごとの週コマ数で計算すると各教科の年間時数が出ます。"}}, {"@type": "Question", "name": "データは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。計算はすべてブラウザ内で完結します。"}}]}</script>
     <!-- adsense -->
@@ -32,6 +32,7 @@
     <!-- ga4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+<style id="rika-fig-style">.rika-figs{margin:8px 0 22px}.rika-fig{margin:0 0 18px}.rika-fig a.zoom{display:block}.rika-fig img{display:block;width:100%;height:auto;border:1px solid var(--line,#e2ded4);border-radius:8px;background:#faf8f3}.rika-fig figcaption{font-size:13.5px;line-height:1.7;margin-top:6px;color:var(--ink-2,#3d434b)}.rika-fig .dl{white-space:nowrap;margin-left:6px;font-size:12.5px}.rika-figs .fig-note{font-size:12.5px;color:var(--ink-2,#3d434b);margin:0}</style>
 </head>
 <body>
 
@@ -96,6 +97,19 @@
     <h2>標準授業時数とは</h2>
     <div class="note"><strong>計算式</strong><br>年間授業時数 ＝ 週の授業時数 × 実施週数<br>学習指導要領の標準授業時数：小4〜6・中学＝1015コマ（1コマ＝小45分・中50分）</div>
     <p>各学校は学習指導要領が定める「標準授業時数」を確保する必要があります。行事や休校で時数が不足しないよう、年間指導計画で管理します。本ツールは概算で、正確には教科ごとの時数管理が必要です。</p>
+<!-- rika-figs:start -->
+<div class="rika-figs">
+  <figure class="rika-fig" id="zu1">
+    <a class="zoom" href="jugyou-jisuu-1.png" target="_blank" rel="noopener"><img src="jugyou-jisuu-1.svg" width="1200" height="675" loading="lazy" decoding="async" alt="学年ごとの標準授業時数の棒グラフ。小1は850、小2は910、小3は980、小4〜小6と中1〜中3は1015単位時間で、週あたりは小1が25コマ（34週）、小2が26コマ、小3が28コマ、小4〜中3が29コマ（35週）。1コマは小学校45分・中学校50分。"></a>
+    <figcaption><b>図1</b>　学年ごとの標準授業時数。小4〜中3は年間1015コマ（35週なら週29コマ）が標準。<span class="dl"><a href="jugyou-jisuu-1.png" download>PNGで保存</a>・<a href="jugyou-jisuu-1.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <figure class="rika-fig" id="zu2">
+    <a class="zoom" href="jugyou-jisuu-2.png" target="_blank" rel="noopener"><img src="jugyou-jisuu-2.svg" width="1200" height="675" loading="lazy" decoding="async" alt="年間授業時数の早見表。週の授業時数27〜31コマと実施週数33〜37週の組み合わせごとに、年間授業時数と標準授業時数1015との過不足（確保できる見込みか不足の可能性か）を示した表。"></a>
+    <figcaption><b>図2</b>　週の授業時数×実施週数の早見表（標準1015コマの学年）。週29コマなら35週でちょうど標準。<span class="dl"><a href="jugyou-jisuu-2.png" download>PNGで保存</a>・<a href="jugyou-jisuu-2.svg" download>SVG</a></span></figcaption>
+  </figure>
+  <p class="fig-note">図はタップすると大きく表示されます。資料やSNSに使うときは、出典「シミュラボ」とページのURLを添えてください。</p>
+</div>
+<!-- rika-figs:end -->
     <h2>よくある質問</h2><dl class="faq"><dt>教科ごとに見たい？</dt><dd>教科ごとの週コマ数で計算すると各教科の年間時数が出ます。</dd><dt>データは送信されますか？</dt><dd>いいえ。計算はすべてブラウザ内で完結します。</dd></dl>
   </article>
 
