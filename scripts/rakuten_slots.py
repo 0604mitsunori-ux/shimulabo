@@ -39,7 +39,8 @@ def aff_id():
 
 def link(aid, word):
     pc = "https://search.rakuten.co.jp/search/mall/" + quote(word) + "/"
-    return f"https://hb.afl.rakuten.co.jp/hgc/{aid}/?pc={quote(pc, safe='')}&m={quote(pc, safe='')}"
+    # 楽天の「URLからリンクを作成」と同じ形（hgc/ID/?pc=…&link_type=text）。ID は楽天市場（me_id=1）向けのもの
+    return f"https://hb.afl.rakuten.co.jp/hgc/{aid}/?pc={quote(pc, safe='')}&link_type=text"
 
 
 def slot(aid, title, items):
