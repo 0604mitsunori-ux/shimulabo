@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/denshi-haichi/">
+<title>電子配置のシミュレーター｜K殻・L殻・M殻と価電子、周期表、イオンの生成（化学基礎）｜シミュラボ</title>
+<meta name="description" content="周期表のマスをタップすると、原子核（陽子・中性子）と電子殻K・L・M・Nに電子が入るボーア模型を表示。価電子の数、貴ガスの安定な電子配置、イオンになるときの電子の出入り、同位体の切り替え、イオン化エネルギーのグラフまで。高校「化学基礎」物質の構成粒子の授業向け。">
+<meta property="og:title" content="原子の構造と電子配置のシミュレーター（周期表・価電子・イオン）">
+<meta property="og:description" content="原子番号1〜20（発展36）を選ぶと、電子がK殻2・L殻8・M殻8…と入るようすをボーア模型で表示。Na→Na⁺、Cl→Cl⁻ で電子が出入りして貴ガスと同じ電子配置になるアニメつき。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/denshi-haichi.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/denshi-haichi.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/denshi-haichi/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": ["WebApplication", "LearningResource"], "name": "原子の構造と電子配置のシミュレーター（周期表・価電子・イオン）", "url": "https://shimulabo.com/sims/denshi-haichi/", "description": "原子番号1〜20（発展36）を選ぶと、電子がK殻2・L殻8・M殻8…と入るようすをボーア模型で表示。Na→Na⁺、Cl→Cl⁻ で電子が出入りして貴ガスと同じ電子配置になるアニメつき。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "educationalLevel": "高校（化学基礎）、中学3年の発展", "learningResourceType": "シミュレーション", "teaches": "化学基礎 物質の構成粒子（原子の構造・電子配置と周期表）", "educationalUse": ["授業", "自習"], "audience": {"@type": "EducationalAudience", "educationalRole": ["teacher", "student"]}, "educationalAlignment": {"@type": "AlignmentObject", "alignmentType": "educationalSubject", "educationalFramework": "学習指導要領（平成29・30年告示）", "targetName": "高等学校 化学基礎（2）物質の構成 ア（ｱ）物質の構成粒子・（ｲ）㋐イオンとイオン結合"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "理科の授業向け", "item": "https://shimulabo.com/rika/"}, {"@type": "ListItem", "position": 3, "name": "原子の構造と電子配置のシミュレーター（周期表・価電子・イオン）", "item": "https://shimulabo.com/sims/denshi-haichi/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "価電子と最外殻電子のちがいは？", "acceptedAnswer": {"@type": "Answer", "text": "最外殻電子は最も外側の電子殻に入っている電子のことです。価電子は、そのうちイオンになったり結合したりするときにはたらく電子で、典型元素では最外殻電子の数と同じです。ただし貴ガス（He・Ne・Arなど）は安定でほとんど反応しないので、価電子の数を0とします。"}}, {"@type": "Question", "name": "K殻・L殻・M殻・N殻に入る電子の最大数は？", "acceptedAnswer": {"@type": "Answer", "text": "内側から n 番目の電子殻には最大 2n² 個の電子が入ります。K殻（n＝1）は2個、L殻（n＝2）は8個、M殻（n＝3）は18個、N殻（n＝4）は32個です。"}}, {"@type": "Question", "name": "カリウムの電子配置は？M殻にまだ入るのに、なぜN殻に入るの？", "acceptedAnswer": {"@type": "Answer", "text": "カリウム（原子番号19）の電子配置は K2 L8 M8 N1 です。M殻には最大18個入りますが、電子はエネルギーの低いところから順に入るため、M殻が8個になったところで19個目はN殻に入ります。カルシウムは K2 L8 M8 N2 です。"}}, {"@type": "Question", "name": "イオンになると、なぜ貴ガスと同じ電子配置になるの？", "acceptedAnswer": {"@type": "Answer", "text": "貴ガスの電子配置（最外殻が2個または8個）は特に安定だからです。価電子が1〜3個の原子は電子を失って陽イオンに（Na→Na⁺はNeと同じ）、価電子が6〜7個の原子は電子を受け取って陰イオンに（Cl→Cl⁻はArと同じ）なりやすくなります。"}}, {"@type": "Question", "name": "同位体どうしで化学的な性質は変わる？", "acceptedAnswer": {"@type": "Answer", "text": "ほとんど変わりません。同位体は中性子の数（質量数）だけがちがい、陽子と電子の数、つまり電子配置が同じだからです。ただし質量がちがうので、重水素（²H）を含む水が少し重いなど、物理的な性質にはわずかな差があります。"}}, {"@type": "Question", "name": "元素記号の左上と左下の数字は何？", "acceptedAnswer": {"@type": "Answer", "text": "左上が質量数（陽子の数＋中性子の数）、左下が原子番号（陽子の数）です。たとえば ²³₁₁Na は、陽子11個・中性子12個のナトリウム原子を表します。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+<style>
+.lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
+.lab-ctl .field{margin-bottom:6px;}
+.lab-ctl>*,.lab-stats>*{min-width:0;}
+.lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
+.lab-ctl .slider-head label{margin:0;font-size:13px;}
+.lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
+.lab-ctl input[type=range]{width:100%;}
+.lab-ctl select{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;font-size:14px;background:#fff;}
+.lab-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px;}
+.lab-btns .btn{padding:11px 18px;font-size:14px;width:auto;}
+.lab-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;width:100%;max-width:640px;margin-top:4px;}
+.lab-stats .stat{background:var(--teal-l);border-radius:10px;padding:10px 12px;text-align:center;}
+.lab-stats .k{font-size:11px;color:var(--ink-2);}
+.lab-stats .v{font-size:20px;font-weight:800;color:var(--ink);font-feature-settings:"tnum";}
+.lab-stats .v.accent{color:var(--accent);}
+.lab-legend{text-align:center;color:var(--ink-2);font-size:13px;margin-top:12px;}
+.lab-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;background:rgba(44,107,134,.10);color:var(--teal-d);margin-bottom:8px;}
+canvas.lab{width:100%;max-width:640px;height:auto;border:1px solid var(--line);border-radius:12px;background:#0b1020;touch-action:none;}
+canvas.lab.light{background:#fff;}
+.panel:fullscreen,.panel:-webkit-full-screen{overflow:auto;padding:24px;background:var(--bg,#faf8f3);}
+.panel:fullscreen canvas.lab{max-width:min(96vw,1100px);}
+.panel:fullscreen .lab-ctl,.panel:fullscreen .lab-stats{max-width:min(96vw,1100px);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../rika/">🔬 理科の授業向け</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../rika/">理科の授業向け</a><span>›</span><span class="cur">原子の構造と電子配置のシミュレーター（周期表・価電子・イオン）</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">理科の授業向け</div>
+    <h1>原子の構造と電子配置のシミュレーター（周期表・価電子・イオン）</h1>
+    <p class="lead">周期表のマスをタップすると、その原子の原子核（陽子・中性子）と、K殻・L殻・M殻・N殻に入る電子をボーア模型で表示します。「⚡ イオンにする」で電子が出入りして貴ガスと同じ電子配置になるようす、同位体の切り替え、イオン化エネルギーの周期的な変化も確かめられます。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;gap:14px;">
+      <span class="lab-badge">🔬 化学基礎 物質の構成粒子（原子の構造・電子配置と周期表）</span>
+      <canvas id="cv" class="lab light" width="640" height="500"></canvas>
+      <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="z">原子番号</label><span class="val" id="zL"></span></div><input type="range" id="z" min="1" max="20" value="11" step="1"></div><div class="field"><div class="slider-head"><label for="rng">表示する範囲</label></div><select id="rng"><option value="20" selected>化学基礎（1〜20番）</option><option value="36">発展（21〜36番も）</option></select></div><div class="field"><div class="slider-head"><label for="iso">質量数（同位体）</label></div><select id="iso"><option value="0" selected>²³Na</option></select></div></div>
+      <div class="lab-btns"><button class="btn btn-ghost" id="prev">◀ 前</button><button class="btn btn-ghost" id="next">次 ▶</button><button class="btn btn-primary" id="ion">⚡ イオンにする</button><button class="btn btn-ghost" id="ieb">📈 イオン化エネルギー</button></div>
+      <div class="lab-stats"><div class="stat"><div class="k">元素（原子番号）</div><div class="v" id="sEl">—</div></div><div class="stat"><div class="k">電子配置</div><div class="v accent" id="sConf">—</div></div><div class="stat"><div class="k">価電子の数</div><div class="v" id="sVal">—</div></div><div class="stat"><div class="k">なりやすいイオン</div><div class="v" id="sIon">—</div></div></div>
+    </div>
+    <p class="lab-legend">左上：原子のモデル（赤＝陽子、灰色＝中性子、青＝電子、オレンジ＝価電子、緑＝貴ガスと同じ安定な最外殻。大きさは模式的で、原子核はとても大きく描いています）。原子をタップしてもイオンにできます。右上：元素の情報（左上の数字＝質量数、左下の数字＝原子番号）。下：周期表（黄色の列＝同じ族。いちばん下の行＝価電子の数）。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-ghost" id="fsBtn" hidden>⛶ 全画面で表示</button>
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+
+<h2>このシミュレーションでわかること</h2>
+<p>原子は、中心の<b>原子核（陽子と中性子）</b>と、そのまわりの<b>電子殻（K殻・L殻・M殻・N殻）</b>に入った電子からできています。原子番号1〜18の原子では、電子は内側の殻から順に K殻2個 → L殻8個 → M殻 と入り、19番のカリウムと20番のカルシウムでは、M殻が8個のところで次のN殻に入ります。最も外側の殻の電子（価電子）の数は周期表の族と対応し、原子がイオンになるときは、電子を失ったり受け取ったりして、最も近い<b>貴ガスと同じ電子配置</b>になります。</p>
+<div class="note"><b>対応する単元</b>：高等学校「化学基礎」（2）物質の構成 ア（ｱ）物質の構成粒子「㋐原子の構造」「㋑電子配置と周期表」、（ｲ）物質と化学結合「㋐イオンとイオン結合」。学習指導要領の内容の取扱いでは、原子番号・質量数・同位体を扱い、放射性同位体とその利用にも触れること、「原子の電子配置」は代表的な典型元素を扱うこと、「元素の周期律」ではイオン化エネルギーの変化にも触れることとされています。解説では、原子の簡単なモデルを用いて原子番号20番までの代表的な典型元素を扱うとしています（21〜36番は「発展」で表示できます）。</div>
+<h2>授業での使い方</h2>
+<h3>導入：1番から順に電子を入れていく</h3>
+<p>「次 ▶」を押して、水素から順に原子番号を1つずつ増やします。電子が内側のK殻から入り、K殻が2個、L殻が8個でいっぱいになると次の殻に移ること、18番のアルゴンのあと19番のカリウムでN殻に入ることに気付かせます。周期表の下の段（周期）が変わるところで、新しい電子殻が使われ始めることも確かめます。</p>
+<h3>展開：族と価電子、イオンの生成</h3>
+<p>Li・Na・K（1族）、F・Cl（17族）、He・Ne・Ar（18族）を順に選び、同じ族では価電子の数が同じであることを周期表のいちばん下の行で確かめます。次にNaを選んで「⚡ イオンにする」を押すと、価電子1個が出ていき、Neと同じ電子配置のNa⁺になります。Clでは電子を1個受け取ってArと同じ電子配置のCl⁻になります。Mg・Al・O・Sでも試し、イオンの価数と族の関係を整理させます。</p>
+<h3>まとめ：同位体とイオン化エネルギー</h3>
+<p>Clを選んで「質量数（同位体）」を ³⁵Cl と ³⁷Cl で切り替えると、変わるのは中性子の数だけで、電子配置は変わらないことがわかります。「📈 イオン化エネルギー」を押すと、第一イオン化エネルギーが貴ガスで大きく、アルカリ金属で小さいという周期的な変化を棒グラフで確かめられます。</p>
+<h3>生徒への問いの例</h3>
+<ol>
+<li>ナトリウム（Na）とカリウム（K）は、どちらも周期表の1族にある。電子配置をくらべると、何が共通しているだろう？</li>
+<li>マグネシウム原子は、電子を2個失ってMg²⁺になる。電子を6個受け取るのではなく、2個失うほうが起こりやすいのはなぜだろう？できたイオンはどの貴ガスと同じ電子配置だろう？</li>
+<li>炭素12（¹²C）と炭素14（¹⁴C）で、数がちがうのは陽子・中性子・電子のどれだろう？化学的な性質はちがうだろうか？</li>
+</ol>
+<h2>しくみ・解説</h2>
+<h3>用語</h3>
+<ul>
+<li><b>原子番号</b>とは、原子核に含まれる陽子の数のことで、元素の種類はこの数で決まります。</li>
+<li><b>質量数</b>とは、原子核に含まれる陽子の数と中性子の数の和のことです。</li>
+<li><b>同位体（アイソトープ）</b>とは、原子番号が同じで中性子の数が異なるため、質量数が異なる原子どうしのことです。化学的な性質はほぼ同じです。</li>
+<li><b>電子殻</b>とは、原子核のまわりで電子が入るいくつかの層のことで、内側から K殻・L殻・M殻・N殻…とよびます。</li>
+<li><b>電子配置</b>とは、原子のもつ電子が、どの電子殻に何個ずつ入っているかを表したものです。</li>
+<li><b>最外殻電子</b>とは最も外側の電子殻に入っている電子のことで、そのうち原子がイオンになったり結合したりするときにはたらく電子を<b>価電子</b>といいます。貴ガスの価電子の数は0とします。</li>
+<li><b>貴ガス</b>とは18族の元素（He・Ne・Ar・Kr など）のことで、安定な電子配置をもつため、ほかの原子とほとんど反応せず、イオンにもなりにくい元素です。</li>
+<li><b>閉殻</b>とは、電子殻に入ることのできる最大数の電子が入った状態です（HeのK殻2個、NeのL殻8個）。ArのM殻は8個ですが、最外殻に8個の電子をもつ配置も閉殻と同じように安定です。</li>
+<li><b>（第一）イオン化エネルギー</b>とは、原子から電子1個を取り去って1価の陽イオンにするのに必要なエネルギーのことです。小さい原子ほど陽イオンになりやすい原子です。</li>
+</ul>
+<h3>式と数値の早見表</h3>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>量</th><th>式</th></tr><tr><td>原子番号</td><td>＝ 陽子の数 ＝ 原子の電子の数</td></tr><tr><td>質量数</td><td>＝ 陽子の数 ＋ 中性子の数</td></tr><tr><td>中性子の数</td><td>＝ 質量数 − 原子番号</td></tr><tr><td>n番目の電子殻の最大数</td><td>2n²（K殻 2、L殻 8、M殻 18、N殻 32）</td></tr><tr><td>イオンの電子の数</td><td>＝ 原子番号 − イオンの価数（陽イオン）／ ＋ 価数（陰イオン）</td></tr></table></div><div class="tbl-scroll"><table class="seo-table"><tr><th>粒子</th><th>質量</th><th>電荷</th><th>場所</th></tr><tr><td>陽子</td><td>1.673×10⁻²⁷ kg</td><td>＋1（＋1.602×10⁻¹⁹ C）</td><td>原子核の中</td></tr><tr><td>中性子</td><td>1.675×10⁻²⁷ kg</td><td>0</td><td>原子核の中</td></tr><tr><td>電子</td><td>9.109×10⁻³¹ kg（陽子の約1/1840）</td><td>−1（−1.602×10⁻¹⁹ C）</td><td>電子殻</td></tr></table></div>
+<p>原子の大きさは約10⁻¹⁰ m、原子核の大きさは約10⁻¹⁵〜10⁻¹⁴ m で、原子核は原子の10万分の1程度しかありません。このシミュレーターの図は、原子核をとても大きく描いています。</p>
+<h3>原子番号1〜20の電子配置</h3>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>原子番号</th><th>記号</th><th>元素</th><th>K</th><th>L</th><th>M</th><th>N</th><th>価電子</th><th>なりやすいイオン</th></tr><tr><td>1</td><td>H</td><td><span style="white-space:nowrap">水素</span></td><td>1</td><td></td><td></td><td></td><td>1</td><td>H⁺</td></tr><tr><td>2</td><td>He</td><td><span style="white-space:nowrap">ヘリウム</span></td><td>2</td><td></td><td></td><td></td><td>0</td><td>（なりにくい）</td></tr><tr><td>3</td><td>Li</td><td><span style="white-space:nowrap">リチウム</span></td><td>2</td><td>1</td><td></td><td></td><td>1</td><td>Li⁺</td></tr><tr><td>4</td><td>Be</td><td><span style="white-space:nowrap">ベリリウム</span></td><td>2</td><td>2</td><td></td><td></td><td>2</td><td>Be²⁺</td></tr><tr><td>5</td><td>B</td><td><span style="white-space:nowrap">ホウ素</span></td><td>2</td><td>3</td><td></td><td></td><td>3</td><td>（なりにくい）</td></tr><tr><td>6</td><td>C</td><td><span style="white-space:nowrap">炭素</span></td><td>2</td><td>4</td><td></td><td></td><td>4</td><td>（なりにくい）</td></tr><tr><td>7</td><td>N</td><td><span style="white-space:nowrap">窒素</span></td><td>2</td><td>5</td><td></td><td></td><td>5</td><td>N³⁻</td></tr><tr><td>8</td><td>O</td><td><span style="white-space:nowrap">酸素</span></td><td>2</td><td>6</td><td></td><td></td><td>6</td><td>O²⁻</td></tr><tr><td>9</td><td>F</td><td><span style="white-space:nowrap">フッ素</span></td><td>2</td><td>7</td><td></td><td></td><td>7</td><td>F⁻</td></tr><tr><td>10</td><td>Ne</td><td><span style="white-space:nowrap">ネオン</span></td><td>2</td><td>8</td><td></td><td></td><td>0</td><td>（なりにくい）</td></tr><tr><td>11</td><td>Na</td><td><span style="white-space:nowrap">ナトリウム</span></td><td>2</td><td>8</td><td>1</td><td></td><td>1</td><td>Na⁺</td></tr><tr><td>12</td><td>Mg</td><td><span style="white-space:nowrap">マグネシウム</span></td><td>2</td><td>8</td><td>2</td><td></td><td>2</td><td>Mg²⁺</td></tr><tr><td>13</td><td>Al</td><td><span style="white-space:nowrap">アルミニウム</span></td><td>2</td><td>8</td><td>3</td><td></td><td>3</td><td>Al³⁺</td></tr><tr><td>14</td><td>Si</td><td><span style="white-space:nowrap">ケイ素</span></td><td>2</td><td>8</td><td>4</td><td></td><td>4</td><td>（なりにくい）</td></tr><tr><td>15</td><td>P</td><td><span style="white-space:nowrap">リン</span></td><td>2</td><td>8</td><td>5</td><td></td><td>5</td><td>（なりにくい）</td></tr><tr><td>16</td><td>S</td><td><span style="white-space:nowrap">硫黄</span></td><td>2</td><td>8</td><td>6</td><td></td><td>6</td><td>S²⁻</td></tr><tr><td>17</td><td>Cl</td><td><span style="white-space:nowrap">塩素</span></td><td>2</td><td>8</td><td>7</td><td></td><td>7</td><td>Cl⁻</td></tr><tr><td>18</td><td>Ar</td><td><span style="white-space:nowrap">アルゴン</span></td><td>2</td><td>8</td><td>8</td><td></td><td>0</td><td>（なりにくい）</td></tr><tr><td>19</td><td>K</td><td><span style="white-space:nowrap">カリウム</span></td><td>2</td><td>8</td><td>8</td><td>1</td><td>1</td><td>K⁺</td></tr><tr><td>20</td><td>Ca</td><td><span style="white-space:nowrap">カルシウム</span></td><td>2</td><td>8</td><td>8</td><td>2</td><td>2</td><td>Ca²⁺</td></tr></table></div>
+<h3>族と価電子の早見表（典型元素）</h3>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>族</th><th>価電子の数</th><th>元素の例</th><th>イオン</th></tr><tr><td>1族</td><td>1</td><td>H, Li, Na, K</td><td>1価の陽イオン（Li⁺, Na⁺, K⁺）</td></tr><tr><td>2族</td><td>2</td><td>Be, Mg, Ca</td><td>2価の陽イオン（Mg²⁺, Ca²⁺）</td></tr><tr><td>13族</td><td>3</td><td>B, Al</td><td>Al³⁺</td></tr><tr><td>14族</td><td>4</td><td>C, Si</td><td>イオンになりにくい</td></tr><tr><td>15族</td><td>5</td><td>N, P</td><td>（N³⁻）</td></tr><tr><td>16族</td><td>6</td><td>O, S</td><td>2価の陰イオン（O²⁻, S²⁻）</td></tr><tr><td>17族</td><td>7</td><td>F, Cl</td><td>1価の陰イオン（F⁻, Cl⁻）</td></tr><tr><td>18族</td><td>0</td><td>He, Ne, Ar</td><td>イオンになりにくい（貴ガス）</td></tr></table></div>
+<p>周期の番号は、電子が入っている最も外側の電子殻の番号（1＝K殻、2＝L殻、3＝M殻、4＝N殻）と一致します。1族のうちHを除いた元素をアルカリ金属、2族元素をアルカリ土類金属、17族元素をハロゲン、18族元素を貴ガスといいます。</p>
+<h3>計算の例</h3>
+<ol>
+<li><b>²³Na の粒子の数</b>：陽子 11個、中性子 23−11＝12個、電子 11個。Na⁺ になると電子は 11−1＝10個（Neと同じ K2 L8）。</li>
+<li><b>³⁵Cl⁻ の粒子の数</b>：陽子 17個、中性子 35−17＝18個、電子 17＋1＝18個（Arと同じ K2 L8 M8）。</li>
+<li><b>塩素の原子量</b>：³⁵Cl（相対質量 35.0、存在比 75.8％）と ³⁷Cl（37.0、24.2％）から、35.0×0.758＋37.0×0.242＝35.48 → <b>約35.5</b>。</li>
+</ol>
+<h3>19番・20番の電子がN殻に入る理由</h3>
+<p>M殻には最大18個の電子が入りますが、カリウムとカルシウムでは、M殻が8個になったところで次の電子がN殻に入ります。これは電子がエネルギーの低いところから順に入るためで、詳しくは「化学」以降で学ぶ電子軌道で説明されます。21番スカンジウムからの遷移元素では、N殻に2個（または1個）入ったままM殻の電子が増えていき（例：Fe は K2 L8 M14 N2）、29番の銅でM殻が18個になります。「表示する範囲」を「発展」にすると、21〜36番も確かめられます。</p>
+<h3>イオン化エネルギーの周期的な変化</h3>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>貴ガス</th><th>第一イオン化エネルギー［kJ/mol］</th><th>アルカリ金属</th><th>第一イオン化エネルギー［kJ/mol］</th></tr><tr><td>He</td><td>2372</td><td>Li</td><td>520</td></tr><tr><td>Ne</td><td>2081</td><td>Na</td><td>496</td></tr><tr><td>Ar</td><td>1521</td><td>K</td><td>419</td></tr></table></div>
+<p>同じ周期では右へ行くほど大きくなる傾向があり、貴ガスで最大、次の周期のアルカリ金属で急に小さくなります。同じ族では、下へ行くほど（原子が大きくなり、最外殻電子が原子核から遠くなるため）小さくなります。</p>
+<div class="note" style="border-left:4px solid var(--teal)"><strong>ポイント</strong>：電子を円周上に並べたボーアの原子模型（模式図）で表しています。実際の電子は決まった円の上を回っているわけではありません。電子殻の大きさ・原子核の大きさ・陽子と中性子の並び方は模式的です。電子の位置は見やすさのためにゆっくり回しています。存在比は IUPAC の値を丸めたもの、原子量は教科書で計算に使う概数をあわせて表示しています。</div>
+<h2>参考</h2>
+<ul class="seo-refs">
+<li>文部科学省「高等学校学習指導要領（平成30年告示）解説 理科編 理数編」化学基礎（2）物質の構成</li>
+<li><a href="https://www.mext.go.jp/a_menu/shotou/new-cs/1407074.htm" target="_blank" rel="noopener">文部科学省「高等学校学習指導要領（平成30年告示）解説」</a></li>
+<li>日本化学会 原子量専門委員会「原子量表」／IUPAC「Isotopic compositions of the elements」（同位体の存在比）</li>
+<li><a href="https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html" target="_blank" rel="noopener">NIST Atomic Spectra Database「Ionization Energies」</a>（第一イオン化エネルギー）</li>
+<li>高等学校「化学基礎」の教科書「物質の構成粒子」「イオンとイオン結合」</li>
+</ul>
+
+    <h2>引用・転載について</h2>
+    <p>本ページのシミュレーション結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・授業や社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「原子の構造と電子配置のシミュレーター（周期表・価電子・イオン）」 https://shimulabo.com/sims/denshi-haichi/</code></div>
+    <h2>よくある質問</h2><dl class="faq"><dt>価電子と最外殻電子のちがいは？</dt><dd>最外殻電子は最も外側の電子殻に入っている電子のことです。価電子は、そのうちイオンになったり結合したりするときにはたらく電子で、典型元素では最外殻電子の数と同じです。ただし貴ガス（He・Ne・Arなど）は安定でほとんど反応しないので、価電子の数を0とします。</dd><dt>K殻・L殻・M殻・N殻に入る電子の最大数は？</dt><dd>内側から n 番目の電子殻には最大 2n² 個の電子が入ります。K殻（n＝1）は2個、L殻（n＝2）は8個、M殻（n＝3）は18個、N殻（n＝4）は32個です。</dd><dt>カリウムの電子配置は？M殻にまだ入るのに、なぜN殻に入るの？</dt><dd>カリウム（原子番号19）の電子配置は K2 L8 M8 N1 です。M殻には最大18個入りますが、電子はエネルギーの低いところから順に入るため、M殻が8個になったところで19個目はN殻に入ります。カルシウムは K2 L8 M8 N2 です。</dd><dt>イオンになると、なぜ貴ガスと同じ電子配置になるの？</dt><dd>貴ガスの電子配置（最外殻が2個または8個）は特に安定だからです。価電子が1〜3個の原子は電子を失って陽イオンに（Na→Na⁺はNeと同じ）、価電子が6〜7個の原子は電子を受け取って陰イオンに（Cl→Cl⁻はArと同じ）なりやすくなります。</dd><dt>同位体どうしで化学的な性質は変わる？</dt><dd>ほとんど変わりません。同位体は中性子の数（質量数）だけがちがい、陽子と電子の数、つまり電子配置が同じだからです。ただし質量がちがうので、重水素（²H）を含む水が少し重いなど、物理的な性質にはわずかな差があります。</dd><dt>元素記号の左上と左下の数字は何？</dt><dd>左上が質量数（陽子の数＋中性子の数）、左下が原子番号（陽子の数）です。たとえば ²³₁₁Na は、陽子11個・中性子12個のナトリウム原子を表します。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../chuwa-ion/"><span class="e">⚗️</span><span>酸・アルカリと中和のシミュレーター（BTB溶液の色とイオンのモデル）</span></a><a class="related-card" href="../joutai-henka/"><span class="e">🧊</span><span>状態変化と粒子のシミュレーター（固体・液体・気体）</span></a><a class="related-card" href="../kagaku-shitsuryou/"><span class="e">🧪</span><span>化学変化と質量シミュレーター（銅・マグネシウムの酸化）</span></a><a class="related-card" href="../double-slit/"><span class="e">🌈</span><span>ダブルスリット実験</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../rika/">🔬 理科の授業向けシミュレーター</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+  const rnd = (a,b) => a + Math.random()*(b-a);
+  const randn = () => { let u=0,v=0; while(!u)u=Math.random(); while(!v)v=Math.random(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
+  let SHARE = '';
+  function setShare(t){ SHARE = t; }
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{ const l=$(s.id+'L'); if(l){ const u=()=>{ l.textContent = (s.dataset.fmt ? s.dataset.fmt.replace('{v}', s.value) : s.value); }; s.addEventListener('input',u); u(); } }); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  function setStat(id, v){ const e=$(id); if(e) e.textContent = v; }
+  try {
+    syncSliders();
+
+  const cv=$('cv'); const dpr=Math.min(2,window.devicePixelRatio||1); const W=cv.width,H=cv.height; cv.width=W*dpr; cv.height=H*dpr; const ctx=cv.getContext('2d'); ctx.setTransform(dpr,0,0,dpr,0,0);
+  const FF='"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic UI","Yu Gothic",Meiryo,sans-serif';
+  function tx(s,x,y,size,col,align,bold){ ctx.font=(bold?'bold ':'')+size+'px '+FF; ctx.fillStyle=col; ctx.textAlign=align||'left'; ctx.fillText(s,x,y); ctx.textAlign='left'; }
+  function tw(s,size,bold){ ctx.font=(bold?'bold ':'')+size+'px '+FF; return ctx.measureText(s).width; }
+  function rr(x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
+  function dot(x,y,r,fill,stroke,lw){ ctx.fillStyle=fill; ctx.beginPath(); ctx.arc(x,y,r,0,6.2832); ctx.fill(); if(stroke){ ctx.strokeStyle=stroke; ctx.lineWidth=lw||1; ctx.stroke(); } }
+  function wrap(s,x,y,maxW,lh,size,col,bold){ let line='', yy=y; for(const ch of s){ if(tw(line+ch,size,bold)>maxW && line){ tx(line,x,yy,size,col,'left',bold); line=ch; yy+=lh; } else line+=ch; } if(line) tx(line,x,yy,size,col,'left',bold); return yy; }
+  const K=id=>$(id).previousElementSibling;
+  const fld=id=>{ const e=$(id); return e?e.closest('.field'):null; };
+  function showF(id,on){ const f=fld(id); if(f) f.style.display=on?'':'none'; }
+
+  const SYM=['','H','He','Li','Be','B','C','N','O','F','Ne','Na','Mg','Al','Si','P','S','Cl','Ar','K','Ca','Sc','Ti','V','Cr','Mn','Fe','Co','Ni','Cu','Zn','Ga','Ge','As','Se','Br','Kr'];
+  const NAME=['','水素','ヘリウム','リチウム','ベリリウム','ホウ素','炭素','窒素','酸素','フッ素','ネオン','ナトリウム','マグネシウム','アルミニウム','ケイ素','リン','硫黄','塩素','アルゴン','カリウム','カルシウム','スカンジウム','チタン','バナジウム','クロム','マンガン','鉄','コバルト','ニッケル','銅','亜鉛','ガリウム','ゲルマニウム','ヒ素','セレン','臭素','クリプトン'];
+  // 原子量（IUPAC を丸めた値）と、計算で使う概数（教科書の表の値）
+  const AWP=['','1.008','4.003','6.94','9.012','10.81','12.01','14.01','16.00','19.00','20.18','22.99','24.31','26.98','28.09','30.97','32.07','35.45','39.95','39.10','40.08','44.96','47.87','50.94','52.00','54.94','55.85','58.93','58.69','63.55','65.38','69.72','72.63','74.92','78.97','79.90','83.80'];
+  const AWR=['','1.0','4.0','6.9','9.0','10.8','12','14','16','19','20','23','24','27','28','31','32','35.5','40','39','40','45','48','51','52','55','56','59','59','63.5','65.4','70','73','75','79','80','84'];
+  // 第一イオン化エネルギー [kJ/mol]（NIST）
+  const IE=[0,1312,2372,520,900,801,1086,1402,1314,1681,2081,496,738,578,787,1012,1000,1251,1521,419,590,633,659,651,653,717,762,760,737,745,906,579,762,947,941,1140,1351];
+  // 同位体 [質量数, 存在比, メモ]（先頭＝代表的な質量数）
+  const ISO={1:[[1,'99.99%',''],[2,'0.01%','重水素'],[3,'ごく微量','三重水素・放射性']],2:[[4,'ほぼ100%',''],[3,'0.0001%','']],3:[[7,'92.4%',''],[6,'7.6%','']],4:[[9,'100%','']],
+    5:[[11,'80.1%',''],[10,'19.9%','']],6:[[12,'98.9%',''],[13,'1.1%',''],[14,'ごく微量','放射性・年代測定']],7:[[14,'99.6%',''],[15,'0.4%','']],8:[[16,'99.76%',''],[18,'0.20%',''],[17,'0.04%','']],
+    9:[[19,'100%','']],10:[[20,'90.5%',''],[22,'9.3%',''],[21,'0.3%','']],11:[[23,'100%','']],12:[[24,'79.0%',''],[26,'11.0%',''],[25,'10.0%','']],13:[[27,'100%','']],
+    14:[[28,'92.2%',''],[29,'4.7%',''],[30,'3.1%','']],15:[[31,'100%','']],16:[[32,'95.0%',''],[34,'4.25%',''],[33,'0.75%',''],[36,'0.01%','']],17:[[35,'75.8%',''],[37,'24.2%','']],
+    18:[[40,'99.6%',''],[36,'0.34%',''],[38,'0.06%','']],19:[[39,'93.3%',''],[41,'6.7%',''],[40,'0.01%','放射性']],20:[[40,'96.9%',''],[44,'2.1%',''],[42,'0.65%',''],[48,'0.19%',''],[43,'0.14%','']],
+    21:[[45,'100%','']],22:[[48,'73.7%','']],23:[[51,'99.8%','']],24:[[52,'83.8%','']],25:[[55,'100%','']],26:[[56,'91.8%',''],[54,'5.8%','']],27:[[59,'100%','']],28:[[58,'68.1%',''],[60,'26.2%','']],
+    29:[[63,'69.2%',''],[65,'30.8%','']],30:[[64,'49.2%',''],[66,'27.7%','']],31:[[69,'60.1%',''],[71,'39.9%','']],32:[[74,'36.5%',''],[72,'27.5%','']],33:[[75,'100%','']],34:[[80,'49.6%',''],[78,'23.8%','']],
+    35:[[79,'50.7%',''],[81,'49.3%','']],36:[[84,'57.0%',''],[86,'17.3%','']]};
+  // なりやすいイオン [記号, 名前, 受け取る電子の数（負＝失う）]
+  const ION={1:['H⁺','水素イオン',-1],3:['Li⁺','リチウムイオン',-1],4:['Be²⁺','ベリリウムイオン',-2],7:['N³⁻','窒化物イオン',3],8:['O²⁻','酸化物イオン',2],9:['F⁻','フッ化物イオン',1],
+    11:['Na⁺','ナトリウムイオン',-1],12:['Mg²⁺','マグネシウムイオン',-2],13:['Al³⁺','アルミニウムイオン',-3],16:['S²⁻','硫化物イオン',2],17:['Cl⁻','塩化物イオン',1],
+    19:['K⁺','カリウムイオン',-1],20:['Ca²⁺','カルシウムイオン',-2],34:['Se²⁻','セレン化物イオン',2],35:['Br⁻','臭化物イオン',1]};
+  const CF4={19:[2,8,8,1],20:[2,8,8,2],21:[2,8,9,2],22:[2,8,10,2],23:[2,8,11,2],24:[2,8,13,1],25:[2,8,13,2],26:[2,8,14,2],27:[2,8,15,2],28:[2,8,16,2],29:[2,8,18,1],30:[2,8,18,2],
+    31:[2,8,18,3],32:[2,8,18,4],33:[2,8,18,5],34:[2,8,18,6],35:[2,8,18,7],36:[2,8,18,8]};
+  const NOBLE={2:'He',10:'Ne',18:'Ar',36:'Kr'};
+  const SUP={'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'};
+  const sup=n=>String(n).split('').map(c=>SUP[c]).join('');
+  const SHN=['K','L','M','N'], RAD=[46,74,102,130], CX=150, CY=160;
+  const TX0=34, TCW=33, TY0=342, TCH=34;
+  const COLC={h:'#dbeafe',alkali:'#fde2e4',alkearth:'#ffedd5',halogen:'#dcfce7',noble:'#ede9fe',trans:'#e5e7eb',main:'#f1f5f9'};
+  const CATN={h:'非金属（1族）',alkali:'アルカリ金属',alkearth:'アルカリ土類金属',halogen:'ハロゲン',noble:'貴ガス',trans:'遷移元素（発展）',main:'典型元素'};
+  const C={ink:'#0f172a',sub:'#64748b',p:'#e0483e',n:'#94a3b8',e:'#2563eb',v:'#f59e0b',st:'#16a34a',red:'#dc2626'};
+  function conf(z){ return z<=18 ? [Math.min(z,2),clamp(z-2,0,8),clamp(z-10,0,8),0] : CF4[z].slice(); }
+  function outer(c){ let o=0; for(let i=0;i<4;i++) if(c[i]>0) o=i; return o; }
+  function group(z){ if(z===1) return 1; if(z===2) return 18; if(z<=10) return z<=4?z-2:z+8; if(z<=18) return z<=12?z-10:z; return z-18; }
+  function period(z){ return z<=2?1:z<=10?2:z<=18?3:4; }
+  function cat(z){ const g=group(z); return z===1?'h':g===18?'noble':g===1?'alkali':g===2?'alkearth':g===17?'halogen':(g>=3&&g<=12)?'trans':'main'; }
+  function valence(z){ const g=group(z); if(g>=3&&g<=12) return null; return g===18?0:g<=2?g:g-10; }
+  function ionConf(z){ const c=conf(z), io=ION[z]; if(!io) return c; c[outer(c)]+=io[2]; return c; }
+  function cs(c){ const s=[]; for(let i=0;i<4;i++) if(c[i]>0) s.push(SHN[i]+c[i]); return s.length?s.join(' '):'電子なし'; }
+
+  let z=11, rng=20, iso=0, ionOn=false, ionT=0, ie=false, flash=0, last=0, tm=0, nuc=null, nucKey='';
+  const massA=()=>ISO[z][Math.min(iso,ISO[z].length-1)][0];
+
+  // 原子核：陽子と中性子をひまわり状に並べる（並べ方は模式的）
+  function makeNuc(){ const A=massA(), key=z+'-'+A; if(key===nucKey) return; nucKey=key;
+    const tp=[]; for(let i=0;i<A;i++) tp.push(i<z?1:0);
+    let sd=z*131+A*7; const r=()=>{ sd=(sd*16807)%2147483647; return sd/2147483647; };
+    for(let i=A-1;i>0;i--){ const j=Math.floor(r()*(i+1)); const t=tp[i]; tp[i]=tp[j]; tp[j]=t; }
+    const Rn=Math.min(31,4.7*Math.sqrt(A)), pr=Math.max(3,Rn/Math.sqrt(A)*1.12);
+    nuc={pr:pr,pts:tp.map((t,k)=>{ const rad=A===1?0:Rn*Math.sqrt((k+0.5)/A)*0.92, th=k*2.39996; return [CX+rad*Math.cos(th),CY+rad*Math.sin(th),t]; }).reverse()}; }
+  function drawNuc(){ makeNuc(); nuc.pts.forEach(q=>{ const g=ctx.createRadialGradient(q[0]-nuc.pr*0.35,q[1]-nuc.pr*0.4,nuc.pr*0.15,q[0],q[1],nuc.pr);
+      g.addColorStop(0,q[2]?'#ffb4a8':'#eef2f7'); g.addColorStop(1,q[2]?C.p:C.n); ctx.fillStyle=g; ctx.beginPath(); ctx.arc(q[0],q[1],nuc.pr,0,6.2832); ctx.fill();
+      ctx.strokeStyle='rgba(15,23,42,.25)'; ctx.lineWidth=0.6; ctx.stroke(); }); }
+  function elec(x,y,col,a){ ctx.globalAlpha=a==null?1:a; dot(x,y,5.6,col,'#0f172a',1); ctx.fillStyle='rgba(255,255,255,.65)'; ctx.beginPath(); ctx.arc(x-1.6,y-1.8,1.7,0,6.2832); ctx.fill(); ctx.globalAlpha=1; }
+  const ease=t=>t<0.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+
+  function drawBohr(){
+    ctx.save(); ctx.beginPath(); ctx.rect(0,0,298,304); ctx.clip();
+    tx('原子のモデル（模式図）',8,18,13,C.ink,'left',true);
+    const c=conf(z), o=outer(c), io=ION[z], t=ease(ionT), ionNow=io&&ionT>0.5, cd=ionNow?ionConf(z):c, od=outer(cd);
+    const nob=valence(z)===0 || (ionNow && NOBLE[cd.reduce((a,b)=>a+b,0)]);
+    for(let i=0;i<4;i++){ const solid=cd[i]>0 || (io&&io[2]<0&&i===o&&ionT<1);
+      ctx.strokeStyle=solid?'#94a3b8':'#e2e8f0'; ctx.lineWidth=solid?1.6:1.2; ctx.setLineDash(solid?[]:[4,5]); ctx.beginPath(); ctx.arc(CX,CY,RAD[i],0,6.2832); ctx.stroke(); ctx.setLineDash([]);
+      const lx=CX+RAD[i]*0.72+2, ly=CY+RAD[i]*0.70+12; tx(SHN[i],lx,ly,11,solid?'#475569':'#cbd5e1','left',true); }
+    drawNuc();
+    for(let i=0;i<4;i++){ const n=c[i]; const rot=tm*0.22*(i%2?-1:1)/(1+i*0.25)-Math.PI/2;
+      const valShell=(i===o), isNobOuter=(i===od && nob);
+      const col=isNobOuter?C.st:(valShell&&valence(z)!==0&&!ionNow)?C.v:C.e;
+      if(io&&i===o&&io[2]<0){ for(let j=0;j<n;j++){ const a=rot+j*6.2832/n, r=RAD[i]+t*175; if(t<1) elec(CX+r*Math.cos(a),CY+r*Math.sin(a),C.v,1-t*0.6); } continue; }
+      if(io&&i===o&&io[2]>0){ const m=n+io[2];
+        for(let j=0;j<m;j++){ const af=rot+j*6.2832/m;
+          if(j<n){ const a0=rot+j*6.2832/n, a=a0+(af-a0)*t; elec(CX+RAD[i]*Math.cos(a),CY+RAD[i]*Math.sin(a),ionNow?C.st:C.v); }
+          else if(t>0){ const r=RAD[i]+(1-t)*190, a=af+(1-t)*0.7; elec(CX+r*Math.cos(a),CY+r*Math.sin(a),ionNow?C.st:'#f97316'); } }
+        continue; }
+      for(let j=0;j<n;j++){ const a=rot+j*6.2832/n; elec(CX+RAD[i]*Math.cos(a),CY+RAD[i]*Math.sin(a),col); } }
+    // ラベル
+    const lab=ionNow?io[0]:SYM[z]+' 原子'; tx(lab,8,44,ionNow?24:16,ionNow?C.red:C.ink,'left',true);
+    if(ionNow){ const q=-io[2]; tx('電荷 '+(q>0?'＋':'−')+Math.abs(q),8,62,11,C.red,'left',true); }
+    else tx('電気的に中性',8,62,11,C.sub);
+    tx('● 陽子',236,18,11,C.p,'left',true); tx('● 中性子',236,32,11,'#64748b','left',true);
+    tx('● 電子',8,262,11,C.e,'left',true); tx('● 価電子',8,277,11,'#d97706','left',true); tx('● 安定な最外殻',8,292,11,C.st,'left',true);
+    tx('原子をタップ→イオン',292,296,10,'#94a3b8','right');
+    ctx.restore(); }
+
+  function drawInfo(){ const x0=304,y0=6,w=330,h=296; ctx.fillStyle='#f8fafc'; ctx.strokeStyle='#e2e8f0'; ctx.lineWidth=1; rr(x0,y0,w,h,10); ctx.fill(); ctx.stroke();
+    const g=group(z), ct=cat(z), A=massA(), c=conf(z), io=ION[z], ionNow=io&&ionT>0.5, cd=ionNow?ionConf(z):c, od=outer(cd), v=valence(z);
+    tx('第'+period(z)+'周期・'+g+'族',316,26,12,C.sub,'left',true);
+    const cw=tw(CATN[ct],11,true); ctx.fillStyle=COLC[ct]; rr(626-cw-12,13,cw+12,19,9); ctx.fill(); tx(CATN[ct],620-cw,27,11,'#334155','left',true);
+    tx(String(A),350,48,14,C.ink,'right',true); tx(String(z),350,80,14,C.ink,'right',true);
+    const sw=tw(SYM[z],42,true); tx(SYM[z],354,80,42,C.ink,'left',true);
+    const nx=Math.max(420,358+sw+14); tx(NAME[z],nx,58,20,C.ink,'left',true); tx('原子番号 '+z+'・質量数 '+A,nx,80,12,C.sub);
+    ctx.strokeStyle='#e2e8f0'; ctx.beginPath(); ctx.moveTo(316,94); ctx.lineTo(622,94); ctx.stroke();
+    let x=316; const ne=cd.reduce((a,b)=>a+b,0);
+    [['陽子',z,C.p],['中性子',A-z,'#64748b'],['電子',ne,C.e]].forEach(q=>{ dot(x+5,113,5,q[2]); tx(q[0],x+14,118,12,C.sub); const lw=tw(q[0],12); tx(String(q[1]),x+16+lw,118,16,C.ink,'left',true); x+=22+lw+tw(String(q[1]),16,true)+16; });
+    tx('電子配置',316,150,12,C.sub,'left',true);
+    for(let i=0;i<4;i++){ const bx=380+i*61, on=cd[i]>0, isO=on&&i===od; ctx.fillStyle=!on?'#fff':isO?((v===0||ionNow)?'#dcfce7':'#fef3c7'):'#e0ecff'; ctx.strokeStyle=isO?((v===0||ionNow)?C.st:'#d97706'):'#cbd5e1'; ctx.lineWidth=isO?2:1;
+      rr(bx,132,55,28,7); ctx.fill(); ctx.stroke(); tx(SHN[i],bx+8,151,11,C.sub,'left',true); tx(on?String(cd[i]):'—',bx+44,153,17,on?C.ink:'#cbd5e1','right',true); }
+    tx('価電子',316,186,12,C.sub,'left',true);
+    if(v===null){ tx('—',380,188,20,C.ink,'left',true); tx('遷移元素：最外殻電子 '+c[outer(c)]+'個',408,186,12,C.sub); }
+    else { tx(v+'個',380,188,20,ionNow?'#94a3b8':C.ink,'left',true); tx(v===0?'（最外殻 '+c[outer(c)]+'個で安定）':'（最外殻電子 '+v+'個）',380+tw(v+'個',20,true)+8,186,12,C.sub); }
+    tx('イオン',316,216,12,C.sub,'left',true);
+    const fl=flash>0;
+    if(io){ const tgt=NOBLE[ionConf(z).reduce((a,b)=>a+b,0)], k=Math.abs(io[2]);
+      tx(io[0]+'（'+io[1]+'）',380,218,15,ionNow?C.red:C.ink,'left',true);
+      wrap((io[2]<0?'電子を'+k+'個失い、':'電子を'+k+'個受け取り、')+(tgt?tgt+'と同じ電子配置に':'陽子だけになる')+(z===7?'（参考）':''),380,236,240,15,12,fl?C.red:C.sub); }
+    else { const m=v===0?'貴ガス：安定な電子配置なので、イオンになりにくい':v===null?'発展：遷移元素はイオンの価数が複数ある（例 Fe²⁺・Fe³⁺、Cu⁺・Cu²⁺）':(g===14||g===15)?'単原子のイオンになりにくい（共有結合をつくる）':'この範囲では扱いません';
+      wrap(m,380,218,236,15,12,fl?C.red:C.ink,fl); }
+    tx('同位体',316,266,12,C.sub,'left',true);
+    let ix=380, iy=266; ISO[z].slice(0,4).forEach((q,i)=>{ const s=sup(q[0])+SYM[z]+' '+q[1]+(q[2]?'（'+q[2]+'）':''), cur=i===iso, ww=tw(s,12,cur)+12;
+      if(ix+ww>628){ ix=380; iy+=15; } tx(s,ix,iy,12,cur?C.red:C.sub,'left',cur); ix+=ww; });
+    tx('原子量 '+AWP[z]+'（計算では '+AWR[z]+'）',316,Math.min(296,Math.max(292,iy+18)),12,C.ink); }
+
+  const GX0=346,GX1=628,GY0=46,GY1=262;
+  function ieX(k){ return GX0+(k-0.5)/rng*(GX1-GX0); }
+  function drawIE(){ const x0=304,y0=6,w=330,h=296; ctx.fillStyle='#f8fafc'; ctx.strokeStyle='#e2e8f0'; ctx.lineWidth=1; rr(x0,y0,w,h,10); ctx.fill(); ctx.stroke();
+    tx('第一イオン化エネルギー［kJ/mol］',316,26,13,C.ink,'left',true);
+    for(let v=0;v<=2500;v+=500){ const y=GY1-v/2500*(GY1-GY0); ctx.strokeStyle=v?'#e2e8f0':'#94a3b8'; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(GX0,y); ctx.lineTo(GX1,y); ctx.stroke(); tx(String(v),GX0-4,y+4,10,C.sub,'right'); }
+    const bw=(GX1-GX0)/rng*0.72;
+    for(let k=1;k<=rng;k++){ const x=ieX(k), y=GY1-IE[k]/2500*(GY1-GY0), ct=cat(k); ctx.fillStyle=k===z?C.red:ct==='noble'?'#8b5cf6':ct==='alkali'?'#f472b6':'#93c5fd'; ctx.fillRect(x-bw/2,y,bw,GY1-y);
+      if(rng<=20||k===z||(k%2===1&&Math.abs(k-z)>1)) tx(SYM[k],x,GY1+13,rng<=20?10:9,k===z?C.red:C.sub,'center',k===z); }
+    [2,10,18].forEach(k=>{ if(k<rng){ const x=(ieX(k)+ieX(k+1))/2; ctx.strokeStyle='rgba(100,116,139,.35)'; ctx.setLineDash([3,3]); ctx.beginPath(); ctx.moveTo(x,GY0); ctx.lineTo(x,GY1); ctx.stroke(); ctx.setLineDash([]); } });
+    const s=SYM[z]+'（'+NAME[z]+'）'+IE[z]+' kJ/mol', xs=clamp(ieX(z),316+tw(s,12,true)/2,624-tw(s,12,true)/2); tx(s,xs,40,12,C.red,'center',true);
+    tx('■ 貴ガス',316,292,11,'#8b5cf6','left',true); tx('■ アルカリ金属',372,292,11,'#db2777','left',true); tx('点線＝周期の区切り・棒をタップ',628,292,10,C.sub,'right'); }
+
+  function cell(k){ return [TX0+(group(k)-1)*TCW, TY0+(period(k)-1)*TCH]; }
+  function drawTable(){
+    tx('周期表（タップして元素を選ぶ）',8,322,13,C.ink,'left',true); tx('上の数字＝族、左の数字＝周期',632,322,11,C.sub,'right');
+    const g=group(z); ctx.fillStyle='rgba(250,204,21,.22)'; ctx.fillRect(TX0+(g-1)*TCW-1,TY0-14,TCW+2,4*TCH+36);
+    for(let gg=1;gg<=18;gg++) tx(String(gg),TX0+(gg-1)*TCW+TCW/2,TY0-4,10,gg===g?'#a16207':C.sub,'center',gg===g);
+    for(let p=1;p<=4;p++) tx(String(p),TX0-10,TY0+(p-1)*TCH+TCH/2+4,11,p===period(z)?'#a16207':C.sub,'center',true);
+    for(let k=1;k<=36;k++){ const q=cell(k), dim=k>rng; ctx.globalAlpha=dim?0.32:1; ctx.fillStyle=COLC[cat(k)]; ctx.strokeStyle='#cbd5e1'; ctx.lineWidth=1;
+      ctx.fillRect(q[0]+1,q[1]+1,TCW-2,TCH-2); ctx.strokeRect(q[0]+1.5,q[1]+1.5,TCW-3,TCH-3);
+      tx(String(k),q[0]+4,q[1]+11,8,C.sub); tx(SYM[k],q[0]+TCW/2,q[1]+27,14,C.ink,'center',true); ctx.globalAlpha=1; }
+    const q=cell(z); ctx.strokeStyle=C.red; ctx.lineWidth=3; ctx.strokeRect(q[0]+1,q[1]+1,TCW-2,TCH-2);
+    tx(rng<=20?'↑ 21〜36番は発展（「表示する範囲」で切り替え）':'↑ 3〜12族＝遷移元素（最外殻電子は1〜2個）',TX0+2*TCW+4,TY0+4*TCH+15,10,'#64748b','left',true);
+    // 空いているところに凡例と説明
+    let lx=TX0+TCW+8; [['alkali','アルカリ金属'],['alkearth','アルカリ土類金属'],['trans','遷移元素'],['halogen','ハロゲン'],['noble','貴ガス']].forEach(a=>{ ctx.fillStyle=COLC[a[0]]; ctx.fillRect(lx,TY0+9,12,12); ctx.strokeStyle='#94a3b8'; ctx.strokeRect(lx+.5,TY0+9.5,11,11); tx(a[1],lx+16,TY0+20,11,'#334155'); lx+=tw(a[1],11)+30; });
+    tx('同じ族（たての列）＝価電子の数が同じ → 性質が似る',TX0+2*TCW+6,TY0+TCH+16,11,'#334155','left',true);
+    tx('周期（横の行）の番号＝電子が入る最も外側の殻',TX0+2*TCW+6,TY0+TCH+33,11,'#334155');
+    tx('（1＝K殻、2＝L殻、3＝M殻、4＝N殻）',TX0+2*TCW+6,TY0+TCH+50,11,'#334155');
+    tx('価電子',4,TY0+4*TCH+16,10,'#a16207','left',true);
+    [[1,'1'],[2,'2'],[13,'3'],[14,'4'],[15,'5'],[16,'6'],[17,'7'],[18,'0']].forEach(a=>tx(a[1],TX0+(a[0]-1)*TCW+TCW/2,TY0+4*TCH+16,12,a[0]===g?'#a16207':'#334155','center',true)); }
+
+  function draw(){ ctx.fillStyle='#fff'; ctx.fillRect(0,0,W,H); drawBohr(); if(ie) drawIE(); else drawInfo(); drawTable(); }
+  function stats(){ const io=ION[z], ionNow=io&&ionOn, cd=ionNow?ionConf(z):conf(z), v=valence(z);
+    setStat('sEl',SYM[z]+'（'+z+'番）'); setStat('sConf',cs(cd)); setStat('sVal',v===null?'—（遷移元素）':v+'個'); setStat('sIon',io?io[0]:'なりにくい');
+    const tgt=io?NOBLE[ionConf(z).reduce((a,b)=>a+b,0)]:null;
+    setShare('【電子配置】'+NAME[z]+' '+SYM[z]+'（原子番号'+z+'）は '+cs(conf(z))+(v===null?'':'、価電子'+v+'個')+(io?'。電子を'+Math.abs(io[2])+'個'+(io[2]<0?'失って':'受け取って')+io[0]+(tgt?'（'+tgt+'と同じ電子配置）':'')+'になる':'')+'｜シミュラボ'); }
+  function fillIso(){ $('iso').innerHTML=ISO[z].map((q,i)=>'<option value="'+i+'">'+sup(q[0])+SYM[z]+'（中性子'+(q[0]-z)+'・'+q[1]+'）</option>').join(''); $('iso').value='0'; }
+  function setZ(k){ z=clamp(k,1,rng); iso=0; ionOn=false; ionT=0; flash=0; $('z').value=z; $('zL').textContent=z+'（'+SYM[z]+'）'; fillIso(); $('ion').textContent='⚡ イオンにする'; stats(); draw(); }
+  function setRng(r){ rng=r; $('rng').value=String(r); $('z').max=r; if(z>r) setZ(r); else { $('z').value=z; draw(); } }
+  function toggleIon(){ if(!ION[z]){ flash=1.6; draw(); return; } ionOn=!ionOn; $('ion').textContent=ionOn?'↩ 原子にもどす':'⚡ イオンにする'; stats(); }
+  $('z').addEventListener('input',()=>setZ(+$('z').value));
+  $('rng').addEventListener('change',()=>setRng(+$('rng').value));
+  $('iso').addEventListener('change',()=>{ iso=+$('iso').value; draw(); });
+  $('prev').addEventListener('click',()=>setZ(z>1?z-1:rng));
+  $('next').addEventListener('click',()=>setZ(z<rng?z+1:1));
+  $('ion').addEventListener('click',toggleIon);
+  $('ieb').addEventListener('click',()=>{ ie=!ie; $('ieb').textContent=ie?'📋 元素の情報にもどす':'📈 イオン化エネルギー'; draw(); });
+  cv.addEventListener('pointerdown',e=>{ const p=cpos(cv,e), x=p[0]/dpr, y=p[1]/dpr;
+    if(y>=TY0&&y<TY0+4*TCH&&x>=TX0&&x<TX0+18*TCW){ const gg=Math.floor((x-TX0)/TCW)+1, pp=Math.floor((y-TY0)/TCH)+1;
+      for(let k=1;k<=36;k++) if(group(k)===gg&&period(k)===pp){ if(k>rng) setRng(36); setZ(k); return; } return; }
+    if(ie&&x>=GX0&&x<=GX1&&y>=GY0-20&&y<=GY1+16){ setZ(clamp(Math.floor((x-GX0)/(GX1-GX0)*rng)+1,1,rng)); return; }
+    if(x<298&&y<304&&Math.hypot(x-CX,y-CY)<RAD[3]+10) toggleIon(); });
+  function frame(ts){ const dt=last?Math.min(0.1,(ts-last)/1000):0; last=ts; tm+=dt;
+    const tgt=ionOn?1:0; if(ionT!==tgt){ ionT=tgt>ionT?Math.min(1,ionT+dt/1.3):Math.max(0,ionT-dt/0.9); }
+    if(flash>0) flash=Math.max(0,flash-dt); draw(); requestAnimationFrame(frame); }
+  setZ(11); requestAnimationFrame(frame);
+
+  } catch(e) { console.error(e); }
+  (function(){ const fs=$('fsBtn'), panel=document.querySelector('.panel');
+    const req = panel && (panel.requestFullscreen || panel.webkitRequestFullscreen);
+    if (fs && req) { fs.hidden = false; fs.addEventListener('click', () => {
+      const cur = document.fullscreenElement || document.webkitFullscreenElement;
+      if (cur) { (document.exitFullscreen || document.webkitExitFullscreen).call(document); }
+      else { req.call(panel); } }); }
+  })();
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE || document.title)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText((SHARE||document.title)+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'denshi-haichi', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

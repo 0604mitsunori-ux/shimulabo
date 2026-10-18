@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/eratosthenes/">
+<title>エラトステネスの方法のシミュレーター｜地球の大きさの求め方（360°:θ＝全周:距離）と日本の2都市で計算｜シミュラボ</title>
+<meta name="description" content="エラトステネスが地球の大きさを測った方法を、地球の断面図・平行な太陽光線・棒の影で再現する無料シミュレーター。影の角度7.2°と距離925 kmから地球一周約46,000 kmを求め、日本の2都市の緯度の差と南北の距離で計算し直すと約40,000 kmになることも確かめられます。tanの計算・扁平な地球の話つき。地学基礎の授業に。">
+<meta property="og:title" content="エラトステネスの方法で地球の大きさを測るシミュレーター">
+<meta property="og:description" content="平行な太陽光線と棒の影から中心角を求め、360°:θ＝全周:距離 で地球一周を計算。シエネとアレクサンドリア、日本の2都市で比べられる地学基礎の教材です。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/eratosthenes.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/eratosthenes.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/eratosthenes/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": ["WebApplication", "LearningResource"], "name": "エラトステネスの方法で地球の大きさを測るシミュレーター（地球の全周の求め方）", "url": "https://shimulabo.com/sims/eratosthenes/", "description": "平行な太陽光線と棒の影から中心角を求め、360°:θ＝全周:距離 で地球一周を計算。シエネとアレクサンドリア、日本の2都市で比べられる地学基礎の教材です。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "educationalLevel": "高校（地学基礎）", "learningResourceType": "シミュレーション", "teaches": "地学基礎 地球の形と大きさ", "educationalUse": ["授業", "自習"], "audience": {"@type": "EducationalAudience", "educationalRole": ["teacher", "student"]}, "educationalAlignment": {"@type": "AlignmentObject", "alignmentType": "educationalSubject", "educationalFramework": "学習指導要領（平成29・30年告示）", "targetName": "高等学校 地学基礎（1）地球のすがた ア（ｱ）㋐ 地球の形と大きさ"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "理科の授業向け", "item": "https://shimulabo.com/rika/"}, {"@type": "ListItem", "position": 3, "name": "エラトステネスの方法で地球の大きさを測るシミュレーター（地球の全周の求め方）", "item": "https://shimulabo.com/sims/eratosthenes/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "エラトステネスはどうやって地球の大きさを測ったのですか？", "acceptedAnswer": {"@type": "Answer", "text": "夏至の日の正午、シエネでは太陽が真上にきて井戸の底まで光が届き、北にあるアレクサンドリアでは太陽の光が棒と7.2°（円の1/50）の角をつくることを使いました。太陽の光は平行なので7.2°は地球の中心角に等しく、2地点間の距離の50倍が地球一周になります。"}}, {"@type": "Question", "name": "地球の全周を求める式は何ですか？", "acceptedAnswer": {"@type": "Answer", "text": "360° : θ ＝ 地球一周 : 2地点間の距離 です。地球一周 ＝ 距離 × 360° ÷ θ で、たとえば θ＝7.2°、距離925 kmなら 925×360÷7.2＝46,250 km になります。"}}, {"@type": "Question", "name": "影の長さと棒の高さから角度を求めるには？", "acceptedAnswer": {"@type": "Answer", "text": "tan θ ＝ 影の長さ ÷ 棒の高さ の関係を使い、θ ＝ tan⁻¹（影の長さ ÷ 棒の高さ）で求めます。高さ1 mの棒の影が12.6 cmなら tanθ＝0.126 で、θ≒7.2°です。"}}, {"@type": "Question", "name": "エラトステネスの値（約46,000 km）が実際の約40,000 kmとずれたのはなぜですか？", "acceptedAnswer": {"@type": "Answer", "text": "距離（5,000スタディア）をkmに直すときの1スタディオンの長さがはっきりしないこと、シエネとアレクサンドリアが真南・真北に並んでいないこと、距離の測定のあらさなどが理由と考えられています。1スタディオンを157.5 mとすると約39,700 kmになります。"}}, {"@type": "Question", "name": "日本の2都市で地球の大きさを測るときの注意点は？", "acceptedAnswer": {"@type": "Answer", "text": "経度の差ができるだけ小さく、南北にほぼ並ぶ2地点を選び、緯度の差と南北の距離（子午線にそった長さ）を使うことです。2地点間の直線距離を使うと東西方向の分だけ長くなり、地球一周が大きく出ます。"}}, {"@type": "Question", "name": "地球は完全な球ですか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。赤道方向にふくらんだ回転楕円体で、赤道半径は約6,378 km、極半径は約6,357 kmです。緯度1°あたりの子午線の長さが赤道付近（110.57 km）より極付近（111.69 km）で長いことからわかります。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+<style>
+.lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
+.lab-ctl .field{margin-bottom:6px;}
+.lab-ctl>*,.lab-stats>*{min-width:0;}
+.lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
+.lab-ctl .slider-head label{margin:0;font-size:13px;}
+.lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
+.lab-ctl input[type=range]{width:100%;}
+.lab-ctl select{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;font-size:14px;background:#fff;}
+.lab-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px;}
+.lab-btns .btn{padding:11px 18px;font-size:14px;width:auto;}
+.lab-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;width:100%;max-width:640px;margin-top:4px;}
+.lab-stats .stat{background:var(--teal-l);border-radius:10px;padding:10px 12px;text-align:center;}
+.lab-stats .k{font-size:11px;color:var(--ink-2);}
+.lab-stats .v{font-size:20px;font-weight:800;color:var(--ink);font-feature-settings:"tnum";}
+.lab-stats .v.accent{color:var(--accent);}
+.lab-legend{text-align:center;color:var(--ink-2);font-size:13px;margin-top:12px;}
+.lab-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;background:rgba(44,107,134,.10);color:var(--teal-d);margin-bottom:8px;}
+canvas.lab{width:100%;max-width:640px;height:auto;border:1px solid var(--line);border-radius:12px;background:#0b1020;touch-action:none;}
+canvas.lab.light{background:#fff;}
+.panel:fullscreen,.panel:-webkit-full-screen{overflow:auto;padding:24px;background:var(--bg,#faf8f3);}
+.panel:fullscreen canvas.lab{max-width:min(96vw,1100px);}
+.panel:fullscreen .lab-ctl,.panel:fullscreen .lab-stats{max-width:min(96vw,1100px);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../rika/">🔬 理科の授業向け</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../rika/">理科の授業向け</a><span>›</span><span class="cur">エラトステネスの方法で地球の大きさを測るシミュレーター（地球の全周の求め方）</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">理科の授業向け</div>
+    <h1>エラトステネスの方法で地球の大きさを測るシミュレーター（地球の全周の求め方）</h1>
+    <p class="lead">夏至の正午、シエネでは影ができず、アレクサンドリアでは棒の影の角度が7.2°でした。太陽の光は平行なので、この角度は地球の中心角に等しく、360°:7.2°＝地球一周:925 km から地球の大きさが求められます。日本の2都市の緯度の差と南北の距離でも計算してみましょう。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;gap:14px;">
+      <span class="lab-badge">🔬 地学基礎 地球の形と大きさ</span>
+      <canvas id="cv" class="lab light" width="640" height="520"></canvas>
+      <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="mode">測り方</label></div><select id="mode"><option value="erato" selected>① エラトステネスの測定</option><option value="japan">② 日本の2都市で測る</option></select></div><div class="field"><div class="slider-head"><label for="th">影の角度（中心角）θ</label><span class="val" id="thL"></span></div><input type="range" id="th" min="1" max="20" value="7.2" step="0.1" data-fmt="{v}°"></div><div class="field"><div class="slider-head"><label for="dk">2地点の距離</label><span class="val" id="dkL"></span></div><input type="range" id="dk" min="100" max="3000" value="925" step="5" data-fmt="{v} km"></div><div class="field"><div class="slider-head"><label for="pair">2つの都市</label></div><select id="pair"><option value="0" selected>青森—仙台（緯度差2.56°）</option><option value="1">青森—水戸（緯度差4.48°）</option><option value="2">札幌—水戸（緯度差6.72°）</option><option value="3">新潟—前橋（緯度差1.51°）</option><option value="4">福岡—鹿児島（緯度差2.05°）</option><option value="5">松江—高知（緯度差1.91°）</option><option value="6">札幌—那覇（緯度差16.85°）※経度差大</option></select></div><div class="field"><div class="slider-head"><label for="dist">使う距離</label></div><select id="dist"><option value="ns" selected>南北の距離（子午線にそう）</option><option value="geo">2地点間の直線距離</option></select></div></div>
+      <div class="lab-btns"><button class="btn btn-ghost" id="reset">↺ エラトステネスの値（7.2°・925 km）</button></div>
+      <div class="lab-stats"><div class="stat"><div class="k">中心角 θ（影の角度）</div><div class="v" id="s1">—</div></div><div class="stat"><div class="k">2地点の距離</div><div class="v" id="s2">—</div></div><div class="stat"><div class="k">計算した地球一周</div><div class="v accent" id="s3">—</div></div><div class="stat"><div class="k">実際の一周との差</div><div class="v" id="s4">—</div></div></div>
+    </div>
+    <p class="lab-legend">左：地球の断面。黄色の線が太陽の光（平行な光線）、赤と青の棒が2地点に立てた棒、黒い線が影、オレンジの角が中心角です。角度は実際の大きさで描き、棒の長さは誇張しています。①では地球の断面をなぞると影の角度が変わります。右：2地点の棒と影の拡大図（棒の高さ1 m）と、地球一周を求める比例式。②の都市の緯度経度は都道府県庁の位置（世界測地系）、距離は地球を回転楕円体として計算した値です。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-ghost" id="fsBtn" hidden>⛶ 全画面で表示</button>
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+
+<h2>このシミュレーションでわかること</h2>
+<div class="note" style="border-left:4px solid var(--teal)"><strong>ポイント</strong>：<b>エラトステネスの方法とは、南北に離れた2地点で同時に測った太陽の光の角度の差（＝地球の中心角θ）と2地点間の距離から、比例式 360° : θ ＝ 地球一周 : 距離 によって地球の大きさを求める方法です。</b>紀元前3世紀に、エラトステネスはシエネとアレクサンドリアの間の中心角7.2°（円の1/50）と距離から、地球一周を求めました。</div>
+<p>このシミュレーターでは、地球の断面図に平行な太陽の光・2地点の棒と影・中心角を描き、影の長さと棒の高さから角度を求める計算（tan）と、地球一周の比例式を確かめます。日本の2都市（都道府県庁）の緯度の差と南北の距離で計算すると約40,000 kmになること、南北に並んでいない2地点の直線距離を使うと大きめに出ることもわかります。</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>科目</th><th>単元</th><th>学習指導要領（平成30年告示）の内容</th></tr><tr><td><span style="white-space:nowrap">地学基礎</span></td><td>（1）地球のすがた ア（ｱ）惑星としての地球 ㋐ 地球の形と大きさ</td><td>地球の形や大きさに関する観察、実験などを行い、地球の形の特徴と大きさを見いだして理解すること（測定の歴史や方法にも触れる）</td></tr></table></div>
+<p>高等学校学習指導要領解説 理科編（地学基礎 p.152）は、エラトステネスの方法を取り上げて測定の歴史や方法に触れること、地球を球と仮定して子午線方向に離れた2地点の緯度の差と距離を地形図や情報通信ネットワークで閲覧できる地図などで調べ、地球の大きさを求めさせることを例にあげています。</p>
+
+<h2>授業での使い方</h2>
+<p><b>導入</b>：「地球の大きさを、2本の棒と影だけで測れるだろうか」と問いかけ、①の図でシエネ（影なし）とアレクサンドリア（影の角度7.2°）を見せます。太陽の光が平行であることから、影の角度と中心角が等しいこと（平行線の錯角）を確認します。</p>
+<p><b>展開</b>：比例式 360°:7.2°＝地球一周:925 km を立てて計算させ、シミュレーターの値（46,250 km）と照らし合わせます。影の角度や距離のスライダーを動かして、角度を少しまちがえるだけで結果が大きく変わることも確かめます。</p>
+<p><b>まとめ</b>：②に切りかえ、日本の2都市の緯度の差と南北の距離から地球一周を計算します。「使う距離」を2地点間の距離に変え、経度の差が大きい組み合わせほど結果が大きくなる理由を考えさせます。地球が極方向に少しつぶれていることにもふれます。</p>
+<p>生徒への問いの例です。</p>
+<ul>
+<li>アレクサンドリアで高さ1 mの棒の影が12.6 cmだったとき、太陽の光と棒のなす角は何度でしょう。（tanθ＝0.126 より θ≒7.2°）</li>
+<li>緯度の差が1°で、南北の距離が111 kmの2地点から、地球一周は何kmと求められるでしょう。（111 km×360＝39,960 km）</li>
+<li>札幌と那覇の「2地点間の距離」を使うと、地球一周が約48,000 kmと大きく出てしまうのはなぜでしょう。（2地点は南北に並んでおらず、距離に東西方向の分がふくまれるから）</li>
+</ul>
+
+<h2>しくみ・解説</h2>
+<h3>用語の意味</h3>
+<ul>
+<li><b>中心角</b>とは、地球の中心から2地点を見たときに2本の半径がつくる角度で、南北に並ぶ2地点では緯度の差に等しくなります。</li>
+<li><b>子午線</b>とは、北極と南極を結ぶ経線のことで、子午線にそって測った2地点の長さが「南北の距離」です。</li>
+<li><b>扁平率</b>とは、地球（回転楕円体）のつぶれ具合を表す値で、（赤道半径−極半径）÷赤道半径 ≒ 1/298 です。</li>
+</ul>
+<h3>地球一周を求める式</h3>
+<div class="note">360° : θ ＝ 地球一周 L : 2地点間の距離 d　より　L ＝ d × 360° ÷ θ<br>地球の半径 r ＝ L ÷ 2π<br>影の角度：tan θ ＝ 影の長さ ÷ 棒の高さ　→　θ ＝ tan⁻¹（影の長さ ÷ 棒の高さ）</div>
+<p>太陽はとても遠いので、地球に届く太陽の光は平行と考えられます。シエネの棒を地球の中心までのばした直線と、アレクサンドリアの棒を中心までのばした直線は、中心でθの角をつくります。アレクサンドリアに届く光は、シエネの棒の延長線（光の向き）と平行なので、棒と光のなす角も錯角でθになります。だから、影から測った角度がそのまま地球の中心角になります。</p>
+<h3>影の長さから角度を求める（tan の早見表）</h3>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>太陽の光と棒のなす角（天頂からの角度）</th><th>tan</th><th>高さ1 mの棒の影の長さ</th></tr><tr><td><span style="white-space:nowrap">5°</span></td><td>0.087</td><td>8.7 cm</td></tr><tr><td><span style="white-space:nowrap">7.2°</span></td><td>0.126</td><td>12.6 cm</td></tr><tr><td><span style="white-space:nowrap">10°</span></td><td>0.176</td><td>17.6 cm</td></tr><tr><td><span style="white-space:nowrap">20°</span></td><td>0.364</td><td>36.4 cm</td></tr><tr><td><span style="white-space:nowrap">30°</span></td><td>0.577</td><td>57.7 cm</td></tr><tr><td><span style="white-space:nowrap">35°</span></td><td>0.700</td><td>70.0 cm</td></tr><tr><td><span style="white-space:nowrap">40°</span></td><td>0.839</td><td>83.9 cm</td></tr><tr><td><span style="white-space:nowrap">45°</span></td><td>1.000</td><td>100.0 cm</td></tr></table></div>
+<p><b>計算例1（エラトステネス）</b>：夏至の日の正午、シエネでは影ができず、アレクサンドリアでは太陽の光と棒のなす角が7.2°でした。2地点間の距離を925 kmとすると、地球一周は何kmですか。<br>答え：L＝925 km×360°÷7.2°＝925×50＝<b>46,250 km</b>（実際の子午線の一周 40,008 km より約16%大きい）</p>
+<p>エラトステネスは2地点間の距離を5,000スタディアとし、地球一周を250,000スタディア（のちに252,000スタディア）としました。1スタディオンの長さは時代や地域で異なり、185 mとすると約46,000 km、157.5 mとすると約39,700 kmになるため、どれだけ正確だったかについては複数の説があります。実際のシエネ（現在のアスワン、北緯24.09°）とアレクサンドリア（北緯31.20°）の緯度の差は7.11°、南北の距離は約788 kmで、これを使うと 788×360÷7.11≒39,900 km になります。2つの都市は経度が約3°ずれていて、ちょうど南北には並んでいません。</p>
+<p><b>計算例2（影の長さから）</b>：春分の日の正午、青森で高さ1 mの棒の影が86.4 cm、仙台で78.9 cmでした。2地点の南北の距離を283.8 kmとして地球一周を求めなさい。<br>答え：tan⁻¹0.864≒40.82°、tan⁻¹0.789≒38.27°。緯度の差は約2.55°なので、L＝283.8×360÷2.55≒<b>約40,000 km</b>（緯度の差を2.556°とすると39,972 km）。春分・秋分の日の正午には、太陽の光と棒のなす角がその地点の緯度に等しくなります。</p>
+<h3>日本の2都市で計算した結果</h3>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>2地点（都道府県庁）</th><th>緯度の差</th><th>経度の差</th><th>南北の距離</th><th>2地点間の距離</th><th>一周（南北の距離で）</th><th>一周（2地点間の距離で）</th></tr><tr><td><span style="white-space:nowrap">青森—仙台</span></td><td>2.556°</td><td>0.13°</td><td>283.8 km</td><td>284.0 km</td><td><span style="white-space:nowrap">39,972 km</span></td><td><span style="white-space:nowrap">40,000 km</span></td></tr><tr><td><span style="white-space:nowrap">青森—水戸</span></td><td>4.483°</td><td>0.29°</td><td>497.6 km</td><td>498.3 km</td><td><span style="white-space:nowrap">39,960 km</span></td><td><span style="white-space:nowrap">40,016 km</span></td></tr><tr><td><span style="white-space:nowrap">札幌—水戸</span></td><td>6.723°</td><td>0.90°</td><td>746.4 km</td><td>750.4 km</td><td><span style="white-space:nowrap">39,970 km</span></td><td><span style="white-space:nowrap">40,184 km</span></td></tr><tr><td><span style="white-space:nowrap">新潟—前橋</span></td><td>1.512°</td><td>0.04°</td><td>167.8 km</td><td>167.8 km</td><td><span style="white-space:nowrap">39,958 km</span></td><td><span style="white-space:nowrap">39,958 km</span></td></tr><tr><td><span style="white-space:nowrap">福岡—鹿児島</span></td><td>2.046°</td><td>0.14°</td><td>226.9 km</td><td>227.3 km</td><td><span style="white-space:nowrap">39,920 km</span></td><td><span style="white-space:nowrap">39,990 km</span></td></tr><tr><td><span style="white-space:nowrap">松江—高知</span></td><td>1.913°</td><td>0.48°</td><td>212.2 km</td><td>216.7 km</td><td><span style="white-space:nowrap">39,941 km</span></td><td><span style="white-space:nowrap">40,788 km</span></td></tr><tr><td><span style="white-space:nowrap">札幌—那覇</span></td><td>16.852°</td><td>13.67°</td><td>1869.5 km</td><td>2243.9 km</td><td><span style="white-space:nowrap">39,937 km</span></td><td><span style="white-space:nowrap">47,935 km</span></td></tr></table></div>
+<p>南北の距離（子午線にそった長さ）を使うと、どの組み合わせでも約39,900〜40,000 kmになります。2地点間の距離（地図上でまっすぐ測った距離）を使うと、2地点が真南・真北に並んでいない分だけ距離が長くなり、地球一周が大きく出ます。経度の差が0.04°の新潟—前橋ではほとんど差がなく、経度の差が13.7°ある札幌—那覇では約20%大きくなります。2地点間の距離を使うときは、経度の差ができるだけ小さい（南北にほぼ並ぶ）組み合わせを選ぶことが大切です。</p>
+<h3>地球は少しつぶれている（測定でわかる地球の形）</h3>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>場所</th><th>緯度1°あたりの子午線の長さ</th></tr><tr><td>赤道付近</td><td>110.57 km</td></tr><tr><td>緯度35°（日本付近）</td><td>110.94 km</td></tr><tr><td>緯度45°</td><td>111.13 km</td></tr><tr><td>極付近</td><td>111.69 km</td></tr></table></div>
+<p>緯度1°あたりの子午線の長さは、高緯度ほど長くなります。これは、地球が赤道方向にふくらみ、極方向に少しつぶれた回転楕円体だからです（赤道半径6,378 km、極半径6,357 km、扁平率約1/298）。日本付近（緯度30〜40°台）のデータでは、1°あたりの長さが平均より少し短いため、地球一周も40,008 kmより少し小さく（約39,950 km）求まります。地学基礎の解説も、低緯度と高緯度のデータで求めた地球の大きさが異なることから、地球が厳密には球でないことに気付かせることを例にあげています。</p>
+<h3>このシミュレーションで単純化していること</h3>
+<ul>
+<li>断面図は地球を球として描いています。中心角などの角度は実際の大きさですが、棒の長さは見やすいように誇張しています。①では、シエネを夏至の日の正午に太陽が真上にくる地点として描いています。</li>
+<li>②の都市の位置は都道府県庁の緯度・経度（世界測地系、小数第4位まで）です。南北の距離は地球を回転楕円体（GRS80）とした子午線の長さ、2地点間の距離は同じ楕円体の上の最短距離（Vincentyの式）で計算しました。地球を半径6,371 kmの球として計算した距離との差は0.5%以内です。</li>
+<li>②の影の長さは、春分・秋分の日のそれぞれの地点の南中時（太陽が真南にきたとき）の値で、大気による光の屈折は考えていません。経度が違う2地点では南中の時刻がずれますが、同じ日の南中時に測れば、角度の差は緯度の差になります。</li>
+</ul>
+
+<h2>参考</h2>
+<ul class="seo-refs">
+<li>文部科学省「高等学校学習指導要領（平成30年告示）解説 理科編 理数編」地学基礎 p.152（<a href="https://www.mext.go.jp/a_menu/shotou/new-cs/1407074.htm" target="_blank" rel="noopener">https://www.mext.go.jp/a_menu/shotou/new-cs/1407074.htm</a>）</li>
+<li>国土地理院「地理院地図」（<a href="https://maps.gsi.go.jp/" target="_blank" rel="noopener">https://maps.gsi.go.jp/</a>）…2地点の緯度・経度と距離を調べるのに使えます</li>
+<li>国立天文台 編『理科年表』（丸善出版）…地球の赤道半径・極半径・扁平率（GRS80）</li>
+<li>高等学校「地学基礎」の教科書（地球の形と大きさの単元）</li>
+</ul>
+
+    <h2>引用・転載について</h2>
+    <p>本ページのシミュレーション結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・授業や社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「エラトステネスの方法で地球の大きさを測るシミュレーター（地球の全周の求め方）」 https://shimulabo.com/sims/eratosthenes/</code></div>
+    <h2>よくある質問</h2><dl class="faq"><dt>エラトステネスはどうやって地球の大きさを測ったのですか？</dt><dd>夏至の日の正午、シエネでは太陽が真上にきて井戸の底まで光が届き、北にあるアレクサンドリアでは太陽の光が棒と7.2°（円の1/50）の角をつくることを使いました。太陽の光は平行なので7.2°は地球の中心角に等しく、2地点間の距離の50倍が地球一周になります。</dd><dt>地球の全周を求める式は何ですか？</dt><dd>360° : θ ＝ 地球一周 : 2地点間の距離 です。地球一周 ＝ 距離 × 360° ÷ θ で、たとえば θ＝7.2°、距離925 kmなら 925×360÷7.2＝46,250 km になります。</dd><dt>影の長さと棒の高さから角度を求めるには？</dt><dd>tan θ ＝ 影の長さ ÷ 棒の高さ の関係を使い、θ ＝ tan⁻¹（影の長さ ÷ 棒の高さ）で求めます。高さ1 mの棒の影が12.6 cmなら tanθ＝0.126 で、θ≒7.2°です。</dd><dt>エラトステネスの値（約46,000 km）が実際の約40,000 kmとずれたのはなぜですか？</dt><dd>距離（5,000スタディア）をkmに直すときの1スタディオンの長さがはっきりしないこと、シエネとアレクサンドリアが真南・真北に並んでいないこと、距離の測定のあらさなどが理由と考えられています。1スタディオンを157.5 mとすると約39,700 kmになります。</dd><dt>日本の2都市で地球の大きさを測るときの注意点は？</dt><dd>経度の差ができるだけ小さく、南北にほぼ並ぶ2地点を選び、緯度の差と南北の距離（子午線にそった長さ）を使うことです。2地点間の直線距離を使うと東西方向の分だけ長くなり、地球一周が大きく出ます。</dd><dt>地球は完全な球ですか？</dt><dd>いいえ。赤道方向にふくらんだ回転楕円体で、赤道半径は約6,378 km、極半径は約6,357 kmです。緯度1°あたりの子午線の長さが赤道付近（110.57 km）より極付近（111.69 km）で長いことからわかります。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../taiyou-ugoki/"><span class="e">🌞</span><span>太陽の1日の動きと季節（透明半球・南中高度・昼の長さ）</span></a><a class="related-card" href="../hiruma-nagasa/"><span class="e">🌅</span><span>昼の長さメーター</span></a><a class="related-card" href="../coriolis-henseifu/"><span class="e">🌀</span><span>コリオリの力と大気の大循環シミュレーター（偏西風・貿易風）</span></a><a class="related-card" href="../solar-system/"><span class="e">🪐</span><span>太陽系シミュレーター</span></a><a class="related-card" href="../kaibatsu-check/"><span class="e">⛰️</span><span>うちの海抜チェッカー</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../rika/">🔬 理科の授業向けシミュレーター</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+  const rnd = (a,b) => a + Math.random()*(b-a);
+  const randn = () => { let u=0,v=0; while(!u)u=Math.random(); while(!v)v=Math.random(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
+  let SHARE = '';
+  function setShare(t){ SHARE = t; }
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{ const l=$(s.id+'L'); if(l){ const u=()=>{ l.textContent = (s.dataset.fmt ? s.dataset.fmt.replace('{v}', s.value) : s.value); }; s.addEventListener('input',u); u(); } }); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  function setStat(id, v){ const e=$(id); if(e) e.textContent = v; }
+  try {
+    syncSliders();
+
+  const cv=$('cv'); const dpr=Math.min(2,window.devicePixelRatio||1); const W=cv.width,H=cv.height; cv.width=W*dpr; cv.height=H*dpr; const x=cv.getContext('2d'); x.setTransform(dpr,0,0,dpr,0,0);
+
+  const F=(s,b)=>(b?'bold ':'')+s+'px system-ui,-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif';
+  function rr(a,b,w,h,r){ x.beginPath(); x.moveTo(a+r,b); x.arcTo(a+w,b,a+w,b+h,r); x.arcTo(a+w,b+h,a,b+h,r); x.arcTo(a,b+h,a,b,r); x.arcTo(a,b,a+w,b,r); x.closePath(); }
+  function txt(t,px,py,col,sz,b,al,bl,maxw){ let s=sz; x.font=F(s,b); if(maxw){ while(s>8&&x.measureText(t).width>maxw){ s-=0.5; x.font=F(s,b); } } x.fillStyle=col; x.textAlign=al||'left'; x.textBaseline=bl||'alphabetic'; x.fillText(t,px,py); }
+  function halo(t,px,py,col,sz,b,al,bg){ x.font=F(sz,b); x.textAlign=al||'center'; x.textBaseline='middle'; x.lineJoin='round'; x.lineWidth=3.5; x.strokeStyle=bg||'rgba(255,255,255,.92)'; x.strokeText(t,px,py); x.fillStyle=col; x.fillText(t,px,py); }
+  function head(px,py,a,sz,col){ x.fillStyle=col; x.beginPath(); x.moveTo(px,py); x.lineTo(px-sz*Math.cos(a-0.45),py-sz*Math.sin(a-0.45)); x.lineTo(px-sz*Math.cos(a+0.45),py-sz*Math.sin(a+0.45)); x.closePath(); x.fill(); }
+  function arrow(x1,y1,x2,y2,col,lw,hs){ const a=Math.atan2(y2-y1,x2-x1), L=Math.hypot(x2-x1,y2-y1); if(L<1) return; hs=Math.min(hs||8,L*0.8); x.strokeStyle=col; x.lineWidth=lw||2; x.beginPath(); x.moveTo(x1,y1); x.lineTo(x2-Math.cos(a)*hs*0.6,y2-Math.sin(a)*hs*0.6); x.stroke(); head(x2,y2,a,hs,col); }
+  function tabs(list,cur){ const w=(W-12)/list.length; list.forEach((t,i)=>{ const on=i===cur; x.fillStyle=on?'#0e7490':'#e2e8f0'; rr(6+i*w+2,5,w-4,32,8); x.fill(); txt(t,6+i*w+w/2,21.5,on?'#fff':'#334155',14,1,'center','middle',w-12); }); }
+  function showField(id,on){ const e=$(id); if(!e) return; const f=e.closest('.field'); if(f) f.style.display=on?'':'none'; }
+  function showBtn(id,on){ const e=$(id); if(e) e.style.display=on?'':'none'; }
+  function setK(id,t){ const e=$(id); if(e&&e.previousElementSibling) e.previousElementSibling.textContent=t; }
+  function fit(id,v){ setStat(id,v); const e=$(id); if(e) e.style.fontSize=v.length>11?'13px':v.length>8?'15px':v.length>6?'17px':''; }
+
+  const R=Math.PI/180, PAIRS=[["青森",40.8246,140.7405,"仙台",38.2686,140.8721,283.8,284.0],["青森",40.8246,140.7405,"水戸",36.3417,140.4468,497.6,498.3],["札幌",43.0643,141.3469,"水戸",36.3417,140.4468,746.4,750.4],["新潟",37.9025,139.0232,"前橋",36.3907,139.0605,167.8,167.8],["福岡",33.6064,130.418,"鹿児島",31.5602,130.558,226.9,227.3],["松江",35.4723,133.0505,"高知",33.5597,133.5311,212.2,216.7],["札幌",43.0643,141.3469,"那覇",26.2124,127.6809,1869.5,2243.9]], REAL=40008, MV=['erato','japan'], MODES=['① エラトステネスの測定','② 日本の2都市で測る'];
+  const hm=MV.indexOf((location.hash||'').slice(1));
+  let mode=hm>=0?hm:Math.max(0,MV.indexOf($('mode').value)), drag=false;
+  if(hm>=0) $('mode').value=MV[hm];
+  const CX=58, CY=332, ER=250, PX0=352, PX1=632;
+  const P=(a,r)=>[CX+(r||ER)*Math.cos(a*R), CY-(r||ER)*Math.sin(a*R)];
+  const fx=(v,d)=>v.toFixed(d);
+  function cur(){ if(mode===0){ const th=+$('th').value, d=+$('dk').value; return {n1:'アレクサンドリア', n2:'シエネ', a1:th, a2:0, dphi:th, d:d, eq:-23.4, dlab:'2地点の距離'}; }
+    const q=PAIRS[+$('pair').value], ns=$('dist').value==='ns'; return {n1:q[0], n2:q[3], a1:q[1], a2:q[4], dphi:q[1]-q[4], d:ns?q[6]:q[7], eq:0, q:q, ns:ns, dlab:ns?'南北の距離':'2地点間の距離'}; }
+  const dstr=(d)=>mode===0?num(d):d.toLocaleString('ja-JP',{minimumFractionDigits:1,maximumFractionDigits:1});
+  function rod(a,len,col,name,up){ const b=P(a), t=P(a,ER+len), sh=len*Math.tan(Math.abs(a)*R);
+    // 影（地面に沿って、太陽と反対側＝極の側）
+    if(Math.abs(a)>0.05){ const tx=-Math.sin(a*R), ty=-Math.cos(a*R), L=Math.min(sh,70); x.strokeStyle='rgba(15,23,42,.8)'; x.lineWidth=4; x.lineCap='round'; x.beginPath(); x.moveTo(b[0],b[1]); x.lineTo(b[0]+tx*L,b[1]+ty*L); x.stroke(); x.lineCap='butt';
+      x.strokeStyle='rgba(234,179,8,.95)'; x.lineWidth=1.6; x.beginPath(); x.moveTo(PX0-6,t[1]); x.lineTo(b[0]+tx*L,b[1]+ty*L); x.stroke(); }
+    else { x.strokeStyle='rgba(234,179,8,.95)'; x.lineWidth=1.6; x.beginPath(); x.moveTo(PX0-6,b[1]); x.lineTo(b[0],b[1]); x.stroke(); }
+    x.strokeStyle=col; x.lineWidth=3.2; x.beginPath(); x.moveTo(b[0],b[1]); x.lineTo(t[0],t[1]); x.stroke();
+    x.fillStyle=col; x.beginPath(); x.arc(b[0],b[1],3.6,0,2*Math.PI); x.fill();
+    halo(name,t[0]+6,t[1]+(up?-14:16),col,13,1,'right','rgba(255,253,245,.95)'); }
+  function zoom(y0,h,name,z,col,well){ x.fillStyle='#f8fafc'; rr(PX0,y0,PX1-PX0,h,10); x.fill(); x.strokeStyle='#e2e8f0'; x.lineWidth=1; x.stroke();
+    x.save(); rr(PX0,y0,PX1-PX0,h,10); x.clip();
+    const gy=y0+h-16, rx=566, Hr=h-62, sh=Hr*Math.tan(z*R), d=[-Math.sin(z*R),Math.cos(z*R)];
+    x.fillStyle='#d6d3d1'; x.fillRect(PX0+8,gy,PX1-PX0-16,7); x.strokeStyle='#78716c'; x.lineWidth=1.5; x.beginPath(); x.moveTo(PX0+8,gy); x.lineTo(PX1-8,gy); x.stroke();
+    if(well){ x.fillStyle='#1e3a8a'; x.fillRect(470,gy-2,18,9); x.strokeStyle='#57534e'; x.lineWidth=2; x.strokeRect(468,gy-12,22,12); }
+    x.strokeStyle='rgba(234,179,8,.9)'; x.lineWidth=1.5; [-1,1,2].forEach(k=>{ const ex=rx+k*26, ey=gy, L=(gy-(y0+30))/Math.cos(z*R); x.beginPath(); x.moveTo(ex-d[0]*L,ey-d[1]*L); x.lineTo(ex,ey); x.stroke(); head(ex,ey,Math.atan2(d[1],d[0]),7,'rgba(234,179,8,.95)'); });
+    if(well){ const L=(gy-(y0+30)); x.beginPath(); x.moveTo(479,gy-L); x.lineTo(479,gy+4); x.stroke(); }
+    { const L=(gy-Hr-(y0+30))/Math.cos(z*R)+4; x.strokeStyle='#ca8a04'; x.lineWidth=1.8; x.beginPath(); x.moveTo(rx-d[0]*L,gy-Hr-d[1]*L); x.lineTo(rx-sh,gy); x.stroke(); }
+    if(sh>0.5){ x.strokeStyle='#0f172a'; x.lineWidth=5; x.lineCap='round'; x.beginPath(); x.moveTo(rx,gy); x.lineTo(rx-sh,gy); x.stroke(); x.lineCap='butt'; }
+    x.strokeStyle=col; x.lineWidth=4; x.beginPath(); x.moveTo(rx,gy); x.lineTo(rx,gy-Hr); x.stroke();
+    if(z>0.3){ x.strokeStyle='#dc2626'; x.lineWidth=2; x.beginPath(); x.arc(rx,gy-Hr,22,-Math.PI/2,-Math.PI/2+z*R); x.stroke(); x.setLineDash([3,3]); x.strokeStyle='rgba(220,38,38,.6)'; x.beginPath(); x.moveTo(rx,gy-Hr); x.lineTo(rx,gy-Hr-26); x.stroke(); x.setLineDash([]);
+      halo(fx(z,z<10?1:2)+'°',rx+16+12*Math.sin(z*R/2),gy-Hr-30,'#b91c1c',12.5,1,'left'); }
+    x.restore();
+    txt(name,PX0+10,y0+20,col,14,1,'left','alphabetic',190);
+    if(z>0.3){ txt('棒 1 m → 影 '+fx(100*Math.tan(z*R),1)+' cm',PX0+10,y0+40,'#0f172a',12.5,0,'left','alphabetic',150); txt('tan θ ＝ 影 ÷ 棒 ＝ '+fx(Math.tan(z*R),3),PX0+10,y0+57,'#334155',11.5,0,'left','alphabetic',150);
+      txt('θ ＝ '+fx(z,z<10?1:2)+'°（太陽の高度 '+fx(90-z,1)+'°）',PX0+10,y0+74,'#b91c1c',11.5,1,'left','alphabetic',150); }
+    else { txt('太陽が真上：影ができない',PX0+10,y0+40,'#0f172a',12.5,0,'left','alphabetic',160); txt(well?'井戸の底まで光が届く':'θ ＝ 0°',PX0+10,y0+57,'#334155',11.5,0,'left','alphabetic',160); } }
+  function draw(){ const c=cur(), Lc=c.d*360/c.dphi, err=(Lc/REAL-1)*100, len=mode===0?30:16;
+    x.fillStyle='#fffdf5'; x.fillRect(0,0,W,H);
+    // 光線（平行）
+    for(let y=92;y<=H;y+=24){ const dy=y-CY; if(Math.abs(dy)>=ER) continue; const sx=CX+Math.sqrt(ER*ER-dy*dy); x.strokeStyle='rgba(250,204,21,.45)'; x.lineWidth=1.2; x.beginPath(); x.moveTo(PX0-6,y); x.lineTo(sx,y); x.stroke(); head(sx,y,Math.PI,6,'rgba(234,179,8,.55)'); }
+    txt('← 太陽の光（平行な光線）',PX0-8,90,'#a16207',11.5,1,'right');
+    // 地球
+    const g=x.createRadialGradient(CX+60,CY-60,30,CX,CY,ER); g.addColorStop(0,'#bfdbfe'); g.addColorStop(1,'#60a5fa'); x.fillStyle=g; x.beginPath(); x.arc(CX,CY,ER,0,2*Math.PI); x.fill(); x.strokeStyle='#1d4ed8'; x.lineWidth=2; x.stroke();
+    // 赤道・地軸
+    x.setLineDash([6,4]); x.strokeStyle='rgba(30,58,138,.55)'; x.lineWidth=1.4; let q=P(c.eq); x.beginPath(); x.moveTo(CX,CY); x.lineTo(q[0],q[1]); x.stroke(); q=P(c.eq+90,ER+16); x.beginPath(); x.moveTo(CX,CY); x.lineTo(q[0],q[1]); x.stroke(); x.setLineDash([]);
+    q=P(c.eq,ER-46); halo('赤道',q[0],q[1]+(mode===0?14:12),'#1e3a8a',11.5,1,'center','rgba(219,234,254,.9)'); q=P(c.eq+90,ER-16); halo('北極',q[0]+20,q[1],'#1e3a8a',11.5,1,'center','rgba(219,234,254,.9)');
+    // 中心から2地点へ
+    x.setLineDash([4,4]); x.strokeStyle='rgba(15,23,42,.6)'; x.lineWidth=1.3; [c.a1,c.a2].forEach(a=>{ const t=P(a,ER+len); x.beginPath(); x.moveTo(CX,CY); x.lineTo(t[0],t[1]); x.stroke(); }); x.setLineDash([]);
+    if(mode===1){ x.setLineDash([2,4]); x.strokeStyle='rgba(15,23,42,.35)'; x.beginPath(); x.moveTo(CX,CY); x.lineTo(CX+ER,CY); x.stroke(); x.setLineDash([]); }
+    // 中心角
+    x.fillStyle='rgba(249,115,22,.35)'; x.beginPath(); x.moveTo(CX,CY); x.arc(CX,CY,78,-c.a1*R,-c.a2*R); x.closePath(); x.fill(); x.strokeStyle='#ea580c'; x.lineWidth=2; x.beginPath(); x.arc(CX,CY,78,-c.a1*R,-c.a2*R); x.stroke();
+    const am=(c.a1+c.a2)/2, lp=P(am,78); x.strokeStyle='#ea580c'; x.lineWidth=1.2; x.beginPath(); x.moveTo(lp[0],lp[1]); x.lineTo(lp[0]+34,lp[1]+30); x.stroke();
+    halo((mode===0?'θ ＝ ':'Δφ ＝ ')+fx(c.dphi,mode===0?1:3)+'°',lp[0]+36,lp[1]+38,'#c2410c',14,1,'left','rgba(219,234,254,.92)');
+    // 2地点間の弧
+    x.strokeStyle='#dc2626'; x.lineWidth=5; x.beginPath(); x.arc(CX,CY,ER,-c.a1*R,-c.a2*R); x.stroke();
+    const dp=P(am,ER-30); halo(dstr(c.d)+' km',dp[0]-6,dp[1]+(mode===0?0:2),'#b91c1c',14,1,'right','rgba(219,234,254,.92)');
+    rod(c.a1,len,'#dc2626',c.n1,true); rod(c.a2,len,'#2563eb',c.n2,false);
+    // 錯角の印（地点1）
+    if(c.a1>0.5&&mode===0){ const t=P(c.a1,ER+len); x.strokeStyle='#dc2626'; x.lineWidth=1.6; x.beginPath(); x.arc(t[0],t[1],14,-c.a1*R,0); x.stroke(); }
+    txt(mode===0?'地球の断面（夏至の日の正午）':'地球の断面（春分・秋分の日の正午）',8,58,'#0f172a',14,1,'left','alphabetic',330);
+    txt('角度は実際の大きさ・棒の長さは誇張',8,75,'#64748b',11,0,'left','alphabetic',330);
+    // 拡大図
+    zoom(46,142,c.n1+'（拡大）',mode===0?c.a1:c.a1,'#dc2626',false); zoom(194,142,c.n2+'（拡大）',mode===0?0:c.a2,'#2563eb',mode===0);
+    // 式
+    x.fillStyle='#ecfeff'; rr(PX0,342,PX1-PX0,172,10); x.fill(); x.strokeStyle='#a5f3fc'; x.lineWidth=1; x.stroke();
+    txt('360° : '+(mode===0?'θ':'Δφ')+' ＝ 地球一周 : 距離',PX0+12,364,'#0f172a',13,1,'left','alphabetic',256);
+    txt('地球一周 ＝ '+dstr(c.d)+' km × 360° ÷ '+fx(c.dphi,mode===0?1:3)+'°',PX0+12,388,'#334155',13,0,'left','alphabetic',256);
+    txt('＝ '+num(Lc)+' km',PX0+12,422,'#0e7490',26,1,'left','alphabetic',256);
+    txt('実際（子午線の一周）40,008 km との差 '+(err>=0?'+':'−')+fx(Math.abs(err),1)+'%',PX0+12,446,'#334155',12,0,'left','alphabetic',256);
+    txt('地球の半径 ＝ 一周 ÷ 2π ＝ '+num(Lc/2/Math.PI)+' km',PX0+12,466,'#334155',12,0,'left','alphabetic',256);
+    if(mode===0) txt('925 kmは5,000スタディア（1スタディオン185 m）',PX0+12,488,'#64748b',11,0,'left','alphabetic',256);
+    else { txt(c.ns?'南北の距離（子午線にそった長さ）を使用':'2地点間の距離を使用（経度差 '+fx(Math.abs(c.q[2]-c.q[5]),2)+'°の分だけ長い）',PX0+12,488,'#64748b',11,0,'left','alphabetic',256);
+      txt('南北 '+fx(c.q[6],1)+' km ／ 2地点間 '+fx(c.q[7],1)+' km',PX0+12,505,'#64748b',11,0,'left','alphabetic',256); }
+    if(mode===0) txt('シエネとアレクサンドリアはほぼ南北に並ぶ',PX0+12,505,'#64748b',11,0,'left','alphabetic',256);
+    tabs(MODES,mode);
+    setK('s1',mode===0?'中心角 θ（影の角度）':'緯度の差 Δφ'); setK('s2',c.dlab); setK('s3','計算した地球一周'); setK('s4','実際の一周との差');
+    fit('s1',fx(c.dphi,mode===0?1:3)+'°'); fit('s2',dstr(c.d)+' km'); fit('s3',num(Lc)+' km'); fit('s4',(err>=0?'+':'−')+fx(Math.abs(err),1)+'%');
+    setShare(mode===0?'【エラトステネスの方法】影の角度'+fx(c.dphi,1)+'°・距離'+num(c.d)+'kmから地球一周は'+num(Lc)+'km（実際は約40,000km）｜シミュラボ'
+      :'【エラトステネスの方法】'+c.n1+'と'+c.n2+'（緯度の差'+fx(c.dphi,3)+'°・'+c.dlab+fx(c.d,1)+'km）から地球一周は'+num(Lc)+'km｜シミュラボ'); }
+  function setMode(m){ mode=m; $('mode').value=MV[m]; showField('th',m===0); showField('dk',m===0); showField('pair',m===1); showField('dist',m===1); showBtn('reset',m===0); draw(); }
+  cv.addEventListener('pointerdown',e=>{ const p=cpos(cv,e), px=p[0]/dpr, py=p[1]/dpr; if(py<40){ const i=Math.floor((px-6)/((W-12)/2)); if(i>=0&&i<2) setMode(i); return; }
+    if(mode===0&&px<PX0){ drag=true; if(cv.setPointerCapture) try{ cv.setPointerCapture(e.pointerId); }catch(_){} mv(px,py); } });
+  function mv(px,py){ const a=Math.atan2(CY-py,px-CX)/R; $('th').value=clamp(Math.round(a*10)/10,1,20); $('th').dispatchEvent(new Event('input')); }
+  cv.addEventListener('pointermove',e=>{ if(!drag) return; const p=cpos(cv,e); mv(p[0]/dpr,p[1]/dpr); });
+  window.addEventListener('pointerup',()=>{ drag=false; });
+  $('mode').addEventListener('change',()=>setMode(Math.max(0,MV.indexOf($('mode').value))));
+  ['th','dk','pair','dist'].forEach(id=>{ $(id).addEventListener('input',draw); $(id).addEventListener('change',draw); });
+  $('reset').addEventListener('click',()=>{ $('th').value=7.2; $('dk').value=925; ['th','dk'].forEach(id=>$(id).dispatchEvent(new Event('input'))); });
+  setMode(mode);
+
+  } catch(e) { console.error(e); }
+  (function(){ const fs=$('fsBtn'), panel=document.querySelector('.panel');
+    const req = panel && (panel.requestFullscreen || panel.webkitRequestFullscreen);
+    if (fs && req) { fs.hidden = false; fs.addEventListener('click', () => {
+      const cur = document.fullscreenElement || document.webkitFullscreenElement;
+      if (cur) { (document.exitFullscreen || document.webkitExitFullscreen).call(document); }
+      else { req.call(panel); } }); }
+  })();
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE || document.title)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText((SHARE||document.title)+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'eratosthenes', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

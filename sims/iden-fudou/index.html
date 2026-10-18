@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/iden-fudou/">
+<title>遺伝的浮動のシミュレーター｜集団の大きさと遺伝子頻度の変化、ハーディー・ワインベルグの法則（高校生物）｜シミュラボ</title>
+<meta name="description" content="集団の大きさN・最初の遺伝子頻度p・世代数・選択の強さを変えて、最大20集団の遺伝子頻度の変化を折れ線で同時に表示。小さい集団ほど固定・消失が早い遺伝的浮動やびん首効果、p²＋2pq＋q²のハーディー・ワインベルグ平衡を1世代ずつ確かめられます。乱数の固定つき。高校「生物」進化の仕組み向け。">
+<meta property="og:title" content="遺伝的浮動とハーディー・ワインベルグの法則のシミュレーター">
+<meta property="og:description" content="N＝10の集団と1000の集団で、遺伝子頻度のゆれ方はどれだけちがう？複数の集団を同時に何百世代も追跡。p²：2pq：q²を配偶子の無作為な組み合わせで確かめるモードつき。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/iden-fudou.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/iden-fudou.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/iden-fudou/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": ["WebApplication", "LearningResource"], "name": "遺伝的浮動とハーディー・ワインベルグの法則のシミュレーター", "url": "https://shimulabo.com/sims/iden-fudou/", "description": "N＝10の集団と1000の集団で、遺伝子頻度のゆれ方はどれだけちがう？複数の集団を同時に何百世代も追跡。p²：2pq：q²を配偶子の無作為な組み合わせで確かめるモードつき。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "educationalLevel": "高校（生物）", "learningResourceType": "シミュレーション", "teaches": "生物 遺伝子の変化と進化の仕組み（遺伝的浮動・自然選択）", "educationalUse": ["授業", "自習"], "audience": {"@type": "EducationalAudience", "educationalRole": ["teacher", "student"]}, "educationalAlignment": {"@type": "AlignmentObject", "alignmentType": "educationalSubject", "educationalFramework": "学習指導要領（平成29・30年告示）", "targetName": "高等学校 生物（1）生物の進化 ア（ｲ）遺伝子の変化と進化の仕組み ㋒進化の仕組み"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "理科の授業向け", "item": "https://shimulabo.com/rika/"}, {"@type": "ListItem", "position": 3, "name": "遺伝的浮動とハーディー・ワインベルグの法則のシミュレーター", "item": "https://shimulabo.com/sims/iden-fudou/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "遺伝的浮動と自然選択のちがいは？", "acceptedAnswer": {"@type": "Answer", "text": "自然選択は、生存や繁殖に有利な遺伝子の頻度が高まるという方向性のある変化です。遺伝的浮動は、どの配偶子が次の世代に残るかが偶然で決まることによる方向性のない変化で、有利・不利と関係なく起こります。集団が小さいほど遺伝的浮動の影響が大きくなります。"}}, {"@type": "Question", "name": "ハーディー・ワインベルグの法則が成り立つ条件は？", "acceptedAnswer": {"@type": "Answer", "text": "①集団が十分に大きい（遺伝的浮動が無視できる）、②自由に交配が行われる、③突然変異が起こらない、④ほかの集団との間で移入や移出がない、⑤自然選択がはたらかない、の5つです。この条件では遺伝子頻度が世代を経ても変化せず、遺伝子型頻度は p²：2pq：q² に保たれます。"}}, {"@type": "Question", "name": "潜性ホモ接合体の割合から遺伝子頻度を求めるには？", "acceptedAnswer": {"@type": "Answer", "text": "潜性の形質を示す個体（aa）の割合が q² なので、その平方根が q です。たとえば aa が16％なら q＝√0.16＝0.4、p＝1−q＝0.6 で、ヘテロ接合体は 2pq＝0.48（48％）です。"}}, {"@type": "Question", "name": "なぜ小さい集団ほど遺伝子頻度が固定・消失しやすいの？", "acceptedAnswer": {"@type": "Answer", "text": "次の世代に受けつがれる遺伝子の数（2N個）が少ないと、偶然のかたよりが割合として大きくなるからです。1世代のゆれの大きさは √(pq／2N) で、p＝0.5 のとき N＝10 では約0.11、N＝1000 では約0.011 です。固定か消失までの平均の世代数はおよそ 2.8N 世代です。"}}, {"@type": "Question", "name": "びん首効果とは？", "acceptedAnswer": {"@type": "Answer", "text": "病気や災害などで集団の大きさが一時的に極端に小さくなると、そのとき生き残った少数の個体の遺伝子頻度が偶然に大きくかたより、その後に集団が大きくなっても遺伝的多様性が失われたままになる現象です。チーターやキタゾウアザラシの遺伝的多様性が低いのは、その例と考えられています。"}}, {"@type": "Question", "name": "「優性・劣性」と「顕性・潜性」は同じ意味？", "acceptedAnswer": {"@type": "Answer", "text": "同じ意味です。「優性・劣性」は形質が優れている・劣っているという誤解を生みやすいため、日本遺伝学会が2017年に「顕性・潜性」への言いかえを提案し、今の高校の教科書でも「顕性・潜性」が使われています。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+<style>
+.lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
+.lab-ctl .field{margin-bottom:6px;}
+.lab-ctl>*,.lab-stats>*{min-width:0;}
+.lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
+.lab-ctl .slider-head label{margin:0;font-size:13px;}
+.lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
+.lab-ctl input[type=range]{width:100%;}
+.lab-ctl select{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;font-size:14px;background:#fff;}
+.lab-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px;}
+.lab-btns .btn{padding:11px 18px;font-size:14px;width:auto;}
+.lab-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;width:100%;max-width:640px;margin-top:4px;}
+.lab-stats .stat{background:var(--teal-l);border-radius:10px;padding:10px 12px;text-align:center;}
+.lab-stats .k{font-size:11px;color:var(--ink-2);}
+.lab-stats .v{font-size:20px;font-weight:800;color:var(--ink);font-feature-settings:"tnum";}
+.lab-stats .v.accent{color:var(--accent);}
+.lab-legend{text-align:center;color:var(--ink-2);font-size:13px;margin-top:12px;}
+.lab-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;background:rgba(44,107,134,.10);color:var(--teal-d);margin-bottom:8px;}
+canvas.lab{width:100%;max-width:640px;height:auto;border:1px solid var(--line);border-radius:12px;background:#0b1020;touch-action:none;}
+canvas.lab.light{background:#fff;}
+.panel:fullscreen,.panel:-webkit-full-screen{overflow:auto;padding:24px;background:var(--bg,#faf8f3);}
+.panel:fullscreen canvas.lab{max-width:min(96vw,1100px);}
+.panel:fullscreen .lab-ctl,.panel:fullscreen .lab-stats{max-width:min(96vw,1100px);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../rika/">🔬 理科の授業向け</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../rika/">理科の授業向け</a><span>›</span><span class="cur">遺伝的浮動とハーディー・ワインベルグの法則のシミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">理科の授業向け</div>
+    <h1>遺伝的浮動とハーディー・ワインベルグの法則のシミュレーター</h1>
+    <p class="lead">2色のコインのモデル実験と同じ操作を、複数の集団で何百世代もくり返します。集団の大きさを変えると、遺伝子頻度のゆれ方（遺伝的浮動）や、固定・消失までの世代数がどう変わるかがわかります。モードを切り替えると、自由な交配で遺伝子型頻度が p²：2pq：q² になること（ハーディー・ワインベルグの法則）も確かめられます。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;gap:14px;">
+      <span class="lab-badge">🔬 生物 遺伝子の変化と進化の仕組み（遺伝的浮動・自然選択）</span>
+      <canvas id="cv" class="lab light" width="640" height="486"></canvas>
+      <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="mode">モード</label></div><select id="mode"><option value="drift" selected>遺伝的浮動（複数の集団）</option><option value="hw">ハーディー・ワインベルグ（1世代ずつ）</option></select></div><div class="field"><div class="slider-head"><label for="N">集団の大きさ N</label><span class="val" id="NL"></span></div><input type="range" id="N" min="0" max="9" value="2" step="1"></div><div class="field"><div class="slider-head"><label for="p0">最初のAの頻度 p₀</label><span class="val" id="p0L"></span></div><input type="range" id="p0" min="0.05" max="0.95" value="0.5" step="0.05"></div><div class="field"><div class="slider-head"><label for="G">世代数</label><span class="val" id="GL"></span></div><input type="range" id="G" min="10" max="500" value="100" step="10"></div><div class="field"><div class="slider-head"><label for="s">選択の強さ s</label><span class="val" id="sL"></span></div><input type="range" id="s" min="0" max="0.2" value="0" step="0.01"></div><div class="field"><div class="slider-head"><label for="K">集団の数</label><span class="val" id="KL"></span></div><input type="range" id="K" min="1" max="20" value="10" step="1"></div><div class="field"><div class="slider-head"><label for="bn">びん首効果</label></div><select id="bn"><option value="0" selected>なし</option><option value="10">途中の5世代だけ 10個体に</option><option value="3">途中の5世代だけ 3個体に</option></select></div><div class="field"><div class="slider-head"><label for="par">親の世代の遺伝子型</label></div><select id="par"><option value="hw" selected>平衡（p²：2pq：q²）</option><option value="homo">AAとaaだけ（Aaなし）</option></select></div><div class="field"><div class="slider-head"><label for="seed">乱数</label></div><select id="seed"><option value="0" selected>毎回ちがう</option><option value="1">固定 No.1</option><option value="2">固定 No.2</option><option value="3">固定 No.3</option><option value="4">固定 No.4</option><option value="5">固定 No.5</option><option value="6">固定 No.6</option><option value="7">固定 No.7</option><option value="8">固定 No.8</option><option value="9">固定 No.9</option></select></div></div>
+      <div class="lab-btns"><button class="btn btn-primary" id="run">▶ 実行</button><button class="btn btn-ghost" id="rst">⏩ 結果だけすぐ表示</button><button class="btn btn-ghost" id="lock">🔒 乱数を固定する</button></div>
+      <div class="lab-stats"><div class="stat"><div class="k">Aが固定した集団</div><div class="v accent" id="sA">—</div></div><div class="stat"><div class="k">Aが消失した集団</div><div class="v" id="sB">—</div></div><div class="stat"><div class="k">最後の世代の p の平均</div><div class="v" id="sC">—</div></div><div class="stat"><div class="k">Aがいずれ固定する確率（理論）</div><div class="v" id="sD">—</div></div></div>
+    </div>
+    <p class="lab-legend">遺伝的浮動：線1本が1つの集団のAの頻度 p（点線＝最初の頻度、●＝固定または消失した世代、オレンジの帯＝びん首）。グラフをタップすると、その世代の時点での集団の数を表示します。ハーディー・ワインベルグ：左＝親の遺伝子プールと、配偶子を2つずつ組み合わせてできた子（赤＝A、青＝a）、右＝遺伝子型頻度（灰色＝親、色＝子、点線＝理論 p²・2pq・q²）と、世代ごとの p。「乱数」を固定すると、同じ条件では同じ結果になります。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-ghost" id="fsBtn" hidden>⛶ 全画面で表示</button>
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+
+<h2>このシミュレーションでわかること</h2>
+<p>集団の<b>遺伝子頻度</b>は、自然選択がはたらかなくても、配偶子が次の世代に受けつがれるときの偶然によって変化します（<b>遺伝的浮動</b>）。集団が小さいほど1世代あたりの変化が大きく、ある対立遺伝子が<b>固定</b>（頻度1）したり<b>消失</b>（頻度0）したりするまでの世代が短くなります。一方、十分に大きな集団で自由な交配が行われ、突然変異・移入や移出・自然選択がなければ、遺伝子頻度も遺伝子型頻度 p²：2pq：q² も世代を重ねても変わりません（<b>ハーディー・ワインベルグの法則</b>）。</p>
+<div class="note"><b>対応する単元</b>：高等学校「生物」（1）生物の進化 ア（ｲ）遺伝子の変化と進化の仕組み「㋒進化の仕組み」。学習指導要領解説では、遺伝子頻度が変化する要因として遺伝的浮動と自然選択を扱うとし、2色のコインを一対の遺伝子に見立てたモデル実験（親の世代のコインを比率を保ったまま数倍に増やし、そこから同じ数を無作為に選んで子の世代とする操作を繰り返す）が例示されています。このシミュレーターは、その操作をコンピュータで何百世代もくり返すものです。</div>
+<h2>授業での使い方</h2>
+<h3>導入：コインのモデル実験とつなぐ</h3>
+<p>班ごとに2色のコイン（各10枚＝N＝10個体分の遺伝子20個）でモデル実験を数世代行い、結果をグラフにします。次にこのシミュレーターを N＝10 にして「▶ 実行」を押し、同じ操作を100世代分くり返すと、班ごとにちがう結果になり、やがてどちらかの色に固定されることを確かめます。</p>
+<h3>展開：集団の大きさを変えて仮説を確かめる</h3>
+<p>「集団が大きいと、遺伝子頻度の変化はどうなるか」と仮説を立てさせ、N＝10・100・1000 で比べます。「乱数」を「固定 No.1」にすると、同じ条件では何度押しても同じ結果になるので、電子黒板とタブレットで同じグラフを見ながら話し合えます。「びん首効果」をありにすると、途中の5世代だけ個体数が減ったときに遺伝子頻度が大きくずれ、その後も戻らないようすが見られます。「選択の強さ」を0.05などにすると、Aの頻度が全体として上がる（自然選択）一方で、小さい集団では有利なAでも偶然消失することがあるとわかります。</p>
+<h3>まとめ：ハーディー・ワインベルグの法則</h3>
+<p>「モード」を「ハーディー・ワインベルグ」にし、「親の世代」を「AAとaaだけ」にして「▶ 次の世代をつくる」を押します。ヘテロ接合体のいない親の集団からでも、1世代の自由な交配で子の遺伝子型頻度が p²：2pq：q² になり、その後は世代を重ねても変わらないことを確かめます。集団を小さくすると、理論の値からずれやすくなることも確認します。</p>
+<h3>生徒への問いの例</h3>
+<ol>
+<li>選択がはたらいていない（s＝0）のに、Aの頻度が1や0になる集団があるのはなぜだろう？</li>
+<li>N＝10 と N＝1000 では、固定や消失が起こるまでの世代数はどうちがうだろう？絶滅危惧種のような小さな集団にとって、これは何を意味するだろう？</li>
+<li>ある集団で潜性の形質を示す個体が16％いた。顕性の形質を示す個体のうち、ヘテロ接合体（Aa）は何％だろう？</li>
+</ol>
+<h2>しくみ・解説</h2>
+<h3>用語</h3>
+<ul>
+<li><b>遺伝子プール</b>とは、ある集団の全個体がもつ遺伝子全体のことです。</li>
+<li><b>遺伝子頻度</b>とは、遺伝子プールの中で、ある遺伝子座の対立遺伝子全体のうち特定の対立遺伝子が占める割合のことです（Aの頻度 p、aの頻度 q、p＋q＝1）。</li>
+<li><b>遺伝子型頻度</b>とは、集団の中で AA・Aa・aa などの各遺伝子型をもつ個体が占める割合のことです。</li>
+<li><b>遺伝的浮動</b>とは、次の世代に受けつがれる配偶子が偶然によって決まることで、遺伝子頻度が世代ごとに不規則に変動する現象です。</li>
+<li><b>固定</b>とは、遺伝的浮動や自然選択の結果、集団の中である対立遺伝子の頻度が1（ほかの対立遺伝子が消失）になることです。</li>
+<li><b>びん首効果</b>とは、集団の大きさが一時的に極端に小さくなることで、遺伝子頻度が大きく変わったり遺伝的多様性が失われたりする現象です。</li>
+<li><b>自然選択</b>とは、生存や繁殖に有利な形質をもつ個体がより多くの子を残すことで、その形質の遺伝子の頻度が高まることです。</li>
+<li><b>ハーディー・ワインベルグの法則</b>とは、①集団が十分に大きい、②自由に交配が行われる、③突然変異が起こらない、④移入や移出がない、⑤自然選択がはたらかない、という条件のもとでは、遺伝子頻度が世代を経ても変化しないという法則です。</li>
+</ul>
+<h3>ハーディー・ワインベルグの法則の式</h3>
+<p>Aの頻度を p、aの頻度を q（p＋q＝1）とすると、配偶子の組み合わせ（下の表）から、次の世代の遺伝子型頻度は</p>
+<p style="text-align:center;font-weight:800;">(pA＋qa)² ＝ p² AA ＋ 2pq Aa ＋ q² aa</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>卵＼精子</th><th>A（p）</th><th>a（q）</th></tr><tr><td>A（p）</td><td>AA（p²）</td><td>Aa（pq）</td></tr><tr><td>a（q）</td><td>Aa（pq）</td><td>aa（q²）</td></tr></table></div>
+<p>次の世代のAの頻度は p²＋pq＝p(p＋q)＝<b>p</b> で、もとと変わりません。親の遺伝子型の割合がどうであっても、遺伝子頻度が p・q なら、1世代の自由な交配で遺伝子型頻度は p²：2pq：q² になります。</p>
+<h3>早見表：遺伝子頻度と遺伝子型頻度</h3>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>p（Aの頻度）</th><th>q（aの頻度）</th><th>AA（p²）</th><th>Aa（2pq）</th><th>aa（q²）</th></tr><tr><td>0.9</td><td>0.1</td><td>0.81</td><td>0.18</td><td>0.01</td></tr><tr><td>0.8</td><td>0.2</td><td>0.64</td><td>0.32</td><td>0.04</td></tr><tr><td>0.7</td><td>0.3</td><td>0.49</td><td>0.42</td><td>0.09</td></tr><tr><td>0.6</td><td>0.4</td><td>0.36</td><td>0.48</td><td>0.16</td></tr><tr><td>0.5</td><td>0.5</td><td>0.25</td><td>0.50</td><td>0.25</td></tr><tr><td>0.99</td><td>0.01</td><td>0.9801</td><td>0.0198</td><td>0.0001</td></tr></table></div>
+<h3>計算問題の例</h3>
+<ol>
+<li><b>潜性ホモ接合体の割合から q を求める</b>：潜性の形質（aa）を示す個体が16％のとき、q²＝0.16 より q＝0.4、p＝1−0.4＝0.6。AA＝0.6²＝0.36（36％）、Aa＝2×0.6×0.4＝0.48（48％）。顕性の形質を示す個体（84％）のうち Aa は 0.48÷0.84＝約57％です。</li>
+<li><b>まれな潜性の形質</b>：aa が1万人に1人（q²＝0.0001）のとき、q＝0.01、p＝0.99。ヘテロ接合体は 2pq＝2×0.99×0.01＝0.0198、<b>約50人に1人</b>です。形質として現れる人の約200倍の人が、潜性の遺伝子をもっていることになります。</li>
+<li><b>個体数から遺伝子頻度を求める</b>：1000個体の集団で AA 360、Aa 480、aa 160 のとき、Aの数は 2×360＋480＝1200（全体 2×1000＝2000）なので p＝0.6、q＝0.4。p²：2pq：q²＝0.36：0.48：0.16 となり、この集団はハーディー・ワインベルグ平衡にあるといえます。</li>
+</ol>
+<h3>遺伝的浮動の大きさの目安</h3>
+<p>このシミュレーターでは、N 個体の集団がもつ 2N 個の遺伝子を、親の世代の遺伝子プールから無作為に選び直して次の世代とします（ライト・フィッシャーのモデル）。1世代あたりの遺伝子頻度のゆれ（標準偏差）は √(pq／2N)、p＝0.5 から固定か消失が起こるまでの平均の世代数は約 4N×ln2 ≒ 2.8N 世代です。ヘテロ接合体の割合は、1世代ごとに平均して (1−1/2N) 倍に減っていきます。</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>N（個体数）</th><th>遺伝子の数 2N</th><th>1世代のゆれ（p＝0.5）</th><th>固定・消失までの平均（目安）</th><th>50世代後のヘテロ接合体（最初を1）</th></tr><tr><td>10</td><td>20</td><td>0.112</td><td>約28世代</td><td>0.08</td></tr><tr><td>20</td><td>40</td><td>0.079</td><td>約55世代</td><td>0.28</td></tr><tr><td>50</td><td>100</td><td>0.050</td><td>約140世代</td><td>0.61</td></tr><tr><td>100</td><td>200</td><td>0.035</td><td>約280世代</td><td>0.78</td></tr><tr><td>1000</td><td>2000</td><td>0.011</td><td>約2,800世代</td><td>0.98</td></tr></table></div>
+<p>中立な（有利でも不利でもない）対立遺伝子が最終的に固定する確率は、そのときの頻度 p と同じです。Aが有利なとき（このシミュレーターの「選択の強さ s」）の固定する確率の近似式は (1−e<sup>−4Nsp</sup>)／(1−e<sup>−4Ns</sup>) で、たとえば N＝20、s＝0.05、p＝0.1 では約34％です。有利な遺伝子でも、小さい集団では偶然に消失することがあります。木村資生が提唱した<b>中立説</b>では、分子レベルの変化の多くは自然選択に有利でも不利でもなく、遺伝的浮動によって集団に広まると考えます。</p>
+<div class="note" style="border-left:4px solid var(--teal)"><strong>ポイント</strong>：世代は重ならず、各世代の個体数は一定（びん首の5世代だけ減る）としています。自然選択は、Aの遺伝子が選ばれる確率を (1＋s) 倍に重みづけて表しています（解説のモデル実験で「一方の色がより多く選択されるような条件」にあたります）。突然変異・移入・移出は考えていません。乱数を「固定」にすると、同じ条件では同じ結果が再現されます。</div>
+<h2>参考</h2>
+<ul class="seo-refs">
+<li>文部科学省「高等学校学習指導要領（平成30年告示）解説 理科編 理数編」生物（1）生物の進化（2色のコインを使った遺伝子頻度のモデル実験）</li>
+<li><a href="https://www.mext.go.jp/a_menu/shotou/new-cs/1407074.htm" target="_blank" rel="noopener">文部科学省「高等学校学習指導要領（平成30年告示）解説」</a></li>
+<li>日本遺伝学会『遺伝単（遺伝学用語集 対訳付き）』（2017年。顕性・潜性への言いかえ）</li>
+<li>G. H. Hardy（1908）Mendelian proportions in a mixed population. Science 28: 49–50 ／ W. Weinberg（1908）</li>
+<li>木村資生『生物進化を考える』岩波新書（1988年）</li>
+<li>高等学校「生物」の教科書「進化の仕組み」</li>
+</ul>
+
+    <h2>引用・転載について</h2>
+    <p>本ページのシミュレーション結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・授業や社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「遺伝的浮動とハーディー・ワインベルグの法則のシミュレーター」 https://shimulabo.com/sims/iden-fudou/</code></div>
+    <h2>よくある質問</h2><dl class="faq"><dt>遺伝的浮動と自然選択のちがいは？</dt><dd>自然選択は、生存や繁殖に有利な遺伝子の頻度が高まるという方向性のある変化です。遺伝的浮動は、どの配偶子が次の世代に残るかが偶然で決まることによる方向性のない変化で、有利・不利と関係なく起こります。集団が小さいほど遺伝的浮動の影響が大きくなります。</dd><dt>ハーディー・ワインベルグの法則が成り立つ条件は？</dt><dd>①集団が十分に大きい（遺伝的浮動が無視できる）、②自由に交配が行われる、③突然変異が起こらない、④ほかの集団との間で移入や移出がない、⑤自然選択がはたらかない、の5つです。この条件では遺伝子頻度が世代を経ても変化せず、遺伝子型頻度は p²：2pq：q² に保たれます。</dd><dt>潜性ホモ接合体の割合から遺伝子頻度を求めるには？</dt><dd>潜性の形質を示す個体（aa）の割合が q² なので、その平方根が q です。たとえば aa が16％なら q＝√0.16＝0.4、p＝1−q＝0.6 で、ヘテロ接合体は 2pq＝0.48（48％）です。</dd><dt>なぜ小さい集団ほど遺伝子頻度が固定・消失しやすいの？</dt><dd>次の世代に受けつがれる遺伝子の数（2N個）が少ないと、偶然のかたよりが割合として大きくなるからです。1世代のゆれの大きさは √(pq／2N) で、p＝0.5 のとき N＝10 では約0.11、N＝1000 では約0.011 です。固定か消失までの平均の世代数はおよそ 2.8N 世代です。</dd><dt>びん首効果とは？</dt><dd>病気や災害などで集団の大きさが一時的に極端に小さくなると、そのとき生き残った少数の個体の遺伝子頻度が偶然に大きくかたより、その後に集団が大きくなっても遺伝的多様性が失われたままになる現象です。チーターやキタゾウアザラシの遺伝的多様性が低いのは、その例と考えられています。</dd><dt>「優性・劣性」と「顕性・潜性」は同じ意味？</dt><dd>同じ意味です。「優性・劣性」は形質が優れている・劣っているという誤解を生みやすいため、日本遺伝学会が2017年に「顕性・潜性」への言いかえを提案し、今の高校の教科書でも「顕性・潜性」が使われています。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../mendel-iden/"><span class="e">🌱</span><span>遺伝の規則性シミュレーター（メンデルの交配実験）</span></a><a class="related-card" href="../shinka-sim/"><span class="e">🧬</span><span>進化シミュレーター</span></a><a class="related-card" href="../ketsueki-iden/"><span class="e">🩸</span><span>血液型 遺伝 判定</span></a><a class="related-card" href="../dna/"><span class="e">🧬</span><span>DNA二重らせん</span></a><a class="related-card" href="../lotka-volterra/"><span class="e">🐰</span><span>キツネとウサギ 増減シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../rika/">🔬 理科の授業向けシミュレーター</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+  const rnd = (a,b) => a + Math.random()*(b-a);
+  const randn = () => { let u=0,v=0; while(!u)u=Math.random(); while(!v)v=Math.random(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
+  let SHARE = '';
+  function setShare(t){ SHARE = t; }
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{ const l=$(s.id+'L'); if(l){ const u=()=>{ l.textContent = (s.dataset.fmt ? s.dataset.fmt.replace('{v}', s.value) : s.value); }; s.addEventListener('input',u); u(); } }); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  function setStat(id, v){ const e=$(id); if(e) e.textContent = v; }
+  try {
+    syncSliders();
+
+  const cv=$('cv'); const dpr=Math.min(2,window.devicePixelRatio||1); const W=cv.width,H=cv.height; cv.width=W*dpr; cv.height=H*dpr; const ctx=cv.getContext('2d'); ctx.setTransform(dpr,0,0,dpr,0,0);
+  const FF='"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic UI","Yu Gothic",Meiryo,sans-serif';
+  function tx(s,x,y,size,col,align,bold){ ctx.font=(bold?'bold ':'')+size+'px '+FF; ctx.fillStyle=col; ctx.textAlign=align||'left'; ctx.fillText(s,x,y); ctx.textAlign='left'; }
+  function tw(s,size,bold){ ctx.font=(bold?'bold ':'')+size+'px '+FF; return ctx.measureText(s).width; }
+  function rr(x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
+  function dot(x,y,r,fill,stroke,lw){ ctx.fillStyle=fill; ctx.beginPath(); ctx.arc(x,y,r,0,6.2832); ctx.fill(); if(stroke){ ctx.strokeStyle=stroke; ctx.lineWidth=lw||1; ctx.stroke(); } }
+  function wrap(s,x,y,maxW,lh,size,col,bold){ let line='', yy=y; for(const ch of s){ if(tw(line+ch,size,bold)>maxW && line){ tx(line,x,yy,size,col,'left',bold); line=ch; yy+=lh; } else line+=ch; } if(line) tx(line,x,yy,size,col,'left',bold); return yy; }
+  const K=id=>$(id).previousElementSibling;
+  const fld=id=>{ const e=$(id); return e?e.closest('.field'):null; };
+  function showF(id,on){ const f=fld(id); if(f) f.style.display=on?'':'none'; }
+
+  const NS=[5,10,20,50,100,200,500,1000,5000,10000];
+  const COLS=['#e11d48','#2563eb','#16a34a','#d97706','#7c3aed','#0891b2','#db2777','#65a30d','#ea580c','#4f46e5','#0d9488','#be123c','#1d4ed8','#15803d','#b45309','#6d28d9','#0e7490','#a21caf','#4d7c0f','#c2410c'];
+  const C={ink:'#0f172a',sub:'#64748b',A:'#e0483e',a:'#2f6fdb',grid:'#e2e8f0',het:'#8b5cf6'};
+  let mode='drift', Nn=20, p0=0.5, G=100, s=0, Kp=10, bn=0, par='hw', seed=0, lastSeed=1, R=Math.random;
+  let pops=[], gShow=0, anim=false, cur=null, last=0, dirty=true;
+  let hw=null, hist=[], hwT=1, parP=0.5, parG=[0.25,0.5,0.25], gen=0;
+  function mulberry(a){ return function(){ a|=0; a=a+0x6D2B79F5|0; let t=Math.imul(a^a>>>15,1|a); t=t+Math.imul(t^t>>>7,61|t)^t; return ((t^t>>>14)>>>0)/4294967296; }; }
+  function seedR(k){ R=seed>0?mulberry(seed*1000003+k):Math.random; }
+  function gauss(){ let u=0,v=0; while(!u)u=R(); while(!v)v=R(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); }
+  function binom(n,p){ if(p<=0) return 0; if(p>=1) return n; if(p>0.5) return n-binom(n,1-p);
+    if(n*p<25){ const lq=Math.log(1-p); let x=0, i=0; for(;;){ i+=Math.floor(Math.log(1-R())/lq)+1; if(i>n) return x; x++; } }
+    const m=n*p; return clamp(Math.round(m+Math.sqrt(m*(1-p))*gauss()),0,n); }
+  const bnStart=()=>Math.max(2,Math.round(G*0.2));
+  function runDrift(animate){ seedR(1); pops=[];
+    for(let k=0;k<Kp;k++){ const a=new Float32Array(G+1); let p=p0; a[0]=p; let ab=-1;
+      for(let g=1;g<=G;g++){ const n=(bn&&g>=bnStart()&&g<bnStart()+5)?Math.min(bn,Nn):Nn; const ps=p*(1+s)/(1+p*s); p=binom(2*n,ps)/(2*n); a[g]=p; if(ab<0&&(p===0||p===1)) ab=g; }
+      pops.push({a:a,ab:ab}); }
+    cur=null; if(animate){ gShow=0; anim=true; } else { gShow=G; anim=false; } dirty=true; stats(); }
+  function kimura(){ if(s===0) return p0; const x=4*Nn*s; return (1-Math.exp(-x*p0))/(1-Math.exp(-x)); }
+  function countAt(g){ let f=0,l=0,sum=0; pops.forEach(q=>{ const v=q.a[g]; if(v>=1) f++; else if(v<=0) l++; sum+=v; }); return [f,l,pops.length-f-l,sum/pops.length]; }
+  // ---- ハーディー・ワインベルグ：親の遺伝子プールから配偶子を2つずつ無作為に選んで子をつくる
+  function hwReset(){ seedR(7); parP=p0; parG=par==='hw'?[p0*p0,2*p0*(1-p0),(1-p0)*(1-p0)]:[p0,0,1-p0]; gen=0; hist=[p0]; hwNext(false); }
+  function hwNext(animate){ let AA=0,Aa=0,aa=0; const show=[], ns=Math.min(Nn,100);
+    for(let i=0;i<Nn;i++){ const e=R()<parP, sp=R()<parP; let c; if(e&&sp){AA++;c=0;} else if(e||sp){Aa++;c=1;} else {aa++;c=2;} if(i<ns) show.push(c); }
+    hw={n:Nn,AA:AA,Aa:Aa,aa:aa,p:(2*AA+Aa)/(2*Nn),show:show,pp:parP,pg:parG.slice(),gen:gen+1}; gen++; hist.push(hw.p);
+    hwT=animate?0:1; dirty=true; stats(); }
+  function hwAdvance(){ parP=hw.p; parG=[hw.AA/hw.n,hw.Aa/hw.n,hw.aa/hw.n]; hwNext(true); }
+  const pc=v=>(v*100).toFixed(1);
+  function stats(){
+    if(mode==='drift'){ const c=countAt(Math.min(G,Math.round(gShow))), cg=countAt(G);
+      K('sA').textContent='Aが固定した集団'; K('sB').textContent='Aが消失した集団'; K('sC').textContent='最後の世代の p の平均'; K('sD').textContent='Aがいずれ固定する確率（理論）';
+      setStat('sA',cg[0]+' / '+Kp); setStat('sB',cg[1]+' / '+Kp); setStat('sC',cg[3].toFixed(2)); setStat('sD',Math.round(kimura()*100)+'%');
+      setShare('【遺伝的浮動】N='+Nn+'個体の集団'+Kp+'個を'+G+'世代：Aが固定'+cg[0]+'・消失'+cg[1]+'（'+(s?'選択 s='+s:'中立')+(bn?'・びん首あり':'')+'）。小さい集団ほど偶然で遺伝子頻度が大きくゆれる｜シミュラボ'); }
+    else { const h=hw, n=h.n, q=1-h.pp;
+      K('sA').textContent='子の世代 AA：Aa：aa（%）'; K('sB').textContent='理論 p²：2pq：q²（%）'; K('sC').textContent='子の世代のAの頻度 p'; K('sD').textContent='世代';
+      setStat('sA',pc(h.AA/n)+'：'+pc(h.Aa/n)+'：'+pc(h.aa/n)); setStat('sB',pc(h.pp*h.pp)+'：'+pc(2*h.pp*q)+'：'+pc(q*q)); setStat('sC',h.p.toFixed(3)); setStat('sD','第'+h.gen+'世代');
+      ['sA','sB'].forEach(id=>$(id).style.fontSize='15px');
+      setShare('【ハーディー・ワインベルグ】Aの頻度p='+h.pp.toFixed(2)+'の集団'+num(n)+'個体で自由な交配→AA '+pc(h.AA/n)+'%・Aa '+pc(h.Aa/n)+'%・aa '+pc(h.aa/n)+'%（理論 '+pc(h.pp*h.pp)+'：'+pc(2*h.pp*q)+'：'+pc(q*q)+'）｜シミュラボ'); }
+    if(mode==='drift') ['sA','sB'].forEach(id=>$(id).style.fontSize=''); }
+
+  // ---- 描画：遺伝的浮動
+  const X0=64,X1=616,Y0=40,Y1=350;
+  const gx=g=>X0+g/G*(X1-X0), py=p=>Y1-p*(Y1-Y0);
+  function niceStep(){ const c=[1,2,5,10,20,25,50,100,200]; for(const v of c) if(G/v<=10) return v; return 250; }
+  function drawDrift(){
+    tx('対立遺伝子Aの頻度 p の変化',8,20,13,C.ink,'left',true);
+    tx('N＝'+num(Nn)+'個体（遺伝子は2N＝'+num(2*Nn)+'個）・'+Kp+'集団・'+(s?'選択 s＝'+s:'中立（s＝0）'),632,20,12,C.sub,'right',true);
+    if(bn){ const b=bnStart(); ctx.fillStyle='rgba(245,158,11,.16)'; ctx.fillRect(gx(b-1),Y0,gx(b+4)-gx(b-1),Y1-Y0); tx('びん首（'+Math.min(bn,Nn)+'個体）',(gx(b-1)+gx(b+4))/2,Y0+14,11,'#b45309','center',true); }
+    for(let i=0;i<=4;i++){ const v=i/4, y=py(v); ctx.strokeStyle=i%4?C.grid:'#94a3b8'; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(X0,y); ctx.lineTo(X1,y); ctx.stroke();
+      tx(v===1?'1 固定':v===0?'0 消失':v.toFixed(2),X0-5,y+4,11,i%4?C.sub:C.ink,'right',!(i%4)); }
+    const st=niceStep(); for(let g=0;g<=G;g+=st){ const x=gx(g); ctx.strokeStyle='rgba(15,23,42,.06)'; ctx.beginPath(); ctx.moveTo(x,Y0); ctx.lineTo(x,Y1); ctx.stroke(); tx(String(g),x,Y1+15,11,C.sub,'center'); }
+    tx('世代 →',X1,Y1+29,11,C.sub,'right',true);
+    ctx.setLineDash([5,4]); ctx.strokeStyle='rgba(15,23,42,.35)'; ctx.beginPath(); ctx.moveTo(X0,py(p0)); ctx.lineTo(X1,py(p0)); ctx.stroke(); ctx.setLineDash([]);
+    const gs=Math.min(G,Math.floor(gShow));
+    pops.forEach((q,k)=>{ ctx.strokeStyle=COLS[k%COLS.length]; ctx.globalAlpha=0.85; ctx.lineWidth=Kp>12?1.3:1.8; ctx.lineJoin='round'; ctx.beginPath();
+      const end=q.ab>=0?Math.min(gs,q.ab):gs; for(let g=0;g<=end;g++){ const x=gx(g), y=py(q.a[g]); if(g) ctx.lineTo(x,y); else ctx.moveTo(x,y); } ctx.stroke();
+      if(q.ab>=0&&q.ab<=gs){ ctx.globalAlpha=1; dot(gx(q.ab),py(q.a[q.ab]),3.6,COLS[k%COLS.length],'#fff',1.2); } ctx.globalAlpha=1; });
+    let g0=gs, head='第'+gs+'世代（最後）';
+    if(cur!==null&&cur<=gs){ g0=cur; head='第'+cur+'世代の時点'; const x=gx(cur); ctx.strokeStyle='#0f172a'; ctx.lineWidth=1.2; ctx.beginPath(); ctx.moveTo(x,Y0); ctx.lineTo(x,Y1); ctx.stroke();
+      const w=tw(head,11,true)+10, bx=clamp(x-w/2,X0,X1-w); ctx.fillStyle='#0f172a'; rr(bx,Y0+2,w,18,5); ctx.fill(); tx(head,bx+5,Y0+15,11,'#fff','left',true); }
+    else if(gs<G) head='第'+gs+'世代';
+    const c=countAt(g0), items=[['Aが固定（p＝1）',c[0]+'集団',C.A],['Aが消失（p＝0）',c[1]+'集団',C.a],['両方残っている',c[2]+'集団','#334155'],['p の平均',c[3].toFixed(2),'#334155']];
+    items.forEach((it,i)=>{ const bx=8+i*156, by=384, bw=150; ctx.fillStyle='#f8fafc'; ctx.strokeStyle='#e2e8f0'; ctx.lineWidth=1; rr(bx,by,bw,48,8); ctx.fill(); ctx.stroke();
+      tx(it[0],bx+bw/2,by+16,11,C.sub,'center',true); tx(it[1],bx+bw/2,by+39,19,it[2],'center',true); });
+    tx(head+'のようす。グラフをタップすると、その世代の数を表示します。',8,446,11,C.sub);
+    tx(s===0?'中立では、Aがいずれ固定する確率＝最初の頻度 p₀（'+Math.round(p0*100)+'%）。集団が小さいほど早く固定・消失します。':'Aが有利（s＝'+s+'）：Aがいずれ固定する確率（理論）は約'+Math.round(kimura()*100)+'%。小さい集団では有利なAでも消失することがあります。',8,462,11,'#334155',null,true);
+    if(Nn>=5000&&gs>=G) tx('集団が大きいと、p はほとんど動きません（ハーディー・ワインベルグの法則の条件①）。',8,478,11,'#0e7490','left',true); }
+
+  // ---- 描画：ハーディー・ワインベルグ
+  function indiv(x,y,r,c,a){ ctx.globalAlpha=a; ctx.fillStyle=c===2?C.a:C.A; ctx.beginPath(); ctx.arc(x,y,r,Math.PI/2,Math.PI*1.5); ctx.fill();
+    ctx.fillStyle=c===0?C.A:C.a; ctx.beginPath(); ctx.arc(x,y,r,-Math.PI/2,Math.PI/2); ctx.fill(); ctx.strokeStyle='rgba(15,23,42,.45)'; ctx.lineWidth=1; ctx.beginPath(); ctx.arc(x,y,r,0,6.2832); ctx.stroke(); ctx.globalAlpha=1; }
+  function drawHW(){ const h=hw, n=h.n, pp=h.pp, q=1-pp;
+    tx('① 親の世代の遺伝子プール（配偶子）',8,20,13,C.ink,'left',true);
+    const nA=Math.round(40*pp); let sd=h.gen*97+11; const ord=[]; for(let i=0;i<40;i++) ord.push(i<nA?1:0);
+    for(let i=39;i>0;i--){ sd=(sd*16807)%2147483647; const j=sd%(i+1); const t=ord[i]; ord[i]=ord[j]; ord[j]=t; }
+    ord.forEach((v,i)=>{ const x=20+(i%20)*14.5, y=36+Math.floor(i/20)*15; dot(x,y,5.5,v?C.A:C.a,'rgba(15,23,42,.35)'); });
+    tx('A：p＝'+pp.toFixed(3),14,82,13,C.A,'left',true); tx('a：q＝'+q.toFixed(3),140,82,13,C.a,'left',true);
+    tx('親の遺伝子型 AA '+pc(h.pg[0])+'%・Aa '+pc(h.pg[1])+'%・aa '+pc(h.pg[2])+'%',14,100,11,C.sub);
+    ctx.strokeStyle='#64748b'; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(150,108); ctx.lineTo(150,124); ctx.stroke(); ctx.fillStyle='#64748b'; ctx.beginPath(); ctx.moveTo(144,122); ctx.lineTo(156,122); ctx.lineTo(150,130); ctx.closePath(); ctx.fill();
+    tx('無作為に2つずつ組み合わせて受精',162,124,11,C.sub,'left',true);
+    tx('② 子の世代（第'+h.gen+'世代・'+num(n)+'個体'+(n>100?'のうち100個体':'')+'）',8,150,13,C.ink,'left',true);
+    const ns=h.show.length, k=Math.floor(hwT*ns+0.0001);
+    for(let i=0;i<ns;i++){ const x=24+(i%10)*28, y=172+Math.floor(i/10)*27; indiv(x,y,11,h.show[i],i<k?1:0.08); }
+    tx('AA '+num(h.AA)+'・Aa '+num(h.Aa)+'・aa '+num(h.aa)+'（Aの頻度 p＝'+h.p.toFixed(3)+'）',8,456,12,C.ink,'left',true);
+    indiv(14,472,6,0,1); tx('AA',24,476,11,C.sub); indiv(56,472,6,1,1); tx('Aa',66,476,11,C.sub); indiv(98,472,6,2,1); tx('aa',108,476,11,C.sub);
+    tx('左半分＝卵、右半分＝精子からの遺伝子',134,476,11,C.sub);
+    // 右：棒グラフ
+    const BX0=338, BX1=630; tx('③ 遺伝子型頻度：子の世代と理論',BX0,20,13,C.ink,'left',true);
+    const GY0=44, GY1=208, by=v=>GY1-v*(GY1-GY0);
+    for(let i=0;i<=4;i++){ const y=by(i/4); ctx.strokeStyle=i?C.grid:'#94a3b8'; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(BX0+28,y); ctx.lineTo(BX1,y); ctx.stroke(); tx((i*25)+'%',BX0+24,y+4,10,C.sub,'right'); }
+    const obs=[h.AA/n,h.Aa/n,h.aa/n], th=[pp*pp,2*pp*q,q*q], lab=['AA','Aa','aa'], fill=[C.A,C.het,C.a];
+    for(let i=0;i<3;i++){ const cx=BX0+28+(i+0.5)*(BX1-BX0-28)/3;
+      ctx.fillStyle='#cbd5e1'; ctx.fillRect(cx-36,by(h.pg[i]),16,GY1-by(h.pg[i]));
+      ctx.fillStyle=fill[i]; ctx.globalAlpha=0.85; ctx.fillRect(cx-16,by(obs[i]*hwT),34,GY1-by(obs[i]*hwT)); ctx.globalAlpha=1;
+      ctx.strokeStyle='#0f172a'; ctx.lineWidth=2.2; ctx.setLineDash([5,3]); ctx.beginPath(); ctx.moveTo(cx-22,by(th[i])); ctx.lineTo(cx+24,by(th[i])); ctx.stroke(); ctx.setLineDash([]);
+      tx(lab[i],cx,GY1+15,13,C.ink,'center',true); tx('子 '+pc(obs[i])+'%',cx,GY1+31,11,fill[i],'center',true); tx('理論 '+pc(th[i])+'%',cx,GY1+45,11,C.ink,'center'); }
+    ctx.fillStyle='#cbd5e1'; ctx.fillRect(BX0+6,272,12,10); tx('親',BX0+22,282,11,C.sub); ctx.fillStyle=C.het; ctx.fillRect(BX0+50,272,12,10); tx('子',BX0+66,282,11,C.sub);
+    ctx.strokeStyle='#0f172a'; ctx.lineWidth=2; ctx.setLineDash([5,3]); ctx.beginPath(); ctx.moveTo(BX0+94,277); ctx.lineTo(BX0+112,277); ctx.stroke(); ctx.setLineDash([]); tx('理論 p²・2pq・q²',BX0+116,282,11,C.sub);
+    ctx.fillStyle='#f8fafc'; ctx.strokeStyle='#e2e8f0'; rr(BX0,292,BX1-BX0,48,8); ctx.fill(); ctx.stroke();
+    tx('(p＋q)² ＝ p² ＋ 2pq ＋ q² ＝ 1',BX0+(BX1-BX0)/2,312,14,C.ink,'center',true);
+    tx('p＝'+pp.toFixed(3)+' → p²＝'+(pp*pp).toFixed(3)+'・2pq＝'+(2*pp*q).toFixed(3)+'・q²＝'+(q*q).toFixed(3),BX0+(BX1-BX0)/2,332,11,C.sub,'center');
+    // 右下：p の世代変化
+    const HX0=BX0+30, HX1=BX1-4, HY0=368, HY1=468, L=Math.max(10,hist.length-1);
+    tx('④ 世代ごとの Aの頻度 p',BX0,358,12,C.ink,'left',true);
+    for(let i=0;i<=2;i++){ const y=HY1-i/2*(HY1-HY0); ctx.strokeStyle=i?C.grid:'#94a3b8'; ctx.beginPath(); ctx.moveTo(HX0,y); ctx.lineTo(HX1,y); ctx.stroke(); tx((i/2).toFixed(1),HX0-4,y+4,10,C.sub,'right'); }
+    ctx.setLineDash([4,3]); ctx.strokeStyle='rgba(15,23,42,.35)'; ctx.beginPath(); ctx.moveTo(HX0,HY1-p0*(HY1-HY0)); ctx.lineTo(HX1,HY1-p0*(HY1-HY0)); ctx.stroke(); ctx.setLineDash([]);
+    ctx.strokeStyle=C.A; ctx.lineWidth=2; ctx.beginPath(); hist.forEach((v,i)=>{ const x=HX0+i/L*(HX1-HX0), y=HY1-v*(HY1-HY0); if(i) ctx.lineTo(x,y); else ctx.moveTo(x,y); }); ctx.stroke();
+    hist.forEach((v,i)=>dot(HX0+i/L*(HX1-HX0),HY1-v*(HY1-HY0),2.6,C.A));
+    tx('世代 →',HX1,HY1+13,10,C.sub,'right'); tx('0',HX0,HY1+13,10,C.sub,'center'); }
+
+  function draw(){ ctx.fillStyle='#fff'; ctx.fillRect(0,0,W,H); if(mode==='drift') drawDrift(); else drawHW(); }
+  function frame(ts){ const dt=last?Math.min(0.1,(ts-last)/1000):0; last=ts;
+    if(mode==='drift'&&anim){ gShow=Math.min(G,gShow+dt*G/2.2); if(gShow>=G) anim=false; dirty=true; }
+    if(mode==='hw'&&hwT<1){ hwT=Math.min(1,hwT+dt/1.1); dirty=true; }
+    if(dirty){ dirty=false; draw(); } requestAnimationFrame(frame); }
+  // スライダーを動かしている間は表示だけ変え、指をはなしたら（change）計算に使う値を更新する
+  function labels(){ const n=NS[+$('N').value], sv=+$('s').value; $('NL').textContent=num(n)+'個体'; $('p0L').textContent=(+$('p0').value).toFixed(2); $('GL').textContent=$('G').value+'世代'; $('sL').textContent=sv===0?'0（中立）':sv.toFixed(2)+'（A有利）'; $('KL').textContent=$('K').value+'集団'; }
+  function readUI(){ Nn=NS[+$('N').value]; p0=+$('p0').value; G=+$('G').value; s=+$('s').value; Kp=+$('K').value; bn=+$('bn').value; par=$('par').value; seed=+$('seed').value; labels(); }
+  function setMode(m){ mode=m; const d=m==='drift'; ['G','s','K','bn'].forEach(id=>showF(id,d)); showF('par',!d);
+    $('run').textContent=d?'▶ 実行':'▶ 次の世代をつくる'; $('rst').textContent=d?'⏩ 結果だけすぐ表示':'⏮ 最初の世代にもどす';
+    if(!d&&Nn<100){ $('N').value=NS.indexOf(1000); readUI(); }
+    if(d) runDrift(false); else hwReset(); }
+  function lockText(){ $('lock').textContent=seed>0?'🔓 乱数の固定をやめる':'🔒 乱数を固定する'; }
+  ['N','p0','G','s','K'].forEach(id=>{ $(id).addEventListener('input',labels); $(id).addEventListener('change',()=>{ readUI(); if(mode==='drift') runDrift(true); else hwReset(); }); });
+  ['bn','par'].forEach(id=>$(id).addEventListener('change',()=>{ readUI(); if(mode==='drift') runDrift(true); else hwReset(); }));
+  $('seed').addEventListener('change',()=>{ readUI(); if(seed>0) lastSeed=seed; lockText(); if(mode==='drift') runDrift(true); else hwReset(); });
+  $('mode').addEventListener('change',()=>{ readUI(); setMode($('mode').value); });
+  $('run').addEventListener('click',()=>{ if(mode==='drift') runDrift(true); else hwAdvance(); });
+  $('rst').addEventListener('click',()=>{ if(mode==='drift'){ gShow=G; anim=false; dirty=true; stats(); } else hwReset(); });
+  $('lock').addEventListener('click',()=>{ $('seed').value=String(seed>0?0:lastSeed); readUI(); lockText(); if(mode==='drift') runDrift(true); else hwReset(); });
+  cv.addEventListener('pointerdown',e=>{ if(mode!=='drift') return; const p=cpos(cv,e), x=p[0]/dpr, y=p[1]/dpr;
+    if(x>=X0-4&&x<=X1+4&&y>=Y0&&y<=Y1+20){ const g=clamp(Math.round((x-X0)/(X1-X0)*G),0,G); cur=(cur===g)?null:g; dirty=true; } else { cur=null; dirty=true; } });
+  readUI(); lockText(); setMode('drift'); requestAnimationFrame(frame);
+
+  } catch(e) { console.error(e); }
+  (function(){ const fs=$('fsBtn'), panel=document.querySelector('.panel');
+    const req = panel && (panel.requestFullscreen || panel.webkitRequestFullscreen);
+    if (fs && req) { fs.hidden = false; fs.addEventListener('click', () => {
+      const cur = document.fullscreenElement || document.webkitFullscreenElement;
+      if (cur) { (document.exitFullscreen || document.webkitExitFullscreen).call(document); }
+      else { req.call(panel); } }); }
+  })();
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE || document.title)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText((SHARE||document.title)+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'iden-fudou', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

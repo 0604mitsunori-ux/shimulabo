@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/coriolis-henseifu/">
+<title>コリオリの力のシミュレーター｜回る円盤・f＝2Ωsinφ・偏西風と大気の大循環（高校地学）｜シミュラボ</title>
+<meta name="description" content="コリオリの力（転向力）を、回る円盤の上で玉を投げる実験で確かめる無料シミュレーター。緯度を変えるとコリオリパラメータ f＝2Ωsinφ と低気圧・高気圧のまわりの風の向き（北半球と南半球の違い）が変わり、ハドレー循環・フェレル循環・極循環と貿易風・偏西風・極偏東風も表示します。地学基礎・地学の授業に。">
+<meta property="og:title" content="コリオリの力と大気の大循環シミュレーター（偏西風・貿易風）">
+<meta property="og:description" content="回る円盤で玉が右へ曲がって見えるわけから、f＝2Ωsinφ、低気圧の渦の向き、ハドレー循環・偏西風までを1つの画面で確かめる高校地学の教材です。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/coriolis-henseifu.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/coriolis-henseifu.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/coriolis-henseifu/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": ["WebApplication", "LearningResource"], "name": "コリオリの力と大気の大循環シミュレーター（偏西風・貿易風）", "url": "https://shimulabo.com/sims/coriolis-henseifu/", "description": "回る円盤で玉が右へ曲がって見えるわけから、f＝2Ωsinφ、低気圧の渦の向き、ハドレー循環・偏西風までを1つの画面で確かめる高校地学の教材です。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "educationalLevel": "高校（地学基礎・地学）", "learningResourceType": "シミュレーション", "teaches": "地学基礎 大気と海水の運動／地学 大気の運動と気象", "educationalUse": ["授業", "自習"], "audience": {"@type": "EducationalAudience", "educationalRole": ["teacher", "student"]}, "educationalAlignment": {"@type": "AlignmentObject", "alignmentType": "educationalSubject", "educationalFramework": "学習指導要領（平成29・30年告示）", "targetName": "高等学校 地学基礎（1）ア（ｳ）㋑ 大気と海水の運動／地学（3）ア（ｱ）㋑ 大気の運動と気象"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "理科の授業向け", "item": "https://shimulabo.com/rika/"}, {"@type": "ListItem", "position": 3, "name": "コリオリの力と大気の大循環シミュレーター（偏西風・貿易風）", "item": "https://shimulabo.com/sims/coriolis-henseifu/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "コリオリの力とは何ですか？", "acceptedAnswer": {"@type": "Answer", "text": "自転している地球の上で運動する物体にはたらいて見える見かけの力で、転向力ともいいます。北半球では進む向きの右向き、南半球では左向きにはたらき、大きさは 2mΩv sinφ です（Ω＝7.29×10⁻⁵ rad/s、φ＝緯度）。"}}, {"@type": "Question", "name": "コリオリパラメータ f＝2Ωsinφ は赤道と極でいくつですか？", "acceptedAnswer": {"@type": "Answer", "text": "赤道（φ＝0°）では sin0°＝0 なので f＝0、極（φ＝90°）では最大の f＝2×7.29×10⁻⁵＝1.46×10⁻⁴ /s です。北緯35°では約8.36×10⁻⁵ /s です。"}}, {"@type": "Question", "name": "北半球の低気圧のまわりで、風が反時計回りに吹きこむのはなぜですか？", "acceptedAnswer": {"@type": "Answer", "text": "空気は気圧傾度力で低気圧の中心へ向かいますが、北半球ではコリオリの力で進む向きの右へ曲げられるため、中心のまわりを反時計回りに回りながら吹きこみます。南半球では左へ曲げられるので時計回りになります。"}}, {"@type": "Question", "name": "偏西風と貿易風は、なぜ吹く向きが反対なのですか？", "acceptedAnswer": {"@type": "Answer", "text": "どちらも南北に流れる地上の空気がコリオリの力で曲げられたものです。ハドレー循環で赤道へ向かう空気は西へ曲げられて東寄りの貿易風に、緯度30°付近から高緯度へ向かう空気は東へ曲げられて西寄りの偏西風になります。"}}, {"@type": "Question", "name": "お風呂の栓をぬいたときの渦の向きは、コリオリの力で決まりますか？", "acceptedAnswer": {"@type": "Answer", "text": "ほとんど決まりません。浴槽のような小さく短い時間の流れでは、コリオリの力は他の力（水の最初の動きや浴槽の形の影響）に比べてとても小さいためです。コリオリの力が効くのは、低気圧や大気の大循環のような数百km以上・数時間以上の大きな運動です。"}}, {"@type": "Question", "name": "地衡風とは何ですか？", "acceptedAnswer": {"@type": "Answer", "text": "上空で、気圧傾度力とコリオリの力がつり合って等圧線に平行に吹く風です。北半球では低圧側を左に見て吹きます。地上では摩擦力がはたらくので、風は等圧線を斜めに横切って低圧側へ吹きこみます。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+<style>
+.lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
+.lab-ctl .field{margin-bottom:6px;}
+.lab-ctl>*,.lab-stats>*{min-width:0;}
+.lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
+.lab-ctl .slider-head label{margin:0;font-size:13px;}
+.lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
+.lab-ctl input[type=range]{width:100%;}
+.lab-ctl select{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;font-size:14px;background:#fff;}
+.lab-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px;}
+.lab-btns .btn{padding:11px 18px;font-size:14px;width:auto;}
+.lab-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;width:100%;max-width:640px;margin-top:4px;}
+.lab-stats .stat{background:var(--teal-l);border-radius:10px;padding:10px 12px;text-align:center;}
+.lab-stats .k{font-size:11px;color:var(--ink-2);}
+.lab-stats .v{font-size:20px;font-weight:800;color:var(--ink);font-feature-settings:"tnum";}
+.lab-stats .v.accent{color:var(--accent);}
+.lab-legend{text-align:center;color:var(--ink-2);font-size:13px;margin-top:12px;}
+.lab-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;background:rgba(44,107,134,.10);color:var(--teal-d);margin-bottom:8px;}
+canvas.lab{width:100%;max-width:640px;height:auto;border:1px solid var(--line);border-radius:12px;background:#0b1020;touch-action:none;}
+canvas.lab.light{background:#fff;}
+.panel:fullscreen,.panel:-webkit-full-screen{overflow:auto;padding:24px;background:var(--bg,#faf8f3);}
+.panel:fullscreen canvas.lab{max-width:min(96vw,1100px);}
+.panel:fullscreen .lab-ctl,.panel:fullscreen .lab-stats{max-width:min(96vw,1100px);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../rika/">🔬 理科の授業向け</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../rika/">理科の授業向け</a><span>›</span><span class="cur">コリオリの力と大気の大循環シミュレーター（偏西風・貿易風）</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">理科の授業向け</div>
+    <h1>コリオリの力と大気の大循環シミュレーター（偏西風・貿易風）</h1>
+    <p class="lead">回る円盤の中心から玉を投げると、外から見るとまっすぐなのに、円盤の上から見ると右へ曲がります。この見かけの力がコリオリの力です。緯度を変えて、コリオリパラメータ f＝2Ωsinφ、低気圧・高気圧のまわりの風、大気の大循環と貿易風・偏西風の向きを確かめられます。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;gap:14px;">
+      <span class="lab-badge">🔬 地学基礎 大気と海水の運動／地学 大気の運動と気象</span>
+      <canvas id="cv" class="lab light" width="640" height="520"></canvas>
+      <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="mode">見るもの</label></div><select id="mode"><option value="disk" selected>① 回る円盤</option><option value="earth">② 緯度と低気圧・高気圧</option><option value="gc">③ 大気の大循環</option></select></div><div class="field"><div class="slider-head"><label for="dir">回転の向き</label></div><select id="dir"><option value="ccw" selected>反時計回り（北半球）</option><option value="cw">時計回り（南半球）</option></select></div><div class="field"><div class="slider-head"><label for="rpm">円盤の回転</label><span class="val" id="rpmL"></span></div><input type="range" id="rpm" min="0" max="20" value="10" step="1" data-fmt="1分間に{v}回転"></div><div class="field"><div class="slider-head"><label for="vb">玉の速さ</label><span class="val" id="vbL"></span></div><input type="range" id="vb" min="0.5" max="3" value="1" step="0.1" data-fmt="秒速{v} m"></div><div class="field"><div class="slider-head"><label for="lat">緯度</label><span class="val" id="latL"></span></div><input type="range" id="lat" min="-90" max="90" value="35" step="1"></div><div class="field"><div class="slider-head"><label for="ws">風速</label><span class="val" id="wsL"></span></div><input type="range" id="ws" min="1" max="50" value="10" step="1" data-fmt="{v} m/s"></div></div>
+      <div class="lab-btns"><button class="btn btn-primary" id="throw">▶ 玉を投げる</button><button class="btn btn-ghost" id="clr">軌跡を消す</button></div>
+      <div class="lab-stats"><div class="stat"><div class="k">円盤の1周</div><div class="v" id="s1">—</div></div><div class="stat"><div class="k">ふちに届くまで</div><div class="v" id="s2">—</div></div><div class="stat"><div class="k">曲がって見える角度</div><div class="v accent" id="s3">—</div></div><div class="stat"><div class="k">曲がる向き</div><div class="v" id="s4">—</div></div></div>
+    </div>
+    <p class="lab-legend">図の上のタブ（または「見るもの」）で3つの図を切りかえます。①左は外から見た円盤、右は円盤といっしょに回る人から見た円盤で、赤い線が玉の通り道、紫の矢印がコリオリの力です。円盤をタップしても玉を投げられます。②左は地球と緯度（赤い線）、f＝2Ωsinφ のグラフ、右は低気圧（L）と高気圧（H）のまわりの空気の動き（線は空気の通った跡）。地球やグラフをなぞると緯度が変わります。③左は地球の断面の3つの循環、右は地上の風の向き（年平均のモデル）。どちらもなぞると緯度が変わります。②③の空気の動きと速さは向きを示すためのモデルで、実際の値ではありません。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-ghost" id="fsBtn" hidden>⛶ 全画面で表示</button>
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+
+<h2>このシミュレーションでわかること</h2>
+<div class="note" style="border-left:4px solid var(--teal)"><strong>ポイント</strong>：<b>コリオリの力（転向力）は、自転している地球の上で運動する物体にはたらいて見える見かけの力で、北半球では進む向きの右向き、南半球では左向きにはたらきます。</b>大きさは 2mΩv sinφ（m：質量、Ω：地球の自転の角速度 7.29×10⁻⁵ rad/s、v：速さ、φ：緯度）で、赤道で0、極で最大です。</div>
+<p>このシミュレーターでは、①回る円盤の上で玉を投げる実験でコリオリの力の正体（回転する座標から見た見かけの動き）を確かめ、②緯度によるコリオリパラメータ f＝2Ωsinφ の違いと、低気圧・高気圧のまわりの風の吹き方（北半球と南半球で反対）を見て、③ハドレー循環・フェレル循環・極循環と、貿易風・偏西風・極偏東風の向きを地球の断面と地図で確かめます。</p>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>科目</th><th>単元</th><th>学習指導要領（平成30年告示）の内容</th></tr><tr><td><span style="white-space:nowrap">地学基礎</span></td><td>（1）地球のすがた ア（ｳ）大気と海洋 ㋑ 大気と海水の運動</td><td>大気と海水の運動に関する資料に基づいて、大気と海洋の大循環について理解するとともに、地球規模で熱が輸送されていることを見いだして理解すること</td></tr><tr><td><span style="white-space:nowrap">地学</span></td><td>（3）地球の大気と海洋 ア（ｱ）大気の構造と運動 ㋑ 大気の運動と気象</td><td>大循環と対流による現象及び日本や世界の気象の特徴を理解すること（「大循環」による現象では、偏西風波動と地上の高気圧や低気圧との関係も扱う）</td></tr></table></div>
+<p>高等学校学習指導要領解説 理科編は、地学基礎（p.155）で年平均の風の分布などの資料から偏西風・貿易風・ハドレー循環などを理解させること、地学（p.172）で地衡風が気圧傾度力とコリオリの力のつり合ったときの風であること、中緯度で偏西風が吹いていることを取り上げることを示しています。</p>
+
+<h2>授業での使い方</h2>
+<p><b>導入（①回る円盤）</b>：円盤を反時計回りに回し、中心から「受ける人」に向けて玉を投げます。外から見ると玉はまっすぐ進むのに、円盤の上の人には右へそれて見えることを確かめます。回転を時計回りにすると左へそれることから、北半球と南半球の違いにつなげます。</p>
+<p><b>展開（②緯度と風）</b>：緯度のスライダーを北緯90°から0°、南緯90°へ動かし、f＝2Ωsinφ のグラフと、低気圧のまわりの風の向きの変化を観察します。赤道では渦ができず、南半球では向きが反対になることを確かめます。左の低気圧の図の矢印で、地上の風が気圧傾度力・コリオリの力・摩擦力のつり合いで等圧線を斜めに横切ることも説明できます。</p>
+<p><b>まとめ（③大気の大循環）</b>：緯度ごとの循環と地上の風の名前を表にまとめます。貿易風が「北東」から、偏西風が「南西」から吹く理由を、南北の流れがコリオリの力で曲げられることから説明させます。</p>
+<p>生徒への問いの例です。</p>
+<ul>
+<li>回る円盤で、玉の速さを2倍にすると、曲がって見える角度はどうなるでしょう。（ふちに届くまでの時間が半分になるので、角度も半分になる）</li>
+<li>北緯30°と北緯90°では、同じ風速の風にはたらくコリオリの力は何倍ちがうでしょう。（sin30°＝0.5、sin90°＝1 なので2倍）</li>
+<li>ハドレー循環で赤道へ向かう地上の風は、なぜ「北東貿易風」になるのでしょう。（北から南へ向かう空気が、コリオリの力で進む向きの右＝西へ曲げられるから）</li>
+</ul>
+
+<h2>しくみ・解説</h2>
+<h3>用語の意味</h3>
+<ul>
+<li><b>コリオリの力（転向力）</b>とは、回転する座標系（地球の上）から運動を見たときに現れる見かけの力で、運動の向きに垂直にはたらき、物体の速さは変えずに向きだけを変えます。</li>
+<li><b>コリオリパラメータ</b>とは、f＝2Ωsinφ で表される量で、緯度φでの地面の回転の強さを表します（単位は /s）。</li>
+<li><b>気圧傾度力</b>とは、気圧の高い方から低い方へ空気を押す力で、等圧線に垂直にはたらきます。</li>
+<li><b>地衡風</b>とは、上空で気圧傾度力とコリオリの力がつり合って、等圧線に平行に吹く風です（北半球では低圧側を左に見て吹きます）。</li>
+<li><b>大気の大循環</b>とは、緯度によって太陽放射の受熱量が違うことで起こる、地球規模の大気の流れで、低緯度から高緯度へ熱を運んでいます。</li>
+</ul>
+<h3>コリオリの力の式</h3>
+<div class="note">コリオリの力 C ＝ 2mΩv sinφ ＝ m f v　（北半球では進む向きの右向き、南半球では左向き）<br>コリオリパラメータ f ＝ 2Ω sinφ<br>地球の自転の角速度 Ω ＝ 2π ÷ 86,164 s（1恒星日）≒ 7.29×10⁻⁵ rad/s</div>
+<p>sinφ がつくのは、その場所の地面が鉛直な軸のまわりに回る速さが Ω sinφ になるからです。北極では地面は円盤と同じように Ω で回り、赤道では鉛直な軸のまわりには回っていない（地軸と地面が平行）ので、水平に動く物体にはたらくコリオリの力は0になります。南半球では sinφ が負になり、向きが反対になります。</p>
+<h3>緯度ごとの早見表</h3>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>緯度φ</th><th>sinφ</th><th>f＝2Ω sinφ［/s］</th><th>風速10 m/sの空気1 kgにはたらくコリオリの力</th></tr><tr><td><span style="white-space:nowrap">0°</span></td><td>0.000</td><td><span style="white-space:nowrap">0.00×10⁻⁵</span></td><td><span style="white-space:nowrap">0.00×10⁻⁴ N</span></td></tr><tr><td><span style="white-space:nowrap">10°</span></td><td>0.174</td><td><span style="white-space:nowrap">2.53×10⁻⁵</span></td><td><span style="white-space:nowrap">2.53×10⁻⁴ N</span></td></tr><tr><td><span style="white-space:nowrap">20°</span></td><td>0.342</td><td><span style="white-space:nowrap">4.99×10⁻⁵</span></td><td><span style="white-space:nowrap">4.99×10⁻⁴ N</span></td></tr><tr><td><span style="white-space:nowrap">30°</span></td><td>0.500</td><td><span style="white-space:nowrap">7.29×10⁻⁵</span></td><td><span style="white-space:nowrap">7.29×10⁻⁴ N</span></td></tr><tr><td><span style="white-space:nowrap">35°</span></td><td>0.574</td><td><span style="white-space:nowrap">8.36×10⁻⁵</span></td><td><span style="white-space:nowrap">8.36×10⁻⁴ N</span></td></tr><tr><td><span style="white-space:nowrap">40°</span></td><td>0.643</td><td><span style="white-space:nowrap">9.37×10⁻⁵</span></td><td><span style="white-space:nowrap">9.37×10⁻⁴ N</span></td></tr><tr><td><span style="white-space:nowrap">45°</span></td><td>0.707</td><td><span style="white-space:nowrap">10.31×10⁻⁵</span></td><td><span style="white-space:nowrap">10.31×10⁻⁴ N</span></td></tr><tr><td><span style="white-space:nowrap">60°</span></td><td>0.866</td><td><span style="white-space:nowrap">12.63×10⁻⁵</span></td><td><span style="white-space:nowrap">12.63×10⁻⁴ N</span></td></tr><tr><td><span style="white-space:nowrap">90°</span></td><td>1.000</td><td><span style="white-space:nowrap">14.58×10⁻⁵</span></td><td><span style="white-space:nowrap">14.58×10⁻⁴ N</span></td></tr></table></div>
+<p><b>計算例1</b>：北緯35°で風速10 m/sの風が吹いているとき、空気1 kgにはたらくコリオリの力の大きさは何Nですか。<br>答え：f＝2×7.29×10⁻⁵×sin35°＝2×7.29×10⁻⁵×0.574≒8.36×10⁻⁵ /s。C＝m f v＝1×8.36×10⁻⁵×10≒<b>8.4×10⁻⁴ N</b></p>
+<p><b>計算例2（地衡風）</b>：北緯35°で、400 km 離れた等圧線の間で気圧が4 hPa（400 Pa）違うとき、地衡風の速さは何 m/s ですか（空気の密度 1.2 kg/m³、摩擦は考えない）。<br>答え：気圧傾度力（1 kgあたり）＝(1/ρ)×(Δp/Δn)＝(1/1.2)×(400/400,000)≒8.3×10⁻⁴ N。これがコリオリの力 f v とつり合うので、v＝(Δp/Δn)÷(ρ f)＝1.0×10⁻³÷(1.2×8.36×10⁻⁵)≒<b>10 m/s</b></p>
+<p><b>計算例3（回る円盤）</b>：半径1 mの円盤が1分間に10回転しています。中心から秒速1 mで玉を転がすと、円盤の上から見て何度それて見えますか。<br>答え：ふちに届くまで 1 m÷1 m/s＝1秒。その間に円盤は 360°×10÷60＝60° 回るので、<b>60°</b>（反時計回りなら右へ）。</p>
+<h3>低気圧・高気圧のまわりの風</h3>
+<div class="tbl-scroll"><table class="seo-table"><tr><th></th><th>低気圧</th><th>高気圧</th></tr><tr><td>北半球</td><td>反時計回りに吹きこむ</td><td>時計回りに吹き出す</td></tr><tr><td>南半球</td><td>時計回りに吹きこむ</td><td>反時計回りに吹き出す</td></tr><tr><td>赤道付近</td><td>渦になりにくい（台風は緯度5°以内ではほとんど発生しない）</td><td>—</td></tr></table></div>
+<p>地上の風は、気圧傾度力・コリオリの力・摩擦力の3つがつり合って吹くため、等圧線を斜めに横切って低気圧側へ向かいます（横切る角度は海上で小さく、陸上で大きくなります）。上空では摩擦がほとんどないので、等圧線に平行な地衡風になります。</p>
+<h3>大気の大循環と地上の風</h3>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>緯度</th><th>循環</th><th>地上の風</th><th>気圧帯</th></tr><tr><td><span style="white-space:nowrap">0〜30°</span></td><td>ハドレー循環（赤道で上昇し、緯度30°付近で下降）</td><td>貿易風（北半球は北東の風、南半球は南東の風）</td><td>赤道低圧帯（熱帯収束帯）／亜熱帯高圧帯</td></tr><tr><td><span style="white-space:nowrap">30〜60°</span></td><td>フェレル循環（緯度30°付近で下降し、60°付近で上昇）</td><td>偏西風（北半球は南西の風、南半球は北西の風）</td><td>亜熱帯高圧帯／亜寒帯低圧帯</td></tr><tr><td><span style="white-space:nowrap">60〜90°</span></td><td>極循環（緯度60°付近で上昇し、極で下降）</td><td>極偏東風（北半球は北東の風、南半球は南東の風）</td><td>亜寒帯低圧帯／極高圧帯</td></tr></table></div>
+<p>赤道付近であたためられた空気は上昇し、上空を高緯度へ向かって緯度30°付近で下降します（ハドレー循環）。下降した空気が地上を赤道へもどるとき、コリオリの力で西へ曲げられて貿易風になります。緯度30°付近から高緯度へ向かう地上の空気は東へ曲げられて偏西風になります。中緯度の上空には、南北の温度差によって強い偏西風（ジェット気流）が吹き、南北に蛇行しながら（偏西風波動）低緯度と高緯度の間で熱を運んでいます。日本付近の天気が西から東へ変わるのは、この偏西風のためです。</p>
+<h3>このシミュレーションで単純化していること</h3>
+<ul>
+<li>①の円盤は半径1 mとし、玉と円盤の摩擦は考えていません。外から見て等速直線運動する玉を、円盤とともに回る座標に直して描いています（遠心力も含めた見かけの動きになります）。</li>
+<li>②の低気圧・高気圧の空気の動きは、気圧傾度力・コリオリの力（f を緯度に合わせて sinφ 倍）・摩擦力を時間・長さの単位をそろえずに計算したモデルで、向きと曲がり方の違いを示すためのものです。実際の風速・大きさではありません。</li>
+<li>③の循環と地上の風は年平均の理想化したモデルです。実際には、気圧帯は季節によって南北に動き、海と陸の分布によって季節風なども生じます。フェレル循環は、ハドレー循環と極循環にはさまれて生じる見かけの循環です。</li>
+<li>図の大気の厚さは誇張しています（対流圏の厚さは約11 km で、地球の半径約6,400 km に比べてとても薄い）。</li>
+</ul>
+
+<h2>参考</h2>
+<ul class="seo-refs">
+<li>文部科学省「高等学校学習指導要領（平成30年告示）解説 理科編 理数編」地学基礎 p.155、地学 p.172（<a href="https://www.mext.go.jp/a_menu/shotou/new-cs/1407074.htm" target="_blank" rel="noopener">https://www.mext.go.jp/a_menu/shotou/new-cs/1407074.htm</a>）</li>
+<li>国立天文台 編『理科年表』（丸善出版）…地球の自転の角速度・地球の大きさ</li>
+<li>高等学校「地学基礎」「地学」の教科書（大気の大循環・コリオリの力・地衡風の単元）</li>
+</ul>
+
+    <h2>引用・転載について</h2>
+    <p>本ページのシミュレーション結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・授業や社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「コリオリの力と大気の大循環シミュレーター（偏西風・貿易風）」 https://shimulabo.com/sims/coriolis-henseifu/</code></div>
+    <h2>よくある質問</h2><dl class="faq"><dt>コリオリの力とは何ですか？</dt><dd>自転している地球の上で運動する物体にはたらいて見える見かけの力で、転向力ともいいます。北半球では進む向きの右向き、南半球では左向きにはたらき、大きさは 2mΩv sinφ です（Ω＝7.29×10⁻⁵ rad/s、φ＝緯度）。</dd><dt>コリオリパラメータ f＝2Ωsinφ は赤道と極でいくつですか？</dt><dd>赤道（φ＝0°）では sin0°＝0 なので f＝0、極（φ＝90°）では最大の f＝2×7.29×10⁻⁵＝1.46×10⁻⁴ /s です。北緯35°では約8.36×10⁻⁵ /s です。</dd><dt>北半球の低気圧のまわりで、風が反時計回りに吹きこむのはなぜですか？</dt><dd>空気は気圧傾度力で低気圧の中心へ向かいますが、北半球ではコリオリの力で進む向きの右へ曲げられるため、中心のまわりを反時計回りに回りながら吹きこみます。南半球では左へ曲げられるので時計回りになります。</dd><dt>偏西風と貿易風は、なぜ吹く向きが反対なのですか？</dt><dd>どちらも南北に流れる地上の空気がコリオリの力で曲げられたものです。ハドレー循環で赤道へ向かう空気は西へ曲げられて東寄りの貿易風に、緯度30°付近から高緯度へ向かう空気は東へ曲げられて西寄りの偏西風になります。</dd><dt>お風呂の栓をぬいたときの渦の向きは、コリオリの力で決まりますか？</dt><dd>ほとんど決まりません。浴槽のような小さく短い時間の流れでは、コリオリの力は他の力（水の最初の動きや浴槽の形の影響）に比べてとても小さいためです。コリオリの力が効くのは、低気圧や大気の大循環のような数百km以上・数時間以上の大きな運動です。</dd><dt>地衡風とは何ですか？</dt><dd>上空で、気圧傾度力とコリオリの力がつり合って等圧線に平行に吹く風です。北半球では低圧側を左に見て吹きます。地上では摩擦力がはたらくので、風は等圧線を斜めに横切って低圧側へ吹きこみます。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../kiatsu-jet/"><span class="e">🎢</span><span>気圧ジェットコースター指数</span></a><a class="related-card" href="../zensen-tenki/"><span class="e">🌦️</span><span>前線と天気の変化シミュレーター（寒冷前線・温暖前線）</span></a><a class="related-card" href="../taiyou-ugoki/"><span class="e">🌞</span><span>太陽の1日の動きと季節（透明半球・南中高度・昼の長さ）</span></a><a class="related-card" href="../eratosthenes/"><span class="e">🌍</span><span>エラトステネスの方法で地球の大きさを測るシミュレーター（地球の全周の求め方）</span></a><a class="related-card" href="../gravity/"><span class="e">🌌</span><span>重力シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../rika/">🔬 理科の授業向けシミュレーター</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+  const rnd = (a,b) => a + Math.random()*(b-a);
+  const randn = () => { let u=0,v=0; while(!u)u=Math.random(); while(!v)v=Math.random(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
+  let SHARE = '';
+  function setShare(t){ SHARE = t; }
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{ const l=$(s.id+'L'); if(l){ const u=()=>{ l.textContent = (s.dataset.fmt ? s.dataset.fmt.replace('{v}', s.value) : s.value); }; s.addEventListener('input',u); u(); } }); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  function setStat(id, v){ const e=$(id); if(e) e.textContent = v; }
+  try {
+    syncSliders();
+
+  const cv=$('cv'); const dpr=Math.min(2,window.devicePixelRatio||1); const W=cv.width,H=cv.height; cv.width=W*dpr; cv.height=H*dpr; let x=cv.getContext('2d'); x.setTransform(dpr,0,0,dpr,0,0);
+
+  const F=(s,b)=>(b?'bold ':'')+s+'px system-ui,-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif';
+  function rr(a,b,w,h,r){ x.beginPath(); x.moveTo(a+r,b); x.arcTo(a+w,b,a+w,b+h,r); x.arcTo(a+w,b+h,a,b+h,r); x.arcTo(a,b+h,a,b,r); x.arcTo(a,b,a+w,b,r); x.closePath(); }
+  function txt(t,px,py,col,sz,b,al,bl,maxw){ let s=sz; x.font=F(s,b); if(maxw){ while(s>8&&x.measureText(t).width>maxw){ s-=0.5; x.font=F(s,b); } } x.fillStyle=col; x.textAlign=al||'left'; x.textBaseline=bl||'alphabetic'; x.fillText(t,px,py); }
+  function halo(t,px,py,col,sz,b,al,bg){ x.font=F(sz,b); x.textAlign=al||'center'; x.textBaseline='middle'; x.lineJoin='round'; x.lineWidth=3.5; x.strokeStyle=bg||'rgba(255,255,255,.92)'; x.strokeText(t,px,py); x.fillStyle=col; x.fillText(t,px,py); }
+  function head(px,py,a,sz,col){ x.fillStyle=col; x.beginPath(); x.moveTo(px,py); x.lineTo(px-sz*Math.cos(a-0.45),py-sz*Math.sin(a-0.45)); x.lineTo(px-sz*Math.cos(a+0.45),py-sz*Math.sin(a+0.45)); x.closePath(); x.fill(); }
+  function arrow(x1,y1,x2,y2,col,lw,hs){ const a=Math.atan2(y2-y1,x2-x1), L=Math.hypot(x2-x1,y2-y1); if(L<1) return; hs=Math.min(hs||8,L*0.8); x.strokeStyle=col; x.lineWidth=lw||2; x.beginPath(); x.moveTo(x1,y1); x.lineTo(x2-Math.cos(a)*hs*0.6,y2-Math.sin(a)*hs*0.6); x.stroke(); head(x2,y2,a,hs,col); }
+  function tabs(list,cur){ const w=(W-12)/list.length; list.forEach((t,i)=>{ const on=i===cur; x.fillStyle=on?'#0e7490':'#e2e8f0'; rr(6+i*w+2,5,w-4,32,8); x.fill(); txt(t,6+i*w+w/2,21.5,on?'#fff':'#334155',14,1,'center','middle',w-12); }); }
+  function showField(id,on){ const e=$(id); if(!e) return; const f=e.closest('.field'); if(f) f.style.display=on?'':'none'; }
+  function showBtn(id,on){ const e=$(id); if(e) e.style.display=on?'':'none'; }
+  function setK(id,t){ const e=$(id); if(e&&e.previousElementSibling) e.previousElementSibling.textContent=t; }
+  function fit(id,v){ setStat(id,v); const e=$(id); if(e) e.style.fontSize=v.length>11?'13px':v.length>8?'15px':v.length>6?'17px':''; }
+
+  const R=Math.PI/180, OM=7.29e-5, SLOW=0.5;
+  let lastKey=''; function upd(k,fn){ if(k!==lastKey){ lastKey=k; fn(); } }
+  const MODES=['① 回る円盤','② 緯度と風の曲がり方','③ 大気の大循環'], MV=['disk','earth','gc'];
+  const hm=MV.indexOf((location.hash||'').slice(1));
+  let mode=hm>=0?hm:Math.max(0,MV.indexOf($('mode').value)), lat=+$('lat').value, ang=0, throws=[], last=0, drag=false;
+  if(hm>=0) $('mode').value=MV[hm];
+  const latName=(p)=>p===0?'赤道（緯度0°）':(p>0?'北緯':'南緯')+Math.abs(p)+'°';
+  const fval=(p)=>2*OM*Math.sin(p*R);
+  const SUP={'-':'⁻','0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'};
+  function sci(v,d){ if(Math.abs(v)<1e-12) return '0'; let e=Math.floor(Math.log10(Math.abs(v))), m=v/Math.pow(10,e); if(Math.abs(+m.toFixed(d))>=10){ e++; m/=10; } return m.toFixed(d).replace('-','−')+'×10'+String(e).split('').map(c=>SUP[c]).join(''); }
+  function latLabel(){ setStat('latL',latName(lat)); const l=$('latL'); if(l) l.textContent=latName(lat); }
+
+  // ---------------- ① 回る円盤（半径1 m）
+  const DK=[[165,246],[475,246]], DR=128;
+  const om=()=>(+$('rpm').value)*2*Math.PI/60*($('dir').value==='cw'?-1:1), vb=()=>+$('vb').value;
+  const rot=(px,py,a)=>[px*Math.cos(a)-py*Math.sin(a), px*Math.sin(a)+py*Math.cos(a)];
+  function newThrow(){ const th={b0:Math.PI/2+ang, s:0, pts:[[0,0,0,0]], done:false}; throws.push(th); if(throws.length>3) throws.shift(); return th; }
+  function stepThrow(th,dt){ if(th.done) return; th.s+=dt; let d=vb()*th.s; if(d>=1){ d=1; th.done=true; }
+    const xi=d*Math.cos(th.b0), yi=d*Math.sin(th.b0), r=rot(xi,yi,-ang); th.pts.push([xi,yi,r[0],r[1]]); }
+  function instantThrow(){ throws=[]; ang=0; const th=newThrow(), dt=0.004; let n=0; while(!th.done&&n<5000){ ang+=om()*dt; stepThrow(th,dt); n++; } }
+  function arcArrow(cx,cy,r,a1,a2,col){ x.strokeStyle=col; x.lineWidth=2.5; x.beginPath(); for(let i=0;i<=20;i++){ const a=a1+(a2-a1)*i/20; i?x.lineTo(cx+r*Math.cos(a),cy-r*Math.sin(a)):x.moveTo(cx+r*Math.cos(a),cy-r*Math.sin(a)); } x.stroke();
+    const s=Math.sign(a2-a1), tx=-Math.sin(a2)*s, ty=-Math.cos(a2)*s; head(cx+r*Math.cos(a2)+tx*4,cy-r*Math.sin(a2)+ty*4,Math.atan2(ty,tx),10,col); }
+  function drawDisk(k){ const cx=DK[k][0], cy=DK[k][1], r0=k===0?ang:0, w=om();
+    x.fillStyle='#fef3c7'; x.beginPath(); x.arc(cx,cy,DR,0,2*Math.PI); x.fill();
+    const sa=-(Math.PI/2+r0); x.fillStyle='rgba(251,191,36,.38)'; x.beginPath(); x.moveTo(cx,cy); x.arc(cx,cy,DR,sa-Math.PI/9,sa+Math.PI/9); x.closePath(); x.fill();
+    x.strokeStyle='rgba(180,83,9,.28)'; x.lineWidth=1; for(let i=0;i<8;i++){ const a=r0+i*Math.PI/4; x.beginPath(); x.moveTo(cx,cy); x.lineTo(cx+DR*Math.cos(a),cy-DR*Math.sin(a)); x.stroke(); }
+    x.beginPath(); x.arc(cx,cy,DR/2,0,2*Math.PI); x.stroke(); x.strokeStyle='#b45309'; x.lineWidth=2; x.beginPath(); x.arc(cx,cy,DR,0,2*Math.PI); x.stroke();
+    if(k===0&&Math.abs(w)>1e-6){ const a0=w>0?200*R:250*R, a1=w>0?250*R:200*R; arcArrow(cx,cy,DR+11,a0,a1,'#b45309'); arcArrow(cx,cy,DR+11,a0+Math.PI,a1+Math.PI,'#b45309'); }
+    if(k===1){ x.setLineDash([5,4]); x.strokeStyle='rgba(30,41,59,.45)'; x.lineWidth=1.5; x.beginPath(); x.moveTo(cx,cy); x.lineTo(cx,cy-DR); x.stroke(); x.setLineDash([]); }
+    // 軌跡
+    throws.forEach((th,j)=>{ const newest=j===throws.length-1, ix=k===0?0:2; x.strokeStyle=newest?'#dc2626':'rgba(220,38,38,.3)'; x.lineWidth=newest?3:2; x.lineCap='round';
+      x.beginPath(); th.pts.forEach((q,i)=>{ const px=cx+q[ix]*DR, py=cy-q[ix+1]*DR; i?x.lineTo(px,py):x.moveTo(px,py); }); x.stroke(); x.lineCap='butt'; });
+    const th=throws[throws.length-1];
+    if(th){ const ix=k===0?0:2, q=th.pts[th.pts.length-1], px=cx+q[ix]*DR, py=cy-q[ix+1]*DR;
+      if(k===1&&th.done){ const dv=om()/vb(), la=Math.PI/2-dv; if(Math.abs(dv)>0.02){ x.strokeStyle='#7c3aed'; x.lineWidth=2.2; x.beginPath(); for(let i=0;i<=24;i++){ const a=Math.PI/2+(la-Math.PI/2)*i/24; const rr2=DR*0.66; i?x.lineTo(cx+rr2*Math.cos(a),cy-rr2*Math.sin(a)):x.moveTo(cx+rr2*Math.cos(a),cy-rr2*Math.sin(a)); } x.stroke();
+          const am=Math.PI/2+(la-Math.PI/2)/2; halo(Math.round(Math.abs(dv)/R)+'°',cx+DR*0.8*Math.cos(am),cy-DR*0.8*Math.sin(am),'#6d28d9',14,1); } }
+      if(k===1&&!th.done&&th.pts.length>2){ const p0=th.pts[th.pts.length-3], vx=q[2]-p0[2], vy=q[3]-p0[3], l=Math.hypot(vx,vy)||1, s=Math.sign(om());
+        if(s) arrow(px,py,px+vy/l*30*s,py+vx/l*30*s,'#7c3aed',2.5,9); }
+      x.fillStyle='#fff'; x.strokeStyle='#111827'; x.lineWidth=2; x.beginPath(); x.arc(px,py,7,0,2*Math.PI); x.fill(); x.stroke(); }
+    // 人
+    const ca=Math.PI/2+r0, qx=cx+DR*Math.cos(ca), qy=cy-DR*Math.sin(ca);
+    x.fillStyle='#2563eb'; x.beginPath(); x.arc(qx,qy,8,0,2*Math.PI); x.fill(); x.strokeStyle='#fff'; x.lineWidth=2; x.stroke();
+    halo('受ける人',qx+Math.cos(ca)*20+(Math.abs(Math.cos(ca))>0.5?Math.sign(Math.cos(ca))*14:0),qy-Math.sin(ca)*20,'#1d4ed8',12,1);
+    x.fillStyle='#16a34a'; x.beginPath(); x.arc(cx,cy,7,0,2*Math.PI); x.fill(); x.strokeStyle='#fff'; x.lineWidth=2; x.stroke();
+    halo('投げる人',cx,cy+19,'#15803d',12,1);
+  }
+  function drawM0(){ const w=om(), v=vb(), T=1/v, dv=Math.abs(w)*T/R, rpm=+$('rpm').value, ccw=$('dir').value!=='cw';
+    x.fillStyle='#fff'; x.fillRect(0,0,W,H);
+    txt('外（止まっている所）から見る',DK[0][0],60,'#0f172a',15,1,'center','alphabetic',300); txt('玉はまっすぐ進む',DK[0][0],79,'#475569',13,0,'center');
+    txt('円盤の上（いっしょに回る人）から見る',DK[1][0],60,'#0f172a',15,1,'center','alphabetic',300);
+    txt(rpm===0?'回っていないのでまっすぐ':(ccw?'玉は進む向きの右へ曲がって見える':'玉は進む向きの左へ曲がって見える'),DK[1][0],79,'#7c3aed',13,1,'center','alphabetic',300);
+    x.strokeStyle='#e2e8f0'; x.lineWidth=1; x.beginPath(); x.moveTo(W/2,48); x.lineTo(W/2,388); x.stroke();
+    drawDisk(0); drawDisk(1);
+    x.fillStyle='#f1f5f9'; rr(6,394,W-12,120,10); x.fill();
+    txt((rpm===0?'円盤は止まっている':'1分間に'+rpm+'回転（1周'+(60/rpm).toFixed(1)+'秒）・'+(ccw?'反時計回り（北半球と同じ）':'時計回り（南半球と同じ）')),18,418,'#0f172a',14,1,'left','alphabetic',W-36);
+    txt('秒速'+v.toFixed(1)+' mの玉が、半径1 mの円盤のふちに届くまで '+T.toFixed(2)+'秒'+(rpm?' → その間に円盤は '+Math.round(dv)+'° 回る':''),18,442,'#334155',13,0,'left','alphabetic',W-36);
+    txt(rpm===0?'円盤が回っていなければ、どちらから見ても玉はまっすぐ進みます':'円盤の上から見ると、玉は進む向きの'+(ccw?'右':'左')+'へ曲がり、'+Math.round(dv)+'° それて届く',18,468,'#6d28d9',15,1,'left','alphabetic',W-36);
+    txt('紫の矢印＝コリオリの力（回る円盤の上で見える見かけの力）。動きはスロー再生（実際の1/2の速さ）',18,494,'#64748b',11.5,0,'left','alphabetic',W-36);
+    tabs(MODES,mode);
+    upd('0|'+rpm+'|'+v+'|'+ccw,()=>{ setK('s1','円盤の1周'); setK('s2','ふちに届くまで'); setK('s3','曲がって見える角度'); setK('s4','曲がる向き');
+    fit('s1',rpm?(60/rpm).toFixed(1)+'秒':'回転なし'); fit('s2',T.toFixed(2)+'秒'); fit('s3',Math.round(dv)+'°'); fit('s4',rpm===0?'曲がらない':(ccw?'右へ（北半球）':'左へ（南半球）'));
+    setShare('【コリオリの力】1分間に'+rpm+'回転する円盤の中心から秒速'+v.toFixed(1)+'mで玉を投げると、円盤の上からは'+(rpm===0?'まっすぐ進む':(ccw?'右':'左')+'へ'+Math.round(dv)+'°曲がって見える')+'｜シミュラボ'); });
+  }
+
+  // ---------------- ② 地球：緯度とコリオリパラメータ、低気圧・高気圧
+  const GX=125, GY=160, GR=86, E=18*R, F0=2.2, KF=0.55, GG=55, ROUT=94, LC=[446,162], HC=[446,398];
+  let parts=[];
+  function gp(la,lo){ const cl=Math.cos(la*R); return [GX+GR*cl*Math.sin(lo*R), GY-GR*(Math.sin(la*R)*Math.cos(E)-cl*Math.cos(lo*R)*Math.sin(E)), cl*Math.cos(lo*R)*Math.cos(E)+Math.sin(la*R)*Math.sin(E)]; }
+  function newP(k,fill){ const a=Math.random()*2*Math.PI, r=k===0?(fill?12+(ROUT-12)*Math.random():ROUT*(0.86+0.14*Math.random())):(fill?3+(ROUT-6)*Math.random():3+12*Math.random()); return {k:k,x:r*Math.cos(a),y:r*Math.sin(a),vx:0,vy:0,tr:[],age:0}; }
+  function initParts(){ parts=[]; for(let i=0;i<64;i++){ parts.push(newP(0,true)); parts.push(newP(1,true)); } for(let i=0;i<260;i++) stepParts(1/60); }
+  function stepParts(dt){ const f=F0*Math.sin(lat*R), n=2, h=dt/n;
+    for(const p of parts){ for(let i=0;i<n;i++){ const r=Math.hypot(p.x,p.y)||1, s=p.k===0?-1:1; let gx=s*GG*p.x/r, gy=s*GG*p.y/r; if(p.k===0&&r<6){ gx=0; gy=0; }
+        p.vx+=gx*h; p.vy+=gy*h; const a=-f*h, c=Math.cos(a), sn=Math.sin(a), vx=p.vx*c-p.vy*sn, vy=p.vx*sn+p.vy*c; p.vx=vx*(1-KF*h); p.vy=vy*(1-KF*h); p.x+=p.vx*h; p.y+=p.vy*h; }
+      p.age+=dt; p.tr.push([p.x,p.y]); if(p.tr.length>34) p.tr.shift();
+      const r=Math.hypot(p.x,p.y); if((p.k===0&&r<9)||(p.k===1&&r>ROUT)||p.age>16) Object.assign(p,newP(p.k,false)); } }
+  function drawGlobe(){ const f=fval(lat);
+    const g=x.createRadialGradient(GX-30,GY-30,10,GX,GY,GR); g.addColorStop(0,'#7dd3fc'); g.addColorStop(1,'#1d4ed8'); x.fillStyle=g; x.beginPath(); x.arc(GX,GY,GR,0,2*Math.PI); x.fill();
+    [-60,-30,0,30,60].forEach(la=>{ x.strokeStyle=la===0?'rgba(255,255,255,.85)':'rgba(255,255,255,.35)'; x.lineWidth=la===0?1.6:1; x.beginPath(); let on=false; for(let lo=-180;lo<=180;lo+=5){ const q=gp(la,lo); if(q[2]>0){ on?x.lineTo(q[0],q[1]):x.moveTo(q[0],q[1]); on=true; } else on=false; } x.stroke(); });
+    x.strokeStyle='#dc2626'; x.lineWidth=2.6; x.beginPath(); let on=false; for(let lo=-180;lo<=180;lo+=4){ const q=gp(lat,lo); if(q[2]>-0.02){ on?x.lineTo(q[0],q[1]):x.moveTo(q[0],q[1]); on=true; } else on=false; } x.stroke();
+    const tp=[GX,GY-(GR+26)*Math.cos(E)], bt=[GX,GY+(GR+18)*Math.cos(E)]; x.strokeStyle='#0f172a'; x.lineWidth=2; x.beginPath(); x.moveTo(bt[0],bt[1]); x.lineTo(tp[0],tp[1]); x.stroke();
+    x.strokeStyle='#ea580c'; x.lineWidth=2.2; x.beginPath(); x.ellipse(tp[0],tp[1]+6,16,5,0,0.15*Math.PI,0.95*Math.PI,true); x.stroke(); head(tp[0]-15,tp[1]+8.5,Math.PI*0.97,8,'#ea580c');
+    txt('北極',tp[0]+20,tp[1]+4,'#0f172a',11.5,1,'left'); txt('自転の角速度',8,56,'#9a3412',11.5,0,'left'); txt('Ω＝7.29×10⁻⁵ rad/s',8,71,'#9a3412',11.5,0,'left');
+    const P=gp(lat,-28); if(P[2]>0){ const dx=P[0]-GX, dy=P[1]-GY, l=Math.hypot(dx,dy)||1; arrow(P[0],P[1],P[0]+dx/l*24,P[1]+dy/l*24,'#facc15',2.5,8);
+      x.fillStyle='#dc2626'; x.strokeStyle='#fff'; x.lineWidth=2; x.beginPath(); x.arc(P[0],P[1],5,0,2*Math.PI); x.fill(); x.stroke(); }
+    halo(latName(lat),GX+GR*0.55,Math.min(GY+GR+8,Math.max(70,gp(lat,40)[1]-12)),'#b91c1c',12,1);
+    // f のグラフ
+    const gx0=22, gx1=238, gy0=330, A=42, sx=(p)=>gx0+(p+90)/180*(gx1-gx0), sy=(v)=>gy0-v/1.458e-4*A;
+    x.fillStyle='#f8fafc'; rr(4,262,246,128,8); x.fill(); txt('f＝2Ω sinφ（コリオリパラメータ）',10,278,'#0f172a',12,0,'left','alphabetic',236);
+    x.strokeStyle='#cbd5e1'; x.lineWidth=1; x.beginPath(); x.moveTo(gx0,gy0); x.lineTo(gx1,gy0); x.moveTo(sx(0),gy0-A-4); x.lineTo(sx(0),gy0+A+4); x.stroke();
+    [-90,-45,0,45,90].forEach(p=>txt((p===0?'0°':(p>0?'北':'南')+Math.abs(p)+'°'),sx(p),gy0+A+12,'#64748b',9.5,0,'center'));
+    txt('+1.46',sx(0)-3,gy0-A+3,'#64748b',9,0,'right'); txt('−1.46',sx(0)-3,gy0+A+3,'#64748b',9,0,'right'); txt('×10⁻⁴',gx1,gy0-A+3,'#64748b',9,0,'right');
+    x.strokeStyle='#0891b2'; x.lineWidth=2.2; x.beginPath(); for(let p=-90;p<=90;p+=2){ const X=sx(p), Y=sy(fval(p)); p>-90?x.lineTo(X,Y):x.moveTo(X,Y); } x.stroke();
+    x.fillStyle='#dc2626'; x.beginPath(); x.arc(sx(lat),sy(f),5.5,0,2*Math.PI); x.fill();
+    // 式
+    x.fillStyle='#ecfeff'; rr(4,396,246,118,8); x.fill();
+    txt('f ＝ 2Ω sinφ ＝ 2 × 7.29×10⁻⁵ × sin'+(lat<0?'(−'+(-lat)+'°)':lat+'°'),12,418,'#0f172a',12.5,0,'left','alphabetic',230);
+    txt('＝ '+sci(f,2)+' /s',12,446,'#0e7490',19,1,'left','alphabetic',230);
+    txt('赤道で0、極で最大（1.46×10⁻⁴ /s）',12,468,'#334155',11.5,0,'left','alphabetic',230);
+    const ws=+$('ws').value; txt('風速'+ws+' m/sの空気1 kgにはたらく力',12,488,'#334155',11.5,0,'left','alphabetic',230);
+    txt('2Ωv sinφ ＝ '+sci(Math.abs(f*ws),2)+' N',12,506,'#7c3aed',12.5,0,'left','alphabetic',230);
+  }
+  function drawSys(k){ const c=k===0?LC:HC, cx=c[0], cy=c[1], y0=cy-116, f=fval(lat), hemi=lat>0?'北半球':lat<0?'南半球':'赤道';
+    x.fillStyle=k===0?'#eff6ff':'#fff7ed'; rr(256,y0,378,230,10); x.fill();
+    let t; if(lat===0) t=(k===0?'低気圧（赤道）：渦にならず、まっすぐ吹きこむ':'高気圧（赤道）：渦にならず、まっすぐ吹き出す');
+    else { const ccw=(lat>0)===(k===0); t=(k===0?'低気圧':'高気圧')+'（'+hemi+'）：'+(ccw?'反時計回り':'時計回り')+'に'+(k===0?'吹きこむ':'吹き出す'); }
+    txt(t,264,y0+19,k===0?'#1e3a8a':'#9a3412',14,1,'left','alphabetic',362);
+    x.strokeStyle=k===0?'rgba(30,64,175,.35)':'rgba(194,65,12,.35)'; x.lineWidth=1.2; [32,63,94].forEach(r=>{ x.beginPath(); x.arc(cx,cy,r,0,2*Math.PI); x.stroke(); });
+    const isob=k===0?['996','1000','1004']:['1024','1020','1016']; isob.forEach((s,i)=>txt(s,cx+[32,63,94][i]*0.71+2,cy-[32,63,94][i]*0.71-2,k===0?'#1e40af':'#c2410c',9.5,0,'left'));
+    halo(k===0?'L':'H',cx,cy,k===0?'#1d4ed8':'#c2410c',26,1); halo(k===0?'低':'高',cx,cy+22,k===0?'#1d4ed8':'#c2410c',11,1);
+    x.lineCap='round'; parts.forEach(p=>{ if(p.k!==k||p.tr.length<2) return; x.strokeStyle=k===0?'rgba(37,99,235,.55)':'rgba(234,88,12,.55)'; x.lineWidth=1.6; x.beginPath(); p.tr.forEach((q,i)=>{ const X=cx+q[0], Y=cy-q[1]; i?x.lineTo(X,Y):x.moveTo(X,Y); }); x.stroke(); }); x.lineCap='butt';
+    if(k===0){ // 力のつり合い（地上の風）
+      const f2=F0*Math.sin(lat*R), gx=GG, den=f2*f2+KF*KF, vx=gx*KF/den, vy=-f2*gx/den, vl=Math.hypot(vx,vy), S=44/GG, px=cx-62, py=cy;
+      arrow(px,py,px+gx*S,py,'#475569',3,9); arrow(px,py,px+vx/vl*40,py-vy/vl*40,'#1d4ed8',4,11);
+      const cx2=f2*vy, cy2=-f2*vx; arrow(px,py,px+cx2*S,py-cy2*S,'#7c3aed',3,9); arrow(px,py,px-KF*vx*S,py+KF*vy*S,'#16a34a',3,9);
+      x.fillStyle='#111827'; x.beginPath(); x.arc(px,py,3.5,0,2*Math.PI); x.fill();
+      [['━ 風（地上）','#1d4ed8'],['━ 気圧傾度力','#475569'],['━ コリオリの力','#7c3aed'],['━ 摩擦力','#16a34a']].forEach((q,i)=>txt(q[0],262,y0+170+i*15,q[1],11,1)); }
+  }
+  function drawM1(){ x.fillStyle='#fff'; x.fillRect(0,0,W,H); drawGlobe(); drawSys(0); drawSys(1); tabs(MODES,mode);
+    const f=fval(lat), ws=+$('ws').value, low=lat===0?'まっすぐ吹きこむ':(lat>0?'反時計回りに吹きこむ':'時計回りに吹きこむ');
+    upd('1|'+lat+'|'+ws,()=>{ setK('s1','緯度'); setK('s2','f＝2Ω sinφ'); setK('s3','コリオリの力（1kgあたり）'); setK('s4','低気圧のまわりの風');
+    fit('s1',latName(lat)); fit('s2',sci(f,2)+' /s'); fit('s3',sci(Math.abs(f*ws),2)+' N'); fit('s4',low);
+    setShare('【コリオリの力】'+latName(lat)+'のコリオリパラメータ f=2Ωsinφ='+sci(f,2)+'/s。低気圧のまわりでは風が'+low+'｜シミュラボ'); }); }
+
+  // ---------------- ③ 大気の大循環
+  const C3=[36,290], R3=170, HA=56, MX0=380, MX1=630, MY=(la)=>290-la*2.4;
+  const CELLS=[[15,12,-1,'ハドレー循環'],[45,12,1,'フェレル循環'],[75,12,-1,'極循環']], COLS3=['#f97316','#16a34a','#0ea5e9'];
+  const WN3=[[75,'極偏東風'],[45,'偏西風'],[15,'北東貿易風'],[-15,'南東貿易風'],[-45,'偏西風'],[-75,'極偏東風']];
+  let phase=0, mparts=[];
+  const cs=(la,h)=>[C3[0]+(R3+h)*Math.cos(la*R), C3[1]-(R3+h)*Math.sin(la*R)];
+  const uvw=(la)=>[-Math.sin(6*Math.abs(la)*R), -0.45*Math.sin(6*la*R)];
+  function newM(){ return {lx:Math.random(), la:-87+174*Math.random(), age:0, life:2+3*Math.random()}; }
+  function initM(){ mparts=[]; for(let i=0;i<170;i++){ const p=newM(); p.age=Math.random()*p.life; mparts.push(p); } }
+  function stepMap(dt){ phase+=dt*0.22; mparts.forEach(p=>{ const w=uvw(p.la); p.lx+=w[0]*0.06*dt; p.la+=w[1]*7*dt; if(p.lx<0) p.lx+=1; if(p.lx>1) p.lx-=1; p.age+=dt; if(p.age>p.life||Math.abs(p.la)>89) Object.assign(p,newM()); }); }
+  function band(p){ const a=Math.abs(p), Nh=p>0;
+    const w=a<5?'弱い風（熱帯収束帯）':a<28?(Nh?'北東貿易風':'南東貿易風'):a<=32?'弱い風（亜熱帯高圧帯）':a<58?(Nh?'偏西風（南西の風）':'偏西風（北西の風）'):a<=62?'偏西風と極偏東風の境':(Nh?'極偏東風（北東の風）':'極偏東風（南東の風）');
+    const c=a===30?'ハドレー／フェレルの境':a===60?'フェレル／極循環の境':a<30?'ハドレー循環':a<60?'フェレル循環':'極循環';
+    const b=a<15?'赤道低圧帯（熱帯収束帯）':a<45?'亜熱帯高圧帯（30°付近）':a<75?'亜寒帯低圧帯（60°付近）':'極高圧帯';
+    return [w,c,b]; }
+  let bg3=null;
+  function staticM2(){ x.fillStyle='#fff'; x.fillRect(0,0,W,H);
+    x.fillStyle='#e0f2fe'; x.beginPath(); x.arc(C3[0],C3[1],R3+HA,-Math.PI/2,Math.PI/2); x.lineTo(C3[0],C3[1]); x.fill();
+    const g=x.createRadialGradient(C3[0],C3[1],20,C3[0],C3[1],R3); g.addColorStop(0,'#60a5fa'); g.addColorStop(1,'#1e40af'); x.fillStyle=g; x.beginPath(); x.arc(C3[0],C3[1],R3,-Math.PI/2,Math.PI/2); x.lineTo(C3[0],C3[1]); x.fill();
+    [-60,-30,0,30,60].forEach(la=>{ const a=cs(la,0), b=cs(la,HA+4); x.strokeStyle='rgba(15,23,42,.25)'; x.lineWidth=1; x.setLineDash([3,3]); x.beginPath(); x.moveTo(a[0],a[1]); x.lineTo(b[0],b[1]); x.stroke(); x.setLineDash([]); });
+    [1,-1].forEach(hs=>CELLS.forEach((c,ci)=>{ const pt=(t)=>cs(hs*(c[0]+c[1]*Math.cos(t)),28+19*Math.sin(t));
+      x.strokeStyle=COLS3[ci]; x.lineWidth=2.2; x.beginPath(); for(let i=0;i<=48;i++){ const q=pt(i/48*2*Math.PI); i?x.lineTo(q[0],q[1]):x.moveTo(q[0],q[1]); } x.stroke();
+      [Math.PI/2,3*Math.PI/2,0,Math.PI].forEach(t=>{ const q=pt(t), q2=pt(t+c[2]*0.2); head(q2[0],q2[1],Math.atan2(q2[1]-q[1],q2[0]-q[0]),8,COLS3[ci]); });
+      const lq=cs(hs*c[0],-[58,52,40][ci]); txt(c[3],lq[0],lq[1]+4,'#fff',12.5,1,'center','middle'); }));
+    [[0,['赤道低圧帯','（上昇気流）']],[30,['北緯30° 亜熱帯','高圧帯（下降）']],[60,['北緯60° 亜寒帯','低圧帯（上昇）']],[-30,['南緯30° 亜熱帯','高圧帯（下降）']],[-60,['南緯60° 亜寒帯','低圧帯（上昇）']]].forEach(q=>{
+      const p=cs(q[0],HA+8); q[1].forEach((s,i)=>txt(s,p[0]+3,p[1]-6+i*13+(q[0]<0?8:0),'#334155',10.5,i===0,'left','alphabetic',MX0-p[0]-8)); });
+    txt('大気の大循環（地球の断面）',8,56,'#0f172a',13,1,'left','alphabetic',260); txt('※大気の厚さは誇張',42,294,'#e0f2fe',10.5,0,'left');
+    const MW=MX1-MX0; [[90,60,'#e0f2fe'],[60,30,'#dcfce7'],[30,0,'#ffedd5'],[0,-30,'#ffedd5'],[-30,-60,'#dcfce7'],[-60,-90,'#e0f2fe']].forEach(b=>{ x.fillStyle=b[2]; x.fillRect(MX0,MY(b[0]),MW,MY(b[1])-MY(b[0])); });
+    x.strokeStyle='#94a3b8'; x.lineWidth=1; x.strokeRect(MX0,MY(90),MW,MY(-90)-MY(90));
+    [60,30,0,-30,-60].forEach(la=>{ x.strokeStyle=la===0?'#64748b':'#cbd5e1'; x.beginPath(); x.moveTo(MX0,MY(la)); x.lineTo(MX1,MY(la)); x.stroke(); txt(la===0?'赤道':(la>0?'北':'南')+Math.abs(la)+'°',MX0+3,MY(la)-3,'#475569',10,1); });
+    WN3.forEach(q=>{ const w=uvw(q[0]), l=Math.hypot(w[0],w[1]), y=MY(q[0])+8; [MX0+44,MX0+MW/2,MX1-40].forEach(cx=>arrow(cx-w[0]/l*15,y+w[1]/l*15,cx+w[0]/l*15,y-w[1]/l*15,'#0f172a',2.6,9)); });
+    txt('地上の風（年平均のモデル）',MX0,56,'#0f172a',13,1,'left','alphabetic',MW); txt('上が北・右が東',MX0,72,'#64748b',10.5,0,'left'); }
+  function drawM2(){ const MW=MX1-MX0;
+    if(!bg3){ bg3=document.createElement('canvas'); bg3.width=W*dpr; bg3.height=H*dpr; const sv=x; x=bg3.getContext('2d'); x.setTransform(dpr,0,0,dpr,0,0); staticM2(); x=sv; }
+    x.drawImage(bg3,0,0,W,H);
+    const L2=cs(lat,HA+6); x.strokeStyle='rgba(220,38,38,.85)'; x.lineWidth=2; x.beginPath(); x.moveTo(C3[0],C3[1]); x.lineTo(L2[0],L2[1]); x.stroke();
+    x.fillStyle='#fff'; x.lineWidth=1.5; [1,-1].forEach(hs=>CELLS.forEach((c,ci)=>{ x.strokeStyle=COLS3[ci]; for(let k=0;k<4;k++){ const t=c[2]*(phase*2*Math.PI)+k*Math.PI/2, q=cs(hs*(c[0]+c[1]*Math.cos(t)),28+19*Math.sin(t)); x.beginPath(); x.arc(q[0],q[1],3,0,2*Math.PI); x.fill(); x.stroke(); } }));
+    x.save(); x.beginPath(); x.rect(MX0,MY(90),MW,MY(-90)-MY(90)); x.clip(); x.lineCap='round'; x.lineWidth=1.4; x.strokeStyle='rgba(30,41,59,.32)'; x.beginPath(); mparts.forEach(p=>{ const w=uvw(p.la), X=MX0+p.lx*MW, Y=MY(p.la); x.moveTo(X-w[0]*9,Y+w[1]*7); x.lineTo(X,Y); }); x.stroke(); x.lineCap='butt'; x.restore();
+    WN3.forEach(q=>halo(q[1],MX0+MW/2,MY(q[0])-14,'#0f172a',13,1,'center','rgba(255,255,255,.95)'));
+    x.strokeStyle='#dc2626'; x.lineWidth=2.4; x.beginPath(); x.moveTo(MX0,MY(lat)); x.lineTo(MX1,MY(lat)); x.stroke();
+    tabs(MODES,mode);
+    upd('2|'+lat,()=>{ const b=band(lat); setK('s1','緯度'); setK('s2','地上の風'); setK('s3','循環'); setK('s4','近くの気圧帯');
+    fit('s1',latName(lat)); fit('s2',b[0]); fit('s3',b[1]); fit('s4',b[2]);
+    setShare('【大気の大循環】'+latName(lat)+'は'+b[1]+'の範囲で、地上の風は'+b[0]+'｜シミュラボ'); }); }
+
+  function draw(){ [mode===0?drawM0:mode===1?drawM1:drawM2][0](); }
+  function setMode(m){ mode=m; $('mode').value=MV[m]; ['dir','rpm','vb'].forEach(id=>showField(id,m===0)); showField('lat',m>0); showField('ws',m===1); showBtn('throw',m===0); showBtn('clr',m===0);
+    if(m===1&&!parts.length) initParts(); if(m===2&&!mparts.length) initM(); draw(); }
+  function setLat(v){ v=clamp(Math.round(v),-90,90); if(v===lat) return; lat=v; $('lat').value=v; latLabel(); if(mode===1) for(let i=0;i<90;i++) stepParts(1/60); draw(); }
+  function hit(px,py,first){ if(mode===0){ if(first) { newThrow(); } return; }
+    if(mode===1){ if(px<252){ if(py>262&&py<392) setLat((px-22)/216*180-90); else if(py<262){ setLat(Math.asin(clamp((GY-py)/(GR*Math.cos(E)),-1,1))/R); } } return; }
+    if(px>=MX0) setLat((290-py)/2.4); else setLat(Math.atan2(C3[1]-py,px-C3[0])/R); }
+  cv.addEventListener('pointerdown',e=>{ const p=cpos(cv,e), px=p[0]/dpr, py=p[1]/dpr; if(py<40){ const i=Math.floor((px-6)/((W-12)/3)); if(i>=0&&i<3) setMode(i); return; }
+    drag=true; if(cv.setPointerCapture) try{ cv.setPointerCapture(e.pointerId); }catch(_){} hit(px,py,true); });
+  cv.addEventListener('pointermove',e=>{ if(!drag) return; const p=cpos(cv,e); hit(p[0]/dpr,p[1]/dpr,false); });
+  window.addEventListener('pointerup',()=>{ drag=false; });
+  $('mode').addEventListener('change',()=>setMode(Math.max(0,MV.indexOf($('mode').value))));
+  ['dir','rpm','vb'].forEach(id=>$(id).addEventListener('input',()=>{ instantThrow(); draw(); }));
+  $('lat').addEventListener('input',()=>{ const v=+$('lat').value; lat=v-1000; setLat(v); });
+  $('ws').addEventListener('input',draw);
+  $('throw').addEventListener('click',()=>{ if(mode!==0) setMode(0); newThrow(); });
+  $('clr').addEventListener('click',()=>{ throws=[]; draw(); });
+  latLabel(); instantThrow(); setMode(mode);
+  function loop(ts){ const dt=Math.min(0.05,(ts-(last||ts))/1000); last=ts;
+    if(mode===0){ const sd=dt*SLOW; ang=(ang+om()*sd)%(2*Math.PI*1000); throws.forEach(t=>stepThrow(t,sd)); } else if(mode===1) stepParts(dt); else stepMap(dt);
+    draw(); requestAnimationFrame(loop); }
+  requestAnimationFrame(loop);
+
+  } catch(e) { console.error(e); }
+  (function(){ const fs=$('fsBtn'), panel=document.querySelector('.panel');
+    const req = panel && (panel.requestFullscreen || panel.webkitRequestFullscreen);
+    if (fs && req) { fs.hidden = false; fs.addEventListener('click', () => {
+      const cur = document.fullscreenElement || document.webkitFullscreenElement;
+      if (cur) { (document.exitFullscreen || document.webkitExitFullscreen).call(document); }
+      else { req.call(panel); } }); }
+  })();
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE || document.title)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText((SHARE||document.title)+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'coriolis-henseifu', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>
