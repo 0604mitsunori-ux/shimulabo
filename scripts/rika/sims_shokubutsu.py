@@ -566,14 +566,22 @@ HATSUGA_JS = r'''
     ctx.fillStyle='#9a3412'; ctx.fill(); ctx.strokeStyle='#5b210b'; ctx.lineWidth=1; ctx.stroke(); ctx.fillStyle='rgba(254,215,170,.55)'; [[-6,-3],[2,-5],[7,0],[-3,2]].forEach((p)=>{ ctx.beginPath(); ctx.ellipse(p[0],p[1],2,1.2,0.4,0,Math.PI*2); ctx.fill(); }); ctx.restore(); }
   function leafE(x,y,len,wid,ang,col){ if(len<1) return; ctx.save(); ctx.translate(x,y); ctx.rotate(ang); ctx.beginPath(); ctx.moveTo(0,0); ctx.bezierCurveTo(len*0.25,-wid,len*0.75,-wid*0.9,len,0); ctx.bezierCurveTo(len*0.75,wid*0.9,len*0.25,wid,0,0); ctx.closePath(); ctx.fillStyle=col; ctx.fill(); ctx.strokeStyle='rgba(20,83,45,.6)'; ctx.lineWidth=1; ctx.stroke(); ctx.beginPath(); ctx.moveTo(2,0); ctx.lineTo(len-3,0); ctx.stroke(); ctx.restore(); }
   function trifo(x,y,sz,col,side){ leafE(x,y,22*sz,8*sz,side<0?Math.PI+0.3:-0.3,col); leafE(x,y,22*sz,8*sz,-Math.PI/2+side*0.12,col); leafE(x,y,20*sz,7.5*sz,side<0?Math.PI*0.8:Math.PI*0.2,col); }
+  // 観察スケッチ風の絵（art/*.webp・2026-10-19）。読み込めないときは、これまでのコードでかいた絵を出す
+  const ART={};
+  ['tane','me','shiyou','honba','sanshutsu','kurai'].forEach((k)=>{ const im=new Image(); im.onload=()=>{ ART[k]=im; }; im.src='art/ingen-'+k+'.webp'; });
+  function artUp(k,cx,base,h){ const im=ART[k]; if(!im) return false; const w=im.width*h/im.height; ctx.drawImage(im,cx-w/2,base-h,w,h); return true; }
   function drawPlant(c,cx,d){ const sub=!c.a, z=cups.length<=2?1.3:(cups.length===3?1.12:1);
     const sw=c.w?Math.min(1,d/1):0, sc=(1+0.45*sw)*z, by=sub?266:SURF-2;
-    if(!germ(c,d)){ bean(cx,by,sc*0.9,-0.15); return 0; }
+    if(!germ(c,d)){ if(ART.tane){ const im=ART.tane, w=30*sc, h=im.height*w/im.width; ctx.drawImage(im,cx-w/2,by-h/2,w,h); } else bean(cx,by,sc*0.9,-0.15); return 0; }
     const g=d-GD, Hh=hgt(c,g), hp=Hh*PX, light=c.s, sf=c.s&&c.f;
     const stemC=light?'#4d7c0f':'#c9bd5f', lfC=sf?'#15803d':(light?'#65a30d':'#d9cf5c'), oldC=light&&!c.f&&g>11?'#b5b83a':lfC;
     // 根
     const rl=Math.min(48,g*13+4); ctx.strokeStyle='#f5f5f4'; ctx.lineWidth=2.4; ctx.lineCap='round'; ctx.beginPath(); ctx.moveTo(cx,SURF+2); ctx.quadraticCurveTo(cx+3,SURF+rl*0.5,cx-1,SURF+rl); ctx.stroke();
     ctx.lineWidth=1.3; for(let k=1;k<=Math.min(4,Math.floor(g/1.5));k++){ const y=SURF+6+k*9; if(y>SURF+rl-4) break; const s=k%2?1:-1; ctx.beginPath(); ctx.moveTo(cx+1,y); ctx.quadraticCurveTo(cx+s*8,y+3,cx+s*(10+Math.min(10,g*1.5)),y+8); ctx.stroke(); }
+    if(ART.me&&ART.shiyou&&ART.honba&&ART.sanshutsu&&ART.kurai){ const gg=d-GD;
+      if(gg<2.5){ artUp('me',cx,SURF+2,Math.max(16,gg*9+10)*z); return Hh; }
+      const k=!light?'kurai':(sf&&gg>=13?'sanshutsu':(gg>=5?'honba':'shiyou'));
+      artUp(k,cx+((!light&&gg>14)?(gg-14)*2:0),SURF+2,Math.max(30*z,hp+12*z)); return Hh; }
     const S=starch(c,d), cs=0.45+0.55*S;
     if(g<2.5){ // 種子の中からくきが出てくる
       const hh=Math.max(0,(g-1))*9; bean(cx,SURF-2,sc*0.9,-0.15);
