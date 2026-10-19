@@ -753,7 +753,21 @@ KISETSU_JS = HELP_JS + r'''
     const heads=[[-18,-22],[4,-32],[24,-16]]; heads.forEach((h,i)=>{ if(st==='leaf'&&i!==1) return; ln(h[0]*0.2,34,h[0],h[1],1.6,'#65a30d');
       if(st==='fluff'&&i!==1){ for(let q=0;q<16;q++){ const a=q*Math.PI/8; ln(h[0],h[1],h[0]+Math.cos(a)*9,h[1]+Math.sin(a)*9,0.8,'#cbd5e1'); dot(h[0]+Math.cos(a)*9,h[1]+Math.sin(a)*9,1.3,'#f8fafc'); } }
       else { for(let q=0;q<12;q++){ const a=q*Math.PI/6; ell(h[0]+Math.cos(a)*5,h[1]+Math.sin(a)*5,4,1.8,a,'#facc15'); } dot(h[0],h[1],3.4,'#eab308'); } }); }
-  function drawOrg(name,st,cx,cy,sc){ ctx.save(); ctx.translate(cx,cy); ctx.scale(sc,sc);
+  // 観察スケッチ風の絵（art/*.webp・2026-10-19）。状態ごとに絵を当て、ないものはこれまでのコードの絵
+  const ORG_ART={'ツバメ':['tsubame',{fly:'fly',leave:'fly',nest:'nest',hina:'hina',flock:'flock'}],
+    'カエル':['kaeru',{eggs:'eggs',tad:'tad',young:'young',active:'adult',wake:'adult',slow:'adult',sleep:'sleep'}],
+    'テントウムシ':['tento',{eggs:'eggs',larva:'larva',adult:'adult',group:'group'}],
+    'カマキリ':['kamakiri',{ootheca:'ootheca',hatch:'hatch',nymph:'nymph',adult:'adult',lay:'adult'}],
+    'モンシロチョウ':['../konchu-sodachi/art/monshiro',{adult:'seichu',larva:'youchu',pupa:'sanagi'}],
+    'サクラ':['sakura',{bare:'bare',flower:'flower',hazakura:'hazakura',leaf:'leaf',leafy:'leaf',koyo:'koyo',fall:'fall'}],
+    'ヘチマ':['hechima',{seed:'seed',sprout:'sprout',vine1:'vine1',flower:'flower',fruit:'fruit',wither:'wither',dead:'wither'}],
+    'タンポポ':['tanpopo',{rosette:'rosette',leaf:'leaf',flower:'flower',fluff:'fluff'}]};
+  const ART={};
+  Object.values(ORG_ART).forEach(([pre,m])=>{ new Set(Object.values(m)).forEach((v)=>{ const k=pre+'-'+v, im=new Image(); im.onload=()=>{ ART[k]=im; }; im.src=(pre.startsWith('..')?'':'art/')+k+'.webp'; }); });
+  function orgArt(name,st){ const o=ORG_ART[name]; if(!o||!o[1][st]) return null; return ART[o[0]+'-'+o[1][st]]||null; }
+  function drawOrg(name,st,cx,cy,sc){ const im=orgArt(name,st);
+    if(im){ ctx.save(); ctx.translate(cx,cy); ctx.scale(sc,sc); const s=Math.min(116/im.width,86/im.height), w=im.width*s, h=im.height*s; ctx.drawImage(im,-w/2,-h/2+2,w,h); ctx.restore(); return; }
+    ctx.save(); ctx.translate(cx,cy); ctx.scale(sc,sc);
     if(name==='ツバメ'){ if(st==='nest'||st==='hina'){ ctx.fillStyle='#d6d3d1'; ctx.fillRect(-60,-46,120,16); nest(-14,-29); if(st==='hina'){ [-22,-14,-6].forEach((x)=>{ dot(x,-31,4,'#57534e'); ctx.fillStyle='#fde047'; ctx.beginPath(); ctx.moveTo(x-3,-34); ctx.lineTo(x+3,-34); ctx.lineTo(x,-42); ctx.closePath(); ctx.fill(); }); } swallow(26,8,0.95); }
       else if(st==='flock'){ ln(-60,0,60,-4,1.4,'#475569'); [-40,-20,0,20,40].forEach((x)=>perch(x,-x/30)); swallow(10,24,0.6); }
       else if(st==='gone'){ ctx.setLineDash([4,3]); ctx.strokeStyle='#94a3b8'; ctx.lineWidth=1.5; ctx.beginPath(); ctx.arc(-10,-4,22,0,Math.PI*2); ctx.stroke(); ctx.setLineDash([]); txt('いない',-10,1,12,'#94a3b8','bold','center'); txt('南の国へ →',22,32,11,'#64748b','bold','center'); }
