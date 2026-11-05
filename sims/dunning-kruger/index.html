@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/dunning-kruger/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/dunning-kruger.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/dunning-kruger.png">
+<title>ダニング＝クルーガー効果テスト｜自分の実力、正しく見積もれる？予想と結果のズレを試す｜シミュラボ</title>
+<meta name="description" content="解く前に「何問できそうか」を予想してから、10問のクイズに挑戦。予想と結果のズレで、あなたが自分を高く見積もるタイプか、低く見積もるタイプかが分かります。「できない人ほど自分はできると思う」ダニング＝クルーガー効果の研究と、その反論も解説。診断ではありません。">
+<meta property="og:title" content="自分の実力、正しく見積もれる？｜ダニング＝クルーガー効果テスト">
+<meta property="og:description" content="解く前の予想と、実際の点数。そのズレが、あなたの見積もりぐせ。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+<!-- adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+     crossorigin="anonymous"></script>
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/dunning-kruger/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "ダニング＝クルーガー効果テスト（予想と結果のズレ）", "url": "https://shimulabo.com/sims/dunning-kruger/", "description": "解く前に「何問できそうか」を予想してから、10問のクイズに挑戦。予想と結果のズレで、あなたが自分を高く見積もるタイプか、低く見積もるタイプかが分かります。「できない人ほど自分はできると思う」ダニング＝クルーガー効果の研究と、その反論も解説。診断ではありません。", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "ダニング＝クルーガー効果テスト（予想と結果のズレ）", "item": "https://shimulabo.com/sims/dunning-kruger/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "点数が低かったら、頭が悪いということですか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。遊びのためのセルフテストで、頭の良さを測るものではありません。見てほしいのは、点数より「予想とのズレ」です。"}}, {"@type": "Question", "name": "ダニング＝クルーガー効果は本当にあるのですか？", "acceptedAnswer": {"@type": "Answer", "text": "1999年の研究で報告されてから多くの研究がありますが、誰にでもある見積もりのずれで説明できるという反論もあります（Burson ほか 2006）。"}}, {"@type": "Question", "name": "実際の順位は分かりますか？", "acceptedAnswer": {"@type": "Answer", "text": "このページでは、ほかの人の答えを集めていないので、順位は出していません。"}}, {"@type": "Question", "name": "答えは送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。答えはこの画面の中だけで使い、送信も保存もしません（サイト全体のアクセス解析についてはプライバシーポリシーをご覧ください）。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+<style>
+/* テストの画面だけ、動画のチャンネル（十人十脳）と同じ「深い青緑」にする */
+.syn-stage{background:radial-gradient(ellipse 90% 70% at 50% 30%,#16303A 0%,#0D1417 78%);border-radius:var(--radius);padding:18px 16px 20px;color:#EEEAE3;}
+.syn-top{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#8D9BA1;gap:10px;}
+.syn-bar{height:6px;background:#2A3C43;border-radius:3px;overflow:hidden;margin:8px 0 6px;}
+.syn-bar i{display:block;height:100%;width:0;background:#4FC6B4;transition:width .2s;}
+.syn-ask{text-align:center;font-size:15px;color:#cfd6d8;margin:10px 0;line-height:1.7;}
+.syn-big{font-size:96px;font-weight:900;text-align:center;line-height:1.15;margin:4px 0 12px;}
+.syn-btns{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;}
+.syn-btns.c1{grid-template-columns:1fr;}
+.syn-btns.c5{grid-template-columns:repeat(5,1fr);}
+.syn-btns button{border:1px solid #2A3C43;border-radius:10px;background:#111c20;color:#EEEAE3;font:inherit;font-size:15px;padding:12px 6px;cursor:pointer;line-height:1.4;}
+.syn-btns button:hover{border-color:#4FC6B4;}
+.syn-btns button small{display:block;font-size:11px;color:#8D9BA1;margin-top:2px;}
+.syn-go{display:block;width:100%;margin-top:12px;border:0;border-radius:10px;background:#4FC6B4;color:#0D1417;font:inherit;font-weight:800;font-size:16px;padding:13px;cursor:pointer;}
+.syn-note{font-size:12px;color:#8D9BA1;margin-top:10px;line-height:1.6;}
+.syn-rows{margin:14px 0 4px;font-size:14px;text-align:left;}
+.syn-rows div{display:flex;align-items:center;gap:10px;padding:6px 4px;border-bottom:1px solid var(--line);}
+.syn-rows .k{flex:1;}
+.syn-rows .v{font-weight:800;color:var(--teal-d);}
+.syn-meter{height:10px;border-radius:5px;background:var(--line-2);overflow:hidden;flex:0 0 120px;}
+.syn-meter i{display:block;height:100%;background:var(--teal);}
+.syn-video{position:relative;padding-top:56.25%;border-radius:var(--radius);overflow:hidden;background:#0D1417;margin:10px 0;}
+.syn-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+#qPanel,#resultPanel{scroll-margin-top:72px;}
+[hidden]{display:none !important;}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span>脳トレ・診断テスト<span>›</span><span class="cur">ダニング＝クルーガー効果テスト（予想と結果のズレ）</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">脳トレ・診断テスト</div>
+    <h1>ダニング＝クルーガー効果テスト（自分の実力、正しく見積もれる？）</h1>
+    <p class="lead">「わたしはできるほうだ」と思っている人ほど、実はできていない——そんな研究があります。でも、自分のことは分かりにくいもの。まず<b>10問中、何問できそうか</b>を予想してから、クイズに挑戦してください。約3分です。</p>
+  </div>
+
+  <section class="panel" id="startPanel">
+    <h2>🤔 まず予想してから、10問に挑戦</h2>
+    <p style="color:var(--ink-2);font-size:14px;margin:-4px 0 12px;">最初に「10問中何問正解できそうか」と「同じテストを受けた人の中で、自分は上から何%くらいか」を答えます。そのあと、論理や数のクイズが10問出ます。</p>
+    
+    <button class="btn btn-primary" id="startBtn">はじめる</button>
+    <p style="color:var(--ink-3);font-size:12px;margin-top:10px;">※ 遊びのためのセルフテストで、検査や診断ではありません。答えは送信も保存もしません。</p>
+  </section>
+
+  <section class="panel" id="qPanel" hidden>
+    <div class="syn-stage">
+      <div class="syn-top"><span id="part">予想する</span><span id="count"></span></div>
+      <div class="syn-bar"><i id="bar"></i></div>
+      <div class="syn-ask" id="q" style="font-size:18px;font-weight:700;color:#EEEAE3;min-height:3.4em;line-height:1.7;"></div>
+      <div class="syn-btns" id="opts"></div>
+    </div>
+  </section>
+
+  <section class="panel" id="resultPanel" hidden>
+    <div class="result">
+      <div class="label" id="rLabel">—</div>
+      <div class="big" style="font-size:48px;"><span id="big">—</span><small style="font-size:20px;" id="bigUnit"></small></div>
+      <div class="sub" id="typeName" style="font-size:20px;font-weight:800;color:var(--teal-d);">—</div>
+      <div class="alert good" id="advice" style="text-align:left;margin-top:14px;">—</div>
+      <div id="extra" style="text-align:left;margin-top:10px;" hidden></div>
+      <h3 style="font-size:16px;margin:18px 0 8px;">🖼️ 結果を1枚の画像に</h3>
+      <img id="cardImg" alt="結果の画像" style="width:100%;max-width:460px;border-radius:12px;display:block;margin:0 auto;box-shadow:var(--shadow);">
+      <p style="font-size:12px;color:var(--ink-3);margin-top:6px;">スマホは画像を長押しでも保存できます。画像はこの画面の中で作っていて、どこにも送っていません。</p>
+      <div class="share-row">
+        <button class="btn btn-primary" id="saveImgBtn">画像を保存</button>
+        <button class="btn btn-ghost" id="shareImgBtn" hidden>画像でシェア</button>
+      </div>
+      <div style="text-align:center;margin-top:12px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+      <p id="commentHint" style="font-size:13px;color:var(--ink-2);margin-top:10px;" hidden>コピーした結果は、動画のコメント欄にそのまま貼れます。ほかの人の結果と比べてみてください。</p>
+      <a class="btn btn-primary" id="videoBtn" href="#video" style="margin-top:10px;" hidden>▶ 動画で答え合わせをする</a>
+      <button class="btn btn-ghost" id="againBtn" style="margin-top:10px;">もう一度</button>
+    </div>
+  </section>
+
+  <article class="article">
+    <div class="note"><strong>これは何？</strong>：解く前に自分の点数と順位を予想し、そのあと論理と数のクイズ10問を解いて、予想と結果のズレを見るセルフテストです。問題はこのページで作ったものです。<br><b>※遊びのためのもので、検査や診断ではありません。</b>答えはこの画面の中だけで使い、送信も保存もしません。</div>
+
+    <section id="video" hidden>
+      <h2>動画で答え合わせ</h2>
+      <p>このテストの答え合わせと、研究の話を動画にしました。</p>
+      <div class="syn-video"><iframe id="videoFrame" title="ダニング＝クルーガー効果テスト（予想と結果のズレ）の解説動画" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+    </section>
+
+
+    <h2>ダニング＝クルーガー効果とは</h2>
+    <p>1999年、アメリカの心理学者ダニングとクルーガーは、学生に「ユーモア」「文法」「論理」のテストを受けてもらい、受ける前とあとに、自分の順位を予想してもらいました（Kruger・Dunning 1999）。</p>
+    <p>すると、<b>点数が下から4分の1に入った人たち</b>は、実際には下から12%くらいの位置だったのに、自分では<b>上から4割くらい（62%の位置）</b>だと見積もっていました。できない人ほど、自分ができていないことに気づきにくい——これが「ダニング＝クルーガー効果」と呼ばれるようになりました。</p>
+    <p>2人は理由を、「できているかどうかを見分ける力（メタ認知）」が足りないと、自分のまちがいにも気づけないからだと考えました。</p>
+
+    <h2>反対の意見もある</h2>
+    <p>その後の研究では、誰でも自分の順位の見積もりには「ずれ（ノイズ）」と「自分を良く思うくせ」があり、それだけでも同じような結果が出ると指摘されています（Burson ほか 2006）。また、上手な人は、逆に自分を低めに見積もることも報告されています。「できない人だけが勘ちがいしている」というより、<b>多くの人が自分の位置を正しくつかめていない</b>と考えたほうがよさそうです。</p>
+
+    <h2>このテストの問題について</h2>
+    <p>10問の中には、直感で答えるとまちがえやすい問題がいくつか入っています（たとえば、バットとボールの問題）。「かんたんだ」と思ったときほど、もう一度考え直すのがコツです。</p>
+
+    <h2>結果の5つのタイプ</h2>
+    <div class="tbl-scroll">
+    <table class="seo-table">
+    <tr><th>タイプ</th><th>予想 − 実際</th></tr>
+    <tr><td>🎈 自分を高く見積もるタイプ</td><td>＋3問以上</td></tr>
+    <tr><td>🙂 少し高めに見積もるタイプ</td><td>＋2問</td></tr>
+    <tr><td>🎯 ぴったり見積もるタイプ</td><td>−1〜＋1問</td></tr>
+    <tr><td>🙂 少し低めに見積もるタイプ</td><td>−2問</td></tr>
+    <tr><td>🐢 自分を低く見積もるタイプ</td><td>−3問以下</td></tr>
+    </table>
+    </div>
+    <p>このページでは、ほかの人の点数を集めていないので、実際の順位は出していません。順位の予想は、自分の見積もりぐせをふり返るための参考です。</p>
+
+
+    <h2>よくある質問</h2>
+    <dl class="faq"><dt>点数が低かったら、頭が悪いということですか？</dt><dd>いいえ。遊びのためのセルフテストで、頭の良さを測るものではありません。見てほしいのは、点数より「予想とのズレ」です。</dd><dt>ダニング＝クルーガー効果は本当にあるのですか？</dt><dd>1999年の研究で報告されてから多くの研究がありますが、誰にでもある見積もりのずれで説明できるという反論もあります（Burson ほか 2006）。</dd><dt>実際の順位は分かりますか？</dt><dd>このページでは、ほかの人の答えを集めていないので、順位は出していません。</dd><dt>答えは送信されますか？</dt><dd>いいえ。答えはこの画面の中だけで使い、送信も保存もしません（サイト全体のアクセス解析については<a href="../../privacy/">プライバシーポリシー</a>をご覧ください）。</dd></dl>
+
+    <h2>参考にした研究・資料</h2>
+    <ul class="seo-refs"><li>Kruger J, Dunning D (1999). Unskilled and unaware of it: How difficulties in recognizing one's own incompetence lead to inflated self-assessments. <i>Journal of Personality and Social Psychology</i>, 77(6), 1121–1134.</li><li>Burson KA, Larrick RP, Klayman J (2006). Skilled or unskilled, but still unaware of it: How perceptions of difficulty drive miscalibration in relative comparisons. <i>Journal of Personality and Social Psychology</i>, 90(1), 60–77.</li></ul>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかの「頭の中のちがい」テスト</h2>
+    <div class="related-grid"><a class="related-card" href="../iq-test/"><span class="e">🧩</span><span>IQテスト（パターンの見え方）</span></a><a class="related-card" href="../tango-kioku/"><span class="e">📝</span><span>単語記憶テスト</span></a><a class="related-card" href="../naigen-test/"><span class="e">💬</span><span>頭の中の声テスト</span></a><a class="related-card" href="../chrono/"><span class="e">⏰</span><span>朝型・夜型診断</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんな診断も見てみたい？</h2>
+    <p>あなたの「これ診断・テストしてみたい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+const CONF = {"slug": "dunning-kruger", "video_id": "", "tag": "ダニングクルーガー効果", "card_label": "ダニング＝クルーガー効果テストの結果", "card_footer": "自分の実力、正しく見積もれる？ → shimulabo.com"};
+
+const NOU = (() => {
+  const $ = (id) => document.getElementById(id);
+  let SHARE = '', cardBlob = null;
+  if (CONF.video_id) {
+    $('video').hidden = false;
+    $('videoFrame').src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(CONF.video_id);
+    $('videoBtn').hidden = false; $('commentHint').hidden = false;
+  }
+  function wrap(x, text, max) {            // 1行に入らない文を折り返す
+    const out = []; let line = '';
+    for (const ch of text) { if (x.measureText(line + ch).width > max && line) { out.push(line); line = ch; } else line += ch; }
+    if (line) out.push(line); return out;
+  }
+  function card(r) {
+    const W = 1080, c = document.createElement('canvas'); c.width = c.height = W;
+    const x = c.getContext('2d'), F = '"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif';
+    const bg = x.createRadialGradient(W / 2, 300, 60, W / 2, 420, 820);
+    bg.addColorStop(0, '#1d3d49'); bg.addColorStop(.55, '#11232a'); bg.addColorStop(1, '#0D1417');
+    x.fillStyle = bg; x.fillRect(0, 0, W, W); x.textAlign = 'center'; x.textBaseline = 'alphabetic';
+    x.fillStyle = '#4FC6B4'; x.font = '800 30px ' + F; x.fillText(CONF.card_label, W / 2, 92);
+    x.fillStyle = '#EEEAE3'; x.font = '900 60px ' + F; x.fillText(r.cardTitle, W / 2, 172);
+    if (r.draw) { x.save(); r.draw(x, { x: 70, y: 220, w: W - 140, h: 560, F }); x.restore(); }
+    x.textAlign = 'center'; x.fillStyle = '#EEEAE3'; x.font = '800 44px ' + F;
+    wrap(x, r.cardLine, W - 140).slice(0, 2).forEach((l, i, a) => x.fillText(l, W / 2, 848 - (a.length - 1 - i) * 54));
+    x.font = '900 40px ' + F; const label = r.emoji + ' ' + r.typeName, lw = x.measureText(label).width + 64;
+    x.fillStyle = '#4FC6B4'; x.beginPath(); x.roundRect(W / 2 - lw / 2, 878, lw, 64, 32); x.fill();
+    x.fillStyle = '#0D1417'; x.fillText(label, W / 2, 924);
+    x.fillStyle = '#8D9BA1'; x.font = '700 26px ' + F; x.fillText(CONF.card_footer, W / 2, 1030);
+    $('cardImg').src = c.toDataURL('image/png');
+    cardBlob = null; c.toBlob(b => {
+      cardBlob = b; const f = new File([b], CONF.slug + '.png', { type: 'image/png' });
+      $('shareImgBtn').hidden = !(navigator.canShare && navigator.canShare({ files: [f] }));
+    }, 'image/png');
+  }
+  function finish(r) {
+    $('qPanel').hidden = true; $('resultPanel').hidden = false;
+    $('rLabel').textContent = r.label; $('big').textContent = r.big; $('bigUnit').textContent = r.unit || '';
+    $('typeName').textContent = r.emoji + ' ' + r.typeName; $('advice').textContent = '💡 ' + r.advice;
+    $('extra').innerHTML = r.extraHTML || ''; $('extra').hidden = !r.extraHTML;
+    SHARE = r.share; card(r);
+    $('resultPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  function startPanels() {
+    $('startPanel').hidden = $('resultPanel').hidden = true; $('qPanel').hidden = false;
+    $('qPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  $('saveImgBtn').addEventListener('click', () => { const a = document.createElement('a'); a.href = $('cardImg').src; a.download = CONF.slug + '.png'; document.body.appendChild(a); a.click(); a.remove(); });
+  $('shareImgBtn').addEventListener('click', async () => { if (!cardBlob) return; try { await navigator.share({ files: [new File([cardBlob], CONF.slug + '.png', { type: 'image/png' })], text: SHARE + ' #' + CONF.tag + ' ' + location.href }); } catch (e) {} });
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(SHARE) + '&url=' + encodeURIComponent(location.href) + '&hashtags=' + encodeURIComponent(CONF.tag + ',シミュラボ'), '_blank', 'noopener'));
+  $('copyBtn').addEventListener('click', async () => { try { await navigator.clipboard.writeText(SHARE + '\n' + location.href); $('copyBtn').textContent = 'コピーしました ✓'; setTimeout(() => $('copyBtn').textContent = '結果をコピー', 1600); } catch { alert(SHARE); } });
+  return { finish, startPanels, $ };
+})();
+
+(() => {
+
+  const $ = NOU.$;
+  const QZ = [
+    ['すべての犬は動物です。ポチは犬です。ポチは動物？', ['はい', 'いいえ', '分からない'], 0],
+    ['2, 4, 8, 16, ? の「？」に入る数は？', ['24', '30', '32', '36'], 2],
+    ['AはBより背が高く、CはAより背が高い。いちばん背が低いのは？', ['A', 'B', 'C', '分からない'], 1],
+    ['バットとボールで合わせて1,100円。バットはボールより1,000円高い。ボールはいくら？', ['50円', '100円', '110円', '150円'], 0],
+    ['1, 1, 2, 3, 5, 8, ? の「？」に入る数は？', ['11', '12', '13', '15'], 2],
+    ['5台の機械で、5個作るのに5分かかる。100台で100個作るのは何分？', ['5分', '20分', '100分', '500分'], 0],
+    ['池の水草が毎日2倍に増え、48日で池全体をおおった。池の半分をおおったのは何日目？', ['24日目', '36日目', '46日目', '47日目'], 3],
+    ['ある月の1日が月曜日。その月の15日は何曜日？', ['日曜日', '月曜日', '火曜日', '水曜日'], 1],
+    ['「雨が降ると道がぬれる」。道がぬれている。必ず雨が降った？', ['必ず降った', '必ずとは言えない', '降っていない'], 1],
+    ['3人で3日に3個のパンを食べる。6人で6日に何個？', ['6個', '9個', '12個', '18個'], 2],
+  ];
+  let k = 0, predN = 0, predP = 0, right = [];
+  function stepPred() {
+    $('part').textContent = '予想する'; $('count').textContent = '';
+    if (k === 0) { $('q').textContent = '10問中、何問正解できそう？'; $('opts').style.gridTemplateColumns = 'repeat(4,1fr)'; $('opts').innerHTML = Array.from({ length: 11 }, (_, i) => `<button type="button" data-v="${i}">${i}問</button>`).join(''); }
+    else { $('q').textContent = '同じテストを受けた人の中で、自分は上から何%くらいだと思う？'; $('opts').style.gridTemplateColumns = '1fr'; $('opts').innerHTML = [['上位10%に入る', 90], ['上位30%くらい', 70], ['まん中くらい', 50], ['下から30%くらい', 30], ['下から10%くらい', 10]].map(([t, v]) => `<button type="button" data-v="${v}">${t}</button>`).join(''); }
+  }
+  function stepQ() {
+    const j = k - 2, [q, o] = QZ[j]; $('part').textContent = 'クイズ'; $('count').textContent = (j + 1) + ' / 10'; $('bar').style.width = (j / 10 * 100) + '%';
+    $('q').textContent = q; $('opts').style.gridTemplateColumns = o.length === 3 ? '1fr' : 'repeat(2,1fr)'; $('opts').innerHTML = o.map((t, i) => `<button type="button" data-v="${i}">${t}</button>`).join('');
+  }
+  $('opts').addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return; const v = +b.dataset.v;
+    if (k === 0) predN = v; else if (k === 1) predP = v; else right.push(v === QZ[k - 2][2]);
+    k++; if (k < 2) stepPred(); else if (k < 12) stepQ(); else done();
+  });
+  function done() {
+    const n = right.filter(Boolean).length, d = predN - n;
+    const T = d >= 3 ? ['🎈', '自分を高く見積もるタイプ', `予想（${predN}問）より、実際は${d}問少ない結果でした。研究でも、自分の点数を高めに見積もる人は多いことが分かっています。`]
+            : d <= -3 ? ['🐢', '自分を低く見積もるタイプ', `予想（${predN}問）より、実際は${-d}問多い結果でした。自分の力を、ひかえめに見積もるくせがあるのかもしれません。`]
+            : Math.abs(d) <= 1 ? ['🎯', 'ぴったり見積もるタイプ', `予想（${predN}問）と実際の点数が、ほとんど同じでした。自分の力を正確につかめています。`]
+            : d > 0 ? ['🙂', '少し高めに見積もるタイプ', `予想より${d}問少ない結果でした。多くの人はこのあたりです。`]
+            : ['🙂', '少し低めに見積もるタイプ', `予想より${-d}問多い結果でした。`];
+    const wrongs = QZ.map((q, i) => right[i] ? '' : `<div><span class="k">${q[0]}</span><span class="v">答え：${q[1][q[2]]}</span></div>`).join('');
+    NOU.finish({
+      label: '予想とのズレ（予想 − 実際）', big: (d > 0 ? '+' : '') + d, unit: ' 問', emoji: T[0], typeName: T[1], advice: T[2],
+      extraHTML: `<div class="syn-rows"><div><span class="k">予想</span><span class="v">${predN} / 10 問</span></div><div><span class="k">実際</span><span class="v">${n} / 10 問</span></div><div><span class="k">自分の位置の予想</span><span class="v">上から${100 - predP}%くらい</span></div></div>`
+        + (wrongs ? `<details style="margin-top:8px;"><summary style="cursor:pointer;font-size:13px;">まちがえた問題の答え</summary><div class="syn-rows">${wrongs}</div></details>` : ''),
+      share: `ダニング＝クルーガー効果テストやってみた🤔 予想${predN}問→実際${n}問で「${T[1]}」でした。あなたは自分の実力、正しく見積もれる？`,
+      cardTitle: 'わたしの見積もりぐせ', cardLine: `予想 ${predN}問 → 実際 ${n}問`,
+      draw: (x, R) => {
+        [['予想', predN, '#F5BB5C'], ['実際', n, '#4FC6B4']].forEach(([lab, v, c], i) => {
+          const bw = 260, xx = R.x + R.w / 2 - 300 + i * 340, h = 40 + v * 46;
+          x.fillStyle = '#2A3C43'; x.beginPath(); x.roundRect(xx, R.y + 50, bw, 500, 24); x.fill();
+          x.fillStyle = c; x.beginPath(); x.roundRect(xx, R.y + 550 - h, bw, h, 24); x.fill();
+          x.fillStyle = '#EEEAE3'; x.textAlign = 'center'; x.font = '800 40px ' + R.F; x.fillText(lab, xx + bw / 2, R.y + 30);
+          x.fillStyle = '#0D1417'; x.font = '900 60px ' + R.F; x.fillText(v + '問', xx + bw / 2, R.y + 525);
+        });
+      },
+    });
+  }
+  function start() { k = 0; right = []; NOU.startPanels(); $('bar').style.width = '0%'; stepPred(); }
+  $('startBtn').addEventListener('click', start); $('againBtn').addEventListener('click', start);
+
+})();
+</script>
+<script src="../../assets/result-fx.js?v=4"></script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'dunning-kruger', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>
