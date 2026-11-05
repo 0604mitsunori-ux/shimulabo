@@ -525,7 +525,7 @@
   <url><loc>https://shimulabo.com/sims/shigan-bairitsu/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shimulabo.com/sims/shijukunichi/</loc><lastmod>2026-09-07</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shimulabo.com/sims/shikaku-cost/</loc><lastmod>2026-09-07</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shimulabo.com/sims/shikikaku-test/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/shikikaku-test/</loc><lastmod>2026-11-05</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shimulabo.com/sims/shinchou/</loc><lastmod>2026-10-19</lastmod><image:image><image:loc>https://shimulabo.com/sims/shinchou/shinchou-1.png</image:loc></image:image><image:image><image:loc>https://shimulabo.com/sims/shinchou/shinchou-2.png</image:loc></image:image><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shimulabo.com/sims/shinka-sim/</loc><lastmod>2026-10-19</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shimulabo.com/sims/shinkansen-car/</loc><lastmod>2026-09-07</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
@@ -705,4 +705,7 @@
   <url><loc>https://shimulabo.com/en/sims/shogai-typing/</loc><lastmod>2026-08-06</lastmod><xhtml:link rel="alternate" hreflang="ja" href="https://shimulabo.com/sims/shogai-typing/"/><xhtml:link rel="alternate" hreflang="en" href="https://shimulabo.com/en/sims/shogai-typing/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://shimulabo.com/sims/shogai-typing/"/><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shimulabo.com/en/sims/shorui-jitan/</loc><lastmod>2026-08-06</lastmod><xhtml:link rel="alternate" hreflang="ja" href="https://shimulabo.com/sims/shorui-jitan/"/><xhtml:link rel="alternate" hreflang="en" href="https://shimulabo.com/en/sims/shorui-jitan/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://shimulabo.com/sims/shorui-jitan/"/><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shimulabo.com/sims/kyokankaku-test/</loc><lastmod>2026-11-05</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/aphantasia-test/</loc><lastmod>2026-11-05</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/naigen-test/</loc><lastmod>2026-11-05</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shimulabo.com/sims/mimi-nenrei/</loc><lastmod>2026-11-05</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
 </urlset>
