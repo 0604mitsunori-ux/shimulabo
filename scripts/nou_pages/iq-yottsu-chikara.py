@@ -1,0 +1,199 @@
+# -*- coding: utf-8 -*-
+# 十人十脳 第12話「IQの段（IQ70・100・130の世界を体験）」と連動（2026-11-06 新規）。動画の最後の「4つの力の小テスト」をWebで何度でも。IQの数字は出さない
+# 研究の事実は 制作キット/動画/第12話_IQの段/00_研究メモ.md の ◯ の行だけ。iq-test（しま模様＝第13話）とは別のテスト
+PAGE = {
+    "slug": "iq-yottsu-chikara",
+    "title": "IQ 4つの力テスト｜言葉・形・覚える・速さ、あなたの頭の「得意」は？IQ70・100・130の世界も解説｜シミュラボ",
+    "desc": "言葉・形・覚える・速さの4つの小テストで、あなたの頭の「得意」が分かるセルフテスト。IQ100という1つの数字の中にも凸凹があること、100人の教室で見たIQの段、「IQが30ちがうと話が通じない」の出どころ、説明する側の思いこみの実験も解説。IQの数字は出しません。診断ではありません。",
+    "og_title": "あなたの頭の「得意」はどれ？｜IQ 4つの力テスト",
+    "og_desc": "言葉・形・覚える・速さ。4つの小テストで、いちばん楽だった力が分かる。",
+    "ld_name": "IQ 4つの力テスト（言葉・形・覚える・速さ）",
+    "h1": "IQ 4つの力テスト（あなたの頭の「得意」はどれ？）",
+    "lead": "IQは1つの数字で表されますが、知能検査の中では、いくつもの力を別々に測っています。同じIQ100でも、言葉が得意な100もあれば、形が得意な100もあります。言葉・形・覚える・速さの4つの小テストに答えて、いちばん楽だった力を見つけてください。約4分です。",
+    "start_h2": "🧩 4つの小テストに答えてね",
+    "start_text": "形・言葉・覚える・速さの順に、短いテストが出ます。それぞれのテストのあとに「楽だった？」と聞くので、感じたまま答えてください。点数より、楽だったかどうかで「得意」を決めます。「覚える」と「速さ」は、絵や表が数秒で消えます。",
+    "tag": "IQ4つの力",
+    "card_label": "IQ 4つの力テストの結果",
+    "card_footer": "あなたの頭の「得意」はどれ？ → shimulabo.com",
+    "css": """
+.iq-seq{font-size:34px;font-weight:900;text-align:center;letter-spacing:.12em;margin:8px 0 14px;color:#EEEAE3;}
+.iq-row{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:8px 0 14px;}
+.iq-row .it{width:68px;padding:8px 0 6px;border-radius:12px;background:#111c20;border:1px solid #2A3C43;text-align:center;}
+.iq-row .it b{display:block;font-size:34px;line-height:1.2;}
+.iq-row .it small{display:block;font-size:11px;color:#8D9BA1;}
+.iq-row .it .n{font-size:11px;color:#4FC6B4;}
+.iq-row .it.hide b,.iq-row .it.hide small{visibility:hidden;}
+.iq-row .it.hide{background:#1b2a30;}
+.iq-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:4px;max-width:360px;margin:6px auto 12px;}
+.iq-grid span{font-size:24px;text-align:center;padding:4px 0;border-radius:6px;background:#111c20;color:#EEEAE3;}
+.syn-btns.c4{grid-template-columns:repeat(4,1fr);}
+.syn-btns.c4 button{font-size:14px;padding:10px 2px;}
+""",
+    "stage_html": """
+      <div class="syn-top"><span id="part">形</span><span id="count">1 / 4</span></div>
+      <div class="syn-bar"><i id="bar"></i></div>
+      <div class="syn-ask" id="q" style="font-size:16px;font-weight:700;color:#EEEAE3;min-height:2.2em;"></div>
+      <div id="show"></div>
+      <div class="syn-btns" id="opts"></div>
+    """,
+    "js": r"""
+  const $ = NOU.$;
+  const sh = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  // 問題はこのページで作ったもの（研究のテストの写しではない）。動画（十人十脳 第12話）の小テストと同じ問題から始まる
+  const SHAPE = [
+    ['○　△　□　○　△　？', ['○', '△', '□', '☆'], 2],
+    ['↑　→　↓　？', ['↑', '→', '↓', '←'], 3],
+    ['●　／　●●　／　●●●　／　？', ['●●', '●●●', '●●●●', '●●●●●'], 2],
+    ['大　中　小　大　中　？', ['大', '中', '小', '特大'], 2],
+  ];
+  const WORD = [
+    ['りんご と トマト', ['赤くて丸い', '木になる', 'すっぱい', '冬にとれる'], 0],
+    ['はさみ と のこぎり', ['台所で使う', '切る道具', '電気で動く', '書く道具'], 1],
+    ['電話 と 手紙', ['紙でできている', '声を使う', '相手に伝える方法', 'ポストに入れる'], 2],
+    ['雨 と 涙', ['空から落ちる', '悲しいときに出る', '夏に多い', '水のしずく'], 3],
+  ];
+  const ANIMALS = [['🐱', 'ねこ'], ['🐦', 'とり'], ['🐟', 'さかな'], ['🐰', 'うさぎ'], ['🐢', 'かめ'], ['🐶', 'いぬ']];
+  const POOL = [['🍎', 'りんご'], ['🚗', 'くるま'], ['⭐', 'ほし'], ['🎈', 'ふうせん'], ['🔑', 'かぎ'], ['🌙', 'つき'], ['📚', 'ほん'], ['☂️', 'かさ'], ['🎸', 'ギター'], ['🍙', 'おにぎり'], ['⏰', 'とけい'], ['🌻', 'ひまわり']];
+  const KANA = 'あいうえおかきくけこさしすせそたちつてとなにぬねはひふへほまみむめもやゆよらりるれろわを'.split('');
+  const PARTS = [
+    { name: '形', type: '形型', emoji: '🔷', n: 4, tip: '並びや形の決まりを見つけるのが楽なタイプ。図やグラフで考えると、話がすっと入ってきやすいかもしれません。' },
+    { name: '言葉', type: '言葉型', emoji: '💬', n: 4, tip: '言葉の意味や、ものどうしの共通点をつかむのが楽なタイプ。説明を聞いたり、文で整理したりすると、分かりやすいかもしれません。' },
+    { name: '覚える', type: '覚える型', emoji: '🧠', n: 3, tip: '見たものを少しのあいだ頭に置いておくのが楽なタイプ。いくつもの指示を一度に聞いても、順番を保ちやすいかもしれません。' },
+    { name: '速さ', type: '速さ型', emoji: '⚡', n: 2, tip: '決まった作業を、速く正確にこなすのが楽なタイプ。手順がはっきりした作業で、力を出しやすいかもしれません。' },
+  ];
+  const EASE = [['とても楽', 3], ['わりと楽', 2], ['ふつう', 1], ['きつかった', 0]];
+  let P = 0, K = 0, ok = [], ease = [], cur = null, busy = false, timer = null, steps = 0;
+  const TOTAL = PARTS.reduce((s, p) => s + p.n + 1, 0);
+  function head(sub) { $('part').textContent = PARTS[P].emoji + ' ' + PARTS[P].name + (sub ? '　' + sub : ''); $('count').textContent = '小テスト ' + (P + 1) + ' / 4'; $('bar').style.width = (steps / TOTAL * 100) + '%'; }
+  function opts(list, cols) { $('opts').className = 'syn-btns' + (cols ? ' ' + cols : ''); $('opts').innerHTML = list.map((t, i) => `<button type="button" data-v="${i}">${t}</button>`).join(''); }
+  function row(items, hide) { return '<div class="iq-row">' + items.map((it, i) => `<div class="it${hide ? ' hide' : ''}"><b>${it[0]}</b><small>${it[1]}</small><span class="n">${i + 1}</span></div>`).join('') + '</div>'; }
+  function next() {
+    clearInterval(timer); busy = false;
+    if (K < PARTS[P].n) return ask();
+    if (K === PARTS[P].n) return askEase();
+    P++; K = 0; if (P < PARTS.length) ask(); else done();
+  }
+  function ask() {
+    head((K + 1) + ' / ' + PARTS[P].n); $('show').innerHTML = '';
+    if (P === 0) { const [s, o, a] = SHAPE[K]; cur = { a }; $('q').textContent = '「？」に入るのは？'; $('show').innerHTML = `<div class="iq-seq">${s}</div>`; opts(o); }
+    else if (P === 1) { const [s, o, a] = WORD[K]; cur = { a }; $('q').textContent = '2つの言葉に共通することは？'; $('show').innerHTML = `<div class="iq-seq" style="letter-spacing:.04em">${s}</div>`; opts(o); }
+    else if (P === 2) memory();
+    else speed();
+  }
+  function memory() {
+    const items = K === 0 ? ANIMALS : sh(POOL).slice(0, K === 1 ? 7 : 8), sec = [3, 4, 5][K], pos = K === 0 ? 3 : 1 + Math.floor(Math.random() * (items.length - 2));
+    busy = true; $('opts').innerHTML = ''; let left = sec;
+    $('q').textContent = `${items.length}つの並びを覚えてね（あと ${left} 秒）`; $('show').innerHTML = row(items, false);
+    timer = setInterval(() => { left--; if (left > 0) { $('q').textContent = `${items.length}つの並びを覚えてね（あと ${left} 秒）`; return; }
+      clearInterval(timer); busy = false; $('show').innerHTML = row(items, true); $('q').textContent = `${pos + 1}番目は、何だった？`;
+      const o = sh(items.map((it, i) => [it, i])); cur = { a: o.findIndex(x => x[1] === pos) }; opts(o.map(x => x[0][0] + ' ' + x[0][1]), 'c4'); }, 1000);
+  }
+  function speed() {
+    const tgt = K === 0 ? 'の' : 'め', near = K === 0 ? ['め', 'ぬ', 'あ', 'お'] : ['ぬ', 'あ', 'の', 'ね'], N = 56, c = 7 + Math.floor(Math.random() * 5);
+    const others = KANA.filter(k => k !== tgt), cells = [];
+    for (let i = 0; i < N - c; i++) cells.push(i % 3 === 0 ? near[i % near.length] : others[Math.floor(Math.random() * others.length)]);
+    for (let i = 0; i < c; i++) cells.push(tgt);
+    const grid = sh(cells); busy = true; $('opts').innerHTML = ''; let left = 15;
+    $('q').textContent = `この表の中に「${tgt}」はいくつある？（あと ${left} 秒）`;
+    $('show').innerHTML = '<div class="iq-grid">' + grid.map(k => `<span>${k}</span>`).join('') + '</div>';
+    timer = setInterval(() => { left--; if (left > 0) { $('q').textContent = `この表の中に「${tgt}」はいくつある？（あと ${left} 秒）`; return; }
+      clearInterval(timer); busy = false; $('show').innerHTML = ''; $('q').textContent = `「${tgt}」は、いくつあった？`;
+      const lo = c - Math.floor(Math.random() * 5), o = [0, 1, 2, 3, 4].map(i => lo + i); cur = { a: o.indexOf(c) }; opts(o.map(v => v + '個'), 'c5'); }, 1000);
+  }
+  function askEase() { cur = { ease: true }; head(''); $('show').innerHTML = ''; $('q').textContent = `いまの「${PARTS[P].name}」の小テストは、楽だった？`; opts(EASE.map(e => e[0]), 'c4'); }
+  $('opts').addEventListener('click', e => { const b = e.target.closest('button'); if (!b || busy || !cur) return; const v = +b.dataset.v;
+    if (cur.ease) ease[P] = EASE[v][1]; else ok[P] = (ok[P] || 0) + (v === cur.a ? 1 : 0);
+    cur = null; K++; steps++; next(); });
+  function done() {
+    $('bar').style.width = '100%';
+    const R = PARTS.map((p, i) => ({ i, p, e: ease[i] || 0, c: ok[i] || 0 }));
+    const best = R.slice().sort((a, b) => b.e - a.e || b.c / b.p.n - a.c / a.p.n || a.i - b.i)[0];
+    const flat = R.every(r => r.e === R[0].e);
+    const advice = best.p.tip + (flat ? '（今回は4つとも同じくらいの楽さでした。正解の割合がいちばん高かった力を「得意」にしています）' : '');
+    const rows = R.map(r => `<div><span class="k">${r.p.emoji} ${r.p.name}${r === best ? ' <b style="color:var(--teal-d)">← 得意</b>' : ''}</span><span class="syn-meter"><i style="width:${r.e / 3 * 100}%"></i></span><span class="v" style="min-width:5.5em;text-align:right">${EASE.find(x => x[1] === r.e)[0]}・${r.c}/${r.p.n}</span></div>`).join('');
+    NOU.finish({
+      label: 'あなたの頭の「得意」は', big: best.p.type, unit: '', emoji: best.p.emoji, typeName: best.p.type + 'タイプ', advice,
+      extraHTML: `<div class="syn-rows">${rows}</div><p style="font-size:12px;color:var(--ink-3);">バーは「楽だった度」、右は正解の数です。このテストからIQの数字は出しません。本当のIQは、専門家が決まった手順で行う検査で測ります。</p>`,
+      share: `IQ 4つの力テストやってみた🧩 わたしの頭の得意は「${best.p.type}」でした（形${R[0].c}/4・言葉${R[1].c}/4・覚える${R[2].c}/3・速さ${R[3].c}/2）。あなたの得意はどれ？`,
+      cardTitle: 'わたしの頭の「得意」', cardLine: `形 ${R[0].c}/4・言葉 ${R[1].c}/4・覚える ${R[2].c}/3・速さ ${R[3].c}/2`,
+      draw: (x, Q) => {
+        R.forEach((r, k) => { const y = Q.y + 20 + k * 132, hit = r === best;
+          x.fillStyle = hit ? '#F5BB5C' : '#EEEAE3'; x.textAlign = 'left'; x.font = '800 40px ' + Q.F; x.fillText(r.p.emoji + ' ' + r.p.name, Q.x, y + 10);
+          x.textAlign = 'right'; x.font = '800 34px ' + Q.F; x.fillText(EASE.find(z => z[1] === r.e)[0], Q.x + Q.w, y + 10);
+          x.fillStyle = '#2A3C43'; x.beginPath(); x.roundRect(Q.x, y + 34, Q.w, 50, 25); x.fill();
+          x.fillStyle = hit ? '#F5BB5C' : '#4FC6B4'; x.beginPath(); x.roundRect(Q.x, y + 34, Math.max(50, Q.w * r.e / 3), 50, 25); x.fill(); });
+      },
+    });
+  }
+  function start() { P = 0; K = 0; ok = []; ease = []; steps = 0; cur = null; clearInterval(timer); NOU.startPanels(); ask(); }
+  $('startBtn').addEventListener('click', start); $('againBtn').addEventListener('click', start);
+""",
+    "note": "形（並びの続き4問）・言葉（2つの言葉の共通点4問）・覚える（絵の並びを数秒で覚える3問）・速さ（表の中の文字を15秒で数える2問）の小テストです。どのテストのあとにも「楽だった？」と聞き、いちばん楽だった力を「得意」とします。問題はこのページで作っています。IQの数字は出しません。",
+    "article": """
+    <h2>IQは1つの数字。でも中には、いくつもの力がある</h2>
+    <p>大人用の知能検査（WAIS-IV）は、<b>言葉・考える（形や推理）・作業記憶（頭の中に少しのあいだ置いておく力）・処理の速さ</b>の4つの力を、それぞれ測っています。IQは、それをまとめた1つの数字です。</p>
+    <p>この検査を作るときに集めた人たちを調べた研究では、<b>7割を超える人</b>が、4つのうち少なくとも1つで、自分の4つの平均からはっきり離れていました（Grégoire ほか 2011）。得意と苦手の凸凹は、めずらしいことではなく、ふつうのことなのです。</p>
+    <p>このページの4つの小テストは、その4つの力をイメージして作った遊びのテストです。知能検査の問題とは別物で、IQの数字は分かりません。</p>
+
+    <h2>100人の教室で見る、IQの段</h2>
+    <p>IQは、平均が100、15ずつの目盛りになるように作られています。ふつうの分布で計算すると、100人の教室なら、だいたい次のような人数になります（計算の上での人数です）。</p>
+    <div class="tbl-scroll">
+    <table class="seo-table">
+    <tr><th>IQ</th><th>100人の教室なら</th></tr>
+    <tr><td>70未満</td><td>約2人</td></tr>
+    <tr><td>70〜84</td><td>約14人（7人に1人）</td></tr>
+    <tr><td>85〜99</td><td>約34人</td></tr>
+    <tr><td>100〜114</td><td>約34人</td></tr>
+    <tr><td>115〜129</td><td>約14人</td></tr>
+    <tr><td>130以上</td><td>約2人</td></tr>
+    </table>
+    </div>
+    <p>IQ70〜84は、「境界知能」と呼ばれることがある段です。64本の研究をまとめた論文では、学ぶ・人と関わる・暮らしのどの面でも困りごとが広く見られ、支援の窓口につながりにくい壁もあると報告されています（Orío-Aparicio ほか 2025）。見た目では分かりにくいことが、困りごとを見えにくくしています。</p>
+
+    <h2>一度にたくさんの指示が来ると、頭の中の作業台があふれる</h2>
+    <p>5〜6歳の子に、話して聞かせた「物を順に動かす指示」をやってもらう実験では、指示を言い返せるかではなく、<b>指示どおりに実際にやれるか</b>が、作業記憶の強さと強く結びついていました（Gathercole ほか 2008）。7〜11歳の42人が仮想の学校の中で指示をこなす実験でも、言葉の作業記憶が強く関わっていました（Jaroslawska ほか 2016）。</p>
+    <p>このテストの「覚える」は、この作業台をイメージしたものです。指示が2つなら簡単でも、5つになると途中で前の指示が消える。その「消える感じ」が、作業台があふれる感じです。</p>
+
+    <h2>説明が「速すぎる」人に起きていること</h2>
+    <p>曲のリズムを机で叩いて、相手に曲名を当ててもらう実験があります。叩いた40人は「半分くらいは当たる」と見積もりましたが、実際に当たったのは<b>120曲のうち3曲（2.5%）</b>でした（Newton 1990）。叩く人の頭の中ではメロディが鳴っているので、聞く側の「分からなさ」が想像しにくいのです。</p>
+    <p>ある作業に詳しい人ほど、初めての人がその作業にかかる時間を短く見積もりすぎた、という研究もあります（Hinds 1999）。説明が速すぎるのは、意地悪ではなく、「知っている側の思いこみ」が働いているのかもしれません。</p>
+
+    <h2>「IQが30ちがうと話が通じない」の出どころ</h2>
+    <p>よく聞くこの話の出どころとされるのは、1942年の本です（Hollingworth 1942）。書かれているのは、子どもたちを観察して、<b>リーダーとついていく子のIQの差がおよそ30を超えると、リーダーの関係ができにくい</b>、という話でした。会話が通じるかどうかを、IQの差で調べた研究ではありません。</p>
+    <p>同じ本の同じ段落には、学校の中のとても賢い子が、気づかれず、孤立していることがある、とも書かれています。どの段の人にも、それぞれの「見えにくさ」があるのです。</p>
+
+    <h2>IQの点は、学ぶことで変わる</h2>
+    <p>42のデータ・60万人以上をまとめた研究では、学校に通う年数が1年長いと、IQの点が<b>およそ1〜5点</b>上がっていました。効果は大人になっても続いていました（Ritchie と Tucker-Drob 2018）。IQは、生まれつき決まった動かない数字ではありません。</p>
+
+    <h2>結果の見方</h2>
+    <div class="tbl-scroll">
+    <table class="seo-table">
+    <tr><th>タイプ</th><th>いちばん楽だった小テスト</th></tr>
+    <tr><td>🔷 形型</td><td>並びの続き（形）</td></tr>
+    <tr><td>💬 言葉型</td><td>2つの言葉の共通点（言葉）</td></tr>
+    <tr><td>🧠 覚える型</td><td>絵の並びを覚える（覚える）</td></tr>
+    <tr><td>⚡ 速さ型</td><td>表の中の文字を数える（速さ）</td></tr>
+    </table>
+    </div>
+    <p>「楽だった？」の答えがいちばん高いものを得意にしています。同じなら、正解の割合が高いほうです。タイプは、このページで決めた遊びの分け方で、点数で人のよしあしが決まるものではありません。</p>
+""",
+    "faq": [
+        ("このテストでIQは分かりますか？", "いいえ。このテストからIQの数字は出しません。本当のIQは、専門家が決まった手順で行う検査で測ります。"),
+        ("「楽だった？」はどう答えればいいですか？", "正解したかどうかではなく、解いているときの感じで答えてください。正解でもきつかったなら「きつかった」で大丈夫です。"),
+        ("得意が毎回変わります。", "その日の体調や集中、問題の相性でも変わります。何回かやって、いちばん多かったタイプを目安にしてください。"),
+        ("4つとも苦手でした。大丈夫ですか？", "このテストは遊びのためのもので、頭のよさを決めるものではありません。短い時間のテストなので、慣れや緊張でも結果は大きく変わります。"),
+        ("答えは送信されますか？", "いいえ。答えはこの画面の中だけで使い、送信も保存もしません（サイト全体のアクセス解析については<a href=\"../../privacy/\">プライバシーポリシー</a>をご覧ください）。"),
+    ],
+    "refs": [
+        "Grégoire J, Coalson DL, Zhu J (2011). Analysis of WAIS-IV index score scatter using significant deviation from the mean index score. <i>Assessment</i>, 18(2), 168–177.",
+        "Orío-Aparicio C, Bel-Fenellós C, López-Escribano C (2025). Understanding Adaptive Skills in Borderline Intellectual Functioning: A Systematic Review. <i>European Journal of Investigation in Health, Psychology and Education</i>, 15(3), 40.",
+        "Gathercole SE, Durling E, Evans M, Jeffcock S, Stone S (2008). Working memory abilities and children's performance in laboratory analogues of classroom activities. <i>Applied Cognitive Psychology</i>, 22(8), 1019–1037.",
+        "Jaroslawska AJ, Gathercole SE, Logie MR, Holmes J (2016). Following instructions in a virtual school: Does working memory play a role? <i>Memory &amp; Cognition</i>, 44(4), 580–589.",
+        "Newton EL (1990). <i>The rocky road from actions to intentions</i> (Doctoral dissertation). Stanford University.",
+        "Hinds PJ (1999). The curse of expertise: The effects of expertise and debiasing methods on prediction of novice performance. <i>Journal of Experimental Psychology: Applied</i>, 5(2), 205–221.",
+        "Hollingworth LS (1942). <i>Children Above 180 IQ Stanford-Binet: Origin and Development</i>. World Book Company.",
+        "Ritchie SJ, Tucker-Drob EM (2018). How much does education improve intelligence? A meta-analysis. <i>Psychological Science</i>, 29(8), 1358–1369.",
+    ],
+    "related": [("iq-test", "🧩", "IQテスト（パターン問題と「見ない力」）"), ("tango-kioku", "📝", "単語記憶テスト"), ("dunning-kruger", "🤔", "ダニング＝クルーガー効果テスト"), ("yomu-hayasa", "📖", "読む速さテスト（1分間に何文字？）")],
+}
