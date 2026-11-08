@@ -19,6 +19,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://shimulabo.com/ogp/kazan-kaseigan.png">
 <link rel="stylesheet" href="../../assets/style.css?v=4">
+<link rel="stylesheet" href="../../assets/three/sim3d.css?v=1">
     <!-- seo-internal -->
     <link rel="canonical" href="https://shimulabo.com/sims/kazan-kaseigan/">
     <meta property="og:locale" content="ja_JP">
@@ -97,6 +98,14 @@ canvas.lab.light{background:#fff;}
       <div class="lab-stats"><div class="stat"><div class="k">火山の形</div><div class="v" id="sShape">—</div></div><div class="stat"><div class="k">噴火のようす</div><div class="v" id="sErupt">—</div></div><div class="stat"><div class="k">岩石の名前</div><div class="v accent" id="sRock">—</div></div><div class="stat"><div class="k">組織（つくり）</div><div class="v accent" id="sTex">—</div></div><div class="stat"><div class="k">岩石の色</div><div class="v" id="sColor">—</div></div><div class="stat"><div class="k">有色鉱物の割合</div><div class="v" id="sMafic">—</div></div></div>
     </div>
     <p class="lab-legend">上：マグマのねばりけによる火山の形と噴火のようす（大きさは実際の比率ではありません）。右上のゲージや下のグラフをタップ・ドラッグしても、ねばりけを変えられます。下左：同じマグマが地表付近で急に冷えた岩石（ア 火山岩）と、地下深くでゆっくり冷えた岩石（イ 深成岩）をルーペで見たようすです。円や分類表をタップすると、統計欄の岩石が切りかわります。右下：ふくまれる鉱物の割合の目安。</p>
+<!-- sky3d:start -->
+    <div class="v3d-block" style="width:100%;margin-top:18px;">
+      <h3 style="margin:0 0 8px;font-size:15px;">🧊 3Dで見る（ドラッグで回転・上の操作と連動）</h3>
+      <div class="view3d" id="view3d"><div class="load">3D模型を読み込み中…</div><div class="hud" id="hud3d" style="display:none"></div></div>
+      <div class="cam-row" id="camRow3d"><button data-v="persp" class="on">ななめ上から（切り口を見る）</button><button data-v="south">南から（断面）</button><button data-v="top">真上から</button></div>
+      <p class="lab-legend" style="margin-top:6px;">上の図の火山の形を回して立体にし、手前の4分の1を切り取って、マグマだまり・火道（マグマの通り道）と、ア（地表付近）・イ（地下深く）の場所を見せています。上の「マグマのねばりけ」「例の火山」「冷え方」「噴火を止める」と連動します。大きさは実際の比率ではありません。</p>
+    </div>
+<!-- sky3d:end -->
     <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
     <div class="share-row">
       <button class="btn btn-ghost" id="fsBtn" hidden>⛶ 全画面で表示</button>
@@ -387,6 +396,7 @@ canvas.lab.light{background:#fff;}
   cv.addEventListener('pointermove',(e)=>{ if(!drag) return; const q=pxy(e); setP(drag==='g'?(q[0]-GX)/GW:(q[0]-52)/336); });
   ['pointerup','pointercancel'].forEach((n)=>cv.addEventListener(n,()=>{ drag=''; }));
   function loop(now){ const dt=Math.min(0.05,Math.max(0,(now-last)/1000)); last=now; let ch=dirty; if(erupting){ tm+=dt; ch=true; } if(ct<6){ ct+=dt; ch=true; } if(ch){ dirty=false; draw(); } requestAnimationFrame(loop); }
+  window.__kazan={vh:vh,reach:reach,shW:shW,rockC:rockC,cls:cls,st:()=>({p:p,erupting:erupting,tm:tm})};
   viscLabel(); draw(); requestAnimationFrame(loop);
 
   } catch(e) { console.error(e); }
@@ -401,6 +411,9 @@ canvas.lab.light{background:#fff;}
   $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText((SHARE||document.title)+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
 })();
 </script>
+<!-- sky3d-loader:start -->
+<script>(()=>{const el=document.getElementById('view3d');if(!el)return;const go=()=>import('./view3d.js?v=1').catch(()=>{const l=el.querySelector('.load');if(l)l.textContent='3D表示を読み込めませんでした';});if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>{if(es[0].isIntersecting){io.disconnect();go();}},{rootMargin:'300px'});io.observe(el);}else go();})();</script>
+<!-- sky3d-loader:end -->
 <script src="../../assets/share-counter.js?v=4"></script>
 <script>ShareCounter.initSim({ simId:'kazan-kaseigan', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
 <script src="../../assets/lang-toggle.js?v=4"></script>
