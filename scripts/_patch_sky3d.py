@@ -37,6 +37,20 @@ PAGES = {
                   ("  tog(); vlab(); draw(model()); requestAnimationFrame(frame);",
                    "  window.__jishin={model:model,ST:ST,COAST:COAST,surfR:surfR,st:()=>({ex:ex,ey:ey,t:t,sel:sel,playing:playing})};\n  tog(); vlab(); draw(model()); requestAnimationFrame(frame);"),
                   False),
+    # ---- 宇宙・生き物（2026-11-08 追加）。5つ目の値＝入れる場所（lab-legend が無いページ） ----
+    "dna": ([("persp", "ななめから"), ("side", "横から"), ("top", "らせんの軸の方向から")],
+            "2本の鎖（糖とリン酸）を、塩基のペア（A–T、G–C）がはしごのようにつないだ右巻きのらせんです。直径約2nm、塩基対10個で1回転（約3.4nm）にしています。上の「回転スピード」と連動します。「ほどいてコピーする」を押すと、ほどけた鎖それぞれに相手の塩基が組み、同じ並びのDNAが2つできる様子を見られます（ほどけた所ははしごの形にのばした模式。原子の細かい形は省いています）。",
+            ("    function loop(){", "    window.__dna={st:()=>({p:p})};\n    function loop(){"),
+            True, r'<p style="text-align:center;color:var\(--ink-2\);font-size:13px;margin-top:14px;">.*?</p>'),
+    "solar-system": ([("persp", "ななめ上から"), ("top", "北の上から（上の図と同じ向き）"), ("side", "横から（軌道の面）")],
+                     "上の図と同じ8つの惑星を、同じ角度・同じ速さ（実際の公転周期の比）で回しています。北の上から見て反時計回りが、実際の回る向きです。「本当の距離の比率」にすると、ページの表の距離（天文単位）どおりに並びかえます。惑星と太陽の大きさは見やすく誇張しています。上の「スピード」「軌道を表示」「一時停止」と連動します。",
+                     ("const x0=cx+Math.cos(ang[i])*p[0],y0=cy+Math.sin(ang[i])*p[0];",
+                      "const x0=cx+Math.cos(ang[i])*p[0],y0=cy-Math.sin(ang[i])*p[0];if(!window.__solar||window.__solar.P!==P)window.__solar={P:P,st:()=>({ang:ang,playing:playing})};"),
+                     True, r'<p style="text-align:center;color:var\(--ink-2\);font-size:13px;margin-top:14px;">.*?</p>'),
+    "iss-doko": ([("whole", "地球全体（ISSの上から）"), ("iss", "ISSのそばから"), ("japan", "日本の上から")],
+                 "地球とISSの高さを同じ縮尺にした地球儀です。黄色い線がこれから45分の通り道、点線がこれまでの通り道で、ISSは今の時刻に合わせて動きます（位置は公開API wheretheiss.at から取得）。赤いピンは上で選んだ地域です。昼と夜の境目も、そのときの太陽の位置で描いています。ISSの大きさは見やすく誇張しています。",
+                 ("  const R = 6371;", "  window.__iss={PREFS:PREFS};\n  const R = 6371;"),
+                 True, r'<div class="hint" id="state"[^>]*></div>'),
 }
 CSS = '<link rel="stylesheet" href="../../assets/three/sim3d.css?v=1">'
 LOADER = """<script>(()=>{const el=document.getElementById('view3d');if(!el)return;const go=()=>import('./view3d.js?v=1').catch(()=>{const l=el.querySelector('.load');if(l)l.textContent='3D表示を読み込めませんでした';});if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>{if(es[0].isIntersecting){io.disconnect();go();}},{rootMargin:'300px'});io.observe(el);}else go();})();</script>"""
@@ -44,6 +58,8 @@ LOADER = """<script>(()=>{const el=document.getElementById('view3d');if(!el)retu
 for slug in (sys.argv[1:] or PAGES):
     cams, legend, hook = PAGES[slug][:3]
     dark = PAGES[slug][3] if len(PAGES[slug]) > 3 else True
+    anchor = PAGES[slug][4] if len(PAGES[slug]) > 4 else None   # lab-legend が無いページは、入れる場所（正規表現）を指定
+    lstyle = "margin-top:6px;" if anchor is None else "margin-top:6px;text-align:center;color:var(--ink-2);font-size:13px;line-height:1.7;"
     p = os.path.join(ROOT, "sims", slug, "index.html")
     h = io.open(p, encoding="utf-8").read()
     assert os.path.isfile(os.path.join(ROOT, "sims", slug, "view3d.js")), slug
@@ -58,10 +74,10 @@ for slug in (sys.argv[1:] or PAGES):
       <h3 style="margin:0 0 8px;font-size:15px;">🧊 3Dで見る（ドラッグで回転・上の操作と連動）</h3>
       <div class="view3d%s" id="view3d"><div class="load">3D模型を読み込み中…</div><div class="hud" id="hud3d" style="display:none"></div></div>
       <div class="cam-row" id="camRow3d">%s</div>
-      <p class="lab-legend" style="margin-top:6px;">%s</p>
+      <p class="lab-legend" style="%s">%s</p>
     </div>
-<!-- sky3d:end -->""" % (" dark" if dark else "", btns, legend)
-    m = re.search(r'<p class="lab-legend">.*?</p>', h, flags=re.S)
+<!-- sky3d:end -->""" % (" dark" if dark else "", btns, lstyle, legend)
+    m = re.search(anchor or r'<p class="lab-legend">.*?</p>', h, flags=re.S)
     assert m, slug
     h = h[:m.end()] + block + h[m.end():]
     h = h.replace('<script src="../../assets/share-counter.js', "<!-- sky3d-loader:start -->\n" + LOADER + "\n<!-- sky3d-loader:end -->\n" + '<script src="../../assets/share-counter.js', 1)

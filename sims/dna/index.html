@@ -19,6 +19,7 @@
 <meta property="og:description" content="回転する立体的なDNA二重らせんを眺める。">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="../../assets/style.css?v=4">
+<link rel="stylesheet" href="../../assets/three/sim3d.css?v=1">
     <!-- seo-internal -->
     <link rel="canonical" href="https://shimulabo.com/sims/dna/">
     <meta property="og:locale" content="ja_JP">
@@ -70,6 +71,14 @@
       <div style="width:100%;max-width:560px;"><div class="field" style="margin-bottom:10px;"><div class="slider-head" style="display:flex;justify-content:space-between;"><label style="margin:0;">回転スピード</label><span class="val" id="spdL" style="font-weight:800;color:var(--teal-d);">5</span></div><input type="range" id="spd" min="1" max="12" value="5" step="1" style="width:100%;"></div></div>
     </div>
     <p style="text-align:center;color:var(--ink-2);font-size:13px;margin-top:14px;">4種類の塩基（A・T・G・C）の並びが、生き物すべての設計図になっています。</p>
+<!-- sky3d:start -->
+    <div class="v3d-block" style="width:100%;margin-top:18px;">
+      <h3 style="margin:0 0 8px;font-size:15px;">🧊 3Dで見る（ドラッグで回転・上の操作と連動）</h3>
+      <div class="view3d dark" id="view3d"><div class="load">3D模型を読み込み中…</div><div class="hud" id="hud3d" style="display:none"></div></div>
+      <div class="cam-row" id="camRow3d"><button data-v="persp" class="on">ななめから</button><button data-v="side">横から</button><button data-v="top">らせんの軸の方向から</button></div>
+      <p class="lab-legend" style="margin-top:6px;text-align:center;color:var(--ink-2);font-size:13px;line-height:1.7;">2本の鎖（糖とリン酸）を、塩基のペア（A–T、G–C）がはしごのようにつないだ右巻きのらせんです。直径約2nm、塩基対10個で1回転（約3.4nm）にしています。上の「回転スピード」と連動します。「ほどいてコピーする」を押すと、ほどけた鎖それぞれに相手の塩基が組み、同じ並びのDNAが2つできる様子を見られます（ほどけた所ははしごの形にのばした模式。原子の細かい形は省いています）。</p>
+    </div>
+<!-- sky3d:end -->
     <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
     <div class="share-row"><button class="btn btn-x" id="shareBtn">𝕏 でシェア</button></div>
   </section>
@@ -138,6 +147,7 @@
 
     const cv=$('cv'),x=cv.getContext('2d');const W=cv.width,H=cv.height,cx=W/2;let p=0;
     const cols=[['#f43f5e','#fb923c'],['#22d3ee','#60a5fa']];
+    window.__dna={st:()=>({p:p})};
     function loop(){
       p+=(+$('spd').value)*0.012; x.fillStyle='#0b1020';x.fillRect(0,0,W,H);
       const n=26,amp=W*0.32;
@@ -156,6 +166,9 @@
   const sb=$('shareBtn'); if(sb) sb.addEventListener('click',()=>window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
 })();
 </script>
+<!-- sky3d-loader:start -->
+<script>(()=>{const el=document.getElementById('view3d');if(!el)return;const go=()=>import('./view3d.js?v=1').catch(()=>{const l=el.querySelector('.load');if(l)l.textContent='3D表示を読み込めませんでした';});if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>{if(es[0].isIntersecting){io.disconnect();go();}},{rootMargin:'300px'});io.observe(el);}else go();})();</script>
+<!-- sky3d-loader:end -->
 <script src="../../assets/share-counter.js?v=4"></script>
 <script>ShareCounter.initSim({ simId:'dna', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
 <script src="../../assets/result-fx.js?v=4"></script>

@@ -19,6 +19,7 @@
 <meta property="og:description" content="8惑星がそれぞれの速さで公転。スピード調整も。">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="../../assets/style.css?v=4">
+<link rel="stylesheet" href="../../assets/three/sim3d.css?v=1">
     <!-- seo-internal -->
     <link rel="canonical" href="https://shimulabo.com/sims/solar-system/">
     <meta property="og:locale" content="ja_JP">
@@ -70,6 +71,14 @@
       <div style="width:100%;max-width:560px;"><div class="share-row" style="margin-top:0;flex-wrap:wrap;"><button class="btn btn-primary" id="pause" style="padding:11px 18px;font-size:14px;">⏸ 一時停止</button></div><div class="field" style="margin-bottom:10px;"><div class="slider-head" style="display:flex;justify-content:space-between;"><label style="margin:0;">スピード</label><span class="val" id="spdL" style="font-weight:800;color:var(--teal-d);">12</span></div><input type="range" id="spd" min="1" max="40" value="12" step="1" style="width:100%;"></div><div class="field" style="margin-bottom:10px;"><div class="slider-head" style="display:flex;justify-content:space-between;"><label style="margin:0;">軌道を表示</label><span class="val" id="orbitL" style="font-weight:800;color:var(--teal-d);">1</span></div><input type="range" id="orbit" min="0" max="1" value="1" step="1" style="width:100%;"></div></div>
     </div>
     <p style="text-align:center;color:var(--ink-2);font-size:13px;margin-top:14px;">内側の惑星ほど速く回ります（ケプラーの法則）。太陽の重力が強く働くためです。</p>
+<!-- sky3d:start -->
+    <div class="v3d-block" style="width:100%;margin-top:18px;">
+      <h3 style="margin:0 0 8px;font-size:15px;">🧊 3Dで見る（ドラッグで回転・上の操作と連動）</h3>
+      <div class="view3d dark" id="view3d"><div class="load">3D模型を読み込み中…</div><div class="hud" id="hud3d" style="display:none"></div></div>
+      <div class="cam-row" id="camRow3d"><button data-v="persp" class="on">ななめ上から</button><button data-v="top">北の上から（上の図と同じ向き）</button><button data-v="side">横から（軌道の面）</button></div>
+      <p class="lab-legend" style="margin-top:6px;text-align:center;color:var(--ink-2);font-size:13px;line-height:1.7;">上の図と同じ8つの惑星を、同じ角度・同じ速さ（実際の公転周期の比）で回しています。北の上から見て反時計回りが、実際の回る向きです。「本当の距離の比率」にすると、ページの表の距離（天文単位）どおりに並びかえます。惑星と太陽の大きさは見やすく誇張しています。上の「スピード」「軌道を表示」「一時停止」と連動します。</p>
+    </div>
+<!-- sky3d:end -->
     <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
     <div class="share-row"><button class="btn btn-x" id="shareBtn">𝕏 でシェア</button></div>
   </section>
@@ -146,7 +155,7 @@
       for(let i=0;i<200;i++){x.fillStyle='rgba(255,255,255,'+(Math.random()*0.4)+')';x.fillRect((i*97)%W,(i*53)%H,1,1);}
       if(+$('orbit').value>0){x.strokeStyle='rgba(255,255,255,.10)';for(const p of P){x.beginPath();x.arc(cx,cy,p[0],0,7);x.stroke();}}
       const g=x.createRadialGradient(cx,cy,2,cx,cy,26);g.addColorStop(0,'#fff3b0');g.addColorStop(1,'#f59e0b');x.fillStyle=g;x.beginPath();x.arc(cx,cy,15,0,7);x.fill();
-      for(let i=0;i<P.length;i++){const p=P[i];if(playing)ang[i]+=sp/p[3];const x0=cx+Math.cos(ang[i])*p[0],y0=cy+Math.sin(ang[i])*p[0];x.fillStyle=p[2];x.beginPath();x.arc(x0,y0,p[1],0,7);x.fill();}
+      for(let i=0;i<P.length;i++){const p=P[i];if(playing)ang[i]+=sp/p[3];const x0=cx+Math.cos(ang[i])*p[0],y0=cy-Math.sin(ang[i])*p[0];if(!window.__solar||window.__solar.P!==P)window.__solar={P:P,st:()=>({ang:ang,playing:playing})};x.fillStyle=p[2];x.beginPath();x.arc(x0,y0,p[1],0,7);x.fill();}
       requestAnimationFrame(loop);
     } loop();
 
@@ -154,6 +163,9 @@
   const sb=$('shareBtn'); if(sb) sb.addEventListener('click',()=>window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
 })();
 </script>
+<!-- sky3d-loader:start -->
+<script>(()=>{const el=document.getElementById('view3d');if(!el)return;const go=()=>import('./view3d.js?v=1').catch(()=>{const l=el.querySelector('.load');if(l)l.textContent='3D表示を読み込めませんでした';});if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>{if(es[0].isIntersecting){io.disconnect();go();}},{rootMargin:'300px'});io.observe(el);}else go();})();</script>
+<!-- sky3d-loader:end -->
 <script src="../../assets/share-counter.js?v=4"></script>
 <script>ShareCounter.initSim({ simId:'solar-system', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
 <script src="../../assets/result-fx.js?v=4"></script>
