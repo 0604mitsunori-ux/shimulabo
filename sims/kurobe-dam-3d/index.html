@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/kurobe-dam-3d/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/kurobe-dam-3d.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/kurobe-dam-3d.png">
+<title>黒部ダムの水圧 3Dシミュレーター｜水深186mで指先に何kg？｜シミュラボ</title>
+<meta name="description" content="日本一高い黒部ダム（堤高186m）の模型を3Dで回しながら、水位を変えてダムにかかる水圧を体感できる無料シミュレーター。水深ごとの水圧を指先1cm²・畳1枚あたりの重さに換算。アーチダムの仕組みも解説。">
+<meta property="og:title" content="黒部ダムの水圧 3Dシミュレーター｜水深186mで指先に何kg？">
+<meta property="og:description" content="水深186mの水圧は指先1cm²に約19kg。黒部ダムを3Dで回して水をためてみる。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+<link rel="stylesheet" href="../../assets/three/sim3d.css?v=1">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/kurobe-dam-3d/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "黒部ダムの水圧 3Dシミュレーター", "url": "https://shimulabo.com/sims/kurobe-dam-3d/", "description": "日本一高い黒部ダム（堤高186m）の模型を3Dで回しながら、水位を変えてダムにかかる水圧を体感できる無料シミュレーター。水深ごとの水圧を指先1cm²・畳1枚あたりの重さに換算。アーチダムの仕組みも解説。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "黒部ダムの水圧 3Dシミュレーター", "item": "https://shimulabo.com/sims/kurobe-dam-3d/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "黒部ダムの底にかかる水圧はどれくらい？", "acceptedAnswer": {"@type": "Answer", "text": "満水で水深が186mあるとすると、約1.82MPa、1cm²あたり約18.6kgです。指先に大人の女の子1人分ほどの重さがかかる計算です。"}}, {"@type": "Question", "name": "水圧はダムの横幅に関係ありますか？", "acceptedAnswer": {"@type": "Answer", "text": "1cm²あたりの水圧は深さだけで決まり、湖の広さや横幅には関係しません。ただしダム全体が受ける力の合計は、水に触れている面積が広いほど大きくなります。"}}, {"@type": "Question", "name": "なぜ黒部ダムはアーチの形なの？", "acceptedAnswer": {"@type": "Answer", "text": "アーチの形にすると、水が押す力を両岸の岩盤に伝えて支えられるため、重さだけで支える重力式ダムよりコンクリートを少なくできます。"}}, {"@type": "Question", "name": "大気圧は入っていますか？", "acceptedAnswer": {"@type": "Answer", "text": "入っていません。ダムの表と裏の両方に大気圧がかかるため、ダムを押す力として考えるときは水の深さの分だけを見ます。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span>ふしぎ・現象<span>›</span><span class="cur">黒部ダムの水圧 3Dシミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ふしぎ・現象 ／ 3D</div>
+    <h1>黒部ダムの水圧 3Dシミュレーター</h1>
+    <p class="lead">富山県の黒部峡谷にある、高さ186mの日本一高いダム。水位を上げ下げすると、ダムの壁を押す水の力（水圧）がどう変わるかを3Dの矢印で見られます。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🧊 3Dで見る（ドラッグで回転）</h2>
+    
+    <div class="view3d" id="view">
+      <div class="load">3D模型を読み込み中…</div>
+      <div class="hud" id="hud"></div>
+    </div>
+    <div class="cam-row" id="camRow"><button data-v="down" class="on">下流から</button><button data-v="up">湖の側から</button><button data-v="side">真横（断面）</button></div>
+    
+  </section>
+
+  <section class="panel">
+    <h2>💧 水位を変える</h2>
+    <div class="field"><div class="slider-head"><label for="lv">湖の水位（ダムの底から）</label><span class="val" id="lvL"></span></div><input type="range" id="lv" min="0" max="186" step="1" value="160"></div><div class="field"><div class="slider-head"><label for="dp">調べる深さ（水面から）</label><span class="val" id="dpL"></span></div><input type="range" id="dp" min="0" max="186" step="1" value="160"></div><p class="hint" style="margin:0">調べる深さは、水位より深くはできません（自動でそろえます）。</p>
+  </section>
+
+  <section class="panel" id="resultPanel">
+    <div class="result">
+      <div class="label" id="resLabel">その深さで、指先（1cm²）にかかる重さは</div>
+      <div class="big"><span id="big">—</span><span class="unit" id="bigUnit">kg</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">水圧</div><div class="v" id="sP">—</div></div><div class="stat"><div class="k">畳1枚（約1.62m²）に</div><div class="v" id="sTatami">—</div></div><div class="stat"><div class="k">大気圧の何倍</div><div class="v accent" id="sAtm">—</div></div></div>
+      <div class="note" id="resNote" style="margin-top:14px;text-align:left;"></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="yt-box"><span style="font-size:30px">🎬</span><div class="t"><b>3Dで解説した動画</b><br>ダムが下流へ傾いている理由や、両端のウイングダムの役目を3Dのまま解説しています。<br><a href="https://www.youtube.com/watch?v=mxV57X8kb0g" target="_blank" rel="noopener">YouTube「インフラ解剖室」第3話 黒部ダム →</a></div></div>
+
+  <article class="article">
+    <h2>この計算について</h2>
+    <p>水の中の圧力（水圧）は、水面からの深さに比例して大きくなります。水1m³の重さは約1トンなので、深さ1mごとに1cm²あたり約0.1kgずつ増えます。このページでは<b>水圧＝深さ×9.81kN/m³</b>（真水）で計算し、1cm²あたりのkgと、畳1枚（約1.62m²）あたりのトンに換算しています。大気圧（約1気圧）は足していません。</p>
+    <div class="tbl-scroll"><table class="seo-table"><tr><th>黒部ダムの数字</th><th>値</th></tr>
+    <tr><td>堤高（ダムの高さ）</td><td>186m（日本で最も高い）</td></tr>
+    <tr><td>堤頂長（てっぺんの長さ）</td><td>492m</td></tr>
+    <tr><td>総貯水容量</td><td>約1億9,928万m³（東京ドーム約160杯分）</td></tr>
+    <tr><td>水深186mの水圧</td><td>約1.82MPa＝1cm²あたり約18.6kg</td></tr></table></div>
+    <h2>アーチダムは水圧を両側の岩に逃がす</h2>
+    <p>黒部ダムは、上流側にふくらんだ弓の形をした<b>アーチダム</b>です。湖の水が押す力を、アーチの形で両岸の岩盤へ流して支えます。黒部ダムはさらにアーチを下流へ傾け、水圧の一部を下向きの力に変えてダムの下の岩盤にも支えさせています。両岸の上部には良い岩盤がなかったため、重さで支える<b>ウイングダム</b>を両端に置いています。</p>
+    <h2>深いほど壁が厚い理由</h2>
+    <p>水圧は深いところほど大きいので、ダムの壁は下へ行くほど厚く作られます。3Dの青い矢印の長さが、深さごとの水圧の大きさです。水位を下げると、底の矢印も短くなるのが分かります。</p>
+    <h2>引用・転載について</h2>
+    <p>本ページの計算結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・授業資料への引用を歓迎します。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「黒部ダムの水圧 3Dシミュレーター」 https://shimulabo.com/sims/kurobe-dam-3d/</code><br>数字の出典：黒部ダムの諸元は関西電力・黒部ダムオフィシャルサイトなどの公表値（動画「インフラ解剖室」第3話の事実メモ）。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>黒部ダムの底にかかる水圧はどれくらい？</dt><dd>満水で水深が186mあるとすると、約1.82MPa、1cm²あたり約18.6kgです。指先に大人の女の子1人分ほどの重さがかかる計算です。</dd><dt>水圧はダムの横幅に関係ありますか？</dt><dd>1cm²あたりの水圧は深さだけで決まり、湖の広さや横幅には関係しません。ただしダム全体が受ける力の合計は、水に触れている面積が広いほど大きくなります。</dd><dt>なぜ黒部ダムはアーチの形なの？</dt><dd>アーチの形にすると、水が押す力を両岸の岩盤に伝えて支えられるため、重さだけで支える重力式ダムよりコンクリートを少なくできます。</dd><dt>大気圧は入っていますか？</dt><dd>入っていません。ダムの表と裏の両方に大気圧がかかるため、ダムを押す力として考えるときは水の深さの分だけを見ます。</dd></dl>
+  </article>
+
+  <section class="series3d" aria-label="3Dシリーズ">
+    <h2>🧊 3Dで触れるシリーズ</h2>
+    <div class="related-grid"><a class="related-card" href="../gaikaku-housuiro/"><span class="e">🌊</span><span>地下神殿 3D水位</span></a><a class="related-card" href="../shinkai-suiatsu-3d/"><span class="e">🌌</span><span>深海の水圧 3D</span></a><a class="related-card" href="../bunshi-katachi-3d/"><span class="e">⚛️</span><span>分子の形 3D</span></a><a class="related-card" href="../tenkaizu-3d/"><span class="e">📦</span><span>立体の展開図 3D</span></a><a class="related-card" href="../chikyu-hiruyoru-3d/"><span class="e">🌍</span><span>昼と夜の地球 3D</span></a><a class="related-card" href="../jishin-chikyu-3d/"><span class="e">🌐</span><span>世界の地震 3D</span></a><a class="related-card" href="../takasa-kurabe-3d/"><span class="e">🗼</span><span>高さ比べ 3D</span></a><a class="related-card" href="../shinsui-fukasa-3d/"><span class="e">🏠</span><span>浸水の深さ 3D</span></a><a class="related-card" href="../tsuki-kyori-3d/"><span class="e">🌕</span><span>地球と月の距離 3D</span></a><a class="related-card" href="../satsutaba-3d/"><span class="e">💴</span><span>札束 3D</span></a></div>
+  </section>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../gaikaku-housuiro/"><span class="e">🌊</span><span>地下神殿 3D水位</span></a><a class="related-card" href="../suiatsu-fuyuu/"><span class="e">💧</span><span>水圧と浮力</span></a><a class="related-card" href="../shinkai-suiatsu-3d/"><span class="e">🌌</span><span>深海の水圧 3D</span></a><a class="related-card" href="../kaibatsu-check/"><span class="e">⛰️</span><span>うちの海抜チェッカー</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+window.SHARE = '';
+document.getElementById('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(window.SHARE) + '&url=' + encodeURIComponent(location.href) + '&hashtags=' + encodeURIComponent('シミュラボ'), '_blank', 'noopener'));
+document.getElementById('copyBtn').addEventListener('click', async () => { const b = document.getElementById('copyBtn'); try { await navigator.clipboard.writeText(window.SHARE + '\n' + location.href); b.textContent = 'コピーしました ✓'; setTimeout(() => b.textContent = '結果をコピー', 1600); } catch { alert(window.SHARE); } });
+</script>
+<script type="module">
+import { THREE, createView, mat, water, animNum } from '../../assets/three/sim3d.js';
+const $ = id => document.getElementById(id);
+// 単位は m。z＋が湖（上流）。アーチの中心は下流側 (0,0,-200)、半径300〜318m
+const RC = 200, R1 = 300, R2 = 318, TH = 0.66, HDAM = 186;
+const v = createView($('view'), {
+  views: { down: { tgt: [0, 90, 60], dist: 820, th: Math.PI - 0.15, ph: 0.3 }, up: { tgt: [0, 90, 60], dist: 900, th: 0.3, ph: 0.4 }, side: { tgt: [0, 90, 60], dist: 560, th: Math.PI / 2, ph: 0.05 } },
+  camRow: '#camRow', far: 8000, fog: [1800, 4200], minDist: 120, maxDist: 3000,
+});
+const { scene, sun } = v;
+sun.position.set(-400, 700, -300); sun.shadow.camera.left = -700; sun.shadow.camera.right = 700; sun.shadow.camera.top = 700; sun.shadow.camera.bottom = -700; sun.shadow.camera.far = 3000;
+// 谷（V字の岩壁と谷底）を断面の形で押し出す
+const rock = mat(0x9c9486, { roughness: 1, flatShading: true }), rock2 = mat(0x8a8275, { roughness: 1, flatShading: true });
+function wall(sign) {
+  const s = new THREE.Shape();
+  const P = [[30, -10], [200, 215], [900, 260], [900, -10]];
+  P.forEach(([x, y], i) => i ? s.lineTo(sign * x, y) : s.moveTo(sign * x, y));
+  const g = new THREE.ExtrudeGeometry(s, { depth: 2200, bevelEnabled: false });
+  const m = new THREE.Mesh(g, sign > 0 ? rock : rock2); m.position.z = -900; m.castShadow = m.receiveShadow = true; scene.add(m);
+  return m;
+}
+const wR = wall(1), wL = wall(-1);
+// カメラが横（岩の中）に入るときは、谷の真ん中で切った断面を見せる
+const cutR = new THREE.Plane(new THREE.Vector3(-1, 0, 0), -6), cutL = new THREE.Plane(new THREE.Vector3(1, 0, 0), -6);
+v.onFrame(() => { const c = v.camera.position; v.renderer.clippingPlanes = (c.x > 150 && c.y < 300) ? [cutR] : (c.x < -150 && c.y < 300) ? [cutL] : []; });
+const floor = new THREE.Mesh(new THREE.BoxGeometry(1800, 20, 2200), rock2); floor.position.set(0, -20, 200); floor.receiveShadow = true; scene.add(floor);
+// 下流の川
+const river = new THREE.Mesh(new THREE.BoxGeometry(50, 2, 900), water(0.7, 0x5a9fd6)); river.position.set(0, -8, -650); scene.add(river);
+// アーチダム（輪の一部を押し出す）。下へ行くほど厚い
+function arch(r1, r2, t0, t1) {
+  const s = new THREE.Shape(); const n = 48;
+  for (let i = 0; i <= n; i++) { const a = t0 + (t1 - t0) * i / n; const x = r2 * Math.sin(a), z = r2 * Math.cos(a) - RC; i ? s.lineTo(x, z) : s.moveTo(x, z); }
+  for (let i = n; i >= 0; i--) { const a = t0 + (t1 - t0) * i / n; s.lineTo(r1 * Math.sin(a), r1 * Math.cos(a) - RC); }
+  return s;
+}
+const concrete = mat(0xdcd8cf, { roughness: 0.9 });
+const dam = new THREE.Group(); scene.add(dam);
+for (let k = 0; k < 6; k++) {   // 6段で厚さを変える
+  const y0 = HDAM * k / 6, y1 = HDAM * (k + 1) / 6, th = 40 - 30 * (k / 5);
+  const g = new THREE.ExtrudeGeometry(arch(R2 - th, R2, -TH - 0.3, TH + 0.3), { depth: y1 - y0, bevelEnabled: false });
+  g.rotateX(Math.PI / 2); g.translate(0, y1, 0);
+  const m = new THREE.Mesh(g, concrete); m.castShadow = m.receiveShadow = true; dam.add(m);
+}
+// 湖（アーチの外側から上流へ）
+const ws = new THREE.Shape(); { const n = 48;
+  for (let i = 0; i <= n; i++) { const a = -TH - 0.3 + (2 * TH + 0.6) * i / n; const x = R2 * Math.sin(a), z = R2 * Math.cos(a) - RC; i ? ws.lineTo(x, z) : ws.moveTo(x, z); }
+  ws.lineTo(900, 1300); ws.lineTo(-900, 1300); }
+const wg = new THREE.ExtrudeGeometry(ws, { depth: 1, bevelEnabled: false }); wg.rotateX(Math.PI / 2); wg.translate(0, 1, 0);
+const lake = new THREE.Mesh(wg, water(0.62, 0x3f86c8)); scene.add(lake);
+// 水圧の矢印（アーチの頂点の上流側の面、深さに比例）
+const arrows = [];
+const aMat = new THREE.MeshStandardMaterial({ color: 0x1f6fc2, emissive: 0x1f6fc2, emissiveIntensity: 0.35 });
+for (let i = 0; i < 9; i++) {
+  const g = new THREE.Group();
+  const shaft = new THREE.Mesh(new THREE.CylinderGeometry(2.6, 2.6, 1, 12), aMat); shaft.rotation.x = Math.PI / 2; g.add(shaft);
+  const head = new THREE.Mesh(new THREE.ConeGeometry(7, 16, 16), aMat); head.rotation.x = -Math.PI / 2; g.add(head);
+  scene.add(g); arrows.push({ g, shaft, head });
+}
+const probe = new THREE.Mesh(new THREE.SphereGeometry(7, 20, 14), new THREE.MeshStandardMaterial({ color: 0xd6352b, emissive: 0xd6352b, emissiveIntensity: 0.3 })); scene.add(probe);
+const zFace = R2 - RC + 4;
+v.label('黒部ダム（堤高186m）', [0, HDAM + 20, zFace - 30], { accent: true });
+const lbLake = v.label('黒部湖', [-120, 160, 600]);
+const lbProbe = v.label('', [0, 0, 0]);
+
+function lab() { $('lvL').textContent = $('lv').value + ' m'; $('dpL').textContent = $('dp').value + ' m'; }
+function update() {
+  let lv = +$('lv').value, dp = +$('dp').value;
+  if (dp > lv) { dp = lv; $('dp').value = dp; }
+  lab();
+  lake.scale.y = Math.max(0.01, lv); lake.visible = lv > 0.5;
+  lbLake.at(-120, lv + 10, 600);
+  arrows.forEach((a, i) => {
+    const y = lv * (i + 0.5) / arrows.length, d = lv - y, L = Math.max(0.01, d * 0.9);
+    a.g.visible = lv > 2; a.shaft.scale.y = L; a.shaft.position.z = L / 2 + 14; a.head.position.z = 6;
+    a.g.position.set(-14, y, zFace);
+  });
+  probe.position.set(-14, lv - dp, zFace + 8); probe.visible = lv > 0;
+  lbProbe.at(-14, lv - dp, zFace + 8); lbProbe.set('深さ ' + dp + 'm');
+  const kgcm = dp * 0.1, mpa = dp * 9.81 / 1000;
+  animNum($('big'), +($('big').textContent) || 0, kgcm, 400, 1);
+  $('sub').textContent = '水位 ' + lv + 'm の湖で、水面から ' + dp + 'm の深さ';
+  $('sP').textContent = mpa.toFixed(2) + ' MPa';
+  $('sTatami').textContent = '約 ' + Math.round(kgcm * 16200 / 1000).toLocaleString() + ' トン';
+  $('sAtm').textContent = '約 ' + (mpa / 0.101325).toFixed(1) + ' 倍';
+  $('hud').innerHTML = '水位 <b>' + lv + '</b> m<br>底の水圧 <b>' + (lv * 0.1).toFixed(1) + '</b> kg/cm²';
+  $('resNote').innerHTML = dp >= 150 ? '<strong>深さ' + dp + 'mでは、指先に約' + Math.round(kgcm) + 'kg。</strong><br>小学生1人分ほどの重さが、指先の面積だけにかかっている計算です。ダムの下ほど壁が厚いのはこのためです。'
+    : dp >= 50 ? '<strong>深さ' + dp + 'mで、1cm²あたり約' + kgcm.toFixed(1) + 'kg。</strong><br>深さが2倍になると、水圧も2倍になります。'
+    : '<strong>浅いところの水圧はまだ小さめ。</strong><br>スライダーで深くすると、矢印の長さ（水圧）がまっすぐ比例して伸びます。';
+  window.SHARE = '黒部ダムの水深' + dp + 'mの水圧は、指先1cm²に約' + kgcm.toFixed(1) + 'kg🏞️\n3Dでダムに水をためて試せる👇';
+}
+$('lv').addEventListener('input', update); $('dp').addEventListener('input', update);
+update();
+
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'kurobe-dam-3d', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/result-fx.js?v=4"></script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

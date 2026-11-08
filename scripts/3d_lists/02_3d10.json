@@ -1,0 +1,112 @@
+[
+ {
+  "slug": "kurobe-dam-3d",
+  "emoji": "🏞️",
+  "title": "黒部ダムの水圧 3Dシミュレーター",
+  "desc": "日本一高い黒部ダムに水をためて、深さごとの水圧を3Dの矢印で見る。",
+  "cat": "wonder",
+  "catname": "ふしぎ・現象",
+  "score": 65,
+  "ogp_title": "黒部ダムの水圧 3Dシミュレーター",
+  "ogp_cat": "3D・ふしぎ・現象"
+ },
+ {
+  "slug": "shinkai-suiatsu-3d",
+  "emoji": "🌌",
+  "title": "深海の水圧 3Dシミュレーター",
+  "desc": "深さ1万mで指先に約1トン。潜るほど風船が縮むのを3Dで見る。",
+  "cat": "wonder",
+  "catname": "ふしぎ・現象",
+  "score": 65,
+  "ogp_title": "深海の水圧 3Dシミュレーター",
+  "ogp_cat": "3D・ふしぎ・現象"
+ },
+ {
+  "slug": "bunshi-katachi-3d",
+  "emoji": "⚛️",
+  "title": "分子の形 3Dビューア",
+  "desc": "水・アンモニア・メタンの形と結合角を3Dでくるくる回して見る。",
+  "cat": "rika",
+  "catname": "理科の授業向け",
+  "score": 65,
+  "ogp_title": "分子の形 3Dビューア",
+  "ogp_cat": "3D・理科の授業向け"
+ },
+ {
+  "slug": "tenkaizu-3d",
+  "emoji": "📦",
+  "title": "立体の展開図 3Dシミュレーター",
+  "desc": "展開図がパタパタ組み立つ。円すいの中心角も表面積も体積も一発。",
+  "cat": "rika",
+  "catname": "理科の授業向け",
+  "score": 65,
+  "ogp_title": "立体の展開図 3Dシミュレーター",
+  "ogp_cat": "3D・理科の授業向け"
+ },
+ {
+  "slug": "chikyu-hiruyoru-3d",
+  "emoji": "🌍",
+  "title": "昼と夜の地球 3D（いまの太陽）",
+  "desc": "いま地球のどこが昼？日付を動かすと白夜も極夜も見える3D地球儀。",
+  "cat": "wonder",
+  "catname": "ふしぎ・現象",
+  "score": 65,
+  "ogp_title": "昼と夜の地球 3D",
+  "ogp_cat": "3D・ふしぎ・現象"
+ },
+ {
+  "slug": "jishin-chikyu-3d",
+  "emoji": "🌐",
+  "title": "世界の地震 3D（地球の中の震源）",
+  "desc": "最新の地震を地球を透かして3Dで。日本の下に沈むプレートが見える。",
+  "cat": "wonder",
+  "catname": "ふしぎ・現象",
+  "score": 65,
+  "ogp_title": "世界の地震 3D",
+  "ogp_cat": "3D・ふしぎ・現象"
+ },
+ {
+  "slug": "takasa-kurabe-3d",
+  "emoji": "🗼",
+  "title": "高さ比べ 3D（スカイツリー・東京タワー・世界の塔）",
+  "desc": "スカイツリー・東京タワー・世界の塔を3Dで並べて高さ比べ。",
+  "cat": "wonder",
+  "catname": "ふしぎ・現象",
+  "score": 65,
+  "ogp_title": "高さ比べ 3D",
+  "ogp_cat": "3D・ふしぎ・現象"
+ },
+ {
+  "slug": "shinsui-fukasa-3d",
+  "emoji": "🏠",
+  "title": "浸水の深さ 3Dシミュレーター",
+  "desc": "ハザードマップの浸水3mは家のどこまで？3Dの家に水を入れて確かめる。",
+  "cat": "home",
+  "catname": "住まい・暮らし",
+  "score": 65,
+  "ogp_title": "浸水の深さ 3Dシミュレーター",
+  "ogp_cat": "3D・住まい・暮らし"
+ },
+ {
+  "slug": "tsuki-kyori-3d",
+  "emoji": "🌕",
+  "title": "地球と月の本当の距離 3D",
+  "desc": "地球と月の間に地球が30個。惑星を全部並べても入る本当の距離。",
+  "cat": "wonder",
+  "catname": "ふしぎ・現象",
+  "score": 65,
+  "ogp_title": "地球と月の本当の距離 3D",
+  "ogp_cat": "3D・ふしぎ・現象"
+ },
+ {
+  "slug": "satsutaba-3d",
+  "emoji": "💴",
+  "title": "札束 3Dシミュレーター（1億円は何kg？）",
+  "desc": "1億円は約10kg。金額を入れると1万円札の札束が3Dで積み上がる。",
+  "cat": "money",
+  "catname": "お金・時間",
+  "score": 65,
+  "ogp_title": "札束 3Dシミュレーター",
+  "ogp_cat": "3D・お金・時間"
+ }
+]

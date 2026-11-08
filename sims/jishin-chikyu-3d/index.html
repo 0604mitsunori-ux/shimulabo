@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/jishin-chikyu-3d/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/jishin-chikyu-3d.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/jishin-chikyu-3d.png">
+<title>世界の地震 3D｜直近の地震を地球の中の深さで見る（USGSライブデータ）｜シミュラボ</title>
+<meta name="description" content="アメリカ地質調査所（USGS）の最新データから、世界で起きたマグニチュード4.5以上の地震を、地球の中の震源の深さまで3Dで表示する無料シミュレーター。日本の下に沈み込むプレートに沿って並ぶ深い地震も見える。">
+<meta property="og:title" content="世界の地震 3D｜直近の地震を地球の中の深さで見る（USGSライブデータ）">
+<meta property="og:description" content="地震は地球の中のどこで起きている？最新の震源を3Dの地球で透かして見る。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+<link rel="stylesheet" href="../../assets/three/sim3d.css?v=1">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/jishin-chikyu-3d/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "世界の地震 3D（地球の中の震源）", "url": "https://shimulabo.com/sims/jishin-chikyu-3d/", "description": "アメリカ地質調査所（USGS）の最新データから、世界で起きたマグニチュード4.5以上の地震を、地球の中の震源の深さまで3Dで表示する無料シミュレーター。日本の下に沈み込むプレートに沿って並ぶ深い地震も見える。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "世界の地震 3D（地球の中の震源）", "item": "https://shimulabo.com/sims/jishin-chikyu-3d/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "データはいつのものですか？", "acceptedAnswer": {"@type": "Answer", "text": "ページを開いたときに、USGSの最新の一覧を読み込みます。この1週間・この30日のどちらかを選べます。"}}, {"@type": "Question", "name": "小さい地震は出ませんか？", "acceptedAnswer": {"@type": "Answer", "text": "世界中の地震を見やすくするため、マグニチュード4.5以上だけを表示しています。"}}, {"@type": "Question", "name": "いちばん深い地震はどれくらいの深さ？", "acceptedAnswer": {"@type": "Answer", "text": "これまでに観測された地震は、深くても約700kmまでです。それより深いところでは岩石がやわらかくなり、地震が起きないと考えられています。"}}, {"@type": "Question", "name": "日本の地震情報として使えますか？", "acceptedAnswer": {"@type": "Answer", "text": "このページは地球全体の傾向を見るためのものです。日本の地震の震度や津波は気象庁の情報を確認してください。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span>ふしぎ・現象<span>›</span><span class="cur">世界の地震 3D（地球の中の震源）</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ふしぎ・現象 ／ 3D</div>
+    <h1>世界の地震 3D（地球の中の震源）</h1>
+    <p class="lead">世界で最近起きた地震の震源を、地球を透かして3Dで表示します。日本の周りでは、深い地震が斜めに並んでいるのが見えます。沈み込んでいくプレートに沿って起きている地震です。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🧊 3Dで見る（ドラッグで回転）</h2>
+    
+    <div class="view3d dark" id="view">
+      <div class="load">3D模型を読み込み中…</div>
+      <div class="hud" id="hud"></div>
+    </div>
+    <div class="cam-row" id="camRow"><button data-v="japan" class="on">日本</button><button data-v="pacific">太平洋</button><button data-v="andes">南アメリカ</button></div>
+    
+  </section>
+
+  <section class="panel">
+    <h2>🌐 表示する地震</h2>
+    <div class="pick-row" id="period"><button data-p="month" class="on">この30日</button><button data-p="week">この1週間</button></div><div class="chk-row"><label><input type="checkbox" id="ex" checked> 深さを5倍に強調する</label><label><input type="checkbox" id="clear"> 地球をもっと透かす</label></div><p class="hint" style="margin:0">データ：USGS（マグニチュード4.5以上）。点の大きさ＝マグニチュード、色＝深さ（赤：浅い→青：深い）。</p>
+  </section>
+
+  <section class="panel" id="resultPanel">
+    <div class="result">
+      <div class="label" id="resLabel">表示している地震は</div>
+      <div class="big"><span id="big">—</span><span class="unit" id="bigUnit">件</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">いちばん大きい地震</div><div class="v" id="sMax">—</div></div><div class="stat"><div class="k">いちばん深い震源</div><div class="v" id="sDeep">—</div></div><div class="stat"><div class="k">日本の周り</div><div class="v accent" id="sJp">—</div></div></div>
+      <div class="note" id="resNote" style="margin-top:14px;text-align:left;"></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <article class="article">
+    <h2>このシミュレーターについて</h2>
+    <p>アメリカ地質調査所（USGS）が公開している地震の一覧（マグニチュード4.5以上）を読み込み、震源の緯度・経度・深さの位置に点を置いています。地球の半径は約6,371kmで、多くの地震はその表面近く（深さ70kmより浅い）で起きているため、そのままでは深さの違いが見えません。「深さを5倍に強調する」を入れると、深い地震が分かりやすくなります。</p>
+    <h2>深い地震が斜めに並ぶ理由</h2>
+    <p>日本の東では、太平洋プレートが日本列島の下へ斜めに沈み込んでいます。沈み込んだプレートの中や境目で地震が起きるため、日本海側へ行くほど震源が深くなり、地球の中で<b>斜めの面</b>のように並びます。この面は、研究した人の名前から和達－ベニオフ帯と呼ばれています。南アメリカの西岸やトンガ付近でも、同じように深い地震が並ぶのが見えます。</p>
+    <div class="tbl-scroll"><table class="seo-table"><tr><th>震源の深さ</th><th>呼び方の目安</th><th>このページの色</th></tr>
+    <tr><td>0〜70km</td><td>浅発地震</td><td>赤〜オレンジ</td></tr>
+    <tr><td>70〜300km</td><td>やや深発地震</td><td>黄〜緑</td></tr>
+    <tr><td>300km〜</td><td>深発地震</td><td>青</td></tr></table></div>
+    <p class="hint">※USGSのデータは速報値を含み、あとから修正されることがあります。日本の震度や津波の情報は、気象庁の発表を確認してください。</p>
+    <h2>引用・転載について</h2>
+    <p>本ページの計算結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・授業資料への引用を歓迎します。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「世界の地震 3D（地球の中の震源）」 https://shimulabo.com/sims/jishin-chikyu-3d/</code><br>地震データ：U.S. Geological Survey（USGS）Earthquake Hazards Program。地図：Natural Earth（world-atlas）。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>データはいつのものですか？</dt><dd>ページを開いたときに、USGSの最新の一覧を読み込みます。この1週間・この30日のどちらかを選べます。</dd><dt>小さい地震は出ませんか？</dt><dd>世界中の地震を見やすくするため、マグニチュード4.5以上だけを表示しています。</dd><dt>いちばん深い地震はどれくらいの深さ？</dt><dd>これまでに観測された地震は、深くても約700kmまでです。それより深いところでは岩石がやわらかくなり、地震が起きないと考えられています。</dd><dt>日本の地震情報として使えますか？</dt><dd>このページは地球全体の傾向を見るためのものです。日本の地震の震度や津波は気象庁の情報を確認してください。</dd></dl>
+  </article>
+
+  <section class="series3d" aria-label="3Dシリーズ">
+    <h2>🧊 3Dで触れるシリーズ</h2>
+    <div class="related-grid"><a class="related-card" href="../gaikaku-housuiro/"><span class="e">🌊</span><span>地下神殿 3D水位</span></a><a class="related-card" href="../kurobe-dam-3d/"><span class="e">🏞️</span><span>黒部ダムの水圧 3D</span></a><a class="related-card" href="../shinkai-suiatsu-3d/"><span class="e">🌌</span><span>深海の水圧 3D</span></a><a class="related-card" href="../bunshi-katachi-3d/"><span class="e">⚛️</span><span>分子の形 3D</span></a><a class="related-card" href="../tenkaizu-3d/"><span class="e">📦</span><span>立体の展開図 3D</span></a><a class="related-card" href="../chikyu-hiruyoru-3d/"><span class="e">🌍</span><span>昼と夜の地球 3D</span></a><a class="related-card" href="../takasa-kurabe-3d/"><span class="e">🗼</span><span>高さ比べ 3D</span></a><a class="related-card" href="../shinsui-fukasa-3d/"><span class="e">🏠</span><span>浸水の深さ 3D</span></a><a class="related-card" href="../tsuki-kyori-3d/"><span class="e">🌕</span><span>地球と月の距離 3D</span></a><a class="related-card" href="../satsutaba-3d/"><span class="e">💴</span><span>札束 3D</span></a></div>
+  </section>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../chikyu-yure/"><span class="e">🌏</span><span>地球のゆれ（世界の地震）</span></a><a class="related-card" href="../jishin-live/"><span class="e">📡</span><span>地震ライブメーター</span></a><a class="related-card" href="../chikyu-hiruyoru-3d/"><span class="e">🌍</span><span>昼と夜の地球 3D</span></a><a class="related-card" href="../jishin-ha/"><span class="e">〰️</span><span>地震の伝わり方</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+window.SHARE = '';
+document.getElementById('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(window.SHARE) + '&url=' + encodeURIComponent(location.href) + '&hashtags=' + encodeURIComponent('シミュラボ'), '_blank', 'noopener'));
+document.getElementById('copyBtn').addEventListener('click', async () => { const b = document.getElementById('copyBtn'); try { await navigator.clipboard.writeText(window.SHARE + '\n' + location.href); b.textContent = 'コピーしました ✓'; setTimeout(() => b.textContent = '結果をコピー', 1600); } catch { alert(window.SHARE); } });
+</script>
+<script type="module">
+import { THREE, createView, earthTexture, lonlat, EARTH_ROT_Y } from '../../assets/three/sim3d.js';
+const $ = id => document.getElementById(id);
+const R = 6, DEG = Math.PI / 180, RE = 6371;
+const v = createView($('view'), {
+  views: { japan: { tgt: [0, 0, 0], dist: 19, th: 142 * DEG, ph: 30 * DEG }, pacific: { tgt: [0, 0, 0], dist: 22, th: -170 * DEG, ph: -5 * DEG }, andes: { tgt: [0, 0, 0], dist: 16, th: -70 * DEG, ph: -20 * DEG } },
+  camRow: '#camRow', bg: 0x05080f, shadows: false, occlude: 6, minDist: 7, maxDist: 60,
+});
+const { scene, sun } = v;
+v.hemi.intensity = 0.9; sun.intensity = 0.8; sun.position.set(50, 40, 60);
+const globe = new THREE.Mesh(new THREE.SphereGeometry(R, 96, 64), new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.95, transparent: true, opacity: 0.55, depthWrite: false, side: THREE.FrontSide }));
+globe.rotation.y = EARTH_ROT_Y; globe.renderOrder = 2; scene.add(globe);
+earthTexture({ sea: '#244d78', land: '#8fb36f', line: 'rgba(30,50,20,.7)' }).then(t => { globe.material.map = t; globe.material.needsUpdate = true; });
+// 核（外核の境目 約2,900km）
+const core = new THREE.Mesh(new THREE.SphereGeometry(R * (RE - 2900) / RE, 48, 32), new THREE.MeshBasicMaterial({ color: 0x7a3b1d, transparent: true, opacity: 0.25 })); scene.add(core);
+// 深さ700kmの殻（地震が起きる限界の目安）
+const shell = new THREE.Mesh(new THREE.SphereGeometry(R * (RE - 700) / RE, 64, 48), new THREE.MeshBasicMaterial({ color: 0x7fa6d6, wireframe: true, transparent: true, opacity: 0.06 })); scene.add(shell);
+const grp = new THREE.Group(); scene.add(grp);
+let DATA = [], period = 'month';
+const colOf = d => { const c = new THREE.Color(); c.setHSL(Math.max(0, Math.min(0.66, d / 650 * 0.66)), 0.9, 0.55); return c; };
+const lbls = [];
+function draw() {
+  grp.clear(); lbls.forEach(l => { l.show = false; l.el.remove(); }); lbls.length = 0;
+  const ex = $('ex').checked ? 5 : 1;
+  globe.material.opacity = $('clear').checked ? 0.25 : 0.55;
+  shell.scale.setScalar((RE - 700 * ex) / (RE - 700));
+  const geo = new THREE.SphereGeometry(1, 10, 8);
+  const inst = new THREE.InstancedMesh(geo, new THREE.MeshBasicMaterial({ color: 0xffffff }), DATA.length);
+  const m = new THREE.Matrix4(), q = new THREE.Quaternion();
+  DATA.forEach((e, i) => {
+    const r = R * Math.max(0.05, (RE - e.depth * ex) / RE), p = lonlat(e.lon, e.lat, r), s = 0.04 * Math.pow(1.5, e.mag - 4.5) + 0.045;
+    m.compose(p, q, new THREE.Vector3(s, s, s)); inst.setMatrixAt(i, m); inst.setColorAt(i, colOf(e.depth));
+  });
+  inst.instanceMatrix.needsUpdate = true; if (inst.instanceColor) inst.instanceColor.needsUpdate = true;
+  grp.add(inst);
+  const top = DATA.slice().sort((a, b) => b.mag - a.mag).slice(0, 3);
+  top.forEach(e => { const p = lonlat(e.lon, e.lat, R * Math.max(0.05, (RE - e.depth * ex) / RE)); lbls.push(v.label('M' + e.mag.toFixed(1), [p.x, p.y, p.z], { accent: true })); });
+  // 結果
+  const n = DATA.length;
+  $('big').textContent = n.toLocaleString();
+  $('sub').textContent = (period === 'week' ? 'この1週間' : 'この30日') + 'のマグニチュード4.5以上（USGS）';
+  if (!n) return;
+  const mx = top[0], dp = DATA.reduce((a, b) => b.depth > a.depth ? b : a);
+  const jp = DATA.filter(e => e.lat > 20 && e.lat < 50 && e.lon > 120 && e.lon < 155);
+  $('sMax').textContent = 'M' + mx.mag.toFixed(1) + '（' + mx.place + '）';
+  $('sDeep').textContent = Math.round(dp.depth) + 'km（' + dp.place + '）';
+  $('sJp').textContent = jp.length + ' 件';
+  const deepJp = jp.filter(e => e.depth >= 300).length;
+  $('resNote').innerHTML = '<strong>深さ300km以上の深い地震は ' + DATA.filter(e => e.depth >= 300).length + ' 件' + (deepJp ? '（うち日本の周り ' + deepJp + ' 件）' : '') + '。</strong><br>「日本」の視点で地球を少し回すと、日本海の下へ向かって震源が深くなっていく並びが見えます。沈み込む太平洋プレートに沿って起きている地震です。';
+  $('hud').innerHTML = '<span style="font-size:11.5px">● 赤：浅い → 黄・緑 → 青：深い（700km）<br>茶色の球＝核（深さ約2,900kmより下）</span>';
+  window.SHARE = (period === 'week' ? 'この1週間' : 'この30日') + '、世界でM4.5以上の地震は' + n + '件。最大はM' + mx.mag.toFixed(1) + '、最も深い震源は' + Math.round(dp.depth) + 'km🌐\n地球を透かして震源を3Dで見られる👇';
+}
+async function load() {
+  $('sub').textContent = '読み込み中…';
+  try {
+    const j = await (await fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_' + period + '.geojson')).json();
+    DATA = j.features.map(f => ({ lon: f.geometry.coordinates[0], lat: f.geometry.coordinates[1], depth: Math.max(0, f.geometry.coordinates[2] || 0), mag: f.properties.mag || 4.5, place: (f.properties.place || '').replace(/^\d+ km [NSEW]+ of /, '') }));
+  } catch (e) { DATA = []; $('sub').textContent = '⚠️ USGSのデータを取得できませんでした。時間をおいて再度お試しください。'; }
+  draw();
+}
+$('period').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; period = b.dataset.p; $('period').querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); load(); });
+$('ex').addEventListener('change', draw); $('clear').addEventListener('change', draw);
+load();
+
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'jishin-chikyu-3d', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/result-fx.js?v=4"></script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

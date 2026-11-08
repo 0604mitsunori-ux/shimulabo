@@ -12,7 +12,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 SCRIPTS = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(SCRIPTS)
 TODAY = "2026-11-08"
-GRAD = {"wonder": "linear-gradient(135deg,#eef2ff,#e0e7ff)", "rika": "linear-gradient(135deg,#ecfeff,#cffafe)"}
+GRAD = {"wonder": "linear-gradient(135deg,#eef2ff,#e0e7ff)", "rika": "linear-gradient(135deg,#ecfeff,#cffafe)", "home": "linear-gradient(135deg,#ecfdf5,#d1fae5)", "money": "linear-gradient(135deg,#fff1f2,#ffe4e6)"}
 
 NEW = json.load(io.open(sys.argv[1], encoding="utf-8"))
 for n in NEW:

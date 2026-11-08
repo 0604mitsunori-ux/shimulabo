@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/shinsui-fukasa-3d/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/shinsui-fukasa-3d.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/shinsui-fukasa-3d.png">
+<title>浸水の深さ 3Dシミュレーター｜ハザードマップの0.5m・3m・5mは家のどこまで？｜シミュラボ</title>
+<meta name="description" content="ハザードマップに書かれた浸水の深さ（0.5m・3m・5m・10m）が、2階建ての家・人・車のどこまで来るかを3Dで見られる無料シミュレーター。浸水深の色分けの意味と、避難の考え方も解説。">
+<meta property="og:title" content="浸水の深さ 3Dシミュレーター｜ハザードマップの0.5m・3m・5mは家のどこまで？">
+<meta property="og:description" content="ハザードマップの「浸水3m」って家のどこまで？3Dの家に水を入れて確かめる。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+<link rel="stylesheet" href="../../assets/three/sim3d.css?v=1">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/shinsui-fukasa-3d/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "浸水の深さ 3Dシミュレーター", "url": "https://shimulabo.com/sims/shinsui-fukasa-3d/", "description": "ハザードマップに書かれた浸水の深さ（0.5m・3m・5m・10m）が、2階建ての家・人・車のどこまで来るかを3Dで見られる無料シミュレーター。浸水深の色分けの意味と、避難の考え方も解説。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "浸水の深さ 3Dシミュレーター", "item": "https://shimulabo.com/sims/shinsui-fukasa-3d/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "浸水0.5mだとどうなりますか？", "acceptedAnswer": {"@type": "Answer", "text": "一般的な家では、床下浸水から床上浸水になり始める深さです。大人のひざくらいまでの深さで、流れがあると歩いて移動するのも危険です。"}}, {"@type": "Question", "name": "浸水3mは家のどこまでですか？", "acceptedAnswer": {"@type": "Answer", "text": "一般的な2階建ての家で、2階の床の高さくらいです。"}}, {"@type": "Question", "name": "車はどれくらいの深さで動けなくなりますか？", "acceptedAnswer": {"@type": "Answer", "text": "車の床の高さを超えると、エンジンが止まったりドアが開かなくなったりするおそれがあります。浸水している道は車で通らないでください。"}}, {"@type": "Question", "name": "自分の家の浸水想定はどこで見られますか？", "acceptedAnswer": {"@type": "Answer", "text": "国土地理院の「重ねるハザードマップ」や、お住まいの市区町村のハザードマップで確認できます。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span>住まい・暮らし<span>›</span><span class="cur">浸水の深さ 3Dシミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">住まい・暮らし ／ 3D</div>
+    <h1>浸水の深さ 3Dシミュレーター</h1>
+    <p class="lead">ハザードマップの「浸水の深さ」は、数字だけではピンと来ません。3Dの家と人のまわりに水を入れて、0.5m・3m・5mが実際にどこまで来るのかを確かめられます。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🧊 3Dで見る（ドラッグで回転）</h2>
+    
+    <div class="view3d" id="view">
+      <div class="load">3D模型を読み込み中…</div>
+      <div class="hud" id="hud"></div>
+    </div>
+    <div class="cam-row" id="camRow"><button data-v="persp" class="on">ななめから</button><button data-v="front">正面（断面）</button><button data-v="low">人の目の高さ</button></div>
+    
+  </section>
+
+  <section class="panel">
+    <h2>🌊 浸水の深さを決める</h2>
+    <div class="pick-row" id="levels"></div><div class="field"><div class="slider-head"><label for="d">浸水の深さ</label><span class="val" id="dL"></span></div><input type="range" id="d" min="0" max="12" step="0.1" value="3"></div>
+  </section>
+
+  <section class="panel" id="resultPanel">
+    <div class="result">
+      <div class="label" id="resLabel">この深さは</div>
+      <div class="big"><span id="big">—</span><span class="unit" id="bigUnit">m</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">2階建ての家だと</div><div class="v" id="sHouse">—</div></div><div class="stat"><div class="k">大人（170cm）だと</div><div class="v" id="sPerson">—</div></div><div class="stat"><div class="k">ハザードマップの色</div><div class="v accent" id="sColor">—</div></div></div>
+      <div class="note" id="resNote" style="margin-top:14px;text-align:left;"></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <article class="article">
+    <h2>浸水の深さの目安</h2>
+    <p>ハザードマップでは、想定される浸水の深さを色で塗り分けています。家の高さと比べると、次のような目安になります（家の大きさは一般的な2階建てを想定した模式です）。</p>
+    <div class="tbl-scroll"><table class="seo-table"><tr><th>浸水の深さ</th><th>家の目安</th></tr>
+    <tr><td>0.5m未満</td><td>床下浸水（大人のひざくらいまで）</td></tr>
+    <tr><td>0.5〜3m</td><td>1階が床上浸水</td></tr>
+    <tr><td>3〜5m</td><td>2階の床まで浸水</td></tr>
+    <tr><td>5〜10m</td><td>2階まで水没</td></tr>
+    <tr><td>10〜20m</td><td>3〜5階まで浸水</td></tr>
+    <tr><td>20m以上</td><td>5階より上まで浸水</td></tr></table></div>
+    <h2>3m以上なら「2階に逃げる」では足りない</h2>
+    <p>浸水が3mを超えると2階の床まで水が来るため、自宅の2階に逃げる「垂直避難」では安全とは言えません。その場合は、早めに指定された避難場所へ移動することが大切です。水が引くまで長い時間がかかる地域もあります。</p>
+    <h2>自分の家の想定を調べるには</h2>
+    <p>国土地理院の「重ねるハザードマップ」で、住所ごとの洪水・高潮・津波の想定の深さを確かめられます。<a href="../kaibatsu-check/">うちの海抜チェッカー</a>から、住所を入れてその地点のハザードマップを直接開くこともできます。</p>
+    <h2>引用・転載について</h2>
+    <p>本ページの計算結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・授業資料への引用を歓迎します。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「浸水の深さ 3Dシミュレーター」 https://shimulabo.com/sims/shinsui-fukasa-3d/</code><br>浸水の深さの区分：国土交通省「水害ハザードマップ作成の手引き」の色分けに準拠。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>浸水0.5mだとどうなりますか？</dt><dd>一般的な家では、床下浸水から床上浸水になり始める深さです。大人のひざくらいまでの深さで、流れがあると歩いて移動するのも危険です。</dd><dt>浸水3mは家のどこまでですか？</dt><dd>一般的な2階建ての家で、2階の床の高さくらいです。</dd><dt>車はどれくらいの深さで動けなくなりますか？</dt><dd>車の床の高さを超えると、エンジンが止まったりドアが開かなくなったりするおそれがあります。浸水している道は車で通らないでください。</dd><dt>自分の家の浸水想定はどこで見られますか？</dt><dd>国土地理院の「重ねるハザードマップ」や、お住まいの市区町村のハザードマップで確認できます。</dd></dl>
+  </article>
+
+  <section class="series3d" aria-label="3Dシリーズ">
+    <h2>🧊 3Dで触れるシリーズ</h2>
+    <div class="related-grid"><a class="related-card" href="../gaikaku-housuiro/"><span class="e">🌊</span><span>地下神殿 3D水位</span></a><a class="related-card" href="../kurobe-dam-3d/"><span class="e">🏞️</span><span>黒部ダムの水圧 3D</span></a><a class="related-card" href="../shinkai-suiatsu-3d/"><span class="e">🌌</span><span>深海の水圧 3D</span></a><a class="related-card" href="../bunshi-katachi-3d/"><span class="e">⚛️</span><span>分子の形 3D</span></a><a class="related-card" href="../tenkaizu-3d/"><span class="e">📦</span><span>立体の展開図 3D</span></a><a class="related-card" href="../chikyu-hiruyoru-3d/"><span class="e">🌍</span><span>昼と夜の地球 3D</span></a><a class="related-card" href="../jishin-chikyu-3d/"><span class="e">🌐</span><span>世界の地震 3D</span></a><a class="related-card" href="../takasa-kurabe-3d/"><span class="e">🗼</span><span>高さ比べ 3D</span></a><a class="related-card" href="../tsuki-kyori-3d/"><span class="e">🌕</span><span>地球と月の距離 3D</span></a><a class="related-card" href="../satsutaba-3d/"><span class="e">💴</span><span>札束 3D</span></a></div>
+  </section>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../kaibatsu-check/"><span class="e">⛰️</span><span>うちの海抜チェッカー</span></a><a class="related-card" href="../gaikaku-housuiro/"><span class="e">🌊</span><span>地下神殿 3D水位</span></a><a class="related-card" href="../amagumo-now/"><span class="e">🌧️</span><span>いまの雨雲マップ</span></a><a class="related-card" href="../kasa-iru/"><span class="e">☂️</span><span>今日、傘いる？</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+window.SHARE = '';
+document.getElementById('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(window.SHARE) + '&url=' + encodeURIComponent(location.href) + '&hashtags=' + encodeURIComponent('シミュラボ'), '_blank', 'noopener'));
+document.getElementById('copyBtn').addEventListener('click', async () => { const b = document.getElementById('copyBtn'); try { await navigator.clipboard.writeText(window.SHARE + '\n' + location.href); b.textContent = 'コピーしました ✓'; setTimeout(() => b.textContent = '結果をコピー', 1600); } catch { alert(window.SHARE); } });
+</script>
+<script type="module">
+import { THREE, createView, mat, water } from '../../assets/three/sim3d.js';
+const $ = id => document.getElementById(id);
+const v = createView($('view'), {
+  views: { persp: { tgt: [2, 4, 0], dist: 46, th: 0.55, ph: 0.25 }, front: { tgt: [2, 5, 0], dist: 42, th: 0, ph: 0.02 }, low: { tgt: [2, 3, 0], dist: 22, th: 0.35, ph: 0.02 } },
+  camRow: '#camRow', bg: 0xe3ebf1, minDist: 6, maxDist: 160,
+});
+const { scene, sun } = v;
+sun.position.set(-30, 50, 40); Object.assign(sun.shadow.camera, { left: -40, right: 40, top: 40, bottom: -40 }); sun.shadow.camera.updateProjectionMatrix();
+const ground = new THREE.Mesh(new THREE.PlaneGeometry(200, 200), mat(0xc5ccb6, { roughness: 1 })); ground.rotation.x = -Math.PI / 2; ground.receiveShadow = true; scene.add(ground);
+const road = new THREE.Mesh(new THREE.PlaneGeometry(200, 6), mat(0x9a9a96, { roughness: 1 })); road.rotation.x = -Math.PI / 2; road.position.set(0, 0.01, 9); road.receiveShadow = true; scene.add(road);
+const box = (w, h, d, m, x, y, z, p = scene) => { const o = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), m); o.position.set(x, y, z); o.castShadow = o.receiveShadow = true; p.add(o); return o; };
+// 2階建ての家（手前の壁を外した断面の模型。床の高さ：1階0.5m・2階3m）
+const wall = mat(0xf2ede2), floorM = mat(0xc89b6a), roofM = mat(0x5b6670), inner = mat(0xe9e2d2);
+const HX = -4;
+box(9, 0.5, 8, mat(0xb9b2a3), HX, 0.25, 0);          // 基礎
+box(9, 0.15, 8, floorM, HX, 0.55, 0);                // 1階の床
+box(9, 0.3, 8, floorM, HX, 3.0, 0);                  // 2階の床
+box(9, 5.5, 0.2, wall, HX, 2.75 + 0.5, -4);           // 奥の壁
+box(0.2, 5.5, 8, wall, HX - 4.5, 3.25, 0); box(0.2, 5.5, 8, wall, HX + 4.5, 3.25, 0);
+box(9, 0.2, 8, inner, HX, 6.0, 0);                   // 天井
+const roof = new THREE.Mesh(new THREE.CylinderGeometry(0.01, 6.6, 2.2, 4, 1), roofM); roof.rotation.y = Math.PI / 4; roof.scale.set(1, 1, 0.9); roof.position.set(HX, 7.2, 0); roof.castShadow = true; scene.add(roof);
+// 家具（目安）
+box(2, 0.8, 0.9, mat(0x8a6b4f), HX - 2, 1.0, -2.5); box(1.2, 1.8, 0.6, mat(0x8a6b4f), HX + 2.5, 1.5, -3.4);
+box(2, 0.5, 1.4, mat(0x9fb6d0), HX - 1.5, 3.4, -2.5);
+// 人（170cm）と車
+const person = new THREE.Group(); scene.add(person); person.position.set(4, 0, 5);
+box(0.45, 1.25, 0.3, mat(0x2f7fc8), 0, 0.62, 0, person); const head = new THREE.Mesh(new THREE.SphereGeometry(0.2, 16, 12), mat(0xf1c9a5)); head.position.y = 1.5; head.castShadow = true; person.add(head);
+const car = new THREE.Group(); scene.add(car); car.position.set(9, 0, 9);
+box(4.5, 0.9, 1.75, mat(0xd6352b), 0, 0.65, 0, car); box(2.4, 0.6, 1.6, mat(0x3a4450), -0.2, 1.4, 0, car);
+[[-1.5, 0.85], [1.5, 0.85], [-1.5, -0.85], [1.5, -0.85]].forEach(([x, z]) => { const w = new THREE.Mesh(new THREE.CylinderGeometry(0.33, 0.33, 0.2, 16), mat(0x222222)); w.rotation.x = Math.PI / 2; w.position.set(x, 0.33, z); car.add(w); });
+// 5階建てのマンション（1階＝約3m）
+for (let f = 0; f < 6; f++) box(7, f === 5 ? 0.4 : 0.3, 7, mat(0xcfd4d8), 14, 3 * f + 0.15, -5);
+for (let f = 0; f < 5; f++) box(7, 2.7, 0.2, mat(0xe6e9ec), 14, 3 * f + 1.65, -8.4);
+box(0.2, 15, 7, mat(0xe6e9ec), 10.5, 7.5, -5); box(0.2, 15, 7, mat(0xe6e9ec), 17.5, 7.5, -5);
+// 目盛りの柱
+for (let m = 0; m <= 20; m++) { const t = box(0.12, 0.02, 0.6, mat(m % 5 ? 0x7d8590 : 0x22262b), -17, m, 6); }
+box(0.08, 20, 0.08, mat(0x22262b), -17, 10, 6);
+[0.5, 3, 5, 10, 20].forEach(m => v.label(m + 'm', [-17, m, 6], { sub: m === 20 }));
+v.label('1階の床 0.5m', [HX + 3, 0.6, 4], { sub: true }); v.label('2階の床 3m', [HX + 3, 3.1, 4]);
+v.label('5階建て（1階＝約3m）', [14, 15.5, -5], { sub: true });
+// 水
+const W = new THREE.Mesh(new THREE.BoxGeometry(80, 1, 60), water(0.5, 0x4f7fb0)); W.position.y = 0.5; scene.add(W);
+const lb = v.label('', [0, 0, 12], { accent: true });
+const BANDS = [[0.5, '0.5m未満', '黄色', '#f7f5a9'], [3, '0.5〜3m', 'うすいピンク', '#ffd8c0'], [5, '3〜5m', 'ピンク', '#ffb7b7'], [10, '5〜10m', '濃いピンク', '#ff9191'], [20, '10〜20m', '赤紫', '#f285c9'], [1e9, '20m以上', '紫', '#dc7adc']];
+$('levels').innerHTML = [[0.5, '0.5m'], [1, '1m'], [3, '3m'], [5, '5m'], [10, '10m']].map(([d, t]) => '<button data-d="' + d + '">' + t + '</button>').join('');
+function update() {
+  const d = +$('d').value;
+  $('dL').textContent = d.toFixed(1) + ' m';
+  W.scale.y = Math.max(0.001, d); W.position.y = d / 2; W.visible = d > 0.01;
+  lb.at(0, d + 0.2, 12); lb.set('浸水 ' + d.toFixed(1) + 'm');
+  const b = BANDS.find(x => d < x[0]);
+  $('big').textContent = d.toFixed(1);
+  $('sub').textContent = 'ハザードマップの区分：' + b[1];
+  $('sHouse').textContent = d < 0.5 ? '床下浸水' : d < 3 ? '1階が床上浸水' : d < 5 ? '2階の床まで' : d < 7.5 ? '2階まで水没' : '屋根までのみこまれる';
+  $('sPerson').textContent = d < 0.5 ? 'ひざより下' : d < 1.0 ? '腰のあたり' : d < 1.4 ? '胸のあたり' : d < 1.7 ? '首のあたり' : '頭の上まで';
+  $('sColor').innerHTML = '<span style="display:inline-block;width:14px;height:14px;border:1px solid #aaa;vertical-align:-2px;background:' + b[3] + '"></span> ' + b[2];
+  $('hud').innerHTML = '浸水 <b>' + d.toFixed(1) + '</b> m<br><span style="font-size:11.5px">' + b[1] + '（' + b[2] + '）</span>';
+  $('resNote').innerHTML = d >= 5 ? '<strong>2階建ての家は2階まで水につかる深さ。</strong><br>自宅の2階へ逃げても安全ではありません。浸水が始まる前に、指定された避難場所や、もっと高い建物へ移動することが必要です。'
+    : d >= 3 ? '<strong>2階の床まで水が来る深さ。</strong><br>「2階へ逃げる」では足りないことがあります。早めの避難を考えておきましょう。'
+    : d >= 0.5 ? '<strong>1階が床上浸水する深さ。</strong><br>流れがあると大人でも歩いて逃げるのは危険です。車は浸水した道を走らないでください。'
+    : '<strong>床下浸水の深さ。</strong><br>浅く見えても、水の流れや見えない側溝で足を取られることがあります。';
+  window.SHARE = 'ハザードマップの「浸水' + d.toFixed(1) + 'm」は、2階建ての家だと「' + $('sHouse').textContent + '」🏠\n3Dの家に水を入れて確かめられる👇';
+}
+$('d').addEventListener('input', update);
+$('levels').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; $('d').value = b.dataset.d; update(); });
+update();
+
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'shinsui-fukasa-3d', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/result-fx.js?v=4"></script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

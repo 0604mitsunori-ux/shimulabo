@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/shinkai-suiatsu-3d/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/shinkai-suiatsu-3d.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/shinkai-suiatsu-3d.png">
+<title>深海の水圧 3Dシミュレーター｜深さ1万mで指先に1トン？風船はどこまで縮む｜シミュラボ</title>
+<meta name="description" content="深さを0mからマリアナ海溝の約10,900mまで動かすと、水圧（気圧）・指先1cm²にかかる重さ・風船の縮み方が3Dで分かる無料シミュレーター。タイタニック号（3,840m）やしんかい6500の深さも比較。">
+<meta property="og:title" content="深海の水圧 3Dシミュレーター｜深さ1万mで指先に1トン？風船はどこまで縮む">
+<meta property="og:description" content="深海1万mの水圧は、指先1cm²に約1トン。3Dで潜って、風船が縮むのを見てみる。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+<link rel="stylesheet" href="../../assets/three/sim3d.css?v=1">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/shinkai-suiatsu-3d/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "深海の水圧 3Dシミュレーター", "url": "https://shimulabo.com/sims/shinkai-suiatsu-3d/", "description": "深さを0mからマリアナ海溝の約10,900mまで動かすと、水圧（気圧）・指先1cm²にかかる重さ・風船の縮み方が3Dで分かる無料シミュレーター。タイタニック号（3,840m）やしんかい6500の深さも比較。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "深海の水圧 3Dシミュレーター", "item": "https://shimulabo.com/sims/shinkai-suiatsu-3d/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "深さ1万mの水圧はどれくらい？", "acceptedAnswer": {"@type": "Answer", "text": "約1,000気圧で、指先1cm²に約1トン（軽自動車くらいの重さ）がかかる計算です。"}}, {"@type": "Question", "name": "なぜ10mで1気圧増えるの？", "acceptedAnswer": {"@type": "Answer", "text": "1cm²の上に高さ10mの水の柱が乗ると、その重さが約1kgになり、これが地上の空気の重さ（1気圧）とほぼ同じだからです。"}}, {"@type": "Question", "name": "深海の魚はなぜつぶれないの？", "acceptedAnswer": {"@type": "Answer", "text": "体の中がほとんど水でできていて、外と同じ圧力になっているからです。つぶれやすいのは、風船や人の肺のように空気が入っている部分です。"}}, {"@type": "Question", "name": "風船の大きさは正確ですか？", "acceptedAnswer": {"@type": "Answer", "text": "温度を一定としたボイルの法則での目安です。実際の深海は水温が低いので、風船はさらに少し小さくなります。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span>ふしぎ・現象<span>›</span><span class="cur">深海の水圧 3Dシミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ふしぎ・現象 ／ 3D</div>
+    <h1>深海の水圧 3Dシミュレーター</h1>
+    <p class="lead">海は10m深くなるごとに、水圧がおよそ1気圧ずつ増えます。深さを動かして潜っていくと、空気の入った風船がどんどん縮んでいくのを3Dで見られます。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🧊 3Dで見る（ドラッグで回転）</h2>
+    
+    <div class="view3d dark" id="view">
+      <div class="load">3D模型を読み込み中…</div>
+      <div class="hud" id="hud"></div>
+    </div>
+    <div class="cam-row" id="camRow"><button data-v="follow" class="on">潜る風船を追う</button><button data-v="wide">海の全体</button></div>
+    
+  </section>
+
+  <section class="panel">
+    <h2>🌊 潜る深さを決める</h2>
+    <div class="pick-row" id="spots"></div><div class="field"><div class="slider-head"><label for="d">深さ</label><span class="val" id="dL"></span></div><input type="range" id="d" min="0" max="1000" step="1" value="380"></div><p class="hint" style="margin:0">スライダーは浅いところを細かく動かせるように、目盛りが伸びています。</p>
+  </section>
+
+  <section class="panel" id="resultPanel">
+    <div class="result">
+      <div class="label" id="resLabel">この深さの水圧は</div>
+      <div class="big"><span id="big">—</span><span class="unit" id="bigUnit">気圧</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">指先（1cm²）に</div><div class="v" id="sKg">—</div></div><div class="stat"><div class="k">風船の大きさ（体積）</div><div class="v" id="sVol">—</div></div><div class="stat"><div class="k">光</div><div class="v accent" id="sLight">—</div></div></div>
+      <div class="note" id="resNote" style="margin-top:14px;text-align:left;"></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="yt-box"><span style="font-size:30px">🎬</span><div class="t"><b>3Dで解説した動画</b><br>深さ3,346mで何が起きたのかを、潜水艇の断面の3Dで再現しています。<br><a href="https://www.youtube.com/watch?v=ofPeRuR5diU" target="_blank" rel="noopener">YouTube「事故ファイル【3D断面で再現】」第8話 タイタン潜水艇 →</a></div></div>
+
+  <article class="article">
+    <h2>この計算について</h2>
+    <p>海水の中では、深さ約10mごとに水圧がおよそ1気圧増えます。このページでは<b>水圧（気圧）＝1＋深さ÷10</b>として、水面の大気圧も含めた圧力を出しています（海水の密度や温度による違いは入れていない目安です）。1cm²あたりの重さは、1気圧＝約1kgとして換算しています。</p>
+    <p>風船の大きさは<b>ボイルの法則</b>（温度が同じなら、気体の体積は圧力に反比例する）で計算しています。10mで半分、30mで4分の1になります。</p>
+    <div class="tbl-scroll"><table class="seo-table"><tr><th>深さ</th><th>水圧の目安</th><th>どんな場所</th></tr>
+    <tr><td>10m</td><td>2気圧</td><td>風船の体積が半分に</td></tr>
+    <tr><td>約200m</td><td>約21気圧</td><td>太陽の光がほとんど届かなくなる深さ</td></tr>
+    <tr><td>3,346m</td><td>約335気圧</td><td>潜水艇タイタンが最後に位置を送った深さ</td></tr>
+    <tr><td>3,840m</td><td>約385気圧</td><td>タイタニック号が沈んでいる深さ</td></tr>
+    <tr><td>6,500m</td><td>約651気圧</td><td>有人潜水調査船「しんかい6500」が潜れる深さ</td></tr>
+    <tr><td>約10,900m</td><td>約1,091気圧</td><td>マリアナ海溝（世界で一番深い海）</td></tr></table></div>
+    <h2>深海で丸い形が使われる理由</h2>
+    <p>深い海で人が乗る耐圧殻は、ふつう<b>球</b>の形をしています。球は外からの圧力を全体で均等に受けられるからです。2023年に圧壊した潜水艇タイタンの耐圧殻は円筒形で、炭素繊維で作られていました。</p>
+    <h2>引用・転載について</h2>
+    <p>本ページの計算結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・授業資料への引用を歓迎します。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「深海の水圧 3Dシミュレーター」 https://shimulabo.com/sims/shinkai-suiatsu-3d/</code><br>深さの出典：タイタン・タイタニック号は米国沿岸警備隊の海難調査委員会報告（動画「事故ファイル」第8話の事実メモ）、しんかい6500はJAMSTECの公表値。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>深さ1万mの水圧はどれくらい？</dt><dd>約1,000気圧で、指先1cm²に約1トン（軽自動車くらいの重さ）がかかる計算です。</dd><dt>なぜ10mで1気圧増えるの？</dt><dd>1cm²の上に高さ10mの水の柱が乗ると、その重さが約1kgになり、これが地上の空気の重さ（1気圧）とほぼ同じだからです。</dd><dt>深海の魚はなぜつぶれないの？</dt><dd>体の中がほとんど水でできていて、外と同じ圧力になっているからです。つぶれやすいのは、風船や人の肺のように空気が入っている部分です。</dd><dt>風船の大きさは正確ですか？</dt><dd>温度を一定としたボイルの法則での目安です。実際の深海は水温が低いので、風船はさらに少し小さくなります。</dd></dl>
+  </article>
+
+  <section class="series3d" aria-label="3Dシリーズ">
+    <h2>🧊 3Dで触れるシリーズ</h2>
+    <div class="related-grid"><a class="related-card" href="../gaikaku-housuiro/"><span class="e">🌊</span><span>地下神殿 3D水位</span></a><a class="related-card" href="../kurobe-dam-3d/"><span class="e">🏞️</span><span>黒部ダムの水圧 3D</span></a><a class="related-card" href="../bunshi-katachi-3d/"><span class="e">⚛️</span><span>分子の形 3D</span></a><a class="related-card" href="../tenkaizu-3d/"><span class="e">📦</span><span>立体の展開図 3D</span></a><a class="related-card" href="../chikyu-hiruyoru-3d/"><span class="e">🌍</span><span>昼と夜の地球 3D</span></a><a class="related-card" href="../jishin-chikyu-3d/"><span class="e">🌐</span><span>世界の地震 3D</span></a><a class="related-card" href="../takasa-kurabe-3d/"><span class="e">🗼</span><span>高さ比べ 3D</span></a><a class="related-card" href="../shinsui-fukasa-3d/"><span class="e">🏠</span><span>浸水の深さ 3D</span></a><a class="related-card" href="../tsuki-kyori-3d/"><span class="e">🌕</span><span>地球と月の距離 3D</span></a><a class="related-card" href="../satsutaba-3d/"><span class="e">💴</span><span>札束 3D</span></a></div>
+  </section>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../kurobe-dam-3d/"><span class="e">🏞️</span><span>黒部ダムの水圧 3D</span></a><a class="related-card" href="../suiatsu-fuyuu/"><span class="e">💧</span><span>水圧と浮力</span></a><a class="related-card" href="../umi-mizuon/"><span class="e">🌡️</span><span>海の水温</span></a><a class="related-card" href="../tsuki-kyori-3d/"><span class="e">🌕</span><span>地球と月の距離 3D</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+window.SHARE = '';
+document.getElementById('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(window.SHARE) + '&url=' + encodeURIComponent(location.href) + '&hashtags=' + encodeURIComponent('シミュラボ'), '_blank', 'noopener'));
+document.getElementById('copyBtn').addEventListener('click', async () => { const b = document.getElementById('copyBtn'); try { await navigator.clipboard.writeText(window.SHARE + '\n' + location.href); b.textContent = 'コピーしました ✓'; setTimeout(() => b.textContent = '結果をコピー', 1600); } catch { alert(window.SHARE); } });
+</script>
+<script type="module">
+import { THREE, createView, mat, animNum } from '../../assets/three/sim3d.js';
+const $ = id => document.getElementById(id);
+// 深さ（m）→ 画面の高さ。浅いところを広く見せるため対数の目盛り（深さ0で y=0、1万mで約 -240）
+const Y = d => -60 * Math.log10(1 + d / 10);
+const MAXD = 10900;
+const sl2d = s => Math.round((Math.pow(10, s / 1000 * Math.log10(1 + MAXD / 10)) - 1) * 10); // スライダー0〜1000 → 深さ
+const d2sl = d => Math.round(Math.log10(1 + d / 10) / Math.log10(1 + MAXD / 10) * 1000);
+const v = createView($('view'), {
+  views: { follow: { tgt: [0, 0, 0], dist: 70, th: 0.6, ph: 0.12 }, wide: { tgt: [0, -120, 0], dist: 420, th: 0.6, ph: 0.05 } },
+  camRow: '#camRow', bg: 0x9fd0ee, shadows: false, minDist: 20, maxDist: 900,
+});
+const { scene } = v;
+v.hemi.intensity = 1.2;
+// 海の柱（深さで色が暗くなる）：縦に細かく分けた輪切りを重ねる
+const SURF = new THREE.Color(0x4aa3df), DEEP = new THREE.Color(0x02060f);
+const colOf = d => SURF.clone().lerp(DEEP, Math.min(1, Math.log10(1 + d / 10) / 2.4));
+for (let i = 0; i < 60; i++) {
+  const d0 = sl2d(i / 60 * 1000), d1 = sl2d((i + 1) / 60 * 1000);
+  const m = new THREE.Mesh(new THREE.BoxGeometry(40, Y(d0) - Y(d1), 40), new THREE.MeshBasicMaterial({ color: colOf((d0 + d1) / 2), transparent: true, opacity: 0.35, depthWrite: false }));
+  m.position.y = (Y(d0) + Y(d1)) / 2; scene.add(m);
+}
+const sea = new THREE.Mesh(new THREE.PlaneGeometry(400, 400), new THREE.MeshBasicMaterial({ color: 0x6fb6e6, transparent: true, opacity: 0.5, side: THREE.DoubleSide }));
+sea.rotation.x = -Math.PI / 2; scene.add(sea);
+// 目印の深さ
+const SPOTS = [[0, '海面', '海面'], [10, '10m（2気圧）', '10m'], [200, '約200m 光がほぼ届かない', '200m'], [3346, '3,346m タイタン最後の位置', 'タイタン'], [3840, '3,840m タイタニック号', 'タイタニック号'], [6500, '6,500m しんかい6500', 'しんかい6500'], [10900, '約10,900m マリアナ海溝', 'マリアナ海溝']];
+for (const [d, t] of SPOTS) {
+  const ring = new THREE.Mesh(new THREE.BoxGeometry(41, 0.3, 41), new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.5 }));
+  ring.position.y = Y(d); scene.add(ring);
+  v.label(t, [20, Y(d), 20], { sub: d === 10 || d === 3346 });
+}
+$('spots').innerHTML = SPOTS.map(([d, , s]) => '<button data-d="' + d + '">' + s + '</button>').join('');
+// 風船（ボイルの法則で縮む）と、比べるための「元の大きさ」の輪
+const balloon = new THREE.Mesh(new THREE.SphereGeometry(6, 40, 30), mat(0xd6352b, { roughness: 0.35, emissive: 0x401010 }));
+scene.add(balloon);
+const ghost = new THREE.Mesh(new THREE.SphereGeometry(6, 40, 30), new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true, transparent: true, opacity: 0.25 }));
+scene.add(ghost);
+const knot = new THREE.Mesh(new THREE.ConeGeometry(0.8, 1.6, 12), mat(0xb02a22)); scene.add(knot);
+const lb = v.label('', [0, 0, 0], { accent: true });
+
+function update(fromSlider = true) {
+  const d = sl2d(+$('d').value);
+  const atm = 1 + d / 10, vol = 1 / atm, s = Math.cbrt(vol);
+  const y = Y(d);
+  balloon.position.set(0, y + 6, 0); balloon.scale.setScalar(Math.max(s, 0.06));
+  ghost.position.copy(balloon.position);
+  knot.position.set(0, y + 6 - 6 * Math.max(s, 0.06) - 0.6, 0);
+  lb.at(0, y + 6 + 6 * Math.max(s, 0.06) + 1, 0); lb.set('深さ ' + d.toLocaleString() + 'm');
+  v.scene.background = colOf(d).lerp(new THREE.Color(0x000000), 0.15);
+  $('dL').textContent = d.toLocaleString() + ' m';
+  animNum($('big'), parseFloat(($('big').textContent || '0').replace(/,/g, '')) || 0, atm, 400, atm < 100 ? 1 : 0);
+  $('sub').textContent = '深さ ' + d.toLocaleString() + 'm（水面の大気圧1気圧を含む・目安）';
+  const kg = atm * 1.0;
+  $('sKg').textContent = kg >= 1000 ? '約' + (kg / 1000).toFixed(2) + 'トン' : '約' + (kg < 100 ? kg.toFixed(1) : Math.round(kg)) + 'kg';
+  $('sVol').textContent = vol >= 0.1 ? Math.round(vol * 100) + '%（' + (1 / vol).toFixed(1) + '分の1）' : (1 / vol).toFixed(0) + '分の1';
+  $('sLight').textContent = d < 200 ? 'まだ届く' : d < 1000 ? 'ほとんど届かない' : 'まっ暗（届かない）';
+  $('hud').innerHTML = '深さ <b>' + d.toLocaleString() + '</b> m<br>水圧 <b>' + (atm < 100 ? atm.toFixed(1) : Math.round(atm)) + '</b> 気圧';
+  const near = SPOTS.filter(([sd]) => sd <= d).pop();
+  $('resNote').innerHTML = d >= 10000 ? '<strong>世界一深い海の底、指先に約1トン。</strong><br>軽自動車が指先に乗っているほどの重さです。風船の空気は約' + Math.round(atm) + '分の1まで押し縮められます。'
+    : d >= 3000 ? '<strong>' + near[2] + 'のあたり。指先に約' + Math.round(kg) + 'kg。</strong><br>深い海で人が乗る耐圧殻は、圧力を均等に受けられる球の形がふつうです。'
+    : d >= 10 ? '<strong>' + d + 'mで' + atm.toFixed(1) + '気圧。</strong><br>風船の体積は' + Math.round(vol * 100) + '%に。素潜りで耳が痛くなるのも、この圧力の差のせいです。'
+    : '<strong>水面近く。</strong><br>たった10m潜るだけで、空気の量は半分に押し縮められます。スライダーを右へ動かしてみてください。';
+  window.SHARE = '深さ' + d.toLocaleString() + 'mの水圧は約' + Math.round(atm).toLocaleString() + '気圧、指先1cm²に' + $('sKg').textContent + '🌊\n風船がどこまで縮むか3Dで見られる👇';
+}
+// 「潜る風船を追う」のときはカメラが風船についていく
+v.onFrame(() => { if (document.querySelector('#camRow .on')?.dataset.v === 'follow') v.goal.tgt.y = balloon.position.y; });
+$('d').addEventListener('input', () => update());
+$('spots').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; $('d').value = d2sl(+b.dataset.d); update(); });
+update();
+
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'shinkai-suiatsu-3d', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/result-fx.js?v=4"></script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

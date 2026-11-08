@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/chikyu-hiruyoru-3d/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/chikyu-hiruyoru-3d.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/chikyu-hiruyoru-3d.png">
+<title>昼と夜の地球 3D｜いま世界のどこが昼？日付と時刻で太陽の当たり方が分かる｜シミュラボ</title>
+<meta name="description" content="いまの日時で、地球のどこが昼でどこが夜かを3Dの地球儀で表示する無料シミュレーター。日付と時刻を動かすと、夏至・冬至の白夜や極夜、昼と夜の境目の動きが分かる。東京の太陽の高さも計算。">
+<meta property="og:title" content="昼と夜の地球 3D｜いま世界のどこが昼？日付と時刻で太陽の当たり方が分かる">
+<meta property="og:description" content="いま地球のどこが夜？日付を動かすと白夜も極夜も見える3D地球儀。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+<link rel="stylesheet" href="../../assets/three/sim3d.css?v=1">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/chikyu-hiruyoru-3d/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "昼と夜の地球 3D（いまの太陽）", "url": "https://shimulabo.com/sims/chikyu-hiruyoru-3d/", "description": "いまの日時で、地球のどこが昼でどこが夜かを3Dの地球儀で表示する無料シミュレーター。日付と時刻を動かすと、夏至・冬至の白夜や極夜、昼と夜の境目の動きが分かる。東京の太陽の高さも計算。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "昼と夜の地球 3D（いまの太陽）", "item": "https://shimulabo.com/sims/chikyu-hiruyoru-3d/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "いま世界のどこが夜か分かりますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい。ページを開いた時刻で表示します。「時間を進める」を押すと、昼と夜の境目が西へ動いていくのが見られます。"}}, {"@type": "Question", "name": "白夜はどこで見られますか？", "acceptedAnswer": {"@type": "Answer", "text": "夏至のころ、北緯66.6°より北（北極圏）で見られます。南半球では12月ごろ、南極圏で白夜になります。"}}, {"@type": "Question", "name": "なぜ昼と夜の境目は斜めになるの？", "acceptedAnswer": {"@type": "Answer", "text": "地球の自転軸が太陽の方向に対して約23.4°かたむいているからです。春分・秋分のころだけ、境目が南北にまっすぐになります。"}}, {"@type": "Question", "name": "時刻はどこの時間ですか？", "acceptedAnswer": {"@type": "Answer", "text": "日本時間（UTC＋9時間）です。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span>ふしぎ・現象<span>›</span><span class="cur">昼と夜の地球 3D（いまの太陽）</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ふしぎ・現象 ／ 3D</div>
+    <h1>昼と夜の地球 3D（いまの太陽）</h1>
+    <p class="lead">地球のどこに太陽の光が当たっているかを、いまの時刻で3Dの地球儀に表示します。日付と時刻を動かすと、季節で昼の長さが変わる理由や、北極の白夜が見えてきます。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🧊 3Dで見る（ドラッグで回転）</h2>
+    
+    <div class="view3d dark" id="view">
+      <div class="load">3D模型を読み込み中…</div>
+      <div class="hud" id="hud"></div>
+    </div>
+    <div class="cam-row" id="camRow"><button data-v="sun" class="on">太陽の側から</button><button data-v="japan">日本の上から</button><button data-v="north">北極の上から</button></div>
+    <div class="play-row"><button class="btn btn-primary" id="playBtn">▶ 時間を進める</button><button class="btn btn-ghost" id="nowBtn" style="width:auto">いまに戻す</button></div>
+  </section>
+
+  <section class="panel">
+    <h2>📅 日付と時刻</h2>
+    <div class="pick-row" id="days"></div><div class="field"><div class="slider-head"><label for="doy">日付</label><span class="val" id="doyL"></span></div><input type="range" id="doy" min="0" max="364" step="1" value="0"></div><div class="field"><div class="slider-head"><label for="hr">時刻（日本時間）</label><span class="val" id="hrL"></span></div><input type="range" id="hr" min="0" max="23.75" step="0.25" value="12"></div>
+  </section>
+
+  <section class="panel" id="resultPanel">
+    <div class="result">
+      <div class="label" id="resLabel">東京の太陽の高さは</div>
+      <div class="big"><span id="big">—</span><span class="unit" id="bigUnit">°</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline"><div class="stat"><div class="k">東京は</div><div class="v" id="sTokyo">—</div></div><div class="stat"><div class="k">太陽の真上にくる緯度</div><div class="v" id="sDecl">—</div></div><div class="stat"><div class="k">白夜・極夜</div><div class="v accent" id="sPolar">—</div></div></div>
+      <div class="note" id="resNote" style="margin-top:14px;text-align:left;"></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <article class="article">
+    <h2>この計算について</h2>
+    <p>太陽が真上にくる地点（太陽直下点）を、日付と時刻から計算して、その方向から地球を照らしています。太陽直下点の緯度（太陽の赤緯）は<b>−23.44°×cos（360°×（1月1日からの日数＋10）÷365）</b>の近似式で、経度は世界時の正午に経度0°の真上にくるとして計算しています。均時差（最大で約16分のずれ）は入れていないため、境目の位置は数度ずれることがあります。</p>
+    <h2>季節で昼の長さが変わる理由</h2>
+    <p>地球は自転の軸を約23.4°かたむけたまま太陽のまわりを回っています。そのため、6月ごろは北半球が太陽の側にかたむき（夏至）、昼と夜の境目が北極を越えて、北極のまわりでは1日中太陽が沈まない<b>白夜</b>になります。12月ごろは逆に、北極のまわりで1日中太陽が出ない<b>極夜</b>になります。</p>
+    <div class="tbl-scroll"><table class="seo-table"><tr><th>日付の目安</th><th>太陽の真上</th><th>北極のまわり</th></tr>
+    <tr><td>3月20日ごろ（春分）</td><td>赤道</td><td>昼と夜がほぼ同じ</td></tr>
+    <tr><td>6月21日ごろ（夏至）</td><td>北緯23.4°</td><td>白夜</td></tr>
+    <tr><td>9月23日ごろ（秋分）</td><td>赤道</td><td>昼と夜がほぼ同じ</td></tr>
+    <tr><td>12月22日ごろ（冬至）</td><td>南緯23.4°</td><td>極夜</td></tr></table></div>
+    <h2>太陽の高さの計算</h2>
+    <p>東京（北緯35.7°・東経139.7°）の太陽の高さは、緯度・太陽の赤緯・時角から<b>sin（高さ）＝sin（緯度）sin（赤緯）＋cos（緯度）cos（赤緯）cos（時角）</b>で求めています。</p>
+    <h2>引用・転載について</h2>
+    <p>本ページの計算結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・授業資料への引用を歓迎します。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「昼と夜の地球 3D（いまの太陽）」 https://shimulabo.com/sims/chikyu-hiruyoru-3d/</code><br>地図：Natural Earth（world-atlas）。</div>
+    <h2>よくある質問</h2><dl class="faq"><dt>いま世界のどこが夜か分かりますか？</dt><dd>はい。ページを開いた時刻で表示します。「時間を進める」を押すと、昼と夜の境目が西へ動いていくのが見られます。</dd><dt>白夜はどこで見られますか？</dt><dd>夏至のころ、北緯66.6°より北（北極圏）で見られます。南半球では12月ごろ、南極圏で白夜になります。</dd><dt>なぜ昼と夜の境目は斜めになるの？</dt><dd>地球の自転軸が太陽の方向に対して約23.4°かたむいているからです。春分・秋分のころだけ、境目が南北にまっすぐになります。</dd><dt>時刻はどこの時間ですか？</dt><dd>日本時間（UTC＋9時間）です。</dd></dl>
+  </article>
+
+  <section class="series3d" aria-label="3Dシリーズ">
+    <h2>🧊 3Dで触れるシリーズ</h2>
+    <div class="related-grid"><a class="related-card" href="../gaikaku-housuiro/"><span class="e">🌊</span><span>地下神殿 3D水位</span></a><a class="related-card" href="../kurobe-dam-3d/"><span class="e">🏞️</span><span>黒部ダムの水圧 3D</span></a><a class="related-card" href="../shinkai-suiatsu-3d/"><span class="e">🌌</span><span>深海の水圧 3D</span></a><a class="related-card" href="../bunshi-katachi-3d/"><span class="e">⚛️</span><span>分子の形 3D</span></a><a class="related-card" href="../tenkaizu-3d/"><span class="e">📦</span><span>立体の展開図 3D</span></a><a class="related-card" href="../jishin-chikyu-3d/"><span class="e">🌐</span><span>世界の地震 3D</span></a><a class="related-card" href="../takasa-kurabe-3d/"><span class="e">🗼</span><span>高さ比べ 3D</span></a><a class="related-card" href="../shinsui-fukasa-3d/"><span class="e">🏠</span><span>浸水の深さ 3D</span></a><a class="related-card" href="../tsuki-kyori-3d/"><span class="e">🌕</span><span>地球と月の距離 3D</span></a><a class="related-card" href="../satsutaba-3d/"><span class="e">💴</span><span>札束 3D</span></a></div>
+  </section>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../sekai-jisa/"><span class="e">🕐</span><span>世界の時差・いま何時？</span></a><a class="related-card" href="../hiruma-nagasa/"><span class="e">☀️</span><span>日照時間</span></a><a class="related-card" href="../jishin-chikyu-3d/"><span class="e">🌐</span><span>世界の地震 3D</span></a><a class="related-card" href="../iss-doko/"><span class="e">🛰️</span><span>ISSはいまどこ？</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+window.SHARE = '';
+document.getElementById('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(window.SHARE) + '&url=' + encodeURIComponent(location.href) + '&hashtags=' + encodeURIComponent('シミュラボ'), '_blank', 'noopener'));
+document.getElementById('copyBtn').addEventListener('click', async () => { const b = document.getElementById('copyBtn'); try { await navigator.clipboard.writeText(window.SHARE + '\n' + location.href); b.textContent = 'コピーしました ✓'; setTimeout(() => b.textContent = '結果をコピー', 1600); } catch { alert(window.SHARE); } });
+</script>
+<script type="module">
+import { THREE, createView, earthTexture, lonlat, EARTH_ROT_Y } from '../../assets/three/sim3d.js';
+const $ = id => document.getElementById(id);
+const R = 5, DEG = Math.PI / 180;
+const v = createView($('view'), {
+  views: { sun: { tgt: [0, 0, 0], dist: 24, th: 0, ph: 0 }, japan: { tgt: [0, 0, 0], dist: 20, th: 139.7 * DEG, ph: 35.7 * DEG }, north: { tgt: [0, 0, 0], dist: 22, th: 139.7 * DEG, ph: 1.45 } },
+  camRow: '#camRow', bg: 0x05080f, shadows: false, occlude: 5, minDist: 8, maxDist: 60,
+});
+const { scene, sun } = v;
+v.hemi.intensity = 0.06; sun.intensity = 2.2;
+// 星
+{ const p = []; for (let i = 0; i < 1500; i++) { const u = new THREE.Vector3().randomDirection().multiplyScalar(300 + Math.random() * 200); p.push(u.x, u.y, u.z); }
+  const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(p, 3)); scene.add(new THREE.Points(g, new THREE.PointsMaterial({ color: 0xffffff, size: 1.1, sizeAttenuation: false }))); }
+const globe = new THREE.Mesh(new THREE.SphereGeometry(R, 96, 64), new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.9 }));
+globe.rotation.y = EARTH_ROT_Y; scene.add(globe);
+earthTexture({ sea: '#2f6ea8', land: '#9cbf7a', line: 'rgba(40,60,30,.6)' }).then(t => { globe.material.map = t; globe.material.needsUpdate = true; });
+// 夜の側に薄い青の明かり（真っ暗で形が消えないように）
+const night = new THREE.Mesh(new THREE.SphereGeometry(R * 1.002, 64, 48), new THREE.MeshBasicMaterial({ color: 0x0a1630, transparent: true, opacity: 0.0 })); scene.add(night);
+const atmo = new THREE.Mesh(new THREE.SphereGeometry(R * 1.04, 64, 48), new THREE.MeshBasicMaterial({ color: 0x6fb6ff, transparent: true, opacity: 0.08, side: THREE.BackSide })); scene.add(atmo);
+// 太陽の直下点のしるしと、境目の輪
+const sunDot = new THREE.Mesh(new THREE.SphereGeometry(0.16, 16, 12), new THREE.MeshBasicMaterial({ color: 0xffd23f })); scene.add(sunDot);
+const ringPts = []; for (let i = 0; i <= 128; i++) { const a = i / 128 * Math.PI * 2; ringPts.push(new THREE.Vector3(Math.cos(a), 0, Math.sin(a)).multiplyScalar(R * 1.006)); }
+const term = new THREE.Line(new THREE.BufferGeometry().setFromPoints(ringPts), new THREE.LineBasicMaterial({ color: 0xffb347 })); scene.add(term);
+// 地軸
+const axis = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, R * 2.6, 8), new THREE.MeshBasicMaterial({ color: 0xbfc8d6 })); scene.add(axis);
+const CITIES = [['東京', 139.69, 35.69, 9], ['ロンドン', -0.13, 51.51, 0], ['ニューヨーク', -74.0, 40.71, -5], ['シドニー', 151.21, -33.87, 10], ['北極', 0, 89.5, null], ['南極', 0, -89.5, null]];
+const cityLbl = CITIES.map(([n, lo, la]) => { const p = lonlat(lo, la, R * 1.01); const d = new THREE.Mesh(new THREE.SphereGeometry(0.07, 10, 8), new THREE.MeshBasicMaterial({ color: 0xffffff })); d.position.copy(p); scene.add(d); return v.label(n, [p.x, p.y, p.z], { sub: n === 'ロンドン' || n === 'シドニー' }); });
+
+const MD = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+const doyStr = d => { let m = 0; while (d >= MD[m]) { d -= MD[m]; m++; } return (m + 1) + '月' + (d + 1) + '日'; };
+const hm = h => { const m = Math.round(h * 60) % 1440; return Math.floor(m / 60) + ':' + String(m % 60).padStart(2, '0'); };
+const DAYS = [['春分', 78], ['夏至', 171], ['秋分', 265], ['冬至', 355]];
+$('days').innerHTML = DAYS.map(([n, d]) => '<button data-d="' + d + '">' + n + '（' + doyStr(d) + '）</button>').join('');
+function setNow() { const n = new Date(), j = new Date(n.getTime() + 9 * 3600e3); const y0 = Date.UTC(j.getUTCFullYear(), 0, 1); $('doy').value = Math.min(364, Math.floor((j.getTime() - y0) / 864e5)); $('hr').value = Math.round((j.getUTCHours() + j.getUTCMinutes() / 60) * 4) / 4; }
+function alt(lon, lat, sLon, dec) { const H = (lon - sLon) * DEG; return Math.asin(Math.sin(lat * DEG) * Math.sin(dec * DEG) + Math.cos(lat * DEG) * Math.cos(dec * DEG) * Math.cos(H)) / DEG; }
+let hrF = 0;
+function update() {
+  const N = +$('doy').value, jst = +$('hr').value + hrF;
+  const dec = -23.44 * Math.cos(2 * Math.PI * (N + 10) / 365);
+  let sLon = -15 * ((jst - 9) - 12); sLon = ((sLon + 540) % 360) - 180;
+  const sd = lonlat(sLon, dec, 1);
+  sun.position.copy(sd).multiplyScalar(100); sun.target.position.set(0, 0, 0);
+  sunDot.position.copy(sd).multiplyScalar(R * 1.01);
+  term.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), sd);
+  v.views.sun.th = sLon * DEG; v.views.sun.ph = dec * DEG;
+  $('doyL').textContent = doyStr(N); $('hrL').textContent = hm(jst);
+  const res = CITIES.map(([n, lo, la, tz], i) => { const a = alt(lo, la, sLon, dec); cityLbl[i].set(n + (a > -0.83 ? ' ☀️' : ' 🌙') + (tz != null ? ' ' + hm(((jst - 9 + tz) % 24 + 24) % 24) : '')); return a; });
+  const tA = res[0];
+  $('big').textContent = tA.toFixed(1);
+  $('sub').textContent = doyStr(N) + ' ' + hm(jst) + '（日本時間）の東京';
+  $('sTokyo').textContent = tA > -0.83 ? '昼（太陽が出ている）' : '夜（太陽が沈んでいる）';
+  $('sDecl').textContent = (dec >= 0 ? '北緯 ' : '南緯 ') + Math.abs(dec).toFixed(1) + '°';
+  $('sPolar').textContent = Math.abs(dec) < 1 ? 'どちらの極もなし' : dec > 0 ? '北極圏で白夜・南極圏で極夜' : '北極圏で極夜・南極圏で白夜';
+  $('hud').innerHTML = doyStr(N) + ' <b>' + hm(jst) + '</b><br><span style="font-size:11.5px">黄色の点＝太陽が真上</span>';
+  $('resNote').innerHTML = tA > 60 ? '<strong>東京の太陽はとても高い位置に。</strong><br>夏至のころの正午は、東京でも太陽の高さが約78°になります。'
+    : tA > -0.83 ? '<strong>東京は昼。太陽の高さは' + tA.toFixed(1) + '°。</strong><br>「時間を進める」を押すと、昼と夜の境目（オレンジの線）が西へ動いていきます。'
+    : '<strong>東京は夜。</strong><br>地球の反対側、ロンドンやニューヨークの昼と夜も、地球儀のラベルで確かめてみてください。';
+  window.SHARE = doyStr(N) + ' ' + hm(jst) + '、東京の太陽の高さは' + tA.toFixed(1) + '°🌍\n地球のどこが昼でどこが夜か、3Dの地球儀で見られる👇';
+}
+let playing = false;
+$('playBtn').onclick = () => { playing = !playing; $('playBtn').textContent = playing ? '❚❚ 止める' : '▶ 時間を進める'; };
+$('nowBtn').onclick = () => { setNow(); hrF = 0; update(); };
+v.onFrame((t, dt) => {
+  if (!playing) return;
+  let h = +$('hr').value + dt * 2.4; let d = +$('doy').value;
+  if (h >= 24) { h -= 24; d = (d + 1) % 365; $('doy').value = d; }
+  $('hr').value = h; hrF = h - +$('hr').value; update();
+});
+$('doy').addEventListener('input', update); $('hr').addEventListener('input', () => { hrF = 0; update(); });
+$('days').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; $('doy').value = b.dataset.d; update(); });
+setNow(); update(); v.setView("sun", true);
+
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'chikyu-hiruyoru-3d', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/result-fx.js?v=4"></script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>
