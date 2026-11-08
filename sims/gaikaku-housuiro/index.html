@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/gaikaku-housuiro/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/gaikaku-housuiro.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/gaikaku-housuiro.png">
+<title>地下神殿 3D水位シミュレーター｜首都圏外郭放水路に水をためてみる｜シミュラボ</title>
+<meta name="description" content="首都圏外郭放水路（地下神殿）の断面を3Dで回しながら、流れ込む水の量・続く時間・ポンプの台数を変えて、どこまで水がたまるかを試せる無料シミュレーター。立坑・トンネル・調圧水槽・排水機場の寸法は国土交通省の公表値。春日部のいまの雨も表示。">
+<meta property="og:title" content="地下神殿 3D水位シミュレーター｜首都圏外郭放水路に水をためてみる">
+<meta property="og:description" content="地下神殿の断面を3Dで回して、水をためてみる。ポンプがないと何時間で満杯？">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/gaikaku-housuiro/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "地下神殿 3D水位シミュレーター", "url": "https://shimulabo.com/sims/gaikaku-housuiro/", "description": "首都圏外郭放水路の断面を3Dで回しながら、流れ込む水の量・時間・ポンプ台数で水位がどう変わるかを試せるシミュレーター。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "地下神殿 3D水位シミュレーター", "item": "https://shimulabo.com/sims/gaikaku-housuiro/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "首都圏外郭放水路にはどれくらい水がためられますか？", "acceptedAnswer": {"@type": "Answer", "text": "公表されている寸法（トンネル内径約10m・長さ約6.3km、立坑5本、調圧水槽 長さ177m×幅78m×高さ18m）から計算すると約93万m³です。国土交通省は、ポンプで排水しきれずトンネルに残る水（一次残水）を約67万m³としています。"}}, {"@type": "Question", "name": "ポンプはどれくらいの速さで水を出せますか？", "acceptedAnswer": {"@type": "Answer", "text": "庄和排水機場のポンプは1台で毎秒50m³、4台で毎秒200m³です。国土交通省は「小学校の25mプール1杯分を1秒で」と例えています。"}}, {"@type": "Question", "name": "このシミュレーターの水位は本物ですか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。寸法は公表値ですが、水が流れ込む量・時間を自分で決めて、施設全体を1つの水位として計算した模式です。実際の運用（ポンプを動かすタイミングやトンネルの傾き）は再現していません。"}}, {"@type": "Question", "name": "なぜ地下神殿と呼ばれるのですか？", "acceptedAnswer": {"@type": "Answer", "text": "調圧水槽に高さ18m・約500トンの柱が59本並ぶ姿が神殿のように見えるためです。柱が多いのは、地下水の力で水槽が浮き上がらないよう重さで押さえるためです。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+<style>
+.view3d{position:relative;width:100%;aspect-ratio:16/10;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#e8e9eb;touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:grab}
+.view3d.drag{cursor:grabbing}
+.view3d canvas{display:block;width:100%;height:100%}
+.view3d .load{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--ink-2);text-align:center;padding:16px}
+.view3d .lbl{position:absolute;left:0;top:0;transform:translate(-50%,-100%);font-size:12.5px;font-weight:800;color:var(--ink);background:rgba(255,255,255,.88);border:1px solid var(--line);border-radius:4px;padding:2px 6px;white-space:nowrap;pointer-events:none}
+.view3d .lbl.acc{color:#fff;background:var(--teal);border-color:var(--teal)}
+.view3d .hud{position:absolute;left:10px;top:10px;font-size:12.5px;line-height:1.5;background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:6px;padding:6px 9px;pointer-events:none}
+.view3d .hud b{font-size:17px;color:var(--teal-d)}
+.view3d .zoom{position:absolute;right:8px;bottom:8px;display:flex;flex-direction:column;gap:4px}
+.view3d .zoom button{width:34px;height:34px;border-radius:6px;border:1px solid var(--line);background:#fff;font-size:18px;font-weight:800;cursor:pointer;color:var(--ink)}
+.cam-row{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0}
+.cam-row button{flex:1 1 auto;padding:7px 10px;font-size:13px;border:1px solid var(--line);background:#fff;border-radius:6px;cursor:pointer;font-weight:700;color:var(--ink)}
+.cam-row button.on{background:var(--teal);border-color:var(--teal);color:#fff}
+.play-row{display:flex;gap:8px;align-items:center;margin-top:10px}
+.play-row button{flex:0 0 auto;width:auto;padding:9px 16px}
+.play-row input{flex:1}
+.preset-row{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+.preset-row button{flex:1 1 30%;min-width:150px;padding:8px 10px;font-size:13px;border:1px solid var(--line);background:var(--teal-l);border-radius:6px;cursor:pointer;font-weight:700;color:var(--teal-d);text-align:left;line-height:1.4}
+.ctl-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px 16px}
+@media (max-width:640px){.ctl-grid{grid-template-columns:1fr}.view3d{aspect-ratio:4/3.4}.view3d .lbl{font-size:11px;padding:1px 4px}.view3d .lbl.sub{display:none!important}}
+#chart{width:100%;height:200px;display:block;margin-top:12px;border:1px solid var(--line);border-radius:6px;background:#fff}
+.live-strip{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline;font-size:13.5px;padding:10px 12px;border:1px dashed var(--line);border-radius:8px;margin:0 0 14px;background:#fff}
+.live-strip b{font-size:16px;color:var(--teal-d)}
+.yt-box{display:flex;gap:12px;align-items:center;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:#fff;margin:18px 0}
+.yt-box .t{font-size:13.5px;line-height:1.6}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span>ふしぎ・現象<span>›</span><span class="cur">地下神殿 3D水位シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ふしぎ・現象 ／ 3D</div>
+    <h1>地下神殿 3D水位シミュレーター</h1>
+    <p class="lead">埼玉県春日部市の地下50mにある、洪水を防ぐための巨大な地下放水路「首都圏外郭放水路」。その断面を3Dで回しながら水を流し込んで、ポンプがあるとないとでどこまでたまるかを試せます。</p>
+  </div>
+
+  <section class="panel">
+    <h2>🧊 断面の模型（ドラッグで回転）</h2>
+    <div class="live-strip" id="live"><span>☔ 春日部のいまの雨：<b id="liveNow">—</b></span><span>この先24時間：<b id="live24">—</b></span><span class="hint" id="liveNote" style="font-size:12px">Open-Meteo の予報をもとに表示</span></div>
+    <div class="view3d" id="view">
+      <div class="load" id="load">3D模型を読み込み中…</div>
+      <div class="hud" id="hud" style="display:none">経過 <b id="hudT">0:00</b><br>ためた水 <b id="hudPct">0</b>%</div>
+      <div class="zoom"><button id="zin" aria-label="近づく">＋</button><button id="zout" aria-label="離れる">－</button></div>
+    </div>
+    <div class="cam-row" id="camRow">
+      <button data-v="all" class="on">全体</button><button data-v="tank">調圧水槽（地下神殿）</button><button data-v="shaft">立坑とトンネル</button><button data-v="pump">ポンプと江戸川</button>
+    </div>
+    <div class="play-row">
+      <button class="btn btn-primary" id="playBtn">▶ 再生</button>
+      <input type="range" id="tPos" min="0" max="1000" value="0" aria-label="経過時間">
+    </div>
+    <p class="hint" style="margin:6px 0 0">模型は動画「インフラ解剖室【3Dで仕組み解説】」第1話と同じもの。寸法は国土交通省の公表値、地層の色・ポンプの並びは模式です。</p>
+  </section>
+
+  <section class="panel">
+    <h2>🌊 流し込む水を決める</h2>
+    <div class="preset-row" id="presets">
+      <button data-q="150" data-h="6" data-p="0">ポンプなし<br><span style="font-weight:400">ためるだけだと何時間もつ？</span></button>
+      <button data-q="150" data-h="12" data-p="4">ポンプ4台フル稼働<br><span style="font-weight:400">毎秒200m³で江戸川へ</span></button>
+      <button data-q="200" data-h="26.5" data-p="4">2015年9月と同じ量<br><span style="font-weight:400">約1,903万m³を流し込むと</span></button>
+    </div>
+    <div class="ctl-grid">
+      <div class="field"><div class="slider-head"><label for="Q">流れ込む水（1秒に）</label><span class="val" id="QL"></span></div><input type="range" id="Q" min="10" max="300" step="10" value="150"></div>
+      <div class="field"><div class="slider-head"><label for="Hh">流れ込む時間</label><span class="val" id="HL"></span></div><input type="range" id="Hh" min="1" max="48" step="0.5" value="12"></div>
+      <div class="field"><div class="slider-head"><label for="P">動かすポンプ</label><span class="val" id="PL"></span></div><input type="range" id="P" min="0" max="4" step="1" value="4"></div>
+    </div>
+    <p class="hint" style="margin:0">参考：立坑1本が取り込める水は最大で毎秒100m³（第3立坑）・毎秒85m³（第5立坑）。ポンプは1台 毎秒50m³。</p>
+    <canvas id="chart" width="900" height="200" aria-label="水のたまり方のグラフ"></canvas>
+  </section>
+
+  <section class="panel" id="resultPanel">
+    <div class="result">
+      <div class="label" id="resLabel">いちばん多いとき、ためた水は</div>
+      <div class="big"><span id="big">0</span><span class="unit">%</span></div>
+      <div class="sub" id="sub">—</div>
+      <div class="statline">
+        <div class="stat"><div class="k">満杯になるまで</div><div class="v" id="sFull">—</div></div>
+        <div class="stat"><div class="k">江戸川へ出した水</div><div class="v" id="sOut">—</div></div>
+        <div class="stat"><div class="k">取り込めなかった水</div><div class="v accent" id="sOver">—</div></div>
+      </div>
+      <div class="note" id="resNote" style="margin-top:14px;text-align:left;"></div>
+      <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+      <div class="share-row">
+        <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+        <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="yt-box">
+    <span style="font-size:30px">🎬</span>
+    <div class="t"><b>この模型が動く解説動画</b><br>地下神殿の柱が59本もある理由、ポンプに飛行機のエンジンを使う理由は、動画で3Dのまま解説しています。<br><a href="https://www.youtube.com/watch?v=cgvcRWZ_1s4" target="_blank" rel="noopener">YouTube「インフラ解剖室」第1話 首都圏外郭放水路 →</a></div>
+  </div>
+
+  <article class="article">
+    <h2>この計算について</h2>
+    <p>首都圏外郭放水路は、中川・倉松川・大落古利根川などの川が大雨であふれそうになったとき、その水の一部を地下に取り込み、ゆとりのある江戸川へ流す施設です。水は<b>立坑</b>（深さ約70m）から<b>トンネル</b>（地下50m・長さ約6.3km）を通って<b>調圧水槽</b>（地下神殿）に集まり、<b>排水機場</b>のポンプで江戸川へくみ出されます。</p>
+    <p>このシミュレーターは、公表されている寸法から「どの高さまで水が来たら何m³たまっているか」を計算し、流れ込む水とポンプでくみ出す水の差で、1分ごとに水位を進めています。施設全体を1つの水位として扱う<b>模式</b>なので、実際の運用（ポンプを動かし始めるタイミング、トンネルの傾き、立坑ごとの流れ込み方）とは違います。</p>
+    <div class="tbl-scroll"><table class="seo-table"><tr><th>部分</th><th>寸法（公表値）</th><th>ためられる量（寸法から計算）</th></tr>
+    <tr><td>立坑 5本</td><td>内径 31.6m×3本・25.1m・15m、深さ約70m</td><td>約20万m³</td></tr>
+    <tr><td>トンネル</td><td>内径 約10m、長さ 約6.3km</td><td>約49万m³</td></tr>
+    <tr><td>調圧水槽</td><td>長さ177m・幅78m・高さ18m、柱59本</td><td>約23万m³</td></tr>
+    <tr><td><b>合計</b></td><td></td><td><b>約93万m³</b>（東京ドーム約0.75杯）</td></tr></table></div>
+    <div class="note">国土交通省は、ポンプでくみ出しきれずトンネルに残る水（一次残水）を約67万m³としています。上の表の「立坑＋トンネル」約69万m³とほぼ同じ大きさです。この残りの水は、小さなポンプ2台で3日かけて倉松川へ流し、ふだんはトンネルを空にしておきます。</div>
+
+    <h2>ポンプがないと、あっという間に満杯</h2>
+    <p>毎秒150m³の水が流れ込むと、ポンプなしでは<b>約1時間40分</b>で満杯になります。それでも外郭放水路が何日も続く大雨に耐えられるのは、ポンプ4台で毎秒200m³（小学校の25mプール1杯分を1秒で）をくみ出せるからです。2015年9月の台風17号・18号のときに受け止めた水は<b>約1,903万m³</b>。施設の大きさの約20倍の水を、ためながら江戸川へ流し続けたことになります。</p>
+
+    <h2>地下神殿の柱はなぜ59本もある？</h2>
+    <p>調圧水槽は地下水の高い地中にあるため、空っぽのときは地下水に押し上げられて浮き上がるおそれがあります。高さ18m・約500トンの柱59本と、厚さ最大3.5mの天井・底のコンクリートの重さで押さえつけています。柱は水の勢いを弱めたり、ポンプを安定して動かしたりする役目もあります。</p>
+
+    <h2>実際に役に立った雨</h2>
+    <div class="tbl-scroll"><table class="seo-table"><tr><th>雨</th><th>累計の雨</th><th>浸水の被害</th></tr>
+    <tr><td>2000年7月 台風3号（施設の完成前）</td><td>160mm</td><td>浸水面積114ha・236戸</td></tr>
+    <tr><td>2002年7月 台風6号（試験通水中）</td><td>164mm</td><td>浸水面積2ha・浸水家屋なし</td></tr></table></div>
+    <p>部分的に動き始めた2002年6月から2026年9月11日までに157回水をため、そのうち87回はポンプも動かしました。<b>70回は「ためるだけ」で済んだ</b>ことになります。上の「春日部のいまの雨」と見比べてみてください。</p>
+
+    <h2>引用・転載について</h2>
+    <p>本ページの計算結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・授業資料への引用を歓迎します。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「地下神殿 3D水位シミュレーター」 https://shimulabo.com/sims/gaikaku-housuiro/</code><br>数字の出典：国土交通省 関東地方整備局 江戸川河川事務所「首都圏外郭放水路」各ページ。雨の予報：Open-Meteo。</div>
+
+    <h2>よくある質問</h2><dl class="faq"><dt>首都圏外郭放水路にはどれくらい水がためられますか？</dt><dd>公表されている寸法から計算すると約93万m³です。国土交通省は、ポンプで排水しきれずトンネルに残る水（一次残水）を約67万m³としています。</dd><dt>ポンプはどれくらいの速さで水を出せますか？</dt><dd>1台で毎秒50m³、4台で毎秒200m³です。動力は航空機用のガスタービンを改造したもので、14,000馬力あります。</dd><dt>このシミュレーターの水位は本物ですか？</dt><dd>いいえ。寸法は公表値ですが、流れ込む量・時間を自分で決めて、施設全体を1つの水位として計算した模式です。</dd><dt>春日部の雨が多いと必ず動きますか？</dt><dd>外郭放水路に水が入るのは、川の水位が上がって越流堤を超えたときです。雨の量だけでは決まらず、上流で降った雨や川の水位によります。表示している雨は、ふだんの雨との比べる目安です。</dd><dt>なぜ地下神殿と呼ばれるのですか？</dt><dd>調圧水槽に高さ18mの柱が59本並ぶ姿が神殿のように見えるためです。天井の上はサッカーグラウンドになっています。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../kaibatsu-check/"><span class="e">⛰️</span><span>うちの海抜チェッカー</span></a><a class="related-card" href="../amagumo-now/"><span class="e">🌧️</span><span>いまの雨雲マップ</span></a><a class="related-card" href="../amamizu-yukue/"><span class="e">💧</span><span>雨水のゆくえ</span></a><a class="related-card" href="../suiatsu-fuyuu/"><span class="e">🌊</span><span>水圧と浮力</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。投票で人気の案から実際に作ります。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">🗳️ みんなのリクエストに投票する →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+// ===== 計算（3Dが読み込めなくても動く） =====
+window.GH = (() => {
+  const $ = id => document.getElementById(id);
+  // 高さ（m、地上0）→ たまっている量（m³）。立坑5本・トンネル・調圧水槽（柱59本を引く）
+  const Y0 = -70, YTOP = -4, TY = -50, TR = 5, TL = 6300, KY0 = -22, KY1 = -4;
+  const A_SHAFT = Math.PI / 4 * (31.6 * 31.6 * 3 + 25.1 * 25.1 + 15 * 15);   // 約3,024m²
+  const A_TANK = 177 * 78 - 59 * 7 * 2;                                      // 約12,980m²
+  function seg(h) { h = Math.max(0, Math.min(2 * TR, h)); const r = TR; return r * r * Math.acos((r - h) / r) - (r - h) * Math.sqrt(Math.max(0, 2 * r * h - h * h)); }
+  function vol(L) {
+    L = Math.max(Y0, Math.min(YTOP, L));
+    return A_SHAFT * (L - Y0) + TL * seg(L - (TY - TR)) + A_TANK * Math.max(0, Math.min(L, KY1) - KY0);
+  }
+  const CAP = vol(YTOP);
+  function level(V) { let a = Y0, b = YTOP; for (let i = 0; i < 40; i++) { const m = (a + b) / 2; if (vol(m) < V) a = m; else b = m; } return (a + b) / 2; }
+  const DT = 60;
+  function simulate(Q, H, P) {
+    const dur = Math.ceil(Math.max(H + 12, H * 1.5) * 3600 / DT) * DT;
+    const out = []; let V = 0, outV = 0, over = 0, inV = 0, peak = 0, tFull = null;
+    for (let t = 0; t <= dur; t += DT) {
+      const qi = t < H * 3600 ? Q : 0;
+      const L = level(V);
+      const qp = (L > KY0 + 0.3) ? P * 50 : 0;
+      let dV = (qi - qp) * DT;
+      if (V + dV > CAP) { over += V + dV - CAP; dV = CAP - V; if (tFull == null) tFull = t; }
+      const pumped = Math.min(qp * DT, V + qi * DT);
+      V = Math.max(0, V + dV); outV += pumped; inV += qi * DT;
+      peak = Math.max(peak, V);
+      out.push({ t, V, L: level(V), qi, qp });
+    }
+    return { series: out, dur, CAP, peak, tFull, outV, over, inV };
+  }
+  const hm = s => { const m = Math.round(s / 60); return Math.floor(m / 60) + ':' + String(m % 60).padStart(2, '0'); };
+  const man = v => (v / 1e4 >= 100 ? Math.round(v / 1e4).toLocaleString() : (v / 1e4).toFixed(1)) + '万m³';
+  return { vol, level, CAP, simulate, hm, man, KY0, YTOP, Y0 };
+})();
+
+(() => {
+  const $ = id => document.getElementById(id);
+  let R = null, SHARE = '';
+  const st = { pos: 0 };
+  window.GH.state = st;
+
+  function lab() {
+    $('QL').textContent = '毎秒 ' + $('Q').value + ' m³';
+    $('HL').textContent = (+$('Hh').value) + ' 時間';
+    $('PL').textContent = $('P').value + ' 台（毎秒' + ($('P').value * 50) + 'm³）';
+  }
+  function chart() {
+    const cv = $('chart'), w = cv.clientWidth, h = 200, dpr = Math.min(2, window.devicePixelRatio || 1);
+    cv.width = w * dpr; cv.height = h * dpr; const g = cv.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0);
+    g.clearRect(0, 0, w, h);
+    const L = 38, Rr = 10, T = 14, B = 26, pw = w - L - Rr, ph = h - T - B, S = R.series, D = R.dur;
+    g.strokeStyle = '#e2ded4'; g.fillStyle = '#59616c'; g.font = '11px sans-serif'; g.lineWidth = 1;
+    for (const p of [0, 50, 100]) { const y = T + ph * (1 - p / 100); g.beginPath(); g.moveTo(L, y); g.lineTo(L + pw, y); g.stroke(); g.fillText(p + '%', 4, y + 4); }
+    const stepH = D / 3600 > 24 ? 12 : D / 3600 > 8 ? 4 : 1;
+    for (let hh = 0; hh <= D / 3600; hh += stepH) { const x = L + pw * hh * 3600 / D; g.fillText(hh + '時間', x - 8, h - 8); }
+    // 流れ込んでいる時間の帯
+    g.fillStyle = 'rgba(44,107,134,.08)'; g.fillRect(L, T, pw * Math.min(1, $('Hh').value * 3600 / D), ph);
+    g.beginPath(); g.strokeStyle = '#2c6b86'; g.lineWidth = 2.5;
+    S.forEach((s, i) => { const x = L + pw * s.t / D, y = T + ph * (1 - s.V / R.CAP); i ? g.lineTo(x, y) : g.moveTo(x, y); }); g.stroke();
+    const x = L + pw * st.pos; g.strokeStyle = '#c4442b'; g.lineWidth = 1.5; g.beginPath(); g.moveTo(x, T); g.lineTo(x, T + ph); g.stroke();
+    g.fillStyle = '#2c6b86'; g.font = 'bold 12px sans-serif'; g.fillText('ためた水（満杯＝100%）', L + 6, T + 13);
+  }
+  function result() {
+    const pct = Math.round(R.peak / R.CAP * 100);
+    $('big').textContent = pct;
+    const P = +$('P').value, Q = +$('Q').value, H = +$('Hh').value;
+    $('sub').textContent = '毎秒' + Q + 'm³ を ' + H + '時間（合計 ' + window.GH.man(R.inV) + '）・ポンプ' + P + '台';
+    $('sFull').textContent = R.tFull == null ? '満杯にならない ✅' : window.GH.hm(R.tFull) + ' 後';
+    $('sOut').textContent = R.outV > 0 ? window.GH.man(R.outV) : 'なし';
+    $('sOver').textContent = R.over > 0 ? window.GH.man(R.over) : 'なし ✅';
+    let note;
+    if (R.tFull != null && P === 0) note = '<strong>ポンプなしでは、ためるだけで ' + window.GH.hm(R.tFull) + ' で満杯。</strong><br>そのあとの水は取り込めず、川の水位は下がりません。ポンプで江戸川へ出し続けることが、この施設の本当の力です。';
+    else if (R.tFull != null) note = '<strong>流れ込む水（毎秒' + Q + 'm³）がポンプ（毎秒' + P * 50 + 'm³）を上回り、' + window.GH.hm(R.tFull) + ' で満杯。</strong><br>ポンプを増やすか、流れ込む水が減るまで持ちこたえられるかが勝負です。';
+    else if (P * 50 >= Q) note = '<strong>ポンプが流れ込む水に追いついていて、満杯になりません。</strong><br>最高でも ' + pct + '%。調圧水槽にたまった水を、ポンプが江戸川へ出し続けています。';
+    else note = '<strong>満杯の手前（' + pct + '%）で流れ込みが止まりました。</strong><br>巨大な地下の空間が、ためて時間をかせいだ形です。';
+    $('resNote').innerHTML = note;
+    SHARE = '首都圏外郭放水路（地下神殿）に毎秒' + Q + 'm³を' + H + '時間、ポンプ' + P + '台で試したら' + (R.tFull == null ? '最大' + pct + '%で持ちこたえた' : window.GH.hm(R.tFull) + 'で満杯になった') + '🌊\n3Dの断面で試せる👇';
+  }
+  function run() { lab(); R = window.GH.simulate(+$('Q').value, +$('Hh').value, +$('P').value); window.GH.R = R; result(); chart(); window.GH.onUpdate && window.GH.onUpdate(); }
+  ['Q', 'Hh', 'P'].forEach(id => $(id).addEventListener('input', () => { st.pos = 0; $('tPos').value = 0; run(); }));
+  [...document.querySelectorAll('#presets button')].forEach(b => b.addEventListener('click', () => {
+    $('Q').value = b.dataset.q; $('Hh').value = b.dataset.h; $('P').value = b.dataset.p; st.pos = 0; $('tPos').value = 0; run(); window.GH.play && window.GH.play(true);
+  }));
+  $('tPos').addEventListener('input', () => { st.pos = $('tPos').value / 1000; window.GH.pause && window.GH.pause(); chart(); window.GH.onUpdate && window.GH.onUpdate(); });
+  window.GH.chart = chart;
+  window.addEventListener('resize', () => R && chart());
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(SHARE) + '&url=' + encodeURIComponent(location.href) + '&hashtags=' + encodeURIComponent('シミュラボ'), '_blank', 'noopener'));
+  $('copyBtn').addEventListener('click', async () => { try { await navigator.clipboard.writeText(SHARE + '\n' + location.href); $('copyBtn').textContent = 'コピーしました ✓'; setTimeout(() => $('copyBtn').textContent = '結果をコピー', 1600); } catch { alert(SHARE); } });
+  run();
+
+  // 春日部のいまの雨（Open-Meteo）
+  fetch('https://api.open-meteo.com/v1/forecast?latitude=35.975&longitude=139.752&current=precipitation&hourly=precipitation&forecast_hours=24&timezone=Asia%2FTokyo')
+    .then(r => r.json()).then(j => {
+      const now = j.current && j.current.precipitation, sum = (j.hourly && j.hourly.precipitation || []).reduce((a, b) => a + (b || 0), 0);
+      $('liveNow').textContent = now == null ? '—' : (now === 0 ? '降っていません' : now.toFixed(1) + ' mm/時');
+      $('live24').textContent = sum.toFixed(1) + ' mm';
+      $('liveNote').textContent = '（2000年に236戸が浸水した台風3号は累計160mm）';
+    }).catch(() => { $('liveNote').textContent = '雨の予報を取得できませんでした'; });
+})();
+</script>
+<script type="module">
+import { THREE } from './model/stage-lite.js';
+import * as SEC from './model/section.js';
+import { flowDots } from './model/kit.js';
+const GH = window.GH, $ = id => document.getElementById(id);
+const view = $('view');
+let renderer;
+try {
+  renderer = new THREE.WebGLRenderer({ antialias: true });
+} catch (e) { $('load').textContent = 'この端末では3D表示が使えません（計算とグラフは使えます）'; throw e; }
+const mobile = matchMedia('(max-width:640px)').matches;
+renderer.setPixelRatio(Math.min(2, window.devicePixelRatio || 1));
+renderer.localClippingEnabled = true;
+renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.outputColorSpace = THREE.SRGBColorSpace; renderer.toneMapping = THREE.NoToneMapping;
+view.prepend(renderer.domElement);
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(35, 16 / 10, 1, 6000);
+const hemi = new THREE.HemisphereLight(0xffffff, 0xb8b2a6, 0.95); scene.add(hemi);
+const sun = new THREE.DirectionalLight(0xffffff, 1.05); sun.castShadow = true; sun.shadow.mapSize.set(mobile ? 1024 : 2048, mobile ? 1024 : 2048);
+sun.shadow.bias = -0.0004; sun.shadow.normalBias = 0.6; scene.add(sun); scene.add(sun.target);
+const stage = { renderer, scene, camera, sun, hemi };
+const S = SEC.build(stage); scene.add(S.group); S.env(stage);
+S.setFront(1, 0);
+S.people.forEach(p => p.visible !== undefined && (p.visible = true));
+// トンネルの水は「この高さより下だけ見せる」切り取りで表す
+const clip = new THREE.Plane(new THREE.Vector3(0, -1, 0), -999);
+S.waters.tunnel.material.clippingPlanes = [clip];
+// 流れ込む水（トンネルの右から立坑へ）
+const TU = SEC.P.tunnel, SH = SEC.P.shaft;
+const inPath = new THREE.CatmullRomCurve3([new THREE.Vector3(TU.x1 - 5, TU.y, -1), new THREE.Vector3(SH.x + SH.r + 5, TU.y, -1)]);
+const inflow = flowDots(S.group, inPath, { n: 40, size: 1.3, color: 0x2f7fc8 });
+
+// ラベル
+const LB = [['調圧水槽（地下神殿）', [-30, -22, 0], 1], ['第1立坑', [111, -60, 0], 0], ['トンネル（地下50m）', [340, -56, 0], 0], ['排水機場', [-130, 12, -18], 0], ['江戸川', [-302, 2, -60], 0], ['サッカー場', [30, 1, -25], 2]]
+  .map(([t, p, a]) => { const el = document.createElement('div'); el.className = 'lbl' + (a === 1 ? ' acc' : a === 2 ? ' sub' : ''); el.textContent = t; view.appendChild(el); return { el, p: new THREE.Vector3(...p) }; });
+
+// カメラ（ドラッグで回す）
+const VIEWS = {
+  all:   { tgt: [40, -40, -30], dist: 500, th: 0.2, ph: 0.24 },
+  tank:  { tgt: [0, -16, -18], dist: 170, th: -0.3, ph: 0.07 },
+  shaft: { tgt: [200, -42, -6], dist: 270, th: 0.45, ph: 0.08 },
+  pump:  { tgt: [-200, -8, -20], dist: 280, th: -0.45, ph: 0.18 },
+};
+const cam = { tgt: new THREE.Vector3(), dist: 0, th: 0, ph: 0 }, goal = { tgt: new THREE.Vector3(), dist: 0, th: 0, ph: 0 };
+function setView(k, snap) { const v = VIEWS[k]; goal.tgt.set(...v.tgt); goal.dist = v.dist; goal.th = v.th; goal.ph = v.ph; if (snap) { cam.tgt.copy(goal.tgt); cam.dist = goal.dist; cam.th = goal.th; cam.ph = goal.ph; }
+  document.querySelectorAll('#camRow button').forEach(b => b.classList.toggle('on', b.dataset.v === k)); }
+setView('all', true);
+document.querySelectorAll('#camRow button').forEach(b => b.addEventListener('click', () => setView(b.dataset.v)));
+let drag = null;
+view.addEventListener('pointerdown', e => { if (e.target.closest('button')) return; drag = { x: e.clientX, y: e.clientY, th: goal.th, ph: goal.ph }; view.classList.add('drag'); });
+addEventListener('pointermove', e => { if (!drag) return; goal.th = drag.th - (e.clientX - drag.x) * 0.006; goal.ph = Math.max(-0.05, Math.min(1.2, drag.ph + (e.clientY - drag.y) * 0.004)); cam.th = goal.th; cam.ph = goal.ph; });
+addEventListener('pointerup', () => { drag = null; view.classList.remove('drag'); });
+addEventListener('pointercancel', () => { drag = null; view.classList.remove('drag'); });
+view.addEventListener('wheel', e => { e.preventDefault(); goal.dist = Math.max(80, Math.min(1400, goal.dist * (e.deltaY > 0 ? 1.12 : 0.89))); }, { passive: false });
+$('zin').onclick = () => goal.dist = Math.max(80, goal.dist * 0.8);
+$('zout').onclick = () => goal.dist = Math.min(1400, goal.dist * 1.25);
+
+// 再生
+let playing = false, lastT = 0;
+GH.play = (restart) => { if (restart || GH.state.pos >= 1) GH.state.pos = 0; playing = true; $('playBtn').textContent = '❚❚ 一時停止'; };
+GH.pause = () => { playing = false; $('playBtn').textContent = '▶ 再生'; };
+$('playBtn').onclick = () => playing ? GH.pause() : GH.play();
+
+function sample() {
+  const R = GH.R, S2 = R.series; const i = Math.min(S2.length - 1, Math.round(GH.state.pos * (S2.length - 1))); return S2[i];
+}
+function applyWater(time) {
+  const s = sample(), L = s.V > 1 ? s.L : -999;
+  S.setWater('shaft', L, s.V > 1 ? 1 : 0);
+  S.setWater('tank', L, L > GH.KY0 + 0.05 ? 1 : 0);
+  clip.constant = L; S.waters.tunnel.visible = s.V > 1; S.waters.tunnel.material.opacity = 0.5;
+  S.setWater('pump', s.qp > 0 ? -15 : -999, s.qp > 0 ? 1 : 0);
+  S.flow.update(time, s.qp > 0 ? 0.9 : 0, 0.08 * (s.qp / 200 + 0.3));
+  inflow.update(time, s.qi > 0 ? 0.85 : 0, 0.12);
+  $('hudT').textContent = GH.hm(s.t); $('hudPct').textContent = Math.round(s.V / GH.R.CAP * 100);
+}
+function resize() {
+  const w = view.clientWidth, h = view.clientHeight; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix();
+}
+new ResizeObserver(resize).observe(view); resize();
+let visible = true;
+new IntersectionObserver(es => { visible = es[0].isIntersecting; }).observe(view);
+const tmp = new THREE.Vector3();
+function frame(now) {
+  requestAnimationFrame(frame);
+  try { step(now); } catch (e) { window.__err = String(e && e.stack || e); }
+}
+function step(now) {
+  if (!visible) { lastT = now; return; }
+  const dt = Math.min(0.1, (now - (lastT || now)) / 1000); lastT = now;
+  if (playing) { GH.state.pos = Math.min(1, GH.state.pos + dt / 14); $('tPos').value = Math.round(GH.state.pos * 1000); GH.chart(); if (GH.state.pos >= 1) GH.pause(); }
+  const k = 1 - Math.pow(0.002, dt);
+  cam.tgt.lerp(goal.tgt, k); cam.dist += (goal.dist - cam.dist) * k; cam.th += (goal.th - cam.th) * k; cam.ph += (goal.ph - cam.ph) * k;
+  const D = cam.dist * Math.max(1, 1.6 / camera.aspect);   // 縦長の画面では横幅が入るように離れる
+  camera.position.set(cam.tgt.x + D * Math.sin(cam.th) * Math.cos(cam.ph), cam.tgt.y + D * Math.sin(cam.ph), cam.tgt.z + D * Math.cos(cam.th) * Math.cos(cam.ph));
+  camera.lookAt(cam.tgt);
+  applyWater(now / 1000);
+  renderer.render(scene, camera);
+  const w = view.clientWidth, h = view.clientHeight;
+  for (const l of LB) { tmp.copy(l.p).project(camera); const on = tmp.z < 1 && Math.abs(tmp.x) < 0.95 && Math.abs(tmp.y) < 0.95; l.el.style.display = on ? '' : 'none'; if (on) l.el.style.transform = `translate(${(tmp.x + 1) / 2 * w}px,${(1 - tmp.y) / 2 * h}px) translate(-50%,-110%)`; }
+}
+$('load').remove(); $('hud').style.display = '';
+GH.onUpdate = () => {};
+GH.step = step;
+requestAnimationFrame(frame);
+setTimeout(() => GH.play(true), 600);
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'gaikaku-housuiro', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/result-fx.js?v=4"></script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>
