@@ -19,6 +19,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://shimulabo.com/ogp/hoshi-ugoki.png">
 <link rel="stylesheet" href="../../assets/style.css?v=4">
+<link rel="stylesheet" href="../../assets/three/sim3d.css?v=1">
     <!-- seo-internal -->
     <link rel="canonical" href="https://shimulabo.com/sims/hoshi-ugoki/">
     <meta property="og:locale" content="ja_JP">
@@ -97,6 +98,14 @@ canvas.lab.light{background:#fff;}
       <div class="lab-stats"><div class="stat"><div class="k">日付</div><div class="v" id="sDate">—</div></div><div class="stat"><div class="k">時刻</div><div class="v" id="sTime">—</div></div><div class="stat"><div class="k">南の空の主な星座</div><div class="v accent" id="sSouth">—</div></div><div class="stat"><div class="k">注目する星の高度・方位</div><div class="v" id="sStar">—</div></div></div>
     </div>
     <p class="lab-legend">左：東京で東・南・西・北のどれかを向いて見た空（カメラで写した見え方）。黄色の点線は注目する星の1日の道すじで、点は1時間ごとの位置です。「▶ 時間を進める」で星が動いた跡（光跡）が残り、「＋1か月」で1か月前の同じ時刻の位置（オレンジの点線）と比べられます。空を左右に（北の空では北極星のまわりに）なぞると時刻が、星をタップすると注目する星が変わります。右：北極の上から見た地球の公転と季節の星座。地球をなぞると日付が変わります。</p>
+<!-- sky3d:start -->
+    <div class="v3d-block" style="width:100%;margin-top:18px;">
+      <h3 style="margin:0 0 8px;font-size:15px;">🧊 3Dで見る（ドラッグで回転・上の操作と連動）</h3>
+      <div class="view3d dark" id="view3d"><div class="load">3D模型を読み込み中…</div><div class="hud" id="hud3d" style="display:none"></div></div>
+      <div class="cam-row" id="camRow3d"><button data-v="south" class="on">南を見る</button><button data-v="north">北を見る</button><button data-v="east">東を見る</button><button data-v="west">西を見る</button><button data-v="out">天球を外から</button></div>
+      <p class="lab-legend" style="margin-top:6px;">東京で見上げた星空を3Dにしています。「天球を外から」にすると、星が北極星の近くを軸にして回っている様子（天球の回転）が分かります。上の日付・時刻・注目する星と連動します。</p>
+    </div>
+<!-- sky3d:end -->
     <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
     <div class="share-row">
       <button class="btn btn-ghost" id="fsBtn" hidden>⛶ 全画面で表示</button>
@@ -246,6 +255,7 @@ canvas.lab.light{background:#fff;}
   function setBtn(id,on){ const b=$(id); if(!b) return; b.style.background=on?'var(--teal-l)':''; b.style.borderColor=on?'var(--teal)':''; b.style.color=on?'var(--teal-d)':''; b.style.fontWeight=on?'800':''; }
   function fit(id,v){ setStat(id,v); const e=$(id); if(e) e.style.fontSize=v.length>9?'14px':v.length>6?'16px':''; }
 
+  window.__hoshi={ST:ST,CO:CO,LAT:LAT,LON:LON};
   const AS=[["夏の大三角",[70,76,79,70],"#fde047",[70,76,79]],["冬の大三角",[0,8,13,0],"#f9a8d4",[0,8,13]],["春の大曲線",[105,106,107,43,42],"#86efac",[107,43]]], ORB=[[0,"冬",83.8],[6,"春",152.9],[9,"夏",255.9],[14,"秋",353.3]];
   const SX=199, SY=235, FL=210, HC=35.66, PW=398, HZ=SY+FL*Math.tan(HC*R);
   const OX=518, OY=210, OR=46, CR=96, TH0=186;
@@ -424,6 +434,9 @@ canvas.lab.light{background:#fff;}
   $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText((SHARE||document.title)+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
 })();
 </script>
+<!-- sky3d-loader:start -->
+<script>(()=>{const el=document.getElementById('view3d');if(!el)return;const go=()=>import('./view3d.js?v=1').catch(()=>{const l=el.querySelector('.load');if(l)l.textContent='3D表示を読み込めませんでした';});if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>{if(es[0].isIntersecting){io.disconnect();go();}},{rootMargin:'300px'});io.observe(el);}else go();})();</script>
+<!-- sky3d-loader:end -->
 <script src="../../assets/share-counter.js?v=4"></script>
 <script>ShareCounter.initSim({ simId:'hoshi-ugoki', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
 <script src="../../assets/lang-toggle.js?v=4"></script>

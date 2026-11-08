@@ -19,6 +19,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://shimulabo.com/ogp/kinsei-michikake.png">
 <link rel="stylesheet" href="../../assets/style.css?v=4">
+<link rel="stylesheet" href="../../assets/three/sim3d.css?v=1">
     <!-- seo-internal -->
     <link rel="canonical" href="https://shimulabo.com/sims/kinsei-michikake/">
     <meta property="og:locale" content="ja_JP">
@@ -97,6 +98,14 @@ canvas.lab.light{background:#fff;}
       <div class="lab-stats"><div class="stat"><div class="k">太陽からの離角</div><div class="v" id="sEl">—</div></div><div class="stat"><div class="k">見え方</div><div class="v accent" id="sVis">—</div></div><div class="stat"><div class="k">光っている部分</div><div class="v" id="sLit">—</div></div><div class="stat"><div class="k">見かけの大きさ</div><div class="v" id="sSize">—</div></div></div>
     </div>
     <p class="lab-legend">左：北極の上から見た太陽・金星・地球（大きさは誇張、軌道は円で表示）。赤い点が地上の観察者、白い線がその地平線で、暗い側は地平線の下（見えない側）です。右上：地上から見た空。右下：地球から見た金星の形と大きさ（同じ倍率。見かけの大きさは、いちばん遠い外合のころを1とした倍率）。金星や地球を指でドラッグすると、円軌道のモデルで自由に動かせます。</p>
+<!-- sky3d:start -->
+    <div class="v3d-block" style="width:100%;margin-top:18px;">
+      <h3 style="margin:0 0 8px;font-size:15px;">🧊 3Dで見る（ドラッグで回転・上の操作と連動）</h3>
+      <div class="view3d dark" id="view3d"><div class="load">3D模型を読み込み中…</div><div class="hud" id="hud3d" style="display:none"></div></div>
+      <div class="cam-row" id="camRow3d"><button data-v="top" class="on">北極の上から</button><button data-v="side">ななめから</button><button data-v="earth">地球から金星を見る</button></div>
+      <p class="lab-legend" style="margin-top:6px;">太陽・金星・地球の位置を3Dで表示しています（大きさは誇張）。「地球から金星を見る」で、望遠鏡で見たときの金星の形と向きになります。上の日付と連動します。</p>
+    </div>
+<!-- sky3d:end -->
     <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
     <div class="share-row">
       <button class="btn btn-ghost" id="fsBtn" hidden>⛶ 全画面で表示</button>
@@ -277,6 +286,7 @@ canvas.lab.light{background:#fff;}
     const t=BASE+day*DAY+12*HR, E=kep('E',t), V=venus(t,E), i=Math.floor(day+1e-9);
     if(!(i in skyC)) skyC[i]=skyDate(BASE+i*DAY);
     return {g:geo(V,E), sky:skyC[i], lv:Math.atan2(V[1],V[0])/R, le:Math.atan2(E[1],E[0])/R, i:i}; }
+  { const __st0=state; state=function(){ const s=__st0(); window.__sim2d={lv:s.lv, le:s.le}; return s; }; }
   function visOf(st){ const e=st.sky.eve.ven[0], m=st.sky.morn.ven[0], ev=e>=VIS, mo=m>=VIS, el=st.g.el;
     const low=(a,w)=>a<0?w+'には地平線の下':w+'も高さ'+Math.round(a)+'°で低すぎる';
     return {ev:ev, mo:mo, txt:ev&&mo?'よいの明星・明けの明星':ev?'よいの明星':mo?'明けの明星':'見えない',
@@ -442,6 +452,9 @@ canvas.lab.light{background:#fff;}
   $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText((SHARE||document.title)+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
 })();
 </script>
+<!-- sky3d-loader:start -->
+<script>(()=>{const el=document.getElementById('view3d');if(!el)return;const go=()=>import('./view3d.js?v=1').catch(()=>{const l=el.querySelector('.load');if(l)l.textContent='3D表示を読み込めませんでした';});if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>{if(es[0].isIntersecting){io.disconnect();go();}},{rootMargin:'300px'});io.observe(el);}else go();})();</script>
+<!-- sky3d-loader:end -->
 <script src="../../assets/share-counter.js?v=4"></script>
 <script>ShareCounter.initSim({ simId:'kinsei-michikake', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
 <script src="../../assets/lang-toggle.js?v=4"></script>

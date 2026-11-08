@@ -19,6 +19,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://shimulabo.com/ogp/gesshoku-nisshoku.png">
 <link rel="stylesheet" href="../../assets/style.css?v=4">
+<link rel="stylesheet" href="../../assets/three/sim3d.css?v=1">
     <!-- seo-internal -->
     <link rel="canonical" href="https://shimulabo.com/sims/gesshoku-nisshoku/">
     <meta property="og:locale" content="ja_JP">
@@ -97,6 +98,14 @@ canvas.lab.light{background:#fff;}
       <div class="lab-stats"><div class="stat"><div class="k">この食の種類</div><div class="v accent" id="sType">—</div></div><div class="stat"><div class="k">最大の食分</div><div class="v" id="sMag">—</div></div><div class="stat"><div class="k">いまの様子</div><div class="v" id="sNow">—</div></div><div class="stat"><div class="k">続く時間（目安）</div><div class="v" id="sDur">—</div></div></div>
     </div>
     <p class="lab-legend">上：横から見た太陽・地球・月と影（大きさの比はほぼ実際どおり、距離と月の通り道の傾きは誇張）。左下：地上から見た様子（東が左）。右下：ずれの大きさと食が起こる範囲、1年分の結果（赤＝皆既、オレンジ＝部分・輪は金環、灰色＝半影、白い輪＝起きない）。図を指でドラッグしても動かせます。</p>
+<!-- sky3d:start -->
+    <div class="v3d-block" style="width:100%;margin-top:18px;">
+      <h3 style="margin:0 0 8px;font-size:15px;">🧊 3Dで見る（ドラッグで回転・上の操作と連動）</h3>
+      <div class="view3d dark" id="view3d"><div class="load">3D模型を読み込み中…</div><div class="hud" id="hud3d" style="display:none"></div></div>
+      <div class="cam-row" id="camRow3d"><button data-v="moon" class="on">月のそば（地球から見る向き）</button><button data-v="side">横から全体</button><button data-v="earth">地球のそば</button></div>
+      <p class="lab-legend" style="margin-top:6px;">太陽・地球・月の大きさと距離を実際の比率で並べ、地球の影（本影・半影）と月の影を3Dで表示しています。上の「見るとき」「月齢」「通り道のずれ」と連動します。</p>
+    </div>
+<!-- sky3d:end -->
     <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
     <div class="share-row">
       <button class="btn btn-ghost" id="fsBtn" hidden>⛶ 全画面で表示</button>
@@ -435,6 +444,9 @@ canvas.lab.light{background:#fff;}
   $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText((SHARE||document.title)+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
 })();
 </script>
+<!-- sky3d-loader:start -->
+<script>(()=>{const el=document.getElementById('view3d');if(!el)return;const go=()=>import('./view3d.js?v=1').catch(()=>{const l=el.querySelector('.load');if(l)l.textContent='3D表示を読み込めませんでした';});if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>{if(es[0].isIntersecting){io.disconnect();go();}},{rootMargin:'300px'});io.observe(el);}else go();})();</script>
+<!-- sky3d-loader:end -->
 <script src="../../assets/share-counter.js?v=4"></script>
 <script>ShareCounter.initSim({ simId:'gesshoku-nisshoku', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
 <script src="../../assets/lang-toggle.js?v=4"></script>
