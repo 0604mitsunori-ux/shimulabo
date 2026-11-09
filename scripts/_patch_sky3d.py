@@ -51,6 +51,19 @@ PAGES = {
                  "地球とISSの高さを同じ縮尺にした地球儀です。黄色い線がこれから45分の通り道、点線がこれまでの通り道で、ISSは今の時刻に合わせて動きます（位置は公開API wheretheiss.at から取得）。赤いピンは上で選んだ地域です。昼と夜の境目も、そのときの太陽の位置で描いています。ISSの大きさは見やすく誇張しています。",
                  ("  const R = 6371;", "  window.__iss={PREFS:PREFS};\n  const R = 6371;"),
                  True, r'<div class="hint" id="state"[^>]*></div>'),
+    # ---- 理科（2026-11-08 追加） ----
+    "saibou-bunretsu": ([("persp", "ななめから"), ("front", "正面から（上の図と同じ向き）"), ("side", "横から（中央の面を見る）")],
+                        "上の図の細胞を立体にして、染色体（4本・色は上の図と同じ）の動きを見せています。「横から」にすると、③で染色体が中央の面に広がって並ぶようすが分かります。「顕微鏡で見た根の先端」では、根を縦に半分に切った模型で、A・B・Cの場所の細胞の大きさと分裂中の細胞を見られます。上の「表示する内容」「段階」「再生」と連動します。形と大きさは簡単にした模式図です。",
+                        ("  function frame(ts){ const dt=last?", "  window.__cell={LOCS:LOCS,CELLS:CELLS,TAI:TAI,GEN:GEN,st:()=>({mode:mode,p:p,loc:loc})};\n  function frame(ts){ const dt=last?"),
+                        False),
+    "denryu-jikai": ([("persp", "ななめから"), ("front", "正面から"), ("top", "真上から")],
+                     "上の図の4つの実験（導線・コイルのまわりの磁界／電磁石／ぶらんこ・モーター／電磁誘導・発電機）を立体の模型にしています。オレンジの粒＝電流、青＝磁力線（磁界の向き）、緑の矢印＝力です。上の「実験」「表示」「電流の大きさ」などのボタンやスライダーと連動し、方位磁針・コイル・磁石も上の図と同じように動きます。大きさや形は簡単にした模式図です。",
+                     ("  function frame(t){ const dt=last?", "  window.__denki={BX:BX,BY:BY,CN:CN,CL:CL,CA:CA,CPW:CPW,CPC:CPC,coilList:coilList,Bsum:Bsum,st:()=>({m:$('mode').value,v:$('view').value,I:Iof(),dirI:dirI,earth:earth,probe:probe,nd:nd,wo:wo,so:so,core:core,swOn:swOn,shown:shown,N:+$('turns').value,nb:nbat(),magUp:magUp,phi:phi,comm:comm,pSide:pSide,alpha:alpha,omega:omega,magN:magN,mX:mX,iNow:iNow,ndl:ndl,vS:vS,theta:theta,playing:playing})};\n  function frame(t){ const dt=last?"),
+                     False),
+    "hito-karada": ([("persp", "ななめから"), ("front", "正面から（上の図と同じ向き）"), ("side", "横から")],
+                    "上の図の3つの画面を、体の中の立体の模式図にしています。①血液の循環では、心臓の4つの部屋と血管を立体にし、上の図と同じ100粒の血液が肺と全身をめぐります（赤＝酸素が多い血液、青＝二酸化炭素が多い血液）。②呼吸では、ろっ骨と横隔膜の動きで肺がふくらむようすと、肺胞の拡大を、③消化と吸収では、口からこう門までの通り道と柔毛の拡大を見られます。上のボタンやスライダーと連動します。形と大きさは簡単にした模式図です。",
+                    ("  function draw(){ ctx.fillStyle='#ffffff';", "  window.__body={H1:H1,H2:H2,parts:parts,oxy:oxy,air:air,AWL:AWL,AWR:AWR,o2:o2,co2:co2,rbc:rbc,CAP:CAP,CAP0:CAP0,CAP1:CAP1,AC:AC,at:at,SP:SP,stg:stg,lvls:lvls,PLACE:PLACE,JUICE_S:JUICE_S,DESC:DESC,st:()=>({mode:mode,run:run,T:T,cph:cph,rph:rph,dp:dp,s6:S6(),hr:+$('hr').value,sv:+$('sv').value,br:+$('br').value,tv:+$('tv').value,B:breath(),amp:ampK(),R:curR()})};\n  function draw(){ ctx.fillStyle='#ffffff';"),
+                    False),
 }
 CSS = '<link rel="stylesheet" href="../../assets/three/sim3d.css?v=1">'
 LOADER = """<script>(()=>{const el=document.getElementById('view3d');if(!el)return;const go=()=>import('./view3d.js?v=1').catch(()=>{const l=el.querySelector('.load');if(l)l.textContent='3D表示を読み込めませんでした';});if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>{if(es[0].isIntersecting){io.disconnect();go();}},{rootMargin:'300px'});io.observe(el);}else go();})();</script>"""
