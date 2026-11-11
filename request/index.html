@@ -109,10 +109,21 @@
       </div>
     </div>
 
+    <div style="position:absolute;left:-9999px;" aria-hidden="true"><label>ウェブサイト<input type="text" id="website" tabindex="-1" autocomplete="off"></label></div>
+
     <button class="btn btn-primary" id="sendBtn">この内容でリクエストする</button>
     <p id="note" style="font-size:13px;color:var(--ink-2);margin:14px 0 0;text-align:center;">
-      送信ボタンを押すと、メールソフトが起動します。
+      ボタンを押すと、その場でつくり手に届きます（メールソフトは開きません）。
     </p>
+  </section>
+
+  <section class="panel" id="donePanel" style="display:none;text-align:center;">
+    <div style="font-size:54px;line-height:1.1;">📮</div>
+    <h2 style="margin:8px 0 6px;">リクエストを受け付けました！</h2>
+    <p style="color:var(--ink-2);font-size:14px;margin:0 0 6px;">受付番号：<b id="doneId" style="color:var(--ink);font-size:16px;letter-spacing:.04em;">—</b></p>
+    <p style="color:var(--ink-2);font-size:14px;line-height:1.8;margin:0 0 16px;">シミュができたら、<b>このブラウザでシミュラボを開いたときに「できたシミュを見る →」のお知らせ</b>が出ます。<span id="doneMail"></span>進み具合はいつでもリクエストボードで見られます。</p>
+    <a class="btn btn-primary" id="doneLink" style="width:auto;display:inline-flex;padding:14px 30px;" href="../board/">リクエストボードで進み具合を見る →</a>
+    <div style="margin-top:14px;"><a href="./" style="font-size:13px;font-weight:800;">✍️ もう1つリクエストを送る</a></div>
   </section>
 
   <article class="article">
@@ -121,7 +132,7 @@
       <dt>必ず作ってもらえますか？</dt>
       <dd>すべてをお約束はできませんが、いただいたアイデアはすべて目を通し、面白いものから順に制作します。</dd>
       <dt>採用されたら教えてもらえますか？</dt>
-      <dd>メールアドレスをご記入いただいた方には、公開時にお知らせします。ニックネームをいただければ、ページにクレジットを載せます。</dd>
+      <dd>はい。シミュができると、①<a href="../board/">リクエストボード</a>に「公開しました」とシミュへのリンクが載り、②リクエストを送ったブラウザでシミュラボを開くと「できたシミュを見る →」のお知らせが出ます。③メールアドレスをご記入いただいた方には、お知らせメールも自動でお送りします。ニックネームをいただければ、ボードやページにクレジットを載せます。</dd>
       <dt>個人情報は何に使われますか？</dt>
       <dd>いただいた連絡先は、リクエストへのご連絡以外には使用しません。</dd>
     </dl>
@@ -136,32 +147,43 @@
   </div>
 </footer>
 
+<script src="../assets/req-api.js?v=1"></script>
 <script>
 (() => {
   const $ = (id) => document.getElementById(id);
-  /* 公開時の動線：
-     ① 簡単版（今）… 下のTOにメールが届く（mailto）
-     ② 本格版（公開後）… api/request.js を立て、サーバーに蓄積＋投票ボード化 */
-  const TO = '0604mitsunori@gmail.com';   // 受信用アドレス
-
-  $('sendBtn').addEventListener('click', () => {
+  /* 送り先：Google Apps Script（スプレッドシートに溜まり、つくり手のGmailに通知）。assets/req-api.js 参照 */
+  let busy = false;
+  $('sendBtn').addEventListener('click', async () => {
+    if (busy) return;
     const idea = $('idea').value.trim();
+    const note = $('note');
     if (!idea) {
-      $('note').textContent = '⚠️ 「どんなシミュレーションが見たいか」は必須です。';
-      $('note').style.color = 'var(--accent-d)';
+      note.textContent = '⚠️ 「どんなシミュレーションが見たいか」は必須です。';
+      note.style.color = 'var(--accent-d)';
       return;
     }
-    const subject = `【シミュラボ】シミュレーションのリクエスト（${$('genre').value}）`;
-    const body =
-      `■ジャンル：${$('genre').value}\n` +
-      `■見たいシミュレーション：\n${idea}\n\n` +
-      `■見てみたい理由：\n${$('why').value.trim() || '（未記入）'}\n\n` +
-      `■ニックネーム：${$('nick').value.trim() || '（未記入）'}\n` +
-      `■メール：${$('email').value.trim() || '（未記入）'}\n`;
-
-    window.location.href = `mailto:${TO}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    $('note').textContent = '✅ メールソフトを起動しました。送信ありがとうございます！';
-    $('note').style.color = 'var(--teal-d)';
+    busy = true;
+    $('sendBtn').disabled = true; $('sendBtn').textContent = '送信中…';
+    note.textContent = ''; 
+    const data = { idea, genre: $('genre').value, why: $('why').value.trim(),
+                   nick: $('nick').value.trim(), email: $('email').value.trim(), website: $('website').value };
+    try {
+      const j = await ReqAPI.submit(data);
+      if (!j || !j.ok) throw new Error((j && j.error) || 'failed');
+      ReqAPI.remember(j.id, idea);
+      $('doneId').textContent = j.id;
+      $('doneMail').textContent = data.email ? 'ご記入のメールアドレスにもお知らせを送ります。' : '';
+      $('doneLink').href = '../board/?id=' + encodeURIComponent(j.id);
+      document.querySelectorAll('main > section.panel:not(#donePanel)').forEach(s => s.style.display = 'none');
+      $('donePanel').style.display = '';
+      $('donePanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      try { gtag('event', 'request_submit', { genre: data.genre }); } catch (e) {}
+    } catch (e) {
+      note.innerHTML = '⚠️ うまく送れませんでした。少し時間をおいてもう一度お試しください。' + (String(e.message) === 'busy' ? '（ただいま混み合っています）' : '');
+      note.style.color = 'var(--accent-d)';
+      $('sendBtn').disabled = false; $('sendBtn').textContent = 'この内容でリクエストする';
+      busy = false;
+    }
   });
 })();
 </script>

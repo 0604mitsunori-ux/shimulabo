@@ -13,10 +13,10 @@
     <meta property="og:image" content="https://shimulabo.com/ogp/board.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://shimulabo.com/ogp/board.png">
-<title>リクエストボード｜みんなが見たいシミュレーション｜シミュラボ</title>
-<meta name="description" content="次に作るシミュレーションの候補を、みんなの👍投票で決めるリクエストボード。票が多いものから実際に作って公開します。あなたのアイデアも投稿できます。">
-<meta property="og:title" content="リクエストボード｜みんなが見たいシミュレーション">
-<meta property="og:description" content="次に作るシミュは投票で決める。気になる案に👍して、人気を競わせよう。">
+<title>リクエストボード｜みんなの「作ってほしい」と進み具合｜シミュラボ</title>
+<meta name="description" content="シミュラボに届いたリクエストと、その進み具合（受付・制作中・公開済み）を一覧できるリクエストボード。公開済みのリクエストは、できたシミュレーションにそのまま飛べます。あなたのアイデアも送れます。">
+<meta property="og:title" content="リクエストボード｜みんなの「作ってほしい」と進み具合">
+<meta property="og:description" content="届いたリクエストと進み具合。できたシミュにはここから飛べます。">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="../assets/style.css?v=4">
     <!-- seo-internal -->
@@ -30,6 +30,28 @@
     <!-- adsense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
          crossorigin="anonymous"></script>
+<style>
+  .rq-list { display:flex; flex-direction:column; gap:10px; }
+  .rq { display:flex; gap:12px; align-items:flex-start; border:1.6px solid var(--line); border-radius:14px; padding:13px 14px; background:#fff; }
+  .rq.me { border-color:var(--teal); box-shadow:0 0 0 3px var(--teal-l,#e6f4f1); }
+  .rq.done { background:linear-gradient(135deg,#fffaf6,#fff); }
+  .rq .em { flex:0 0 auto; font-size:26px; line-height:1.2; width:34px; text-align:center; }
+  .rq .mn { flex:1 1 auto; min-width:0; }
+  .rq .tt { font-weight:800; font-size:15px; line-height:1.5; word-break:break-word; }
+  .rq .meta { font-size:11.5px; color:var(--ink-2); font-weight:700; margin-top:3px; }
+  .rq .rp { font-size:13px; color:var(--ink-2); margin-top:6px; line-height:1.6; }
+  .rq .go { display:inline-block; margin-top:9px; background:var(--accent); color:#fff; font-weight:800; font-size:13.5px; padding:9px 16px; border-radius:10px; text-decoration:none; }
+  .badge { display:inline-block; font-size:11px; font-weight:900; padding:2px 9px; border-radius:99px; margin-right:6px; vertical-align:1px; }
+  .badge.s-受付 { background:#eef2f6; color:#4a5a6a; }
+  .badge.s-制作中 { background:#fff4d6; color:#8a5a00; }
+  .badge.s-公開済み { background:#ffe9e2; color:#b23a22; }
+  .badge.s-見送り { background:#f1f1f1; color:#888; }
+  .rq-empty { text-align:center; color:var(--ink-2); font-size:14px; padding:14px 0; line-height:1.8; }
+  .flow { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin:6px 0 2px; }
+  .flow div { text-align:center; font-size:12px; font-weight:700; color:var(--ink-2); border:1px solid var(--line); border-radius:12px; padding:10px 4px; background:#fff; line-height:1.5; }
+  .flow b { display:block; font-size:20px; }
+  @media (max-width:480px){ .flow { grid-template-columns:repeat(2,1fr); } }
+</style>
 </head>
 <body>
 
@@ -57,28 +79,46 @@
 
   <div class="sim-head">
     <div class="cat">REQUEST BOARD</div>
-    <h1>みんなが見たいシミュ、投票で決定</h1>
-    <p class="lead">次に作るシミュレーションの候補です。気になるものに <strong>👍</strong> を押してください。票が多いものから順に、実際に作って公開します。</p>
+    <h1>みんなの「作ってほしい」と進み具合</h1>
+    <p class="lead">シミュラボに届いたリクエストの一覧です。面白い案から実際に作って公開し、<strong>できたものはここからそのシミュに飛べます</strong>。あなたのアイデアも送ってください。</p>
   </div>
 
   <section class="panel">
-    <h2>🗳️ 投票はこちら（票の多い順）</h2>
-    <div class="vote-list" id="voteList"></div>
-    <p style="font-size:12px;color:var(--ink-2);margin:16px 0 0;text-align:center;">
-      ※ 投票は1案につき1回。集計は順次反映されます。
-    </p>
+    <h2>🔁 リクエストが形になるまで</h2>
+    <div class="flow">
+      <div><b>📮</b>リクエストが届く</div>
+      <div><b>🛠️</b>つくり手が制作</div>
+      <div><b>🎉</b>公開＆このボードにリンク</div>
+      <div><b>🔔</b>送った人にお知らせ</div>
+    </div>
+    <p style="font-size:12.5px;color:var(--ink-2);margin:10px 0 0;line-height:1.7;">お知らせは、リクエストを送ったブラウザでシミュラボを開いたときの「できたシミュを見る →」の表示と、メールアドレスをご記入の方へのメールで届きます。</p>
+  </section>
+
+  <section class="panel" id="minePanel" style="display:none">
+    <h2>🙋 あなたのリクエスト</h2>
+    <div class="rq-list" id="mineList"></div>
+  </section>
+
+  <section class="panel">
+    <h2>📋 みんなのリクエスト</h2>
+    <div class="rq-list" id="allList"><div class="rq-empty">読み込み中…</div></div>
+  </section>
+
+  <section class="panel">
+    <h2>🎉 リクエストから生まれたシミュ</h2>
+    <div class="rq-list" id="doneList"></div>
   </section>
 
   <section class="req-banner">
-    <h2>💡 候補にないアイデアは？</h2>
-    <p>「これも見てみたい」を直接送れます。投稿された案も、ここで投票にかけます。</p>
-    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../request/">自分のアイデアを送る →</a>
+    <h2>💡 あなたの「これ見てみたい」は？</h2>
+    <p>思いついたら気軽にどうぞ。面白い案から実際に作って、できたらお知らせします。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../request/">リクエストを送る →</a>
   </section>
 
   <article class="article">
     <h2>このボードについて</h2>
-    <p>シミュラボは「次に何を作るか」を、つくり手だけで決めません。みんなの投票で人気を集めたテーマから優先して制作します。応援したい案に投票し、見たかったシミュを一緒に育ててください。</p>
-    <div class="note">いただいたリクエストのうち、面白い案はこのボードに追加され、投票の対象になります。</div>
+    <p>シミュラボは「次に何を作るか」を、つくり手だけで決めません。届いたリクエストはすべて目を通し、面白い案から制作します。このボードには、届いたリクエストのうち掲載できるものと、その進み具合（受付・制作中・公開済み）を載せています。</p>
+    <div class="note">メールアドレスはボードには表示されません。ニックネームをいただいた方は、ボードとシミュのページにクレジットを載せます。</div>
   </article>
 
 </main>
@@ -90,51 +130,59 @@
   </div>
 </footer>
 
-<script src="../assets/vote.js?v=4"></script>
+<script src="../assets/req-api.js?v=1"></script>
 <script>
 (() => {
-  /* 候補リクエスト（公開後は api/request の承認済みリストに差し替え可）。
-     id は投票集計のキー。安易に変えると票がリセットされるので注意。 */
-  const REQUESTS = [
-    { id: 'req-life-calendar', title: '人生カレンダー（人生を4,000週のマスで可視化）', genre: '人生・自分ごと' },
-    { id: 'req-turing',        title: '模様が勝手に生まれる（ヒョウ柄・シマ模様の不思議）', genre: 'ふしぎ・現象' },
-    { id: 'req-tabemono',      title: '一生で食べる量（米・卵・ラーメンの生涯総量）', genre: 'くだらない・ネタ' },
-    { id: 'req-chintai',       title: '賃貸 vs 持ち家 生涯コスト対決', genre: 'お金・時間' },
-    { id: 'req-sync',          title: '拍手・ホタルが勝手に揃う（同期現象）', genre: 'ふしぎ・現象' },
-    { id: 'req-shugi',         title: '結婚式ご祝儀 収支シミュ', genre: '人生・自分ごと' },
-    { id: 'req-this-year',     title: '今年もう何%終わった？メーター', genre: 'お金・時間' },
-    { id: 'req-edo',           title: 'もし江戸時代に生まれてたら（職業・寿命診断）', genre: 'くだらない・ネタ' }
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const day = (iso) => { const d = new Date(iso); return isNaN(d) ? '' : (d.getFullYear() + '/' + (d.getMonth()+1) + '/' + d.getDate()); };
+
+  /* リクエストボードの案から生まれたシミュ（はじめの8案・すべて公開済み） */
+  const BORN = [
+    { e:'🗓️', idea:'人生カレンダー（人生を4,000週のマスで可視化）', url:'../sims/jinsei-calendar/', name:'人生カレンダーシミュレーター' },
+    { e:'🐆', idea:'模様が勝手に生まれる（ヒョウ柄・シマ模様の不思議）', url:'../sims/turing/', name:'模様が生まれるシミュレーター' },
+    { e:'🍚', idea:'一生で食べる量（米・卵・ラーメンの生涯総量）', url:'../sims/issho-tabemono/', name:'一生で食べる量シミュレーター' },
+    { e:'🏠', idea:'賃貸 vs 持ち家 生涯コスト対決', url:'../sims/chintai-mochiie/', name:'賃貸 vs 持ち家 生涯コストシミュレーター' },
+    { e:'🎶', idea:'拍手・ホタルが勝手に揃う（同期現象）', url:'../sims/sync/', name:'同期現象シミュレーター' },
+    { e:'💒', idea:'結婚式ご祝儀 収支シミュ', url:'../sims/kekkon-jikofutan/', name:'結婚式の自己負担額シミュレーター（ご祝儀の収支）' },
+    { e:'📅', idea:'今年もう何%終わった？メーター', url:'../sims/kotoshi-pct/', name:'今年あと何％シミュレーター' },
+    { e:'🏯', idea:'もし江戸時代に生まれてたら（職業・寿命診断）', url:'../sims/edo-umare/', name:'もし江戸時代に生まれてたら診断' }
   ];
+  $('doneList').innerHTML = BORN.map(b => '<div class="rq done"><span class="em">' + b.e + '</span><div class="mn">' +
+    '<div class="tt"><span class="badge s-公開済み">公開済み</span>' + esc(b.idea) + '</div>' +
+    '<div class="meta">→ ' + esc(b.name) + '</div>' +
+    '<a class="go" href="' + b.url + '">できたシミュを見る →</a></div></div>').join('');
 
-  const listEl = document.getElementById('voteList');
-
-  async function render() {
-    const counts = await Vote.counts(REQUESTS.map(r => r.id));
-    const rows = REQUESTS.map(r => ({ ...r, n: counts[r.id] || 0 }))
-      .sort((a, b) => b.n - a.n);
-
-    listEl.innerHTML = rows.map((r, i) => {
-      const rank = i + 1;
-      const topClass = (r.n > 0 && rank <= 3) ? ' top' + rank : '';
-      const voted = Vote.hasVoted(r.id);
-      return `<div class="vote-row${topClass}" data-id="${r.id}">
-        <span class="vote-rank">${rank}</span>
-        <span class="vote-main"><div class="vt">${r.title}</div><div class="vc">${r.genre}</div></span>
-        <button class="vote-btn${voted ? ' voted' : ''}" ${voted ? 'disabled' : ''}>👍 <b>${r.n.toLocaleString()}</b></button>
-      </div>`;
-    }).join('');
-
-    listEl.querySelectorAll('.vote-btn:not(.voted)').forEach(btn => {
-      btn.addEventListener('click', async (e) => {
-        const id = e.target.closest('.vote-row').dataset.id;
-        if (Vote.hasVoted(id)) return;
-        await Vote.vote(id);
-        render(); // 投票したら順位を再計算（競わせる）
-      });
-    });
+  const EMO = { '受付':'📮', '制作中':'🛠️', '公開済み':'🎉', '見送り':'🙏' };
+  function row(r, me) {
+    const st = r.status || '受付';
+    const safeUrl = /^https:\/\/shimulabo\.com\//.test(r.url || '') ? r.url : '';
+    const go = (st === '公開済み' && safeUrl) ? '<a class="go" href="' + esc(safeUrl) + '">できたシミュを見る →</a>' : '';
+    return '<div class="rq' + (me ? ' me' : '') + (st === '公開済み' ? ' done' : '') + '" id="r-' + esc(r.id) + '"><span class="em">' + (EMO[st] || '📮') + '</span><div class="mn">' +
+      '<div class="tt"><span class="badge s-' + esc(st) + '">' + esc(st) + '</span>' + esc(r.idea) + '</div>' +
+      '<div class="meta">' + [r.genre, r.nick ? r.nick + ' さんのリクエスト' : '', day(r.at)].filter(Boolean).map(esc).join('・') + '</div>' +
+      (r.reply ? '<div class="rp">💬 つくり手より：' + esc(r.reply) + '</div>' : '') + go + '</div></div>';
   }
 
-  render();
+  // あなたのリクエスト（このブラウザから送ったもの）
+  const mine = ReqAPI.mine();
+  const focus = new URLSearchParams(location.search).get('id');
+  const local = (m) => ({ id: m.id, idea: m.idea, status: '受付', at: new Date(m.at).toISOString() });
+  if (mine.length) {
+    $('minePanel').style.display = '';
+    $('mineList').innerHTML = mine.map(m => row(local(m), true)).join('');
+    ReqAPI.status(mine.map(m => m.id)).then(items => {
+      const by = {}; items.forEach(x => by[x.id] = x);
+      $('mineList').innerHTML = mine.map(m => row(by[m.id] || local(m), true)).join('');
+      if (focus) { const el = document.getElementById('r-' + focus); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+    }).catch(() => {});
+  }
+
+  // みんなのリクエスト（掲載OKのもの）
+  ReqAPI.list().then(items => {
+    $('allList').innerHTML = items.length ? items.map(r => row(r, mine.some(m => m.id === r.id))).join('')
+      : '<div class="rq-empty">掲載中のリクエストは、まだありません。いちばん乗りでどうぞ！<br><a href="../request/" style="font-weight:800;">リクエストを送る →</a></div>';
+  }).catch(() => { $('allList').innerHTML = '<div class="rq-empty">いま一覧を読み込めませんでした。少し時間をおいて開き直してください。</div>'; });
 })();
 </script>
 <script src="../assets/lang-toggle.js?v=4"></script>

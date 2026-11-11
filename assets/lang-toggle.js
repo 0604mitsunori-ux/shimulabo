@@ -71,3 +71,16 @@
   if (document.readyState !== 'loading') init();
   else document.addEventListener('DOMContentLoaded', init);
 })();
+
+/* リクエストを送ったことがあるブラウザだけ、お知らせ用の req-api.js を読み込む
+   （公開済みになったら右下に「できたシミュを見る →」が出る） */
+(function () {
+  try {
+    if (window.ReqAPI || !localStorage.getItem('simulab:myreq')) return;
+    var me = document.currentScript || [].slice.call(document.scripts).filter(function (s) { return /lang-toggle\.js/.test(s.src); })[0];
+    var s = document.createElement('script');
+    s.src = me ? me.src.replace(/lang-toggle\.js.*$/, 'req-api.js?v=1') : '/assets/req-api.js?v=1';
+    s.async = true;
+    document.head.appendChild(s);
+  } catch (e) {}
+})();
