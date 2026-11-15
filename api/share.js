@@ -147,6 +147,8 @@ const ALLOW = new Set([
   'tan-shindou', 'unari-teijouha', 'denshi-haichi', 'iden-fudou', 'coriolis-henseifu', 'eratosthenes',
   // rika
   'mono-omosa', 'kaze-gomu', 'denki-toorimichi', 'hikari-oto', 'konchu-sodachi', 'kisetsu-seibutsu', 'hone-kinniku', 'amamizu-yukue', 'tenki-kion', 'atatamarikata',
+  // rika
+  'maku-yuso', 'rinshishitsu-maku',
 ]);
 
 export default async function handler(req, res) {

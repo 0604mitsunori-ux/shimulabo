@@ -2,7 +2,7 @@
 
 > 身近な疑問や理科の現象を、数字を入れるだけで計算・アニメーションで確かめられる無料のWebシミュレーター集。ログイン不要・ブラウザだけで動き、入力した内容はサーバーに送らない。理科の授業（小学校〜高校）、日々の計算、気象庁などの公開データを使ったライブ表示（地震・潮・天気・星空など）を扱う。
 
-- 掲載しているシミュ: 683本（42カテゴリ）
+- 掲載しているシミュ: 726本（42カテゴリ）
 - 引用: 出典「シミュラボ」とページのURLを書けば、記事・授業資料・SNSへの引用は自由（事前連絡不要）
 - サイトマップ: https://shimulabo.com/sitemap.xml
 
@@ -151,6 +151,7 @@
 - [磁力線シミュレーター](https://shimulabo.com/sims/magnet/): 物理 電気と磁気（電流と磁界）。磁力線と方位磁針で、磁界の向きを確かめる。
 
 ### 高校 化学基礎・化学
+- [リン脂質と細胞膜のでき方シミュレーター（単分子膜・ミセル・脂質二重層・小胞）](https://shimulabo.com/sims/rinshishitsu-maku/): 化学 有機化合物（油脂とセッケン：界面活性剤・ミセル）。セッケンのような尾が1本の分子が、水面に並んで単分子膜をつくり、水面が埋まると水中でミセルをつくる様子を見る。
 - [原子の構造と電子配置のシミュレーター（周期表・価電子・イオン）](https://shimulabo.com/sims/denshi-haichi/): 化学基礎 物質の構成粒子（原子の構造・電子配置）。原子番号を選ぶと電子殻（K・L・M・N）に電子が入り、価電子の数と周期表の族の関係、イオンになって貴ガスと同じ配置になる様子を見る。
 - [酸・アルカリと中和のシミュレーター（BTB溶液の色とイオンのモデル）](https://shimulabo.com/sims/chuwa-ion/): 化学基礎 酸・塩基と中和。中和の量的関係と、滴下量によるイオンの数・pHの変化。
 - [化学変化と質量シミュレーター（銅・マグネシウムの酸化）](https://shimulabo.com/sims/kagaku-shitsuryou/): 化学基礎 物質量と化学反応式。反応する物質の質量の比と、原子の数が変わらないこと（化学反応式の量的関係の入口に）。
@@ -159,6 +160,8 @@
 - [模様が生まれる（反応拡散）](https://shimulabo.com/sims/turing/): 化学 化学反応と化学平衡（発展：反応拡散）。2種類の物質の反応と拡散だけで、しま模様やまだら模様が自然にできる。
 
 ### 高校 生物基礎・生物
+- [リン脂質と細胞膜のでき方シミュレーター（単分子膜・ミセル・脂質二重層・小胞）](https://shimulabo.com/sims/rinshishitsu-maku/): 生物 細胞と分子（生体物質と細胞：リン脂質と生体膜）。親水性の頭と疎水性の尾をもつ分子が、水面に並び、水中でミセルや脂質二重層に集まっていく過程を観察する。尾が1本と2本、分子の数（濃度）で比べ、小胞の安定性も確かめる。
+- [膜輸送のシミュレーター（拡散・チャネル・担体・ナトリウムポンプ）](https://shimulabo.com/sims/maku-yuso/): 生物 細胞と分子（生命現象とタンパク質：膜輸送タンパク質）。単純拡散・チャネル・担体・ナトリウムポンプを切り替え、受動輸送では濃度差がなくなり、能動輸送（ATPを使う）では濃度差ができることをグラフで比べる。
 - [遺伝的浮動とハーディー・ワインベルグの法則のシミュレーター](https://shimulabo.com/sims/iden-fudou/): 生物 遺伝子の変化と進化の仕組み（遺伝的浮動・ハーディー・ワインベルグの法則）。集団の大きさと選択の強さを変えて、対立遺伝子頻度が世代ごとにゆらぎ、小さい集団ほど早く固定・消失する様子を複数の集団で比べる。平衡の確かめも。
 - [細胞分裂シミュレーター（体細胞分裂・減数分裂と受精）](https://shimulabo.com/sims/saibou-bunretsu/): 生物基礎 遺伝情報の分配（細胞周期）。間期・前期・中期・後期・終期と染色体の動き。体細胞分裂と減数分裂の比較。
 - [DNA二重らせん](https://shimulabo.com/sims/dna/): 生物基礎 遺伝子とその働き。DNAの二重らせん構造を立体的に見る。
@@ -189,7 +192,7 @@
 - [ブラックホール 光の曲がり](https://shimulabo.com/sims/black-hole/): 地学 宇宙の構造（発展）。強い重力で光の進路が曲がる様子（重力レンズ）。
 
 ## カテゴリ別の全シミュ
-### お金・時間（21本）
+### お金・時間（22本）
 - [会議コストシミュレーター](https://shimulabo.com/sims/kaigi-cost/): その会議、いくら燃えてる？参加人数と年収から、1分ごとに溶けていくお金をリアルタイム表示。
 - [サブスク墓場シミュレーター](https://shimulabo.com/sims/subsc/): 使ってないサブスク、1年・10年でいくら捨ててる？解約で取り戻せる額を可視化。
 - [宝くじ買い続けたら](https://shimulabo.com/sims/takarakuji/): 総額・期待回収・運用との差で、期待値の現実を直視する残酷シミュ。
@@ -211,8 +214,9 @@
 - [暗号資産、ぜんぶでいくら？](https://shimulabo.com/sims/crypto-zenbu/): 世界の暗号資産を全部売ったらいくら？時価総額を日本の国家予算と比べてみる。
 - [ドル円 為替チャート（今日のレートと推移）](https://shimulabo.com/sims/dollar-yen-chart/): 今日のドル円は？欧州中央銀行の公表レートで最新値と30〜180日の推移チャートを表示。ユーロ・ポンドも。
 - [18金 相場 1g 今日（金・プラチナ・銀の価格）](https://shimulabo.com/sims/kin-souba/): 今日の金1gはいくら？国際スポット価格と為替からK24・K22・K18・K14・プラチナ・銀の1g価格をライブ換算。手持ちの金の価値も。
+- [札束 3Dシミュレーター（1億円は何kg？）](https://shimulabo.com/sims/satsutaba-3d/): 1億円は約10kg。金額を入れると1万円札の札束が3Dで積み上がる。
 
-### ふしぎ・現象（46本）
+### ふしぎ・現象（53本）
 - [渋滞は勝手に生まれる](https://shimulabo.com/sims/jutai/): 事故ゼロでも渋滞の波が発生する様子をリング道路で。混雑度を上げると赤い波が走り出す。
 - [模様が生まれる（反応拡散）](https://shimulabo.com/sims/turing/): 2つの物質が反応するだけで、ヒョウ柄やシマ模様がひとりでに生まれる。
 - [同期現象シミュレーター](https://shimulabo.com/sims/sync/): バラバラに光るホタルが、放っておくと勝手に点滅を揃えていく。
@@ -259,6 +263,13 @@
 - [地震でビルはどう揺れる？ 共振シミュレーター](https://shimulabo.com/sims/building-quake/): 階数と地震の周期が合うと共振して大きく揺れる。高層ビルが遠くの地震で揺れる理由を体感。
 - [津波はなぜ岸で高くなる？ シミュレーター](https://shimulabo.com/sims/tsunami-kishi/): 沖では1mの津波が岸で数倍に。水深と海底の傾斜を変えて、津波が高くなる瞬間を再現。
 - [今日の月（月齢・満ち欠け・次の満月はいつ？）](https://shimulabo.com/sims/kyou-no-tsuki/): 今夜の月はどんな形？月齢・輝面比・月の名前と、次の満月・新月の日付を計算。30日分の満ち欠けも。
+- [地下神殿 3D水位シミュレーター（首都圏外郭放水路）](https://shimulabo.com/sims/gaikaku-housuiro/): 地下神殿の断面を3Dで回して水をためてみる。ポンプがないと何時間で満杯？
+- [黒部ダムの水圧 3Dシミュレーター](https://shimulabo.com/sims/kurobe-dam-3d/): 日本一高い黒部ダムに水をためて、深さごとの水圧を3Dの矢印で見る。
+- [深海の水圧 3Dシミュレーター](https://shimulabo.com/sims/shinkai-suiatsu-3d/): 深さ1万mで指先に約1トン。潜るほど風船が縮むのを3Dで見る。
+- [昼と夜の地球 3D（いまの太陽）](https://shimulabo.com/sims/chikyu-hiruyoru-3d/): いま地球のどこが昼？日付を動かすと白夜も極夜も見える3D地球儀。
+- [世界の地震 3D（地球の中の震源）](https://shimulabo.com/sims/jishin-chikyu-3d/): 最新の地震を地球を透かして3Dで。日本の下に沈むプレートが見える。
+- [高さ比べ 3D（スカイツリー・東京タワー・世界の塔）](https://shimulabo.com/sims/takasa-kurabe-3d/): スカイツリー・東京タワー・世界の塔を3Dで並べて高さ比べ。
+- [地球と月の本当の距離 3D](https://shimulabo.com/sims/tsuki-kyori-3d/): 地球と月の間に地球が30個。惑星を全部並べても入る本当の距離。
 
 ### 人生・自分ごと（22本）
 - [スクロール距離メーター](https://shimulabo.com/sims/scroll-distance/): 今年あなたの親指が登る高さ＝エベレスト何個分？スマホ時間から距離を計算。
@@ -431,7 +442,7 @@
 - [感染はこう広がる SIRシミュレーター](https://shimulabo.com/sims/kansen-agent/): 街を動く人々の間で感染が広がる。マスク・ワクチン・外出制限でピークの高さがどう変わるか。
 - [今日の花粉飛散 予測指数（気温・風・雨から判定）](https://shimulabo.com/sims/kafun-yohou/): 今日・明日・明後日の花粉の飛びやすさを、予想気温・風・雨・湿度と季節から5段階で予測。都道府県別。
 
-### 占い・診断（21本）
+### 占い・診断（22本）
 - [誕生日でわかる運命数](https://shimulabo.com/sims/tanjyobi-uranai/): 数秘術であなたの本質を占う。
 - [前世診断](https://shimulabo.com/sims/zensei/): あなたの前世は何者だった？
 - [今年の運勢占い](https://shimulabo.com/sims/kotoshi-unsei/): 総合運・金運・恋愛運・仕事運を占う。
@@ -453,6 +464,7 @@
 - [守護動物（スピリットアニマル）診断](https://shimulabo.com/sims/shugo-animal/): 生年月日からあなたの守護動物（スピリットアニマル）を占う。
 - [守護霊の強さ（レベル）診断](https://shimulabo.com/sims/shugorei-level/): 生年月日から守護霊の強さ（レベル）とタイプを占う。
 - [守護のパワーストーン診断](https://shimulabo.com/sims/power-stone/): 生年月日からあなたの守護パワーストーンを占う。
+- [もし江戸時代に生まれてたら診断](https://shimulabo.com/sims/edo-umare/): 生まれ年と7問で、江戸のあなたの職業・身分ガチャ・年号・推定寿命を診断。
 
 ### クルマ・乗り物（16本）
 - [年間ガソリン代](https://shimulabo.com/sims/nenpi-gas/): 車のガソリン代、年いくら？
@@ -489,7 +501,7 @@
 - [世界の時差・いま何時？（日照マップ付き）](https://shimulabo.com/sims/sekai-jisa/): シンガポール・アメリカ・韓国…30都市の現在時刻と日本との時差を、昼と夜が動く世界地図で。
 - [海外の祝日カレンダー（アメリカ・韓国・中国・香港…）](https://shimulabo.com/sims/kaigai-shukujitsu/): アメリカ・韓国・中国・香港・ベトナム・イギリス…20カ国の今年の祝日一覧を1年タイムラインで。旅行・海外取引の日程確認に。
 
-### 住まい・暮らし（11本）
+### 住まい・暮らし（12本）
 - [適正家賃チェック](https://shimulabo.com/sims/yachin-tekisei/): 手取りからいくらの家賃が無理ない？
 - [引っ越し費用](https://shimulabo.com/sims/hikkoshi-hiyou/): 荷物量・距離・時期で費用を試算。
 - [賃貸 vs 持ち家](https://shimulabo.com/sims/chintai-mochiie/): 生涯コストはどっちが得？
@@ -501,6 +513,7 @@
 - [コンビニ密度チェッカー](https://shimulabo.com/sims/conbini-mitsudo/): あなたの街、徒歩圏にコンビニ何軒ある？地図データから500m圏をライブ集計。
 - [神社とお寺、どっちが多い街？](https://shimulabo.com/sims/jinja-tera/): あなたの街は神社派？お寺派？半径2kmの寺社を地図データからライブ集計。
 - [部屋はなぜ勝手に散らかる？ エントロピーシミュレーター](https://shimulabo.com/sims/heya-chirakaru/): 使って戻すだけで部屋は必ず散らかる。「片付いた配置」は場合の数が圧倒的に少ないから。
+- [浸水の深さ 3Dシミュレーター](https://shimulabo.com/sims/shinsui-fukasa-3d/): ハザードマップの浸水3mは家のどこまで？3Dの家に水を入れて確かめる。
 
 ### グルメ・食（5本）
 - [ラーメン1杯の労働時間](https://shimulabo.com/sims/ramen-roudou/): 何分働けば一杯食べられる？
@@ -586,7 +599,7 @@
 - [性格タイプ診断](https://shimulabo.com/sims/seikaku-type/): あなたはどんなタイプ？
 - [燃え尽き度チェック](https://shimulabo.com/sims/moeotsuki-do/): 頑張りすぎていませんか？
 - [価値観診断](https://shimulabo.com/sims/kachikan/): 本当に大事にしているものは？
-- [朝型・夜型診断](https://shimulabo.com/sims/chrono/): あなたの最適な時間帯は？
+- [朝型・夜型診断（クロノタイプ）](https://shimulabo.com/sims/chrono/): 8つの質問で朝型・夜型の傾向を。約70万人の遺伝子研究の話も。
 - [決断スタイル診断](https://shimulabo.com/sims/ketsudan/): 直感型？熟考型？
 - [レジリエンス診断](https://shimulabo.com/sims/resilience/): あなたの立ち直る力は？
 - [モチベーションタイプ診断](https://shimulabo.com/sims/motivation-type/): 質問からあなたのモチベーションの源泉を診断。
@@ -721,9 +734,9 @@
 - [いまの雨雲マップ](https://shimulabo.com/sims/amagumo-now/): 日本列島のいまの雨雲をレーダー合成画像でさっと確認。10分ごと更新。
 - [週間予報、どこまで信じる？](https://shimulabo.com/sims/yohou-shinrai/): 気象庁は予報に「信頼度A/B/C」を付けている。今週の怪しい日をあぶり出す。
 
-### 脳トレ・診断テスト（37本）
+### 脳トレ・診断テスト（66本）
 - [ストレスチェック](https://shimulabo.com/sims/stress-check/): 10問で今のストレス度をセルフ診断。
-- [HSP診断（繊細さん）](https://shimulabo.com/sims/hsp-shindan/): あなたの繊細さレベルを12問でチェック。
+- [HSP診断（繊細さん）](https://shimulabo.com/sims/hsp-shindan/): 12問で繊細さの4つの面を。蘭・チューリップ・タンポポ、あなたはどれ？
 - [EQ診断](https://shimulabo.com/sims/eq-shindan/): 心の知能指数を10問でチェック。
 - [怒りやすさ診断](https://shimulabo.com/sims/anger-type/): あなたの“沸点”を10問でチェック。
 - [完璧主義度診断](https://shimulabo.com/sims/kanpeki-do/): こだわりの強さを10問でチェック。
@@ -748,17 +761,46 @@
 - [逆唱テスト](https://shimulabo.com/sims/gyakushou-kioku/): 数字を逆から言えるか？
 - [図形回転テスト](https://shimulabo.com/sims/mental-rotation/): 同じ向き？それとも鏡文字？
 - [仲間はずれ探しクイズ](https://shimulabo.com/sims/nakama-hazure/): 1つだけ違うものはどれ？
-- [単語記憶テスト](https://shimulabo.com/sims/tango-kioku/): いくつ覚えられる？記憶力チェック
+- [単語記憶テスト](https://shimulabo.com/sims/tango-kioku/): 12個の言葉、すぐあとと少しあとで、どれだけ残る？
 - [数字探し（シュルテ）](https://shimulabo.com/sims/schulte/): 1〜25を順に速くタップ
 - [モスキート音テスト](https://shimulabo.com/sims/mosquito-on/): 何歳まで聞こえる？聴力年齢チェック
 - [反射神経テスト](https://shimulabo.com/sims/hansha-shinkei/): 緑になった瞬間にタップ！反応速度
 - [クリック連打速度（CPS）](https://shimulabo.com/sims/click-cps/): 10秒で何回クリックできる？
 - [視力テスト](https://shimulabo.com/sims/shiryoku-test/): ランドルト環の切れ目はどっち？
-- [色の識別テスト](https://shimulabo.com/sims/shikikaku-test/): 1つだけ違う色を探せ
-- [IQテスト（簡易版）](https://shimulabo.com/sims/iq-test/): 10問で論理思考力をチェック
-- [リズム感テスト](https://shimulabo.com/sims/rhythm-test/): ビートに合わせてタップ
+- [色覚テスト（あなたの目は何色型？）](https://shimulabo.com/sims/shikikaku-test/): 16枚の中から1枚だけちがう色を探す。赤〜緑・青〜黄、どこまで見分けられる？
+- [IQテスト（パターン問題と「見ない力」）](https://shimulabo.com/sims/iq-test/): パターン問題8問と、一瞬だけ動くしま模様。IQが高い人は何を見ていない？
+- [リズム感テスト](https://shimulabo.com/sims/rhythm-test/): 音に合わせてタップ。拍よりどのくらい早い？音が消えても続けられる？
 - [的当て反応テスト](https://shimulabo.com/sims/mato-tap/): 30秒で何個タップできる？
 - [集中力テスト（Go/No-Go）](https://shimulabo.com/sims/gonogo-test/): 青はタップ・赤は我慢！
+- [共感覚テスト（文字に色が見える？）](https://shimulabo.com/sims/kyokankaku-test/): あなたの「あ」は何色？文字に色が見える人は100人に1〜2人。約2分のセルフテスト。
+- [アファンタジア テスト（頭の中の映像）](https://shimulabo.com/sims/aphantasia-test/): 目を閉じて、りんごは見える？頭の中に映像が浮かばない人は、およそ25人に1人。
+- [頭の中の声テスト](https://shimulabo.com/sims/naigen-test/): 考えるとき、頭の中で声はしていますか？ずっとしゃべる人から、まったくない人まで。
+- [耳年齢テスト（モスキート音）](https://shimulabo.com/sims/mimi-nenrei/): この音、聞こえますか？少しずつ高くなる音で、どこまで聞こえるかを試す。
+- [絶対音感・相対音感テスト](https://shimulabo.com/sims/onkan-test/): 鳴った音のドレミ、分かる？2つの音の高い・低いも聞き分ける。
+- [音の錯覚テスト（上がる？下がる？）](https://shimulabo.com/sims/sakuchou-test/): 同じ2つの音なのに、上がって聞こえる人と下がって聞こえる人がいる。
+- [回転の錯視テスト（どっち回り？）](https://shimulabo.com/sims/sakushi-kaiten/): 回る向きの手がかりがない玉。あなたの頭は、どちら回りに決める？
+- [近くと遠くで変わる数字テスト](https://shimulabo.com/sims/hybrid-gazou/): 1枚の絵に2つの数字。近くと遠くで、見える数字が入れかわる。
+- [ダニング＝クルーガー効果テスト](https://shimulabo.com/sims/dunning-kruger/): 解く前の予想と、実際の点数。自分の実力、正しく見積もれる？
+- [青と緑の境目テスト](https://shimulabo.com/sims/ao-midori/): 青から緑へ変わる12色。あなたの「青」はどこまで？信号が青と呼ばれる理由も。
+- [ドレスの色テスト（白と金？青と黒？）](https://shimulabo.com/sims/dress-iro/): 同じ色の布なのに、光しだいで見え方が変わる。頭の「光の思いこみ」を試す。
+- [利き手・利き目・利き足チェック](https://shimulabo.com/sims/hidarikiki/): 8つの動作で利き手の度合いを数字に。左利きは10人に1人。
+- [考え方のタイプ診断（絵・図・言葉）](https://shimulabo.com/sims/shikou-type/): 頭の中で、絵で考える？言葉で考える？3つのタイプに分けて。
+- [顔の記憶力テスト](https://shimulabo.com/sims/kao-kioku/): 8人の顔を20秒で覚えて、よく似た顔の中から当てる。
+- [方向音痴テスト（図形を回せる？）](https://shimulabo.com/sims/houkou-kankaku/): 頭の中で図形を回す10問と、方向感覚の5つの質問。
+- [時間感覚テスト（目を閉じて30秒）](https://shimulabo.com/sims/jikan-kankaku/): 時計を見ずに10秒・30秒・60秒。あなたの頭の中の時計は速い？遅い？
+- [数の瞬間テスト（一瞬で数が分かる？）](https://shimulabo.com/sims/kazu-shunkan/): 0.2秒だけ出る点の数を当てる。パッと分かるのは何個まで？
+- [読む速さテスト（1分間に何文字？）](https://shimulabo.com/sims/yomu-hayasa/): 短いお話を読んで、読む速さと内容の理解を同時に測る。
+- [味覚タイプ診断（パクチー・苦み）](https://shimulabo.com/sims/mikaku-type/): パクチーが石けんの味？苦みに敏感？10問であなたの舌のタイプを。
+- [マガーク効果テスト（目で聞く音）](https://shimulabo.com/sims/mcgurk-test/): 同じ「ば」の声が、口の動きで「だ」に聞こえる？
+- [夢タイプ診断](https://shimulabo.com/sims/yume-type/): 毎晩夢を覚えている人と、ほとんど覚えていない人のちがい。
+- [音楽で鳥肌が立つ？テスト](https://shimulabo.com/sims/torihada-test/): 同じ曲で鳥肌が立つ人と立たない人。鳥肌タイプ？涙タイプ？
+- [心臓の音が分かる？テスト](https://shimulabo.com/sims/shinpaku-kankaku/): 脈にさわらずに数えた心拍と、実際の脈をくらべる。
+- [あくびがうつる？テスト](https://shimulabo.com/sims/akubi-test/): あくびをするアニメを1分間。あなたのあくびは、うつる？
+- [IQ 4つの力テスト（言葉・形・覚える・速さ）](https://shimulabo.com/sims/iq-yottsu-chikara/): 同じIQ100でも得意はちがう。4つの小テストで、いちばん楽だった力は？
+- [まとめ方テスト（仲間で答える？使い方で答える？）](https://shimulabo.com/sims/matomekata-test/): 時計と定規の共通点は？15問で分かる答え方のくせと、100年で上がったIQの話。
+- [図形の法則テスト（？に入る図形はどれ？）](https://shimulabo.com/sims/zukei-housoku/): IQテストによく出る行列の図形8問。あなたは答えを組み立てる派？見比べる派？
+- [待つ力テスト（今もらう？あとで多く？）](https://shimulabo.com/sims/matsu-chikara/): マシュマロの実験と同じ「今か、あとか」の10問。正解のない選び方のくせ。
+- [使い道テスト（クリップの使い道、30秒でいくつ？）](https://shimulabo.com/sims/tsukaimichi-test/): 答えは1つじゃない。30秒×2回で分かる発想のタイプ。
 
 ### 結婚式・ブライダル（3本）
 - [結婚式スタイル診断](https://shimulabo.com/sims/wedding-style/): ふたりに合う挙式は？教会式・神前式・人前式。
@@ -905,7 +947,7 @@
 - [ウォーターサーバー vs ペットボトル 比較シミュレーター](https://shimulabo.com/sims/water-server/): 飲む量と単価からサーバーとペットボトルの年間コストを比較。
 - [保険見直し 節約シミュレーター](https://shimulabo.com/sims/hoken-minaoshi/): 今の保険料と削減率から見直しの節約額を年間・生涯で自動計算。
 
-### 理科の授業向け（49本）
+### 理科の授業向け（53本）
 - [月の満ち欠けの仕組みシミュレーター（月の形と見える時刻・方角）](https://shimulabo.com/sims/tsuki-michikake/): 月齢と時刻を動かすと、宇宙から見た位置と日本から見た月の形・方角が連動。上弦の月が夕方南に見える理由も。
 - [月食・日食シミュレーター（起こるしくみと、毎月は起きない理由）](https://shimulabo.com/sims/gesshoku-nisshoku/): 月の通り道のずれを動かすと、皆既月食・部分月食・金環日食が起きたり起きなかったり。毎月は起きない理由がわかる。
 - [電気回路シミュレーター（直列・並列・オームの法則）](https://shimulabo.com/sims/denki-kairo/): かん電池の直列・へい列から抵抗の直列・並列まで。電流の流れを粒で見て、オームの法則をグラフで確かめる。
@@ -955,3 +997,7 @@
 - [雨水のゆくえと地面のようすシミュレーター（水の流れ方・しみこみ方）](https://shimulabo.com/sims/amamizu-yukue/): 地面をなぞって雨をふらせると、水は低い所に集まる。すな・土・ねん土っぽい土のしみこみ方もグラフで比べる。
 - [天気と1日の気温のシミュレーター](https://shimulabo.com/sims/tenki-kion/): 晴れ・くもり・雨の1日の気温グラフと百葉箱の温度計。水のじょう発とコップの結ろも。
 - [物のあたたまり方シミュレーター（金属・水・空気）](https://shimulabo.com/sims/atatamarikata/): 金属は熱した所から順に、水と空気は上へ動いて全体に。熱する場所を指でえらんで確かめる。
+- [分子の形 3Dビューア](https://shimulabo.com/sims/bunshi-katachi-3d/): 水・アンモニア・メタンの形と結合角を3Dでくるくる回して見る。
+- [立体の展開図 3Dシミュレーター](https://shimulabo.com/sims/tenkaizu-3d/): 展開図がパタパタ組み立つ。円すいの中心角も表面積も体積も一発。
+- [膜輸送のシミュレーター（拡散・チャネル・担体・ナトリウムポンプ）](https://shimulabo.com/sims/maku-yuso/): 単純拡散・チャネル・担体・ナトリウムポンプを切り替えて、受動輸送と能動輸送のちがいを粒子とグラフで比べる。
+- [リン脂質と細胞膜のでき方シミュレーター（単分子膜・ミセル・脂質二重層・小胞）](https://shimulabo.com/sims/rinshishitsu-maku/): 親水性と疎水性をもつ分子が水面に並び、水中でミセルや脂質二重層に集まっていく過程を、尾の数と分子数を変えて観察する。

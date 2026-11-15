@@ -20,7 +20,8 @@ MODULES = ["sims_tenmon", "sims_denki_hikari", "sims_kishou_jishin", "sims_chika
            "sims_tentai", "sims_chisou", "sims_kishou2", "sims_denki_kagaku", "sims_karada_gijutsu", "sims_kinsei",   # 第2弾
            "sims_hikari_bane", "sims_youkai_nenshou", "sims_suiyoueki_kuuki", "sims_undou_shigoto", "sims_shokubutsu", "sims_saibou_fuyuu",   # 第3弾
            "sims_kou_butsuri", "sims_kou_kagaku_seibutsu", "sims_kou_chigaku",   # 第4弾（高校）
-           "sims_sho3_a", "sims_sho3_b", "sims_sho34_seibutsu", "sims_sho4_a", "sims_sho4_b"]   # 第5弾（小3・小4）
+           "sims_sho3_a", "sims_sho3_b", "sims_sho34_seibutsu", "sims_sho4_a", "sims_sho4_b",   # 第5弾（小3・小4）
+           "sims_kou_seibutsu_maku"]   # リクエスト（高校生物：膜輸送・リン脂質）
 REQUIRED = ["slug", "cat", "title", "title_tag", "meta_desc", "og_title", "og_desc", "lead", "model", "level", "unit",
             "emoji", "card_desc", "score", "article", "faqs", "rel", "js"]
 

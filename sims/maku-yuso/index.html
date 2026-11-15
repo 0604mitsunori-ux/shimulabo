@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/maku-yuso/">
+<title>膜輸送のシミュレーター｜受動輸送と能動輸送、チャネル・担体・ナトリウムポンプの働き（高校生物）｜シミュラボ</title>
+<meta name="description" content="細胞膜をはさんだ細胞外と細胞内で、O₂の単純拡散、K⁺チャネル、グルコースの担体、ATPを使うナトリウムポンプ（Na⁺/K⁺-ATPアーゼ）の働きを粒子の動きで比べられるシミュレーター。受動輸送では濃度差がなくなり、能動輸送では濃度差ができる様子をグラフで確認。高校「生物」細胞と分子の授業向け。">
+<meta property="og:title" content="膜輸送のシミュレーター（拡散・チャネル・担体・ナトリウムポンプ）">
+<meta property="og:description" content="O₂は膜をそのまま通り、K⁺はチャネルだけを通り、グルコースは担体が形を変えて運ぶ。ナトリウムポンプはATPを使ってNa⁺を外へ3個・K⁺を中へ2個。受動輸送と能動輸送のちがいがグラフでわかる。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/maku-yuso.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/maku-yuso.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/maku-yuso/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": ["WebApplication", "LearningResource"], "name": "膜輸送のシミュレーター（拡散・チャネル・担体・ナトリウムポンプ）", "url": "https://shimulabo.com/sims/maku-yuso/", "description": "O₂は膜をそのまま通り、K⁺はチャネルだけを通り、グルコースは担体が形を変えて運ぶ。ナトリウムポンプはATPを使ってNa⁺を外へ3個・K⁺を中へ2個。受動輸送と能動輸送のちがいがグラフでわかる。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "educationalLevel": "高校（生物）、生物基礎の発展", "learningResourceType": "シミュレーション", "teaches": "生物 細胞と分子（膜輸送タンパク質・受動輸送と能動輸送）", "educationalUse": ["授業", "自習"], "audience": {"@type": "EducationalAudience", "educationalRole": ["teacher", "student"]}, "educationalAlignment": {"@type": "AlignmentObject", "alignmentType": "educationalSubject", "educationalFramework": "学習指導要領（平成29・30年告示）", "targetName": "高等学校 生物（2）生命現象と物質 ア（ｱ）細胞と分子 ㋑生命現象とタンパク質"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "理科の授業向け", "item": "https://shimulabo.com/rika/"}, {"@type": "ListItem", "position": 3, "name": "膜輸送のシミュレーター（拡散・チャネル・担体・ナトリウムポンプ）", "item": "https://shimulabo.com/sims/maku-yuso/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "受動輸送と能動輸送のちがいは？", "acceptedAnswer": {"@type": "Answer", "text": "受動輸送は、濃度の高い側から低い側へ、濃度勾配にしたがって物質が移動する輸送で、ATPなどのエネルギーを使いません（単純拡散、チャネル、担体）。能動輸送は、ATPのエネルギーを使って濃度勾配に逆らい、濃度の低い側から高い側へ物質を運ぶ輸送です（ナトリウムポンプなど）。"}}, {"@type": "Question", "name": "酸素は膜を通れるのに、イオンが通れないのはなぜ？", "acceptedAnswer": {"@type": "Answer", "text": "細胞膜の内側はリン脂質の疎水性の部分（脂肪酸の尾）でできています。酸素や二酸化炭素のような小さく電荷をもたない分子はこの部分に溶けこんで通りぬけられますが、電荷をもつイオンや大きな極性分子は疎水性の部分を通りにくいため、チャネルや担体などのタンパク質を通って移動します。"}}, {"@type": "Question", "name": "チャネルと担体のちがいは？", "acceptedAnswer": {"@type": "Answer", "text": "チャネルは膜に穴をつくるタンパク質で、開いているあいだ特定のイオンが次々に通りぬけます。担体は運ぶ物質と結合して形を変え、反対側に放すタンパク質で、1回ごとに形を変える必要があるため、運ぶ速さには上限があります。どちらも濃度勾配にしたがう受動輸送です。"}}, {"@type": "Question", "name": "ナトリウムポンプは何をしているの？", "acceptedAnswer": {"@type": "Answer", "text": "ATPを1分子分解するごとに、Na⁺を3個細胞外へ、K⁺を2個細胞内へ運びます。これにより、細胞外はNa⁺が多く、細胞内はK⁺が多いという濃度差がつくられ、保たれています。この濃度差は神経の興奮や、グルコースなどの吸収に使われます。"}}, {"@type": "Question", "name": "濃度差がなくなったら、粒子の出入りは止まるの？", "acceptedAnswer": {"@type": "Answer", "text": "止まりません。粒子は熱運動を続けているので、両側から同じくらいの数が出入りし、全体として数が変わらなくなります（動的平衡）。シミュレーターの「膜を通った数」で、外→内と内→外の両方が増え続けることを確かめられます。"}}, {"@type": "Question", "name": "水はどうやって細胞膜を通るの？", "acceptedAnswer": {"@type": "Answer", "text": "水分子は小さいので脂質二重層を少しずつ通りぬけますが、多くの細胞では、水を通すチャネルであるアクアポリンを通って速く出入りします。アクアポリンを発見したピーター・アグレは2003年にノーベル化学賞を受賞しました。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+<style>
+.lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
+.lab-ctl .field{margin-bottom:6px;}
+.lab-ctl>*,.lab-stats>*{min-width:0;}
+.lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
+.lab-ctl .slider-head label{margin:0;font-size:13px;}
+.lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
+.lab-ctl input[type=range]{width:100%;}
+.lab-ctl select{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;font-size:14px;background:#fff;}
+.lab-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px;}
+.lab-btns .btn{padding:11px 18px;font-size:14px;width:auto;}
+.lab-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;width:100%;max-width:640px;margin-top:4px;}
+.lab-stats .stat{background:var(--teal-l);border-radius:10px;padding:10px 12px;text-align:center;}
+.lab-stats .k{font-size:11px;color:var(--ink-2);}
+.lab-stats .v{font-size:20px;font-weight:800;color:var(--ink);font-feature-settings:"tnum";}
+.lab-stats .v.accent{color:var(--accent);}
+.lab-legend{text-align:center;color:var(--ink-2);font-size:13px;margin-top:12px;}
+.lab-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;background:rgba(44,107,134,.10);color:var(--teal-d);margin-bottom:8px;}
+canvas.lab{width:100%;max-width:640px;height:auto;border:1px solid var(--line);border-radius:12px;background:#0b1020;touch-action:none;}
+canvas.lab.light{background:#fff;}
+.panel:fullscreen,.panel:-webkit-full-screen{overflow:auto;padding:24px;background:var(--bg,#faf8f3);}
+.panel:fullscreen canvas.lab{max-width:min(96vw,1100px);}
+.panel:fullscreen .lab-ctl,.panel:fullscreen .lab-stats{max-width:min(96vw,1100px);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../rika/">🔬 理科の授業向け</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../rika/">理科の授業向け</a><span>›</span><span class="cur">膜輸送のシミュレーター（拡散・チャネル・担体・ナトリウムポンプ）</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">理科の授業向け</div>
+    <h1>膜輸送のシミュレーター（拡散・チャネル・担体・ナトリウムポンプ）</h1>
+    <p class="lead">細胞膜をはさんで、上が細胞外、下が細胞内です。輸送のしくみを切り替えると、O₂が膜をそのまま通りぬける単純拡散、K⁺がチャネルの穴だけを通る様子、グルコースが担体に結合して反対側に運ばれる様子、ナトリウムポンプがATPを使ってNa⁺とK⁺を濃度差に逆らって運ぶ様子を観察できます。下のグラフで、細胞外と細胞内の数の変化を比べられます。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;gap:14px;">
+      <span class="lab-badge">🔬 生物 細胞と分子（膜輸送タンパク質・受動輸送と能動輸送）</span>
+      <canvas id="cv" class="lab light" width="640" height="520"></canvas>
+      <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="mode">輸送のしくみ</label></div><select id="mode"><option value="diff" selected>単純拡散（O₂）</option><option value="chan">チャネル（K⁺）</option><option value="carr">担体（グルコース）</option><option value="pump">ナトリウムポンプ（Na⁺・K⁺）</option><option value="cell">細胞のようす（全部）</option></select></div><div class="field"><div class="slider-head"><label for="nOut">細胞外の数（はじめ）</label><span class="val" id="nOutL"></span></div><input type="range" id="nOut" min="0" max="60" value="40" step="1"></div><div class="field"><div class="slider-head"><label for="nIn">細胞内の数（はじめ）</label><span class="val" id="nInL"></span></div><input type="range" id="nIn" min="0" max="60" value="4" step="1"></div><div class="field"><div class="slider-head"><label for="atp">ATPの数（はじめ）</label><span class="val" id="atpL"></span></div><input type="range" id="atp" min="0" max="150" value="60" step="1"></div><div class="field"><div class="slider-head"><label for="spd">速さ</label></div><select id="spd"><option value="1" selected>×1</option><option value="2">×2</option><option value="4">×4</option><option value="0.5">×0.5（ゆっくり）</option></select></div></div>
+      <div class="lab-btns"><button class="btn btn-primary" id="pause">⏸ 一時停止</button><button class="btn btn-ghost" id="rst">↺ はじめから</button><button class="btn btn-ghost" id="gate">🚪 チャネルを閉じる</button><button class="btn btn-ghost" id="addAtp">＋ATP 20</button></div>
+      <div class="lab-stats"><div class="stat"><div class="k">粒子の数（細胞外：細胞内）</div><div class="v accent" id="sA">—</div></div><div class="stat"><div class="k">膜を通った数（外→内／内→外）</div><div class="v" id="sB">—</div></div><div class="stat"><div class="k">輸送のしかた</div><div class="v" id="sC">—</div></div><div class="stat"><div class="k">ATP（使った／残り）</div><div class="v" id="sD">—</div></div></div>
+    </div>
+    <p class="lab-legend">上＝細胞外、下＝細胞内、まん中＝細胞膜（赤い丸＝リン脂質の親水性の部分、黄色の線＝疎水性の部分）。赤い2つの丸＝O₂、オレンジ＝K⁺、紫＝Na⁺、緑の六角形＝グルコース。オレンジ・紫の筒＝チャネル、緑＝担体、ピンク＝ナトリウムポンプ。上下の部屋は同じ広さなので、数＝濃度。部屋をタップすると粒子を1個足せます。グラフの実線＝細胞内、点線＝細胞外。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-ghost" id="fsBtn" hidden>⛶ 全画面で表示</button>
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+
+<h2>このシミュレーションでわかること</h2>
+<p>細胞膜は、物質を何でも通すわけではありません。酸素や二酸化炭素のような小さな分子は<b>リン脂質二重層</b>をそのまま通りぬけますが、イオンやグルコースは膜の<b>タンパク質</b>（チャネル・担体・ポンプ）を通って出入りします。チャネルと担体による輸送は濃度の高い側から低い側への<b>受動輸送</b>で、濃度差がなくなるところで出入りがつり合います。ナトリウムポンプは<b>ATPのエネルギー</b>を使って、濃度の低い側から高い側へイオンを運ぶ<b>能動輸送</b>で、細胞の内と外の濃度差をつくり出します。</p>
+<div class="note"><b>対応する単元</b>：高等学校「生物」（2）生命現象と物質 ア（ｱ）細胞と分子「㋑生命現象とタンパク質」。学習指導要領解説では、タンパク質が生命現象を支えている例として、酵素・<b>膜輸送タンパク質</b>・ホルモン受容体などを取り上げることが考えられるとしています。生体膜のつくり（リン脂質の親水性部分と疎水性部分）は「㋐生体物質と細胞」で扱い、姉妹編の<a href="/sims/rinshishitsu-maku/">リン脂質と細胞膜のでき方シミュレーター</a>で確かめられます。</div>
+<h2>授業での使い方</h2>
+<h3>導入：何が膜を通れるか</h3>
+<p>「単純拡散（O₂）」で、酸素が膜のどこからでも通りぬけ、上下の数がそろっていくことを見ます。次に「チャネル」に切り替え、カリウムイオンは膜の脂質の部分ではね返され、チャネルの穴からしか通れないことに気付かせます。「🚪 チャネルを閉じる」を押すと、出入りが止まります。</p>
+<h3>展開：受動輸送と能動輸送のちがい</h3>
+<p>「担体（グルコース）」では、グルコースが担体に結合し、担体の形が変わって反対側に放されるようすを観察します。細胞外を多くしても、担体の数が限られているので、運ばれる速さには上限があります。最後に「ナトリウムポンプ」に切り替えると、最初は内外で同じだったNa⁺とK⁺の数に差ができていきます。グラフで、受動輸送では2本の線が近づき（濃度差がなくなる）、ポンプでは離れていく（濃度差ができる）ことを比べさせます。ATPを0にするとポンプは止まります。</p>
+<h3>まとめ：細胞のようす</h3>
+<p>「細胞のようす（全部）」では、ポンプがNa⁺を外へ・K⁺を中へくみ出し、K⁺がチャネルから少しずつもれ出し、グルコースが担体で入ってくるという、実際の細胞に近い組み合わせになります。「ATPの数」を10にして始め、ATPを使い切ると何が起こるかを予想させてから確かめます（速さ×4がおすすめです）。</p>
+<h3>生徒への問いの例</h3>
+<ol>
+<li>酸素は膜のどこからでも通れるのに、カリウムイオンはチャネルからしか通れないのはなぜだろう？（ヒント：膜の内側の疎水性の部分）</li>
+<li>チャネルを開けたままにしておくと、細胞の内と外のK⁺の数はどうなるだろう？そのあと、K⁺の出入りは止まっているのだろうか？</li>
+<li>ナトリウムポンプは1回の動きで、Na⁺を何個外へ、K⁺を何個中へ運んでいるだろう？そのとき何が使われているだろう？</li>
+</ol>
+<h2>しくみ・解説</h2>
+<h3>用語</h3>
+<ul>
+<li><b>細胞膜</b>とは、細胞の内と外を仕切る厚さ5〜10 nmほどの膜で、<b>リン脂質二重層</b>にタンパク質がうまったつくりをしています（流動モザイクモデル）。</li>
+<li><b>選択的透過性</b>とは、細胞膜が物質の種類によって通したり通さなかったりする性質のことです。</li>
+<li><b>拡散</b>とは、粒子が熱運動によって、濃度の高いところから低いところへ広がっていく現象です。</li>
+<li><b>受動輸送</b>とは、濃度勾配にしたがって（濃度の高い側から低い側へ）物質が移動する輸送で、エネルギー（ATP）を使いません。単純拡散と、チャネルや担体を通る輸送（促進拡散）があります。</li>
+<li><b>能動輸送</b>とは、ATPなどのエネルギーを使って、濃度勾配に逆らって（濃度の低い側から高い側へ）物質を運ぶ輸送です。</li>
+<li><b>チャネル</b>とは、特定のイオンだけを通す穴をもつ膜タンパク質で、開いたり閉じたりします。水を通すチャネルは<b>アクアポリン</b>とよばれます。</li>
+<li><b>担体（輸送体）</b>とは、運ぶ物質と結合して形を変え、膜の反対側に放す膜タンパク質です（例：グルコース輸送体）。</li>
+<li><b>ナトリウムポンプ（Na⁺/K⁺-ATPアーゼ）</b>とは、ATPを1分子分解するごとにNa⁺を3個細胞外へ、K⁺を2個細胞内へ運ぶ膜タンパク質です。</li>
+</ul>
+<h3>4つのしくみの比較</h3>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>しくみ</th><th>通る場所</th><th>通る物質の例</th><th>濃度</th><th>ATP</th></tr><tr><td>単純拡散</td><td>リン脂質二重層</td><td>O₂・CO₂など小さな分子、脂溶性の物質</td><td>高い→低い</td><td>使わない</td></tr><tr><td>チャネル</td><td>チャネル（穴）</td><td>特定のイオン（K⁺・Na⁺など）、水（アクアポリン）</td><td>高い→低い</td><td>使わない</td></tr><tr><td>担体</td><td>担体（形を変える）</td><td>グルコース・アミノ酸など</td><td>高い→低い</td><td>使わない</td></tr><tr><td>ポンプ</td><td>ポンプ（形を変える）</td><td>Na⁺（外へ3個）・K⁺（中へ2個）</td><td>低い→高い</td><td>使う（1回にATP 1分子）</td></tr></table></div>
+<h3>実際の細胞の濃度（哺乳類の細胞の目安）</h3>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>イオン</th><th>細胞外</th><th>細胞内</th><th>差</th></tr><tr><td>Na⁺</td><td>約145 mmol/L</td><td>約5〜15 mmol/L</td><td>外が約10〜30倍</td></tr><tr><td>K⁺</td><td>約5 mmol/L</td><td>約140 mmol/L</td><td>中が約30倍</td></tr></table></div>
+<p>この濃度差はナトリウムポンプがつくり、保っています。安静にしているヒトでは、全身で使うATPのうちかなりの割合（数十％ともいわれます）がナトリウムポンプに使われています。この濃度差は、神経の興奮（活動電位）や、腸でのグルコースの吸収（Na⁺といっしょに運ぶ共輸送）にも使われます。</p>
+<div class="note" style="border-left:4px solid var(--teal)"><strong>ポイント</strong>：上下の部屋は同じ広さなので、粒子の数がそのまま濃度にあたります。粒子は熱運動を表すために、まっすぐ進んではランダムに向きを変えます。実際の大きさ・速さ・濃度の比はそのままではなく、観察しやすいように数を少なくし、膜を厚く、タンパク質を大きく描いています。イオンの電荷による力（膜電位）は考えていません。</div>
+<h2>参考</h2>
+<ul class="seo-refs">
+<li><a href="https://www.mext.go.jp/a_menu/shotou/new-cs/1407074.htm" target="_blank" rel="noopener">文部科学省「高等学校学習指導要領（平成30年告示）解説 理科編 理数編」</a> 生物（2）生命現象と物質</li>
+<li>高等学校「生物」の教科書「細胞と分子」「膜輸送タンパク質」</li>
+<li>B. Alberts ほか『Essential 細胞生物学（原書第5版）』南江堂（膜輸送の原理）</li>
+</ul>
+
+    <h2>引用・転載について</h2>
+    <p>本ページのシミュレーション結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・授業や社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「膜輸送のシミュレーター（拡散・チャネル・担体・ナトリウムポンプ）」 https://shimulabo.com/sims/maku-yuso/</code></div>
+    <h2>よくある質問</h2><dl class="faq"><dt>受動輸送と能動輸送のちがいは？</dt><dd>受動輸送は、濃度の高い側から低い側へ、濃度勾配にしたがって物質が移動する輸送で、ATPなどのエネルギーを使いません（単純拡散、チャネル、担体）。能動輸送は、ATPのエネルギーを使って濃度勾配に逆らい、濃度の低い側から高い側へ物質を運ぶ輸送です（ナトリウムポンプなど）。</dd><dt>酸素は膜を通れるのに、イオンが通れないのはなぜ？</dt><dd>細胞膜の内側はリン脂質の疎水性の部分（脂肪酸の尾）でできています。酸素や二酸化炭素のような小さく電荷をもたない分子はこの部分に溶けこんで通りぬけられますが、電荷をもつイオンや大きな極性分子は疎水性の部分を通りにくいため、チャネルや担体などのタンパク質を通って移動します。</dd><dt>チャネルと担体のちがいは？</dt><dd>チャネルは膜に穴をつくるタンパク質で、開いているあいだ特定のイオンが次々に通りぬけます。担体は運ぶ物質と結合して形を変え、反対側に放すタンパク質で、1回ごとに形を変える必要があるため、運ぶ速さには上限があります。どちらも濃度勾配にしたがう受動輸送です。</dd><dt>ナトリウムポンプは何をしているの？</dt><dd>ATPを1分子分解するごとに、Na⁺を3個細胞外へ、K⁺を2個細胞内へ運びます。これにより、細胞外はNa⁺が多く、細胞内はK⁺が多いという濃度差がつくられ、保たれています。この濃度差は神経の興奮や、グルコースなどの吸収に使われます。</dd><dt>濃度差がなくなったら、粒子の出入りは止まるの？</dt><dd>止まりません。粒子は熱運動を続けているので、両側から同じくらいの数が出入りし、全体として数が変わらなくなります（動的平衡）。シミュレーターの「膜を通った数」で、外→内と内→外の両方が増え続けることを確かめられます。</dd><dt>水はどうやって細胞膜を通るの？</dt><dd>水分子は小さいので脂質二重層を少しずつ通りぬけますが、多くの細胞では、水を通すチャネルであるアクアポリンを通って速く出入りします。アクアポリンを発見したピーター・アグレは2003年にノーベル化学賞を受賞しました。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../rinshishitsu-maku/"><span class="e">🧼</span><span>リン脂質と細胞膜のでき方シミュレーター（単分子膜・ミセル・脂質二重層・小胞）</span></a><a class="related-card" href="../diffusion/"><span class="e">🫧</span><span>拡散シミュレーター</span></a><a class="related-card" href="../hito-karada/"><span class="e">🫀</span><span>人の体のつくりと働き（血液の循環・呼吸・消化）</span></a><a class="related-card" href="../kougousei/"><span class="e">🍃</span><span>光合成と呼吸のシミュレーター（気体の出入り・BTB溶液・ヨウ素液・蒸散）</span></a><a class="related-card" href="../saibou-bunretsu/"><span class="e">🧫</span><span>細胞分裂シミュレーター（体細胞分裂・減数分裂と受精）</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。面白い案から実際に作って、できたらお知らせします。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">📋 みんなのリクエストと進み具合を見る →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../rika/">🔬 理科の授業向けシミュレーター</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+  const rnd = (a,b) => a + Math.random()*(b-a);
+  const randn = () => { let u=0,v=0; while(!u)u=Math.random(); while(!v)v=Math.random(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
+  let SHARE = '';
+  function setShare(t){ SHARE = t; }
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{ const l=$(s.id+'L'); if(l){ const u=()=>{ l.textContent = (s.dataset.fmt ? s.dataset.fmt.replace('{v}', s.value) : s.value); }; s.addEventListener('input',u); u(); } }); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  function setStat(id, v){ const e=$(id); if(e) e.textContent = v; }
+  try {
+    syncSliders();
+
+  const cv=$('cv'); const dpr=Math.min(2,window.devicePixelRatio||1); const W=cv.width,H=cv.height; cv.width=W*dpr; cv.height=H*dpr; const ctx=cv.getContext('2d'); ctx.setTransform(dpr,0,0,dpr,0,0);
+  const FF='"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic UI","Yu Gothic",Meiryo,sans-serif';
+  function tx(s,x,y,size,col,align,bold){ ctx.font=(bold?'bold ':'')+size+'px '+FF; ctx.fillStyle=col; ctx.textAlign=align||'left'; ctx.fillText(s,x,y); ctx.textAlign='left'; }
+  function tw(s,size,bold){ ctx.font=(bold?'bold ':'')+size+'px '+FF; return ctx.measureText(s).width; }
+  function rr(x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
+  function pill(s,x,y,size,col,bg){ const w=tw(s,size,true)+12; rr(x-w/2,y-size+1,w,size+8,6); ctx.fillStyle=bg||'rgba(255,255,255,.88)'; ctx.fill(); tx(s,x,y+2,size,col,'center',true); }
+  const fld=id=>{ const e=$(id); return e?e.closest('.field'):null; };
+  function showF(id,on){ const f=fld(id); if(f) f.style.display=on?'':'none'; }
+
+  const MT=180, MB=216, YT=6, YB=394, GY=408, GH=104;   // 膜の上端・下端、部屋、グラフ
+  const SP={
+    o2:{nm:'O₂',col:'#dc2626',r:5},
+    k:{nm:'K⁺',col:'#ea580c',r:6},
+    na:{nm:'Na⁺',col:'#7c3aed',r:5.5},
+    glc:{nm:'グルコース',col:'#16a34a',r:6.5}
+  };
+  const MODES={
+    diff:{main:'o2',kind:'受動輸送',prot:[]},
+    chan:{main:'k',kind:'受動輸送',prot:[['ch','k',140],['ch','k',320],['ch','k',500]]},
+    carr:{main:'glc',kind:'受動輸送',prot:[['ca','glc',200],['ca','glc',440]]},
+    pump:{main:'na',kind:'能動輸送',prot:[['pu','',210],['pu','',430]]},
+    cell:{main:'na',kind:'受動＋能動',prot:[['ch','k',70],['ch','na',180],['ca','glc',300],['pu','',430],['pu','',560]]}
+  };
+  let mode='diff', parts=[], prots=[], tm=0, spd=1, paused=false, atp=60, used=0, flux={oi:0,io:0}, hist=[], gateOpen=true, flashT=0, flashX=0, last=0;
+  function count(sp){ let o=0,i=0; parts.forEach(p=>{ if(p.sp!==sp||p.st!=='free') return; if(p.y<MT) o++; else i++; }); return [o,i]; }
+  function mk(sp,side,x,y){ const a=Math.random()*6.2832; return {sp:sp, x:x==null?rnd(12,W-12):x, y:y==null?(side==='o'?rnd(YT+10,MT-12):rnd(MB+12,YB-10)):y, a:a, st:'free', t:0}; }
+  function reset(){
+    mode=$('mode').value; const M=MODES[mode]; parts=[]; tm=0; used=0; flux={oi:0,io:0}; hist=[]; gateOpen=true; atp=+$('atp').value;
+    prots=M.prot.map(p=>({ty:p[0],sp:p[1],x:p[2],side:'o',ph:'idle',t:0,load:[],na:0,k:0,wait:0}));
+    prots.forEach(p=>{ if(p.ty==='pu') p.side='i'; if(p.ty==='ca') p.side=Math.random()<0.5?'o':'i'; });
+    const add=(sp,o,i)=>{ for(let k=0;k<o;k++) parts.push(mk(sp,'o')); for(let k=0;k<i;k++) parts.push(mk(sp,'i')); };
+    if(mode==='pump'){ add('na',20,20); add('k',20,20); }
+    else if(mode==='cell'){ add('na',30,8); add('k',8,30); add('glc',14,4); add('o2',14,4); }
+    else add(M.main,+$('nOut').value,+$('nIn').value);
+    const isAtp=(mode==='pump'||mode==='cell'), isCh=(mode==='chan'||mode==='cell');
+    showF('nOut',!isAtp); showF('nIn',!isAtp); showF('atp',isAtp); $('gate').style.display=isCh?'':'none'; $('addAtp').style.display=isAtp?'':'none';
+    $('gate').textContent='🚪 チャネルを閉じる';
+    stats(); draw();
+  }
+  // ---- 物理 ----
+  const V=70;
+  function moveFree(p,dt){
+    if(Math.random()<2.2*dt) p.a+=randn()*1.6;
+    let nx=p.x+Math.cos(p.a)*V*dt, ny=p.y+Math.sin(p.a)*V*dt; const r=SP[p.sp].r;
+    if(nx<r){ nx=r; p.a=Math.PI-p.a; } else if(nx>W-r){ nx=W-r; p.a=Math.PI-p.a; }
+    if(p.y<MT){ // 細胞外
+      if(ny<YT+r){ ny=YT+r; p.a=-p.a; }
+      if(ny>MT-r){ if(!tryCross(p,'o')){ ny=MT-r; p.a=-p.a; } else return; }
+    } else {
+      if(ny>YB-r){ ny=YB-r; p.a=-p.a; }
+      if(ny<MB+r){ if(!tryCross(p,'i')){ ny=MB+r; p.a=-p.a; } else return; }
+    }
+    p.x=nx; p.y=ny;
+  }
+  function startCross(p,from,x,dur){ p.st='cross'; p.from=from; p.cx=x; p.t=0; p.dur=dur; p.x0=p.x; }
+  function tryCross(p,from){
+    if(p.sp==='o2'){ if(Math.random()<0.45){ startCross(p,from,p.x,0.45); return true; } return false; }
+    for(const q of prots){ if(q.ty==='ch' && q.sp===p.sp && Math.abs(p.x-q.x)<13){ if(gateOpen){ startCross(p,from,q.x,0.32); return true; } } }
+    return false;
+  }
+  function stepCross(p,dt){ p.t+=dt; const f=Math.min(1,p.t/p.dur); const r=SP[p.sp].r;
+    const y0=p.from==='o'?MT-r:MB+r, y1=p.from==='o'?MB+r:MT-r; p.x=p.x0+(p.cx-p.x0)*Math.min(1,f*3); if(p.sp==='o2') p.x=p.cx+Math.sin(f*9)*2; p.y=y0+(y1-y0)*f;
+    if(f>=1){ p.st='free'; p.a=p.from==='o'?rnd(0.4,2.7):rnd(-2.7,-0.4); if(p.sp===MODES[mode].main||mode==='cell'&&p.sp==='na'){} if(p.from==='o') flux.oi+=(p.sp===mainSp()?1:0); else flux.io+=(p.sp===mainSp()?1:0); } }
+  function mainSp(){ return MODES[mode].main; }
+  function mouth(q,side){ return [q.x, side==='o'?MT-6:MB+6]; }
+  function grab(q,sp,side,rad){ const m=mouth(q,side); let best=null,bd=rad*rad; parts.forEach(p=>{ if(p.st!=='free'||p.sp!==sp||p.cool>0) return; if(side==='o'?p.y>MT:p.y<MB) return; const d=(p.x-m[0])**2+(p.y-m[1])**2; if(d<bd){ bd=d; best=p; } }); return best; }
+  function release(q,p,side){ const m=mouth(q,side); p.st='free'; p.cool=1.2; p.x=m[0]+rnd(-8,8); p.y=side==='o'?MT-SP[p.sp].r-4:MB+SP[p.sp].r+4; p.a=side==='o'?rnd(-2.7,-0.4):rnd(0.4,2.7); }
+  function stepProt(q,dt){
+    q.t+=dt;
+    if(q.ty==='ca'){
+      if(q.ph==='idle'){ const p=grab(q,'glc',q.side,17); if(p){ p.st='bound'; q.load=[p]; q.ph='flip'; q.t=0; q.from=q.side; } else if(Math.random()<0.6*dt){ q.ph='flip'; q.t=0; q.from=q.side; } }
+      else if(q.ph==='flip' && q.t>0.6){ q.side=q.side==='o'?'i':'o'; q.ph='idle'; q.t=0; q.load.forEach(p=>{ release(q,p,q.side); if(p.sp===mainSp()){ if(q.side==='i') flux.oi++; else flux.io++; } }); q.load=[]; }
+    } else if(q.ty==='pu'){
+      if(q.ph==='idle' && q.side==='i'){ if(q.load.filter(p=>p.sp==='na').length<3){ const p=grab(q,'na','i',32); if(p){ p.st='bound'; q.load.push(p); } }
+        else if(atp>0){ atp--; used++; flashT=0.9; flashX=q.x; q.ph='flip'; q.t=0; } }
+      else if(q.ph==='idle' && q.side==='o'){ if(q.load.filter(p=>p.sp==='k').length<2){ const p=grab(q,'k','o',32); if(p){ p.st='bound'; q.load.push(p); } } else { q.ph='flip'; q.t=0; } }
+      else if(q.ph==='flip' && q.t>0.6){ q.side=q.side==='o'?'i':'o'; q.ph='idle'; q.t=0; const keep=[];
+        q.load.forEach(p=>{ if((q.side==='o'&&p.sp==='na')||(q.side==='i'&&p.sp==='k')){ release(q,p,q.side); if(p.sp===mainSp()){ if(q.side==='i') flux.oi++; else flux.io++; } } else keep.push(p); }); q.load=keep; }
+    }
+  }
+  function step(dt){ tm+=dt; parts.forEach(p=>{ if(p.cool>0) p.cool-=dt; if(p.st==='free') moveFree(p,dt); else if(p.st==='cross') stepCross(p,dt); }); prots.forEach(q=>stepProt(q,dt)); if(flashT>0) flashT-=dt;
+    if(!hist.length || tm-hist[hist.length-1].t>=0.25){ const h={t:tm}; ['o2','k','na','glc'].forEach(s=>{ h[s]=count(s); }); hist.push(h); if(hist.length>400) hist.shift(); } }
+  // ---- 描画 ----
+  function drawPart(p){ const s=SP[p.sp], r=s.r;
+    if(p.sp==='o2'){ ctx.fillStyle=s.col; ctx.beginPath(); ctx.arc(p.x-2.6,p.y,r*0.72,0,6.3); ctx.arc(p.x+2.6,p.y,r*0.72,0,6.3); ctx.fill(); return; }
+    if(p.sp==='glc'){ ctx.fillStyle=s.col; ctx.beginPath(); for(let k=0;k<6;k++){ const a=k*1.0472+0.5236; ctx.lineTo(p.x+r*Math.cos(a),p.y+r*Math.sin(a)); } ctx.closePath(); ctx.fill(); ctx.strokeStyle='#14532d'; ctx.lineWidth=1; ctx.stroke(); return; }
+    ctx.fillStyle=s.col; ctx.beginPath(); ctx.arc(p.x,p.y,r,0,6.3); ctx.fill(); ctx.strokeStyle='#fff'; ctx.lineWidth=1.4; ctx.beginPath(); ctx.moveTo(p.x-2.6,p.y); ctx.lineTo(p.x+2.6,p.y); ctx.moveTo(p.x,p.y-2.6); ctx.lineTo(p.x,p.y+2.6); ctx.stroke(); }
+  function drawMembrane(){
+    const holes=prots.map(q=>[q.x-20,q.x+20]);
+    ctx.lineCap='round';
+    for(let x=6;x<W;x+=11){ if(holes.some(h=>x>h[0]&&x<h[1])) continue;
+      ctx.strokeStyle='#e6b422'; ctx.lineWidth=1.6; ctx.beginPath(); ctx.moveTo(x-1.5,MT+5); ctx.lineTo(x-1.5,MT+16); ctx.moveTo(x+1.5,MT+5); ctx.lineTo(x+1.5,MT+16); ctx.moveTo(x-1.5,MB-5); ctx.lineTo(x-1.5,MB-16); ctx.moveTo(x+1.5,MB-5); ctx.lineTo(x+1.5,MB-16); ctx.stroke();
+      ctx.fillStyle='#e0483e'; ctx.beginPath(); ctx.arc(x,MT+4,4.3,0,6.3); ctx.fill(); ctx.beginPath(); ctx.arc(x,MB-4,4.3,0,6.3); ctx.fill(); }
+  }
+  function drawProt(q){ const x=q.x, f=q.ph==='flip'?Math.min(1,q.t/0.6):0;
+    if(q.ty==='ch'){ const col=q.sp==='k'?'#fb923c':'#a78bfa', dk=q.sp==='k'?'#9a3412':'#5b21b6';
+      ctx.fillStyle=col; rr(x-20,MT-4,15,MB-MT+8,6); ctx.fill(); rr(x+5,MT-4,15,MB-MT+8,6); ctx.fill();
+      if(!gateOpen){ ctx.fillStyle=dk; rr(x-6,MT+8,12,10,3); ctx.fill(); }
+      tx((q.sp==='k'?'K⁺':'Na⁺')+'チャネル',x,MT-10,10,dk,'center',true); return; }
+    if(q.ty==='ca'){ // 開いている側に口を向けたV字。flip中は形が変わる
+      const s=q.ph==='flip'?(q.from==='o'?1-2*f:-1+2*f):(q.side==='o'?1:-1); // 1=上に開く
+      const top=s>0?22:6, bot=s>0?6:22;
+      ctx.fillStyle='#86efac'; ctx.beginPath(); ctx.moveTo(x-24,MT-4); ctx.lineTo(x-top/2-2,MT-4); ctx.lineTo(x-bot/2-2,MB+4); ctx.lineTo(x-24,MB+4); ctx.closePath(); ctx.fill();
+      ctx.beginPath(); ctx.moveTo(x+24,MT-4); ctx.lineTo(x+top/2+2,MT-4); ctx.lineTo(x+bot/2+2,MB+4); ctx.lineTo(x+24,MB+4); ctx.closePath(); ctx.fill();
+      ctx.strokeStyle='#15803d'; ctx.lineWidth=1.2; ctx.stroke();
+      q.load.forEach(p=>{ p.x=x; p.y=(MT+MB)/2; drawPart(p); });
+      tx('担体',x,MT-10,10,'#15803d','center',true); return; }
+    if(q.ty==='pu'){ const s=q.ph==='flip'?(q.side==='i'?f:1-f):(q.side==='o'?1:0);
+      ctx.fillStyle='#fda4af'; rr(x-26,MT-8,52,MB-MT+16,10); ctx.fill(); ctx.strokeStyle='#be123c'; ctx.lineWidth=1.4; ctx.stroke();
+      const cy=MT+(MB-MT)*(1-s)*0.5+ (MB-MT)*0.25; ctx.fillStyle='#fff1f2'; rr(x-14,cy-9,28,18,6); ctx.fill();
+      const na=q.load.filter(p=>p.sp==='na'), k=q.load.filter(p=>p.sp==='k');
+      na.forEach((p,i)=>{ p.x=x-9+i*9; p.y=cy-2; drawPart(p); }); k.forEach((p,i)=>{ p.x=x-5+i*10; p.y=cy+4; drawPart(p); });
+      tx('ポンプ',x,MT-12,10,'#be123c','center',true);
+      if(q.side==='i'&&q.ph==='idle'&&na.length===3&&atp<=0) pill('ATPがない',x,MB+26,10,'#be123c');
+      return; }
+  }
+  function drawGraph(){ const gx=46, gw=W-60, gy=GY, gh=GH; ctx.fillStyle='#fff'; ctx.fillRect(0,GY-6,W,H-GY+6);
+    ctx.strokeStyle='#e2e8f0'; ctx.lineWidth=1; ctx.strokeRect(gx,gy,gw,gh);
+    const sps=(mode==='pump'||mode==='cell')?['na','k']:[mainSp()];
+    let mx=10; hist.forEach(h=>sps.forEach(s=>{ mx=Math.max(mx,h[s][0],h[s][1]); })); mx=Math.ceil(mx/10)*10;
+    tx(String(mx),gx-6,gy+9,10,'#64748b','right'); tx('0',gx-6,gy+gh,10,'#64748b','right'); tx('数',gx-30,gy+gh/2+4,10,'#64748b','left');
+    const win=60, t1=Math.max(win,tm), t0=t1-win; tx('時間（秒）→ 直近60秒',gx+gw,gy+gh+0,9,'#94a3b8','right');
+    sps.forEach(s=>{ [0,1].forEach(side=>{ ctx.strokeStyle=SP[s].col; ctx.lineWidth=side?2.4:1.8; ctx.setLineDash(side?[]:[5,4]); ctx.beginPath(); let st=false;
+      hist.forEach(h=>{ if(h.t<t0) return; const X=gx+(h.t-t0)/win*gw, Y=gy+gh-h[s][side]/mx*gh; if(!st){ ctx.moveTo(X,Y); st=true; } else ctx.lineTo(X,Y); }); ctx.stroke(); }); });
+    ctx.setLineDash([]);
+    let lx=gx+6; sps.forEach(s=>{ tx(SP[s].nm+'：',lx,gy+13,10,SP[s].col,'left',true); lx+=tw(SP[s].nm+'：',10,true); ctx.strokeStyle=SP[s].col; ctx.lineWidth=2.4; ctx.beginPath(); ctx.moveTo(lx,gy+9); ctx.lineTo(lx+16,gy+9); ctx.stroke(); tx('細胞内',lx+19,gy+13,10,'#334155'); lx+=58; ctx.setLineDash([5,4]); ctx.lineWidth=1.8; ctx.beginPath(); ctx.moveTo(lx,gy+9); ctx.lineTo(lx+16,gy+9); ctx.stroke(); ctx.setLineDash([]); tx('細胞外',lx+19,gy+13,10,'#334155'); lx+=66; });
+  }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    ctx.fillStyle='#eff6ff'; ctx.fillRect(0,0,W,MT); ctx.fillStyle='#fefce8'; ctx.fillRect(0,MB,W,YB-MB+6);
+    drawMembrane(); prots.forEach(drawProt);
+    parts.forEach(p=>{ if(p.st!=='bound') drawPart(p); });
+    const sps=(mode==='pump'||mode==='cell')?['na','k','glc','o2']:[mainSp()];
+    const lab=(side)=>sps.filter(s=>parts.some(p=>p.sp===s)).map(s=>SP[s].nm+' '+count(s)[side]).join('　');
+    pill('細胞外　'+lab(0),W/2,22,12,'#1e3a8a'); pill('細胞内　'+lab(1),W/2,YB-8,12,'#713f12');
+    if(flashT>0) pill('ATP → ADP＋リン酸',flashX,MT-30,11,'#be123c','rgba(255,241,242,.95)');
+    if(paused) pill('一時停止中',W-60,22,11,'#334155');
+    drawGraph();
+  }
+  function stats(){ const ms=mainSp();
+    if(mode==='pump'||mode==='cell'){ const a=count('na'), b=count('k'); setStat('sA','Na⁺ '+a[0]+':'+a[1]+'・K⁺ '+b[0]+':'+b[1]); }
+    else { const c=count(ms); setStat('sA',SP[ms].nm+' '+c[0]+'：'+c[1]); }
+    setStat('sB',SP[ms].nm+' '+flux.oi+' ／ '+flux.io);
+    setStat('sC',MODES[mode].kind);
+    setStat('sD',(mode==='pump'||mode==='cell')?(used+' ／ '+atp):'使わない');
+    const c=count(ms); setShare('【膜輸送】'+MODES[mode].kind+'：'+SP[ms].nm+'の数 細胞外'+c[0]+'・細胞内'+c[1]+(used?'（ATP '+used+'個使用）':'')+'｜シミュラボ');
+  }
+  function loop(ts){ const dt=Math.min(0.05,(ts-(last||ts))/1000); last=ts;
+    if(!paused){ const n=Math.max(1,Math.round(spd*2)); for(let k=0;k<n;k++) step(dt*spd/n); }
+    draw(); if(Math.floor(tm*4)!==Math.floor((tm-dt*spd)*4)) stats(); requestAnimationFrame(loop); }
+  ['mode','nOut','nIn','atp'].forEach(id=>$(id).addEventListener('change',reset));
+  ['nOut','nIn','atp'].forEach(id=>$(id).addEventListener('input',reset));
+  $('spd').addEventListener('change',()=>{ spd=+$('spd').value; });
+  $('pause').addEventListener('click',()=>{ paused=!paused; $('pause').textContent=paused?'▶ 再開':'⏸ 一時停止'; });
+  $('rst').addEventListener('click',reset);
+  $('gate').addEventListener('click',()=>{ gateOpen=!gateOpen; $('gate').textContent=gateOpen?'🚪 チャネルを閉じる':'🚪 チャネルを開く'; });
+  $('addAtp').addEventListener('click',()=>{ atp+=20; stats(); });
+  cv.addEventListener('pointerdown',e=>{ const c=cpos(cv,e); const x=c.x/dpr, y=c.y/dpr; if(y<YT||y>YB||(y>MT-4&&y<MB+4)) return; const sp=(mode==='pump'||mode==='cell')?(y<MT?'na':'k'):mainSp(); const p=mk(sp,y<MT?'o':'i',clamp(x,10,W-10),y); parts.push(p); stats(); });
+  window.__yuso={ step:(n,dt)=>{ for(let k=0;k<n;k++) step(dt||0.05); stats(); draw(); }, count:count, st:()=>({mode:mode,tm:tm,atp:atp,used:used,flux:flux}) };
+  reset(); requestAnimationFrame(loop);
+
+  } catch(e) { console.error(e); }
+  (function(){ const fs=$('fsBtn'), panel=document.querySelector('.panel');
+    const req = panel && (panel.requestFullscreen || panel.webkitRequestFullscreen);
+    if (fs && req) { fs.hidden = false; fs.addEventListener('click', () => {
+      const cur = document.fullscreenElement || document.webkitFullscreenElement;
+      if (cur) { (document.exitFullscreen || document.webkitExitFullscreen).call(document); }
+      else { req.call(panel); } }); }
+  })();
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE || document.title)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText((SHARE||document.title)+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'maku-yuso', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>
