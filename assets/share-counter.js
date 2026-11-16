@@ -65,4 +65,34 @@
       return o;
     }
   };
+
+  /* ===== 各シミュページ：「これまでに◯回シミュレーションされました」 =====
+     assets/sim-counts.json（scripts/build_ranking.py が GA4 から毎朝作る）を読み、
+     タイトル下の説明文の直後に表示する。10回未満のページは出さない。 */
+  const me = document.currentScript && document.currentScript.src;
+  const m = location.pathname.match(/\/sims\/([a-z0-9][a-z0-9-]*)\//);
+  if (!me || !m) return;
+  const simId = m[1];
+  const isEn = /^\/en\//.test(location.pathname);
+  const show = (rec) => {
+    if (!rec || rec[0] < 10 || document.getElementById('playPill')) return;
+    const h1 = document.querySelector('main h1, h1');
+    if (!h1) return;
+    const anchor = (h1.nextElementSibling && h1.nextElementSibling.matches('p.lead')) ? h1.nextElementSibling : h1;
+    const n = rec[0].toLocaleString(isEn ? 'en-US' : 'ja-JP');
+    const rk = rec[1] > 0 && rec[1] <= 10;
+    const el = document.createElement('div');
+    el.id = 'playPill';
+    el.className = 'play-pill';
+    el.innerHTML = isEn
+      ? `👀 Played <b>${n}</b> times${rk ? ` · <span class="rk">#${rec[1]} this week</span>` : ''}`
+      : `👀 これまでに <b>${n}</b> 回 シミュレーションされました${rk ? ` ・ <span class="rk">今週 ${rec[1]}位</span>` : ''}`;
+    anchor.insertAdjacentElement('afterend', el);
+  };
+  const run = () => fetch(new URL('sim-counts.json', me).href, { cache: 'no-cache' })
+    .then((r) => r.ok ? r.json() : null)
+    .then((j) => { if (j && j.c) show(j.c[simId]); })
+    .catch(() => {});
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
+  else run();
 })();
