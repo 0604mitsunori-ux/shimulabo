@@ -39,7 +39,101 @@ def block(vid, title, lead):
   {END}"""
 
 
+CHANNEL = "https://www.youtube.com/@shimulabo"
+
+# トップページの「YouTube」帯に出す最新動画。新しい動画を出したらここを差し替えて実行。
+# サムネは assets/yt/<動画ID>.jpg（960×540）を置く。
+TOP_LATEST = ("DEVQhtWyK3g", "ロト6を30年買い続けたら、本当に夢はあるのか？1000人で試してみた")
+
+TOP_START, TOP_END = "<!-- yt-top:start -->", "<!-- yt-top:end -->"
+TOP_ANCHOR = '\n  <section class="rank-wrap" id="liveShelf">'
+TOP_OLD = re.compile(r"\n[ \t]*" + re.escape(TOP_START) + r"[\s\S]*?" + re.escape(TOP_END))
+FOOT_ANCHOR = '      <a href="about/">運営者情報</a>'
+FOOT_LINK = f'      <a href="{CHANNEL}" target="_blank" rel="noopener">YouTube</a>'
+
+
+def top_block(vid, title):
+    t = html.escape(title)
+    return f"""{TOP_START}
+  <section class="rank-wrap yt-top" id="ytShelf" aria-labelledby="ytTitle">
+    <style>
+      .yt-top .yt-grid{{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:22px;align-items:center}}
+      .yt-top .yt-play{{position:relative;display:block;width:100%;aspect-ratio:16/9;border:0;padding:0;border-radius:var(--radius);overflow:hidden;background:#0D1417;cursor:pointer}}
+      .yt-top .yt-play img{{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}}
+      .yt-top .yt-play:hover img{{transform:scale(1.03)}}
+      .yt-top .yt-btn{{position:absolute;left:50%;top:50%;width:72px;height:50px;margin:-25px 0 0 -36px;border-radius:14px;background:#ff0033;box-shadow:0 6px 20px rgba(0,0,0,.35)}}
+      .yt-top .yt-btn::after{{content:"";position:absolute;left:29px;top:15px;border-style:solid;border-width:10px 0 10px 17px;border-color:transparent transparent transparent #fff}}
+      .yt-top iframe{{position:absolute;inset:0;width:100%;height:100%;border:0}}
+      .yt-top .yt-ch{{display:flex;align-items:center;gap:10px;margin-bottom:10px}}
+      .yt-top .yt-ch img{{width:44px;height:44px;border-radius:50%}}
+      .yt-top .yt-ch b{{font-size:17px}}
+      .yt-top .yt-ch span{{display:block;font-size:12px;color:var(--ink-3)}}
+      .yt-top .yt-desc{{font-size:14px;color:var(--ink-2);line-height:1.8;margin:0 0 12px}}
+      .yt-top .yt-new{{font-size:13px;font-weight:800;margin:0 0 14px}}
+      .yt-top .yt-new small{{display:inline-block;background:#ff0033;color:#fff;border-radius:4px;padding:1px 6px;margin-right:6px;font-size:11px}}
+      .yt-top .yt-links{{display:flex;flex-wrap:wrap;gap:8px}}
+      .yt-top .yt-links a{{display:inline-flex;align-items:center;gap:6px;padding:10px 16px;border-radius:999px;font-weight:800;font-size:14px;text-decoration:none}}
+      .yt-top .yt-sub{{background:#ff0033;color:#fff}}
+      .yt-top .yt-sub:hover{{background:#d9002b;color:#fff}}
+      .yt-top .yt-all{{border:1px solid var(--line);color:var(--ink)}}
+      @media (max-width:720px){{.yt-top .yt-grid{{grid-template-columns:1fr;gap:14px}}}}
+    </style>
+    <div class="rank-head">
+      <h2 id="ytTitle">▶ YouTubeでも見られます</h2>
+      <span class="note">シミュレーションをアニメで解説</span>
+    </div>
+    <div class="yt-grid">
+      <div class="yt-play" role="button" tabindex="0" aria-label="動画を再生：{t}" data-vid="{vid}">
+        <img src="assets/yt/{vid}.jpg" width="960" height="540" loading="lazy" decoding="async" alt="{t}">
+        <span class="yt-btn" aria-hidden="true"></span>
+      </div>
+      <div>
+        <div class="yt-ch"><img src="assets/yt/channel.jpg" width="44" height="44" alt=""><div><b>シミュラボ</b><span>@shimulabo</span></div></div>
+        <p class="yt-desc">「その確率、本当はどれくらい？」を、何万回ものシミュレーションでアニメにするチャンネルです。動画で使ったシミュレーターは、このサイトで数字を変えて試せます。</p>
+        <p class="yt-new"><small>最新</small>{t}</p>
+        <div class="yt-links">
+          <a class="yt-sub" href="{CHANNEL}?sub_confirmation=1" target="_blank" rel="noopener">🔔 チャンネル登録</a>
+          <a class="yt-all" href="{CHANNEL}/videos" target="_blank" rel="noopener">動画一覧 →</a>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.querySelectorAll('.yt-top .yt-play').forEach(function (el) {{
+        function play() {{
+          var f = document.createElement('iframe');
+          f.src = 'https://www.youtube-nocookie.com/embed/' + el.dataset.vid + '?autoplay=1';
+          f.title = el.getAttribute('aria-label');
+          f.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
+          f.allowFullscreen = true;
+          el.innerHTML = ''; el.appendChild(f); el.removeAttribute('role'); el.onclick = null;
+        }}
+        el.onclick = play;
+        el.onkeydown = function (e) {{ if (e.key === 'Enter' || e.key === ' ') {{ e.preventDefault(); play(); }} }};
+      }});
+    </script>
+  </section>
+  {TOP_END}"""
+
+
+def patch_top():
+    p = ROOT / "index.html"
+    raw = p.read_bytes().decode("utf-8")
+    crlf = "\r\n" in raw
+    s = TOP_OLD.sub("", raw.replace("\r\n", "\n"))
+    if TOP_ANCHOR not in s:
+        print("トップ：差し込み場所なし")
+        return
+    s = s.replace(TOP_ANCHOR, "\n  " + top_block(*TOP_LATEST) + TOP_ANCHOR, 1)
+    if FOOT_LINK not in s and FOOT_ANCHOR in s:
+        s = s.replace(FOOT_ANCHOR, FOOT_LINK + "\n" + FOOT_ANCHOR, 1)
+    if crlf:
+        s = s.replace("\n", "\r\n")
+    p.write_bytes(s.encode("utf-8"))
+    print("OK: トップ", TOP_LATEST[0])
+
+
 def main():
+    patch_top()
     for slug, (vid, title, lead) in VIDEOS.items():
         p = ROOT / "sims" / slug / "index.html"
         raw = p.read_bytes().decode("utf-8")
