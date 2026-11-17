@@ -1,0 +1,27 @@
+{
+ "cams": [
+  [
+   "persp",
+   "ななめから"
+  ],
+  [
+   "front",
+   "正面から（上の図と同じ向き）"
+  ],
+  [
+   "outer",
+   "外側から"
+  ],
+  [
+   "elbow",
+   "ひじの関節に近づく"
+  ]
+ ],
+ "legend": "上の「うで」の図を、立体の模型にしました。手を動かすかスライダーでひじの角度を変えると同じ角度で動き、ちぢんでいるきん肉が赤く太くなります。きん肉のはしの白いけんが、ひじの関節をまたいで、となりのほねについているようすを、いろいろな向きから見てみましょう（形はかんたんにした模式図です）。",
+ "hook": [
+  "  function draw(){ ctx.fillStyle=C.bg; ctx.fillRect(0,0,W,H); HIT=[];",
+  "  window.__hone={S:S,E:E,LF:LF,st:()=>({mode:mode,ang:ang,dir:dir,cin:cin,wt:wt})};\n  function draw(){ ctx.fillStyle=C.bg; ctx.fillRect(0,0,W,H); HIT=[];"
+ ],
+ "dark": false,
+ "anchor": null
+}

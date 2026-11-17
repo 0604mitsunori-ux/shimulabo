@@ -1,0 +1,5 @@
+{"cams": [["persp","ななめから"],["front","正面から（上の図と同じ向き）"],["top","真上から"]],
+ "legend": "上の図の容器を立体にして、粒子を球で表しています（192個＝上の図の48個を、奥に4列ならべた模式）。固体はきれいに並んでその場でふるえ、液体は下にたまって動きまわり、気体は容器いっぱいに飛びまわります。温度・状態・ピストンの高さは上の図と同じで、上の「物質」「温度」「加熱する」「冷やす」やグラフの操作と連動します。気体の体積は、上の図と同じく縮めて描いています。",
+ "hook": ["  setSub($('sub').value); for(let i=0;i<30;i++) step(); draw(); showStats();", "  window.__joutai={NP:NP,C:C,PD:PD,PR:PR,X0:X0,X1:X1,WC:WC,FY:FY,YTOP:YTOP,WALLTOP:WALLTOP,AL:AL,PS:PS,SHORT:SHORT,site:site,fmtT:fmtT,fmtV:fmtV,vol:vol,longLabel:longLabel,st:()=>({S:S,cur:cur,G:G,run:run,prog:prog,ns:ns,nl:nl,ng:ng,pistY:pistY,rowH:rowH})};\n  setSub($('sub').value); for(let i=0;i<30;i++) step(); draw(); showStats();"],
+ "dark": false,
+ "anchor": null}

@@ -19,6 +19,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://shimulabo.com/ogp/denki-kairo.png">
 <link rel="stylesheet" href="../../assets/style.css?v=4">
+<link rel="stylesheet" href="../../assets/three/sim3d.css?v=1">
     <!-- seo-internal -->
     <link rel="canonical" href="https://shimulabo.com/sims/denki-kairo/">
     <meta property="og:locale" content="ja_JP">
@@ -97,6 +98,14 @@ canvas.lab.light{background:#fff;}
       <div class="lab-stats"><div class="stat"><div class="k">全体の電流</div><div class="v accent" id="sI">—</div></div><div class="stat"><div class="k">全体の抵抗</div><div class="v" id="sR">—</div></div><div class="stat"><div class="k">R<sub>1</sub> の電圧・電流</div><div class="v" id="s1">—</div></div><div class="stat"><div class="k">R<sub>2</sub> の電圧・電流</div><div class="v" id="s2">—</div></div></div>
     </div>
     <p class="lab-legend">オレンジの粒＝電流（＋極から出て－極へ流れる）。粒の速さは電流の大きさに比例します。Ⓐ＝電流計、Ⓥ＝電圧計。中2モードでは R1・R2・電源をタップすると、グラフに描く抵抗を選べます。小4モードでは、かん電池をタップすると向きが反対に、豆電球・モーターをタップすると入れかわります。</p>
+<!-- sky3d:start -->
+    <div class="v3d-block" style="width:100%;margin-top:18px;">
+      <h3 style="margin:0 0 8px;font-size:15px;">🧊 3Dで見る（ドラッグで回転・上の操作と連動）</h3>
+      <div class="view3d" id="view3d"><div class="load">3D模型を読み込み中…</div><div class="hud" id="hud3d" style="display:none"></div></div>
+      <div class="cam-row" id="camRow3d"><button data-v="persp" class="on">ななめ上から</button><button data-v="top">真上から（回路図と同じ向き）</button><button data-v="side">横から（電圧の高さ）</button></div>
+      <p class="lab-legend" style="margin-top:6px;">上の図の回路を、机の上に置いた実物の模型にしています（電源装置・抵抗器・電流計・電圧計・導線。小4モードでは、かん電池・豆電球・モーター・けん流計）。つなぎ方・電圧・抵抗は上の操作と連動し、粒の位置と速さ、電流計・電圧計の値は上の図と同じです。中2モードで「⛰ 電圧を高さで見る」を押すと、導線が電圧の大きさだけ持ち上がります。電源で持ち上げられ、抵抗を通るところで下がる坂道のモデルです。直列回路では2つの下り坂の高さの合計が電源の電圧になり、並列回路ではどちらの抵抗も同じ高さだけ下がります。粒と高さは考えやすくするためのモデルで、実際の導線が持ち上がるわけではありません。</p>
+    </div>
+<!-- sky3d:end -->
     <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
     <div class="share-row">
       <button class="btn btn-ghost" id="fsBtn" hidden>⛶ 全画面で表示</button>
@@ -424,6 +433,7 @@ canvas.lab.light{background:#fff;}
     ctx.fillStyle=C.bg; ctx.fillRect(0,0,W,H);
     if(s.mode==='sho4') draw4(s,dt); else { draw2(s,dt); graph(s); }
     requestAnimationFrame(frame); }
+  window.__kairo={calc:calc,paths:paths,off:off,fmt:fmt,RL:RL,E1:E1,st:()=>({rev:rev,ele:ele,ang:ang})};
   update(); frame(performance.now());
 
   } catch(e) { console.error(e); }
@@ -438,6 +448,9 @@ canvas.lab.light{background:#fff;}
   $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText((SHARE||document.title)+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
 })();
 </script>
+<!-- sky3d-loader:start -->
+<script>(()=>{const el=document.getElementById('view3d');if(!el)return;const go=()=>import('./view3d.js?v=1').catch(()=>{const l=el.querySelector('.load');if(l)l.textContent='3D表示を読み込めませんでした';});if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>{if(es[0].isIntersecting){io.disconnect();go();}},{rootMargin:'300px'});io.observe(el);}else go();})();</script>
+<!-- sky3d-loader:end -->
 <script src="../../assets/share-counter.js?v=4"></script>
 <script>ShareCounter.initSim({ simId:'denki-kairo', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
 <script src="../../assets/lang-toggle.js?v=4"></script>
