@@ -65,10 +65,25 @@ PAGES = {
                     ("  function draw(){ ctx.fillStyle='#ffffff';", "  window.__body={H1:H1,H2:H2,parts:parts,oxy:oxy,air:air,AWL:AWL,AWR:AWR,o2:o2,co2:co2,rbc:rbc,CAP:CAP,CAP0:CAP0,CAP1:CAP1,AC:AC,at:at,SP:SP,stg:stg,lvls:lvls,PLACE:PLACE,JUICE_S:JUICE_S,DESC:DESC,st:()=>({mode:mode,run:run,T:T,cph:cph,rph:rph,dp:dp,s6:S6(),hr:+$('hr').value,sv:+$('sv').value,br:+$('br').value,tv:+$('tv').value,B:breath(),amp:ampK(),R:curR()})};\n  function draw(){ ctx.fillStyle='#ffffff';"),
                     False),
 }
+# ---- 1ページ1ファイルの定義（2026-11-17〜）。scripts/sky3d_pages/<slug>.json ----
+# 何人かで同時に作るとき、このファイルを取り合わないための置き場。書式:
+#   {"cams": [["persp","ななめから"], ...], "legend": "説明文", "hook": ["置き換える元の文字列","置き換え後"] または null,
+#    "dark": false（明るい背景）/ true, "anchor": null（lab-legend の後ろ）または 入れる場所の正規表現}
+import glob, json
+for _f in sorted(glob.glob(os.path.join(ROOT, "scripts", "sky3d_pages", "*.json"))):
+    _slug = os.path.splitext(os.path.basename(_f))[0]
+    try:
+        _d = json.load(io.open(_f, encoding="utf-8"))
+        PAGES[_slug] = ([tuple(c) for c in _d["cams"]], _d["legend"],
+            tuple(_d["hook"]) if _d.get("hook") else None, _d.get("dark", True), _d.get("anchor"))
+    except Exception as _e:   # 作成途中のファイルは飛ばす（そのページを名指ししたときだけ止める）
+        if _slug in sys.argv[1:]: raise
+        print("skip (json)", _slug, _e)
 CSS = '<link rel="stylesheet" href="../../assets/three/sim3d.css?v=1">'
 LOADER = """<script>(()=>{const el=document.getElementById('view3d');if(!el)return;const go=()=>import('./view3d.js?v=1').catch(()=>{const l=el.querySelector('.load');if(l)l.textContent='3D表示を読み込めませんでした';});if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>{if(es[0].isIntersecting){io.disconnect();go();}},{rootMargin:'300px'});io.observe(el);}else go();})();</script>"""
 
-for slug in (sys.argv[1:] or PAGES):
+# 引数なしのときは、view3d.js がそろっているページだけ（作成途中のページは触らない）
+for slug in (sys.argv[1:] or [s_ for s_ in PAGES if os.path.isfile(os.path.join(ROOT, "sims", s_, "view3d.js"))]):
     cams, legend, hook = PAGES[slug][:3]
     dark = PAGES[slug][3] if len(PAGES[slug]) > 3 else True
     anchor = PAGES[slug][4] if len(PAGES[slug]) > 4 else None   # lab-legend が無いページは、入れる場所（正規表現）を指定

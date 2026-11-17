@@ -1,0 +1,5 @@
+{"cams": [["persp","ななめから"],["side","横から（上の図と同じ向き）"],["top","細胞の外（真上）から"]],
+ "legend": "上の図の細胞膜を立体にした模式図です（上が細胞外、下が細胞内）。リン脂質（赤い頭と黄色い尾）は熱でゆれ動き、膜タンパク質は手前の列に並べて、断面が見えるようにしています。粒の数・チャネルの開閉・担体やポンプの形の変化・ATPの消費・速さ・一時停止は、上の図と連動します。分子やタンパク質の大きさ・形は誇張しています。",
+ "hook": ["st:()=>({mode:mode,tm:tm,atp:atp,used:used,flux:flux}) };", "st:()=>({mode:mode,tm:tm,atp:atp,used:used,flux:flux,parts:parts,prots:prots,gateOpen:gateOpen,paused:paused,spd:spd,flashT:flashT,flashX:flashX}) };"],
+ "dark": false,
+ "anchor": null}

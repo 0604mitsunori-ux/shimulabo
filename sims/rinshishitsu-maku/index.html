@@ -19,6 +19,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://shimulabo.com/ogp/rinshishitsu-maku.png">
 <link rel="stylesheet" href="../../assets/style.css?v=4">
+<link rel="stylesheet" href="../../assets/three/sim3d.css?v=1">
     <!-- seo-internal -->
     <link rel="canonical" href="https://shimulabo.com/sims/rinshishitsu-maku/">
     <meta property="og:locale" content="ja_JP">
@@ -96,6 +97,14 @@ canvas.lab.light{background:#fff;}
       <div class="lab-stats"><div class="stat"><div class="k">分子の数</div><div class="v" id="sN">—</div></div><div class="stat"><div class="k">水面に並んだ分子</div><div class="v" id="sS">—</div></div><div class="stat"><div class="k">水中の集まり</div><div class="v accent" id="sA">—</div></div><div class="stat"><div class="k">ばらばらの分子</div><div class="v" id="sF">—</div></div></div>
     </div>
     <p class="lab-legend">赤い丸＝親水性の部分（頭）、黄色の線＝疎水性の部分（尾）。上の白い部分＝空気、青い部分＝水。水をタップするとその場所に分子を1個、水面より上をタップすると水面に分子を1個入れます。「＋10個入れる」は「水面に落とす」のときは水面に、それ以外は水中のばらばらの位置に入れます。構造の名前（ミセル・二重層・小胞）は、分子の向きと位置から自動で判定しています。左右の端はつながっています。</p>
+<!-- sky3d:start -->
+    <div class="v3d-block" style="width:100%;margin-top:18px;">
+      <h3 style="margin:0 0 8px;font-size:15px;">🧊 3Dで見る（ドラッグで回転・上の操作と連動）</h3>
+      <div class="view3d" id="view3d"><div class="load">3D模型を読み込み中…</div><div class="hud" id="hud3d" style="display:none"></div></div>
+      <div class="cam-row" id="camRow3d"><button data-v="persp" class="on">ななめから</button><button data-v="side">横から</button><button data-v="cut">切り口を正面から</button></div>
+      <p class="lab-legend" style="margin-top:6px;">リン脂質などの分子（赤い球＝親水性の頭、黄色の棒＝疎水性の尾）が、水の中でばらばらの状態から集まってできる形を立体で表しています。上の選択（尾の本数・水面のあり／なし・はじめの状態）と連動して、ミセル（尾を内側にした1層の球）、脂質二重層（尾どうしを向かい合わせた2層の膜）、小胞（二重層が閉じた袋。手前半分を切り取って、膜が2層であることと内側にも水があることを見せています）、水面の単分子膜（頭が水側・尾が空気側）に切り替わります。上の図の計算結果そのものではなく、できあがる形の模式図です。水の分子は描かず、うすい青で表しています。分子の数・大きさ・集まる速さは実際の値ではありません。</p>
+    </div>
+<!-- sky3d:end -->
     <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
     <div class="share-row">
       <button class="btn btn-ghost" id="fsBtn" hidden>⛶ 全画面で表示</button>
@@ -383,6 +392,9 @@ function makeLip(opt){
   $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText((SHARE||document.title)+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
 })();
 </script>
+<!-- sky3d-loader:start -->
+<script>(()=>{const el=document.getElementById('view3d');if(!el)return;const go=()=>import('./view3d.js?v=1').catch(()=>{const l=el.querySelector('.load');if(l)l.textContent='3D表示を読み込めませんでした';});if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>{if(es[0].isIntersecting){io.disconnect();go();}},{rootMargin:'300px'});io.observe(el);}else go();})();</script>
+<!-- sky3d-loader:end -->
 <script src="../../assets/share-counter.js?v=4"></script>
 <script>ShareCounter.initSim({ simId:'rinshishitsu-maku', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
 <script src="../../assets/lang-toggle.js?v=4"></script>
