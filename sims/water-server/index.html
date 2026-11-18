@@ -78,6 +78,29 @@
       <div class="sub" id="sub">内訳を入力してください</div>
       <div id="bd" style="margin-top:14px;text-align:left;"></div>
       <div class="viz-wrap" style="margin-top:14px;"></div>
+      <!-- crowd:start -->
+      <div id="crowdBox" style="margin-top:18px;"></div>
+      <script src="../../assets/crowd.js?v=4"></script>
+      <script>
+      (function () {
+        var el = document.getElementById('crowdBox');
+        function v(id) { var e = document.getElementById(id); return e ? e.value : ''; }
+        function run() {
+          function M(x){var a=Math.abs(x);return a>=1e8?(a>=1e10?Math.round(x/1e8).toLocaleString('ja-JP'):(x/1e8).toFixed(1))+'億円':a>=1e4?Math.round(x/1e4).toLocaleString('ja-JP')+'万円':Math.round(x).toLocaleString('ja-JP')+'円';}
+          function Y(x){return '¥'+Math.round(x).toLocaleString('ja-JP');}
+          function N(x){return Math.round(x).toLocaleString('ja-JP');}
+          var l=Math.max(0,+v('liter')||0), s=Math.max(0,+v('server')||0), p=Math.max(0,+v('pet')||0);
+          var sy=s*12, py=l/2*p*365, diff=Math.abs(sy-py), cheap=sy<=py?'ウォーターサーバー':'ペットボトル';
+          Crowd.pile(el,{title:'1年間の水代をくらべると', bars:[{label:'ウォーターサーバー',value:sy},{label:'ペットボトル',value:py}], fmtv:M,
+          final:function(){return cheap+'の方が1年で '+Y(diff)+' 安い。';}});
+        }
+        ['calcBtn'].forEach(function (id) {
+          var b = document.getElementById(id);
+          if (b) b.addEventListener('click', function () { setTimeout(run, 30); });
+        });
+      })();
+      </script>
+      <!-- crowd:end -->
       <div style="text-align:center;margin-top:12px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
       <div class="share-row">
         <button class="btn btn-x" id="shareBtn">𝕏 でシェア</button>

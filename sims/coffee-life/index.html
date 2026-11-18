@@ -80,6 +80,31 @@
       <div class="statline"><div class="stat"><div class="k">総杯数</div><div class="v accent" id="cup">—</div></div>
       <div class="stat"><div class="k">カフェイン総量</div><div class="v" id="caf">—</div></div>
       <div class="stat"><div class="k">浴槽(200L)で</div><div class="v" id="bath">—</div></div></div>
+      <!-- crowd:start -->
+      <div id="crowdBox" style="margin-top:18px;"></div>
+      <script src="../../assets/crowd.js?v=4"></script>
+      <script>
+      (function () {
+        var el = document.getElementById('crowdBox');
+        function v(id) { var e = document.getElementById(id); return e ? e.value : ''; }
+        function run() {
+          function M(x){var a=Math.abs(x);return a>=1e8?(a>=1e10?Math.round(x/1e8).toLocaleString('ja-JP'):(x/1e8).toFixed(1))+'億円':a>=1e4?Math.round(x/1e4).toLocaleString('ja-JP')+'万円':Math.round(x).toLocaleString('ja-JP')+'円';}
+          function Y(x){return '¥'+Math.round(x).toLocaleString('ja-JP');}
+          function N(x){return Math.round(x).toLocaleString('ja-JP');}
+          var c=Math.max(0,+v('cups')||0), p=Math.max(0,+v('price')||0), y=Math.max(1,+v('years')||1);
+          var y1=c*365*p, total=y1*y, bars=[{label:'1年',value:y1}];
+          if(y>10) bars.push({label:'10年',value:y1*10});
+          if(y>1) bars.push({label:y+'年',value:total});
+          Crowd.pile(el,{title:'コーヒー代を積み上げると', bars:bars, fmtv:M,
+          final:function(){return y+'年で約 '+N(c*365*y)+'杯、コーヒー代は '+Y(total)+'。';}});
+        }
+        ['calcBtn'].forEach(function (id) {
+          var b = document.getElementById(id);
+          if (b) b.addEventListener('click', function () { setTimeout(run, 30); });
+        });
+      })();
+      </script>
+      <!-- crowd:end -->
       <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
       <div class="share-row">
         <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>

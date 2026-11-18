@@ -1,0 +1,6 @@
+{
+  "buttons": [
+    "calcBtn"
+  ],
+  "js": "function M(x){var a=Math.abs(x);return a>=1e8?(a>=1e10?Math.round(x/1e8).toLocaleString('ja-JP'):(x/1e8).toFixed(1))+'億円':a>=1e4?Math.round(x/1e4).toLocaleString('ja-JP')+'万円':Math.round(x).toLocaleString('ja-JP')+'円';}\nfunction Y(x){return '¥'+Math.round(x).toLocaleString('ja-JP');}\nfunction N(x){return Math.round(x).toLocaleString('ja-JP');}\nvar n=Math.max(0,+v('n')||0), price=Math.max(0,+v('price')||0), yr=Math.max(1,+v('yr')||1);\nvar y1=n/20*price*365, total=y1*yr, bars=[{label:'1年',value:y1}];\nif(yr>10) bars.push({label:'10年',value:y1*10});\nif(yr>1) bars.push({label:yr+'年',value:total});\nCrowd.pile(el,{title:'たばこ代を積み上げると', bars:bars, fmtv:M,\n  final:function(){return 'これから'+yr+'年で '+Y(total)+'。やめれば海外旅行 '+N(total/200000)+'回分が浮きます。';}});"
+}

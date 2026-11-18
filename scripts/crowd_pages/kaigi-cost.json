@@ -1,0 +1,6 @@
+{
+  "buttons": [
+    "calcBtn"
+  ],
+  "js": "function yen(x) { return '¥' + Math.round(x).toLocaleString('ja-JP'); }\nfunction man(x) { x = Math.round(x); if (Math.abs(x) >= 100000000) return (Math.round(x / 10000000) / 10) + '億円'; if (Math.abs(x) >= 10000) return (Math.round(x / 1000) / 10) + '万円'; return x.toLocaleString('ja-JP') + '円'; }\n\nvar people = Math.max(1, +v('people') || 0), minutes = Math.max(1, +v('minutes') || 0);\nvar salary = Math.max(0, +v('salary') || 0) * 10000, freq = Math.max(0, +v('freq') || 0);\nvar once = salary / 1900 / 60 * people * minutes, year = once * freq;\nvar bars = freq > 0\n  ? [{ label: '1回', value: once }, { label: '1か月', value: year / 12 }, { label: '1年（' + freq + '回）', value: year }]\n  : [{ label: '1人分', value: once / people }, { label: '全員分（1回）', value: once }];\nCrowd.pile(el, { title: freq > 0 ? 'この会議の人件費を、1回・1か月・1年で積むと' : 'この会議の人件費を、1人分と全員分で積むと',\n  bars: bars,\n  fmtv: function (x) { return man(x); },\n  final: function () { return people + '人×' + minutes + '分で1回 ' + yen(once) + '。' + (freq > 0 ? '同じ会議を年' + freq + '回続けると ' + yen(year) + ' になります。' : '1人あたり ' + yen(once / people) + ' の時間を使っています。'); } });"
+}

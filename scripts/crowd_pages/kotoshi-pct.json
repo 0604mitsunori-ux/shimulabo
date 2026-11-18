@@ -1,0 +1,6 @@
+{
+  "buttons": [
+    "calcBtn"
+  ],
+  "js": "var T = new Date(), yr = T.getFullYear();\nvar start = new Date(yr, 0, 1), end = new Date(yr + 1, 0, 1);\nvar days = Math.ceil((end - start) / 86400000), passed = Math.max(0, Math.min(days, Math.floor((T - start) / 86400000)));\nvar rest = days - passed;\nCrowd.units(el, { total: days, used: passed, unit: '日',\ntitle: yr + '年の' + days + '日を玉で並べると',\nfinal: function (l) { return yr + '年はもう ' + (passed / days * 100).toFixed(1) + '% 過ぎました。のこり ' + l + '日、週末はあと ' + Math.floor(l / 7) + '回。'; } });"
+}

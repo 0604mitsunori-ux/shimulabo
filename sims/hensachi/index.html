@@ -85,6 +85,27 @@
         <div style="font-size:13px;color:var(--ink-2);margin-top:5px;line-height:1.6;">観点を選ぶだけで自然な所見文が完成。先生のための「通知表 所見作成ツール」を無料で試せます。</div>
         <div style="margin-top:10px;font-weight:800;color:#b45309;font-size:13px;">所見作成ツールを使ってみる →</div>
       </a>
+      <!-- crowd:start -->
+      <div id="crowdBox" style="margin-top:18px;"></div>
+      <script src="../../assets/crowd.js?v=4"></script>
+      <script>
+      (function () {
+        var el = document.getElementById('crowdBox');
+        function v(id) { var e = document.getElementById(id); return e ? e.value : ''; }
+        function run() {
+          var x = +v('score') || 0, m = +v('mean') || 0, sd = Math.max(0.1, +v('sd') || 1);
+          Crowd.distribution(el, { n: 100, mean: m, sd: sd, you: x,
+          title: '100人の点数を並べると',
+          tick: function (t) { return Math.round(t) + '点'; },
+          final: function (rk, n) { return 'あなたより点数が高い人は 100人中 ' + (rk - 1) + '人。平均点（' + m + '点）のあたりに人が一番多く集まります。'; } });
+        }
+        ['calcBtn'].forEach(function (id) {
+          var b = document.getElementById(id);
+          if (b) b.addEventListener('click', function () { setTimeout(run, 30); });
+        });
+      })();
+      </script>
+      <!-- crowd:end -->
       <div style="text-align:center;margin-top:14px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
       <div class="share-row">
         <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>

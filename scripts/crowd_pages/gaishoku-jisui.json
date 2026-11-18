@@ -1,0 +1,6 @@
+{
+  "buttons": [
+    "calcBtn"
+  ],
+  "js": "function M(x){var a=Math.abs(x);return a>=1e8?(a>=1e10?Math.round(x/1e8).toLocaleString('ja-JP'):(x/1e8).toFixed(1))+'億円':a>=1e4?Math.round(x/1e4).toLocaleString('ja-JP')+'万円':Math.round(x).toLocaleString('ja-JP')+'円';}\nfunction Y(x){return '¥'+Math.round(x).toLocaleString('ja-JP');}\nfunction N(x){return Math.round(x).toLocaleString('ja-JP');}\nvar out=Math.max(0,+v('out')||0), home=Math.max(0,+v('home')||0), meals=Math.max(0,+v('meals')||0);\nvar diff=Math.max(0,out-home), year=diff*meals*365;\nCrowd.pile(el,{title:'10年間の食費をくらべると', bars:[{label:'外食だと',value:out*meals*3650},{label:'自炊だと',value:home*meals*3650,color:'#3f9a72'}], fmtv:M,\n  final:function(){return year>0?'自炊にすると1年で '+Y(year)+'、10年で '+Y(year*10)+' 浮きます。':'この条件だと、自炊にしても浮くお金はありません。';}});"
+}

@@ -1,0 +1,6 @@
+{
+  "buttons": [
+    "calcBtn"
+  ],
+  "js": "var h = Math.max(0, +v('h') || 0), life = Math.max(1, +v('life') || 1);\nvar yrs = Math.min(life, h / 24 * life), awake = Math.max(0, life - yrs);\nCrowd.pile(el, { title: '一生の時間を「眠る」と「起きている」に分けると',\nbars: [{ label: '眠っている', value: yrs }, { label: '起きている', value: awake }],\nfmtv: function (x) { return Math.round(x) + '年'; },\nfinal: function () { return '人生の約 ' + Math.round(Math.min(100, h / 24 * 100)) + '% は眠っている時間。起きている約 ' + Math.round(awake) + '年をどう使うかは自分しだいです。'; } });"
+}

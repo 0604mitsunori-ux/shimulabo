@@ -80,6 +80,35 @@
       <div class="statline"><div class="stat"><div class="k">賃貸の生涯コスト</div><div class="v" id="chintai">—</div></div>
       <div class="stat"><div class="k">持ち家の生涯コスト</div><div class="v accent" id="mochiie">—</div></div>
       <div class="stat"><div class="k">住む年数</div><div class="v" id="yv">—</div></div></div>
+      <!-- crowd:start -->
+      <div id="crowdBox" style="margin-top:18px;"></div>
+      <script src="../../assets/crowd.js?v=4"></script>
+      <script>
+      (function () {
+        var el = document.getElementById('crowdBox');
+        function v(id) { var e = document.getElementById(id); return e ? e.value : ''; }
+        function run() {
+          function W(x){return Math.round(x).toLocaleString('ja-JP')+'万円';}
+          var rent=Math.max(0,+v('rent')||0), years=Math.max(1,Math.min(200,Math.round(+v('years')||1))), price=Math.max(0,+v('price')||0), maint=Math.max(0,+v('maint')||0);
+          function ch(t){return (rent*12*t+rent*Math.floor(t/2))/10000;}
+          function mo(t){return price+maint*t;}
+          var step=Math.ceil(years/60), xs=[], a=[], b=[];
+          for(var t=0;t<years;t+=step) xs.push(t);
+          xs.push(years);
+          for(var i=0;i<xs.length;i++){a.push(ch(xs[i]));b.push(mo(xs[i]));}
+          var cy=-1; for(var t2=1;t2<=years;t2++){ if(ch(t2-1)<mo(t2-1)&&ch(t2)>=mo(t2)){cy=t2;break;} }
+          var C=ch(years), Mo=mo(years);
+          Crowd.race(el,{title:'賃貸と持ち家、払った総額', series:[{label:'賃貸',values:a},{label:'持ち家',values:b}],
+          xLabel:function(i){return xs[i]+'年';}, fmtv:W,
+          final:function(){return (cy>0?cy+'年目に賃貸の総額が持ち家を追い越します。':'')+years+'年で賃貸'+W(C)+'・持ち家'+W(Mo)+(Math.abs(C-Mo)<0.5?'、ほぼ同じです。':'、'+(C<=Mo?'賃貸':'持ち家')+'が'+W(Math.abs(C-Mo))+'安い。');}});
+        }
+        ['calcBtn'].forEach(function (id) {
+          var b = document.getElementById(id);
+          if (b) b.addEventListener('click', function () { setTimeout(run, 30); });
+        });
+      })();
+      </script>
+      <!-- crowd:end -->
       <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
       <div class="share-row">
         <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>

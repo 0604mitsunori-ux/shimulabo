@@ -80,6 +80,28 @@
       <div class="statline"><div class="stat"><div class="k">総費用</div><div class="v accent" id="cost">—</div></div>
       <div class="stat"><div class="k">1日の枚数</div><div class="v" id="pd">—</div></div>
       <div class="stat"><div class="k">替えにかかる生涯時間</div><div class="v" id="time">—</div></div></div>
+      <!-- crowd:start -->
+      <div id="crowdBox" style="margin-top:18px;"></div>
+      <script src="../../assets/crowd.js?v=4"></script>
+      <script>
+      (function () {
+        var el = document.getElementById('crowdBox');
+        function v(id) { var e = document.getElementById(id); return e ? e.value : ''; }
+        function run() {
+          function N(x){return Math.round(x).toLocaleString('ja-JP');}
+          var pd=Math.max(1,+v('perday')||1), age=Math.max(0,+v('age')||0), price=Math.max(0,+v('price')||0);
+          var total=pd*365*age, cost=total*price;
+          Crowd.pile(el,{title:'おむつを積み上げると', unit:'枚', bars:[{label:'1年分',value:pd*365},{label:'卒業まで',value:total}],
+          fmtv:function(x){return N(x)+'枚';},
+          final:function(){return '卒業まで約 '+N(total)+'枚、費用は ¥'+N(cost)+'。毎日の育児、お疲れさまです。';}});
+        }
+        ['calcBtn'].forEach(function (id) {
+          var b = document.getElementById(id);
+          if (b) b.addEventListener('click', function () { setTimeout(run, 30); });
+        });
+      })();
+      </script>
+      <!-- crowd:end -->
       <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
       <div class="share-row">
         <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>

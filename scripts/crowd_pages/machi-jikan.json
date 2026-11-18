@@ -1,0 +1,6 @@
+{
+  "buttons": [
+    "calcBtn"
+  ],
+  "js": "var age = Math.max(1, +v('age') || 0), life = Math.max(age + 1, +v('life') || 0);\nvar total = Math.max(1, Math.round(30 * 365 * life / 1440)), used = Math.min(total, Math.round(30 * 365 * age / 1440));\nCrowd.units(el, { total: total, used: used, unit: '日', leftLabel: 'これから',\ntitle: '一生の「待ち時間」を1日ずつ玉にすると',\nfinal: function (l) { return 'これまでに約 ' + used.toLocaleString('ja-JP') + '日、これから約 ' + l.toLocaleString('ja-JP') + '日。1日30分でも、積もるとこれだけになります。'; } });"
+}

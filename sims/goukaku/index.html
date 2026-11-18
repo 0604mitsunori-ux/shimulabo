@@ -77,6 +77,30 @@
       <div class="big"><span id="big">0</span><span class="unit">%</span></div>
       <div class="sub" id="sub">—</div>
       <div class="alert good" id="adv" style="text-align:left;margin-top:18px;">—</div>
+      <!-- crowd:start -->
+      <div id="crowdBox" style="margin-top:18px;"></div>
+      <script src="../../assets/crowd.js?v=4"></script>
+      <script>
+      (function () {
+        var el = document.getElementById('crowdBox');
+        function v(id) { var e = document.getElementById(id); return e ? e.value : ''; }
+        function run() {
+          var my = +v('my') || 50, goal = +v('goal') || 50, mo = Math.max(0, +v('months') || 0);
+          var diff = my - goal + mo * 0.6;
+          var p = 1 / (1 + Math.exp(-diff / 4)) * 100; p = Math.max(2, Math.min(97, p));
+          var h = my + mo * 0.6, hc = Math.max(0, Math.min(100, h)), gc = Math.max(0, Math.min(100, goal));
+          Crowd.distribution(el, { n: 100, mean: 50, sd: 10, you: hc, line: gc, lineLabel: '志望校 ' + goal,
+          title: '本番の受験生100人を偏差値で並べると',
+          tick: function (x) { return x.toFixed(0); },
+          final: function (rk, n, above) { return '今の' + my + '＋あと' + mo + 'ヶ月の伸びで、本番は偏差値 約' + h.toFixed(1) + '（100人中 ' + rk + '位）。志望校' + goal + '以上は ' + above + '人（緑の点）で、合格可能性は約' + Math.round(p) + '%。'; } });
+        }
+        ['calcBtn'].forEach(function (id) {
+          var b = document.getElementById(id);
+          if (b) b.addEventListener('click', function () { setTimeout(run, 30); });
+        });
+      })();
+      </script>
+      <!-- crowd:end -->
       <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
       <div class="share-row">
         <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>

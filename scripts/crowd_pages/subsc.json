@@ -1,0 +1,6 @@
+{
+  "buttons": [
+    "calcBtn"
+  ],
+  "js": "function M(x){var a=Math.abs(x);return a>=1e8?(a>=1e10?Math.round(x/1e8).toLocaleString('ja-JP'):(x/1e8).toFixed(1))+'億円':a>=1e4?Math.round(x/1e4).toLocaleString('ja-JP')+'万円':Math.round(x).toLocaleString('ja-JP')+'円';}\nfunction Y(x){return '¥'+Math.round(x).toLocaleString('ja-JP');}\nfunction N(x){return Math.round(x).toLocaleString('ja-JP');}\nvar total=Math.max(0,+v('total')||0), waste=Math.max(0,Math.min(100,+v('waste')||0))/100;\nvar y=total*waste*12, ten=y*10;\nCrowd.pile(el,{title:'10年間のサブスク代、そのうち使っていない分', bars:[{label:'払う総額',value:total*120},{label:'使っていない分',value:ten}], fmtv:M,\n  final:function(){return '10年で '+Y(ten)+' がサブスク墓場へ（1年で '+Y(y)+'）';}});"
+}

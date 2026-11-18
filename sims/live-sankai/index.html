@@ -80,6 +80,28 @@
       <div class="statline"><div class="stat"><div class="k">生涯のライブ代</div><div class="v accent" id="cost2">—</div></div>
       <div class="stat"><div class="k">月あたり</div><div class="v" id="m">—</div></div>
       <div class="stat"><div class="k">1回の重み</div><div class="v" id="weight">—</div></div></div>
+      <!-- crowd:start -->
+      <div id="crowdBox" style="margin-top:18px;"></div>
+      <script src="../../assets/crowd.js?v=4"></script>
+      <script>
+      (function () {
+        var el = document.getElementById('crowdBox');
+        function v(id) { var e = document.getElementById(id); return e ? e.value : ''; }
+        function run() {
+          var y = Math.max(0, +v('year') || 0), years = Math.max(1, +v('years') || 1);
+          var total = Math.round(y * years);
+          if (total < 1) { if (el._crowdStop) el._crowdStop(); el.innerHTML = ''; return; }
+          Crowd.units(el, { total: total, used: 0, unit: '回', leftLabel: 'これから',
+          title: 'これから行けるライブを玉で並べると',
+          final: function (l) { return 'これから行けるのは約 ' + l.toLocaleString('ja-JP') + '回。次のライブも、この中の大切な1回です。'; } });
+        }
+        ['calcBtn'].forEach(function (id) {
+          var b = document.getElementById(id);
+          if (b) b.addEventListener('click', function () { setTimeout(run, 30); });
+        });
+      })();
+      </script>
+      <!-- crowd:end -->
       <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
       <div class="share-row">
         <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>

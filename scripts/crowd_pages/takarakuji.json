@@ -1,0 +1,6 @@
+{
+  "buttons": [
+    "calcBtn"
+  ],
+  "js": "function yen(x) { return '¥' + Math.round(x).toLocaleString('ja-JP'); }\nfunction man(x) { x = Math.round(x); if (Math.abs(x) >= 100000000) return (Math.round(x / 10000000) / 10) + '億円'; if (Math.abs(x) >= 10000) return (Math.round(x / 1000) / 10) + '万円'; return x.toLocaleString('ja-JP') + '円'; }\n\nvar amt = Math.max(0, +v('amt') || 0), times = Math.max(0, +v('times') || 0), years = Math.max(1, Math.min(200, +v('years') || 1));\nvar annual = amt * times, total = annual * years, back = total * 0.47, loss = total - back;\nvar fv = 0; for (var i = 0; i < years; i++) { fv = (fv + annual) * 1.03; }\nCrowd.pile(el, { title: years + '年買い続けたお金を積み上げると',\n  bars: [{ label: '使ったお金', value: total }, { label: '戻ってくるお金', value: back }, { label: '年3%で運用', value: fv, color: '#3f9a72' }],\n  fmtv: function (x) { return man(x); },\n  final: function () { return '期待回収との差は ' + yen(loss) + ' の損。同じ額を年3%で運用していたら ' + yen(fv) + ' になっていました。'; } });"
+}

@@ -80,6 +80,29 @@
       <div class="statline"><div class="stat"><div class="k">街でrandom遭遇する確率</div><div class="v accent" id="prob">—</div></div>
       <div class="stat"><div class="k">対象人口</div><div class="v" id="base">—</div></div>
       <div class="stat"><div class="k">難易度</div><div class="v" id="lv" style="font-size:16px;">—</div></div></div>
+      <!-- crowd:start -->
+      <div id="crowdBox" style="margin-top:18px;"></div>
+      <script src="../../assets/crowd.js?v=4"></script>
+      <script>
+      (function () {
+        var el = document.getElementById('crowdBox');
+        function v(id) { var e = document.getElementById(id); return e ? e.value : ''; }
+        function run() {
+          var pop = Math.max(0, +v('pop') || 0) * 10000, age = (+v('age') || 0) / 100, single = (+v('single') || 0) / 100, pref = (+v('pref') || 0) / 100;
+          var cand = pop * 0.5 * age * single * pref;
+          var ratio = pop > 0 ? Math.max(0, Math.min(1, cand / pop)) : 0;
+          Crowd.lottery(el, { you: false, n: 1000, p: ratio, rounds: 1,
+          title: '街の1000人を並べると、運命の人候補は金色の人',
+          roundLabel: function () { return '候補かどうか'; },
+          final: function (w) { return '1000人のうち候補は ' + w + '人' + (ratio > 0 ? '（計算では約 ' + Math.round(1 / ratio).toLocaleString('ja-JP') + '人に1人）' : '') + '。街全体（' + Math.round(pop).toLocaleString('ja-JP') + '人）だと約 ' + Math.max(0, Math.round(cand)).toLocaleString('ja-JP') + '人です。'; } });
+        }
+        ['calcBtn'].forEach(function (id) {
+          var b = document.getElementById(id);
+          if (b) b.addEventListener('click', function () { setTimeout(run, 30); });
+        });
+      })();
+      </script>
+      <!-- crowd:end -->
       <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
       <div class="share-row">
         <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>

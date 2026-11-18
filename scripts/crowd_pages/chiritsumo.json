@@ -1,0 +1,6 @@
+{
+  "buttons": [
+    "calcBtn"
+  ],
+  "js": "function yen(x) { return '¥' + Math.round(x).toLocaleString('ja-JP'); }\nfunction man(x) { x = Math.round(x); if (Math.abs(x) >= 100000000) return (Math.round(x / 10000000) / 10) + '億円'; if (Math.abs(x) >= 10000) return (Math.round(x / 1000) / 10) + '万円'; return x.toLocaleString('ja-JP') + '円'; }\n\nvar d = Math.max(0, +v('daily') || 0), years = Math.max(1, Math.min(200, +v('years') || 1));\nvar annual = d * 365, total = annual * years;\nvar A = [0], B = [0], fv = 0;\nfor (var i = 0; i < years; i++) { fv = (fv + annual) * 1.03; A.push(annual * Math.min(i + 1, years)); B.push(fv); }\nCrowd.race(el, { title: '毎日' + d.toLocaleString('ja-JP') + '円が年ごとに積もると',\n  series: [{ label: 'そのまま使った額', values: A }, { label: '年3%で運用したら', values: B, color: '#3f9a72' }],\n  xLabel: function (k) { return k + '年'; },\n  fmtv: function (x) { return man(x); },\n  final: function () { return years + '年で合計 ' + yen(total) + '。同じ額を年3%で運用していたら ' + yen(fv) + ' に（差は ' + yen(fv - total) + '）。'; } });"
+}

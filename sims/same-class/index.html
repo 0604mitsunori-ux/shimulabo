@@ -80,6 +80,28 @@
         <div class="stat"><div class="k">ずっと同じクラス</div><div class="v" id="all">—</div></div>
         <div class="stat"><div class="k">一度も同じにならない</div><div class="v" id="never">—</div></div>
       </div>
+      <!-- crowd:start -->
+      <div id="crowdBox" style="margin-top:18px;"></div>
+      <script src="../../assets/crowd.js?v=4"></script>
+      <script>
+      (function () {
+        var el = document.getElementById('crowdBox');
+        function v(id) { var e = document.getElementById(id); return e ? e.value : ''; }
+        function run() {
+          var c = Math.max(1, +v('c') || 1), y = Math.max(1, +v('n') || 1);
+          var atLeast = (1 - Math.pow(1 - 1 / c, y)) * 100;
+          Crowd.lottery(el, { n: 1000, p: 1 / c, rounds: Math.min(100, Math.round(y)),
+          title: '1000人が同じ条件（' + c + 'クラス・残り' + y + '年）でクラス替えを迎えたら',
+          roundLabel: function (i) { return (i + 1) + '年目のクラス替え'; },
+          final: function (w, n, you) { return '1000人のうち ' + w + '人が、在学中に1回は好きな人と同じクラスに（計算では ' + atLeast.toFixed(0) + '%）。このシミュでは、あなたは' + (you ? '同じクラスになれました。' : '一度も同じクラスになれず…'); } });
+        }
+        ['calcBtn'].forEach(function (id) {
+          var b = document.getElementById(id);
+          if (b) b.addEventListener('click', function () { setTimeout(run, 30); });
+        });
+      })();
+      </script>
+      <!-- crowd:end -->
       <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
       <div class="share-row">
         <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>

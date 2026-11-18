@@ -129,6 +129,35 @@
       <div class="share-row">
         <button class="btn btn-ghost" id="burnBtn">▶ 会議をスタート（お金が燃えます）</button>
       </div>
+      <!-- crowd:start -->
+      <div id="crowdBox" style="margin-top:18px;"></div>
+      <script src="../../assets/crowd.js?v=4"></script>
+      <script>
+      (function () {
+        var el = document.getElementById('crowdBox');
+        function v(id) { var e = document.getElementById(id); return e ? e.value : ''; }
+        function run() {
+          function yen(x) { return '¥' + Math.round(x).toLocaleString('ja-JP'); }
+          function man(x) { x = Math.round(x); if (Math.abs(x) >= 100000000) return (Math.round(x / 10000000) / 10) + '億円'; if (Math.abs(x) >= 10000) return (Math.round(x / 1000) / 10) + '万円'; return x.toLocaleString('ja-JP') + '円'; }
+          
+          var people = Math.max(1, +v('people') || 0), minutes = Math.max(1, +v('minutes') || 0);
+          var salary = Math.max(0, +v('salary') || 0) * 10000, freq = Math.max(0, +v('freq') || 0);
+          var once = salary / 1900 / 60 * people * minutes, year = once * freq;
+          var bars = freq > 0
+          ? [{ label: '1回', value: once }, { label: '1か月', value: year / 12 }, { label: '1年（' + freq + '回）', value: year }]
+          : [{ label: '1人分', value: once / people }, { label: '全員分（1回）', value: once }];
+          Crowd.pile(el, { title: freq > 0 ? 'この会議の人件費を、1回・1か月・1年で積むと' : 'この会議の人件費を、1人分と全員分で積むと',
+          bars: bars,
+          fmtv: function (x) { return man(x); },
+          final: function () { return people + '人×' + minutes + '分で1回 ' + yen(once) + '。' + (freq > 0 ? '同じ会議を年' + freq + '回続けると ' + yen(year) + ' になります。' : '1人あたり ' + yen(once / people) + ' の時間を使っています。'); } });
+        }
+        ['calcBtn'].forEach(function (id) {
+          var b = document.getElementById(id);
+          if (b) b.addEventListener('click', function () { setTimeout(run, 30); });
+        });
+      })();
+      </script>
+      <!-- crowd:end -->
       <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
       <div class="share-row">
         <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>

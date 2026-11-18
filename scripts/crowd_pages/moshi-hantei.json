@@ -1,0 +1,6 @@
+{
+  "buttons": [
+    "calcBtn"
+  ],
+  "js": "      var s = +v('score') || 0, m = +v('mean') || 0, sd = Math.max(1, +v('sd') || 1), goal = +v('goal') || 50;\n      var h = 50 + 10 * (s - m) / sd;\n      Crowd.distribution(el, { n: 100, mean: 50, sd: 10, you: h, line: goal, lineLabel: '志望校 ' + goal,\n        title: '受験生100人の偏差値を並べると',\n        tick: function (x) { return x.toFixed(0); },\n        final: function (rk, n, above) { return '100人中 ' + rk + '位。志望校の偏差値 ' + goal + ' 以上は ' + above + '人（緑の点）で、あなたは' + (h >= goal ? 'その中にいます。' : 'あと ' + (goal - h).toFixed(1) + ' ポイント。'); } });"
+}

@@ -79,6 +79,29 @@
       <div class="big"><span id="big">0</span><span class="unit">%</span></div>
       <div class="sub" id="sub">—</div>
       <div class="alert good" id="adv" style="text-align:left;margin-top:18px;">—</div>
+      <!-- crowd:start -->
+      <div id="crowdBox" style="margin-top:18px;"></div>
+      <script src="../../assets/crowd.js?v=4"></script>
+      <script>
+      (function () {
+        var el = document.getElementById('crowdBox');
+        function v(id) { var e = document.getElementById(id); return e ? e.value : ''; }
+        function run() {
+          var s = 10, ids = ['rel', 'freq', 'sign', 'time'];
+          for (var i = 0; i < ids.length; i++) s += (+v(ids[i]) || 0);
+          s = Math.max(3, Math.min(95, s));
+          Crowd.lottery(el, { n: 100, p: s / 100, rounds: 1,
+          title: '100人がこの条件で告白したら',
+          roundLabel: function () { return '告白の結果'; },
+          final: function (w, n, you) { return '100人のうち ' + w + '人が成功（成功率 ' + s + '%）。このシミュでは、あなたは' + (you ? '成功！' : '今回はうまくいかず…'); } });
+        }
+        ['calcBtn'].forEach(function (id) {
+          var b = document.getElementById(id);
+          if (b) b.addEventListener('click', function () { setTimeout(run, 30); });
+        });
+      })();
+      </script>
+      <!-- crowd:end -->
       <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
       <div class="share-row">
         <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>

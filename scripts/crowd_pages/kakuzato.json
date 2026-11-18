@@ -1,0 +1,6 @@
+{
+  "buttons": [
+    "calcBtn"
+  ],
+  "js": "var s=document.getElementById('drink'), o=s&&s.options[s.selectedIndex];\nvar g=o?(+o.value||0)*(+(o.getAttribute('data-ml')||100))/100:0, n=Math.max(0,Math.min(1000,+v('n')||0));\nvar cubes=g*n/4, c=Math.round(cubes), name=o?o.text:'飲み物';\nCrowd.pile(el,{title:'角砂糖にして並べると（1日'+n+'杯）', unit:'個', per:1, bars:[{label:name.replace(/\\(.*\\)/,''),value:c},{label:'WHOの1日目安',value:6,color:'#3f9a72'}],\n  fmtv:function(x){return Math.round(x)+'個';},\n  final:function(){return '角砂糖 約'+c+'個分（'+Math.round(g*n)+'g）。WHOの1日目安（6個）の'+(c/6).toFixed(1)+'倍です。';}});"
+}

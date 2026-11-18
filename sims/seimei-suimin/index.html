@@ -78,6 +78,28 @@
       <div class="statline"><div class="stat"><div class="k">人生に占める割合</div><div class="v accent" id="pct">—</div></div>
       <div class="stat"><div class="k">日数にすると</div><div class="v" id="days">—</div></div>
       <div class="stat"><div class="k">起きている時間</div><div class="v" id="awake">—</div></div></div>
+      <!-- crowd:start -->
+      <div id="crowdBox" style="margin-top:18px;"></div>
+      <script src="../../assets/crowd.js?v=4"></script>
+      <script>
+      (function () {
+        var el = document.getElementById('crowdBox');
+        function v(id) { var e = document.getElementById(id); return e ? e.value : ''; }
+        function run() {
+          var h = Math.max(0, +v('h') || 0), life = Math.max(1, +v('life') || 1);
+          var yrs = Math.min(life, h / 24 * life), awake = Math.max(0, life - yrs);
+          Crowd.pile(el, { title: '一生の時間を「眠る」と「起きている」に分けると',
+          bars: [{ label: '眠っている', value: yrs }, { label: '起きている', value: awake }],
+          fmtv: function (x) { return Math.round(x) + '年'; },
+          final: function () { return '人生の約 ' + Math.round(Math.min(100, h / 24 * 100)) + '% は眠っている時間。起きている約 ' + Math.round(awake) + '年をどう使うかは自分しだいです。'; } });
+        }
+        ['calcBtn'].forEach(function (id) {
+          var b = document.getElementById(id);
+          if (b) b.addEventListener('click', function () { setTimeout(run, 30); });
+        });
+      })();
+      </script>
+      <!-- crowd:end -->
       <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
       <div class="share-row">
         <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>

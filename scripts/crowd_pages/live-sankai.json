@@ -1,0 +1,6 @@
+{
+  "buttons": [
+    "calcBtn"
+  ],
+  "js": "var y = Math.max(0, +v('year') || 0), years = Math.max(1, +v('years') || 1);\nvar total = Math.round(y * years);\nif (total < 1) { if (el._crowdStop) el._crowdStop(); el.innerHTML = ''; return; }\nCrowd.units(el, { total: total, used: 0, unit: '回', leftLabel: 'これから',\ntitle: 'これから行けるライブを玉で並べると',\nfinal: function (l) { return 'これから行けるのは約 ' + l.toLocaleString('ja-JP') + '回。次のライブも、この中の大切な1回です。'; } });"
+}

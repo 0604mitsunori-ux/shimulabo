@@ -1,0 +1,6 @@
+{
+  "buttons": [
+    "calcBtn"
+  ],
+  "js": "var age = Math.max(0, +v('age') || 0), life = Math.max(age + 0.1, +v('life') || 1);\nvar pct = Math.min(100, age / life * 100);\nvar total = Math.max(1, Math.round(life * 52)), left = Math.min(total, Math.round((life - age) * 52));\nCrowd.units(el, { total: total, used: total - left, unit: '週',\ntitle: '人生を1週ずつ玉にすると',\nfinal: function (l) { return '人生の ' + Math.round(pct) + '% が過ぎて、のこりは約 ' + l.toLocaleString('ja-JP') + '週。今週も、その1つです。'; } });"
+}

@@ -82,6 +82,34 @@
         <div class="stat"><div class="k">年3%運用してたら</div><div class="v accent" id="inv">—</div></div>
         <div class="stat"><div class="k">買えるもの</div><div class="v" id="buy" style="font-size:15px;">—</div></div>
       </div>
+      <!-- crowd:start -->
+      <div id="crowdBox" style="margin-top:18px;"></div>
+      <script src="../../assets/crowd.js?v=4"></script>
+      <script>
+      (function () {
+        var el = document.getElementById('crowdBox');
+        function v(id) { var e = document.getElementById(id); return e ? e.value : ''; }
+        function run() {
+          function yen(x) { return '¥' + Math.round(x).toLocaleString('ja-JP'); }
+          function man(x) { x = Math.round(x); if (Math.abs(x) >= 100000000) return (Math.round(x / 10000000) / 10) + '億円'; if (Math.abs(x) >= 10000) return (Math.round(x / 1000) / 10) + '万円'; return x.toLocaleString('ja-JP') + '円'; }
+          
+          var d = Math.max(0, +v('daily') || 0), years = Math.max(1, Math.min(200, +v('years') || 1));
+          var annual = d * 365, total = annual * years;
+          var A = [0], B = [0], fv = 0;
+          for (var i = 0; i < years; i++) { fv = (fv + annual) * 1.03; A.push(annual * Math.min(i + 1, years)); B.push(fv); }
+          Crowd.race(el, { title: '毎日' + d.toLocaleString('ja-JP') + '円が年ごとに積もると',
+          series: [{ label: 'そのまま使った額', values: A }, { label: '年3%で運用したら', values: B, color: '#3f9a72' }],
+          xLabel: function (k) { return k + '年'; },
+          fmtv: function (x) { return man(x); },
+          final: function () { return years + '年で合計 ' + yen(total) + '。同じ額を年3%で運用していたら ' + yen(fv) + ' に（差は ' + yen(fv - total) + '）。'; } });
+        }
+        ['calcBtn'].forEach(function (id) {
+          var b = document.getElementById(id);
+          if (b) b.addEventListener('click', function () { setTimeout(run, 30); });
+        });
+      })();
+      </script>
+      <!-- crowd:end -->
       <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
       <div class="share-row">
         <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>

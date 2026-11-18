@@ -1,0 +1,7 @@
+{
+  "buttons": [
+    "calcBtn",
+    "rateBtn"
+  ],
+  "js": "      var rate = Math.max(1, +v('rate') || 1), k = Math.max(1, Math.min(100, Math.round(+v('n') || 1)));\n      var calc = (1 - Math.pow(1 - 1 / rate, k)) * 100;\n      Crowd.lottery(el, { n: 1000, p: 1 / rate, rounds: k,\n        title: '1000人が同じ条件（' + rate + '倍・' + k + '口）で応募したら',\n        roundLabel: function (i) { return (i + 1) + '口目の抽選'; },\n        final: function (w, n, y) { return '1000人のうち ' + w + '人が少なくとも1枚当選（計算では ' + calc.toFixed(1) + '%）。このシミュでは、あなたは' + (y ? '当選！🎉' : '全部落選…'); } });"
+}

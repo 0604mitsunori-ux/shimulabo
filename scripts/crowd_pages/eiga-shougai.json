@@ -1,0 +1,6 @@
+{
+  "buttons": [
+    "calcBtn"
+  ],
+  "js": "var y = Math.max(0, +v('year') || 0), years = Math.max(1, +v('years') || 1);\nvar total = Math.round(y * years);\nif (total < 1) { if (el._crowdStop) el._crowdStop(); el.innerHTML = ''; return; }\nCrowd.units(el, { total: total, used: 0, unit: '本', leftLabel: 'これから',\ntitle: 'これから観られる映画を玉で並べると',\nfinal: function (l) { return 'これから観られるのは約 ' + l.toLocaleString('ja-JP') + '本。「いつか観たい」リストより、たぶん少ない数です。'; } });"
+}

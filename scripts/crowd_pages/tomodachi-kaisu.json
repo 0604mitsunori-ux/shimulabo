@@ -1,0 +1,6 @@
+{
+  "buttons": [
+    "calcBtn"
+  ],
+  "js": "var age = Math.max(0, +v('age') || 0), freq = Math.max(0.1, +v('freq') || 2), life = Math.max(1, +v('life') || 85);\nvar left = Math.round(Math.max(0, life - age) * freq), total = Math.max(1, Math.round(Math.max(life, age) * freq));\nleft = Math.min(total, left);\nCrowd.units(el, { total: total, used: total - left, unit: '回',\ntitle: '一生を「年' + freq + '回」のペースで玉にすると',\nfinal: function (l) { return 'その友だちと会えるのは、あと ' + l.toLocaleString('ja-JP') + '回。「また今度」の1回は、思ったより重い1回です。'; } });"
+}

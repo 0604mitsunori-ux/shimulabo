@@ -1,0 +1,6 @@
+{
+  "buttons": [
+    "calcBtn"
+  ],
+  "js": "function yen(x) { return '¥' + Math.round(x).toLocaleString('ja-JP'); }\nfunction man(x) { x = Math.round(x); if (Math.abs(x) >= 100000000) return (Math.round(x / 10000000) / 10) + '億円'; if (Math.abs(x) >= 10000) return (Math.round(x / 1000) / 10) + '万円'; return x.toLocaleString('ja-JP') + '円'; }\n\nvar t = Math.max(0, +v('tsuki') || 0), y = Math.max(0, +v('year') || 0);\nvar year1 = t * 12, tot = year1 * y, day = tot / (365 * Math.max(y, 0.001));\nvar yl = (Math.round(y * 100) / 100).toLocaleString('ja-JP');\nCrowd.pile(el, { title: '課金したお金を積み上げると',\n  bars: [{ label: '1年あたり', value: year1 }, { label: yl + '年の累計', value: tot }],\n  fmtv: function (x) { return man(x); },\n  final: function () { return yl + '年で合計 ' + yen(tot) + '。1日あたり ' + yen(day) + ' を払い続けている計算です。'; } });"
+}

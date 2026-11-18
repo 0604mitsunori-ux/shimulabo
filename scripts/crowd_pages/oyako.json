@@ -1,0 +1,6 @@
+{
+  "buttons": [
+    "calcBtn"
+  ],
+  "js": "var age = Math.max(0, +v('age') || 0), freq = Math.max(0, +v('freq') || 0), life = Math.max(0, +v('life') || 0);\nvar left = Math.round(Math.max(0, life - age) * freq), total = Math.round(Math.max(life, age) * freq);\nif (total < 1) { if (el._crowdStop) el._crowdStop(); el.innerHTML = ''; return; }\nleft = Math.min(total, left);\nCrowd.units(el, { total: total, used: total - left, unit: '回',\ntitle: '親の一生を「年' + freq + '回」で玉にすると',\nfinal: function (l, t) { return 'のこり ' + l.toLocaleString('ja-JP') + '回。同じペースで数えると、親の一生のうち ' + Math.round((t - l) / t * 100) + '% はもう過ぎています。'; } });"
+}

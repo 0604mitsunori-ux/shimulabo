@@ -79,6 +79,28 @@
       <div class="big" style="font-size:52px;"><span id="big">—</span></div>
       <div class="sub" id="sub">—</div>
       <div class="alert good" id="adv" style="text-align:left;margin-top:18px;">—</div>
+      <!-- crowd:start -->
+      <div id="crowdBox" style="margin-top:18px;"></div>
+      <script src="../../assets/crowd.js?v=4"></script>
+      <script>
+      (function () {
+        var el = document.getElementById('crowdBox');
+        function v(id) { var e = document.getElementById(id); return e ? e.value : ''; }
+        function run() {
+          var s = +v('score') || 0, m = +v('mean') || 0, sd = Math.max(1, +v('sd') || 1), goal = +v('goal') || 50;
+          var h = 50 + 10 * (s - m) / sd;
+          Crowd.distribution(el, { n: 100, mean: 50, sd: 10, you: h, line: goal, lineLabel: '志望校 ' + goal,
+          title: '受験生100人の偏差値を並べると',
+          tick: function (x) { return x.toFixed(0); },
+          final: function (rk, n, above) { return '100人中 ' + rk + '位。志望校の偏差値 ' + goal + ' 以上は ' + above + '人（緑の点）で、あなたは' + (h >= goal ? 'その中にいます。' : 'あと ' + (goal - h).toFixed(1) + ' ポイント。'); } });
+        }
+        ['calcBtn'].forEach(function (id) {
+          var b = document.getElementById(id);
+          if (b) b.addEventListener('click', function () { setTimeout(run, 30); });
+        });
+      })();
+      </script>
+      <!-- crowd:end -->
       <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
       <div class="share-row">
         <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>

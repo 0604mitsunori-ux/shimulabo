@@ -1,0 +1,6 @@
+{
+  "buttons": [
+    "calcBtn"
+  ],
+  "js": "var age = Math.max(0, +v('age') || 0), life = Math.max(0, +v('life') || 0);\nvar left = Math.round(Math.max(0, life - age) * 365), total = Math.round(Math.max(life, age) * 365);\nif (total < 1) { if (el._crowdStop) el._crowdStop(); el.innerHTML = ''; return; }\nleft = Math.min(total, left);\nCrowd.units(el, { total: total, used: total - left, unit: '日',\ntitle: '一緒に過ごす毎日を玉で並べると',\nfinal: function (l) { return l > 0 ? 'のこり 約' + l.toLocaleString('ja-JP') + '日。今日の散歩も、その中の1日です。' : '想定寿命を過ぎても、一緒にいられる毎日はおまけの宝物です。'; } });"
+}

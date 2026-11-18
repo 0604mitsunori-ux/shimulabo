@@ -1,0 +1,6 @@
+{
+  "buttons": [
+    "calcBtn"
+  ],
+  "js": "function N(x){return Math.round(x).toLocaleString('ja-JP');}\nvar pd=Math.max(1,+v('perday')||1), age=Math.max(0,+v('age')||0), price=Math.max(0,+v('price')||0);\nvar total=pd*365*age, cost=total*price;\nCrowd.pile(el,{title:'おむつを積み上げると', unit:'枚', bars:[{label:'1年分',value:pd*365},{label:'卒業まで',value:total}],\n  fmtv:function(x){return N(x)+'枚';},\n  final:function(){return '卒業まで約 '+N(total)+'枚、費用は ¥'+N(cost)+'。毎日の育児、お疲れさまです。';}});"
+}

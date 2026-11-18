@@ -78,6 +78,29 @@
       <div class="statline"><div class="stat"><div class="k">残りの年数</div><div class="v accent" id="years">—</div></div>
       <div class="stat"><div class="k">残りの散歩・遊び</div><div class="v" id="play">—</div></div>
       <div class="stat"><div class="k">一緒に過ごした割合</div><div class="v" id="done">—</div></div></div>
+      <!-- crowd:start -->
+      <div id="crowdBox" style="margin-top:18px;"></div>
+      <script src="../../assets/crowd.js?v=4"></script>
+      <script>
+      (function () {
+        var el = document.getElementById('crowdBox');
+        function v(id) { var e = document.getElementById(id); return e ? e.value : ''; }
+        function run() {
+          var age = Math.max(0, +v('age') || 0), life = Math.max(0, +v('life') || 0);
+          var left = Math.round(Math.max(0, life - age) * 365), total = Math.round(Math.max(life, age) * 365);
+          if (total < 1) { if (el._crowdStop) el._crowdStop(); el.innerHTML = ''; return; }
+          left = Math.min(total, left);
+          Crowd.units(el, { total: total, used: total - left, unit: '日',
+          title: '一緒に過ごす毎日を玉で並べると',
+          final: function (l) { return l > 0 ? 'のこり 約' + l.toLocaleString('ja-JP') + '日。今日の散歩も、その中の1日です。' : '想定寿命を過ぎても、一緒にいられる毎日はおまけの宝物です。'; } });
+        }
+        ['calcBtn'].forEach(function (id) {
+          var b = document.getElementById(id);
+          if (b) b.addEventListener('click', function () { setTimeout(run, 30); });
+        });
+      })();
+      </script>
+      <!-- crowd:end -->
       <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
       <div class="share-row">
         <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>

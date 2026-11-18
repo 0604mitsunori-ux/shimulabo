@@ -1,0 +1,6 @@
+{
+  "buttons": [
+    "calcBtn"
+  ],
+  "js": "var age = Math.max(0, +v('age') || 0), leave = Math.max(0, +v('leave') || 0);\nvar ry = Math.max(0, leave - age), left = Math.round(ry * 365), total = Math.round(Math.max(leave, age) * 365);\nif (total < 1) { if (el._crowdStop) el._crowdStop(); el.innerHTML = ''; return; }\nleft = Math.min(total, left);\nCrowd.units(el, { total: total, used: total - left, unit: '日',\ntitle: '巣立ちまでの毎日を玉で並べると',\nfinal: function (l) { return 'のこり ' + l.toLocaleString('ja-JP') + '日、夏休みはあと ' + ry + '回。一緒にいる時間は小さいころほど長く、日数よりも早く過ぎていきます。'; } });"
+}

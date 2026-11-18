@@ -84,6 +84,32 @@
         <div class="stat"><div class="k">実質の損失</div><div class="v accent" id="loss">—</div></div>
         <div class="stat"><div class="k">同額を年3%運用なら</div><div class="v" id="inv">—</div></div>
       </div>
+      <!-- crowd:start -->
+      <div id="crowdBox" style="margin-top:18px;"></div>
+      <script src="../../assets/crowd.js?v=4"></script>
+      <script>
+      (function () {
+        var el = document.getElementById('crowdBox');
+        function v(id) { var e = document.getElementById(id); return e ? e.value : ''; }
+        function run() {
+          function yen(x) { return '¥' + Math.round(x).toLocaleString('ja-JP'); }
+          function man(x) { x = Math.round(x); if (Math.abs(x) >= 100000000) return (Math.round(x / 10000000) / 10) + '億円'; if (Math.abs(x) >= 10000) return (Math.round(x / 1000) / 10) + '万円'; return x.toLocaleString('ja-JP') + '円'; }
+          
+          var amt = Math.max(0, +v('amt') || 0), times = Math.max(0, +v('times') || 0), years = Math.max(1, Math.min(200, +v('years') || 1));
+          var annual = amt * times, total = annual * years, back = total * 0.47, loss = total - back;
+          var fv = 0; for (var i = 0; i < years; i++) { fv = (fv + annual) * 1.03; }
+          Crowd.pile(el, { title: years + '年買い続けたお金を積み上げると',
+          bars: [{ label: '使ったお金', value: total }, { label: '戻ってくるお金', value: back }, { label: '年3%で運用', value: fv, color: '#3f9a72' }],
+          fmtv: function (x) { return man(x); },
+          final: function () { return '期待回収との差は ' + yen(loss) + ' の損。同じ額を年3%で運用していたら ' + yen(fv) + ' になっていました。'; } });
+        }
+        ['calcBtn'].forEach(function (id) {
+          var b = document.getElementById(id);
+          if (b) b.addEventListener('click', function () { setTimeout(run, 30); });
+        });
+      })();
+      </script>
+      <!-- crowd:end -->
       <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
       <div class="share-row">
         <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>

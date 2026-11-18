@@ -1,0 +1,6 @@
+{
+  "buttons": [
+    "calcBtn"
+  ],
+  "js": "var my = +v('my') || 50, goal = +v('goal') || 50, mo = Math.max(0, +v('months') || 0);\nvar diff = my - goal + mo * 0.6;\nvar p = 1 / (1 + Math.exp(-diff / 4)) * 100; p = Math.max(2, Math.min(97, p));\nvar h = my + mo * 0.6, hc = Math.max(0, Math.min(100, h)), gc = Math.max(0, Math.min(100, goal));\nCrowd.distribution(el, { n: 100, mean: 50, sd: 10, you: hc, line: gc, lineLabel: '志望校 ' + goal,\n  title: '本番の受験生100人を偏差値で並べると',\n  tick: function (x) { return x.toFixed(0); },\n  final: function (rk, n, above) { return '今の' + my + '＋あと' + mo + 'ヶ月の伸びで、本番は偏差値 約' + h.toFixed(1) + '（100人中 ' + rk + '位）。志望校' + goal + '以上は ' + above + '人（緑の点）で、合格可能性は約' + Math.round(p) + '%。'; } });"
+}

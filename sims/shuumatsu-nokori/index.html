@@ -78,6 +78,29 @@
       <div class="statline"><div class="stat"><div class="k">元気に動ける週末（〜75歳）</div><div class="v accent" id="genki">—</div></div>
       <div class="stat"><div class="k">残りの大型連休（GW・盆・正月）</div><div class="v" id="renkyu">—</div></div>
       <div class="stat"><div class="k">使った週末の割合</div><div class="v" id="done">—</div></div></div>
+      <!-- crowd:start -->
+      <div id="crowdBox" style="margin-top:18px;"></div>
+      <script src="../../assets/crowd.js?v=4"></script>
+      <script>
+      (function () {
+        var el = document.getElementById('crowdBox');
+        function v(id) { var e = document.getElementById(id); return e ? e.value : ''; }
+        function run() {
+          var age = Math.max(0, +v('age') || 0), life = Math.max(1, +v('life') || 85);
+          var left = Math.round(Math.max(0, life - age) * 52), genki = Math.round(Math.max(0, Math.min(75, life) - age) * 52);
+          var total = Math.max(1, Math.round(Math.max(life, age) * 52));
+          left = Math.min(total, left);
+          Crowd.units(el, { total: total, used: total - left, unit: '回',
+          title: '一生の週末を玉で並べると',
+          final: function (l) { return 'のこり ' + l.toLocaleString('ja-JP') + '回。そのうち元気に動ける（75歳まで）のは ' + genki.toLocaleString('ja-JP') + '回です。'; } });
+        }
+        ['calcBtn'].forEach(function (id) {
+          var b = document.getElementById(id);
+          if (b) b.addEventListener('click', function () { setTimeout(run, 30); });
+        });
+      })();
+      </script>
+      <!-- crowd:end -->
       <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
       <div class="share-row">
         <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>

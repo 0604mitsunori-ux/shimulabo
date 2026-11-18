@@ -79,6 +79,35 @@
       <div class="statline"><div class="stat"><div class="k">平均で引ける回数</div><div class="v" id="exp">—</div></div>
       <div class="stat"><div class="k">半分の人が引ける回数</div><div class="v" id="med">—</div></div>
       <div class="stat"><div class="k">天井までの最大</div><div class="v accent" id="ceilyen">—</div></div></div>
+      <!-- crowd:start -->
+      <div id="crowdBox" style="margin-top:18px;"></div>
+      <script src="../../assets/crowd.js?v=4"></script>
+      <script>
+      (function () {
+        var el = document.getElementById('crowdBox');
+        function v(id) { var e = document.getElementById(id); return e ? e.value : ''; }
+        function run() {
+          function yen(x) { return '¥' + Math.round(x).toLocaleString('ja-JP'); }
+          function man(x) { x = Math.round(x); if (Math.abs(x) >= 100000000) return (Math.round(x / 10000000) / 10) + '億円'; if (Math.abs(x) >= 10000) return (Math.round(x / 1000) / 10) + '万円'; return x.toLocaleString('ja-JP') + '円'; }
+          
+          var p = Math.max(0.01, Math.min(100, +v('rate') || 1)) / 100;
+          var price = Math.max(1, +v('price') || 300), ceil = Math.max(0, +v('ceil') || 0);
+          var pulls = Math.max(1, Math.round(1 / p));
+          var block = pulls <= 100 ? 1 : Math.pow(10, Math.ceil(Math.log(pulls / 100) / Math.LN10 - 1e-9));
+          var R = Math.max(1, Math.min(100, Math.ceil(pulls / block))), done = R * block;
+          var pr = 1 - Math.pow(1 - p, block), calc = (1 - Math.pow(1 - p, done)) * 100;
+          Crowd.lottery(el, { n: 1000, p: pr, rounds: R,
+          title: '1000人が平均の' + done.toLocaleString('ja-JP') + '回（' + yen(done * price) + '）まで回したら',
+          roundLabel: function (i) { return block === 1 ? (i + 1) + '回目' : ((i + 1) * block).toLocaleString('ja-JP') + '回目まで'; },
+          final: function (w, n, you) { return '1000人のうち推しが出たのは ' + w + '人（計算では ' + calc.toFixed(0) + '%）。平均額まで課金しても、約' + Math.round(100 - calc) + '%の人は出ない。' + (ceil > 0 ? '天井（' + ceil.toLocaleString('ja-JP') + '回・' + yen(ceil * price) + '）までいけば確実に交換できます。' : '天井がないと上限なし。'); } });
+        }
+        ['calcBtn'].forEach(function (id) {
+          var b = document.getElementById(id);
+          if (b) b.addEventListener('click', function () { setTimeout(run, 30); });
+        });
+      })();
+      </script>
+      <!-- crowd:end -->
       <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
       <div class="share-row">
         <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>

@@ -1,0 +1,6 @@
+{
+  "buttons": [
+    "calcBtn"
+  ],
+  "js": "var age = Math.max(0, +v('age') || 0), life = Math.max(1, +v('life') || 85);\nvar left = Math.round(Math.max(0, life - age) * 52), genki = Math.round(Math.max(0, Math.min(75, life) - age) * 52);\nvar total = Math.max(1, Math.round(Math.max(life, age) * 52));\nleft = Math.min(total, left);\nCrowd.units(el, { total: total, used: total - left, unit: '回',\ntitle: '一生の週末を玉で並べると',\nfinal: function (l) { return 'のこり ' + l.toLocaleString('ja-JP') + '回。そのうち元気に動ける（75歳まで）のは ' + genki.toLocaleString('ja-JP') + '回です。'; } });"
+}

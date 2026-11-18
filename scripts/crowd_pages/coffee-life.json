@@ -1,0 +1,6 @@
+{
+  "buttons": [
+    "calcBtn"
+  ],
+  "js": "function M(x){var a=Math.abs(x);return a>=1e8?(a>=1e10?Math.round(x/1e8).toLocaleString('ja-JP'):(x/1e8).toFixed(1))+'億円':a>=1e4?Math.round(x/1e4).toLocaleString('ja-JP')+'万円':Math.round(x).toLocaleString('ja-JP')+'円';}\nfunction Y(x){return '¥'+Math.round(x).toLocaleString('ja-JP');}\nfunction N(x){return Math.round(x).toLocaleString('ja-JP');}\nvar c=Math.max(0,+v('cups')||0), p=Math.max(0,+v('price')||0), y=Math.max(1,+v('years')||1);\nvar y1=c*365*p, total=y1*y, bars=[{label:'1年',value:y1}];\nif(y>10) bars.push({label:'10年',value:y1*10});\nif(y>1) bars.push({label:y+'年',value:total});\nCrowd.pile(el,{title:'コーヒー代を積み上げると', bars:bars, fmtv:M,\n  final:function(){return y+'年で約 '+N(c*365*y)+'杯、コーヒー代は '+Y(total)+'。';}});"
+}

@@ -1,0 +1,6 @@
+{
+  "buttons": [
+    "calcBtn"
+  ],
+  "js": "var c = Math.max(1, +v('c') || 1), y = Math.max(1, +v('n') || 1);\nvar atLeast = (1 - Math.pow(1 - 1 / c, y)) * 100;\nCrowd.lottery(el, { n: 1000, p: 1 / c, rounds: Math.min(100, Math.round(y)),\n  title: '1000人が同じ条件（' + c + 'クラス・残り' + y + '年）でクラス替えを迎えたら',\n  roundLabel: function (i) { return (i + 1) + '年目のクラス替え'; },\n  final: function (w, n, you) { return '1000人のうち ' + w + '人が、在学中に1回は好きな人と同じクラスに（計算では ' + atLeast.toFixed(0) + '%）。このシミュでは、あなたは' + (you ? '同じクラスになれました。' : '一度も同じクラスになれず…'); } });"
+}

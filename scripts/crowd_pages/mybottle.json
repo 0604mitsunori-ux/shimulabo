@@ -1,0 +1,6 @@
+{
+  "buttons": [
+    "calcBtn"
+  ],
+  "js": "function M(x){var a=Math.abs(x);return a>=1e8?(a>=1e10?Math.round(x/1e8).toLocaleString('ja-JP'):(x/1e8).toFixed(1))+'億円':a>=1e4?Math.round(x/1e4).toLocaleString('ja-JP')+'万円':Math.round(x).toLocaleString('ja-JP')+'円';}\nfunction Y(x){return '¥'+Math.round(x).toLocaleString('ja-JP');}\nfunction N(x){return Math.round(x).toLocaleString('ja-JP');}\nvar p=Math.max(0,+v('pet')||0), h=Math.max(0,+v('hon')||0), m=Math.max(0,+v('my')||0);\nvar year=Math.max(0,p-m)*h*365, hon=Math.round(h*365);\nCrowd.pile(el,{title:'1年間の飲み物代をくらべると', bars:[{label:'ペットボトル',value:p*h*365},{label:'マイボトル',value:m*h*365,color:'#3f9a72'}], fmtv:M,\n  final:function(){return year>0?'マイボトルで1年 '+Y(year)+' お得、ペットボトルのごみも年'+hon.toLocaleString('ja-JP')+'本へらせます。':'この条件だと、お金の差はありません（ごみは年'+hon.toLocaleString('ja-JP')+'本へらせます）。';}});"
+}

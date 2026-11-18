@@ -86,6 +86,28 @@
       <div class="stat"><div class="k">全部外れる確率</div><div class="v accent" id="miss">—</div></div>
       <div class="stat"><div class="k">判定</div><div class="v" id="judge">—</div></div></div>
       <div class="tbl-scroll" style="margin-top:14px;"><table class="seo-table" id="byN"></table></div>
+      <!-- crowd:start -->
+      <div id="crowdBox" style="margin-top:18px;"></div>
+      <script src="../../assets/crowd.js?v=4"></script>
+      <script>
+      (function () {
+        var el = document.getElementById('crowdBox');
+        function v(id) { var e = document.getElementById(id); return e ? e.value : ''; }
+        function run() {
+          var rate = Math.max(1, +v('rate') || 1), k = Math.max(1, Math.min(100, Math.round(+v('n') || 1)));
+          var calc = (1 - Math.pow(1 - 1 / rate, k)) * 100;
+          Crowd.lottery(el, { n: 1000, p: 1 / rate, rounds: k,
+          title: '1000人が同じ条件（' + rate + '倍・' + k + '口）で応募したら',
+          roundLabel: function (i) { return (i + 1) + '口目の抽選'; },
+          final: function (w, n, y) { return '1000人のうち ' + w + '人が少なくとも1枚当選（計算では ' + calc.toFixed(1) + '%）。このシミュでは、あなたは' + (y ? '当選！🎉' : '全部落選…'); } });
+        }
+        ['calcBtn','rateBtn'].forEach(function (id) {
+          var b = document.getElementById(id);
+          if (b) b.addEventListener('click', function () { setTimeout(run, 30); });
+        });
+      })();
+      </script>
+      <!-- crowd:end -->
       <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
       <div class="share-row">
         <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>

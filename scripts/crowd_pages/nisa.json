@@ -1,0 +1,6 @@
+{
+  "buttons": [
+    "calcBtn"
+  ],
+  "js": "var m=Math.max(0,+v('m')||0), r=(+v('r')||0)/100/12, y=Math.max(1,Math.min(60,Math.round(+v('y')||1)));\nfunction M(x){var a=Math.abs(x);return a>=1e8?(a>=1e10?Math.round(x/1e8).toLocaleString('ja-JP'):(x/1e8).toFixed(1))+'億円':a>=1e4?Math.round(x/1e4).toLocaleString('ja-JP')+'万円':Math.round(x).toLocaleString('ja-JP')+'円';}\nfunction Y(x){return '¥'+Math.round(x).toLocaleString('ja-JP');}\nfunction N(x){return Math.round(x).toLocaleString('ja-JP');}\nvar a=[], b=[];\nfor(var k=0;k<=y;k++){var nk=k*12; a.push(m*nk); b.push(r>0?m*((Math.pow(1+r,nk)-1)/r):m*nk);}\nvar n=y*12, fv=r>0?m*((Math.pow(1+r,n)-1)/r):m*n, moto=m*n;\nCrowd.race(el,{title:'積み立てた元本と、増えた資産', series:[{label:'元本',values:a,color:'#8b929c'},{label:'評価額',values:b,color:'#3f9a72'}],\n  xLabel:function(i){return i+'年';}, fmtv:M,\n  final:function(){return y+'年後に '+Y(fv)+'（元本 '+Y(moto)+' ＋ 運用益 '+Y(fv-moto)+'）。';}});"
+}

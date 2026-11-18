@@ -79,6 +79,28 @@
       <div class="statline"><div class="stat"><div class="k">砂糖の量</div><div class="v" id="g">—</div></div>
       <div class="stat"><div class="k">1年で(毎日)</div><div class="v accent" id="year">—</div></div>
       <div class="stat"><div class="k">カロリー</div><div class="v" id="kcal">—</div></div></div>
+      <!-- crowd:start -->
+      <div id="crowdBox" style="margin-top:18px;"></div>
+      <script src="../../assets/crowd.js?v=4"></script>
+      <script>
+      (function () {
+        var el = document.getElementById('crowdBox');
+        function v(id) { var e = document.getElementById(id); return e ? e.value : ''; }
+        function run() {
+          var s=document.getElementById('drink'), o=s&&s.options[s.selectedIndex];
+          var g=o?(+o.value||0)*(+(o.getAttribute('data-ml')||100))/100:0, n=Math.max(0,Math.min(1000,+v('n')||0));
+          var cubes=g*n/4, c=Math.round(cubes), name=o?o.text:'飲み物';
+          Crowd.pile(el,{title:'角砂糖にして並べると（1日'+n+'杯）', unit:'個', per:1, bars:[{label:name.replace(/\(.*\)/,''),value:c},{label:'WHOの1日目安',value:6,color:'#3f9a72'}],
+          fmtv:function(x){return Math.round(x)+'個';},
+          final:function(){return '角砂糖 約'+c+'個分（'+Math.round(g*n)+'g）。WHOの1日目安（6個）の'+(c/6).toFixed(1)+'倍です。';}});
+        }
+        ['calcBtn'].forEach(function (id) {
+          var b = document.getElementById(id);
+          if (b) b.addEventListener('click', function () { setTimeout(run, 30); });
+        });
+      })();
+      </script>
+      <!-- crowd:end -->
       <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
       <div class="share-row">
         <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>

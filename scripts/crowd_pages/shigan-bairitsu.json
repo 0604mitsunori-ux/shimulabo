@@ -1,0 +1,6 @@
+{
+  "buttons": [
+    "calcBtn"
+  ],
+  "js": "var a = Math.max(1, +v('apply') || 1), t = Math.max(1, +v('teiin') || 1), r = Math.max(1, +v('rank') || 1);\nvar b = a / t, inLine = r <= t, n = Math.max(10, Math.min(2000, Math.round(a)));\nCrowd.lottery(el, { you: false, n: n, p: Math.min(1, t / a), rounds: 1,\n  title: (n < Math.round(a) ? '志願者' + Math.round(a).toLocaleString('ja-JP') + '人を' + n + '人に縮めると' : '志願者' + n + '人を並べると') + '、合格枠は金色',\n  roundLabel: function () { return '合格枠に入れるか'; },\n  final: function () { return '倍率 ' + b.toFixed(1) + '倍＝約' + b.toFixed(1) + '人に1人が合格。あなたの ' + r + '位は' + (inLine ? '定員 ' + t + '人の枠の中（合格圏）です。' : '定員 ' + t + '位まであと ' + (r - t) + '人。'); } });"
+}

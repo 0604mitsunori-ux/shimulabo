@@ -1,0 +1,6 @@
+{
+  "buttons": [
+    "calcBtn"
+  ],
+  "js": "function M(x){var a=Math.abs(x);return a>=1e8?(a>=1e10?Math.round(x/1e8).toLocaleString('ja-JP'):(x/1e8).toFixed(1))+'億円':a>=1e4?Math.round(x/1e4).toLocaleString('ja-JP')+'万円':Math.round(x).toLocaleString('ja-JP')+'円';}\nfunction Y(x){return '¥'+Math.round(x).toLocaleString('ja-JP');}\nfunction N(x){return Math.round(x).toLocaleString('ja-JP');}\nvar l=Math.max(0,+v('liter')||0), s=Math.max(0,+v('server')||0), p=Math.max(0,+v('pet')||0);\nvar sy=s*12, py=l/2*p*365, diff=Math.abs(sy-py), cheap=sy<=py?'ウォーターサーバー':'ペットボトル';\nCrowd.pile(el,{title:'1年間の水代をくらべると', bars:[{label:'ウォーターサーバー',value:sy},{label:'ペットボトル',value:py}], fmtv:M,\n  final:function(){return cheap+'の方が1年で '+Y(diff)+' 安い。';}});"
+}

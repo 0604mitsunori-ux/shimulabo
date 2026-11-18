@@ -80,6 +80,33 @@
       <div class="statline"><div class="stat"><div class="k">必要資産(年間支出×25)</div><div class="v accent" id="target">—</div></div>
       <div class="stat"><div class="k">年間の投資額</div><div class="v" id="ann">—</div></div>
       <div class="stat"><div class="k">達成時の年齢目安</div><div class="v" id="note2">—</div></div></div>
+      <!-- crowd:start -->
+      <div id="crowdBox" style="margin-top:18px;"></div>
+      <script src="../../assets/crowd.js?v=4"></script>
+      <script>
+      (function () {
+        var el = document.getElementById('crowdBox');
+        function v(id) { var e = document.getElementById(id); return e ? e.value : ''; }
+        function run() {
+          function M(x){var a=Math.abs(x);return a>=1e8?(a>=1e10?Math.round(x/1e8).toLocaleString('ja-JP'):(x/1e8).toFixed(1))+'億円':a>=1e4?Math.round(x/1e4).toLocaleString('ja-JP')+'万円':Math.round(x).toLocaleString('ja-JP')+'円';}
+          function Y(x){return '¥'+Math.round(x).toLocaleString('ja-JP');}
+          function N(x){return Math.round(x).toLocaleString('ja-JP');}
+          var m=Math.max(0,+v('m')||0), now=Math.max(0,+v('now')||0), cost=Math.max(0,+v('cost')||0), r=(+v('r')||0)/100;
+          var target=cost*25, ann=m*12, a=now, y=0;
+          while(a<target&&y<100){a=a*(1+r)+ann;y++;}
+          var L=y>=100?60:Math.min(60,Math.max(3,y)), vals=[now], tg=[target], x=now;
+          for(var k=1;k<=L;k++){x=x*(1+r)+ann; vals.push(x); tg.push(target);}
+          Crowd.race(el, { crossLabel: function (i) { return i + '年目で目標に到達'; },title:'資産がFIREの目標額に届くまで', series:[{label:'資産',values:vals,color:'#3f9a72'},{label:'目標額',values:tg,color:'#8b929c'}],
+          xLabel:function(i){return i+'年';}, fmtv:M,
+          final:function(){return y>=100?'今の条件だと100年たっても届きません。積立額か生活費を見直そう。':y===0?'すでに目標額（'+Y(target)+'）に届いています。':'あと約'+y+'年でFIRE達成（必要資産 '+Y(target)+'）。'+(y>60?'グラフは60年目まで。':'');}});
+        }
+        ['calcBtn'].forEach(function (id) {
+          var b = document.getElementById(id);
+          if (b) b.addEventListener('click', function () { setTimeout(run, 30); });
+        });
+      })();
+      </script>
+      <!-- crowd:end -->
       <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
       <div class="share-row">
         <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>

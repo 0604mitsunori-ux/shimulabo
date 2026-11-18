@@ -77,6 +77,29 @@
       <div class="statline"><div class="stat"><div class="k">年末までの残り</div><div class="v accent" id="days">—</div></div>
       <div class="stat"><div class="k">残りの週末</div><div class="v" id="week">—</div></div>
       <div class="stat"><div class="k">経過日数</div><div class="v" id="passed">—</div></div></div>
+      <!-- crowd:start -->
+      <div id="crowdBox" style="margin-top:18px;"></div>
+      <script src="../../assets/crowd.js?v=4"></script>
+      <script>
+      (function () {
+        var el = document.getElementById('crowdBox');
+        function v(id) { var e = document.getElementById(id); return e ? e.value : ''; }
+        function run() {
+          var T = new Date(), yr = T.getFullYear();
+          var start = new Date(yr, 0, 1), end = new Date(yr + 1, 0, 1);
+          var days = Math.ceil((end - start) / 86400000), passed = Math.max(0, Math.min(days, Math.floor((T - start) / 86400000)));
+          var rest = days - passed;
+          Crowd.units(el, { total: days, used: passed, unit: '日',
+          title: yr + '年の' + days + '日を玉で並べると',
+          final: function (l) { return yr + '年はもう ' + (passed / days * 100).toFixed(1) + '% 過ぎました。のこり ' + l + '日、週末はあと ' + Math.floor(l / 7) + '回。'; } });
+        }
+        ['calcBtn'].forEach(function (id) {
+          var b = document.getElementById(id);
+          if (b) b.addEventListener('click', function () { setTimeout(run, 30); });
+        });
+      })();
+      </script>
+      <!-- crowd:end -->
       <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
       <div class="share-row">
         <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>

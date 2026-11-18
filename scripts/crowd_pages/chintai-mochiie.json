@@ -1,0 +1,6 @@
+{
+  "buttons": [
+    "calcBtn"
+  ],
+  "js": "function W(x){return Math.round(x).toLocaleString('ja-JP')+'万円';}\nvar rent=Math.max(0,+v('rent')||0), years=Math.max(1,Math.min(200,Math.round(+v('years')||1))), price=Math.max(0,+v('price')||0), maint=Math.max(0,+v('maint')||0);\nfunction ch(t){return (rent*12*t+rent*Math.floor(t/2))/10000;}\nfunction mo(t){return price+maint*t;}\nvar step=Math.ceil(years/60), xs=[], a=[], b=[];\nfor(var t=0;t<years;t+=step) xs.push(t);\nxs.push(years);\nfor(var i=0;i<xs.length;i++){a.push(ch(xs[i]));b.push(mo(xs[i]));}\nvar cy=-1; for(var t2=1;t2<=years;t2++){ if(ch(t2-1)<mo(t2-1)&&ch(t2)>=mo(t2)){cy=t2;break;} }\nvar C=ch(years), Mo=mo(years);\nCrowd.race(el,{title:'賃貸と持ち家、払った総額', series:[{label:'賃貸',values:a},{label:'持ち家',values:b}],\n  xLabel:function(i){return xs[i]+'年';}, fmtv:W,\n  final:function(){return (cy>0?cy+'年目に賃貸の総額が持ち家を追い越します。':'')+years+'年で賃貸'+W(C)+'・持ち家'+W(Mo)+(Math.abs(C-Mo)<0.5?'、ほぼ同じです。':'、'+(C<=Mo?'賃貸':'持ち家')+'が'+W(Math.abs(C-Mo))+'安い。');}});"
+}

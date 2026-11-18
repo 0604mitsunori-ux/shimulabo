@@ -1,0 +1,6 @@
+{
+  "buttons": [
+    "calcBtn"
+  ],
+  "js": "var s = 10, ids = ['rel', 'freq', 'sign', 'time'];\nfor (var i = 0; i < ids.length; i++) s += (+v(ids[i]) || 0);\ns = Math.max(3, Math.min(95, s));\nCrowd.lottery(el, { n: 100, p: s / 100, rounds: 1,\n  title: '100人がこの条件で告白したら',\n  roundLabel: function () { return '告白の結果'; },\n  final: function (w, n, you) { return '100人のうち ' + w + '人が成功（成功率 ' + s + '%）。このシミュでは、あなたは' + (you ? '成功！' : '今回はうまくいかず…'); } });"
+}

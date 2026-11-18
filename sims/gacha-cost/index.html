@@ -77,6 +77,32 @@
       <div class="sub" id="sub">内訳を入力してください</div>
       <div id="bd" style="margin-top:14px;text-align:left;"></div>
       <div class="viz-wrap" style="margin-top:14px;"></div>
+      <!-- crowd:start -->
+      <div id="crowdBox" style="margin-top:18px;"></div>
+      <script src="../../assets/crowd.js?v=4"></script>
+      <script>
+      (function () {
+        var el = document.getElementById('crowdBox');
+        function v(id) { var e = document.getElementById(id); return e ? e.value : ''; }
+        function run() {
+          function yen(x) { return '¥' + Math.round(x).toLocaleString('ja-JP'); }
+          function man(x) { x = Math.round(x); if (Math.abs(x) >= 100000000) return (Math.round(x / 10000000) / 10) + '億円'; if (Math.abs(x) >= 10000) return (Math.round(x / 1000) / 10) + '万円'; return x.toLocaleString('ja-JP') + '円'; }
+          
+          var t = Math.max(0, +v('tsuki') || 0), y = Math.max(0, +v('year') || 0);
+          var year1 = t * 12, tot = year1 * y, day = tot / (365 * Math.max(y, 0.001));
+          var yl = (Math.round(y * 100) / 100).toLocaleString('ja-JP');
+          Crowd.pile(el, { title: '課金したお金を積み上げると',
+          bars: [{ label: '1年あたり', value: year1 }, { label: yl + '年の累計', value: tot }],
+          fmtv: function (x) { return man(x); },
+          final: function () { return yl + '年で合計 ' + yen(tot) + '。1日あたり ' + yen(day) + ' を払い続けている計算です。'; } });
+        }
+        ['calcBtn'].forEach(function (id) {
+          var b = document.getElementById(id);
+          if (b) b.addEventListener('click', function () { setTimeout(run, 30); });
+        });
+      })();
+      </script>
+      <!-- crowd:end -->
       <div style="text-align:center;margin-top:12px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
       <div class="share-row">
         <button class="btn btn-x" id="shareBtn">𝕏 でシェア</button>

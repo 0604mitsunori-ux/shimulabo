@@ -80,6 +80,28 @@
       <div class="statline"><div class="stat"><div class="k">一緒に過ごせる時間</div><div class="v" id="hours">—</div></div>
       <div class="stat"><div class="k">日数にすると</div><div class="v accent" id="days">—</div></div>
       <div class="stat"><div class="k">月1回会うなら</div><div class="v" id="monthly">—</div></div></div>
+      <!-- crowd:start -->
+      <div id="crowdBox" style="margin-top:18px;"></div>
+      <script src="../../assets/crowd.js?v=4"></script>
+      <script>
+      (function () {
+        var el = document.getElementById('crowdBox');
+        function v(id) { var e = document.getElementById(id); return e ? e.value : ''; }
+        function run() {
+          var age = Math.max(0, +v('age') || 0), freq = Math.max(0.1, +v('freq') || 2), life = Math.max(1, +v('life') || 85);
+          var left = Math.round(Math.max(0, life - age) * freq), total = Math.max(1, Math.round(Math.max(life, age) * freq));
+          left = Math.min(total, left);
+          Crowd.units(el, { total: total, used: total - left, unit: '回',
+          title: '一生を「年' + freq + '回」のペースで玉にすると',
+          final: function (l) { return 'その友だちと会えるのは、あと ' + l.toLocaleString('ja-JP') + '回。「また今度」の1回は、思ったより重い1回です。'; } });
+        }
+        ['calcBtn'].forEach(function (id) {
+          var b = document.getElementById(id);
+          if (b) b.addEventListener('click', function () { setTimeout(run, 30); });
+        });
+      })();
+      </script>
+      <!-- crowd:end -->
       <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
       <div class="share-row">
         <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>

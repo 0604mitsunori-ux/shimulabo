@@ -79,6 +79,29 @@
       <div class="statline"><div class="stat"><div class="k">1ヶ月あたり</div><div class="v" id="m">—</div></div>
       <div class="stat"><div class="k">10年で</div><div class="v accent" id="y10">—</div></div>
       <div class="stat"><div class="k">1食あたりの差</div><div class="v" id="per">—</div></div></div>
+      <!-- crowd:start -->
+      <div id="crowdBox" style="margin-top:18px;"></div>
+      <script src="../../assets/crowd.js?v=4"></script>
+      <script>
+      (function () {
+        var el = document.getElementById('crowdBox');
+        function v(id) { var e = document.getElementById(id); return e ? e.value : ''; }
+        function run() {
+          function M(x){var a=Math.abs(x);return a>=1e8?(a>=1e10?Math.round(x/1e8).toLocaleString('ja-JP'):(x/1e8).toFixed(1))+'億円':a>=1e4?Math.round(x/1e4).toLocaleString('ja-JP')+'万円':Math.round(x).toLocaleString('ja-JP')+'円';}
+          function Y(x){return '¥'+Math.round(x).toLocaleString('ja-JP');}
+          function N(x){return Math.round(x).toLocaleString('ja-JP');}
+          var out=Math.max(0,+v('out')||0), home=Math.max(0,+v('home')||0), meals=Math.max(0,+v('meals')||0);
+          var diff=Math.max(0,out-home), year=diff*meals*365;
+          Crowd.pile(el,{title:'10年間の食費をくらべると', bars:[{label:'外食だと',value:out*meals*3650},{label:'自炊だと',value:home*meals*3650,color:'#3f9a72'}], fmtv:M,
+          final:function(){return year>0?'自炊にすると1年で '+Y(year)+'、10年で '+Y(year*10)+' 浮きます。':'この条件だと、自炊にしても浮くお金はありません。';}});
+        }
+        ['calcBtn'].forEach(function (id) {
+          var b = document.getElementById(id);
+          if (b) b.addEventListener('click', function () { setTimeout(run, 30); });
+        });
+      })();
+      </script>
+      <!-- crowd:end -->
       <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
       <div class="share-row">
         <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
