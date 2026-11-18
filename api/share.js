@@ -153,6 +153,8 @@ const ALLOW = new Set([
   'shuukihyou',
   // brain 2026-11-18
   'sakkaku-lab',
+  // wonder 2026-11-18
+  'shinkai-dive',
 ]);
 
 export default async function handler(req, res) {

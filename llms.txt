@@ -264,6 +264,7 @@
 - [地下神殿 3D水位シミュレーター（首都圏外郭放水路）](https://shimulabo.com/sims/gaikaku-housuiro/): 地下神殿の断面を3Dで回して水をためてみる。ポンプがないと何時間で満杯？
 - [黒部ダムの水圧 3Dシミュレーター](https://shimulabo.com/sims/kurobe-dam-3d/): 日本一高い黒部ダムに水をためて、深さごとの水圧を3Dの矢印で見る。
 - [深海の水圧 3Dシミュレーター](https://shimulabo.com/sims/shinkai-suiatsu-3d/): 深さ1万mで指先に約1トン。潜るほど風船が縮むのを3Dで見る。
+- [深海へもぐるシミュレーター](https://shimulabo.com/sims/shinkai-dive/): 画面をスクロールすると水深0mからマリアナ海溝の底（約10,920m）までもぐれる。深さごとの光・水圧・水温、ダイオウイカや8,336mの魚など深海の生き物、スカイツリー・富士山・エベレストとの高さ比べ。
 - [昼と夜の地球 3D（いまの太陽）](https://shimulabo.com/sims/chikyu-hiruyoru-3d/): いま地球のどこが昼？日付を動かすと白夜も極夜も見える3D地球儀。
 - [世界の地震 3D（地球の中の震源）](https://shimulabo.com/sims/jishin-chikyu-3d/): 最新の地震を地球を透かして3Dで。日本の下に沈むプレートが見える。
 - [高さ比べ 3D（スカイツリー・東京タワー・世界の塔）](https://shimulabo.com/sims/takasa-kurabe-3d/): スカイツリー・東京タワー・世界の塔を3Dで並べて高さ比べ。
