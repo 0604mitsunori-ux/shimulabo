@@ -149,6 +149,8 @@ const ALLOW = new Set([
   'mono-omosa', 'kaze-gomu', 'denki-toorimichi', 'hikari-oto', 'konchu-sodachi', 'kisetsu-seibutsu', 'hone-kinniku', 'amamizu-yukue', 'tenki-kion', 'atatamarikata',
   // rika
   'maku-yuso', 'rinshishitsu-maku',
+  // rika 2026-11-18
+  'shuukihyou',
 ]);
 
 export default async function handler(req, res) {
