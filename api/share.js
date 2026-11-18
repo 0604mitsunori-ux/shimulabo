@@ -151,6 +151,8 @@ const ALLOW = new Set([
   'maku-yuso', 'rinshishitsu-maku',
   // rika 2026-11-18
   'shuukihyou',
+  // brain 2026-11-18
+  'sakkaku-lab',
 ]);
 
 export default async function handler(req, res) {
