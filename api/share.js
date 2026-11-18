@@ -155,6 +155,13 @@ const ALLOW = new Set([
   'sakkaku-lab',
   // wonder 2026-11-18
   'shinkai-dive',
+  // rika 2026-11-18 batch
+  'shokumotsu-rensa',
+  'hannoushiki',
+  'daniel-denchi',
+  'kumo-dekikata',
+  // study 2026-11-18
+  'jinko-pyramid',
 ]);
 
 export default async function handler(req, res) {
