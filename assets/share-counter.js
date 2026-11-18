@@ -51,11 +51,17 @@
         if (n >= THRESHOLD) { badgeEl.textContent = label(n); badgeEl.style.display = ''; }
         else { badgeEl.style.display = 'none'; }
       };
-      show(await get(simId));
+      /* GA4 に「share」イベントを送る（2026-11-18〜。GA4の推奨イベント：method / content_type / item_id） */
+      const track = (method) => {
+        try { if (typeof window.gtag === 'function') window.gtag('event', 'share', { method, content_type: 'sim', item_id: simId }); } catch (e) {}
+      };
       shareBtnIds.forEach((bid) => {
         const b = document.getElementById(bid);
-        if (b) b.addEventListener('click', async () => show(await inc(simId)));
+        if (b) b.addEventListener('click', async () => { track('x'); show(await inc(simId)); });
       });
+      const cp = document.getElementById('copyBtn');
+      if (cp && shareBtnIds.indexOf('copyBtn') < 0) cp.addEventListener('click', () => track('copy'));
+      show(await get(simId));
     },
 
     /* ランキング用：複数シミュのカウントをまとめて取得 */
