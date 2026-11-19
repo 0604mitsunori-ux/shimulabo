@@ -138,20 +138,18 @@
   const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const day = (iso) => { const d = new Date(iso); return isNaN(d) ? '' : (d.getFullYear() + '/' + (d.getMonth()+1) + '/' + d.getDate()); };
 
-  /* リクエストボードの案から生まれたシミュ（はじめの8案・すべて公開済み） */
-  const BORN = [
-    { e:'🗓️', idea:'人生カレンダー（人生を4,000週のマスで可視化）', url:'../sims/jinsei-calendar/', name:'人生カレンダーシミュレーター' },
-    { e:'🐆', idea:'模様が勝手に生まれる（ヒョウ柄・シマ模様の不思議）', url:'../sims/turing/', name:'模様が生まれるシミュレーター' },
-    { e:'🍚', idea:'一生で食べる量（米・卵・ラーメンの生涯総量）', url:'../sims/issho-tabemono/', name:'一生で食べる量シミュレーター' },
-    { e:'🏠', idea:'賃貸 vs 持ち家 生涯コスト対決', url:'../sims/chintai-mochiie/', name:'賃貸 vs 持ち家 生涯コストシミュレーター' },
-    { e:'🎶', idea:'拍手・ホタルが勝手に揃う（同期現象）', url:'../sims/sync/', name:'同期現象シミュレーター' },
-    { e:'💒', idea:'結婚式ご祝儀 収支シミュ', url:'../sims/kekkon-jikofutan/', name:'結婚式の自己負担額シミュレーター（ご祝儀の収支）' },
-    { e:'📅', idea:'今年もう何%終わった？メーター', url:'../sims/kotoshi-pct/', name:'今年あと何％シミュレーター' }
-  ];
-  $('doneList').innerHTML = BORN.map(b => '<div class="rq done"><span class="em">' + b.e + '</span><div class="mn">' +
-    '<div class="tt"><span class="badge s-公開済み">公開済み</span>' + esc(b.idea) + '</div>' +
-    '<div class="meta">→ ' + esc(b.name) + '</div>' +
-    '<a class="go" href="' + b.url + '">できたシミュを見る →</a></div></div>').join('');
+  /* リクエストから生まれたシミュ（assets/requests.json ＝トップの「みんなで作るシミュラボ」と同じ一覧） */
+  const doneCard = (b) => {
+    const url = '..' + (b.url || '');
+    const who = b.from === 'board' ? 'はじめのボード案' : (b.nick ? b.nick + ' さんのリクエスト' + (b.from === 'teacher' ? '（先生）' : '') : '');
+    return '<div class="rq done"><span class="em">' + esc(b.e || '🎉') + '</span><div class="mn">' +
+      '<div class="tt"><span class="badge s-公開済み">公開済み</span>' + esc(b.idea) + '</div>' +
+      '<div class="meta">→ ' + esc(b.name) + (who ? '・' + esc(who) : '') + (b.done ? '・' + esc(day(b.done)) + ' 公開' : '') + '</div>' +
+      '<a class="go" href="' + esc(url) + '">できたシミュを見る →</a></div></div>';
+  };
+  fetch('../assets/requests.json', { cache: 'no-cache' }).then(r => r.json()).then(j => {
+    $('doneList').innerHTML = (j.items || []).filter(b => b.status === '公開済み' && /^\/sims\//.test(b.url || '')).map(doneCard).join('');
+  }).catch(() => {});
 
   const EMO = { '受付':'📮', '制作中':'🛠️', '公開済み':'🎉', '見送り':'🙏' };
   function row(r, me) {

@@ -1,0 +1,16 @@
+{
+ "note": "トップの「みんなで作るシミュラボ」とリクエストボードに出す一覧。新しい順。status は 受付／制作中／公開済み。メールアドレスは絶対に入れない。from: teacher=先生から, board=はじめのボード案",
+ "updated": "2026-11-19",
+ "items": [
+  {"id": "7255424b65", "e": "🧸", "idea": "ゲームセンターに行かなくなったら、どれくらいお金が貯まる？", "nick": "そうめん", "at": "2026-11-18", "status": "公開済み", "done": "2026-11-18", "url": "/sims/gecen-chokin/", "name": "ゲーセン卒業 貯金シミュレーター"},
+  {"id": "1b090c2a6f", "e": "🧼", "idea": "親水性と疎水性をもつ分子が、水中や水面でどう集まるのかを見たい", "nick": "伊藤", "from": "teacher", "at": "2026-11-15", "status": "公開済み", "done": "2026-11-16", "url": "/sims/rinshishitsu-maku/", "name": "リン脂質と細胞膜のでき方"},
+  {"id": "714a7a7b09", "e": "🚪", "idea": "細胞膜の膜輸送（受動輸送・能動輸送）を授業で動かして見せたい", "nick": "伊藤", "from": "teacher", "at": "2026-11-14", "status": "公開済み", "done": "2026-11-16", "url": "/sims/maku-yuso/", "name": "膜輸送のシミュレーター"},
+  {"id": "b-cal", "e": "🗓️", "idea": "人生を4,000週のマスで見てみたい", "from": "board", "status": "公開済み", "url": "/sims/jinsei-calendar/", "name": "人生カレンダー"},
+  {"id": "b-turing", "e": "🐆", "idea": "ヒョウ柄やシマ模様が勝手に生まれる不思議", "from": "board", "status": "公開済み", "url": "/sims/turing/", "name": "模様が生まれるシミュレーター"},
+  {"id": "b-tabemono", "e": "🍚", "idea": "一生で食べる米・卵・ラーメンの量", "from": "board", "status": "公開済み", "url": "/sims/issho-tabemono/", "name": "一生で食べる量"},
+  {"id": "b-chintai", "e": "🏠", "idea": "賃貸と持ち家、一生でどっちが得？", "from": "board", "status": "公開済み", "url": "/sims/chintai-mochiie/", "name": "賃貸 vs 持ち家 生涯コスト"},
+  {"id": "b-sync", "e": "🎶", "idea": "拍手やホタルの光が勝手にそろうのはなぜ？", "from": "board", "status": "公開済み", "url": "/sims/sync/", "name": "同期現象シミュレーター"},
+  {"id": "b-kekkon", "e": "💒", "idea": "結婚式のご祝儀、結局いくら自己負担？", "from": "board", "status": "公開済み", "url": "/sims/kekkon-jikofutan/", "name": "結婚式の自己負担額"},
+  {"id": "b-kotoshi", "e": "📅", "idea": "今年はもう何％終わった？", "from": "board", "status": "公開済み", "url": "/sims/kotoshi-pct/", "name": "今年あと何％"}
+ ]
+}
