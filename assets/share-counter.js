@@ -75,6 +75,25 @@
   /* ===== 各シミュページ：「これまでに◯回シミュレーションされました」 =====
      assets/sim-counts.json（scripts/build_ranking.py が GA4 から毎朝作る）を読み、
      タイトル下の説明文の直後に表示する。10回未満のページは出さない。 */
+
+  /* ===== 理科の授業向けページ：学校・教材会社の方への帯（2026-11-19） ===== */
+  (function () {
+    const run = () => {
+      const bc = document.querySelector('.breadcrumb a[href$="rika/"]');
+      if (!bc || document.getElementById('kyBand')) return;
+      const main = document.querySelector('main'); if (!main) return;
+      const href = bc.getAttribute('href').replace(/rika\/$/, 'kyouiku/');
+      const el = document.createElement('div');
+      el.id = 'kyBand';
+      el.style.cssText = 'margin:28px 0 8px;padding:16px 18px;border:1px solid var(--line,#e2ded4);border-left:5px solid var(--accent,#c4442b);border-radius:14px;background:var(--card,#fff);font-size:14px;line-height:1.75;';
+      el.innerHTML = '<b>🏫 学校・教材会社の方へ</b><br>このシミュレーションは授業で無料で使えます。教材やアプリへの組み込み、単元に合わせた新しいシミュレーションの制作も承ります。 ' +
+        '<a href="' + href + '" style="font-weight:800;white-space:nowrap;">くわしく見る →</a>';
+      main.appendChild(el);
+      el.querySelector('a').addEventListener('click', () => { try { gtag('event', 'kyouiku_band_click', { item_id: location.pathname }); } catch (e) {} });
+    };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
+  })();
+
   const me = document.currentScript && document.currentScript.src;
   const m = location.pathname.match(/\/sims\/([a-z0-9][a-z0-9-]*)\//);
   if (!me || !m) return;

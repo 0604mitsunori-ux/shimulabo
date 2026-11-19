@@ -146,6 +146,7 @@ page = f'''<!DOCTYPE html>
   </div>
   <div class="rika-toc">{toc}</div>
   <div class="rika-tips"><strong>授業で使うときのヒント</strong><ul>{"".join(f"<li>{esc(t)}</li>" for t in U["tips"])}</ul></div>
+  <div class="rika-tips"><strong>🏫 学校・教材会社の方へ</strong><br>授業での利用は無料です。教材・学習アプリへの組み込みや、単元に合わせた新しいシミュレーションの制作も承ります。 <a href="../kyouiku/" style="font-weight:800;">くわしく見る →</a></div>
 {body}
 
   <h2 class="lab-h2" id="faq">よくある質問</h2>
