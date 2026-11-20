@@ -32,7 +32,7 @@
          crossorigin="anonymous"></script>
     <style>
 .ky-hero{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;align-items:center;margin:6px 0 8px}
-.ky-hero img{width:100%;border-radius:14px;border:1px solid var(--line);display:block}
+.ky-hero img{width:100%;height:auto;border-radius:14px;border:1px solid var(--line);display:block}
 .ky-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0 4px}
 .ky-stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 14px 12px}
 .ky-stat b{display:block;font-size:28px;line-height:1.15;color:var(--accent);font-variant-numeric:tabular-nums}
@@ -47,7 +47,7 @@
 .ky-ex{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,290px),1fr));gap:14px}
 .ky-ex a{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s}
 .ky-ex a:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(20,24,29,.08)}
-.ky-ex img{width:100%;aspect-ratio:940/560;object-fit:cover;display:block;border-bottom:1px solid var(--line)}
+.ky-ex img{width:100%;height:auto;aspect-ratio:940/560;object-fit:cover;display:block;border-bottom:1px solid var(--line)}
 .ky-ex .t{padding:11px 13px 13px}.ky-ex .u{font-size:11.5px;font-weight:800;color:var(--teal-d)}
 .ky-ex h3{margin:3px 0 4px;font-size:15px;line-height:1.45}.ky-ex p{margin:0;font-size:12.5px;color:var(--ink-2);line-height:1.6}
 .ky-menu{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
@@ -62,8 +62,8 @@
 .ky-steps div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px 13px 12px;counter-increment:s}
 .ky-steps div::before{content:counter(s);display:inline-flex;width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;font-weight:800;font-size:13px;align-items:center;justify-content:center;margin-bottom:6px}
 .ky-steps b{display:block;font-size:15px}.ky-steps i{font-style:normal;font-size:12px;font-weight:800;color:var(--teal-d)}.ky-steps p{margin:4px 0 0;font-size:12.5px;color:var(--ink-2);line-height:1.6}
-.ky-case{display:grid;grid-template-columns:.9fr 1.1fr;gap:18px;align-items:center}.ky-case img{width:100%;border-radius:12px;border:1px solid var(--line)}
-@media(max-width:760px){.ky-hero,.ky-two,.ky-case{grid-template-columns:1fr}.ky-menu{grid-template-columns:1fr}.ky-steps{grid-template-columns:1fr 1fr}.ky-stats{grid-template-columns:1fr}.ky-stat b{font-size:24px}}
+.ky-case{display:grid;grid-template-columns:.9fr 1.1fr;gap:18px;align-items:center}.ky-case img{width:100%;height:auto;border-radius:12px;border:1px solid var(--line)}
+@media(max-width:760px){.ky-hero,.ky-two,.ky-case{grid-template-columns:1fr}.ky-menu{grid-template-columns:1fr}.ky-steps{grid-template-columns:1fr 1fr}.ky-stats{grid-template-columns:repeat(3,1fr);gap:6px}.ky-stat{padding:10px 8px 9px;border-radius:12px}.ky-stat b{font-size:19px}.ky-stat span{font-size:10.5px;line-height:1.45}.ky-hero img{max-height:260px;object-fit:cover;object-position:top}.ky-case img{max-height:300px;object-fit:cover;object-position:top}}
     </style>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "教材用シミュレーションの制作・使用許諾", "serviceType": "理科シミュレーション教材の制作受託・使用許諾・授業パック共同開発", "audience": {"@type": "EducationalAudience", "educationalRole": "teacher"}, "provider": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}, "areaServed": "JP", "url": "https://shimulabo.com/kyouiku/", "description": "シミュラボの理科シミュレーション（小学校〜高校・108本）は、先生は授業で無料で使えます。教材会社・学習塾・EdTech企業向けに、シミュレーションの制作受託・使用許諾（埋め込み）・授業パックの共同開発を承ります。"}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "先生個人が授業で使うのに料金はかかりますか？", "acceptedAnswer": {"@type": "Answer", "text": "かかりません。公開中のページは、授業・家庭学習でそのまま無料でお使いいただけます。URLを配るだけで、児童・生徒のタブレットでそれぞれ操作できます。"}}, {"@type": "Question", "name": "学校や自治体でまとめて使うときに手続きは必要ですか？", "acceptedAnswer": {"@type": "Answer", "text": "公開ページを授業で使うだけなら手続きは不要です。校内のポータルや学習サイトに組み込みたい、名前や配色を変えたいといった場合は、下のフォームからご相談ください。"}}, {"@type": "Question", "name": "教材会社の自社サービスに組み込めますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい。使用許諾（埋め込み・ファイル提供）か、御社向けの制作でご提供します。1つのHTMLファイルで外部のライブラリやサーバーを使わないため、LMSや学習アプリにも組み込みやすい作りです。"}}, {"@type": "Question", "name": "児童・生徒の個人情報は扱いますか？", "acceptedAnswer": {"@type": "Answer", "text": "扱いません。ログインは不要で、入力した内容はサーバーに送らず端末の中だけで計算します。"}}, {"@type": "Question", "name": "料金はどう決まりますか？", "acceptedAnswer": {"@type": "Answer", "text": "上の金額はめやす（税別）です。教科・本数・納品の形をうかがってからお見積りします。触れる試作を先にお見せして、方向性を確かめてから本制作に進みます。"}}, {"@type": "Question", "name": "どの端末で動きますか？", "acceptedAnswer": {"@type": "Answer", "text": "Chromebook・iPad・Windows・電子黒板のブラウザで動き、指でもマウスでも操作できます。"}}]}</script>
