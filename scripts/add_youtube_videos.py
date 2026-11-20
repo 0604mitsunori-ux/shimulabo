@@ -1,4 +1,4 @@
-"""シミュページに YouTube（@shimulabo）の解説動画を差し込む。
+"""シミュページに YouTube（1000人ギャンブル実験 @1000ninjikken）の解説動画を差し込む。
 
 VIDEOS に slug と動画を足して実行するだけ。何度実行しても同じ結果になる。
 gen_sims*.py でページを作り直したら、このスクリプトも再実行する。
@@ -39,11 +39,16 @@ def block(vid, title, lead):
   {END}"""
 
 
-CHANNEL = "https://www.youtube.com/@shimulabo"
+# ★11/20 長澤「いったんYouTube紹介はなくす・別のチャンネルを付ける」→ ENABLED=False で全部外す。
+# 新しいチャンネルが決まったら CHANNEL・帯の名前/ハンドル/説明文・assets/yt/channel.jpg・TOP_LATEST・VIDEOS を差し替えて True にして実行。
+ENABLED = False
+CHANNEL = "https://www.youtube.com/@1000ninjikken"
+# 11/20 チャンネル改名（シミュラボ @shimulabo → 1000人ギャンブル実験 @1000ninjikken）。旧リンクは置き換える
+OLD_CHANNELS = ["https://www.youtube.com/@shimulabo"]
 
 # トップページの「YouTube」帯に出す最新動画。新しい動画を出したらここを差し替えて実行。
 # サムネは assets/yt/<動画ID>.jpg（960×540）を置く。
-TOP_LATEST = ("DEVQhtWyK3g", "ロト6を30年買い続けたら、本当に夢はあるのか？1000人で試してみた")
+TOP_LATEST = ("IaBm8sb7pvg", "パチンコで10万円負けた1000人が「取り返すまでやめない」と決めたら、どうなるのか")
 
 TOP_START, TOP_END = "<!-- yt-top:start -->", "<!-- yt-top:end -->"
 TOP_ANCHOR = '\n  <section class="rank-wrap" id="liveShelf">'
@@ -88,8 +93,8 @@ def top_block(vid, title):
         <span class="yt-btn" aria-hidden="true"></span>
       </div>
       <div>
-        <div class="yt-ch"><img src="assets/yt/channel.jpg" width="44" height="44" alt=""><div><b>シミュラボ</b><span>@shimulabo</span></div></div>
-        <p class="yt-desc">「その確率、本当はどれくらい？」を、何万回ものシミュレーションでアニメにするチャンネルです。動画で使ったシミュレーターは、このサイトで数字を変えて試せます。</p>
+        <div class="yt-ch"><img src="assets/yt/channel.jpg" width="44" height="44" alt=""><div><b>1000人ギャンブル実験</b><span>@1000ninjikken</span></div></div>
+        <p class="yt-desc">ギャンブルの「本当はどうなの？」を、コンピューターの中の1000人で確かめるチャンネルです。動画で使ったシミュレーターは、このサイトで数字を変えて試せます。</p>
         <p class="yt-new"><small>最新</small>{t}</p>
         <div class="yt-links">
           <a class="yt-sub" href="{CHANNEL}?sub_confirmation=1" target="_blank" rel="noopener">🔔 チャンネル登録</a>
@@ -120,6 +125,8 @@ def patch_top():
     raw = p.read_bytes().decode("utf-8")
     crlf = "\r\n" in raw
     s = TOP_OLD.sub("", raw.replace("\r\n", "\n"))
+    for old in OLD_CHANNELS:
+        s = s.replace(f'      <a href="{old}" target="_blank" rel="noopener">YouTube</a>', FOOT_LINK)
     if TOP_ANCHOR not in s:
         print("トップ：差し込み場所なし")
         return
@@ -132,7 +139,27 @@ def patch_top():
     print("OK: トップ", TOP_LATEST[0])
 
 
+def remove_all():
+    """YouTube紹介をサイトから全部外す（トップの帯・フッターのリンク・各シミュの埋め込み）。"""
+    foot = re.compile(r'\n[ \t]*<a href="https://www\.youtube\.com/@[^"]*" target="_blank" rel="noopener">YouTube</a>')
+    paths = [ROOT / "index.html"] + [ROOT / "sims" / slug / "index.html" for slug in VIDEOS]
+    for p in paths:
+        raw = p.read_bytes().decode("utf-8")
+        crlf = "\r\n" in raw
+        s = raw.replace("\r\n", "\n")
+        s = OLD.sub("", TOP_OLD.sub("", s))
+        s = foot.sub("", s)
+        if crlf:
+            s = s.replace("\n", "\r\n")
+        if s != raw:
+            p.write_bytes(s.encode("utf-8"))
+            print("外した:", p.relative_to(ROOT))
+
+
 def main():
+    if not ENABLED:
+        remove_all()
+        return
     patch_top()
     for slug, (vid, title, lead) in VIDEOS.items():
         p = ROOT / "sims" / slug / "index.html"
