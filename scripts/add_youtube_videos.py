@@ -1,9 +1,16 @@
-"""シミュページに YouTube（1000人ギャンブル実験 @1000ninjikken）の解説動画を差し込む。
+"""サイトに YouTube（シミュラボ＝3Dシミュレーション @shimulabo-3d）の紹介を入れる。何度実行しても同じ結果。
 
-VIDEOS に slug と動画を足して実行するだけ。何度実行しても同じ結果になる。
+- トップ：「Webではできない大きなシミュレーションは、YouTubeで」の帯（最新動画・毎日19時・チャンネル登録・もしもリクエスト）
+- トップのフッター：YouTube（→ /douga/）
+- 関係するシミュページ：動画の埋め込み（VIDEOS）
+- /douga/ のページ（動画一覧）は scripts/build_youtube_page.py（EPISODES をここから読む）
+
+新しい動画を出したら：
+  1. assets/yt/<動画ID>.jpg（960×540・サムネを縮めたもの）を置く
+  2. EPISODES の先頭に1件足す（新しい順）
+  3. python scripts/add_youtube_videos.py && python scripts/build_youtube_page.py
+
 gen_sims*.py でページを作り直したら、このスクリプトも再実行する。
-
-  python scripts/add_youtube_videos.py
 """
 import html
 import pathlib
@@ -12,18 +19,49 @@ import re
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 START, END = "<!-- yt-video:start -->", "<!-- yt-video:end -->"
 
-# slug: (動画ID, 見出し, ひとこと)
+ENABLED = True
+# ※ページのフォルダ名を youtube/ にしないこと（Windowsでは制作用の YouTube/ フォルダと同じ場所になる）
+# ハンドルは 12/4ごろ @shimulabo-3d → @shimulabo に変える予定なので、変わらないチャンネルIDのURLを使う
+CHANNEL = "https://www.youtube.com/channel/UCzu0T5y3udo8jnZwVnTtOxw"
+CH_NAME, CH_HANDLE = "シミュラボ", "@shimulabo-3d"
+CH_ICON = "assets/yt/channel3d.jpg"
+POST_TIME = "毎日19時"
+
+# 公開済みの動画（新しい順）。sim＝サイトで似たことを試せるページ（なければ None）
+EPISODES = [
+    {
+        "vid": "Tz7QjIJqpgo",
+        "title": "協力の港と競争の港、200年後に残るのは？",
+        "sub": "同じ島の2つの港を200年早送り",
+        "date": "2026-11-20",
+        "dur": "PT8M48S",
+        "len": "8:48",
+        "desc": "同じ島に、同じ40人・同じだけの魚がいる2つの港。とった魚をみんなで分ける「協力の港」と、とった人のものになる「競争の港」を、200年ぶん100回ずつ動かしました。",
+        "sim": ("shinrai-shinka", "信頼の進化シミュレーター（囚人のジレンマ）"),
+    },
+]
+
+# シミュページに埋め込む動画　slug: (動画ID, 見出し, ひとこと)
 VIDEOS = {
-    "takarakuji": (
-        "DEVQhtWyK3g",
-        "動画：1000人がロト6を30年買い続けたら",
-        "コンピューターの中の1000人に、ロト6を30年間買い続けてもらいました。30年後にプラスだったのは何人か、アニメで見られます。",
+    "shinrai-shinka": (
+        "Tz7QjIJqpgo",
+        "動画：協力の港と競争の港、200年後に残るのは？",
+        "「ずるをする人」がいる世界を、3Dで200年動かした動画です。漁港の40人が、協力と競争のどちらで生き残るのか。見る前に予想してみてください。",
     ),
 }
+# 以前に動画を埋め込んでいたページ（今は外す）
+OLD_VIDEO_SLUGS = ["takarakuji"]
 
 # 差し込む場所：記事（計算方法など）の直前＝結果パネルのすぐ下
 ANCHOR = '\n  <article class="article">'
 OLD = re.compile(r"\n[ \t]*" + re.escape(START) + r"[\s\S]*?" + re.escape(END))
+
+TOP_START, TOP_END = "<!-- yt-top:start -->", "<!-- yt-top:end -->"
+TOP_ANCHOR = '\n  <section class="rank-wrap" id="liveShelf">'
+TOP_OLD = re.compile(r"\n[ \t]*" + re.escape(TOP_START) + r"[\s\S]*?" + re.escape(TOP_END))
+FOOT_ANCHOR = '      <a href="about/">運営者情報</a>'
+FOOT_LINK = '      <a href="douga/">YouTube</a>'
+FOOT_ANY = re.compile(r'\n[ \t]*<a href="(?:https://www\.youtube\.com/[^"]*|youtube/|douga/)"(?: target="_blank" rel="noopener")?>YouTube</a>')
 
 
 def block(vid, title, lead):
@@ -35,33 +73,18 @@ def block(vid, title, lead):
     <div style="position:relative;padding-top:56.25%;border-radius:var(--radius);overflow:hidden;background:#0D1417;">
       <iframe src="https://www.youtube-nocookie.com/embed/{vid}" title="{t}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;border:0;" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
+    <p style="font-size:13px;margin:10px 0 0;display:flex;gap:14px;flex-wrap:wrap;"><a href="{CHANNEL}?sub_confirmation=1" target="_blank" rel="noopener" style="font-weight:800;color:#d9002b;">🔔 チャンネル登録（{POST_TIME}に新しい動画）</a><a href="../../douga/" style="font-weight:800;">ほかの動画・「もしも」のリクエスト →</a></p>
   </section>
   {END}"""
 
 
-# ★11/20 長澤「いったんYouTube紹介はなくす・別のチャンネルを付ける」→ ENABLED=False で全部外す。
-# 新しいチャンネルが決まったら CHANNEL・帯の名前/ハンドル/説明文・assets/yt/channel.jpg・TOP_LATEST・VIDEOS を差し替えて True にして実行。
-ENABLED = False
-CHANNEL = "https://www.youtube.com/@1000ninjikken"
-# 11/20 チャンネル改名（シミュラボ @shimulabo → 1000人ギャンブル実験 @1000ninjikken）。旧リンクは置き換える
-OLD_CHANNELS = ["https://www.youtube.com/@shimulabo"]
-
-# トップページの「YouTube」帯に出す最新動画。新しい動画を出したらここを差し替えて実行。
-# サムネは assets/yt/<動画ID>.jpg（960×540）を置く。
-TOP_LATEST = ("IaBm8sb7pvg", "パチンコで10万円負けた1000人が「取り返すまでやめない」と決めたら、どうなるのか")
-
-TOP_START, TOP_END = "<!-- yt-top:start -->", "<!-- yt-top:end -->"
-TOP_ANCHOR = '\n  <section class="rank-wrap" id="liveShelf">'
-TOP_OLD = re.compile(r"\n[ \t]*" + re.escape(TOP_START) + r"[\s\S]*?" + re.escape(TOP_END))
-FOOT_ANCHOR = '      <a href="about/">運営者情報</a>'
-FOOT_LINK = f'      <a href="{CHANNEL}" target="_blank" rel="noopener">YouTube</a>'
-
-
-def top_block(vid, title):
-    t = html.escape(title)
+def top_block(ep):
+    vid = ep["vid"]
+    t = html.escape(ep["title"])
     return f"""{TOP_START}
   <section class="rank-wrap yt-top" id="ytShelf" aria-labelledby="ytTitle">
     <style>
+      .yt-top h2 .nb{{display:inline-block}}
       .yt-top .yt-grid{{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:22px;align-items:center}}
       .yt-top .yt-play{{position:relative;display:block;width:100%;aspect-ratio:16/9;border:0;padding:0;border-radius:var(--radius);overflow:hidden;background:#0D1417;cursor:pointer}}
       .yt-top .yt-play img{{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}}
@@ -73,19 +96,21 @@ def top_block(vid, title):
       .yt-top .yt-ch img{{width:44px;height:44px;border-radius:50%}}
       .yt-top .yt-ch b{{font-size:17px}}
       .yt-top .yt-ch span{{display:block;font-size:12px;color:var(--ink-3)}}
-      .yt-top .yt-desc{{font-size:14px;color:var(--ink-2);line-height:1.8;margin:0 0 12px}}
-      .yt-top .yt-new{{font-size:13px;font-weight:800;margin:0 0 14px}}
+      .yt-top .yt-desc{{font-size:14px;color:var(--ink-2);line-height:1.8;margin:0 0 10px}}
+      .yt-top .yt-time{{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:800;background:#fff1f3;color:#d9002b;border-radius:999px;padding:4px 12px;margin:0 0 10px}}
+      .yt-top .yt-new{{font-size:13px;font-weight:800;margin:0 0 14px;line-height:1.6}}
       .yt-top .yt-new small{{display:inline-block;background:#ff0033;color:#fff;border-radius:4px;padding:1px 6px;margin-right:6px;font-size:11px}}
       .yt-top .yt-links{{display:flex;flex-wrap:wrap;gap:8px}}
       .yt-top .yt-links a{{display:inline-flex;align-items:center;gap:6px;padding:10px 16px;border-radius:999px;font-weight:800;font-size:14px;text-decoration:none}}
       .yt-top .yt-sub{{background:#ff0033;color:#fff}}
       .yt-top .yt-sub:hover{{background:#d9002b;color:#fff}}
       .yt-top .yt-all{{border:1px solid var(--line);color:var(--ink)}}
+      .yt-top .yt-req{{display:block!important;margin-top:12px;padding:0!important;font-size:13.5px!important;color:var(--teal-d)}}
       @media (max-width:720px){{.yt-top .yt-grid{{grid-template-columns:1fr;gap:14px}}}}
     </style>
     <div class="rank-head">
-      <h2 id="ytTitle">▶ YouTubeでも見られます</h2>
-      <span class="note">シミュレーションをアニメで解説</span>
+      <h2 id="ytTitle">▶ <span class="nb">Webではできない</span><span class="nb">大きなシミュレーションは、</span><span class="nb">YouTubeで</span></h2>
+      <span class="note">3Dで100回ずつ試す動画</span>
     </div>
     <div class="yt-grid">
       <div class="yt-play" role="button" tabindex="0" aria-label="動画を再生：{t}" data-vid="{vid}">
@@ -93,12 +118,14 @@ def top_block(vid, title):
         <span class="yt-btn" aria-hidden="true"></span>
       </div>
       <div>
-        <div class="yt-ch"><img src="assets/yt/channel.jpg" width="44" height="44" alt=""><div><b>1000人ギャンブル実験</b><span>@1000ninjikken</span></div></div>
-        <p class="yt-desc">ギャンブルの「本当はどうなの？」を、コンピューターの中の1000人で確かめるチャンネルです。動画で使ったシミュレーターは、このサイトで数字を変えて試せます。</p>
+        <div class="yt-ch"><img src="{CH_ICON}" width="44" height="44" alt=""><div><b>{CH_NAME}</b><span>{CH_HANDLE}</span></div></div>
+        <p class="yt-desc">何十人が何百年暮らす町や、日本じゅうに広がるゾンビ。ブラウザでは重すぎて動かせない大きなシミュレーションは、3Dの動画にしてYouTubeで公開しています。</p>
+        <p class="yt-time">🕖 {POST_TIME}に新しい動画</p>
         <p class="yt-new"><small>最新</small>{t}</p>
         <div class="yt-links">
           <a class="yt-sub" href="{CHANNEL}?sub_confirmation=1" target="_blank" rel="noopener">🔔 チャンネル登録</a>
-          <a class="yt-all" href="{CHANNEL}/videos" target="_blank" rel="noopener">動画一覧 →</a>
+          <a class="yt-all" href="douga/">動画一覧 →</a>
+          <a class="yt-req" href="douga/#req">💡 YouTubeで見たい「もしも」を送る →</a>
         </div>
       </div>
     </div>
@@ -111,6 +138,7 @@ def top_block(vid, title):
           f.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
           f.allowFullscreen = true;
           el.innerHTML = ''; el.appendChild(f); el.removeAttribute('role'); el.onclick = null;
+          try {{ gtag('event', 'yt_play', {{ video_id: el.dataset.vid, place: 'top' }}); }} catch (e) {{}}
         }}
         el.onclick = play;
         el.onkeydown = function (e) {{ if (e.key === 'Enter' || e.key === ' ') {{ e.preventDefault(); play(); }} }};
@@ -120,61 +148,52 @@ def top_block(vid, title):
   {TOP_END}"""
 
 
-def patch_top():
-    p = ROOT / "index.html"
+def rw(p, fn):
     raw = p.read_bytes().decode("utf-8")
     crlf = "\r\n" in raw
-    s = TOP_OLD.sub("", raw.replace("\r\n", "\n"))
-    for old in OLD_CHANNELS:
-        s = s.replace(f'      <a href="{old}" target="_blank" rel="noopener">YouTube</a>', FOOT_LINK)
-    if TOP_ANCHOR not in s:
-        print("トップ：差し込み場所なし")
-        return
-    s = s.replace(TOP_ANCHOR, "\n  " + top_block(*TOP_LATEST) + TOP_ANCHOR, 1)
-    if FOOT_LINK not in s and FOOT_ANCHOR in s:
-        s = s.replace(FOOT_ANCHOR, FOOT_LINK + "\n" + FOOT_ANCHOR, 1)
+    s = fn(raw.replace("\r\n", "\n"))
     if crlf:
         s = s.replace("\n", "\r\n")
-    p.write_bytes(s.encode("utf-8"))
-    print("OK: トップ", TOP_LATEST[0])
-
-
-def remove_all():
-    """YouTube紹介をサイトから全部外す（トップの帯・フッターのリンク・各シミュの埋め込み）。"""
-    foot = re.compile(r'\n[ \t]*<a href="https://www\.youtube\.com/@[^"]*" target="_blank" rel="noopener">YouTube</a>')
-    paths = [ROOT / "index.html"] + [ROOT / "sims" / slug / "index.html" for slug in VIDEOS]
-    for p in paths:
-        raw = p.read_bytes().decode("utf-8")
-        crlf = "\r\n" in raw
-        s = raw.replace("\r\n", "\n")
-        s = OLD.sub("", TOP_OLD.sub("", s))
-        s = foot.sub("", s)
-        if crlf:
-            s = s.replace("\n", "\r\n")
-        if s != raw:
-            p.write_bytes(s.encode("utf-8"))
-            print("外した:", p.relative_to(ROOT))
-
-
-def main():
-    if not ENABLED:
-        remove_all()
-        return
-    patch_top()
-    for slug, (vid, title, lead) in VIDEOS.items():
-        p = ROOT / "sims" / slug / "index.html"
-        raw = p.read_bytes().decode("utf-8")
-        crlf = "\r\n" in raw
-        s = OLD.sub("", raw.replace("\r\n", "\n"))
-        if ANCHOR not in s:
-            print("差し込み場所なし:", slug)
-            continue
-        s = s.replace(ANCHOR, "\n  " + block(vid, title, lead) + ANCHOR, 1)
-        if crlf:
-            s = s.replace("\n", "\r\n")
+    if s != raw:
         p.write_bytes(s.encode("utf-8"))
-        print("OK:", slug, vid)
+        return True
+    return False
+
+
+def patch_top():
+    def fn(s):
+        s = FOOT_ANY.sub("", TOP_OLD.sub("", s))
+        if not ENABLED:
+            return s
+        if TOP_ANCHOR not in s:
+            raise SystemExit("トップ：差し込み場所なし")
+        s = s.replace(TOP_ANCHOR, "\n  " + top_block(EPISODES[0]) + TOP_ANCHOR, 1)
+        if FOOT_ANCHOR in s:
+            s = s.replace(FOOT_ANCHOR, FOOT_LINK + "\n" + FOOT_ANCHOR, 1)
+        return s
+    rw(ROOT / "index.html", fn)
+    print("トップ:", EPISODES[0]["vid"] if ENABLED else "外した")
+
+
+def patch_sims():
+    for slug in set(VIDEOS) | set(OLD_VIDEO_SLUGS):
+        p = ROOT / "sims" / slug / "index.html"
+        if not p.exists():
+            print("ページなし:", slug)
+            continue
+        v = VIDEOS.get(slug) if ENABLED else None
+
+        def fn(s, v=v):
+            s = OLD.sub("", s)
+            if v:
+                if ANCHOR not in s:
+                    raise SystemExit("差し込み場所なし: " + slug)
+                s = s.replace(ANCHOR, "\n  " + block(*v) + ANCHOR, 1)
+            return s
+        rw(p, fn)
+        print("シミュ:", slug, v[0] if v else "（なし）")
 
 
 if __name__ == "__main__":
-    main()
+    patch_top()
+    patch_sims()

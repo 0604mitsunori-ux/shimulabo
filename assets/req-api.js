@@ -12,10 +12,18 @@
   function lget(k, d) { try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } }
   function lset(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
 
-  function mine() { return lget(KEY, []); }
-  function remember(id, idea) {
-    var a = mine().filter(function (x) { return x.id !== id; });
-    a.unshift({ id: id, idea: String(idea || '').slice(0, 80), at: Date.now() });
+  // mine()＝ふつうのリクエストだけ／mine({yt:true})＝YouTubeの「もしも」だけ／mine({all:true})＝全部
+  function mine(opt) {
+    var a = lget(KEY, []);
+    if (opt && opt.all) return a;
+    var yt = !!(opt && opt.yt);
+    return a.filter(function (x) { return !!x.yt === yt; });
+  }
+  function remember(id, idea, genre) {
+    var a = lget(KEY, []).filter(function (x) { return x.id !== id; });
+    var o = { id: id, idea: String(idea || '').slice(0, 80), at: Date.now() };
+    if (genre === 'YouTubeのもしも') o.yt = 1;
+    a.unshift(o);
     lset(KEY, a.slice(0, 30));
   }
 
@@ -27,9 +35,13 @@
       body: JSON.stringify(data)
     }).then(function (r) { return r.json(); });
   }
-  function list() {
+  // YouTubeで取り上げてほしい「もしも」は同じ受付表に genre=YT で入る。
+  // ふつうの一覧（トップ・ボード）からは外し、/youtube/ では list({yt:true}) でそれだけを出す
+  var YT = 'YouTubeのもしも';
+  function list(opt) {
+    var yt = !!(opt && opt.yt);
     return fetch(ENDPOINT + '?list=1').then(function (r) { return r.json(); })
-      .then(function (j) { return (j && j.items) || []; });
+      .then(function (j) { return ((j && j.items) || []).filter(function (x) { return (x.genre === YT) === yt; }); });
   }
   function status(ids) {
     if (!ids.length) return Promise.resolve([]);
@@ -39,7 +51,7 @@
 
   /* どのページでも：自分のリクエストが公開済みになっていたら右下にお知らせ */
   function showDoneToast() {
-    var m = mine(); if (!m.length) return;
+    var m = mine({ all: true }); if (!m.length) return;
     if (/\/board\//.test(location.pathname)) return;   // ボードでは一覧の中で見せる
     var seen = lget(SEEN, []);
     var ids = m.map(function (x) { return x.id; }).filter(function (id) { return seen.indexOf(id) < 0; });
@@ -59,7 +71,7 @@
       t.textContent = '🎉 あなたのリクエストが形になりました！';
       var p = document.createElement('div'); p.style.cssText = 'color:#555;font-size:13px;margin-bottom:10px;';
       p.textContent = '「' + String(d.idea).slice(0, 40) + (String(d.idea).length > 40 ? '…' : '') + '」';
-      var a = document.createElement('a'); a.href = d.url; a.textContent = 'できたシミュを見る →';
+      var a = document.createElement('a'); a.href = d.url; a.textContent = d.genre === YT ? 'できた動画を見る →' : 'できたシミュを見る →';
       a.style.cssText = 'display:inline-block;background:#c2452d;color:#fff;font-weight:800;padding:10px 18px;border-radius:10px;text-decoration:none;';
       var x = document.createElement('button'); x.type = 'button'; x.textContent = '×'; x.setAttribute('aria-label', '閉じる');
       x.style.cssText = 'position:absolute;top:6px;right:10px;border:none;background:none;font-size:20px;cursor:pointer;color:#888;';
@@ -70,6 +82,6 @@
     }).catch(function () {});
   }
 
-  window.ReqAPI = { ENDPOINT: ENDPOINT, submit: submit, list: list, status: status, mine: mine, remember: remember, showDoneToast: showDoneToast };
+  window.ReqAPI = { ENDPOINT: ENDPOINT, YT: YT, submit: submit, list: list, status: status, mine: mine, remember: remember, showDoneToast: showDoneToast };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', showDoneToast); else showDoneToast();
 })();
