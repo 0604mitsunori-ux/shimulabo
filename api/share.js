@@ -164,6 +164,8 @@ const ALLOW = new Set([
   'jinko-pyramid',
   // money 2026-11-18 リクエスト
   'gecen-chokin',
+  // wonder 2026-11-23 リクエスト
+  'hokousha-shingo',
 ]);
 
 export default async function handler(req, res) {
