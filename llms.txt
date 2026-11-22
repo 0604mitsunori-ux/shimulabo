@@ -514,8 +514,9 @@
 - [コンビニ vs スーパー](https://shimulabo.com/sims/conveni-super/): 多用で年いくら損してる？
 - [食べ放題の元取り](https://shimulabo.com/sims/tabehoudai/): あと何皿で元が取れる？
 
-### あそぶ・実験（26本）
+### あそぶ・実験（27本）
 - [ローレンツ・アトラクタ](https://shimulabo.com/sims/lorenz/): カオスの蝶を回転描画。ずっと見られる。
+- [自分だけの植物を作って育てる 植物の育て方シミュレーター](https://shimulabo.com/sims/jibun-shokubutsu/): 背の高さ・枝分かれ・葉の形・花の色などを決めたタネを、日当たり・光の向き・水やり・肥料・気温を変えて育てる。徒長・根ぐされ・光屈性が見え、花が咲いたらタネをとって図鑑に保存し、2つをかけ合わせて子どもを作れる。
 - [振り子の波](https://shimulabo.com/sims/pendulum-wave/): 波→らせん→整列をくり返す催眠演出。
 - [太陽系シミュレーター](https://shimulabo.com/sims/solar-system/): 8惑星がそれぞれの速さで公転。
 - [重力シミュレーター](https://shimulabo.com/sims/gravity/): クリックで星を放つと軌道が生まれる。

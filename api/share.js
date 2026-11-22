@@ -166,6 +166,8 @@ const ALLOW = new Set([
   'gecen-chokin',
   // wonder 2026-11-23 リクエスト
   'hokousha-shingo',
+  // play 2026-11-23 リクエスト
+  'jibun-shokubutsu',
 ]);
 
 export default async function handler(req, res) {
