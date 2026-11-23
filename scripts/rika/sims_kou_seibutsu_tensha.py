@@ -6,6 +6,10 @@
 from common import canvas, slider, select, btn, stats, T, N, P
 
 SIMS = []
+
+# スマホ縦向きでは図が小さくなるので、横向きをすすめる一言（幅560px以下・縦向きのときだけ表示）
+PH = ('<span class="ph-note">📱 スマホでは、画面を横向きにすると図の中の文字が読みやすくなります。</span>'
+      '<style>.ph-note{display:none}@media (max-width:560px) and (orientation:portrait){.ph-note{display:block;font-weight:800;color:#b45309;margin-bottom:6px}}</style>')
 def sim(**kw): SIMS.append(kw)
 
 MEXT_KOU = "https://www.mext.go.jp/a_menu/shotou/new-cs/1407074.htm"
@@ -207,7 +211,7 @@ sim(slug="tensha-honyaku-genkaku", cat="rika", emoji="🧫", score=80,
              + select("spd", "速さ", [("1", "×1"), ("0.5", "×0.5（ゆっくり）"), ("0.25", "×0.25（とてもゆっくり）"), ("2", "×2")]),
     buttons=btn("play", "⏸ 一時停止", True) + btn("stepb", "⏭ コマ送り") + btn("rst", "↺ はじめから") + btn("names", "🏷 名前をかくす"),
     stats=stats([("sL", "合成されたmRNAの長さ", True), ("sR", "mRNA上のリボソーム", True), ("sC", "いちばん長い鎖のアミノ酸", False), ("sP", "完成したポリペプチド鎖", False)]),
-    legend="紺・青＝DNA（下の青が鋳型鎖）、緑の四角＝プロモーター、DNA上の赤＝転写終結部位、紫の丸＝RNAポリメラーゼ、オレンジの線＝mRNA（紫＝リボソーム結合部位、緑＝開始コドン、赤＝終止コドン）、茶色＝リボソーム、色のついた小さな丸＝アミノ酸。下の段の青緑＝tRNA。アミノ酸は3文字の略号（Met＝メチオニン など）です。",
+    legend=PH + "紺・青＝DNA（下の青が鋳型鎖）、緑の四角＝プロモーター、DNA上の赤＝転写終結部位、紫の丸＝RNAポリメラーゼ、オレンジの線＝mRNA（紫＝リボソーム結合部位、緑＝開始コドン、赤＝終止コドン）、茶色＝リボソーム、色のついた小さな丸＝アミノ酸。下の段の青緑＝tRNA。アミノ酸は3文字の略号（Met＝メチオニン など）です。",
     article=ARTICLE,
     faqs=[("原核生物では、なぜ転写の途中で翻訳が始まるの？", "原核生物には核膜がなく、DNAとリボソームが同じ細胞質基質にあるからです。mRNAのうち、リボソームが結合する部分と開始コドンが合成されれば、残りの部分がまだ合成中でも、リボソームが結合して翻訳を始められます。"),
           ("真核生物ではどうなるの？", "真核生物では、転写は核の中で行われ、できたRNAはスプライシングなどの加工を受けてmRNAになり、核膜孔を通って細胞質へ出てから翻訳されます。転写と翻訳の場所が核膜で隔てられているので、同時には進みません。"),

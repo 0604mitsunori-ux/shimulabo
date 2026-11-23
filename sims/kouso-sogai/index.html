@@ -95,7 +95,7 @@ canvas.lab.light{background:#fff;}
       <div class="lab-btns"><button class="btn btn-primary" id="go">▶ 反応を始める（はじめから）</button><button class="btn btn-ghost" id="pause">⏸ 一時停止</button><button class="btn btn-ghost" id="sweep">📈 3つの条件を自動で測定</button><button class="btn btn-ghost" id="names">🏷 名前をかくす</button><button class="btn btn-ghost" id="km">Km・Vmaxを表示（発展）</button></div>
       <div class="lab-stats"><div class="stat"><div class="k">時間</div><div class="v" id="sT">—</div></div><div class="stat"><div class="k">生成物</div><div class="v accent" id="sP">—</div></div><div class="stat"><div class="k">いまの反応速度</div><div class="v accent" id="sV">—</div></div><div class="stat"><div class="k">基質と結合している酵素</div><div class="v" id="sB">—</div></div><div class="stat"><div class="k">阻害剤と結合している酵素</div><div class="v" id="sI">—</div></div></div>
     </div>
-    <p class="lab-legend">青＝酵素（灰色は阻害剤が結合中）、オレンジ＝基質、緑＝生成物、紫のくさび形＝競争的阻害の阻害剤（活性部位に結合）、紫の六角形＝非競争的阻害の阻害剤（別の場所に結合）。赤い×＝基質が結合していても生成物ができない状態。条件を切り替えると、前の条件の線が左のグラフに残ります。</p>
+    <p class="lab-legend"><span class="ph-note">📱 スマホでは、画面を横向きにすると図の中の文字が読みやすくなります。</span><style>.ph-note{display:none}@media (max-width:560px) and (orientation:portrait){.ph-note{display:block;font-weight:800;color:#b45309;margin-bottom:6px}}</style>青＝酵素（灰色は阻害剤が結合中）、オレンジ＝基質、緑＝生成物、紫のくさび形＝競争的阻害の阻害剤（活性部位に結合）、紫の六角形＝非競争的阻害の阻害剤（別の場所に結合）。赤い×＝基質が結合していても生成物ができない状態。条件を切り替えると、前の条件の線が左のグラフに残ります。</p>
     <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
     <div class="share-row">
       <button class="btn btn-ghost" id="fsBtn" hidden>⛶ 全画面で表示</button>

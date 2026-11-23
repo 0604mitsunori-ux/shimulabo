@@ -6,6 +6,10 @@
 from common import canvas, slider, select, btn, stats, T, N, P
 
 SIMS = []
+
+# スマホ縦向きでは図が小さくなるので、横向きをすすめる一言（幅560px以下・縦向きのときだけ表示）
+PH = ('<span class="ph-note">📱 スマホでは、画面を横向きにすると図の中の文字が読みやすくなります。</span>'
+      '<style>.ph-note{display:none}@media (max-width:560px) and (orientation:portrait){.ph-note{display:block;font-weight:800;color:#b45309;margin-bottom:6px}}</style>')
 def sim(**kw): SIMS.append(kw)
 
 MEXT_KOU = "https://www.mext.go.jp/a_menu/shotou/new-cs/1407074.htm"
@@ -237,7 +241,7 @@ sim(slug="sekken-shabondama", cat="rika", emoji="🫧", score=79,
              + select("spd", "速さ", [("1", "×1"), ("2", "×2"), ("0.5", "×0.5（ゆっくり）")]),
     buttons=btn("act", "操作", True) + btn("scat", "↺ ばらばらから並ぶ") + btn("hide", "🙈 分子をかくす（予想する）") + btn("pause", "⏸ 一時停止") + btn("names", "🏷 名前をかくす"),
     stats=stats([("sD", "場面", False), ("sA", "境界・膜に並んだ分子", True), ("sB", "ミセル・油滴を囲む分子", True), ("sC", "ばらばらの分子", False)]),
-    legend="赤い丸＝親水部、黄色の線＝疎水部（尾が1本＝セッケン、2本＝リン脂質）。青＝水、うすい黄色＝空気、オレンジ＝油。分子の並び方を見やすく示す模式的な表現で、大きさや数の比は実際とはちがいます。",
+    legend=PH + "赤い丸＝親水部、黄色の線＝疎水部（尾が1本＝セッケン、2本＝リン脂質）。青＝水、うすい黄色＝空気、オレンジ＝油。分子の並び方を見やすく示す模式的な表現で、大きさや数の比は実際とはちがいます。",
     article=ARTICLE,
     faqs=[("セッケンで油汚れが落ちるのはなぜ？", "セッケン分子は、油になじむ疎水部を油汚れの中に、水になじむ親水部を水の側に向けて、油の表面に集まります。こすると油は表面からはなれて小さな油滴になり、まわりをセッケン分子が取り囲みます。表面が親水部でおおわれた油滴は水になじむので、水といっしょに流されます。これを乳化といいます。"),
           ("ミセルとは何？", "界面活性剤（セッケンなど）の分子が、疎水部を内側に、親水部を外側の水に向けて集まった粒子です。濃度が低いうちは分子がばらばらに溶け、水面に並びますが、ある濃度をこえると水中でミセルをつくり始めます。"),
