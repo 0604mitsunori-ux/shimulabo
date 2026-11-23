@@ -168,7 +168,7 @@ const ALLOW = new Set([
   'hokousha-shingo',
   // play 2026-11-23 リクエスト
   'jibun-shokubutsu',
-  // rika 2026-11-24 リクエスト（酵素）
+  // rika 2026-11-23 リクエスト（酵素）
   'kouso-hannou-sokudo', 'kouso-sogai',
 ]);
 
