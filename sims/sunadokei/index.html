@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/sunadokei/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/sunadokei.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/sunadokei.png">
+<title>砂時計シミュレーター｜砂はなぜ同じ速さで落ちる？（くびれの太さ・砂の量を変えて確かめる）｜シミュラボ</title>
+<meta name="description" content="砂時計のくびれを通って砂のつぶが落ち、下に山ができていく様子を見られるシミュレーター。くびれの太さと砂の量を変えて、落ちる速さ（つぶ/秒）がどう変わるかをグラフで確かめられます。水とちがい、砂は上にどれだけ残っていても落ちる速さがほぼ変わりません。">
+<meta property="og:title" content="砂時計シミュレーター 砂はなぜ同じ速さで落ちる？">
+<meta property="og:description" content="くびれの太さと砂の量を変えて、砂の落ちる速さがほぼ一定になることをグラフで確かめよう。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/sunadokei/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "砂時計シミュレーター", "url": "https://shimulabo.com/sims/sunadokei/", "description": "砂時計のくびれを通って砂のつぶが落ち、下に山ができていく様子を見られるシミュレーター。くびれの太さと砂の量を変えて、落ちる速さ（つぶ/秒）がどう変わるかをグラフで確かめられます。水とちがい、砂は上にどれだけ残っていても落ちる速さがほぼ変わりません。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "砂時計シミュレーター", "item": "https://shimulabo.com/sims/sunadokei/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "どうやって遊びますか？", "acceptedAnswer": {"@type": "Answer", "text": "開くとすぐに砂が落ちはじめます。「くびれの太さ」と「砂の量」を変えると、最初からやり直します。ぜんぶ落ちたら「ひっくり返す」をおすと、もう一度落ちます。スロー・早送りで見やすい速さにできます。"}}, {"@type": "Question", "name": "砂が少なくなっても、落ちる速さが変わらないのはなぜですか？", "acceptedAnswer": {"@type": "Answer", "text": "砂のつぶは、となりのつぶやガラスのかべと押し合って、たがいに支え合っています。上の砂の重さの多くはかべの方へ逃げるので、くびれのところにかかる力は、上の砂の量にあまりよりません。そのため、落ちる速さもほぼ同じになります。"}}, {"@type": "Question", "name": "くびれを太くすると、どうなりますか？", "acceptedAnswer": {"@type": "Answer", "text": "一度に通れるつぶが増えるので、速く落ちます。このシミュレーターでは、くびれの太さにほぼ比例して速くなります。本物の砂では、太さを少し広げただけでも、落ちる量がもっと大きく増えることが知られています。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+
+<style>
+.sd-wrap{position:relative;border-radius:14px;border:1px solid var(--line);background:linear-gradient(#f8fafc,#eef2ff);overflow:hidden}
+#sd{display:block;width:100%;max-width:400px;margin:0 auto;aspect-ratio:3/4}
+.sd-play{position:absolute;left:8px;top:8px;display:flex;gap:5px;flex-wrap:wrap;max-width:calc(100% - 16px)}
+.sd-play button{border:0;border-radius:999px;background:rgba(15,23,42,.8);color:#fff;font:inherit;font-weight:800;font-size:12px;padding:6px 10px;cursor:pointer}
+.sd-play button.on{background:#f59e0b;color:#111}
+.sd-sum{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
+.sd-sum div{background:#fffbeb;border-radius:12px;padding:10px 4px;text-align:center;min-width:0}
+.sd-sum b{display:block;font-size:20px;color:#b45309;font-variant-numeric:tabular-nums}
+.sd-sum b small{font-size:11px}
+.sd-sum span{font-size:11.5px;color:var(--ink-2);font-weight:700}
+.sd-note{font-size:13.5px;color:var(--ink);background:#fffbeb;border-radius:10px;padding:9px 12px;margin:10px 0 0;font-weight:700}
+#sdG{display:block;width:100%;height:120px;margin-top:10px}
+.sd-legend{font-size:12px;color:var(--ink-2);display:flex;gap:14px;flex-wrap:wrap}
+.sd-legend i{display:inline-block;width:18px;height:3px;vertical-align:3px;margin-right:4px;background:#d97706}
+.sd-legend i.o{background:repeating-linear-gradient(90deg,#2563eb 0 5px,transparent 5px 8px)}
+.sd-cols{display:grid;grid-template-columns:1fr 1fr;gap:6px 22px;margin-top:14px}
+@media (max-width:640px){.sd-sum{grid-template-columns:repeat(2,1fr)}.sd-cols{grid-template-columns:1fr}}
+</style>
+
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span>ふしぎ・現象<span>›</span><span class="cur">砂時計シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ふしぎ・現象</div>
+    <h1>砂時計シミュレーター<br>砂はなぜ同じ速さで落ちる？</h1>
+    <p class="lead">砂時計の砂は、上にたくさん残っているときも、少ししか残っていないときも、ほぼ同じ速さで落ちます。だから時計として使えます。くびれの太さや砂の量を変えて、落ちる速さのグラフがほぼ平らになることを確かめてみましょう。</p>
+    <p class="sd-note" style="font-weight:400">📏 このページの数値（秒・つぶ/秒）は、画面の中のつぶモデルでの「めやす」です。本物の砂時計の時間とは一致しません。</p>
+  </div>
+
+  <section class="panel" id="resultPanel">
+    <div class="sd-wrap">
+      <canvas id="sd" aria-label="砂時計の中で砂のつぶが落ちている絵"></canvas>
+      <div class="sd-play"><button type="button" id="sdPlay">⏸ 止める</button><button type="button" data-sp="0.25">🐢 スロー</button><button type="button" data-sp="1" class="on">ふつう</button><button type="button" data-sp="4">⏩ 早送り</button></div>
+    </div>
+    <div class="sd-sum">
+      <div><b id="sdT">0</b><span>経過時間</span></div>
+      <div><b id="sdP">0</b><span>落ちた砂</span></div>
+      <div><b id="sdR">0</b><span>いまの速さ</span></div>
+      <div><b id="sdA">0</b><span>平均の速さ</span></div>
+    </div>
+    <p class="sd-note" id="sdNote">⏳ 砂が落ちています。</p>
+    <canvas id="sdG" aria-label="落ちる速さの変化のグラフ"></canvas>
+    <div class="sd-legend"><span><i></i>落ちる速さ（つぶ/秒）</span><span><i class="o"></i>ここまでの平均</span></div>
+
+    <div class="sd-cols">
+      <div class="field"><label>くびれの太さ <span class="hint">（<b id="vNeck"></b>）</span></label><input type="range" id="kNeck" min="1" max="4" step="1" value="2"></div>
+      <div class="field"><label>砂の量 <span class="hint">（<b id="vAmt"></b>）</span></label><input type="range" id="kAmt" min="150" max="550" step="50" value="400"></div>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+      <button class="btn btn-primary" id="sdFlip" type="button" style="width:auto;padding:10px 18px;">🔄 ひっくり返す</button>
+      <button class="btn btn-ghost" id="sdReset" type="button" style="width:auto;padding:10px 14px;">さいしょから</button>
+    </div>
+
+    <div style="text-align:center;margin-top:16px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+
+<h2>水と砂のちがい</h2>
+<p>バケツの底に穴をあけて水を入れると、水がたくさん入っているときは勢いよく出て、少なくなると弱くなります。水は深いほど底をおす力（水圧）が大きくなるからです。</p>
+<p>砂はちがいます。砂のつぶは、となりのつぶやガラスのかべとこすれ合い、たがいに支え合っています。上の砂の重さの多くは、ななめにつたわってかべの方へ逃げます。そのため、くびれのところにかかる力は、上にどれだけ砂が残っているかにあまりよりません。この性質は、穀物をためるサイロの研究で古くから知られています。</p>
+<p>だから砂時計は、砂が多いときも少ないときも、ほぼ同じ速さで砂を落とします。同じ量の砂を入れれば、毎回ほぼ同じ時間で落ちきるので、時計として使えます。</p>
+
+<h2>ためしてみたいこと</h2>
+<ul>
+<li><b>グラフを見る</b>：「落ちる速さ」の線が、はじめから終わり近くまでほぼ平らになります（小さなゆれは、つぶがつかえたり通ったりするためです）。</li>
+<li><b>砂の量を2倍にする</b>：落ちる速さはほぼ同じままで、落ちきる時間がほぼ2倍になります。</li>
+<li><b>くびれを太くする</b>：落ちる速さが上がり、落ちきる時間が短くなります。</li>
+<li><b>上と下の形を見る</b>：上の砂はまん中からへこんで「すりばち」の形に減り、下の砂はくずれながら「山」の形に積もります。</li>
+</ul>
+
+<h2>このシミュレーターのしくみ</h2>
+<p>画面を小さなマス目に分け、砂のつぶを1マスに1つ置いています。つぶは、真下があいていれば真下へ、ふさがっていればななめ下へ動きます。くびれでは、つぶがときどきつかえるようにしてあります。とても単純にしたモデルなので、砂の山のかたむきや、くびれの太さと速さの関係は、本物の砂とは同じではありません。</p>
+<p>本物の砂では、穴から落ちる量は、穴の直径の約2.5乗に比例することが実験で知られています（ベバルーの式）。穴がつぶの数個分より細いと、つぶがアーチのように組み合わさって、つまることもあります。</p>
+
+    <h2>よくある質問</h2>
+    <dl class="faq"><dt>どうやって遊びますか？</dt><dd>開くとすぐに砂が落ちはじめます。「くびれの太さ」と「砂の量」を変えると、最初からやり直します。ぜんぶ落ちたら「ひっくり返す」をおすと、もう一度落ちます。スロー・早送りで見やすい速さにできます。</dd><dt>砂が少なくなっても、落ちる速さが変わらないのはなぜですか？</dt><dd>砂のつぶは、となりのつぶやガラスのかべと押し合って、たがいに支え合っています。上の砂の重さの多くはかべの方へ逃げるので、くびれのところにかかる力は、上の砂の量にあまりよりません。そのため、落ちる速さもほぼ同じになります。</dd><dt>くびれを太くすると、どうなりますか？</dt><dd>一度に通れるつぶが増えるので、速く落ちます。このシミュレーターでは、くびれの太さにほぼ比例して速くなります。本物の砂では、太さを少し広げただけでも、落ちる量がもっと大きく増えることが知られています。</dd></dl>
+    <h2>参考にした資料</h2>
+    <ul class="seo-refs"><li>Janssen, H. A. (1895) Versuche über Getreidedruck in Silozellen. Zeitschrift des Vereines Deutscher Ingenieure 39, 1045–1049.（かべが粉や粒の重さを支えること）</li><li>Beverloo, W. A., Leniger, H. A. &amp; van de Velde, J. (1961) The flow of granular solids through orifices. Chemical Engineering Science 15, 260–269.（穴から落ちる粒の量の式）</li></ul>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>関連するシミュレーター</h2>
+    <div class="related-grid"><a class="related-card" href="../sandpile/"><span class="e">⛰️</span><span>砂山崩しシミュレーター</span></a><a class="related-card" href="../galton/"><span class="e">🎯</span><span>ガルトンボード</span></a><a class="related-card" href="../domino-taoshi/"><span class="e">🧱</span><span>ドミノ倒しシミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュレーターも見てみたい？</h2>
+    <p>あなたの「これシミュレーションしてみたい」を送ってください。面白い案から実際に作って、できたらお知らせします。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:8px;font-size:.85em"><!-- footer-links --><a href="../../about/">運営者情報</a>　<a href="../../privacy/">プライバシーポリシー</a>　<a href="../../terms/">利用規約</a>　<a href="../../contact/">お問い合わせ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const cv = $('sd'), ctx = cv.getContext('2d'), gc = $('sdG'), gx = gc.getContext('2d');
+  const C = 41, R = 61, MID = 30, CX = 20, FPS = 30, PASS = .35;
+  const COL = ['#d97706', '#f59e0b', '#b45309'];
+  let neck = 2, amt = 400, speed = 1, playing = true;
+  let grid, LO, HI, total = 0, below = 0, steps = 0, t = 0, done = false, ring, hist, rate = 0, idle = 0, acc = 0, flips = 0;
+
+  function shape() {
+    LO = new Int16Array(R); HI = new Int16Array(R);
+    for (let y = 0; y < R; y++) { const s = Math.min(17, Math.round(Math.abs(y - MID) * .9)); LO[y] = CX - Math.floor((neck - 1) / 2) - s; HI[y] = CX + Math.floor(neck / 2) + s; }
+  }
+  function clock() { below = 0; steps = 0; t = 0; done = total === 0; ring = new Uint8Array(FPS); hist = []; rate = 0; idle = 0; acc = 0; }
+  function reset() {
+    shape(); grid = new Uint8Array(C * R); let n = 0;
+    for (let y = MID; y >= 0 && n < amt; y--) for (let x = LO[y]; x <= HI[y] && n < amt; x++) { grid[y * C + x] = 1 + ((x * 7 + y * 13) % 3); n++; }
+    total = n; flips = 0; clock();
+  }
+  function flip() {
+    const g2 = new Uint8Array(C * R); let n = 0;
+    for (let y = 0; y < R; y++) for (let x = 0; x < C; x++) { const v = grid[(R - 1 - y) * C + x]; g2[y * C + x] = v; if (v && y <= MID) n++; }
+    grid = g2; total = n; flips++; clock(); playing = true; updPlay();
+  }
+  function step() {
+    let cross = 0;
+    for (let y = R - 2; y >= 0; y--) {
+      const ny = y + 1, l = LO[ny], h = HI[ny], a = LO[y], b = HI[y], ltr = (steps + y) & 1;
+      for (let i = a; i <= b; i++) {
+        const x = ltr ? i : a + b - i, v = grid[y * C + x]; if (!v) continue;
+        if (y === MID && Math.random() > PASS) continue;
+        let nx = -1;
+        if (x >= l && x <= h && !grid[ny * C + x]) nx = x;
+        else {
+          const d = Math.random() < .5 ? -1 : 1;
+          if (x + d >= l && x + d <= h && !grid[ny * C + x + d]) nx = x + d;
+          else if (x - d >= l && x - d <= h && !grid[ny * C + x - d]) nx = x - d;
+        }
+        if (nx >= 0) { grid[y * C + x] = 0; grid[ny * C + nx] = v; if (y === MID) cross++; }
+      }
+    }
+    below += cross; ring[steps % FPS] = cross; steps++; t = steps / FPS;
+    rate = 0; for (let i = 0; i < FPS; i++) rate += ring[i];
+    if (steps >= FPS && steps % 15 === 0) hist.push([t, rate]);
+    idle = cross ? 0 : idle + 1;
+    if (below >= total || idle > FPS * 3) done = true;
+  }
+
+  let dpr = 1;
+  function size() {
+    dpr = Math.min(2, window.devicePixelRatio || 1);
+    const w = cv.clientWidth || 360, W = Math.round(w * dpr), Hh = Math.round(w * 4 / 3 * dpr);
+    if (cv.width !== W || cv.height !== Hh) { cv.width = W; cv.height = Hh; }
+    const gw = gc.clientWidth || 360, GW = Math.round(gw * dpr), GH = Math.round(120 * dpr);
+    if (gc.width !== GW || gc.height !== GH) { gc.width = GW; gc.height = GH; }
+  }
+  function draw() {
+    size();
+    const c = ctx, W = cv.width, Hh = cv.height;
+    c.setTransform(1, 0, 0, 1, 0, 0); c.clearRect(0, 0, W, Hh);
+    const cs = Math.min(W / (C + 2), Hh / (R + 7)), ox = (W - C * cs) / 2, oy = (Hh - R * cs) / 2 + cs * .8;
+    // ガラス
+    c.beginPath(); c.moveTo(ox + LO[0] * cs - cs * .4, oy);
+    for (let y = 0; y < R; y++) c.lineTo(ox + LO[y] * cs - cs * .4, oy + (y + .5) * cs);
+    c.lineTo(ox + LO[R - 1] * cs - cs * .4, oy + R * cs); c.lineTo(ox + (HI[R - 1] + 1) * cs + cs * .4, oy + R * cs);
+    for (let y = R - 1; y >= 0; y--) c.lineTo(ox + (HI[y] + 1) * cs + cs * .4, oy + (y + .5) * cs);
+    c.lineTo(ox + (HI[0] + 1) * cs + cs * .4, oy); c.closePath();
+    c.fillStyle = 'rgba(186,230,253,.45)'; c.fill(); c.strokeStyle = '#7dd3fc'; c.lineWidth = 2 * dpr; c.lineJoin = 'round'; c.stroke();
+    // 台
+    c.fillStyle = '#92400e'; c.fillRect(ox + cs, oy - cs * 1.8, (C - 2) * cs, cs * 1.8); c.fillRect(ox + cs, oy + R * cs, (C - 2) * cs, cs * 1.8);
+    // 砂
+    for (let k = 1; k <= 3; k++) {
+      c.fillStyle = COL[k - 1]; c.beginPath();
+      for (let y = 0; y < R; y++) for (let x = LO[y]; x <= HI[y]; x++) if (grid[y * C + x] === k) { const px = ox + (x + .5) * cs, py = oy + (y + .5) * cs; c.moveTo(px + cs * .5, py); c.arc(px, py, cs * .5, 0, 6.3); }
+      c.fill();
+    }
+    graph(); ui();
+  }
+  function graph() {
+    const c = gx, W = gc.width, Hh = gc.height, p = 34 * dpr, r = 8 * dpr;
+    c.setTransform(1, 0, 0, 1, 0, 0); c.clearRect(0, 0, W, Hh);
+    let mx = 20; for (const q of hist) if (q[1] > mx) mx = q[1];
+    const maxR = Math.ceil(mx * 1.25 / 10) * 10, maxT = Math.max(20, Math.ceil(t / 10) * 10);
+    const X = v => p + v / maxT * (W - p - r), Y = v => Hh - 18 * dpr - v / maxR * (Hh - 28 * dpr);
+    c.strokeStyle = '#e2e8f0'; c.lineWidth = dpr; c.fillStyle = '#64748b'; c.font = `${10 * dpr}px system-ui,sans-serif`; c.textAlign = 'right'; c.textBaseline = 'middle';
+    [0, .5, 1].forEach(f => { const y = Y(maxR * f); c.beginPath(); c.moveTo(p, y); c.lineTo(W - r, y); c.stroke(); c.fillText(Math.round(maxR * f), p - 4 * dpr, y); });
+    c.textAlign = 'center'; c.textBaseline = 'top';
+    for (let v = 0; v <= maxT; v += maxT > 60 ? 20 : 10) c.fillText(v + '秒', X(v), Hh - 14 * dpr);
+    if (t > 1 && below > 0) { const av = below / t; c.strokeStyle = '#2563eb'; c.lineWidth = 1.4 * dpr; c.setLineDash([5 * dpr, 3 * dpr]); c.beginPath(); c.moveTo(X(0), Y(av)); c.lineTo(X(t), Y(av)); c.stroke(); c.setLineDash([]); }
+    c.strokeStyle = '#d97706'; c.lineWidth = 2.2 * dpr; c.lineJoin = 'round'; c.beginPath();
+    hist.forEach((q, i) => i ? c.lineTo(X(q[0]), Y(q[1])) : c.moveTo(X(q[0]), Y(q[1]))); c.stroke();
+  }
+  const pct = () => total ? below / total * 100 : 0, avg = () => t > 0 ? below / t : 0;
+  let lastUI = 0;
+  function ui(force) {
+    const now = performance.now(); if (!force && now - lastUI < 150) return; lastUI = now;
+    $('sdT').innerHTML = t.toFixed(1) + '<small>秒</small>';
+    $('sdP').innerHTML = pct().toFixed(0) + '<small>%</small>';
+    $('sdR').innerHTML = (done ? 0 : rate) + '<small>つぶ/秒</small>';
+    $('sdA').innerHTML = avg().toFixed(1) + '<small>つぶ/秒</small>';
+    $('sdNote').textContent = done ? (below >= total ? `⌛ ぜんぶ落ちました（${t.toFixed(1)}秒・平均 ${avg().toFixed(1)} つぶ/秒）。「ひっくり返す」でもう一度ためせます。` : '⌛ 砂が止まりました。「ひっくり返す」でもう一度ためせます。')
+      : pct() > 50 ? '⏳ 上の砂が半分より少なくなっても、落ちる速さはほぼ同じままです。' : '⏳ 砂が落ちています。グラフの線がほぼ平らなことを見てみましょう。';
+  }
+  function updPlay() { $('sdPlay').textContent = playing ? '⏸ 止める' : '▶ 動かす'; document.querySelectorAll('.sd-play [data-sp]').forEach(b => b.classList.toggle('on', +b.dataset.sp === speed)); }
+  function labels() { $('vNeck').textContent = ['ほそい', 'ふつう', 'ふとい', 'とてもふとい'][neck - 1] + '・' + neck + 'つぶ分'; $('vAmt').textContent = amt + 'つぶ'; }
+
+  $('kNeck').addEventListener('input', e => { neck = +e.target.value; labels(); reset(); playing = true; updPlay(); });
+  $('kAmt').addEventListener('input', e => { amt = +e.target.value; labels(); reset(); playing = true; updPlay(); });
+  $('sdFlip').addEventListener('click', flip);
+  $('sdReset').addEventListener('click', () => { reset(); playing = true; updPlay(); });
+  $('sdPlay').addEventListener('click', () => { playing = !playing; updPlay(); });
+  document.querySelectorAll('.sd-play [data-sp]').forEach(b => b.addEventListener('click', () => { speed = +b.dataset.sp; playing = true; updPlay(); }));
+  const shareText = () => `砂時計シミュレーターで、${total}つぶの砂が${pct().toFixed(0)}%落ちるまで${t.toFixed(1)}秒。落ちる速さは平均 ${avg().toFixed(1)} つぶ/秒でほぼ一定でした⏳`;
+  $('shareBtn').addEventListener('click', () => { const u = location.origin + location.pathname; window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText() + '\n') + '&url=' + encodeURIComponent(u) + '&hashtags=' + encodeURIComponent('シミュラボ'), '_blank', 'noopener'); });
+  $('copyBtn').addEventListener('click', async () => { try { await navigator.clipboard.writeText(shareText() + '\n' + location.origin + location.pathname); $('copyBtn').textContent = 'コピーしました'; } catch (e) { $('copyBtn').textContent = 'コピーできませんでした'; } });
+
+  let tPrev = performance.now();
+  function loop(now) {
+    const dt = Math.min(.1, (now - tPrev) / 1000); tPrev = now;
+    if (playing && !done) { acc += dt * FPS * speed; let n = 0; while (acc >= 1 && n < 40 && !done) { step(); acc -= 1; n++; } if (acc > 1) acc = 0; }
+    draw(); requestAnimationFrame(loop);
+  }
+  labels(); reset(); updPlay(); draw();
+  requestAnimationFrame(loop);
+  window.__t = {
+    step(sec) { const n = Math.round(sec * FPS); for (let i = 0; i < n && !done; i++) step(); draw(); ui(true); },
+    get s() { let g = 0, lowG = 0; for (let i = 0; i < grid.length; i++) if (grid[i]) { g++; if (i >= (MID + 1) * C) lowG++; } return { t, total, below, top: total - below, pct: pct(), rate, avg: avg(), done, neck, amt, speed, playing, flips, grains: g, lowGrains: lowG, hist: hist.length, histMin: hist.length ? Math.min(...hist.map(q => q[1])) : 0, histMax: hist.length ? Math.max(...hist.map(q => q[1])) : 0 }; },
+    flip, reset
+  };
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'sunadokei', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>
