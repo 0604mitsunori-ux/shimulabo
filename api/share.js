@@ -174,6 +174,7 @@ const ALLOW = new Set([
   'sekken-shabondama',
   'virus-sekken-alcohol',
   'shibousan-yuuten',
+  'pcr-hou',
 ]);
 
 export default async function handler(req, res) {
