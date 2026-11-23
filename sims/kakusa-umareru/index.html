@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/kakusa-umareru/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/kakusa-umareru.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/kakusa-umareru.png">
+<title>公平な取引だけで格差が生まれるしくみ｜ヤードセール・モデルのシミュレーション（ジニ係数・再分配）｜シミュラボ</title>
+<meta name="description" content="全員が同じ金額から始めて、ランダムに選ばれた2人が公平なコイン投げでお金をやりとりするだけ。それでも時間がたつと、少数の人にお金が集まっていきます。ヤードセール・モデルを、人の丸の大きさ・所持金の分布・ジニ係数のグラフで見られるシミュレーション。再分配を入れると広がり方がどう変わるかも試せます。">
+<meta property="og:title" content="公平な取引だけで格差が生まれるしくみ（ヤードセール・モデル）">
+<meta property="og:description" content="全員同じ金額からスタート。公平なコイン投げで取引をくり返すだけで、お金は少数の人に集まっていく。再分配を入れるとどうなる？">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/kakusa-umareru/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "公平な取引で格差が生まれるシミュレーション", "url": "https://shimulabo.com/sims/kakusa-umareru/", "description": "全員が同じ金額から始めて、ランダムに選ばれた2人が公平なコイン投げでお金をやりとりするだけ。それでも時間がたつと、少数の人にお金が集まっていきます。ヤードセール・モデルを、人の丸の大きさ・所持金の分布・ジニ係数のグラフで見られるシミュレーション。再分配を入れると広がり方がどう変わるかも試せます。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "公平な取引で格差が生まれるシミュレーション", "item": "https://shimulabo.com/sims/kakusa-umareru/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "コイン投げは本当に公平ですか？", "acceptedAnswer": {"@type": "Answer", "text": "はい。どの取引でも、2人のどちらが勝つかはちょうど半々（50%ずつ）です。お金の多い人が勝ちやすい、というしかけは入っていません。それでも差が広がるのが、このモデルのふしぎなところです。"}}, {"@type": "Question", "name": "公平なのに、なぜ差が広がるのですか？", "acceptedAnswer": {"@type": "Answer", "text": "やりとりする金額が「所持金の少ない方の一定の割合」だからです。たとえば20%なら、1,000円の人が1回勝って1回負けると 1,000→1,200→960円 となり、勝ち負けが同じ数でも少し減ります。一方、お金の多い人にとっては同じ金額が自分の所持金のごく一部なので、負けてもあまりひびきません。この小さなちがいが、何千回もの取引で積み重なります。"}}, {"@type": "Question", "name": "ジニ係数とは何ですか？", "acceptedAnswer": {"@type": "Answer", "text": "お金の片寄りぐあいを0から1の数字で表したものです。0は全員がまったく同じ金額を持っている状態で、1に近いほど、一部の人にお金が片寄っていることを表します。"}}, {"@type": "Question", "name": "「再分配」は何をしていますか？", "acceptedAnswer": {"@type": "Answer", "text": "取引のたびに、全員から所持金の同じ割合を少しずつ集めて、全員に同じ額ずつ配っています。スライダーの数字は「取引100回あたりに集める割合」です。お金の合計は変わりません。モデルの中の単純なしかけで、実際の税や社会保障の制度をそのまま表したものではありません。"}}, {"@type": "Question", "name": "これは現実の格差を説明していますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ、現実の格差の原因をすべて説明するものではありません。このモデルには、仕事・収入・貯金・教育・景気などが入っていません。「運だけでも差は広がりうる」という1つの見方を体験するためのもので、特定の政策をすすめるものでもありません。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+
+<style>
+#kgWrap{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#0f172a}
+#kg{display:block;width:100%;aspect-ratio:4/3}
+.kg-play{position:absolute;left:10px;top:10px;display:flex;gap:6px;flex-wrap:wrap}
+.kg-play button{border:0;border-radius:999px;background:rgba(255,255,255,.92);color:#0f172a;font:inherit;font-weight:800;font-size:12.5px;padding:7px 12px;cursor:pointer}
+.kg-msg{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);background:rgba(255,255,255,.95);color:#0f172a;font-size:12.5px;font-weight:700;border-radius:12px;padding:6px 14px;max-width:92%;text-align:center;pointer-events:none;opacity:0;transition:opacity .3s}
+.kg-msg.show{opacity:1}
+.kg-legend{font-size:12px;color:var(--ink-2);display:flex;gap:6px 14px;flex-wrap:wrap;margin:8px 0 0}
+.kg-legend i{display:inline-block;width:11px;height:11px;border-radius:50%;vertical-align:-1px;margin-right:4px}
+.kg-sum{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
+.kg-sum div{background:#fffbeb;border-radius:12px;padding:10px 4px;text-align:center}
+.kg-sum b{display:block;font-size:20px;color:#b45309;font-variant-numeric:tabular-nums}
+.kg-sum b small{font-size:11.5px}
+.kg-sum span{font-size:11.5px;color:var(--ink-2);font-weight:700}
+.kg-note{font-size:13.5px;color:var(--ink);background:#fffbeb;border-radius:10px;padding:9px 12px;margin:10px 0 0;font-weight:700}
+.kg-cap{font-size:12.5px;color:var(--ink-2);font-weight:700;margin:14px 0 4px}
+#kgBar{display:block;width:100%;height:120px}
+#kgGini{display:block;width:100%;height:120px}
+.kg-cols{display:grid;grid-template-columns:1fr 1fr;gap:6px 22px}
+.kg-btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+@media (max-width:640px){#kg{aspect-ratio:1/1}.kg-sum{grid-template-columns:repeat(2,1fr)}.kg-cols{grid-template-columns:1fr}.kg-play button{padding:6px 10px;font-size:12px}}
+</style>
+
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span>ふしぎ・現象<span>›</span><span class="cur">公平な取引で格差が生まれるシミュレーション</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ふしぎ・現象</div>
+    <h1>公平な取引だけで<br>格差が生まれるしくみ</h1>
+    <p class="lead">全員が同じ 1,000円 を持ってスタートします。ランダムに選ばれた2人が、表と裏が半々で出る公平なコインを投げて、お金をやりとりします。だれもズルをしていないのに、取引をくり返すうちに、お金は少数の人に集まっていきます。「再分配」を入れると広がり方がどう変わるかも試せます。</p>
+  </div>
+
+  <section class="panel" id="resultPanel">
+    <div id="kgWrap">
+      <canvas id="kg" aria-label="人を表す丸が、公平なコイン投げでお金をやりとりしているようす。丸の大きさが所持金を表す"></canvas>
+      <div class="kg-play"><button type="button" id="kgPlay">⏸ 止める</button><button type="button" id="kgReset">↺ リセット</button></div>
+      <div class="kg-msg" id="kgMsg"></div>
+    </div>
+    <div class="kg-legend"><span><i style="background:#64748b"></i>少ない</span><span><i style="background:#5aa9e6"></i>はじめと同じくらい</span><span><i style="background:#4ade80"></i>多い</span><span><i style="background:#fbbf24"></i>とても多い</span><span>丸の面積＝所持金</span></div>
+    <div class="kg-sum">
+      <div><b id="mG">0.000</b><span>ジニ係数</span></div>
+      <div><b id="mTop">10<small>%</small></b><span>上位10%の人が持つ割合</span></div>
+      <div><b id="mMin">1,000<small>円</small></b><span>いちばん少ない人</span></div>
+      <div><b id="mTr">0<small>回</small></b><span>取引の回数</span></div>
+    </div>
+    <p class="kg-note" id="kgNote">全員 1,000円からスタート。公平なコイン投げだけで取引します。</p>
+
+    <p class="kg-cap">所持金の分布（多い順・点線＝はじめの 1,000円・オレンジの下線＝上位10%の人）</p>
+    <canvas id="kgBar" aria-label="所持金を多い順にならべた棒グラフ"></canvas>
+    <p class="kg-cap">ジニ係数の変化（0＝全員同じ／1に近いほど片寄っている・横じくは取引の回数）</p>
+    <canvas id="kgGini" aria-label="ジニ係数の変化の折れ線グラフ"></canvas>
+
+    <h2 style="margin:20px 0 10px;font-size:18px;">ルールを変える</h2>
+    <div class="kg-cols">
+      <div class="field"><label>👥 人数 <span class="hint">（<b id="vN"></b>・変えるとリセット）</span></label><input type="range" id="kN" min="20" max="150" step="10" value="60"></div>
+      <div class="field"><label>💰 1回に動くお金の割合 <span class="hint">（少ない方の <b id="vF"></b>）</span></label><input type="range" id="kF" min="5" max="50" step="5" value="20"></div>
+      <div class="field"><label>🤝 再分配の強さ <span class="hint">（<b id="vR"></b>）</span></label><input type="range" id="kR" min="0" max="10" step="0.5" value="0"></div>
+      <div class="field"><label>⏩ 速さ <span class="hint">（<b id="vS"></b>）</span></label><input type="range" id="kS" min="0" max="8" step="1" value="4"></div>
+    </div>
+    <p class="hint" style="font-size:12.5px;margin:6px 0 0">再分配：取引のたびに、全員から所持金の同じ割合を少しずつ集めて、全員に同じ額ずつ配ります（数字は取引100回あたりに集める割合）。</p>
+
+    <div style="text-align:center;margin-top:16px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+
+<h2>このシミュレーターのしくみ</h2>
+<p>このシミュレーターは、<b>ヤードセール・モデル</b>と呼ばれる、とても単純な経済のモデルを動かしています。ルールは次の3つだけです。</p>
+<ul>
+<li>全員が同じ金額（1,000円）を持ってスタートする。</li>
+<li>ランダムに2人を選び、公平なコイン（表と裏が半々）を投げる。</li>
+<li>負けた人から勝った人へ、<b>2人のうち所持金が少ない方の一定の割合</b>（はじめは20%）のお金がうつる。</li>
+</ul>
+<p>丸の1つ1つが人で、丸の面積が所持金を表します。お金が多い人ほど大きく、金色に近い色になります。取引のたびに、お金の粒が負けた人から勝った人へ飛びます。お金の合計は、いつも「人数 × 1,000円」のままで、増えも減りもしません。</p>
+<p>下の棒グラフは、所持金を多い順にならべたものです。その下の折れ線は<b>ジニ係数</b>の変化です。ジニ係数は、お金の片寄りぐあいを0から1で表す数字で、<b>0は全員が同じ金額</b>、<b>1に近いほど一部の人に片寄っている</b>ことを表します。</p>
+<p>「再分配」を0より大きくすると、取引のたびに全員から所持金の同じ割合を少しずつ集めて、全員に同じ額ずつ配ります。</p>
+
+<h2>ためしてみたいこと</h2>
+<ul>
+<li><b>何もさわらずに見る</b>：はじめは全員同じ大きさですが、だんだん大きい丸と小さい丸に分かれていきます。ジニ係数のグラフが右上がりになることを確かめましょう。</li>
+<li><b>速さを上げて長く回す</b>：再分配が0のままだと、ジニ係数は上がり続け、ごく少数の人がほとんどのお金を持つようになります。</li>
+<li><b>とちゅうで再分配を入れる</b>：ジニ係数が上がり続けるのが止まり（すでに高くなっているときは下がって）、ある高さで落ち着きます。再分配を強くするほど、落ち着く高さは低くなります。</li>
+<li><b>1回に動くお金の割合を変える</b>：割合を大きくすると、差が広がるのが速くなります。小さくすると、ゆっくりになります。</li>
+<li><b>人数を変える</b>：人数が多くても少なくても、同じように差が広がるかを見てみましょう。</li>
+</ul>
+
+<h2>本物では</h2>
+<p>このモデルは、物理学の考え方で経済を調べる研究（経済物理学）の中で調べられてきました。A. チャクラボルティは2002年の論文で、このルールだと時間とともにお金が少数の人（最後には1人）に集まっていくことを、計算機実験で報告しました。B. ボゴシアンらは、このモデルに再分配などを加えて数学的にくわしく調べ、実際の資産の分布とくらべる研究を発表しています。</p>
+<p>ただし、これは<b>とても単純にしたモデル</b>です。次のようなことは入っていません。</p>
+<ul>
+<li>はたらいて得る収入、ものを作ること、使うこと、貯金や利子</li>
+<li>人による能力・教育・年齢・住んでいる場所のちがい</li>
+<li>景気の変化、お金の合計が増えたり減ったりすること</li>
+<li>実際の税や社会保障のこまかいしくみと、そのための費用や影響</li>
+</ul>
+<p>ですから、このシミュレーターは<b>現実の格差の原因をすべて説明するものではありません</b>。また、モデルの中の「再分配」は単純なしかけであり、<b>特定の政策をすすめるものでもありません</b>。「だれもズルをしていなくても、運の積み重ねだけで差は広がりうる」という1つの見方を、手を動かして確かめるためのものです。</p>
+
+    <h2>よくある質問</h2>
+    <dl class="faq"><dt>コイン投げは本当に公平ですか？</dt><dd>はい。どの取引でも、2人のどちらが勝つかはちょうど半々（50%ずつ）です。お金の多い人が勝ちやすい、というしかけは入っていません。それでも差が広がるのが、このモデルのふしぎなところです。</dd><dt>公平なのに、なぜ差が広がるのですか？</dt><dd>やりとりする金額が「所持金の少ない方の一定の割合」だからです。たとえば20%なら、1,000円の人が1回勝って1回負けると 1,000→1,200→960円 となり、勝ち負けが同じ数でも少し減ります。一方、お金の多い人にとっては同じ金額が自分の所持金のごく一部なので、負けてもあまりひびきません。この小さなちがいが、何千回もの取引で積み重なります。</dd><dt>ジニ係数とは何ですか？</dt><dd>お金の片寄りぐあいを0から1の数字で表したものです。0は全員がまったく同じ金額を持っている状態で、1に近いほど、一部の人にお金が片寄っていることを表します。</dd><dt>「再分配」は何をしていますか？</dt><dd>取引のたびに、全員から所持金の同じ割合を少しずつ集めて、全員に同じ額ずつ配っています。スライダーの数字は「取引100回あたりに集める割合」です。お金の合計は変わりません。モデルの中の単純なしかけで、実際の税や社会保障の制度をそのまま表したものではありません。</dd><dt>これは現実の格差を説明していますか？</dt><dd>いいえ、現実の格差の原因をすべて説明するものではありません。このモデルには、仕事・収入・貯金・教育・景気などが入っていません。「運だけでも差は広がりうる」という1つの見方を体験するためのもので、特定の政策をすすめるものでもありません。</dd></dl>
+    <h2>参考にした資料</h2>
+    <ul class="seo-refs"><li>A. Chakraborti (2002) Distributions of money in model markets of economy. International Journal of Modern Physics C.</li><li>B. Hayes (2002) Follow the Money. American Scientist.（「ヤードセール・モデル」という呼び名のもと）</li><li>B. M. Boghosian (2019) The Inescapable Casino. Scientific American.</li></ul>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>関連するシミュレーター</h2>
+    <div class="related-grid"><a class="related-card" href="../schelling/"><span class="e">🏘️</span><span>シェリングの分居モデル</span></a><a class="related-card" href="../bank-run/"><span class="e">🏦</span><span>取り付けさわぎのシミュレーション</span></a><a class="related-card" href="../galton/"><span class="e">🔔</span><span>ゴルトンボード（正規分布）</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュレーターも見てみたい？</h2>
+    <p>あなたの「これシミュレーションしてみたい」を送ってください。面白い案から実際に作って、できたらお知らせします。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:8px;font-size:.85em"><!-- footer-links --><a href="../../about/">運営者情報</a>　<a href="../../privacy/">プライバシーポリシー</a>　<a href="../../terms/">利用規約</a>　<a href="../../contact/">お問い合わせ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const cv = $('kg'), ctx = cv.getContext('2d'), bc = $('kgBar'), bx = bc.getContext('2d'), gc = $('kgGini'), gx = gc.getContext('2d');
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+  const START = 1000, FILL = .3;
+  const SPEEDS = [2, 5, 10, 20, 50, 100, 300, 1000, 3000];
+  const P = { n: 60, frac: 20, redis: 0, sp: 4 };
+  let A = [], total = 0, trades = 0, playing = true, acc = 0, parts = [], hist = [], histEvery = 10, sinceHist = 0;
+  let Wc = 600, Hc = 450, dpr = 1, stat = { gini: 0, top10: .1, min: START, max: START, sorted: [] }, statDirty = true;
+
+  // ---------- 大きさ ----------
+  function size() {
+    const w = cv.clientWidth || 600, h = cv.clientHeight || Math.round(w * .75);
+    dpr = Math.min(2, window.devicePixelRatio || 1);
+    if (w !== Wc || h !== Hc) { const sx = w / Wc, sy = h / Hc; A.forEach(a => { a.x *= sx; a.y *= sy; a.r = targetR(a.w, w, h); }); Wc = w; Hc = h; }
+    const W = Math.round(Wc * dpr), Hh = Math.round(Hc * dpr); if (cv.width !== W || cv.height !== Hh) { cv.width = W; cv.height = Hh; }
+    [bc, gc].forEach(c => { const cw = c.clientWidth || 600, ch = c.clientHeight || 120; const w2 = Math.round(cw * dpr), h2 = Math.round(ch * dpr); if (c.width !== w2 || c.height !== h2) { c.width = w2; c.height = h2; } });
+  }
+  function targetR(w, W, Hh) { return Math.max(2.2, Math.sqrt(FILL * (W || Wc) * (Hh || Hc) * (w / total) / Math.PI)); }
+
+  // ---------- はじめの状態 ----------
+  function reset() {
+    size();
+    const n = P.n; total = n * START; trades = 0; acc = 0; parts = []; hist = [[0, 0]]; histEvery = 10; sinceHist = 0; A = [];
+    const r0 = targetR(START), sp = r0 * 1.9;
+    for (let i = 0; i < n; i++) {
+      const ang = i * 2.39996, rad = Math.sqrt(i + .5) * sp;
+      A.push({ w: START, x: Wc / 2 + Math.cos(ang) * rad * 1.12, y: Hc / 2 + Math.sin(ang) * rad * .9, r: r0, fl: 0 });
+    }
+    statDirty = true; lastUI = 0;
+  }
+
+  // ---------- 取引（ヤードセール・モデル） ----------
+  function trade(fx) {
+    const n = A.length; let i = Math.floor(Math.random() * n), j = Math.floor(Math.random() * (n - 1)); if (j >= i) j++;
+    const a = A[i], b = A[j];
+    const amt = P.frac / 100 * Math.min(a.w, b.w);          // 少ない方の一定割合
+    const win = Math.random() < .5 ? a : b, lose = win === a ? b : a;  // 公平なコイン投げ
+    lose.w -= amt; win.w += amt; trades++;
+    if (P.redis > 0) { const t = P.redis / 10000, m = total / n; for (let k = 0; k < n; k++) A[k].w += (m - A[k].w) * t; }  // 再分配（合計は変わらない）
+    if (fx) {
+      win.fl = 1; lose.fl = -1;
+      const k = 1 + Math.min(3, Math.floor(amt / (START * .12)));
+      for (let q = 0; q < k; q++) parts.push({ a: lose, b: win, t: -q * .12, d: .5 + Math.random() * .2, off: (Math.random() - .5) * .7, s: 2 + Math.min(2.5, amt / START) });
+    }
+  }
+  function calcStat() {
+    const n = A.length, s = A.map(a => a.w).sort((p, q) => p - q);
+    let cum = 0, sum = 0; for (let i = 0; i < n; i++) { cum += (i + 1) * s[i]; sum += s[i]; }
+    const gini = Math.max(0, 2 * cum / (n * sum) - (n + 1) / n);
+    const k = Math.max(1, Math.round(n / 10)); let top = 0; for (let i = n - k; i < n; i++) top += s[i];
+    stat = { gini, top10: top / sum, min: s[0], max: s[n - 1], sum, sorted: s }; statDirty = false; return stat;
+  }
+
+  // ---------- 1コマ進める ----------
+  function advance(dt) {
+    if (playing) {
+      acc += dt * SPEEDS[P.sp]; const k = Math.floor(acc); acc -= k;
+      for (let q = 0; q < k; q++) trade(q < 2 && parts.length < 150);
+      if (k) {
+        statDirty = true; sinceHist += k;
+        if (sinceHist >= histEvery) { sinceHist = 0; hist.push([trades, calcStat().gini]); if (hist.length > 400) { hist = hist.filter((_, i) => i % 2 === 0); histEvery *= 2; } }
+      }
+    }
+    const n = A.length, e = Math.min(1, dt * 6), dec = Math.pow(.03, dt);
+    for (let i = 0; i < n; i++) { const a = A[i]; a.r += (targetR(a.w) - a.r) * e; a.fl *= dec; a.x += (Wc / 2 - a.x) * dt * .45; a.y += (Hc / 2 - a.y) * dt * .8; }
+    for (let it = 0; it < 3; it++) {
+      for (let i = 0; i < n; i++) {
+        const a = A[i];
+        for (let j = i + 1; j < n; j++) {
+          const b = A[j], dx = b.x - a.x, dy = b.y - a.y, min = a.r + b.r + 2, d2 = dx * dx + dy * dy;
+          if (d2 < min * min) {
+            const d = Math.sqrt(d2) || .01, push = (min - d) * .55, wa = b.r * b.r / (a.r * a.r + b.r * b.r), ux = dx / d, uy = dy / d;
+            a.x -= ux * push * wa; a.y -= uy * push * wa; b.x += ux * push * (1 - wa); b.y += uy * push * (1 - wa);
+          }
+        }
+      }
+      for (let i = 0; i < n; i++) { const a = A[i]; a.x = clamp(a.x, a.r + 2, Wc - a.r - 2); a.y = clamp(a.y, a.r + 2, Hc - a.r - 2); }
+    }
+    for (let i = parts.length - 1; i >= 0; i--) { const p = parts[i]; p.t += dt / p.d; if (p.t >= 1) parts.splice(i, 1); }
+  }
+
+  // ---------- 色 ----------
+  function col(w, al) {
+    const m = total / A.length, t = clamp(Math.log2(Math.max(w, 1e-9) / m) / 3, -1, 1);
+    const h = t < 0 ? 205 + (-t) * 12 : 205 - t * 163, s = t < 0 ? 72 - (-t) * 52 : 72 + t * 22, l = t < 0 ? 63 - (-t) * 20 : 63 - t * 7;
+    return `hsla(${h.toFixed(0)},${s.toFixed(0)}%,${l.toFixed(0)}%,${al == null ? 1 : al})`;
+  }
+
+  // ---------- 描く ----------
+  function draw() {
+    size();
+    const c = ctx; c.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const bg = c.createRadialGradient(Wc / 2, Hc / 2, 10, Wc / 2, Hc / 2, Math.max(Wc, Hc) * .7);
+    bg.addColorStop(0, '#1e293b'); bg.addColorStop(1, '#0b1220'); c.fillStyle = bg; c.fillRect(0, 0, Wc, Hc);
+    const m = total / A.length;
+    // 取引の線
+    c.lineCap = 'round';
+    parts.forEach(p => { if (p.t < 0) return; c.strokeStyle = `rgba(253,224,71,${.22 * (1 - p.t)})`; c.lineWidth = 1; c.beginPath(); c.moveTo(p.a.x, p.a.y); c.lineTo(p.b.x, p.b.y); c.stroke(); });
+    // 人
+    A.forEach(a => {
+      const r = a.r;
+      c.fillStyle = col(a.w); c.beginPath(); c.arc(a.x, a.y, r, 0, 6.2832); c.fill();
+      if (r > 5) { c.fillStyle = 'rgba(255,255,255,.16)'; c.beginPath(); c.arc(a.x - r * .28, a.y - r * .3, r * .42, 0, 6.2832); c.fill(); }
+      if (Math.abs(a.fl) > .05) { c.strokeStyle = a.fl > 0 ? `rgba(253,224,71,${a.fl})` : `rgba(248,113,113,${-a.fl * .8})`; c.lineWidth = 2; c.beginPath(); c.arc(a.x, a.y, r + 2, 0, 6.2832); c.stroke(); }
+      if (r >= 7) {
+        c.fillStyle = 'rgba(15,23,42,.8)';
+        c.beginPath(); c.arc(a.x - r * .3, a.y - r * .12, Math.max(.9, r * .085), 0, 6.2832); c.arc(a.x + r * .3, a.y - r * .12, Math.max(.9, r * .085), 0, 6.2832); c.fill();
+        c.strokeStyle = 'rgba(15,23,42,.75)'; c.lineWidth = Math.max(1, r * .06); c.beginPath();
+        const q = a.w / m;
+        if (q >= 1.3) c.arc(a.x, a.y + r * .12, r * .32, .18 * Math.PI, .82 * Math.PI);
+        else if (q < .45) c.arc(a.x, a.y + r * .58, r * .26, 1.22 * Math.PI, 1.78 * Math.PI);
+        else { c.moveTo(a.x - r * .2, a.y + r * .32); c.lineTo(a.x + r * .2, a.y + r * .32); }
+        c.stroke();
+      }
+    });
+    // お金の粒
+    parts.forEach(p => {
+      if (p.t < 0) return;
+      const t = p.t, e = t * t * (3 - 2 * t), dx = p.b.x - p.a.x, dy = p.b.y - p.a.y, bow = Math.sin(Math.PI * t) * p.off;
+      const x = p.a.x + dx * e - dy * bow, y = p.a.y + dy * e + dx * bow;
+      c.fillStyle = 'rgba(253,224,71,.28)'; c.beginPath(); c.arc(x, y, p.s * 2.2, 0, 6.2832); c.fill();
+      c.fillStyle = '#fde047'; c.beginPath(); c.arc(x, y, p.s, 0, 6.2832); c.fill();
+      c.fillStyle = '#fffbeb'; c.beginPath(); c.arc(x - p.s * .3, y - p.s * .3, p.s * .35, 0, 6.2832); c.fill();
+    });
+    if (statDirty) calcStat();
+    drawBars(); drawGini(); ui();
+  }
+  function drawBars() {
+    const c = bx, W = bc.width / dpr, Hh = bc.height / dpr, n = A.length, s = stat.sorted;
+    c.setTransform(dpr, 0, 0, dpr, 0, 0); c.clearRect(0, 0, W, Hh);
+    const top = Math.max(START * 2.5, stat.max), bw = W / n, base = Hh - 2, k = Math.max(1, Math.round(n / 10));
+    for (let i = 0; i < n; i++) {
+      const w = s[n - 1 - i], h = Math.max(1, w / top * (base - 6));
+      c.fillStyle = col(w); c.fillRect(i * bw + (bw > 3 ? .5 : 0), base - h, Math.max(1, bw - (bw > 3 ? 1 : 0)), h);
+    }
+    c.fillStyle = 'rgba(180,83,9,.9)'; c.fillRect(0, base, k * bw, 2);
+    const y = base - START / top * (base - 6);
+    c.strokeStyle = '#64748b'; c.lineWidth = 1; c.setLineDash([4, 3]); c.beginPath(); c.moveTo(0, y); c.lineTo(W, y); c.stroke(); c.setLineDash([]);
+  }
+  function drawGini() {
+    const c = gx, W = gc.width / dpr, Hh = gc.height / dpr, pl = 26, pr = 6, pt = 8, pb = 16;
+    c.setTransform(dpr, 0, 0, dpr, 0, 0); c.clearRect(0, 0, W, Hh);
+    const maxT = Math.max(200, trades), X = t => pl + t / maxT * (W - pl - pr), Y = v => Hh - pb - v * (Hh - pt - pb);
+    c.strokeStyle = '#e2e8f0'; c.lineWidth = 1; c.fillStyle = '#64748b'; c.font = '10px system-ui,sans-serif'; c.textAlign = 'right'; c.textBaseline = 'middle';
+    [0, .5, 1].forEach(v => { c.beginPath(); c.moveTo(pl, Y(v)); c.lineTo(W - pr, Y(v)); c.stroke(); c.fillText(String(v), pl - 4, Y(v)); });
+    c.textAlign = 'right'; c.textBaseline = 'top'; c.fillText(maxT.toLocaleString('ja-JP') + '回', W - pr, Hh - 12);
+    c.textAlign = 'left'; c.fillText('0回', pl, Hh - 12);
+    c.strokeStyle = '#d97706'; c.lineWidth = 2.2; c.lineJoin = 'round'; c.beginPath();
+    hist.forEach((q, i) => i ? c.lineTo(X(q[0]), Y(q[1])) : c.moveTo(X(q[0]), Y(q[1])));
+    c.lineTo(X(trades), Y(stat.gini)); c.stroke();
+    c.fillStyle = '#d97706'; c.beginPath(); c.arc(X(trades), Y(stat.gini), 3.5, 0, 6.2832); c.fill();
+  }
+
+  // ---------- 数字とひとこと ----------
+  const yen = v => v >= 10 ? Math.round(v).toLocaleString('ja-JP') : v >= .01 ? v.toFixed(2) : '0.01未満';
+  let lastUI = 0;
+  function ui() {
+    const now = performance.now(); if (now - lastUI < 150) return; lastUI = now;
+    $('mG').textContent = stat.gini.toFixed(3);
+    $('mTop').innerHTML = (stat.top10 * 100).toFixed(1) + '<small>%</small>';
+    $('mMin').innerHTML = yen(stat.min) + '<small>円</small>';
+    $('mTr').innerHTML = trades.toLocaleString('ja-JP') + '<small>回</small>';
+    let s;
+    if (trades < 30) s = '全員 1,000円からスタート。公平なコイン投げだけで取引します。';
+    else if (P.redis > 0) s = '🤝 再分配が入っています。ジニ係数のグラフが、どの高さで落ち着くかを見てみましょう。';
+    else if (stat.top10 > .9) s = '💰 上位10%の人が、ほとんどすべてのお金を持つようになりました。';
+    else if (stat.top10 > .5) s = '💰 上位10%の人が、全体の半分以上を持つようになりました。コイン投げは今も公平です。';
+    else if (stat.gini > .25) s = '📈 差が広がってきました。大きい丸と小さい丸に分かれています。';
+    else s = '🪙 少しずつ差がつきはじめています。';
+    $('kgNote').textContent = s;
+  }
+
+  // ---------- 操作 ----------
+  function flash(s) { const el = $('kgMsg'); el.textContent = s; el.classList.add('show'); clearTimeout(flash.t); flash.t = setTimeout(() => el.classList.remove('show'), 2200); }
+  function updPlay() { $('kgPlay').textContent = playing ? '⏸ 止める' : '▶ 動かす'; }
+  function sync() {
+    $('kN').value = P.n; $('kF').value = P.frac; $('kR').value = P.redis; $('kS').value = P.sp;
+    $('vN').textContent = P.n + '人'; $('vF').textContent = P.frac + '%';
+    $('vR').textContent = P.redis > 0 ? '100回あたり ' + P.redis + '%' : 'なし';
+    $('vS').textContent = '1秒に約' + SPEEDS[P.sp].toLocaleString('ja-JP') + '回';
+  }
+  $('kN').addEventListener('input', e => { P.n = +e.target.value; sync(); reset(); });
+  $('kF').addEventListener('input', e => { P.frac = +e.target.value; sync(); });
+  $('kR').addEventListener('input', e => { P.redis = +e.target.value; sync(); });
+  $('kS').addEventListener('input', e => { P.sp = +e.target.value; sync(); });
+  $('kgPlay').addEventListener('click', () => { playing = !playing; updPlay(); });
+  $('kgReset').addEventListener('click', () => { reset(); playing = true; updPlay(); flash('全員 1,000円にもどしました'); });
+
+  // ---------- シェア ----------
+  function shareText() { const st = calcStat(); return `全員1,000円から、公平なコイン投げの取引を${trades.toLocaleString('ja-JP')}回くり返したら、ジニ係数${st.gini.toFixed(2)}・上位10%の人が全体の${(st.top10 * 100).toFixed(0)}%を持つようになりました💰`; }
+  $('shareBtn').addEventListener('click', () => { const u = location.origin + location.pathname; window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText() + '\n') + '&url=' + encodeURIComponent(u) + '&hashtags=' + encodeURIComponent('シミュラボ'), '_blank', 'noopener'); });
+  $('copyBtn').addEventListener('click', async () => { try { await navigator.clipboard.writeText(shareText() + '\n' + location.origin + location.pathname); flash('コピーしました'); } catch (e) { flash('コピーできませんでした'); } });
+
+  // ---------- 動かす ----------
+  let tPrev = performance.now();
+  function loop(now) {
+    const dt = Math.min(.05, (now - tPrev) / 1000); tPrev = now;
+    advance(dt); draw(); requestAnimationFrame(loop);
+  }
+  sync(); reset(); updPlay();
+  requestAnimationFrame(loop);
+  window.__t = {
+    step(sec) { const n = Math.round(sec * 60); for (let i = 0; i < n; i++) advance(1 / 60); lastUI = 0; draw(); },
+    get s() { const st = calcStat(); let sum = 0; A.forEach(a => { sum += a.w; }); return { n: A.length, gini: st.gini, top10: st.top10, min: st.min, max: st.max, total: sum, expected: total, trades, parts: parts.length, playing, frac: P.frac, redis: P.redis, speed: SPEEDS[P.sp] }; },
+    set(o) { const nn = o.n != null && o.n !== P.n; Object.assign(P, o); sync(); if (nn) reset(); },
+    reset() { reset(); }
+  };
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'kakusa-umareru', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

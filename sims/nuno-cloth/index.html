@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/nuno-cloth/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/nuno-cloth.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/nuno-cloth.png">
+<title>布のシミュレーション｜つまむ・風を当てる・切る・破れる（質点とバネ・ベルレ法）｜シミュラボ</title>
+<meta name="description" content="カーテン・旗・ハンモック・ネットの布を、指やマウスでつまんで引っぱれるシミュレーター。風の強さ・重力・布の強さ・目の細かさを変えられ、強く引くと破れ、「切る」でなぞると切れます。ピン（留め具）の付け外しも自由。たくさんの点を糸でつなぐ「質点とバネ」の考え方と、ベルレ法という計算で動かしています。">
+<meta property="og:title" content="布のシミュレーション つまむ・風を当てる・切る・破れる">
+<meta property="og:description" content="たくさんの点を糸でつないだ布を、つまんで引っぱったり、風でゆらしたり、切ったりできる。引っぱられた糸は赤く光る。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/nuno-cloth/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "布のシミュレーション", "url": "https://shimulabo.com/sims/nuno-cloth/", "description": "カーテン・旗・ハンモック・ネットの布を、指やマウスでつまんで引っぱれるシミュレーター。風の強さ・重力・布の強さ・目の細かさを変えられ、強く引くと破れ、「切る」でなぞると切れます。ピン（留め具）の付け外しも自由。たくさんの点を糸でつなぐ「質点とバネ」の考え方と、ベルレ法という計算で動かしています。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "布のシミュレーション", "item": "https://shimulabo.com/sims/nuno-cloth/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "どうやって遊びますか？", "acceptedAnswer": {"@type": "Answer", "text": "まず「布のかたち」でカーテン・旗・ハンモック・ネットのどれかを選びます。道具が「つまむ」のときは、布をドラッグ（スマホでは指でなぞる）すると引っぱれます。「切る」にすると、なぞったところの糸が切れます。「ピン」にすると、布の点をタップしてピン（留め具）を付けたり外したりできます。"}}, {"@type": "Question", "name": "糸が赤くなるのはなぜですか？", "acceptedAnswer": {"@type": "Answer", "text": "もとの長さよりも伸びている糸に色をつけています。少し伸びると黄色、もっと伸びるとオレンジ、破れる直前は赤になります。ピンのまわりや、つまんでいる場所のまわりが赤くなりやすいのは、そこに力が集まるからです。"}}, {"@type": "Question", "name": "どのくらい引っぱると破れますか？", "acceptedAnswer": {"@type": "Answer", "text": "1本の糸が、決められた長さ（「布の強さ」で変わります）をこえて伸びると切れます。布の強さがいちばん弱いと元の長さの約1.5倍、ふつう（5）で約2.2倍、いちばん強いと約3倍で切れるようにしています。本物の布の数値ではなく、遊びやすさで決めた値です。"}}, {"@type": "Question", "name": "「目の細かさ」を変えると何が変わりますか？", "acceptedAnswer": {"@type": "Answer", "text": "布を作っている点の数が変わります。細かくすると、しわや波がなめらかに見えますが、計算する量がふえます。あらくすると、点と糸のつながりが見やすくなります。変えると布は最初の形にもどります。"}}, {"@type": "Question", "name": "本物の布と同じ動きですか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ、かなり単純にしています。このシミュレーターの布は画面の中（平面）だけで動き、奥行きはありません。布どうしがぶつかる計算もしていないので、重なるとすりぬけます。風も、空気の流れを計算しているのではなく、波のように強さが変わる力を加えているだけです。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+
+<style>
+.nc-row{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;margin-bottom:10px}
+.nc-lab{font-size:12.5px;font-weight:800;color:var(--ink-2);min-width:4.5em}
+.nc-seg{display:flex;flex-wrap:wrap;gap:6px}
+.nc-seg button,.nc-reset,.nc-mini{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 13px;font:inherit;font-size:13.5px;font-weight:800;cursor:pointer;color:var(--ink)}
+.nc-seg button.on{background:#be185d;border-color:#be185d;color:#fff}
+.nc-reset{margin-left:auto}
+.nc-mini{padding:5px 11px;font-size:12.5px;margin-left:6px}
+#ncWrap{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#0f172a}
+#nc{display:block;width:100%;aspect-ratio:4/3;touch-action:none;cursor:grab;-webkit-user-select:none;user-select:none}
+.nc-msg{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);background:rgba(255,255,255,.92);color:#0f172a;font-size:12.5px;font-weight:700;border-radius:12px;padding:6px 14px;max-width:92%;text-align:center;pointer-events:none;opacity:0;transition:opacity .3s}
+.nc-msg.show{opacity:1}
+.nc-note{font-size:13.5px;color:var(--ink);background:#fdf2f8;border-radius:10px;padding:9px 12px;margin:10px 0 0;font-weight:700}
+.nc-sum{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
+.nc-sum div{background:#fdf2f8;border-radius:12px;padding:10px 4px;text-align:center}
+.nc-sum b{display:block;font-size:20px;color:#be185d;font-variant-numeric:tabular-nums}
+.nc-sum b small{font-size:11.5px}
+.nc-sum span{font-size:11.5px;color:var(--ink-2);font-weight:700}
+.nc-sum div.warn{background:#fef2f2}.nc-sum div.warn b{color:#dc2626}
+.nc-cols{display:grid;grid-template-columns:1fr 1fr;gap:6px 22px;margin-top:16px}
+.nc-legend{font-size:12px;color:var(--ink-2);display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:8px}
+.nc-legend i{display:inline-block;width:18px;height:4px;border-radius:2px;vertical-align:3px;margin-right:4px}
+@media (max-width:640px){#nc{aspect-ratio:1/1}.nc-sum{grid-template-columns:repeat(2,1fr)}.nc-cols{grid-template-columns:1fr}.nc-seg button,.nc-reset{padding:8px 11px;font-size:13px}.nc-lab{min-width:100%}}
+</style>
+
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span>あそぶ・実験<span>›</span><span class="cur">布のシミュレーション</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">あそぶ・実験</div>
+    <h1>布のシミュレーション<br>つまんで、風を当てて、切ってみる</h1>
+    <p class="lead">布を指やマウスでつまんで引っぱってみましょう。風の強さや重力を変えると、ゆれ方が変わります。強く引っぱられた糸は赤くなり、限界をこえると破れます。「切る」でなぞって切ったり、ピン（留め具）を付け外ししたりもできます。</p>
+  </div>
+
+  <section class="panel" id="resultPanel">
+    <div class="nc-row"><span class="nc-lab">布のかたち</span>
+      <div class="nc-seg" id="ncPre"><button type="button" data-v="curtain" class="on">カーテン</button><button type="button" data-v="flag">旗</button><button type="button" data-v="hammock">ハンモック</button><button type="button" data-v="net">ネット</button></div>
+    </div>
+    <div class="nc-row"><span class="nc-lab">道具</span>
+      <div class="nc-seg" id="ncTool"><button type="button" data-v="grab" class="on">✋ つまむ</button><button type="button" data-v="cut">✂️ 切る</button><button type="button" data-v="pin">📌 ピン</button></div>
+      <button type="button" class="nc-reset" id="ncReset">↺ リセット</button>
+    </div>
+
+    <div id="ncWrap">
+      <canvas id="nc" aria-label="風にゆれる布。つまんで引っぱったり、切ったりできます"></canvas>
+      <div class="nc-msg" id="ncMsg"></div>
+    </div>
+    <div class="nc-legend"><span><i style="background:#fde047"></i>少し伸びている糸</span><span><i style="background:#fb923c"></i>かなり伸びている糸</span><span><i style="background:#ef4444"></i>破れる直前の糸</span><span>◎ ピン</span></div>
+    <p class="nc-note" id="ncNote"></p>
+    <div class="nc-sum">
+      <div><b id="mN">0</b><span>点の数</span></div>
+      <div><b id="mPin">0</b><span>ピンの数</span></div>
+      <div id="mTornBox"><b id="mTorn">0</b><span>切れた糸</span></div>
+      <div id="mStBox"><b id="mSt">0</b><span>いちばん伸びている糸</span></div>
+    </div>
+
+    <div class="nc-cols">
+      <div class="field"><label>🌬 風の強さ <span class="hint">（<b id="vWind"></b>）</span><button type="button" class="nc-mini" id="ncDir">右へ →</button></label><input type="range" id="kWind" min="0" max="10" step="1" value="2"></div>
+      <div class="field"><label>🍎 重力 <span class="hint">（<b id="vGrav"></b>）</span></label><input type="range" id="kGrav" min="0" max="2.5" step="0.1" value="1"></div>
+      <div class="field"><label>💪 布の強さ <span class="hint">（<b id="vStr"></b>）</span></label><input type="range" id="kStr" min="1" max="10" step="1" value="5"></div>
+      <div class="field"><label>🧶 目の細かさ <span class="hint">（<b id="vCols"></b>）</span></label><input type="range" id="kCols" min="14" max="44" step="2" value="28"></div>
+    </div>
+
+    <div style="text-align:center;margin-top:16px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+
+<h2>このシミュレーターのしくみ</h2>
+<p>この布は、たくさんの<b>点（質点）</b>を、たてとよこの<b>糸</b>でつないで作っています。糸は「もとの長さにもどろうとする」ので、ばねのようにはたらきます。この考え方は「質点とバネのモデル（マス・スプリングモデル）」とよばれ、ゲームや映像の布の表現で昔から使われてきました。</p>
+<p>1コマ（60分の1秒）ごとに、次の計算をくり返しています。</p>
+<ul>
+<li><b>① 点を動かす</b>：それぞれの点に、重力と風の力を加えます。点の「いまの位置」と「ひとつ前の位置」の差から次の位置を決める<b>ベルレ法（ベルレ積分）</b>を使っています。速さを別に覚えておかなくてよく、計算がこわれにくいのが特長です。</li>
+<li><b>② 糸の長さを直す</b>：伸びすぎた（または縮みすぎた）糸の両はしの点を、もとの長さに近づくように少しずつ動かします。これを全部の糸について何回もくり返します。</li>
+<li><b>③ 破れるかどうかを調べる</b>：それでも限界より長く伸びている糸は「切れた」ことにして、つながりを消します。</li>
+</ul>
+<p>ピンで留めた点と、つまんでいる点は、①と②で動かしません。だから、そのまわりの糸に力が集まります。布の明るさは、面の向きやつぶれ方に合わせて変えています。風があるときに流れていく明るい帯は、いま風が強く当たっているところです。</p>
+<p>単純にしている点：ばねの力を式（フックの法則）でそのまま計算するのではなく、②のように「長さを直す」方法で近似しています。ななめ方向の糸や、曲げにくさの計算は入れていません。重力のめもりは「1.0倍＝ふつう」というめやすで、本物の単位とは対応していません。</p>
+
+<h2>ためしてみたいこと</h2>
+<ul>
+<li><b>カーテンのピンを1つずつ外す</b>：道具を「ピン」にして、上のピンをタップします。残ったピンのまわりの糸の色がどう変わるか見てみましょう。</li>
+<li><b>旗で風を0にする → 10にする</b>：風がないと、旗はだらりと下がります。風を強くすると、波が旗の先に向かって流れていきます。</li>
+<li><b>布の強さを1にして引っぱる → 10にして引っぱる</b>：破れるまでに、どのくらい引っぱれるかをくらべてみましょう。</li>
+<li><b>「切る」で小さな切れ目を入れてから引っぱる</b>：切れ目のないところを引っぱったときと、破れ方をくらべてみましょう。</li>
+<li><b>重力を0にする</b>：布が宙にただよいます。風だけで動かすとどうなるでしょうか。</li>
+<li><b>ハンモックにピンを足す</b>：下がっているところにピンを付けると、布の形が変わります。ピンごとつまんで動かすこともできます。</li>
+</ul>
+
+<h2>本物では</h2>
+<p>本物の織物（おりもの）は、たて糸とよこ糸を交互に組み合わせて作られています。糸の方向には伸びにくい一方で、曲げたり折ったりするのはかんたんです。また、糸に対してななめの方向（バイアス方向）には、糸の方向よりも伸びやすい性質があります。</p>
+<p>布や紙は、小さな切れ目があると、そこから破れが広がりやすくなります。切れ目の先に力が集まるためで、これを「応力集中（おうりょくしゅうちゅう）」といいます。おかしの袋に小さな切りこみがあるのは、この性質を利用して開けやすくするためです。</p>
+<p>本物の旗がはためくときは、布の動きが空気の流れを変え、その空気の流れがまた布を動かす、というやりとりが起きています。このシミュレーターはそこまで計算していないので、はためき方は「それらしく見える」ようにしたものです。布の動きを正確に予測するためのものではありません。</p>
+
+    <h2>よくある質問</h2>
+    <dl class="faq"><dt>どうやって遊びますか？</dt><dd>まず「布のかたち」でカーテン・旗・ハンモック・ネットのどれかを選びます。道具が「つまむ」のときは、布をドラッグ（スマホでは指でなぞる）すると引っぱれます。「切る」にすると、なぞったところの糸が切れます。「ピン」にすると、布の点をタップしてピン（留め具）を付けたり外したりできます。</dd><dt>糸が赤くなるのはなぜですか？</dt><dd>もとの長さよりも伸びている糸に色をつけています。少し伸びると黄色、もっと伸びるとオレンジ、破れる直前は赤になります。ピンのまわりや、つまんでいる場所のまわりが赤くなりやすいのは、そこに力が集まるからです。</dd><dt>どのくらい引っぱると破れますか？</dt><dd>1本の糸が、決められた長さ（「布の強さ」で変わります）をこえて伸びると切れます。布の強さがいちばん弱いと元の長さの約1.5倍、ふつう（5）で約2.2倍、いちばん強いと約3倍で切れるようにしています。本物の布の数値ではなく、遊びやすさで決めた値です。</dd><dt>「目の細かさ」を変えると何が変わりますか？</dt><dd>布を作っている点の数が変わります。細かくすると、しわや波がなめらかに見えますが、計算する量がふえます。あらくすると、点と糸のつながりが見やすくなります。変えると布は最初の形にもどります。</dd><dt>本物の布と同じ動きですか？</dt><dd>いいえ、かなり単純にしています。このシミュレーターの布は画面の中（平面）だけで動き、奥行きはありません。布どうしがぶつかる計算もしていないので、重なるとすりぬけます。風も、空気の流れを計算しているのではなく、波のように強さが変わる力を加えているだけです。</dd></dl>
+    <h2>参考にした資料</h2>
+    <ul class="seo-refs"><li>文部科学省「中学校学習指導要領解説 理科編」（力の働き：ばねに加える力の大きさとばねの伸びの関係）</li><li>Verlet, L. (1967) Computer &quot;Experiments&quot; on Classical Fluids. I. Thermodynamical Properties of Lennard-Jones Molecules. Physical Review 159, 98–103.（ベルレ法）</li><li>Provot, X. (1995) Deformation Constraints in a Mass-Spring Model to Describe Rigid Cloth Behavior. Proceedings of Graphics Interface &#x27;95, 147–154.</li><li>Jakobsen, T. (2001) Advanced Character Physics. Game Developers Conference 2001.（糸の長さを直す計算をくり返す方法）</li></ul>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>関連するシミュレーター</h2>
+    <div class="related-grid"><a class="related-card" href="../double-pendulum/"><span class="e">🌀</span><span>二重振り子</span></a><a class="related-card" href="../newtons-cradle/"><span class="e">⚪</span><span>ニュートンのゆりかご</span></a><a class="related-card" href="../wave/"><span class="e">🌊</span><span>波のシミュレーション</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュレーターも見てみたい？</h2>
+    <p>あなたの「これシミュレーションしてみたい」を送ってください。面白い案から実際に作って、できたらお知らせします。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:8px;font-size:.85em"><!-- footer-links --><a href="../../about/">運営者情報</a>　<a href="../../privacy/">プライバシーポリシー</a>　<a href="../../terms/">利用規約</a>　<a href="../../contact/">お問い合わせ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const cv = $('nc'), ctx = cv.getContext('2d');
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+
+  // ---------- 布のかたち ----------
+  const PRESETS = {
+    curtain: { name: 'カーテン', wind: 2, w: 74, rr: .8, y0: 7, comp: .86, pal: [[219, 39, 119], [244, 114, 182]] },
+    flag: { name: '旗', wind: 8, w: 54, rr: .62, y0: 9, comp: 1, pal: [[250, 204, 21], [37, 99, 235]] },
+    hammock: { name: 'ハンモック', wind: 1, w: 80, rr: .42, y0: 12, comp: .8, pal: [[251, 146, 60], [254, 243, 199], [20, 184, 166]] },
+    net: { name: 'ネット', wind: 2, w: 72, rr: .72, y0: 8, comp: 1, pal: [[226, 232, 240]] },
+  };
+  let preset = 'curtain', cols = 28, rows = 0, N = 0, rest = 1, X0 = 0;
+  let X, Y, PX, PY, PIN, HOLD, KC;          // 点
+  let LA, LB, LOK, LBK, nL = 0, hIdx, vIdx; // 糸
+  let wind = 3, windDir = 1, gmul = 1, strength = 5, tool = 'grab';
+  let torn = 0, maxSt = 0, time = 0, VH = 75, dpr = 1;
+  let grab = null, ptrId = null, ptr = { x: 0, y: 0 }, trail = [];
+  const tearK = () => 1.3 + strength * .17;
+
+  function size() {
+    const w = cv.clientWidth || 600, h = cv.clientHeight || w * .75;
+    dpr = Math.min(2, window.devicePixelRatio || 1);
+    const W = Math.round(w * dpr), Hh = Math.round(h * dpr);
+    if (cv.width !== W || cv.height !== Hh) { cv.width = W; cv.height = Hh; }
+    VH = 100 * h / w;
+  }
+  function build() {
+    size();
+    const P = PRESETS[preset];
+    rest = P.w / (cols - 1);
+    rows = Math.round(cols * P.rr);
+    rows = Math.max(4, Math.min(rows, Math.floor((VH - P.y0 - 9) / rest) + 1));
+    X0 = preset === 'flag' ? 14 : (100 - P.w * P.comp) / 2;
+    N = cols * rows;
+    X = new Float64Array(N); Y = new Float64Array(N); PX = new Float64Array(N); PY = new Float64Array(N);
+    PIN = new Uint8Array(N); HOLD = new Uint8Array(N); KC = new Uint8Array(N);
+    hIdx = new Int32Array(N).fill(-1); vIdx = new Int32Array(N).fill(-1);
+    const k = Math.max(2, Math.round(cols / 9));
+    for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
+      const i = r * cols + c;
+      X[i] = PX[i] = X0 + c * rest * P.comp; Y[i] = PY[i] = P.y0 + r * rest;
+      if (preset === 'curtain') { KC[i] = Math.floor(c * 9 / cols) % 2; if (r === 0 && (c % k === 0 || c === cols - 1)) PIN[i] = 1; }
+      else if (preset === 'flag') { KC[i] = Math.floor(c / cols * 5 + r / rows * 2.5) % 2; if (c === 0) PIN[i] = 1; }
+      else if (preset === 'hammock') { KC[i] = Math.floor(r * 6 / rows) % 3; if (r === 0 && (c < 2 || c > cols - 3)) PIN[i] = 1; }
+      else { if ((r === 0 && (c % k === 0 || c === cols - 1)) || ((r === rows - 1) && (c === 0 || c === cols - 1)) || ((c === 0 || c === cols - 1) && r === Math.floor(rows / 2))) PIN[i] = 1; }
+    }
+    const maxL = (cols - 1) * rows + cols * (rows - 1);
+    LA = new Int32Array(maxL); LB = new Int32Array(maxL); LOK = new Uint8Array(maxL); LBK = new Uint8Array(maxL); nL = 0;
+    for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
+      const i = r * cols + c;
+      if (c < cols - 1) { hIdx[i] = nL; LA[nL] = i; LB[nL] = i + 1; LOK[nL] = 1; nL++; }
+      if (r < rows - 1) { vIdx[i] = nL; LA[nL] = i; LB[nL] = i + cols; LOK[nL] = 1; nL++; }
+    }
+    torn = 0; maxSt = 0; grab = null; trail = [];
+  }
+
+  // ---------- 計算（ベルレ法＋糸の長さを直す） ----------
+  const ITER = 10;
+  function sub(dt) {
+    time += dt;
+    const g = gmul * 58, W = (wind * wind * 1.6 + wind * 3) * windDir, aW = Math.abs(W), dt2 = dt * dt, damp = .994, floor = VH - .7;
+    const slow = .12 * Math.sin(time * .43 + 1.3);
+    for (let i = 0; i < N; i++) {
+      if (PIN[i] || HOLD[i]) { PX[i] = X[i]; PY[i] = Y[i]; continue; }
+      const x = X[i], y = Y[i];
+      const gust = .8 + .2 * Math.sin(time * 2.6 - x * .16 * windDir + y * .07) + slow;
+      const ax = W * gust;
+      const ay = g + aW * .55 * Math.sin(x * .21 - time * 4.1 * windDir + y * .13);
+      const vx = (x - PX[i]) * damp, vy = (y - PY[i]) * damp;
+      PX[i] = x; PY[i] = y;
+      X[i] = x + vx + ax * dt2; Y[i] = y + vy + ay * dt2;
+    }
+    if (grab) for (let q = 0; q < grab.ids.length; q++) { const i = grab.ids[q]; X[i] = PX[i] = clamp(grab.x + grab.ox[q], .4, 99.6); Y[i] = PY[i] = clamp(grab.y + grab.oy[q], .4, floor); }
+    for (let it = 0; it < ITER; it++) {
+      for (let k = 0; k < nL; k++) {
+        if (!LOK[k]) continue;
+        const a = LA[k], b = LB[k];
+        const dx = X[b] - X[a], dy = Y[b] - Y[a], d = Math.sqrt(dx * dx + dy * dy);
+        if (d < 1e-9) continue;
+        const wa = (PIN[a] || HOLD[a]) ? 0 : 1, wb = (PIN[b] || HOLD[b]) ? 0 : 1, s = wa + wb;
+        if (!s) continue;
+        const f = (d - rest) / d / s;
+        X[a] += dx * f * wa; Y[a] += dy * f * wa; X[b] -= dx * f * wb; Y[b] -= dy * f * wb;
+      }
+    }
+    for (let i = 0; i < N; i++) {
+      if (PIN[i] || HOLD[i]) continue;
+      if (Y[i] > floor) { Y[i] = floor; PY[i] = floor; PX[i] = X[i] - (X[i] - PX[i]) * .4; }
+      if (Y[i] < .4) Y[i] = .4;
+      if (X[i] < .4) X[i] = .4; else if (X[i] > 99.6) X[i] = 99.6;
+    }
+    // 破れる
+    const lim = rest * tearK(); let mx = 0;
+    for (let k = 0; k < nL; k++) {
+      if (!LOK[k]) continue;
+      const a = LA[k], b = LB[k], dx = X[b] - X[a], dy = Y[b] - Y[a], d = Math.sqrt(dx * dx + dy * dy);
+      if (d > lim) { LOK[k] = 0; torn++; continue; }
+      if (d > mx) mx = d;
+    }
+    maxSt = Math.max(0, mx / rest - 1);
+  }
+  function frame() { sub(1 / 120); sub(1 / 120); }
+
+  // ---------- 描く ----------
+  const shadeCache = {};
+  function shade(pal, kc, lv) {
+    const key = preset + kc + '_' + lv; let s = shadeCache[key];
+    if (!s) { const lum = lv / 16; s = shadeCache[key] = 'rgb(' + pal[kc].map(v => Math.round(lum <= 1 ? v * lum : v + (255 - v) * (lum - 1) * 1.4)).join(',') + ')'; }
+    return s;
+  }
+  function draw() {
+    size();
+    const c = ctx, S = cv.width / 100, P = PRESETS[preset];
+    c.setTransform(S, 0, 0, S, 0, 0);
+    const bg = c.createLinearGradient(0, 0, 0, VH); bg.addColorStop(0, '#0b1224'); bg.addColorStop(1, '#1e293b');
+    c.fillStyle = bg; c.fillRect(0, 0, 100, VH);
+    c.fillStyle = '#334155'; c.fillRect(0, VH - .7, 100, .7);
+    // かざり（さお・ポール）
+    c.lineCap = 'round'; c.strokeStyle = '#64748b';
+    if (preset === 'curtain') { c.lineWidth = .9; c.beginPath(); c.moveTo(6, P.y0 - .2); c.lineTo(94, P.y0 - .2); c.stroke(); }
+    else if (preset === 'flag') { c.lineWidth = 1.1; c.beginPath(); c.moveTo(X0 - .4, P.y0 - 3); c.lineTo(X0 - .4, VH - .7); c.stroke(); }
+    else if (preset === 'hammock') { c.lineWidth = 1.1; const xr = X0 + (cols - 1) * rest * P.comp; c.beginPath(); c.moveTo(X0 - .6, P.y0 - 2); c.lineTo(X0 - .6, VH - .7); c.moveTo(xr + .6, P.y0 - 2); c.lineTo(xr + .6, VH - .7); c.stroke(); }
+    c.lineJoin = 'round';
+    // 布の面（かげつき）
+    if (preset !== 'net') {
+      const r2 = rest * rest, sheen = .17 * Math.min(1, wind / 5); c.lineWidth = .14;
+      for (let r = 0; r < rows - 1; r++) for (let q = 0; q < cols - 1; q++) {
+        const a = r * cols + q, b = a + 1, d = a + cols, e = d + 1;
+        if (LOK[hIdx[a]] + LOK[hIdx[d]] + LOK[vIdx[a]] + LOK[vIdx[b]] < 3) continue;
+        const dx = X[b] - X[a], dy = Y[b] - Y[a], ex = X[d] - X[a], ey = Y[d] - Y[a];
+        const ar = (dx * ey - dy * ex) / r2;
+        let lum = .44 + .5 * Math.min(1, Math.abs(ar)) + .24 * clamp(dy / rest, -1, 1) - .1 * clamp(ex / rest, -1, 1) + sheen * Math.sin(time * 2.6 - X[a] * .16 * windDir + Y[a] * .07);
+        if (ar < 0) lum *= .6;
+        const col = shade(P.pal, KC[a], clamp(Math.round(lum * 16), 3, 20));
+        c.fillStyle = col; c.strokeStyle = col;
+        c.beginPath(); c.moveTo(X[a], Y[a]); c.lineTo(X[b], Y[b]); c.lineTo(X[e], Y[e]); c.lineTo(X[d], Y[d]); c.closePath(); c.fill(); c.stroke();
+      }
+    }
+    // 糸（伸びているほど赤く）
+    const tk = tearK() - 1;
+    for (let k = 0; k < nL; k++) {
+      if (!LOK[k]) { LBK[k] = 9; continue; }
+      const a = LA[k], b = LB[k], dx = X[b] - X[a], dy = Y[b] - Y[a];
+      const f = (Math.sqrt(dx * dx + dy * dy) / rest - 1) / tk;
+      LBK[k] = f > .7 ? 3 : f > .42 ? 2 : f > .18 ? 1 : 0;
+    }
+    const net = preset === 'net';
+    const ST = [[net ? 'rgba(226,232,240,.9)' : 'rgba(15,23,42,.16)', net ? .22 : .1], ['rgba(253,224,71,.85)', .24], ['rgba(251,146,60,.95)', .32], ['#ef4444', .42]];
+    for (let bk = 0; bk < 4; bk++) {
+      c.strokeStyle = ST[bk][0]; c.lineWidth = ST[bk][1]; c.beginPath();
+      for (let k = 0; k < nL; k++) { if (LBK[k] !== bk) continue; const a = LA[k], b = LB[k]; c.moveTo(X[a], Y[a]); c.lineTo(X[b], Y[b]); }
+      c.stroke();
+    }
+    // ピン
+    for (let i = 0; i < N; i++) {
+      if (!PIN[i]) continue;
+      c.fillStyle = '#f8fafc'; c.beginPath(); c.arc(X[i], Y[i], .95, 0, 7); c.fill();
+      c.fillStyle = '#e11d48'; c.beginPath(); c.arc(X[i], Y[i], .45, 0, 7); c.fill();
+    }
+    // つまんでいる場所・切ったあと
+    if (grab) { c.strokeStyle = 'rgba(255,255,255,.8)'; c.lineWidth = .25; c.beginPath(); c.arc(grab.x, grab.y, grab.R, 0, 7); c.stroke(); }
+    if (trail.length > 1) {
+      const now = performance.now();
+      trail = trail.filter(p => now - p[2] < 350);
+      c.strokeStyle = 'rgba(255,255,255,.75)'; c.lineWidth = .3; c.beginPath();
+      trail.forEach((p, i) => i ? c.lineTo(p[0], p[1]) : c.moveTo(p[0], p[1])); c.stroke();
+    }
+    ui();
+  }
+
+  // ---------- 数字 ----------
+  let lastUI = 0;
+  function pinCount() { let n = 0; for (let i = 0; i < N; i++) n += PIN[i]; return n; }
+  function ui() {
+    const now = performance.now(); if (now - lastUI < 160) return; lastUI = now;
+    $('mN').innerHTML = N + '<small>こ</small>';
+    $('mPin').innerHTML = pinCount() + '<small>こ</small>';
+    $('mTorn').innerHTML = torn + '<small>本</small>';
+    $('mSt').innerHTML = '+' + Math.round(maxSt * 100) + '<small>%</small>';
+    $('mTornBox').classList.toggle('warn', torn > 0);
+    $('mStBox').classList.toggle('warn', maxSt > (tearK() - 1) * .7);
+  }
+  function flash(s) { const el = $('ncMsg'); el.textContent = s; el.classList.add('show'); clearTimeout(flash.t); flash.t = setTimeout(() => el.classList.remove('show'), 2200); }
+
+  // ---------- つまむ・切る・ピン ----------
+  function nearest(x, y, maxD) {
+    let best = -1, bd = maxD * maxD;
+    for (let i = 0; i < N; i++) { const dx = X[i] - x, dy = Y[i] - y, d = dx * dx + dy * dy; if (d < bd) { bd = d; best = i; } }
+    return best;
+  }
+  function grabAt(x, y, reach) {
+    const n = nearest(x, y, reach); if (n < 0) return false;
+    const R = Math.max(rest * 1.5, 2.4), cx = X[n], cy = Y[n];
+    grab = { ids: [], ox: [], oy: [], x, y, R };
+    for (let i = 0; i < N; i++) { const dx = X[i] - cx, dy = Y[i] - cy; if (dx * dx + dy * dy <= R * R) { grab.ids.push(i); grab.ox.push(X[i] - x); grab.oy.push(Y[i] - y); HOLD[i] = 1; } }
+    return true;
+  }
+  function release() { if (grab) { grab.ids.forEach(i => HOLD[i] = 0); grab = null; } }
+  function cutSeg(x1, y1, x2, y2) {
+    const rx = x2 - x1, ry = y2 - y1; let n = 0;
+    if (rx * rx + ry * ry < 1e-8) return 0;
+    for (let k = 0; k < nL; k++) {
+      if (!LOK[k]) continue;
+      const a = LA[k], b = LB[k], sx = X[b] - X[a], sy = Y[b] - Y[a], den = rx * sy - ry * sx;
+      if (Math.abs(den) < 1e-12) continue;
+      const qx = X[a] - x1, qy = Y[a] - y1, t = (qx * sy - qy * sx) / den, u = (qx * ry - qy * rx) / den;
+      if (t >= 0 && t <= 1 && u >= 0 && u <= 1) { LOK[k] = 0; torn++; n++; }
+    }
+    return n;
+  }
+  function togglePin(x, y, reach) {
+    const n = nearest(x, y, reach); if (n < 0) { flash('布の点の近くをタップしてください'); return -1; }
+    PIN[n] ^= 1; flash(PIN[n] ? '📌 ピンを付けました' : 'ピンを外しました'); return n;
+  }
+  function wpos(e) { const r = cv.getBoundingClientRect(); return [(e.clientX - r.left) / r.width * 100, (e.clientY - r.top) / r.width * 100]; }
+  cv.addEventListener('pointerdown', e => {
+    if (ptrId !== null) return;
+    e.preventDefault(); ptrId = e.pointerId; try { cv.setPointerCapture(e.pointerId); } catch (err) {}
+    const [x, y] = wpos(e), touch = e.pointerType === 'touch'; ptr.x = x; ptr.y = y;
+    if (tool === 'grab') { if (grabAt(x, y, touch ? 10 : 7)) cv.style.cursor = 'grabbing'; }
+    else if (tool === 'cut') trail = [[x, y, performance.now()]];
+    else togglePin(x, y, touch ? 9 : 6);
+  });
+  cv.addEventListener('pointermove', e => {
+    if (e.pointerId !== ptrId) return;
+    e.preventDefault();
+    const [x, y] = wpos(e);
+    if (tool === 'grab' && grab) { grab.x = x; grab.y = y; }
+    else if (tool === 'cut') { cutSeg(ptr.x, ptr.y, x, y); trail.push([x, y, performance.now()]); }
+    ptr.x = x; ptr.y = y;
+  });
+  const up = e => { if (e.pointerId !== ptrId) return; if (tool === 'cut' && e.type === 'pointerup') { const [x, y] = wpos(e); cutSeg(ptr.x, ptr.y, x, y); } ptrId = null; release(); setCursor(); };
+  cv.addEventListener('pointerup', up); cv.addEventListener('pointercancel', up);
+  cv.addEventListener('contextmenu', e => e.preventDefault());
+
+  // ---------- 操作 ----------
+  const NOTES = {
+    grab: '✋ 布をつまんで引っぱってみましょう。強く引くと糸が赤くなり、やがて破れます。ピンごと動かすこともできます。',
+    cut: '✂️ 布の上をなぞると、通ったところの糸が切れます。',
+    pin: '📌 布の点をタップすると、ピン（留め具）を付けたり外したりできます。',
+  };
+  function setCursor() { cv.style.cursor = tool === 'grab' ? 'grab' : tool === 'cut' ? 'crosshair' : 'pointer'; }
+  function setTool(t) { tool = t; release(); document.querySelectorAll('#ncTool button').forEach(b => b.classList.toggle('on', b.dataset.v === t)); $('ncNote').textContent = NOTES[t]; setCursor(); }
+  function syncLabels() {
+    $('vWind').textContent = wind === 0 ? '0・なし' : wind + '・' + (wind <= 3 ? 'そよ風' : wind <= 7 ? '強い風' : 'あらし');
+    $('vGrav').textContent = gmul.toFixed(1) + '倍' + (gmul === 0 ? '・無重力' : gmul === 1 ? '・ふつう' : '');
+    $('vStr').textContent = strength + '・' + (strength <= 3 ? '破れやすい' : strength <= 7 ? 'ふつう' : '破れにくい');
+    $('vCols').textContent = 'よこ' + cols + '×たて' + rows;
+    $('ncDir').textContent = windDir > 0 ? '右へ →' : '← 左へ';
+    $('kWind').value = wind;
+  }
+  function setPreset(p, keepWind) {
+    preset = p; if (!keepWind) wind = PRESETS[p].wind;
+    document.querySelectorAll('#ncPre button').forEach(b => b.classList.toggle('on', b.dataset.v === p));
+    build(); syncLabels(); lastUI = 0;
+  }
+  $('ncPre').addEventListener('click', e => { const b = e.target.closest('button'); if (b) setPreset(b.dataset.v); });
+  $('ncTool').addEventListener('click', e => { const b = e.target.closest('button'); if (b) setTool(b.dataset.v); });
+  $('ncReset').addEventListener('click', () => { setPreset(preset, true); flash('布を最初の形にもどしました'); });
+  $('kWind').addEventListener('input', e => { wind = +e.target.value; syncLabels(); });
+  $('kGrav').addEventListener('input', e => { gmul = +e.target.value; syncLabels(); });
+  $('kStr').addEventListener('input', e => { strength = +e.target.value; syncLabels(); });
+  $('kCols').addEventListener('input', e => { cols = +e.target.value; setPreset(preset, true); });
+  $('ncDir').addEventListener('click', e => { e.preventDefault(); windDir = -windDir; syncLabels(); });
+
+  // ---------- シェア ----------
+  function shareText() { return `布のシミュレーション（${PRESETS[preset].name}・点${N}こ）で遊びました。切れた糸は${torn}本、いちばん伸びている糸は+${Math.round(maxSt * 100)}%🧵`; }
+  $('shareBtn').addEventListener('click', () => { const u = location.origin + location.pathname; window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText() + '\n') + '&url=' + encodeURIComponent(u) + '&hashtags=' + encodeURIComponent('シミュラボ'), '_blank', 'noopener'); });
+  $('copyBtn').addEventListener('click', async () => { try { await navigator.clipboard.writeText(shareText() + '\n' + location.origin + location.pathname); flash('コピーしました'); } catch (e) { flash('コピーできませんでした'); } });
+
+  // ---------- 動かす ----------
+  let tPrev = performance.now(), acc = 0;
+  function loop(now) {
+    acc += Math.min(.05, (now - tPrev) / 1000); tPrev = now;
+    let n = 0; while (acc >= 1 / 60 && n < 3) { frame(); acc -= 1 / 60; n++; }
+    if (n === 3) acc = 0;
+    draw(); requestAnimationFrame(loop);
+  }
+  setTool('grab'); setPreset('curtain');
+  for (let i = 0; i < 90; i++) frame();   // 最初から自然にたれた形で見せる
+  requestAnimationFrame(loop);
+
+  window.__t = {
+    step(sec) { const n = Math.max(1, Math.round(sec * 60)); for (let i = 0; i < n; i++) frame(); lastUI = 0; draw(); },
+    get s() {
+      let nan = false, minX = 1e9, maxX = -1e9, minY = 1e9, maxY = -1e9, alive = 0;
+      for (let i = 0; i < N; i++) { if (!(X[i] === X[i]) || !(Y[i] === Y[i])) nan = true; minX = Math.min(minX, X[i]); maxX = Math.max(maxX, X[i]); minY = Math.min(minY, Y[i]); maxY = Math.max(maxY, Y[i]); }
+      for (let k = 0; k < nL; k++) alive += LOK[k];
+      const r1 = v => Math.round(v * 10) / 10;
+      return { preset, cols, rows, points: N, links: nL, alive, torn, pins: pinCount(), maxStretchPct: Math.round(maxSt * 100), tearPct: Math.round((tearK() - 1) * 100), wind, windDir, gmul, strength, tool, time: r1(time), VH: r1(VH), bbox: [r1(minX), r1(minY), r1(maxX), r1(maxY)], nan };
+    },
+    setPreset, setTool, grabAt(x, y) { return grabAt(x, y, 8); }, moveTo(x, y) { if (grab) { grab.x = x; grab.y = y; } }, release, cut: cutSeg, pin(x, y) { return togglePin(x, y, 8); },
+    set(o) { if ('wind' in o) wind = o.wind; if ('windDir' in o) windDir = o.windDir; if ('gmul' in o) gmul = o.gmul; if ('strength' in o) strength = o.strength; syncLabels(); },
+  };
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'nuno-cloth', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

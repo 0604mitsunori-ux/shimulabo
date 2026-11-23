@@ -1,0 +1,474 @@
+# -*- coding: utf-8 -*-
+"""粘菌ネットワークのシミュレーション（2026-11-24）
+   Physarum のエージェントモデル（Jones 2010 の考え方）を単純にしたもの。
+   sims/nenkin-network/index.html を書き出す（冪等）。 使い方: python -X utf8 scripts/gen_nenkin_network.py"""
+import html as H, io, json, os, sys
+
+sys.stdout.reconfigure(encoding="utf-8")
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE = "https://shimulabo.com"
+SLUG = "nenkin-network"
+NAME = "粘菌ネットワークのシミュレーション"
+CAT = "ふしぎ・現象"
+TITLE = "粘菌ネットワークのシミュレーション｜粒子が「通った跡」をたどると網目ができるしくみ（モジホコリ）｜シミュラボ"
+DESC = ("数千の粒子が、前方の左・中央・右の「通った跡」の濃さを感じて濃い方へ曲がり、自分も跡を残す。それだけのルールで、粘菌（モジホコリ）のような網目のネットワークができるようすを見られるシミュレーション。"
+        "タップでエサを置くと、エサどうしを結ぶ形に変わっていきます。粒子の数・感じる角度・曲がる角度・跡の消える速さを変えられます。")
+OG_T = "粘菌ネットワークのシミュレーション"
+OG_D = "粒子が「通った跡」の濃い方へ曲がるだけで、粘菌のような網目ができる。タップでエサを置くと、エサを結ぶ形に変わります。"
+H1 = "粘菌ネットワークのシミュレーション<br>「通った跡」をたどると網目ができる"
+LEAD = ("数千の粒子が、前にある「通った跡」の濃い方へ曲がりながら進み、自分も跡を残します。それだけのルールで、粘菌（モジホコリ）のような網目のネットワークができていきます。"
+        "画面をタップしてエサを置くと、エサどうしを結ぶ形に変わっていきます。")
+
+FAQ = [
+    ("どうやって遊びますか？", "開くと、粒子が動いて黄色い網目ができていきます。画面をタップ（クリック）するとエサを置けます。置いたエサをもう一度タップすると消えます。上のボタンで「網目」「エサを結ぶ」「輪」の3つの始め方を選べます。動きが重いときは、粒子の数を減らしてください。"),
+    ("なぜ網目のような形になるのですか？", "粒子は「跡の濃い方へ曲がる」と「自分も跡を残す」の2つをくり返します。すると、たまたま粒子が多く通った道は跡が濃くなり、さらに多くの粒子が集まります。通る粒子が少ない道は、跡がうすれて消えます。この「多いところが、もっと多くなる」しくみで、細い道（管）だけが残ります。"),
+    ("「感じる角度」と「曲がる角度」を変えると、どうなりますか？", "「感じる角度」は、左右のセンサーが正面からどれだけ開いているかです。「曲がる角度」は、1回に向きを変える大きさです。この2つを変えると、網目の細かさや、ちぢむ速さ、形が変わります。決まった正解はないので、少しずつ動かして比べてみてください。"),
+    ("本物の粘菌には、脳や目がありますか？", "ありません。モジホコリの変形体（へんけいたい）は、たくさんの核をもつ1つの大きな細胞で、脳も神経もありません。それでも、エサのある場所を管で結ぶ形に体を変えることが、実験で知られています。"),
+    ("このシミュレーションは、本物の粘菌と同じですか？", "同じではありません。本物の粘菌は小さな粒の集まりではなく、管の中を体の中身が流れることで、管の太さを変えています。このシミュレーションは「跡をたどって跡を残す」という単純なルールだけで、似た形ができることを見るためのものです。"),
+]
+REL = [("turing", "🐆", "チューリング・パターン"), ("boids", "🐦", "ボイド（鳥の群れ）"), ("voronoi", "🔷", "ボロノイ図")]
+
+ARTICLE = """
+<h2>このシミュレーターのしくみ</h2>
+<p>画面の中には、数千の小さな<b>粒子</b>がいます。粒子は1つ1つがとても単純で、次の3つをくり返しているだけです。</p>
+<ol>
+<li><b>感じる</b>：進む向きの少し先を、左ななめ前・正面・右ななめ前の3か所で調べ、「通った跡」がどれくらい濃いかをくらべます。</li>
+<li><b>曲がる</b>：正面がいちばん濃ければ、そのまま進みます。左か右のほうが濃ければ、そちらへ少し曲がります。正面がいちばんうすいときは、左右どちらかへ気まぐれに曲がります。</li>
+<li><b>進んで跡を残す</b>：1歩進み、その場所に自分の跡を残します。</li>
+</ol>
+<p>跡は、時間がたつとまわりに少しずつ広がり、うすくなって消えます。粒子がよく通る道だけ跡が濃いまま残り、そこにまた粒子が集まります。だれかが全体の形を決めているわけではないのに、網目のような管ができるのは、このためです。</p>
+<p>エサを置くと、その場所から跡と同じものが出つづけます。近くの粒子がエサに集まり、エサとエサのあいだの道が残りやすくなります。</p>
+<p>この考え方は、ジェフ・ジョーンズ（Jeff Jones）さんが2010年の論文で発表した粘菌のモデルをもとにしています。元のモデルと同じく、「1つのマスに入れる粒子は1つだけ」という決まりも入れてあります。ただし、数字の決め方やエサのあつかいは、このページ用に単純にしています。</p>
+
+<h2>ためしてみたいこと</h2>
+<ul>
+<li><b>何もせずにながめる</b>：最初は細かい網目ですが、時間がたつと小さな輪がとじて、だんだん大きな網目に変わっていきます。</li>
+<li><b>エサを2つ、3つと置く</b>：エサのまわりに粒子が集まり、エサどうしを結ぶ道が太く残っていきます。下の「管でつながったエサ」の数字も見てみましょう。</li>
+<li><b>「跡の消える速さ」を速くする</b>：跡がすぐ消えるので、道が細くなります。おそくすると、跡が長く残り、道が太くぼんやりします。</li>
+<li><b>「感じる角度」を小さくする・大きくする</b>：網目の形や、ちぢむ速さが変わります。</li>
+<li><b>「輪」ではじめる</b>：輪の形にならんだ粒子が、そのまま輪の形の管になります。外へ向かった粒子が「しっぽ」を作ることもあります。</li>
+<li><b>粒子の数を変える</b>：少ないと道が細くまばらに、多いと太くびっしりになります。</li>
+</ul>
+
+<h2>本物では</h2>
+<p>モジホコリは、森の落ち葉や朽ち木にいる「真正粘菌（変形菌）」のなかまです。変形体とよばれる黄色い体は、たくさんの核をもつ1つの大きな細胞で、管を網目のようにのばして広がります。エサを見つけると、エサを結ぶ管を太くし、使わない管を細くして引っこめます。</p>
+<p>2000年には、中垣俊之さんたちが、迷路の入口と出口にエサを置くと、粘菌が2つを結ぶ短い道すじに体を残すことを報告しました。2010年には、手老篤史さんたちが、関東地方の都市の位置にエサを置くと、粘菌が実際の鉄道網に似たネットワークを作ることを報告しています。</p>
+<p>このページのシミュレーションは、こうした実験を再現するものではありません。地形や光などの条件も入れていません。「近くのことだけを感じて動く単純なものが集まると、全体として形ができる」というしくみを、目で見るためのものです。</p>
+"""
+
+REFS = [
+    "Jones, J. (2010) Characteristics of pattern formation and evolution in approximations of Physarum transport networks. Artificial Life 16(2), 127–153.",
+    "Tero, A. et al. (2010) Rules for biologically inspired adaptive network design. Science 327, 439–442.",
+    "Nakagaki, T., Yamada, H. &amp; Tóth, Á. (2000) Maze-solving by an amoeboid organism. Nature 407, 470.",
+]
+
+STAGE = r"""
+<style>
+.nk-seg{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.nk-seg button{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 13px;font:inherit;font-size:13.5px;font-weight:800;cursor:pointer;color:var(--ink)}
+.nk-seg button.on{background:#ca8a04;border-color:#ca8a04;color:#fff}
+#nkWrap{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#0e0a04;margin-top:12px}
+#nkCv{display:block;width:100%;aspect-ratio:4/3;touch-action:pan-y;cursor:crosshair}
+.nk-play{position:absolute;left:10px;top:10px;display:flex;gap:6px;flex-wrap:wrap}
+.nk-play button{border:0;border-radius:999px;background:rgba(255,255,255,.16);color:#fff;font:inherit;font-weight:800;font-size:12.5px;padding:7px 12px;cursor:pointer;backdrop-filter:blur(4px)}
+.nk-msg{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);background:rgba(15,23,42,.85);color:#fff;font-size:12.5px;font-weight:700;border-radius:12px;padding:6px 14px;max-width:92%;text-align:center;pointer-events:none;opacity:0;transition:opacity .3s}
+.nk-msg.show{opacity:1}
+.nk-sum{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
+.nk-sum div{background:#fefce8;border-radius:12px;padding:10px 4px;text-align:center}
+.nk-sum b{display:block;font-size:20px;color:#a16207;font-variant-numeric:tabular-nums}
+.nk-sum b small{font-size:11.5px}
+.nk-sum span{font-size:11.5px;color:var(--ink-2);font-weight:700}
+.nk-note{font-size:13.5px;color:var(--ink);background:#fefce8;border-radius:10px;padding:9px 12px;margin:10px 0 0;font-weight:700}
+.nk-cols{display:grid;grid-template-columns:1fr 1fr;gap:6px 22px}
+.nk-hint{font-size:13px;color:var(--ink-2);margin:0 0 6px}
+@media (max-width:640px){.nk-sum{grid-template-columns:repeat(2,1fr)}.nk-cols{grid-template-columns:1fr}.nk-play button{padding:6px 10px;font-size:12px}}
+</style>
+"""
+
+BODY = r"""
+  <section class="panel" id="resultPanel">
+    <h2 style="margin:0 0 8px;font-size:18px;">① はじめ方をえらぶ</h2>
+    <div class="nk-seg" id="nkPre">
+      <button type="button" data-p="mesh" class="on">🕸 網目</button>
+      <button type="button" data-p="food">🟡 エサを結ぶ</button>
+      <button type="button" data-p="ring">⭕ 輪</button>
+    </div>
+
+    <div id="nkWrap">
+      <canvas id="nkCv" aria-label="粒子の通った跡が黄色い網目になっていくようす"></canvas>
+      <div class="nk-play"><button type="button" id="nkPlay">⏸ 止める</button><button type="button" id="nkReset">↺ リセット</button><button type="button" id="nkClear">エサを消す</button></div>
+      <div class="nk-msg" id="nkMsg"></div>
+    </div>
+    <div class="nk-sum">
+      <div><b id="mN">0</b><span>粒子の数</span></div>
+      <div><b id="mArea">0</b><span>跡のある面積</span></div>
+      <div><b id="mFood">0</b><span>エサの数</span></div>
+      <div><b id="mLink">–</b><span>管でつながったエサ</span></div>
+    </div>
+    <p class="nk-note" id="nkNote">🟡 画面をタップすると、エサを置けます。</p>
+
+    <h2 style="margin:20px 0 10px;font-size:18px;">② 粒子の決まりを変える（いつでも変えられます）</h2>
+    <div class="nk-cols">
+      <div class="field"><label>粒子の数 <span class="hint">（<b id="vN"></b>）</span></label><input type="range" id="kN" min="1000" max="16000" step="1000" value="6000"></div>
+      <div class="field"><label>跡の消える速さ <span class="hint">（<b id="vDec"></b>）</span></label><input type="range" id="kDec" min="1" max="10" step="1" value="5"></div>
+      <div class="field"><label>感じる角度 <span class="hint">（左右に <b id="vSa"></b>）</span></label><input type="range" id="kSa" min="5" max="90" step="1" value="25"></div>
+      <div class="field"><label>曲がる角度 <span class="hint">（1回に <b id="vRa"></b>）</span></label><input type="range" id="kRa" min="5" max="90" step="1" value="45"></div>
+    </div>
+    <p class="nk-hint">エサは12個まで置けます。置いたエサをもう一度タップすると消えます。</p>
+
+    <div style="text-align:center;margin-top:16px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+"""
+
+JS = r"""
+(() => {
+  const $ = id => document.getElementById(id);
+  const cv = $('nkCv'), ctx = cv.getContext('2d');
+  // ---------- 計算用の格子（低解像度）と粒子 ----------
+  const GW = 256, GH = 192, NC = GW * GH, MAXN = 16000, SO = 9, SUB = 2, DEP = 1, TH = .6, MAXF = 12;
+  const trail = new Float32Array(NC), tmp = new Float32Array(NC);
+  const px = new Float32Array(MAXN), py = new Float32Array(MAXN), ph = new Float32Array(MAXN);
+  const label = new Uint8Array(NC), stack = new Int32Array(NC), occ = new Uint8Array(NC);
+  const TAU = Math.PI * 2;
+  let N = 6000, sa = 25, ra = 45, dec = 5, preset = 'mesh', simT = 0, fc = 0, playing = true;
+  let foods = [], area = 0, linked = 0, vmax = 0, vmean = 0;
+  const PRE = {
+    mesh: { sa: 25, ra: 45, dec: 5, foods: [] },
+    food: { sa: 40, ra: 45, dec: 5, foods: [[.16, .3], [.5, .2], [.84, .28], [.3, .55], [.68, .58], [.14, .84], [.52, .88], [.86, .8]] },
+    ring: { sa: 45, ra: 45, dec: 5, foods: [] },
+  };
+  const off = document.createElement('canvas'); off.width = GW; off.height = GH;
+  const octx = off.getContext('2d'), img = octx.createImageData(GW, GH), pix = new Uint32Array(img.data.buffer);
+  // 黄色系の色（暗い茶 → こはく → 黄 → 白っぽい黄）
+  const LUT = new Uint32Array(256);
+  (() => {
+    const st = [[0, 14, 10, 4], [.16, 70, 40, 2], [.42, 190, 120, 4], [.66, 250, 196, 20], [.86, 255, 232, 96], [1, 255, 251, 214]];
+    for (let i = 0; i < 256; i++) {
+      const t = i / 255; let k = 0; while (k < st.length - 2 && t > st[k + 1][0]) k++;
+      const a = st[k], b = st[k + 1], u = Math.min(1, Math.max(0, (t - a[0]) / (b[0] - a[0])));
+      const r = Math.round(a[1] + (b[1] - a[1]) * u), g = Math.round(a[2] + (b[2] - a[2]) * u), bl = Math.round(a[3] + (b[3] - a[3]) * u);
+      LUT[i] = ((255 << 24) | (bl << 16) | (g << 8) | r) >>> 0;
+    }
+  })();
+  // エサが出す跡の形（円・中心ほど濃い）
+  function stamp(R) { const o = []; for (let dy = -R; dy <= R; dy++) for (let dx = -R; dx <= R; dx++) { const d = Math.hypot(dx, dy); if (d < R) o.push(dx, dy, 1 - d / R); } return o; }
+  const ST_FOOD = stamp(5), ST_SPLASH = stamp(13);
+  function putStamp(st, cx, cy, amt) {
+    for (let k = 0; k < st.length; k += 3) { const x = cx + st[k], y = cy + st[k + 1]; if (x < 0 || y < 0 || x >= GW || y >= GH) continue; trail[y * GW + x] += amt * st[k + 2]; }
+  }
+  function spawn(i) {
+    if (preset === 'ring') { const a = Math.random() * TAU, r = GH * .36 + (Math.random() - .5) * 5; px[i] = GW / 2 + Math.cos(a) * r; py[i] = GH / 2 + Math.sin(a) * r; }
+    else { px[i] = Math.random() * GW; py[i] = Math.random() * GH; }
+    ph[i] = Math.random() * TAU;
+  }
+
+  // ---------- 1コマぶんの計算 ----------
+  function tick() {
+    const cs = Math.cos(sa * Math.PI / 180), sn = Math.sin(sa * Math.PI / 180), rr = ra * Math.PI / 180;
+    occ.fill(0);
+    for (let i = 0; i < N; i++) occ[(py[i] | 0) * GW + (px[i] | 0)] = 1;
+    for (let i = 0; i < N; i++) {
+      const x = px[i], y = py[i]; let h = ph[i];
+      const c = Math.cos(h), s = Math.sin(h);
+      let sx = x + c * SO, sy = y + s * SO;
+      const f = (sx < 0 || sy < 0 || sx >= GW || sy >= GH) ? -1 : trail[(sy | 0) * GW + (sx | 0)];
+      sx = x + (c * cs + s * sn) * SO; sy = y + (s * cs - c * sn) * SO;
+      const l = (sx < 0 || sy < 0 || sx >= GW || sy >= GH) ? -1 : trail[(sy | 0) * GW + (sx | 0)];
+      sx = x + (c * cs - s * sn) * SO; sy = y + (s * cs + c * sn) * SO;
+      const r = (sx < 0 || sy < 0 || sx >= GW || sy >= GH) ? -1 : trail[(sy | 0) * GW + (sx | 0)];
+      let nx, ny;
+      if (f > l && f > r) { nx = x + c; ny = y + s; }
+      else {
+        if (f < l && f < r) h += Math.random() < .5 ? -rr : rr; else if (l < r) h += rr; else if (r < l) h -= rr;
+        if (h > TAU) h -= TAU; else if (h < 0) h += TAU;
+        nx = x + Math.cos(h); ny = y + Math.sin(h);
+      }
+      if (nx < 0 || ny < 0 || nx >= GW || ny >= GH) { ph[i] = Math.random() * TAU; continue; }
+      // 1つのマスに粒子は1つだけ。先にだれかがいたら、動かずに向きだけ変える
+      const o = (y | 0) * GW + (x | 0), q = (ny | 0) * GW + (nx | 0);
+      if (q !== o) { if (occ[q]) { ph[i] = Math.random() * TAU; continue; } occ[o] = 0; occ[q] = 1; }
+      px[i] = nx; py[i] = ny; ph[i] = h;
+      trail[q] += DEP;
+    }
+    for (const fd of foods) putStamp(ST_FOOD, fd.x | 0, fd.y | 0, 2.2);
+    // 跡がまわりに広がって、うすくなる
+    for (let y = 0; y < GH; y++) {
+      const row = y * GW;
+      tmp[row] = trail[row] * 2 + trail[row + 1];
+      for (let x = 1; x < GW - 1; x++) tmp[row + x] = trail[row + x - 1] + trail[row + x] + trail[row + x + 1];
+      tmp[row + GW - 1] = trail[row + GW - 2] + trail[row + GW - 1] * 2;
+    }
+    const k = (1 - dec * .02) / 9;
+    for (let y = 0; y < GH; y++) {
+      const row = y * GW, rm = (y > 0 ? y - 1 : y) * GW, rp = (y < GH - 1 ? y + 1 : y) * GW;
+      for (let x = 0; x < GW; x++) trail[row + x] = (tmp[rm + x] + tmp[row + x] + tmp[rp + x]) * k;
+    }
+  }
+  function frame() { for (let k = 0; k < SUB; k++) tick(); simT += 1 / 60; fc++; if (fc % 20 === 0) stats(); }
+
+  // ---------- 数字 ----------
+  function stats() {
+    let n = 0, mx = 0, sum = 0;
+    for (let i = 0; i < NC; i++) { const v = trail[i]; if (v > TH) n++; if (v > mx) mx = v; sum += v; }
+    area = n / NC * 100; vmax = mx; vmean = sum / NC;
+    linked = 0;
+    if (foods.length) {
+      label.fill(0); const cnt = new Array(foods.length + 1).fill(0); let best = 1;
+      foods.forEach((fd, fi) => {
+        const st0 = (fd.y | 0) * GW + (fd.x | 0);
+        if (label[st0]) { cnt[label[st0]]++; best = Math.max(best, cnt[label[st0]]); return; }
+        const id = fi + 1; cnt[id] = 1; let sp = 0; stack[sp++] = st0; label[st0] = id;
+        while (sp) {
+          const p = stack[--sp], x = p % GW;
+          if (x > 0 && !label[p - 1] && trail[p - 1] > TH) { label[p - 1] = id; stack[sp++] = p - 1; }
+          if (x < GW - 1 && !label[p + 1] && trail[p + 1] > TH) { label[p + 1] = id; stack[sp++] = p + 1; }
+          if (p >= GW && !label[p - GW] && trail[p - GW] > TH) { label[p - GW] = id; stack[sp++] = p - GW; }
+          if (p < NC - GW && !label[p + GW] && trail[p + GW] > TH) { label[p + GW] = id; stack[sp++] = p + GW; }
+        }
+      });
+      linked = best;
+    }
+  }
+  let lastUI = 0;
+  function ui(force) {
+    const now = performance.now(); if (!force && now - lastUI < 250) return; lastUI = now;
+    $('mN').innerHTML = N.toLocaleString() + '<small>個</small>';
+    $('mArea').innerHTML = area.toFixed(1) + '<small>%</small>';
+    $('mFood').innerHTML = foods.length + '<small>個</small>';
+    $('mLink').innerHTML = foods.length >= 2 ? linked + '<small> / ' + foods.length + '個</small>' : '–';
+    let s;
+    if (!foods.length) s = preset === 'ring' ? '⭕ 輪の形にならんだ粒子が、そのまま輪の形の管になります。タップでエサも置けます。' : '🟡 画面をタップすると、エサを置けます。';
+    else if (foods.length === 1) s = '🟡 エサを1個置きました。もう1個置くと、あいだに道ができていきます。';
+    else if (linked >= foods.length) s = '🟡 ' + foods.length + '個のエサが、すべて管でつながっています。';
+    else s = '🟡 ' + foods.length + '個のエサのうち、いちばん多くつながっているのは' + linked + '個です。';
+    $('nkNote').textContent = s;
+  }
+
+  // ---------- 描く ----------
+  let dpr = 1;
+  function size() {
+    const w = cv.clientWidth || 600; dpr = Math.min(2, window.devicePixelRatio || 1);
+    const W = Math.round(w * dpr), Hh = Math.round(w * .75 * dpr); if (cv.width !== W || cv.height !== Hh) { cv.width = W; cv.height = Hh; }
+  }
+  function draw() {
+    size();
+    for (let i = 0; i < NC; i++) { const v = trail[i]; pix[i] = LUT[(v / (v + .75) * 255) | 0]; }
+    octx.putImageData(img, 0, 0);
+    const W = cv.width, Hh = cv.height;
+    ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'high';
+    ctx.drawImage(off, 0, 0, W, Hh);
+    const sc = W / GW;
+    for (const fd of foods) {
+      const X = fd.x * sc, Y = fd.y * sc, age = simT - fd.born;
+      if (age < .9) { ctx.strokeStyle = 'rgba(255,240,170,' + (.8 * (1 - age / .9)).toFixed(3) + ')'; ctx.lineWidth = 2 * dpr; ctx.beginPath(); ctx.arc(X, Y, (6 + age * 34) * dpr, 0, TAU); ctx.stroke(); }
+      ctx.fillStyle = '#fffbea'; ctx.strokeStyle = '#ea580c'; ctx.lineWidth = 2 * dpr;
+      ctx.beginPath(); ctx.arc(X, Y, 4.5 * dpr, 0, TAU); ctx.fill(); ctx.stroke();
+    }
+    ui();
+  }
+
+  // ---------- 操作 ----------
+  function flash(s) { const el = $('nkMsg'); el.textContent = s; el.classList.add('show'); clearTimeout(flash.t); flash.t = setTimeout(() => el.classList.remove('show'), 2200); }
+  function syncUI() {
+    $('kN').value = N; $('vN').textContent = N.toLocaleString() + '個';
+    $('kSa').value = sa; $('vSa').textContent = sa + '°';
+    $('kRa').value = ra; $('vRa').textContent = ra + '°';
+    $('kDec').value = dec; $('vDec').textContent = dec <= 3 ? 'おそい' : dec <= 7 ? 'ふつう' : 'はやい';
+    document.querySelectorAll('#nkPre button').forEach(b => b.classList.toggle('on', b.dataset.p === preset));
+    $('nkPlay').textContent = playing ? '⏸ 止める' : '▶ 動かす';
+  }
+  function addFood(x, y) {
+    if (foods.length >= MAXF) foods.shift();
+    foods.push({ x, y, born: simT }); putStamp(ST_SPLASH, x | 0, y | 0, 7);
+  }
+  function applyPreset(p, warm) {
+    preset = p; const d = PRE[p]; sa = d.sa; ra = d.ra; dec = d.dec;
+    trail.fill(0); simT = 0; fc = 0; foods = [];
+    for (let i = 0; i < MAXN; i++) spawn(i);
+    d.foods.forEach(q => foods.push({ x: q[0] * GW, y: q[1] * GH, born: -9 }));
+    for (let i = 0; i < (warm || 0); i++) frame();
+    stats(); syncUI(); ui(true);
+  }
+  function setN(v) { v = Math.max(1000, Math.min(MAXN, v)); for (let i = N; i < v; i++) spawn(i); N = v; }
+  $('nkPre').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; applyPreset(b.dataset.p, 20); playing = true; syncUI(); });
+  $('kN').addEventListener('input', e => { setN(+e.target.value); syncUI(); ui(true); });
+  $('kSa').addEventListener('input', e => { sa = +e.target.value; syncUI(); });
+  $('kRa').addEventListener('input', e => { ra = +e.target.value; syncUI(); });
+  $('kDec').addEventListener('input', e => { dec = +e.target.value; syncUI(); });
+  $('nkPlay').addEventListener('click', () => { playing = !playing; syncUI(); });
+  $('nkReset').addEventListener('click', () => { applyPreset(preset, 20); playing = true; syncUI(); flash('はじめからやり直します'); });
+  $('nkClear').addEventListener('click', () => { foods = []; stats(); ui(true); flash('エサをすべて消しました'); });
+  // タップ（クリック）でエサを置く・消す。指でページをスクロールしたときは置かない
+  let down = null;
+  cv.addEventListener('pointerdown', e => { down = { x: e.clientX, y: e.clientY, id: e.pointerId }; });
+  cv.addEventListener('pointercancel', () => { down = null; });
+  cv.addEventListener('pointerup', e => {
+    if (!down || down.id !== e.pointerId) return;
+    const moved = Math.hypot(e.clientX - down.x, e.clientY - down.y); down = null; if (moved > 12) return;
+    const r = cv.getBoundingClientRect();
+    tapAt((e.clientX - r.left) / r.width, (e.clientY - r.top) / r.height);
+  });
+  function tapAt(u, v) {
+    const x = Math.max(2, Math.min(GW - 3, u * GW)), y = Math.max(2, Math.min(GH - 3, v * GH));
+    const hit = foods.findIndex(fd => Math.hypot(fd.x - x, fd.y - y) < 9);
+    if (hit >= 0) { foods.splice(hit, 1); flash('エサを消しました'); }
+    else { addFood(x, y); flash('エサを置きました'); }
+    stats(); ui(true); if (!playing) draw();
+  }
+
+  // ---------- シェア ----------
+  function shareText() {
+    const f = foods.length >= 2 ? '、エサ' + foods.length + '個のうち' + linked + '個が管でつながりました' : '';
+    return '粘菌ネットワークのシミュレーション：粒子' + N.toLocaleString() + '個が通った跡で、画面の' + area.toFixed(0) + '%に黄色い網目ができました' + f + '🟡';
+  }
+  $('shareBtn').addEventListener('click', () => { const u = location.origin + location.pathname; window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText() + '\n') + '&url=' + encodeURIComponent(u) + '&hashtags=' + encodeURIComponent('シミュラボ'), '_blank', 'noopener'); });
+  $('copyBtn').addEventListener('click', async () => { try { await navigator.clipboard.writeText(shareText() + '\n' + location.origin + location.pathname); flash('コピーしました'); } catch (e) { flash('コピーできませんでした'); } });
+
+  // ---------- 動かす ----------
+  let tPrev = performance.now(), acc = 0;
+  function loop(now) {
+    const dt = Math.min(.1, (now - tPrev) / 1000); tPrev = now;
+    if (playing) { acc += dt; let n = 0; const st = performance.now(); while (acc >= 1 / 60 && n < 3 && (n === 0 || performance.now() - st < 12)) { frame(); acc -= 1 / 60; n++; } if (acc > .1) acc = 0; }
+    draw(); requestAnimationFrame(loop);
+  }
+  applyPreset('mesh', 40);
+  draw();
+  requestAnimationFrame(loop);
+  // 確認用
+  window.__t = {
+    step(sec) { const n = Math.round(sec * 60); for (let i = 0; i < n; i++) frame(); stats(); lastUI = 0; draw(); },
+    get s() { return { preset, n: N, sa, ra, dec, foods: foods.length, linked, area: +area.toFixed(2), vmax: +vmax.toFixed(2), vmean: +vmean.toFixed(3), simT: +simT.toFixed(2), playing }; },
+    preset(p) { applyPreset(p, 0); }, tap: tapAt, setN,
+  };
+})();
+"""
+
+
+def esc(s): return H.escape(s, quote=True)
+
+
+def build():
+    url = f"{BASE}/sims/{SLUG}/"
+    ld_app = {"@context": "https://schema.org", "@type": "WebApplication", "name": NAME, "url": url, "description": DESC,
+              "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": True,
+              "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}}
+    ld_bc = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "ホーム", "item": BASE + "/"}, {"@type": "ListItem", "position": 2, "name": NAME, "item": url}]}
+    ld_faq = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]}
+    rel = "".join(f'<a class="related-card" href="../{s}/"><span class="e">{e}</span><span>{esc(t)}</span></a>' for s, e, t in REL)
+    faq = "".join(f"<dt>{esc(q)}</dt><dd>{a}</dd>" for q, a in FAQ)
+    refs = "".join(f"<li>{r}</li>" for r in REFS)
+    return f"""<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="{url}">
+    <meta property="og:image" content="{BASE}/ogp/{SLUG}.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{BASE}/ogp/{SLUG}.png">
+<title>{esc(TITLE)}</title>
+<meta name="description" content="{esc(DESC)}">
+<meta property="og:title" content="{esc(OG_T)}">
+<meta property="og:description" content="{esc(OG_D)}">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="{url}">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{json.dumps(ld_app, ensure_ascii=False)}</script>
+    <script type="application/ld+json">{json.dumps(ld_bc, ensure_ascii=False)}</script>
+    <script type="application/ld+json">{json.dumps(ld_faq, ensure_ascii=False)}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+{STAGE}
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span>{esc(CAT)}<span>›</span><span class="cur">{esc(NAME)}</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">{esc(CAT)}</div>
+    <h1>{H1}</h1>
+    <p class="lead">{esc(LEAD)}</p>
+  </div>
+{BODY}
+  <article class="article">
+{ARTICLE}
+    <h2>よくある質問</h2>
+    <dl class="faq">{faq}</dl>
+    <h2>参考にした資料</h2>
+    <ul class="seo-refs">{refs}</ul>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>関連するシミュレーター</h2>
+    <div class="related-grid">{rel}</div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュレーターも見てみたい？</h2>
+    <p>あなたの「これシミュレーションしてみたい」を送ってください。面白い案から実際に作って、できたらお知らせします。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:8px;font-size:.85em"><!-- footer-links --><a href="../../about/">運営者情報</a>　<a href="../../privacy/">プライバシーポリシー</a>　<a href="../../terms/">利用規約</a>　<a href="../../contact/">お問い合わせ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>{JS}</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({{ simId:'{SLUG}', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] }});</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>
+"""
+
+
+if __name__ == "__main__":
+    out = os.path.join(ROOT, "sims", SLUG, "index.html")
+    os.makedirs(os.path.dirname(out), exist_ok=True)
+    io.open(out, "w", encoding="utf-8", newline="\n").write(build())
+    print("wrote", out)

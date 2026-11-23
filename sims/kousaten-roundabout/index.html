@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/kousaten-roundabout/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/kousaten-roundabout.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/kousaten-roundabout.png">
+<title>信号の交差点とラウンドアバウト（環状交差点）はどっちが速い？｜交差点くらべシミュレーター｜シミュラボ</title>
+<meta name="description" content="同じ台数の車を「信号のある交差点」と「ラウンドアバウト（環状交差点）」に同時に流して、待ち時間と通りぬけた台数をくらべるシミュレーター。交通量・青信号の長さ・右折する車の割合を変えると、どちらがスムーズかが入れかわります。日本と同じ左側通行・時計回りです。">
+<meta property="og:title" content="信号 vs ラウンドアバウト 交差点くらべシミュレーター">
+<meta property="og:description" content="同じ交通量で、信号の交差点とラウンドアバウトを並べてくらべる。車が少ないとき・多いとき、どちらがスムーズ？">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/kousaten-roundabout/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "信号とラウンドアバウト 交差点くらべシミュレーター", "url": "https://shimulabo.com/sims/kousaten-roundabout/", "description": "同じ台数の車を「信号のある交差点」と「ラウンドアバウト（環状交差点）」に同時に流して、待ち時間と通りぬけた台数をくらべるシミュレーター。交通量・青信号の長さ・右折する車の割合を変えると、どちらがスムーズかが入れかわります。日本と同じ左側通行・時計回りです。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "信号とラウンドアバウト 交差点くらべシミュレーター", "item": "https://shimulabo.com/sims/kousaten-roundabout/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "ラウンドアバウト（環状交差点）とは何ですか？", "acceptedAnswer": {"@type": "Answer", "text": "まん中に丸い島があり、そのまわりを車が一方通行でぐるりと回る形の交差点です。日本では時計回り（右回り）に進みます。信号はなく、輪の中を走っている車が優先で、入る車はゆずります。"}}, {"@type": "Question", "name": "どちらが速いのですか？", "acceptedAnswer": {"@type": "Answer", "text": "交通量によって変わります。車が少ないときは、ラウンドアバウトは止まらずに入れることが多く、赤信号で待つ交差点より待ち時間が短くなりやすいです。車が多くなると、輪に入るすき間がなくなって列がのびることがあります。このページでは、その場で計算した結果をそのまま表示しています。"}}, {"@type": "Question", "name": "「平均待ち時間」はどうやって数えていますか？", "acceptedAnswer": {"@type": "Answer", "text": "1台ごとに、ほとんど止まっている時間（速さが秒速1.5m未満の時間）を合計したものです。画面の外で列に並んでいる時間もふくみます。直前の2分間に通りぬけた車の平均を表示しています。"}}, {"@type": "Question", "name": "左と右で、来る車は同じですか？", "acceptedAnswer": {"@type": "Answer", "text": "同じです。どの方向から、いつ、どちらへ曲がる車が来るかを1回だけ決めて、左右の交差点にまったく同じ車を流しています。ちがうのは交差点の形とルールだけです。"}}, {"@type": "Question", "name": "本物の交差点も、この数字のとおりになりますか？", "acceptedAnswer": {"@type": "Answer", "text": "なりません。このシミュレーターは、1車線の道路・歩行者なし・右折専用レーンなし、という単純な形で計算しています。本物の交差点では、車線の数、歩行者や自転車、大型車、道路の広さなどで結果が大きく変わります。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+
+<style>
+.kr-tools{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:12px}
+.kr-tools button{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;font:inherit;font-size:13.5px;font-weight:800;cursor:pointer;color:var(--ink)}
+.kr-tools button.on{background:#1d4ed8;border-color:#1d4ed8;color:#fff}
+.kr-tools .kr-time{margin-left:auto;font-size:12.5px;color:var(--ink-2);font-weight:700;font-variant-numeric:tabular-nums}
+.kr-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kr-col{min-width:0}
+.kr-col h3{margin:0 0 6px;font-size:15.5px}
+.kr-cv{border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#9bd19f}
+.kr-cv canvas{display:block;width:100%;aspect-ratio:1/1}
+.kr-sum{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:8px}
+.kr-sum div{background:#eff6ff;border-radius:12px;padding:8px 2px;text-align:center;min-width:0}
+.kr-sum b{display:block;font-size:19px;color:#1d4ed8;font-variant-numeric:tabular-nums}
+.kr-sum b small{font-size:11px}
+.kr-sum span{display:block;font-size:11px;line-height:1.3;color:var(--ink-2);font-weight:700}
+.kr-col.kr-b .kr-sum div{background:#f0fdf4}
+.kr-col.kr-b .kr-sum b{color:#15803d}
+.kr-note{font-size:13.5px;color:var(--ink);background:#fefce8;border-radius:10px;padding:9px 12px;margin:12px 0 0;font-weight:700}
+.kr-cols{display:grid;grid-template-columns:1fr 1fr;gap:6px 22px;margin-top:14px}
+.kr-hint{font-size:12.5px;color:var(--ink-2);margin:8px 0 0}
+@media (max-width:640px){.kr-grid{grid-template-columns:1fr}.kr-cols{grid-template-columns:1fr}.kr-tools button{padding:7px 12px;font-size:13px}}
+</style>
+
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span>ふしぎ・現象<span>›</span><span class="cur">信号とラウンドアバウト 交差点くらべシミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ふしぎ・現象</div>
+    <h1>信号とラウンドアバウト、どっちが速い？<br>交差点くらべシミュレーター</h1>
+    <p class="lead">同じ台数の車を、「信号のある交差点」と「ラウンドアバウト（環状交差点）」に同時に流してくらべます。交通量や青信号の長さ、右折する車の割合を変えて、待ち時間や通りぬける台数がどう変わるかを見てみましょう。</p>
+  </div>
+
+  <section class="panel" id="resultPanel">
+    <div class="kr-tools">
+      <button type="button" id="krPlay">⏸ 止める</button>
+      <button type="button" data-krsp="1" class="on">×1</button>
+      <button type="button" data-krsp="3">×3</button>
+      <button type="button" id="krReset">↺ リセット</button>
+      <span class="kr-time" id="krTime">0:00</span>
+    </div>
+    <div class="kr-grid">
+      <div class="kr-col kr-a">
+        <h3>🚦 信号のある交差点</h3>
+        <div class="kr-cv"><canvas id="krA" aria-label="信号のある交差点を車が通るようす"></canvas></div>
+        <div class="kr-sum">
+          <div><b id="aWait">–</b><span>1台の平均<br>待ち時間</span></div>
+          <div><b id="aFlow">–</b><span>1分あたりに<br>通りぬけた台数</span></div>
+          <div><b id="aStop">–</b><span>止まっている<br>車の数</span></div>
+        </div>
+      </div>
+      <div class="kr-col kr-b">
+        <h3>🔄 ラウンドアバウト</h3>
+        <div class="kr-cv"><canvas id="krB" aria-label="ラウンドアバウトを車が時計回りに通るようす"></canvas></div>
+        <div class="kr-sum">
+          <div><b id="bWait">–</b><span>1台の平均<br>待ち時間</span></div>
+          <div><b id="bFlow">–</b><span>1分あたりに<br>通りぬけた台数</span></div>
+          <div><b id="bStop">–</b><span>止まっている<br>車の数</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="kr-note" id="krNote">車が流れはじめました。</p>
+
+    <div class="kr-cols">
+      <div class="field"><label>🚗 交通量 <span class="hint">（<b id="vVol"></b>）</span></label><input type="range" id="kVol" min="300" max="3000" step="100" value="1200"></div>
+      <div class="field"><label>🟢 信号の青の長さ <span class="hint">（<b id="vGreen"></b>）</span></label><input type="range" id="kGreen" min="8" max="60" step="2" value="20"></div>
+      <div class="field"><label>↱ 右折する車の割合 <span class="hint">（<b id="vRight"></b>）</span></label><input type="range" id="kRight" min="0" max="60" step="5" value="20"></div>
+    </div>
+    <p class="kr-hint">交通量は4方向の合計です。左折する車は20%で固定、残りが直進です。画面のはしの「+3台」は、画面の外で並んでいる車の数です。</p>
+
+    <div style="text-align:center;margin-top:16px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+
+<h2>このシミュレーターのしくみ</h2>
+<p>4つの方向から同じ割合で車がやってきて、直進・左折・右折のどれかをします。日本と同じ<b>左側通行</b>です。左右の交差点には、まったく同じ車（同じ時刻・同じ方向・同じ行き先）を流しています。</p>
+<ul>
+<li><b>信号のある交差点</b>：たて方向とよこ方向が、青→黄→赤を交互にくり返します（黄は3秒、全部が赤の時間は2秒）。右折する車は、交差点に少し入ったところで、対向車が切れるのを待ちます。1車線なので、右折待ちの車がいると、後ろの直進車も進めません。</li>
+<li><b>ラウンドアバウト</b>：輪の中は時計回りの一方通行です。輪の中を走っている車が優先で、入る車はゆっくり進み（徐行）、輪の中を右から来る車が約4秒以内にとどくときは手前で待ちます。すき間があれば、止まらずにそのまま入れます。</li>
+<li><b>車の動き</b>：どの車も、前の車との間をあけ、なめらかに加速・減速します。ブレーキをかけると、後ろの赤いランプが光ります。曲がる車はオレンジ色のウインカーを出します。</li>
+</ul>
+<p>下の3つの数字は、左右それぞれについて計算しています。「平均待ち時間」は、1台がほとんど止まっていた時間の平均（直前2分間に通りぬけた車）、「1分あたりの通過」は直前1分間に通りぬけた台数、「止まっている車」は画面の外で並んでいる車もふくめた台数です。</p>
+
+<h2>ためしてみたいこと</h2>
+<ul>
+<li><b>交通量を少なくする（1時間に600台くらい）</b>：ラウンドアバウトでは、ほとんどの車が止まらずに通りぬけます。信号の交差点では、ほかに車がいなくても、赤信号のあいだは待つことになります。</li>
+<li><b>交通量を少しずつふやす</b>：ある量をこえると、ラウンドアバウトの入口や、信号の手前に列ができはじめます。どちらが先につまるか、数字でたしかめてみましょう。</li>
+<li><b>右折する車をふやす</b>：信号の交差点では、右折待ちの車が後ろの車をせき止めます。ラウンドアバウトでは、右折する車は輪を4分の3周するので、輪の中にいる時間が長くなります。</li>
+<li><b>右折を0%にして、交通量をいちばん多くする</b>：右折待ちがなくなると、信号の交差点はたくさんの車をさばけるようになります。このページでためしたときは、1時間に3000台・右折0%では、信号の方が待ち時間が短くなりました。</li>
+<li><b>青信号を短く・長くする</b>：短いと切りかえの回数がふえて、黄や赤の時間のむだがふえます。長いと、赤で待つ側の列が長くなります。ちょうどよい長さは交通量で変わります。</li>
+<li><b>速さを×3にする</b>：数字が落ち着くまで、少し時間がかかります。条件を変えたら、1〜2分ぶん進めてからくらべるのがコツです。</li>
+</ul>
+
+<h2>本物では</h2>
+<p>日本では、2014年9月に施行された改正道路交通法で「環状交差点」が定められ、通り方のルールが決まりました。環状交差点では時計回りに進み、輪の中の車が優先です。入るときは徐行し（かならず一時停止する必要はありません）、出るときに左のウインカーを出します。</p>
+<p>ラウンドアバウトには、車の進む道がぶつかる点が少ない、どの車も速さを落として通るので大きな事故になりにくい、信号がいらないので停電のときも使える、といったよい点があります。いっぽうで、交通量が多い交差点では車をさばききれず、まるい形のぶん広い土地も必要です。国土交通省の資料では、1日に入ってくる車が合わせて1万台より少ないことが、ひとつの目安とされています。</p>
+<p>このシミュレーターは、ちがいの「感じ」をつかむために、とても単純にしたものです。どの道も1車線で、歩行者・自転車・大型車・右折専用レーンはなく、運転のしかたは全員同じにしています。そのため、ここで出た数字は本物の交差点の性能をあらわすものではありません。</p>
+
+    <h2>よくある質問</h2>
+    <dl class="faq"><dt>ラウンドアバウト（環状交差点）とは何ですか？</dt><dd>まん中に丸い島があり、そのまわりを車が一方通行でぐるりと回る形の交差点です。日本では時計回り（右回り）に進みます。信号はなく、輪の中を走っている車が優先で、入る車はゆずります。</dd><dt>どちらが速いのですか？</dt><dd>交通量によって変わります。車が少ないときは、ラウンドアバウトは止まらずに入れることが多く、赤信号で待つ交差点より待ち時間が短くなりやすいです。車が多くなると、輪に入るすき間がなくなって列がのびることがあります。このページでは、その場で計算した結果をそのまま表示しています。</dd><dt>「平均待ち時間」はどうやって数えていますか？</dt><dd>1台ごとに、ほとんど止まっている時間（速さが秒速1.5m未満の時間）を合計したものです。画面の外で列に並んでいる時間もふくみます。直前の2分間に通りぬけた車の平均を表示しています。</dd><dt>左と右で、来る車は同じですか？</dt><dd>同じです。どの方向から、いつ、どちらへ曲がる車が来るかを1回だけ決めて、左右の交差点にまったく同じ車を流しています。ちがうのは交差点の形とルールだけです。</dd><dt>本物の交差点も、この数字のとおりになりますか？</dt><dd>なりません。このシミュレーターは、1車線の道路・歩行者なし・右折専用レーンなし、という単純な形で計算しています。本物の交差点では、車線の数、歩行者や自転車、大型車、道路の広さなどで結果が大きく変わります。</dd></dl>
+    <h2>参考にした資料</h2>
+    <ul class="seo-refs"><li>道路交通法（環状交差点の定義と通行方法。2013年改正・2014年9月施行）</li><li>国土交通省 道路局「望ましいラウンドアバウトの構造について」（2014年8月）</li><li>一般社団法人 交通工学研究会「ラウンドアバウトマニュアル」（2016年）</li><li>Treiber, M., Hennecke, A. & Helbing, D. (2000) Congested traffic states in empirical observations and microscopic simulations. Physical Review E 62, 1805–1824.（前の車に合わせて加速・減速する車の計算モデル）</li></ul>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>関連するシミュレーター</h2>
+    <div class="related-grid"><a class="related-card" href="../jutai/"><span class="e">🚗</span><span>渋滞はなぜ起きる？</span></a><a class="related-card" href="../hokousha-shingo/"><span class="e">🚦</span><span>歩行者信号のシミュレーション</span></a><a class="related-card" href="../queue-docchi/"><span class="e">🧍</span><span>行列はどっちが速い？</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュレーターも見てみたい？</h2>
+    <p>あなたの「これシミュレーションしてみたい」を送ってください。面白い案から実際に作って、できたらお知らせします。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:8px;font-size:.85em"><!-- footer-links --><a href="../../about/">運営者情報</a>　<a href="../../privacy/">プライバシーポリシー</a>　<a href="../../terms/">利用規約</a>　<a href="../../contact/">お問い合わせ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  // 単位はメートルと秒
+  const LW = 4, CL = 4.4, CWD = 2, VIEW = 40, EDGE = 46, STEP = .5, BX = 6, RR = 11, T0 = 21, DEL = .62;
+  const V0 = 11, VLEFT = 4.5, VRIGHT = 4.5, VRING = 6.5, VENTER = 4.5, ACC = 2.2, DEC = 3, TH = 1.1, S0 = 1.8, TG = 4, LEFTP = .2;
+  const SQ = Math.sqrt(ACC * DEC), TAU = Math.PI * 2;
+  const HD = [[0, -1], [1, 0], [0, 1], [-1, 0]];
+  const lf = h => [h[1], -h[0]];
+  const add = (a, b, k) => [a[0] + b[0] * k, a[1] + b[1] * k];
+  const COLS = ['#ef4444', '#f59e0b', '#fde047', '#22c55e', '#38bdf8', '#3b82f6', '#a78bfa', '#f472b6', '#f8fafc', '#e2e8f0', '#1e293b', '#fb923c'];
+  function rng(s) { s = s >>> 0; return () => { s = (s + 0x6D2B79F5) >>> 0; let t = s; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
+
+  // ---------- 経路（決まった線の上を進む） ----------
+  function bez2(p0, c, p1) { const o = []; for (let i = 0; i <= 24; i++) { const t = i / 24, u = 1 - t; o.push([u * u * p0[0] + 2 * u * t * c[0] + t * t * p1[0], u * u * p0[1] + 2 * u * t * c[1] + t * t * p1[1]]); } return o; }
+  function bez3(p0, c0, c1, p1) { const o = []; for (let i = 0; i <= 30; i++) { const t = i / 30, u = 1 - t, a = u * u * u, b = 3 * u * u * t, c = 3 * u * t * t, d = t * t * t; o.push([a * p0[0] + b * c0[0] + c * c1[0] + d * p1[0], a * p0[1] + b * c0[1] + c * c1[1] + d * p1[1]]); } return o; }
+  function mkPath(segs) {
+    const raw = [];
+    segs.forEach(sg => sg.pts.forEach(p => { const q = raw[raw.length - 1]; if (!q || Math.hypot(q[0] - p[0], q[1] - p[1]) > 1e-6) raw.push([p[0], p[1], sg.v]); }));
+    const X = [raw[0][0]], Y = [raw[0][1]], V = [raw[0][2]]; let need = STEP;
+    for (let i = 1; i < raw.length; i++) {
+      let ax = raw[i - 1][0], ay = raw[i - 1][1]; const bx = raw[i][0], by = raw[i][1]; let d = Math.hypot(bx - ax, by - ay);
+      while (d >= need) { const f = need / d; ax += (bx - ax) * f; ay += (by - ay) * f; X.push(ax); Y.push(ay); V.push(raw[i][2]); d -= need; need = STEP; }
+      need -= d;
+    }
+    const n = X.length, A = [];
+    for (let i = 0; i < n - 1; i++) A.push(Math.atan2(Y[i + 1] - Y[i], X[i + 1] - X[i])); A.push(A[n - 2]);
+    return { X, Y, V, A, n, len: (n - 1) * STEP };
+  }
+  const EXH = [3, 0, 1];   // 左折・直進・右折で、出ていく向き
+  function sigPath(k, tr) {
+    const h = HD[k], l = lf(h), hx = HD[(k + EXH[tr]) % 4], lx = lf(hx);
+    const st = add(add([0, 0], h, -EDGE), l, 2), bi = add(add([0, 0], h, -BX), l, 2), bo = add(add([0, 0], hx, BX), lx, 2), en = add(add([0, 0], hx, EDGE), lx, 2);
+    const segs = [{ pts: [st, bi], v: V0 }];
+    if (tr === 1) segs.push({ pts: [bi, bo], v: V0 });
+    else if (tr === 0) segs.push({ pts: bez2(bi, add(add([0, 0], l, 2), h, -2), bo), v: VLEFT });
+    else segs.push({ pts: bez3(bi, add(bi, h, 1.6), add(bo, hx, -1.6), bo), v: VRIGHT });   // 右折は中心の手前を小さく回る（向かい合う右折車どうしがぶつからない）
+    segs.push({ pts: [bo, en], v: V0 });
+    const P = mkPath(segs);
+    P.sStop = EDGE - BX - 1 - CL / 2; P.sClear = P.len - (EDGE - BX) + 2; P.sWait = 1e9; P.sOut = P.sClear; P.sSig0 = P.sStop - 25;
+    if (tr === 2) P.sWait = EDGE - BX + 1.6;
+    return P;
+  }
+  function rbPath(k, tr) {
+    const h = HD[k], l = lf(h), m = (k + EXH[tr]) % 4, hx = HD[m], lx = lf(hx);
+    const ph = Math.atan2(-h[1], -h[0]), phx = Math.atan2(hx[1], hx[0]);
+    const te = ph + DEL; let dth = (phx - DEL - te) % TAU; if (dth < 0) dth += TAU; const tx = te + dth;
+    const tan = t => [-Math.sin(t), Math.cos(t)], pt = t => [RR * Math.cos(t), RR * Math.sin(t)];
+    const st = add(add([0, 0], h, -EDGE), l, 2), p0 = add(add([0, 0], h, -T0), l, 2), q = pt(te), qx = pt(tx), x0 = add(add([0, 0], hx, T0), lx, 2), en = add(add([0, 0], hx, EDGE), lx, 2);
+    const arc = []; for (let i = 0, N = Math.max(2, Math.ceil(dth / .04)); i <= N; i++) arc.push(pt(te + dth * i / N));
+    const P = mkPath([{ pts: [st, p0], v: V0 }, { pts: bez3(p0, add(p0, h, 5), add(q, tan(te), -5), q), v: VENTER }, { pts: arc, v: VRING },
+      { pts: bez3(qx, add(qx, tan(tx), 5), add(x0, hx, -5), x0), v: VRING + 1 }, { pts: [x0, en], v: V0 }]);
+    P.sYield = 0; for (let i = 0; i < P.n; i++) if (Math.hypot(P.X[i], P.Y[i]) < RR + 2.4 + CL / 2 + .8) { P.sYield = i * STEP; break; }
+    P.sOut = P.len - (EDGE - T0); P.thE = te; P.exitArm = (m + 2) % 4; P.sSig0 = P.sOut - 16;
+    return P;
+  }
+
+  // ---------- 状態 ----------
+  let vol = 1200, green = 20, rightP = .2, speed = 1, playing = true, T = 0, R = rng(20261124);
+  function mkSim(kind) {
+    const S = { kind, cars: [], back: [[], [], [], []], lastIn: [null, null, null, null], done: [], passed: 0, paths: [], ph: 0, pt: 0, st: ['g', 'r'], box: [0, 0], rc: [false, false, false, false], minD2: 1e9, minGap: 1e9, maxStill: 0, road: null };
+    for (let k = 0; k < 4; k++) { S.paths.push([0, 1, 2].map(tr => kind === 0 ? sigPath(k, tr) : rbPath(k, tr))); }
+    return S;
+  }
+  const sims = [mkSim(0), mkSim(1)];
+  function clearSim(S) { S.cars = []; S.back = [[], [], [], []]; S.lastIn = [null, null, null, null]; S.done = []; S.passed = 0; S.ph = 0; S.pt = 0; S.st = ['g', 'r']; S.minD2 = 1e9; S.minGap = 1e9; S.maxStill = 0; }
+
+  function place(c) {
+    const P = c.P, f = c.s / STEP, i = Math.max(0, Math.min(P.n - 2, f | 0)), u = f - i;
+    c.x = P.X[i] + (P.X[i + 1] - P.X[i]) * u; c.y = P.Y[i] + (P.Y[i + 1] - P.Y[i]) * u;
+    let da = P.A[i + 1] - P.A[i]; if (da > Math.PI) da -= TAU; else if (da < -Math.PI) da += TAU; c.hd = P.A[i] + da * u;
+  }
+  const stopAcc = (c, g) => { const ss = .6 + c.v * .4 + c.v * c.v / (2 * SQ); return ACC * (1 - Math.pow(ss / Math.max(g, .05), 2)); };
+
+  // 右折車：対向の直進・左折車が来ているあいだは、まん中で待つ
+  function rightConflict(S, c) {
+    const oa = (c.arm + 2) % 4, st = S.st[c.arm & 1], cs = S.cars; let blockS = -1;
+    // 対向の右折車がまん中で待っていると、その後ろの車は進めない
+    for (let i = 0; i < cs.length; i++) { const o = cs[i]; if (o.arm === oa && o.turn === 2 && o.s > o.P.sStop + 1 && o.s <= o.P.sWait + .3 && o.s > blockS) blockS = o.s; }
+    for (let i = 0; i < cs.length; i++) {
+      const o = cs[i]; if (o.arm !== oa || o.turn === 2) continue; const Q = o.P;
+      if (o.s >= Q.sClear || o.s < blockS) continue;
+      if (o.s > Q.sStop + 1) return true;
+      if (st !== 'r' && Q.sStop - o.s < o.v * 4 + 6) return true;
+    }
+    return false;
+  }
+  // ラウンドアバウトに入る車：輪の中の車が近づいているあいだは、手前で待つ
+  function ringConflict(S, c) {
+    const te = c.P.thE, C2 = TAU * RR, cs = S.cars;
+    for (let i = 0; i < cs.length; i++) {
+      const o = cs[i]; if (o === c) continue; const Q = o.P;
+      if (o.s < Q.sYield + .3 || o.s > Q.sOut || Q.exitArm === c.arm) continue;
+      let d = (te - Math.atan2(o.y, o.x)) % TAU; if (d < 0) d += TAU; d *= RR;
+      if (d > C2 - 6) { if (o.v < 2 && d > C2 - 5.5) return true; continue; }
+      if (d < 3 + Math.max(o.v, 3.5) * TG) return true;
+    }
+    return false;
+  }
+
+  function stepSim(S, dt) {
+    const cs = S.cars;
+    if (S.kind === 0) {
+      S.pt += dt; const dur = [green, 3, 2, green, 3, 2][S.ph]; if (S.pt >= dur) { S.pt = 0; S.ph = (S.ph + 1) % 6; }
+      const act = S.ph < 3 ? 0 : 1; S.st[act] = 'gyr'[S.ph % 3]; S.st[1 - act] = 'r';
+      S.box[0] = S.box[1] = 0; S.rc[0] = S.rc[1] = S.rc[2] = S.rc[3] = false;
+      for (let i = 0; i < cs.length; i++) { const c = cs[i]; if (c.s > c.P.sStop + 1 && c.s < c.P.sClear) { S.box[c.arm & 1]++; if (c.turn === 2 && c.s > c.P.sWait + .3 && c.s < c.P.sClear - 1) S.rc[c.arm] = true; } }
+    }
+    // 画面の外で待っている車を、入口があいたら入れる
+    for (let k = 0; k < 4; k++) {
+      const q = S.back[k]; if (!q.length) continue; const last = S.lastIn[k], alive = last && !last.dead;
+      if (alive && last.s <= CL + S0 + 2.5) continue;
+      const sp = q.shift();
+      const c = { P: S.paths[k][sp.turn], arm: k, turn: sp.turn, col: sp.col, s: 0, acc: 0, wait: T - sp.t, still: 0, dead: false, x: 0, y: 0, hd: 0,
+        v: alive && last.s < 60 ? Math.min(V0, last.v + Math.sqrt(4 * Math.max(0, last.s - CL - S0 - 1))) : V0 };
+      place(c); cs.push(c); S.lastIn[k] = c;
+    }
+    const n = cs.length;
+    for (let ci = 0; ci < n; ci++) {
+      const c = cs[ci], P = c.P, i = Math.min(P.n - 1, (c.s / STEP) | 0), vlim = P.V[i];
+      let a = Math.max(-4, ACC * (1 - Math.pow(c.v / vlim, 4)));
+      for (let d = 2; d <= 20; d += 2) { const j = i + d * 2; if (j >= P.n) break; const vl = P.V[j]; if (vl < c.v) { const need = (c.v * c.v - vl * vl) / (2 * d); if (need > 1) a = Math.min(a, -need); } }
+      // 前の車（自分の経路の上にいて、同じ向きに進んでいる車）
+      let gap = 1e9, lv = 0;
+      for (let oi = 0; oi < n; oi++) {
+        if (oi === ci) continue; const o = cs[oi], dx = o.x - c.x, dy = o.y - c.y, d2 = dx * dx + dy * dy;
+        if (d2 < S.minD2) S.minD2 = d2; if (d2 > 676) continue;
+        let best = 9, bk = -1;
+        for (let k = 2; k <= 48; k += 2) { const j = i + k; if (j >= P.n) break; const ex = P.X[j] - o.x, ey = P.Y[j] - o.y, dd = ex * ex + ey * ey; if (dd < 3.61) { if (dd < best) { best = dd; bk = k; } else break; } else if (bk >= 0) break; }
+        if (bk >= 0) { const cd = Math.cos(P.A[i + bk] - o.hd); if (cd > .4) { const g = bk * STEP - CL; if (g < gap) { gap = g; lv = o.v * cd; } } }
+      }
+      if (gap < 1e8) {
+        if (gap < S.minGap) S.minGap = gap;
+        const ss = S0 + Math.max(0, c.v * TH + c.v * (c.v - lv) / (2 * SQ)); a = Math.min(a, ACC * (1 - Math.pow(ss / Math.max(gap, .05), 2)));
+      }
+      if (S.kind === 0) {
+        if (c.s < P.sStop + 1) {
+          const g = P.sStop + .6 - c.s, st = S.st[c.arm & 1]; let stop;
+          if (st === 'r') stop = true; else if (st === 'y') stop = c.v * c.v / (2 * Math.max(g - .6, .1)) <= 3.5; else stop = S.box[1 - (c.arm & 1)] > 0;
+          if (!stop && c.turn !== 2 && S.rc[(c.arm + 2) % 4]) stop = true;   // 対向の右折車が横切っているあいだは入らない
+          if (stop) a = Math.min(a, stopAcc(c, g));
+        }
+        if (c.turn === 2 && c.s < P.sWait + .3 && c.s > P.sStop - 12 && rightConflict(S, c)) a = Math.min(a, stopAcc(c, P.sWait + .6 - c.s));
+      } else if (c.s < P.sYield + .3 && c.s > P.sYield - 30 && ringConflict(S, c)) a = Math.min(a, stopAcc(c, P.sYield + .6 - c.s));
+      c.acc = Math.max(-8, Math.min(ACC, a));
+    }
+    let ms = 0, rm = false;
+    for (let ci = 0; ci < n; ci++) {
+      const c = cs[ci]; c.v = Math.max(0, c.v + c.acc * dt); c.s += c.v * dt;
+      if (c.v < 1.5) c.wait += dt; if (c.v < .05) { c.still += dt; if (c.still > ms) ms = c.still; } else c.still = 0;
+      if (c.s >= c.P.len - .6) { c.dead = true; rm = true; S.done.push([T, c.wait]); S.passed++; } else place(c);
+    }
+    if (ms > S.maxStill) S.maxStill = ms;
+    if (rm) S.cars = cs.filter(c => !c.dead);
+    while (S.done.length && S.done[0][0] < T - 120) S.done.shift();
+  }
+  function tick(dt) {
+    const p = vol / 3600 / 4 * dt;
+    for (let k = 0; k < 4; k++) if (R() < p) { const r = R(), sp = { arm: k, turn: r < rightP ? 2 : r < rightP + LEFTP ? 0 : 1, col: (R() * COLS.length) | 0, t: T }; sims[0].back[k].push(sp); sims[1].back[k].push(sp); }
+    stepSim(sims[0], dt); stepSim(sims[1], dt); T += dt;
+  }
+  function stats(S) {
+    let w = 0, nw = 0, f = 0; for (const d of S.done) { w += d[1]; nw++; if (d[0] >= T - 60) f++; }
+    let st = 0, bk = 0; for (const c of S.cars) if (c.v < .5) st++; for (const q of S.back) bk += q.length;
+    return { avgWait: nw ? w / nw : null, perMin: T >= 60 ? f : T > 10 ? f * 60 / T : null, stopped: st + bk, backlog: bk, cars: S.cars.length, passed: S.passed, minDist: Math.sqrt(S.minD2), minGap: S.minGap, maxStill: S.maxStill };
+  }
+
+  // ---------- 描く ----------
+  function rrect(c, x, y, w, h, r) { c.beginPath(); c.moveTo(x + r, y); c.arcTo(x + w, y, x + w, y + h, r); c.arcTo(x + w, y + h, x, y + h, r); c.arcTo(x, y + h, x, y, r); c.arcTo(x, y, x + w, y, r); c.closePath(); }
+  function roadPath(S) { const p = new Path2D(); S.paths.forEach(a => a.forEach(P => { p.moveTo(P.X[0], P.Y[0]); for (let i = 1; i < P.n; i++) p.lineTo(P.X[i], P.Y[i]); })); return p; }
+  function crossLine(c, P, s, dash) { const i = Math.round(s / STEP), nx = -Math.sin(P.A[i]), ny = Math.cos(P.A[i]); c.setLineDash(dash); c.beginPath(); c.moveTo(P.X[i] - nx * 1.9, P.Y[i] - ny * 1.9); c.lineTo(P.X[i] + nx * 1.9, P.Y[i] + ny * 1.9); c.stroke(); c.setLineDash([]); }
+  function draw(S, cv) {
+    const w = cv.clientWidth || 320, dpr = Math.min(2, window.devicePixelRatio || 1), W = Math.round(w * dpr);
+    if (cv.width !== W || cv.height !== W) { cv.width = W; cv.height = W; }
+    const c = cv.getContext('2d'), k = W / (2 * VIEW);
+    c.setTransform(1, 0, 0, 1, 0, 0); c.fillStyle = '#9bd19f'; c.fillRect(0, 0, W, W);
+    c.setTransform(k, 0, 0, k, W / 2, W / 2);
+    if (!S.road) S.road = roadPath(S);
+    c.lineJoin = 'round'; c.lineCap = 'butt';
+    c.strokeStyle = '#d6dbe1'; c.lineWidth = LW + 1.5; c.stroke(S.road);
+    c.strokeStyle = '#5b6370'; c.lineWidth = LW + .7; c.stroke(S.road);
+    if (S.kind === 0) { c.fillStyle = '#5b6370'; c.fillRect(-4.3, -4.3, 8.6, 8.6); }
+    // 中央線
+    c.strokeStyle = 'rgba(255,255,255,.85)'; c.lineWidth = .3; c.setLineDash([2, 2]);
+    for (let a = 0; a < 4; a++) { const h = HD[a], t0 = S.kind === 0 ? BX + 1 : T0 + 1; c.beginPath(); c.moveTo(-h[0] * t0, -h[1] * t0); c.lineTo(-h[0] * EDGE, -h[1] * EDGE); c.stroke(); }
+    c.setLineDash([]);
+    c.strokeStyle = '#fff'; c.lineWidth = .55;
+    for (let a = 0; a < 4; a++) { const P = S.paths[a][1]; if (S.kind === 0) crossLine(c, P, P.sStop + CL / 2 + .5, []); else crossLine(c, P, P.sYield + CL / 2 + .5, [.8, .6]); }
+    if (S.kind === 1) {
+      c.fillStyle = '#7cc48a'; c.beginPath(); c.arc(0, 0, RR - 2.35, 0, TAU); c.fill();
+      c.strokeStyle = '#f8fafc'; c.lineWidth = .5; c.stroke();
+      c.fillStyle = '#4ea866'; c.beginPath(); c.arc(0, 0, 4.2, 0, TAU); c.fill();
+      c.fillStyle = '#3b8f55'; c.beginPath(); c.arc(-.8, -.6, 2.2, 0, TAU); c.fill();
+      c.fillStyle = 'rgba(255,255,255,.75)';
+      for (let q = 0; q < 4; q++) { const t = Math.PI / 4 + q * Math.PI / 2; c.save(); c.translate(RR * Math.cos(t), RR * Math.sin(t)); c.rotate(t + Math.PI / 2); c.beginPath(); c.moveTo(1.5, 0); c.lineTo(-.6, -1); c.lineTo(-.1, 0); c.lineTo(-.6, 1); c.closePath(); c.fill(); c.restore(); }
+    }
+    // 車
+    const blink = (T * 2.4) % 1 < .5;
+    for (const car of S.cars) {
+      const P = car.P; c.save(); c.translate(car.x, car.y); c.rotate(car.hd);
+      c.fillStyle = 'rgba(0,0,0,.18)'; rrect(c, -CL / 2 + .25, -CWD / 2 + .3, CL, CWD, .5); c.fill();
+      c.fillStyle = COLS[car.col]; rrect(c, -CL / 2, -CWD / 2, CL, CWD, .55); c.fill();
+      c.fillStyle = 'rgba(15,23,42,.55)'; rrect(c, -CL * .22, -CWD / 2 + .22, CL * .5, CWD - .44, .3); c.fill();
+      c.fillStyle = 'rgba(255,255,255,.35)'; c.fillRect(CL * .2, -CWD / 2 + .3, .28, CWD - .6);
+      const br = car.acc < -.7 || car.v < .2;
+      if (br) { c.fillStyle = 'rgba(255,50,50,.4)'; c.beginPath(); c.arc(-CL / 2, -CWD / 2 + .4, .85, 0, TAU); c.arc(-CL / 2, CWD / 2 - .4, .85, 0, TAU); c.fill(); }
+      c.fillStyle = br ? '#ff2b2b' : '#7f1d1d'; c.fillRect(-CL / 2 - .05, -CWD / 2 + .1, .5, .6); c.fillRect(-CL / 2 - .05, CWD / 2 - .7, .5, .6);
+      if (blink) {
+        let sd = 0;
+        if (S.kind === 0) { if (car.turn !== 1 && car.s > P.sSig0 && car.s < P.sClear) sd = car.turn === 0 ? -1 : 1; }
+        else if (car.s > P.sSig0 && car.s < P.sOut) sd = -1;
+        if (sd) { c.fillStyle = '#ffb020'; c.beginPath(); c.arc(CL / 2 - .3, sd * (CWD / 2 - .15), .5, 0, TAU); c.arc(-CL / 2 + .3, sd * (CWD / 2 - .15), .5, 0, TAU); c.fill(); }
+      }
+      c.restore();
+    }
+    // 信号機
+    if (S.kind === 0) for (let a = 0; a < 4; a++) {
+      const h = HD[a], l = lf(h), x = -h[0] * (BX + 1.4) + l[0] * (LW + 2.6), y = -h[1] * (BX + 1.4) + l[1] * (LW + 2.6), st = S.st[a & 1];
+      c.fillStyle = '#0f172a'; c.beginPath(); c.arc(x, y, 1.75, 0, TAU); c.fill();
+      c.fillStyle = st === 'g' ? '#22e06b' : st === 'y' ? '#ffd21f' : '#ff3b3b'; c.beginPath(); c.arc(x, y, 1.2, 0, TAU); c.fill();
+    }
+    // 画面の外で待っている台数
+    c.font = '800 3px system-ui,sans-serif'; c.textAlign = 'center'; c.textBaseline = 'middle';
+    for (let a = 0; a < 4; a++) {
+      const nb = S.back[a].length; if (!nb) continue; const h = HD[a], l = lf(h), x = -h[0] * (VIEW - 4) + l[0] * (LW + 5), y = -h[1] * (VIEW - 4) + l[1] * (LW + 5), tx = '+' + nb + '台';
+      c.lineWidth = .9; c.strokeStyle = 'rgba(15,23,42,.8)'; c.strokeText(tx, x, y); c.fillStyle = '#fff'; c.fillText(tx, x, y);
+    }
+  }
+  let lastUI = 0, lastSt = null;
+  function ui(force) {
+    const now = performance.now(); if (!force && now - lastUI < 300) return; lastUI = now;
+    const a = stats(sims[0]), b = stats(sims[1]); lastSt = [a, b];
+    const f1 = v => v == null ? '–' : v.toFixed(1) + '<small>秒</small>', f0 = v => v == null ? '–' : Math.round(v) + '<small>台</small>';
+    $('aWait').innerHTML = f1(a.avgWait); $('aFlow').innerHTML = f0(a.perMin); $('aStop').innerHTML = f0(a.stopped);
+    $('bWait').innerHTML = f1(b.avgWait); $('bFlow').innerHTML = f0(b.perMin); $('bStop').innerHTML = f0(b.stopped);
+    $('krTime').textContent = Math.floor(T / 60) + ':' + String(Math.floor(T % 60)).padStart(2, '0');
+    let s;
+    if (a.avgWait == null || b.avgWait == null || T < 40) s = '🚗 車が流れはじめました。数字が落ち着くまで、少し待ちましょう。';
+    else if (Math.abs(a.avgWait - b.avgWait) < 1) s = '⚖️ いまは、待ち時間はほぼ同じです（信号 ' + a.avgWait.toFixed(1) + '秒／ラウンドアバウト ' + b.avgWait.toFixed(1) + '秒）。';
+    else s = (a.avgWait < b.avgWait ? '🚦 いまは「信号のある交差点」' : '🔄 いまは「ラウンドアバウト」') + 'の方が、1台あたりの待ち時間が短いです（信号 ' + a.avgWait.toFixed(1) + '秒／ラウンドアバウト ' + b.avgWait.toFixed(1) + '秒）。';
+    if (a.backlog + b.backlog > 0) s += ' 画面の外にも列ができています。';
+    $('krNote').textContent = s;
+  }
+  function drawAll(force) { draw(sims[0], $('krA')); draw(sims[1], $('krB')); ui(force); }
+
+  // ---------- 操作 ----------
+  function reset() { T = 0; R = rng(20261124); sims.forEach(clearSim); for (let i = 0; i < 60 * 14; i++) tick(1 / 60); acc = 0; }
+  function sync() {
+    vol = +$('kVol').value; green = +$('kGreen').value; rightP = +$('kRight').value / 100;
+    $('vVol').textContent = '1時間に' + vol + '台'; $('vGreen').textContent = green + '秒'; $('vRight').textContent = Math.round(rightP * 100) + '%';
+  }
+  ['kVol', 'kGreen', 'kRight'].forEach(id => $(id).addEventListener('input', sync));
+  function updPlay() { $('krPlay').textContent = playing ? '⏸ 止める' : '▶ 動かす'; document.querySelectorAll('[data-krsp]').forEach(b => b.classList.toggle('on', +b.dataset.krsp === speed)); }
+  $('krPlay').addEventListener('click', () => { playing = !playing; updPlay(); });
+  document.querySelectorAll('[data-krsp]').forEach(b => b.addEventListener('click', () => { speed = +b.dataset.krsp; playing = true; updPlay(); }));
+  $('krReset').addEventListener('click', () => { reset(); playing = true; updPlay(); drawAll(true); });
+
+  // ---------- シェア ----------
+  function shareText() {
+    const st = [stats(sims[0]), stats(sims[1])], f = v => v == null ? '–' : v.toFixed(1);
+    return `1時間に${vol}台の車を流してくらべたら、信号の交差点は平均${f(st[0].avgWait)}秒待ち、ラウンドアバウトは平均${f(st[1].avgWait)}秒待ちでした🔄`;
+  }
+  $('shareBtn').addEventListener('click', () => { const u = location.origin + location.pathname; window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText() + '\n') + '&url=' + encodeURIComponent(u) + '&hashtags=' + encodeURIComponent('シミュラボ'), '_blank', 'noopener'); });
+  $('copyBtn').addEventListener('click', async () => { const b = $('copyBtn'), t = b.textContent; try { await navigator.clipboard.writeText(shareText() + '\n' + location.origin + location.pathname); b.textContent = 'コピーしました'; } catch (e) { b.textContent = 'コピーできませんでした'; } setTimeout(() => { b.textContent = t; }, 1800); });
+
+  // ---------- 動かす ----------
+  let tPrev = performance.now(), acc = 0; const HSTEP = 1 / 60;
+  function loop(now) {
+    const dt = Math.min(.05, (now - tPrev) / 1000); tPrev = now;
+    if (playing) { acc += dt * speed; let n = 0; while (acc >= HSTEP && n < 12) { tick(HSTEP); acc -= HSTEP; n++; } if (n >= 12) acc = 0; }
+    drawAll(false); requestAnimationFrame(loop);
+  }
+  sync(); reset(); updPlay(); drawAll(true);
+  requestAnimationFrame(loop);
+  window.__t = {
+    step(sec) { const n = Math.round(sec * 60); for (let i = 0; i < n; i++) tick(1 / 60); drawAll(true); },
+    get s() { return { t: T, vol, green, right: rightP, speed, playing, phase: sims[0].ph, sig: stats(sims[0]), rb: stats(sims[1]) }; },
+    set(o) { if (o.vol != null) $('kVol').value = o.vol; if (o.green != null) $('kGreen').value = o.green; if (o.right != null) $('kRight').value = o.right; sync(); },
+    reset() { reset(); drawAll(true); }, sims
+  };
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'kousaten-roundabout', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

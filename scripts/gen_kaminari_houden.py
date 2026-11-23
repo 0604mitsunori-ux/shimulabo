@@ -1,0 +1,485 @@
+# -*- coding: utf-8 -*-
+"""雷の通り道シミュレーター（2026-11-24）
+   sims/kaminari-houden/index.html を書き出す（冪等）。 使い方: python -X utf8 scripts/gen_kaminari_houden.py"""
+import html as H, io, json, os, sys
+
+sys.stdout.reconfigure(encoding="utf-8")
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE = "https://shimulabo.com"
+SLUG = "kaminari-houden"
+NAME = "雷の通り道シミュレーター"
+CAT = "あそぶ・実験"
+TITLE = "雷はなぜジグザグ？雷の通り道シミュレーター（ステップトリーダー・主雷撃・避雷針）｜シミュラボ"
+DESC = ("雲から地面へ、先駆けの放電（ステップトリーダー）が枝分かれしながらジグザグに伸び、地面や建物に届いた瞬間に強い電流（主雷撃）が流れて光るようすを見るシミュレーター。"
+        "タップした場所に建物や避雷針を置いて、落ちる場所がどう変わるかを数えられます。枝分かれは誘電破壊モデルを簡単にした確率の計算で作っています。")
+OG_T = "雷はなぜジグザグ？雷の通り道シミュレーター"
+OG_D = "先駆けの放電が枝分かれしながら伸び、地面に届くと一気に光る。建物や避雷針を置いて、落ちる場所の変化を数えよう。"
+H1 = "雷はなぜジグザグ？<br>雷の通り道シミュレーター"
+LEAD = ("雲から細い放電が、枝分かれしながら少しずつ地面へ伸びていきます。どれか1本が地面や建物に届いた瞬間、その道すじに強い電流が流れて明るく光ります。"
+        "夜空をタップして建物や避雷針を置くと、落ちる場所が変わります。何回落ちたか、そのうち何回が建物・避雷針だったかを数えてみましょう。")
+
+FAQ = [
+    ("雷はなぜジグザグに進むのですか？", "先に伸びる放電は、まっすぐな一本道を最初から知っているわけではありません。少し進んでは、まわりの空気のうち電気が通りやすくなった方向へまた進む、ということをくり返します。そのたびに向きが少しずつ変わるので、折れ曲がったり枝分かれしたりした形になります。"),
+    ("先に伸びる細い光と、最後の明るい光は別のものですか？", "はい。先に雲から伸びてくる弱い放電を「ステップトリーダー（先駆放電）」、それが地面とつながったあとに同じ道を流れる強い電流を「主雷撃（帰還雷撃）」といいます。目に見える強い光のほとんどは主雷撃のものです。"),
+    ("避雷針を置くと、かならずそこに落ちますか？", "いいえ。このシミュレーターでも本物でも、高くとがったものに落ちやすくなるだけで、かならずそこに落ちるわけではありません。避雷針は雷をなくす道具ではなく、落ちた雷の電流を建物の外を通して地面へ流すための設備です。"),
+    ("「枝分かれの多さ」を変えると、中では何が変わっていますか？", "次に伸びる場所を選ぶとき、電位の差が大きい場所をどれくらい強くひいきするか、という数字を変えています。ひいきを強くすると、いちばん有利な先端ばかりが伸びて枝が少なくなり、弱くすると、あちこちの先端が伸びて枝が多くなります。"),
+    ("このシミュレーターで、雷のときに安全な場所がわかりますか？", "いいえ、わかりません。これは雷の道すじができるしくみを単純にして見せるもので、実際に落ちる場所や確率を予測するものではありません。雷から身を守る方法は、気象庁などの公的な情報を確認してください。"),
+]
+REL = [("fractal-tree", "🌳", "フラクタルの木"), ("forest-fire", "🔥", "森林火災の広がり方"), ("snowflake", "❄️", "雪の結晶の育ち方")]
+
+ARTICLE = """
+<h2>このシミュレーターのしくみ</h2>
+<p>画面を細かいマス目（よこ96×たて72）に分けて、雷の道すじを1マスずつ伸ばしています。考え方は、1984年にニーマイヤーたちが発表した<b>誘電破壊モデル</b>を簡単にしたものです。</p>
+<ul>
+<li><b>電位を計算する</b>：雲と、雲から伸びた放電を「0」、地面と建物・避雷針を「1」として、あいだの空気のマスの電位を「となりの4マスの平均」になるように何度も計算しなおします。</li>
+<li><b>伸びる場所を確率で選ぶ</b>：放電のすぐとなりのマスが候補です。電位の差が大きいマス（地面や高いものに近いマス）ほど選ばれやすくなります。かならず一番有利なマスが選ばれるわけではないので、ジグザグや枝分かれが生まれます。</li>
+<li><b>届いたら主雷撃</b>：どれか1本が地面・建物・避雷針にふれたら、その枝から雲までの道すじだけを明るく光らせます。ほかの枝はそのまま消えていきます。</li>
+</ul>
+<p>避雷針に落ちやすくなるのは、特別なルールを足したからではありません。高くて細いものの先には電位の差が集まるので、同じ計算のなかで自然に選ばれやすくなります。</p>
+<p>単純にした点もたくさんあります。平面（2次元）で計算していること、時間をとても引きのばしていること（本物の先駆けの放電は、およそ100分の数秒で地面に届きます）、地面から上向きに伸びる「お迎えの放電」や、同じ道を何度も流れる雷を入れていないことなどです。画面に出る割合は、このモデルの中だけの数字です。</p>
+
+<h2>ためしてみたいこと</h2>
+<ul>
+<li><b>何も置かずに20回落とす</b>：「消す」で建物と避雷針をなくすと、落ちる場所は毎回ばらばらになります。</li>
+<li><b>高い避雷針を1本立てる</b>：空の高いところをタップすると、高い避雷針が立ちます。「建物・避雷針に落ちた割合」がどこまで上がるか数えてみましょう。</li>
+<li><b>建物のとなりに、それより高い避雷針を立てる</b>：建物に落ちる回数がへるかどうかを見てみましょう。低い避雷針だとどうなるでしょうか。</li>
+<li><b>枝分かれを「少ない」と「多い」でくらべる</b>：少ないと枝の短い1本の線に近く、多いと木の根のような形になります。「今回の枝の数」がどれくらい変わるかを見てみましょう。</li>
+<li><b>はしのほうに避雷針を立てる</b>：遠くの雲から出た放電は、避雷針まで届かずに地面へ落ちることが多くなります。高いものが雷を引きよせるはんいには、かぎりがあります。</li>
+</ul>
+
+<h2>本物では</h2>
+<p>本物の雷でも、まず雲から弱い放電が、数十メートルずつ進んでは止まることをくり返しながら、枝分かれして地面へ近づきます。これが<b>ステップトリーダー</b>です。地面に近づくと、高い木や建物の先からも上向きの放電が伸びて、空中でつながります。</p>
+<p>つながった瞬間、その道すじを通って、地面側から雲へ向かって強い電流が流れます。これが<b>主雷撃（帰還雷撃）</b>で、電流は数万アンペアになることがあり、通り道の空気はおよそ3万℃まで熱くなるといわれています。この熱で空気が一気にふくらむ音が、雷鳴です。</p>
+<p>避雷針は、雷を遠ざけるものではありません。雷を先に受けとめて、電流を建物の外の導線から地面へ流すことで、建物を守る設備です。日本では、高さが20メートルをこえる建物には、原則として避雷設備をつけることが建築基準法で決められています。</p>
+<p>このシミュレーターは、雷の形ができるしくみを見るためのもので、どこが安全かを教えるものではありません。雷から身を守る方法は、気象庁などの公的な情報を確認してください。</p>
+"""
+
+REFS = [
+    "Niemeyer, L., Pietronero, L. &amp; Wiesmann, H. J. (1984) Fractal dimension of dielectric breakdown. Physical Review Letters 52, 1033–1036.（誘電破壊モデル）",
+    "Rakov, V. A. &amp; Uman, M. A. (2003) Lightning: Physics and Effects. Cambridge University Press.",
+    "気象庁「雷から身を守るには」「雷とは」（気象庁ホームページ）",
+    "建築基準法 第33条（避雷設備）",
+]
+
+STAGE = r"""
+<style>
+#khWrap{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#070b1a}
+#khCv{display:block;width:100%;aspect-ratio:4/3;touch-action:manipulation;cursor:crosshair}
+.kh-row{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:10px}
+.kh-seg{display:flex;flex-wrap:wrap;gap:6px}
+.kh-seg button,.kh-row>button{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 13px;font:inherit;font-size:13.5px;font-weight:800;cursor:pointer;color:var(--ink)}
+.kh-seg button.on,.kh-row>button.on{background:#4338ca;border-color:#4338ca;color:#fff}
+.kh-row>button.kh-go{background:#f59e0b;border-color:#f59e0b;color:#111;padding:9px 18px;font-size:15px}
+.kh-sum{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
+.kh-sum div{background:#eef2ff;border-radius:12px;padding:10px 4px;text-align:center}
+.kh-sum b{display:block;font-size:20px;color:#4338ca;font-variant-numeric:tabular-nums}
+.kh-sum b small{font-size:11.5px}
+.kh-sum span{font-size:11.5px;color:var(--ink-2);font-weight:700}
+.kh-note{font-size:13.5px;color:var(--ink);background:#eef2ff;border-radius:10px;padding:9px 12px;margin:10px 0 0;font-weight:700;min-height:1.6em}
+.kh-hint{font-size:13px;color:var(--ink-2);margin:8px 0 0}
+.kh-cols{display:grid;grid-template-columns:1fr 1fr;gap:6px 22px;margin-top:14px}
+@media (max-width:640px){.kh-sum{grid-template-columns:repeat(2,1fr)}.kh-cols{grid-template-columns:1fr}.kh-seg button,.kh-row>button{padding:8px 11px;font-size:13px}}
+</style>
+"""
+
+BODY = r"""
+  <section class="panel" id="resultPanel">
+    <div id="khWrap">
+      <canvas id="khCv" aria-label="夜空の雲から地面へ、雷の放電が枝分かれしながら伸びるようす"></canvas>
+    </div>
+    <div class="kh-row">
+      <button type="button" class="kh-go" id="khGo">⚡ 落とす</button>
+      <button type="button" class="on" id="khAuto" aria-pressed="true">🔁 連続で落とす</button>
+      <button type="button" id="khReset">↺ リセット</button>
+    </div>
+    <div class="kh-row">
+      <span style="font-size:13px;font-weight:800;color:var(--ink-2)">夜空をタップして置くもの：</span>
+      <div class="kh-seg" id="khTool"><button type="button" data-v="b" class="on">🏢 建物</button><button type="button" data-v="r">📍 避雷針</button><button type="button" data-v="x">🧹 消す</button></div>
+    </div>
+    <p class="kh-hint">タップした高さまでの建物・避雷針が立ちます（8つまで）。落ちた瞬間に、画面が少しだけ明るくなります。</p>
+
+    <div class="kh-sum">
+      <div><b id="khN">0<small>回</small></b><span>落ちた回数</span></div>
+      <div><b id="khP">–</b><span>建物・避雷針に落ちた割合</span></div>
+      <div><b id="khT">0<small>本</small></b><span>今回の枝の数</span></div>
+      <div><b id="khL">–</b><span>道のりの長さ（まっすぐの何倍）</span></div>
+    </div>
+    <p class="kh-note" id="khNote">⚡ もうすぐ、雲から放電が伸びはじめます。</p>
+
+    <div class="kh-cols">
+      <div class="field"><label>🌿 枝分かれの多さ <span class="hint">（<b id="khVB"></b>）</span></label><input type="range" id="khB" min="1" max="5" step="1" value="3"></div>
+      <div class="field"><label>⏩ 伸びる速さ <span class="hint">（<b id="khVS"></b>）</span></label><input type="range" id="khS" min="1" max="5" step="1" value="3"></div>
+    </div>
+
+    <div style="text-align:center;margin-top:16px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+"""
+
+JS = r"""
+(() => {
+  const $ = id => document.getElementById(id);
+  const cv = $('khCv'), ctx = cv.getContext('2d');
+  const GW = 96, GH = 72, CY = 9, GY = 68, N = GW * GH;
+  // typ: 0=空気 1=放電 2=地面・建物・避雷針 3=雲
+  const typ = new Uint8Array(N), phi = new Float32Array(N), base = new Float32Array(N), objAt = new Uint8Array(N), candP = new Int32Array(N), wt = new Float64Array(N);
+  const ETA = [0, 3.2, 2.4, 1.8, 1.45, 1.15], RF = [0, .6, .8, 1.3, 2.1, 3.2], SP = [0, 14, 28, 55, 110, 220];
+  const DEF = () => [{ type: 'b', x: 16, w: 7, top: 57 }, { type: 'r', x: 70, w: 1, top: 55 }];
+  const calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let objs = DEF(), cells = [], cand = [], tool = 'b', auto = true;
+  let phase = 'wait', st = 0, waitT = .5, growAcc = 0, tips = 0, mainPath = [], hit = null, simT = 0, seedX = 48;
+  let strikes = 0, objHits = 0, lastRatio = 0, branchLv = 3, speedLv = 3, hold = 0, holdMsg = '';
+  function rng(s) { s = s >>> 0; return () => { s = (s + 0x6D2B79F5) >>> 0; let t = s; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
+
+  // ---------- 電位（となり4マスの平均になるまで、くり返し計算） ----------
+  function relax(p, n) {
+    const w = 1.7;
+    for (let k = 0; k < n; k++) for (let y = CY + 1; y < GY; y++) {
+      let i = y * GW;
+      for (let x = 0; x < GW; x++, i++) {
+        if (typ[i]) continue;
+        const l = x > 0 ? p[i - 1] : p[i + 1], r = x < GW - 1 ? p[i + 1] : p[i - 1];
+        p[i] += w * ((l + r + p[i - GW] + p[i + GW]) * .25 - p[i]);
+      }
+    }
+  }
+  function buildMask() {
+    typ.fill(0); objAt.fill(0); cells = [];
+    for (let x = 0; x < GW; x++) { for (let y = 0; y <= CY; y++) typ[y * GW + x] = 3; for (let y = GY; y < GH; y++) typ[y * GW + x] = 2; }
+    objs.forEach((o, k) => { for (let x = o.x; x < o.x + o.w; x++) for (let y = o.top; y < GY; y++) { typ[y * GW + x] = 2; objAt[y * GW + x] = k + 1; } });
+    for (let y = 0; y < GH; y++) for (let x = 0; x < GW; x++) { const i = y * GW + x; base[i] = typ[i] === 2 ? 1 : typ[i] === 3 ? 0 : (y - CY) / (GY - CY); }
+    relax(base, 160);
+  }
+
+  // ---------- 先駆けの放電（ステップトリーダー）を1マスずつ伸ばす ----------
+  function add(i, parent) {
+    const x = i % GW, y = (i / GW) | 0;
+    typ[i] = 1; phi[i] = 0;
+    const id = cells.length;
+    cells.push({ i, x, y, p: parent, px: x + .5 + (Math.random() - .5) * .7, py: y + .5 + (Math.random() - .5) * .7, t: simT, kids: 0, m: 0 });
+    if (parent >= 0 && cells[parent].kids++ > 0) tips++;
+    let got = -1;
+    for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) {
+      if (!dx && !dy) continue;
+      const nx = x + dx, ny = y + dy; if (nx < 0 || nx >= GW || ny <= CY || ny >= GH) continue;
+      const n = ny * GW + nx;
+      if (typ[n] === 2) { if ((!dx || !dy) && (got < 0 || dy === 1)) got = n; }
+      else if (typ[n] === 0 && candP[n] < 0) { candP[n] = id; cand.push(n); }
+    }
+    return got;
+  }
+  function newLeader() {
+    for (const c of cells) typ[c.i] = 0;
+    cells = []; cand = []; candP.fill(-1); phi.set(base);
+    seedX = 8 + Math.floor(Math.random() * (GW - 16));
+    tips = 1; mainPath = []; hit = null; growAcc = 0; phase = 'lead'; st = 0;
+    add(seedX + (CY + 1) * GW, -1);
+    relax(phi, 12);
+  }
+  function growOne() {
+    const eta = ETA[branchLv], L = cand.length; if (!L) return;
+    let tot = 0;
+    for (let k = 0; k < L; k++) {
+      const n = cand[k], v = phi[n], pc = cells[candP[n]];
+      let w = v > 0 ? Math.pow(v, eta) : 0;
+      if (pc.x !== n % GW && pc.y !== ((n / GW) | 0)) w *= .6;
+      wt[k] = w; tot += w;
+    }
+    let k = 0;
+    if (tot > 0) { let r = Math.random() * tot; for (; k < L - 1; k++) { r -= wt[k]; if (r <= 0) break; } }
+    else k = Math.floor(Math.random() * L);
+    const n = cand[k]; cand[k] = cand[L - 1]; cand.pop();
+    const g = add(n, candP[n]);
+    if (g >= 0) attach(cells.length - 1, g); else relax(phi, 3);
+  }
+  // ---------- 地面や建物に届いた → 主雷撃 ----------
+  function attach(id, g) {
+    mainPath = []; let k = id; while (k >= 0) { cells[k].m = 1; mainPath.push(k); k = cells[k].p; }
+    const gx = g % GW, gy = (g / GW) | 0, e = cells[id], o = objAt[g] ? objs[objAt[g] - 1] : null;
+    hit = { x: gx > e.x ? gx : gx < e.x ? gx + 1 : gx + .5, y: gy > e.y ? gy : gy + .5, type: o ? o.type : 'g' };
+    strikes++; if (o) objHits++;
+    let len = Math.hypot(e.px - hit.x, e.py - hit.y);
+    for (let j = 1; j < mainPath.length; j++) { const a = cells[mainPath[j - 1]], b = cells[mainPath[j]]; len += Math.hypot(a.px - b.px, a.py - b.py); }
+    const s = cells[0]; lastRatio = len / Math.max(1, Math.hypot(s.px - hit.x, s.py - hit.y));
+    phase = 'strike'; st = 0;
+  }
+  function update(dt) {
+    simT += dt;
+    if (phase === 'lead') {
+      growAcc += SP[speedLv] * RF[branchLv] * dt; let n = 0;
+      while (growAcc >= 1 && phase === 'lead' && n < 60) { growOne(); growAcc -= 1; n++; }
+      if (cells.length > 5500) newLeader();
+    } else if (phase === 'strike') { st += dt; if (st > 1.7) { phase = 'wait'; waitT = 0; } }
+    else if (auto) { waitT += dt; if (waitT > .8) newLeader(); }
+  }
+
+  // ---------- 描く ----------
+  let dpr = 1;
+  function size() {
+    const w = cv.clientWidth || 600; dpr = Math.min(2, window.devicePixelRatio || 1);
+    const W = Math.round(w * dpr), Hh = Math.round(w * .75 * dpr); if (cv.width !== W || cv.height !== Hh) { cv.width = W; cv.height = Hh; }
+  }
+  const puffs = (() => { const R = rng(42), a = []; for (let x = -4; x < GW + 5; x += 3.2) a.push([x + R() * 2, 1.5 + R() * 3.2, 4 + R() * 2.6, R()]); return a; })();
+  const stars = (() => { const R = rng(7), a = []; for (let k = 0; k < 40; k++) a.push([R() * GW, 12 + R() * 40, .5 + R() * .7, .2 + R() * .5]); return a; })();
+  function flashA() { if (phase !== 'strike') return 0; return (st < .06 ? st / .06 : Math.exp(-(st - .06) / .32)) * (calm ? .14 : .4); }
+  function draw() {
+    size();
+    const c = ctx, W = cv.width, Hh = cv.height, cs = W / GW, fl = flashA();
+    c.setTransform(1, 0, 0, 1, 0, 0); c.lineCap = 'round'; c.lineJoin = 'round';
+    const sky = c.createLinearGradient(0, 0, 0, Hh); sky.addColorStop(0, '#060917'); sky.addColorStop(.65, '#121a36'); sky.addColorStop(1, '#222d52');
+    c.fillStyle = sky; c.fillRect(0, 0, W, Hh);
+    c.fillStyle = '#cbd5e1'; stars.forEach(s => { c.globalAlpha = s[3] * .5; c.fillRect(s[0] * cs, s[1] * cs, s[2] * dpr, s[2] * dpr); }); c.globalAlpha = 1;
+    // 地面・建物・避雷針
+    c.fillStyle = '#080c18'; c.fillRect(0, GY * cs, W, Hh - GY * cs);
+    c.fillStyle = '#26324f'; c.fillRect(0, GY * cs, W, Math.max(1, dpr));
+    objs.forEach(o => {
+      if (o.type === 'b') {
+        c.fillStyle = '#0f172b'; c.strokeStyle = '#3a4a6e'; c.lineWidth = Math.max(1, dpr);
+        c.fillRect(o.x * cs, o.top * cs, o.w * cs, (GY - o.top) * cs); c.strokeRect(o.x * cs, o.top * cs, o.w * cs, (GY - o.top) * cs);
+        for (let wy = o.top + 1.3, r = 0; wy < GY - 1.6; wy += 2.6, r++) for (let q = 0; q < 3; q++) {
+          const lit = ((o.x * 31 + r * 17 + q * 7) % 5) > 1;
+          c.fillStyle = lit ? 'rgba(255,209,102,.78)' : 'rgba(148,163,184,.16)'; c.fillRect((o.x + .95 + q * 2) * cs, wy * cs, 1.1 * cs, 1.3 * cs);
+        }
+      } else {
+        c.fillStyle = '#334155'; c.fillRect((o.x - .8) * cs, (GY - 1.4) * cs, 2.6 * cs, 1.4 * cs);
+        c.strokeStyle = '#aab4c8'; c.lineWidth = Math.max(1.5 * dpr, cs * .36); c.beginPath(); c.moveTo((o.x + .5) * cs, (o.top + .6) * cs); c.lineTo((o.x + .5) * cs, GY * cs); c.stroke();
+        c.fillStyle = '#f1f5f9'; c.beginPath(); c.arc((o.x + .5) * cs, (o.top + .5) * cs, Math.max(2 * dpr, cs * .55), 0, 7); c.fill();
+      }
+    });
+    // 放電
+    if (phase !== 'wait' && cells.length > 1) {
+      const lead = phase === 'lead';
+      const bA = lead ? 1 : (st < .1 ? 1 : Math.exp(-(st - .1) / .38));
+      const path = f => { c.beginPath(); for (let k = 1; k < cells.length; k++) { const q = cells[k]; if (!f(q)) continue; const p = cells[q.p]; c.moveTo(p.px * cs, p.py * cs); c.lineTo(q.px * cs, q.py * cs); } c.stroke(); };
+      if (bA > .01) {
+        c.strokeStyle = `rgba(130,110,255,${.13 * bA})`; c.lineWidth = cs * 1.1; path(q => lead || !q.m);
+        c.strokeStyle = `rgba(190,175,255,${(lead ? .62 : .8) * bA})`; c.lineWidth = Math.max(1, cs * .24); path(q => lead || !q.m);
+      }
+      if (lead) {
+        c.strokeStyle = 'rgba(245,240,255,.95)'; c.lineWidth = Math.max(1.2, cs * .36); path(q => simT - q.t < .22);
+        c.fillStyle = 'rgba(255,255,255,.9)'; for (let k = Math.max(0, cells.length - 6); k < cells.length; k++) { const q = cells[k]; c.beginPath(); c.arc(q.px * cs, q.py * cs, cs * .32, 0, 7); c.fill(); }
+      } else {
+        const mA = st < .4 ? 1 : Math.exp(-(st - .4) / .42), nShow = Math.max(2, Math.ceil(Math.min(1, st / .1) * mainPath.length));
+        if (mA > .01) {
+          const mp = () => { c.beginPath(); c.moveTo(hit.x * cs, hit.y * cs); for (let j = 0; j < nShow && j < mainPath.length; j++) { const q = cells[mainPath[j]]; c.lineTo(q.px * cs, q.py * cs); } c.stroke(); };
+          c.strokeStyle = `rgba(140,120,255,${.2 * mA})`; c.lineWidth = cs * 3; mp();
+          c.strokeStyle = `rgba(205,195,255,${.5 * mA})`; c.lineWidth = cs * 1.4; mp();
+          c.strokeStyle = `rgba(255,255,255,${mA})`; c.lineWidth = Math.max(1.5, cs * .6); mp();
+          const gr = c.createRadialGradient(hit.x * cs, hit.y * cs, 0, hit.x * cs, hit.y * cs, cs * 9);
+          gr.addColorStop(0, `rgba(255,244,214,${.85 * mA})`); gr.addColorStop(.25, `rgba(210,195,255,${.35 * mA})`); gr.addColorStop(1, 'rgba(200,190,255,0)');
+          c.fillStyle = gr; c.fillRect((hit.x - 9) * cs, (hit.y - 9) * cs, 18 * cs, 18 * cs);
+        }
+      }
+    }
+    // 雲
+    c.fillStyle = '#1a2140'; c.fillRect(0, 0, W, 5 * cs);
+    puffs.forEach(p => { c.fillStyle = p[3] < .5 ? '#232c50' : '#1a2140'; c.beginPath(); c.arc(p[0] * cs, p[1] * cs, p[2] * cs, 0, 7); c.fill(); });
+    if (fl > 0) {
+      const gl = c.createRadialGradient(seedX * cs, CY * cs, 0, seedX * cs, CY * cs, cs * 40);
+      gl.addColorStop(0, `rgba(225,215,255,${fl * 1.4})`); gl.addColorStop(1, 'rgba(200,190,255,0)');
+      c.fillStyle = gl; c.fillRect(0, 0, W, Hh);
+      c.fillStyle = `rgba(205,198,255,${fl})`; c.fillRect(0, 0, W, Hh);
+    }
+  }
+
+  // ---------- 数字とひとこと ----------
+  const BL = ['', '少ない', 'やや少ない', 'ふつう', 'やや多い', '多い'], SL = ['', 'ゆっくり', 'ややゆっくり', 'ふつう', 'やや速い', '速い'];
+  let lastUI = 0;
+  function ui(force) {
+    const now = performance.now(); if (!force && now - lastUI < 150) return; lastUI = now;
+    $('khN').innerHTML = strikes + '<small>回</small>';
+    $('khP').innerHTML = strikes ? Math.round(objHits / strikes * 100) + '<small>%（' + objHits + '回）</small>' : '–';
+    $('khT').innerHTML = tips + '<small>本</small>';
+    $('khL').innerHTML = lastRatio ? lastRatio.toFixed(2) + '<small>倍</small>' : '–';
+    let s;
+    if (now < hold) s = holdMsg;
+    else if (phase === 'lead') s = '⚡ 先駆けの放電（ステップトリーダー）が、道をさがしながら伸びています…';
+    else if (hit) s = (hit.type === 'b' ? '🏢 建物に落ちました。' : hit.type === 'r' ? '📍 避雷針に落ちました。' : '🌱 地面に落ちました。') + '届いた道すじに、強い電流（主雷撃）が流れました。';
+    else s = auto ? '⚡ もうすぐ、雲から放電が伸びはじめます。' : '「⚡ 落とす」をおすと、雲から放電が伸びはじめます。';
+    $('khNote').textContent = s;
+  }
+  function say(s) { holdMsg = s; hold = performance.now() + 2200; ui(true); }
+
+  // ---------- 操作 ----------
+  function place(col, row) {
+    if (tool === 'x') {
+      const n0 = objs.length; objs = objs.filter(o => col < o.x - 1 || col > o.x + o.w);
+      if (objs.length === n0) { say('🧹 そこには消すものがありません。建物や避雷針をタップしてください。'); return; }
+      say('🧹 消しました。');
+    } else {
+      const b = tool === 'b', w = b ? 7 : 1, x = Math.max(1, Math.min(GW - 1 - w, col - (w >> 1)));
+      const top = Math.max(CY + (b ? 22 : 13), Math.min(GY - (b ? 4 : 6), row));
+      objs = objs.filter(o => x + w + 1 <= o.x || x >= o.x + o.w + 1);
+      if (objs.length >= 8) objs.shift();
+      objs.push({ type: tool, x, w, top });
+      say(b ? '🏢 建物を置きました。' : '📍 避雷針を立てました。');
+    }
+    buildMask(); newLeader();
+  }
+  let down = null;
+  cv.addEventListener('pointerdown', e => { down = [e.clientX, e.clientY]; });
+  cv.addEventListener('pointercancel', () => { down = null; });
+  cv.addEventListener('pointerup', e => {
+    if (!down || Math.hypot(e.clientX - down[0], e.clientY - down[1]) > 12) { down = null; return; }
+    down = null; const r = cv.getBoundingClientRect();
+    place(Math.floor((e.clientX - r.left) / r.width * GW), Math.floor((e.clientY - r.top) / r.height * GH));
+  });
+  $('khTool').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; tool = b.dataset.v; document.querySelectorAll('#khTool button').forEach(x => x.classList.toggle('on', x === b)); });
+  $('khGo').addEventListener('click', () => { hold = 0; newLeader(); ui(true); });
+  $('khAuto').addEventListener('click', () => { auto = !auto; $('khAuto').classList.toggle('on', auto); $('khAuto').setAttribute('aria-pressed', auto); if (auto && phase === 'wait') waitT = .8; ui(true); });
+  function reset() { objs = DEF(); strikes = 0; objHits = 0; lastRatio = 0; buildMask(); newLeader(); }
+  $('khReset').addEventListener('click', () => { reset(); say('↺ 最初の状態にもどしました。'); });
+  const bind = (id, out, lab, f) => { const el = $(id), up = () => { f(+el.value); $(out).textContent = lab[+el.value]; }; el.addEventListener('input', up); up(); };
+  bind('khB', 'khVB', BL, v => { branchLv = v; }); bind('khS', 'khVS', SL, v => { speedLv = v; });
+
+  // ---------- シェア ----------
+  function shareText() { return strikes ? `雷の通り道シミュレーターで${strikes}回落としたら、${objHits}回（${Math.round(objHits / strikes * 100)}%）が建物・避雷針に落ちました⚡` : '雷がジグザグに伸びて落ちるようすを見られるシミュレーター⚡'; }
+  $('shareBtn').addEventListener('click', () => { const u = location.origin + location.pathname; window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText() + '\n') + '&url=' + encodeURIComponent(u) + '&hashtags=' + encodeURIComponent('シミュラボ'), '_blank', 'noopener'); });
+  $('copyBtn').addEventListener('click', async () => { try { await navigator.clipboard.writeText(shareText() + '\n' + location.origin + location.pathname); say('コピーしました'); } catch (e) { say('コピーできませんでした'); } });
+
+  // ---------- 動かす ----------
+  const DT = 1 / 60;
+  let tPrev = performance.now(), acc = 0, paused = false;
+  function loop(now) {
+    const dt = Math.min(.1, (now - tPrev) / 1000); tPrev = now; acc += dt;
+    let n = 0; while (acc >= DT && n < 5) { if (!paused) update(DT); acc -= DT; n++; } if (n === 5) acc = 0;
+    draw(); ui(); requestAnimationFrame(loop);
+  }
+  buildMask(); draw(); ui(true);
+  requestAnimationFrame(loop);
+  window.__t = {
+    step(sec) { const n = Math.max(1, Math.round(sec * 60)); for (let i = 0; i < n; i++) update(DT); draw(); ui(true); },
+    get s() { return { phase, st: +st.toFixed(2), strikes, objHits, cells: cells.length, tips, cand: cand.length, objs: objs.map(o => o.type + o.x + ':' + o.top), hit, ratio: +lastRatio.toFixed(2), flash: +flashA().toFixed(3), auto, tool, branchLv, speedLv, seedX }; },
+    place, reset, newLeader, set(o) { if (o.tool) tool = o.tool; if (o.branch) branchLv = o.branch; if (o.speed) speedLv = o.speed; if ('auto' in o) { auto = o.auto; $('khAuto').classList.toggle('on', auto); } if ('pause' in o) paused = o.pause; }
+  };
+})();
+"""
+
+
+def esc(s): return H.escape(s, quote=True)
+
+
+def build():
+    url = f"{BASE}/sims/{SLUG}/"
+    ld_app = {"@context": "https://schema.org", "@type": "WebApplication", "name": NAME, "url": url, "description": DESC,
+              "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": True,
+              "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}}
+    ld_bc = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "ホーム", "item": BASE + "/"}, {"@type": "ListItem", "position": 2, "name": NAME, "item": url}]}
+    ld_faq = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]}
+    rel = "".join(f'<a class="related-card" href="../{s}/"><span class="e">{e}</span><span>{esc(t)}</span></a>' for s, e, t in REL)
+    faq = "".join(f"<dt>{esc(q)}</dt><dd>{a}</dd>" for q, a in FAQ)
+    refs = "".join(f"<li>{r}</li>" for r in REFS)
+    return f"""<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="{url}">
+    <meta property="og:image" content="{BASE}/ogp/{SLUG}.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{BASE}/ogp/{SLUG}.png">
+<title>{esc(TITLE)}</title>
+<meta name="description" content="{esc(DESC)}">
+<meta property="og:title" content="{esc(OG_T)}">
+<meta property="og:description" content="{esc(OG_D)}">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="{url}">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{json.dumps(ld_app, ensure_ascii=False)}</script>
+    <script type="application/ld+json">{json.dumps(ld_bc, ensure_ascii=False)}</script>
+    <script type="application/ld+json">{json.dumps(ld_faq, ensure_ascii=False)}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+{STAGE}
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span>{esc(CAT)}<span>›</span><span class="cur">{esc(NAME)}</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">{esc(CAT)}</div>
+    <h1>{H1}</h1>
+    <p class="lead">{esc(LEAD)}</p>
+  </div>
+{BODY}
+  <article class="article">
+{ARTICLE}
+    <h2>よくある質問</h2>
+    <dl class="faq">{faq}</dl>
+    <h2>参考にした資料</h2>
+    <ul class="seo-refs">{refs}</ul>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>関連するシミュレーター</h2>
+    <div class="related-grid">{rel}</div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュレーターも見てみたい？</h2>
+    <p>あなたの「これシミュレーションしてみたい」を送ってください。面白い案から実際に作って、できたらお知らせします。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:8px;font-size:.85em"><!-- footer-links --><a href="../../about/">運営者情報</a>　<a href="../../privacy/">プライバシーポリシー</a>　<a href="../../terms/">利用規約</a>　<a href="../../contact/">お問い合わせ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>{JS}</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({{ simId:'{SLUG}', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] }});</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>
+"""
+
+
+if __name__ == "__main__":
+    out = os.path.join(ROOT, "sims", SLUG, "index.html")
+    os.makedirs(os.path.dirname(out), exist_ok=True)
+    io.open(out, "w", encoding="utf-8", newline="\n").write(build())
+    print("wrote", out)

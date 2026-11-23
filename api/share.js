@@ -176,6 +176,16 @@ const ALLOW = new Set([
   'shibousan-yuuten',
   'pcr-hou',
   'tensha-honyaku-genkaku',
+  'kousaten-roundabout',
+  'kakusa-umareru',
+  'chladni-zukei',
+  'nuno-cloth',
+  'ai-gakushu-nn',
+  'nenkin-network',
+  'ari-pheromone',
+  'kaminari-houden',
+  'engine-4stroke',
+  'coaster-energy',
 ]);
 
 export default async function handler(req, res) {

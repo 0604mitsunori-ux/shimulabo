@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/ari-pheromone/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/ari-pheromone.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/ari-pheromone.png">
+<title>アリの行列はなぜできる？フェロモンの道しるべシミュレーター（エサ・壁を置ける）｜シミュラボ</title>
+<meta name="description" content="アリの行列ができるしくみを、画面の上で動かして確かめるシミュレーター。アリは巣からバラバラに歩き出し、エサを見つけたアリは帰り道にフェロモンを残します。フェロモンは時間とともに蒸発し、ほかのアリは濃い方へ進みやすいので、やがて行列ができます。タップでエサを置いたり、壁を描いたり、行列を消したりできます。">
+<meta property="og:title" content="アリの行列はなぜできる？フェロモンの道しるべシミュレーター">
+<meta property="og:description" content="エサを見つけたアリが残すフェロモンを、ほかのアリがたどって行列になる。エサや壁を置いて、蒸発の速さも変えられる。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/ari-pheromone/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "アリの行列シミュレーター", "url": "https://shimulabo.com/sims/ari-pheromone/", "description": "アリの行列ができるしくみを、画面の上で動かして確かめるシミュレーター。アリは巣からバラバラに歩き出し、エサを見つけたアリは帰り道にフェロモンを残します。フェロモンは時間とともに蒸発し、ほかのアリは濃い方へ進みやすいので、やがて行列ができます。タップでエサを置いたり、壁を描いたり、行列を消したりできます。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "アリの行列シミュレーター", "item": "https://shimulabo.com/sims/ari-pheromone/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "どうやって遊びますか？", "acceptedAnswer": {"@type": "Answer", "text": "何もしなくても、アリが巣から出てエサを探し始めます。「置くもの」で「エサ」「かべ」「けす」を選んで、画面をタップ（かべ・けすはなぞる）すると、エサを置いたり、壁を描いたり、行列のとちゅうを消したりできます。下のスライダーで、アリの数・フェロモンの蒸発の速さ・フェロモンに従う強さを変えられます。"}}, {"@type": "Question", "name": "むらさき色のもやは何ですか？", "acceptedAnswer": {"@type": "Answer", "text": "エサを運んでいるアリが地面に残した「道しるべフェロモン」の濃さです。色が濃いところほど、たくさんのアリが通ったばかりの道です。時間がたつと蒸発して、うすくなっていきます。本物のフェロモンは目に見えません。"}}, {"@type": "Question", "name": "だれも命令していないのに、なぜ行列ができるのですか？", "acceptedAnswer": {"@type": "Answer", "text": "1ぴきずつのアリは「エサを見つけたら、においを残しながら帰る」「においの濃い方へ進みやすい」という、かんたんな決まりで動いているだけです。においのある道を通るアリがふえると、その道のにおいがさらに濃くなり、もっとアリが集まります。このくり返しで、行列が自然にできます。"}}, {"@type": "Question", "name": "近いエサの方が先になくなるのはなぜですか？", "acceptedAnswer": {"@type": "Answer", "text": "近いエサは、行って帰ってくるまでの時間が短いので、同じ時間のあいだに何度も運べます。道を通る回数が多いぶん、フェロモンも多く重ねられます。このシミュレーターの最初の場面でも、近いエサの方が先になくなります。"}}, {"@type": "Question", "name": "本物のアリと同じですか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ、しくみをつかむために単純にしています。たとえばこのシミュレーターでは、エサを持ったアリは巣への近道を知っているものとして計算しています。本物のアリは、種類によって、太陽の向き・歩いた道のり・まわりの景色・においなどを組み合わせて巣に帰ります。フェロモンの種類や使い方も、アリの種類によってちがいます。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+
+<style>
+.an-row{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:10px}
+.an-row>span{font-size:13px;font-weight:800;color:var(--ink-2);margin-right:2px}
+.an-seg{display:flex;flex-wrap:wrap;gap:6px}
+.an-seg button,.an-row button{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 13px;font:inherit;font-size:13.5px;font-weight:800;cursor:pointer;color:var(--ink)}
+.an-seg button.on{background:#7c3aed;border-color:#7c3aed;color:#fff}
+#anWrap{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#eadfc6}
+#an{display:block;width:100%;aspect-ratio:4/3;touch-action:pan-y;cursor:crosshair}
+.an-msg{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);background:rgba(15,23,42,.85);color:#fff;font-size:12.5px;font-weight:700;border-radius:12px;padding:6px 14px;max-width:92%;text-align:center;pointer-events:none;opacity:0;transition:opacity .3s}
+.an-msg.show{opacity:1}
+.an-legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12px;color:var(--ink-2);margin:8px 0 0}
+.an-legend i{display:inline-block;width:12px;height:12px;border-radius:50%;vertical-align:-2px;margin-right:4px}
+.an-sum{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:12px}
+.an-sum div{background:#f5f3ff;border-radius:12px;padding:10px 4px;text-align:center}
+.an-sum b{display:block;font-size:20px;color:#6d28d9;font-variant-numeric:tabular-nums}
+.an-sum b small{font-size:11.5px}
+.an-sum span{font-size:11.5px;color:var(--ink-2);font-weight:700}
+.an-note{font-size:13.5px;color:var(--ink);background:#f5f3ff;border-radius:10px;padding:9px 12px;margin:10px 0 0;font-weight:700}
+.an-cols{display:grid;grid-template-columns:1fr 1fr;gap:6px 22px}
+.an-check{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;cursor:pointer}
+.an-check input{width:18px;height:18px}
+.an-hint{font-size:13px;color:var(--ink-2);margin:0 0 8px;min-height:3.1em}
+@media (max-width:640px){.an-sum{grid-template-columns:repeat(3,1fr)}.an-cols{grid-template-columns:1fr}.an-seg button,.an-row button{padding:7px 11px;font-size:13px}}
+</style>
+
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span>ふしぎ・現象<span>›</span><span class="cur">アリの行列シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ふしぎ・現象</div>
+    <h1>アリの行列はなぜできる？<br>フェロモンの道しるべシミュレーター</h1>
+    <p class="lead">アリは最初、巣からバラバラに歩いてエサを探します。エサを見つけたアリは、帰り道に「フェロモン」というにおいの道しるべを残します。ほかのアリはそのにおいの濃い方へ進みやすいので、だんだん行列ができていきます。画面をタップしてエサを置いたり、壁を描いたりして、行列がどう変わるか見てみましょう。</p>
+  </div>
+
+  <section class="panel" id="resultPanel">
+    <div class="an-row"><span>場面</span><div class="an-seg" id="anPre">
+      <button type="button" data-p="two" class="on">近いエサ・遠いエサ</button><button type="button" data-p="wall">かべの向こう</button><button type="button" data-p="four">エサを4つ</button><button type="button" data-p="empty">まっさら</button>
+    </div></div>
+    <div class="an-row"><span>置くもの</span><div class="an-seg" id="anTool">
+      <button type="button" data-t="food" class="on">🍏 エサ</button><button type="button" data-t="wall">🧱 かべ</button><button type="button" data-t="erase">🧽 けす</button>
+    </div></div>
+    <p class="an-hint" id="anHint">画面をタップすると、その場所にエサを置けます。</p>
+
+    <div id="anWrap">
+      <canvas id="an" aria-label="巣からエサまでアリが行き来し、フェロモンの道ができていく様子"></canvas>
+      <div class="an-msg" id="anMsg"></div>
+    </div>
+    <p class="an-legend"><span><i style="background:#7c4a1e"></i>巣</span><span><i style="background:#16a34a"></i>エサ（エサを持ったアリは緑の点つき）</span><span><i style="background:#a78bfa"></i>フェロモン（濃いほど強い）</span><span><i style="background:#57534e;border-radius:3px"></i>かべ</span></p>
+
+    <div class="an-row" style="margin:12px 0 0"><span>速さ</span>
+      <div class="an-seg" id="anSp"><button type="button" data-sp="1" class="on">×1</button><button type="button" data-sp="2">×2</button><button type="button" data-sp="4">×4</button></div>
+      <button type="button" id="anPlay">⏸ 止める</button>
+      <button type="button" id="anReset">↺ リセット</button>
+    </div>
+
+    <div class="an-sum">
+      <div><b id="anDel">0</b><span>運んだエサ</span></div>
+      <div><b id="anTrail">0</b><span>行列にいるアリ</span></div>
+      <div><b id="anTrip">–</b><span>往復の平均時間</span></div>
+      <div><b id="anFood">0</b><span>のこりのエサ</span></div>
+      <div><b id="anTime">0</b><span>たった時間</span></div>
+    </div>
+    <p class="an-note" id="anNote">🐜 アリがエサを探しています。</p>
+
+    <h2 style="margin:20px 0 10px;font-size:18px;">アリとフェロモンの設定（いつでも変えられます）</h2>
+    <div class="an-cols">
+      <div class="field"><label>🐜 アリの数 <span class="hint">（<b id="vN"></b>）</span></label><input type="range" id="kN" min="20" max="400" step="10" value="150"></div>
+      <div class="field"><label>💨 フェロモンの蒸発の速さ <span class="hint">（<b id="vEvap"></b>）</span></label><input type="range" id="kEvap" min="0" max="100" step="1" value="40"></div>
+      <div class="field"><label>👃 フェロモンに従う強さ <span class="hint">（<b id="vFollow"></b>）</span></label><input type="range" id="kFollow" min="0" max="100" step="1" value="70"></div>
+      <div class="field"><label class="an-check"><input type="checkbox" id="anAuto" checked> エサがなくなったら、新しいエサを自動で置く</label></div>
+    </div>
+
+    <div style="text-align:center;margin-top:16px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+
+<h2>このシミュレーターのしくみ</h2>
+<p>画面の中のアリは、1ぴきずつ次のかんたんな決まりで動いています。全体に命令を出すリーダーはいません。</p>
+<ul>
+<li><b>エサを探しているアリ</b>：少しずつ向きを変えながら、ふらふらと歩きます。少し前の「左・正面・右」の3か所のフェロモンの濃さをくらべて、濃い方へ曲がります。エサがすぐ近くにあれば、そこへ向かいます。</li>
+<li><b>エサを持ったアリ</b>：巣へ帰りながら、足もとにフェロモンを残します。残す量は、エサを取ってすぐがいちばん多く、時間がたつほど少なくなります。</li>
+<li><b>フェロモン</b>：時間とともに蒸発してうすくなり、まわりに少しだけ広がります。</li>
+</ul>
+<p>たくさんのアリが通る道は、蒸発するより速くフェロモンが重ねられるので濃いまま残り、通るアリが少ない道は消えていきます。「アリが通る → 濃くなる → もっとアリが通る」というくり返し（正のフィードバック）と、蒸発による「消える力」のつり合いで、行列ができたり消えたりします。</p>
+<p><b>単純にしているところ</b>：6ぴきに1ぴきは、フェロモンを気にせずに歩き回る「探索役」にしています（新しいエサを見つけやすくするための設定です）。エサを持ったアリは「巣までの近道を知っている」ものとして計算しています（壁があるときは、壁をよけるいちばん短い道を進みます）。アリどうしはぶつからず、重なって歩けます。フェロモンは1種類だけです。数字（秒・ひき・こ）は画面の中だけの単位で、本物のアリの速さや時間を表すものではありません。「行列にいるアリ」は、フェロモンが一定より濃い場所にいるアリの割合、「往復の平均時間」は、巣を出てからエサを持ち帰るまでの時間の平均（最近の40回分）です。</p>
+
+<h2>ためしてみたいこと</h2>
+<ul>
+<li><b>近いエサと遠いエサ</b>：最初の画面には、巣から近いエサと遠いエサがあります。どちらの道が先に濃くなり、どちらが先になくなるか見てみましょう。</li>
+<li><b>蒸発をいちばん速くする</b>：道しるべがアリのすぐ後ろで消えてしまい、行列に乗れるアリが減ります。「運んだエサ」のふえ方をくらべてみましょう。</li>
+<li><b>蒸発をおそくする</b>：エサがなくなったあとも古い道が長く残り、アリが何もない場所に集まり続けます。蒸発は「古い情報を消す」役目をしていることがわかります。</li>
+<li><b>従う強さを0にする</b>：フェロモンがあっても行列になりません。エサにたどり着くのがぐうぜんだのみになり、「往復の平均時間」が長くなります。</li>
+<li><b>行列を「けす」でなぞる</b>：道のとちゅうのフェロモンを消しても、エサを持って帰るアリがすぐに道をぬり直します。行列は、アリたち自身が保っていることがわかります。</li>
+<li><b>行列の上に壁を描く</b>：道をふさぐと、アリが壁のはしを回りこむ新しい道ができていきます。</li>
+<li><b>アリの数を20ぴきにする</b>：アリが少ないと、エサを見つけるまでに時間がかかりやすくなります。それでも、いちど道ができれば、少ない数でも行列は続きます。</li>
+</ul>
+
+<h2>本物では</h2>
+<p>多くの種類のアリは、エサを見つけて巣に帰るとき、おなかの先を地面につけて「道しるべフェロモン」を残します。ほかの働きアリは、触角でそのにおいを感じとり、道をたどってエサにたどり着きます。フェロモンは蒸発していくので、エサがなくなってアリが通らなくなった道は、自然に消えます。</p>
+<p>1989年に発表された実験では、アルゼンチンアリの巣とエサのあいだに、長さのちがう2本の橋をかけました。はじめは両方の橋が使われますが、しばらくすると、ほとんどのアリが短い方の橋を通るようになりました。短い橋は往復が速く、先にフェロモンが濃くなるためだと説明されています。</p>
+<p>ただし、すべてのアリが行列を作るわけではありません。砂漠にすむアリの中には、フェロモンの道にあまり頼らず、太陽の向きや歩いた道のりを手がかりに、1ぴきでエサを探して巣に帰るものもいます。</p>
+<p>アリのこのしくみは、コンピューターで「よい道順」を探す方法（アリコロニー最適化）のヒントにもなりました。配達の順番を決める問題などの研究に使われています。</p>
+
+    <h2>よくある質問</h2>
+    <dl class="faq"><dt>どうやって遊びますか？</dt><dd>何もしなくても、アリが巣から出てエサを探し始めます。「置くもの」で「エサ」「かべ」「けす」を選んで、画面をタップ（かべ・けすはなぞる）すると、エサを置いたり、壁を描いたり、行列のとちゅうを消したりできます。下のスライダーで、アリの数・フェロモンの蒸発の速さ・フェロモンに従う強さを変えられます。</dd><dt>むらさき色のもやは何ですか？</dt><dd>エサを運んでいるアリが地面に残した「道しるべフェロモン」の濃さです。色が濃いところほど、たくさんのアリが通ったばかりの道です。時間がたつと蒸発して、うすくなっていきます。本物のフェロモンは目に見えません。</dd><dt>だれも命令していないのに、なぜ行列ができるのですか？</dt><dd>1ぴきずつのアリは「エサを見つけたら、においを残しながら帰る」「においの濃い方へ進みやすい」という、かんたんな決まりで動いているだけです。においのある道を通るアリがふえると、その道のにおいがさらに濃くなり、もっとアリが集まります。このくり返しで、行列が自然にできます。</dd><dt>近いエサの方が先になくなるのはなぜですか？</dt><dd>近いエサは、行って帰ってくるまでの時間が短いので、同じ時間のあいだに何度も運べます。道を通る回数が多いぶん、フェロモンも多く重ねられます。このシミュレーターの最初の場面でも、近いエサの方が先になくなります。</dd><dt>本物のアリと同じですか？</dt><dd>いいえ、しくみをつかむために単純にしています。たとえばこのシミュレーターでは、エサを持ったアリは巣への近道を知っているものとして計算しています。本物のアリは、種類によって、太陽の向き・歩いた道のり・まわりの景色・においなどを組み合わせて巣に帰ります。フェロモンの種類や使い方も、アリの種類によってちがいます。</dd></dl>
+    <h2>参考にした資料</h2>
+    <ul class="seo-refs"><li>Goss, S., Aron, S., Deneubourg, J.-L. &amp; Pasteels, J. M. (1989) Self-organized shortcuts in the Argentine ant. Naturwissenschaften 76, 579–581.（長さのちがう2本の橋の実験）</li><li>Deneubourg, J.-L., Aron, S., Goss, S. &amp; Pasteels, J. M. (1990) The self-organizing exploratory pattern of the Argentine ant. Journal of Insect Behavior 3, 159–168.</li><li>Hölldobler, B. &amp; Wilson, E. O. (1990) The Ants. Harvard University Press.</li><li>Dorigo, M., Maniezzo, V. &amp; Colorni, A. (1996) Ant System: Optimization by a colony of cooperating agents. IEEE Transactions on Systems, Man, and Cybernetics, Part B 26(1), 29–41.（アリコロニー最適化）</li></ul>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>関連するシミュレーター</h2>
+    <div class="related-grid"><a class="related-card" href="../boids/"><span class="e">🐦</span><span>鳥の群れシミュレーター（ボイド）</span></a><a class="related-card" href="../sync/"><span class="e">✨</span><span>同期現象シミュレーター</span></a><a class="related-card" href="../forest-fire/"><span class="e">🔥</span><span>森林火災シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュレーターも見てみたい？</h2>
+    <p>あなたの「これシミュレーションしてみたい」を送ってください。面白い案から実際に作って、できたらお知らせします。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:8px;font-size:.85em"><!-- footer-links --><a href="../../about/">運営者情報</a>　<a href="../../privacy/">プライバシーポリシー</a>　<a href="../../terms/">利用規約</a>　<a href="../../contact/">お問い合わせ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const cv = $('an'), ctx = cv.getContext('2d');
+  const GW = 120, GH = 90, N = GW * GH, DT = 1 / 60, SPEED = 11, SD = 3.5, SA = .7, TAU = Math.PI * 2;
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+  const angDiff = (t, a) => { let d = (t - a) % TAU; if (d > Math.PI) d -= TAU; else if (d < -Math.PI) d += TAU; return d; };
+  const cellAt = (x, y) => (x < 0 || y < 0 || x >= GW || y >= GH) ? -1 : (y | 0) * GW + (x | 0);
+
+  // ---------- 状態 ----------
+  let P = new Float32Array(N), P2 = new Float32Array(N);
+  const wall = new Uint8Array(N), dist = new Float32Array(N), vis = new Uint8Array(N);
+  const nest = { x: 60, y: 45, r: 3.2 };
+  let ants = [], foods = [], trips = [], delivered = 0, t = 0, stepN = 0, dirty = true, wallDirty = true;
+  let playing = true, speed = 1, acc = 0, tool = 'food', preset = 'two', autoT = 0;
+  const prm = { n: 150, evap: 40, follow: 70 };
+  const evapRate = () => .01 * Math.pow(300, prm.evap / 100);
+  let antSeq = 0;
+  const mkAnt = () => ({ x: nest.x, y: nest.y, a: Math.random() * TAU, c: false, ts: 0, tOut: 0, sc: antSeq++ % 6 === 0 });
+  function setCount(n) { while (ants.length < n) ants.push(mkAnt()); if (ants.length > n) ants.length = n; }
+  const foodR = f => 1.2 + 3.3 * Math.sqrt(Math.min(1, f.amt / 800));
+
+  // ---------- 巣までの道のり（壁をよける）と、巣が見えるかどうか ----------
+  const Q = new Int32Array(N), inq = new Uint8Array(N), DX = [1, -1, 0, 0, 1, 1, -1, -1], DY = [0, 0, 1, -1, 1, -1, 1, -1];
+  function fields() {
+    dirty = false; dist.fill(1e9); inq.fill(0);
+    let h = 0, tl = 0, cnt = 0;
+    const s0 = (nest.y | 0) * GW + (nest.x | 0); dist[s0] = 0; Q[tl++] = s0; cnt = 1; inq[s0] = 1;
+    while (cnt > 0) {
+      const i = Q[h]; h = (h + 1) % N; cnt--; inq[i] = 0;
+      const x = i % GW, y = (i / GW) | 0, d = dist[i];
+      for (let k = 0; k < 8; k++) {
+        const nx = x + DX[k], ny = y + DY[k]; if (nx < 0 || ny < 0 || nx >= GW || ny >= GH) continue;
+        const j = ny * GW + nx; if (wall[j]) continue;
+        if (k >= 4 && (wall[y * GW + nx] || wall[ny * GW + x])) continue;
+        const nd = d + (k < 4 ? 1 : 1.4142);
+        if (nd < dist[j] - 1e-4) { dist[j] = nd; if (!inq[j]) { Q[tl] = j; tl = (tl + 1) % N; cnt++; inq[j] = 1; } }
+      }
+    }
+    for (let i = 0; i < N; i++) {
+      if (wall[i]) { vis[i] = 0; continue; }
+      const x = i % GW + .5, y = ((i / GW) | 0) + .5, dx = nest.x - x, dy = nest.y - y, n = Math.ceil(Math.hypot(dx, dy) / .7); let ok = 1;
+      for (let k = 1; k < n; k++) { if (wall[((y + dy * k / n) | 0) * GW + ((x + dx * k / n) | 0)]) { ok = 0; break; } }
+      vis[i] = ok;
+    }
+  }
+
+  // ---------- 1コマ進める ----------
+  function step() {
+    if (dirty) fields();
+    const F = prm.follow / 100, turnS = F * 9 * DT, er = Math.exp(-evapRate() * DT), nr2 = nest.r * nest.r;
+    for (let q = 0; q < ants.length; q++) {
+      const a = ants[q]; a.tOut += DT; a.ts += DT;
+      if (a.a > 50 || a.a < -50) a.a %= TAU;
+      const ci = cellAt(a.x, a.y), ndx = nest.x - a.x, ndy = nest.y - a.y, nd2 = ndx * ndx + ndy * ndy;
+      let sig = false;
+      if (a.c) {
+        // エサを持って巣へ帰る：フェロモンを残す
+        let target = null;
+        if (ci >= 0 && vis[ci]) target = Math.atan2(ndy, ndx);
+        else {
+          const jl = cellAt(a.x + Math.cos(a.a - .8) * 2.5, a.y + Math.sin(a.a - .8) * 2.5), jc = cellAt(a.x + Math.cos(a.a) * 2.5, a.y + Math.sin(a.a) * 2.5), jr = cellAt(a.x + Math.cos(a.a + .8) * 2.5, a.y + Math.sin(a.a + .8) * 2.5);
+          const vl = jl < 0 || wall[jl] ? 1e9 : dist[jl], vc = jc < 0 || wall[jc] ? 1e9 : dist[jc], vr = jr < 0 || wall[jr] ? 1e9 : dist[jr];
+          if (Math.min(vl, vc, vr) < 1e8) target = a.a + (vc <= vl && vc <= vr ? 0 : vl < vr ? -.8 : .8);
+        }
+        if (target != null) a.a += clamp(angDiff(target, a.a), -12 * DT, 12 * DT);
+        a.a += (Math.random() - .5) * .2;
+        if (ci >= 0 && !wall[ci]) P[ci] = Math.min(3, P[ci] + 2.4 * Math.exp(-a.ts / 30) * DT);
+        if (nd2 < nr2) { a.c = false; delivered++; trips.push(a.tOut); if (trips.length > 40) trips.shift(); a.tOut = 0; a.a += Math.PI; }
+      } else {
+        if (nd2 < nr2) a.tOut = 0;
+        // 近くにエサが見えたら向かう
+        let seen = null, bd = 1e9;
+        for (let k = 0; k < foods.length; k++) { const f = foods[k], d = Math.hypot(f.x - a.x, f.y - a.y) - f.r; if (d < 5 && d < bd) { bd = d; seen = f; } }
+        if (seen && bd < .5) {
+          seen.amt--; a.c = true; a.ts = 0; a.a += Math.PI; seen.r = foodR(seen);
+          if (seen.amt <= 0) { foods.splice(foods.indexOf(seen), 1); flash(foods.length ? 'エサが1つなくなりました' : 'エサがなくなりました。道しるべが消えるまで、アリはしばらく迷います'); }
+        } else {
+          if (seen) { const mj = cellAt((a.x + seen.x) / 2, (a.y + seen.y) / 2); if (mj >= 0 && !wall[mj]) { a.a += clamp(angDiff(Math.atan2(seen.y - a.y, seen.x - a.x), a.a), -10 * DT, 10 * DT); sig = true; } }
+          if (!sig) {
+            const jl = cellAt(a.x + Math.cos(a.a - SA) * SD, a.y + Math.sin(a.a - SA) * SD), jc = cellAt(a.x + Math.cos(a.a) * SD, a.y + Math.sin(a.a) * SD), jr = cellAt(a.x + Math.cos(a.a + SA) * SD, a.y + Math.sin(a.a + SA) * SD);
+            const L = jl < 0 || wall[jl] ? -1 : P[jl], C = jc < 0 || wall[jc] ? -1 : P[jc], R = jr < 0 || wall[jr] ? -1 : P[jr];
+            if (C < 0) a.a += (L > R ? -1 : R > L ? 1 : (Math.random() < .5 ? -1 : 1)) * .25;
+            else if (F > 0 && !a.sc && Math.max(L, C, R) > .08) { sig = true; if (!(C >= L && C >= R)) a.a += L > R ? -turnS : turnS; }
+          }
+          a.a += (Math.random() - .5) * .44 * (sig ? 1 - .6 * F : 1);
+        }
+      }
+      const nx = a.x + Math.cos(a.a) * SPEED * DT, ny = a.y + Math.sin(a.a) * SPEED * DT, nj = cellAt(nx, ny);
+      if (nj < 0 || (wall[nj] && !(ci >= 0 && wall[ci]))) a.a += Math.PI * (.6 + Math.random() * .8);
+      else { a.x = nx; a.y = ny; }
+    }
+    for (let i = 0; i < N; i++) P[i] *= er;
+    if (++stepN % 4 === 0) {
+      P2.set(P);
+      for (let y = 1; y < GH - 1; y++) for (let i = y * GW + 1, e = y * GW + GW - 1; i < e; i++) P2[i] = wall[i] ? 0 : P[i] + .1 * ((P[i - 1] + P[i + 1] + P[i - GW] + P[i + GW]) * .25 - P[i]);
+      const tmp = P; P = P2; P2 = tmp;
+    }
+    t += DT;
+    if (!foods.length && $('anAuto').checked) { autoT += DT; if (autoT > 2.5) { autoT = 0; randomFood(); } } else autoT = 0;
+  }
+
+  // ---------- エサ・壁 ----------
+  function addFood(x, y, amt, quiet) {
+    const j = cellAt(x, y); if (j < 0 || wall[j]) { if (!quiet) flash('かべの上にはエサを置けません'); return false; }
+    if (Math.hypot(x - nest.x, y - nest.y) < nest.r + 5) { if (!quiet) flash('巣から少しはなれた場所に置いてください'); return false; }
+    for (const f of foods) if (Math.hypot(f.x - x, f.y - y) < f.r + 3) { f.amt = Math.min(1200, f.amt + amt); f.r = foodR(f); return true; }
+    if (foods.length >= 8) { if (!quiet) flash('エサは8つまで置けます'); return false; }
+    const f = { x, y, amt, r: 0 }; f.r = foodR(f); foods.push(f); return true;
+  }
+  function randomFood() {
+    if (dirty) fields();
+    for (let k = 0; k < 300; k++) {
+      const x = 6 + Math.random() * (GW - 12), y = 6 + Math.random() * (GH - 12), j = cellAt(x, y);
+      if (wall[j] || dist[j] > 1e8 || dist[j] < 22) continue;
+      if (addFood(x, y, 500, true)) { flash('新しいエサが落ちてきました。どのアリが先に見つけるでしょう'); return; }
+    }
+  }
+  function brush(x, y, on) {
+    const r = on ? 1.3 : 3;
+    for (let yy = Math.floor(y - r); yy <= y + r; yy++) for (let xx = Math.floor(x - r); xx <= x + r; xx++) {
+      const j = cellAt(xx, yy); if (j < 0 || Math.hypot(xx + .5 - x, yy + .5 - y) > r) continue;
+      if (on) { if (Math.hypot(xx + .5 - nest.x, yy + .5 - nest.y) < nest.r + 2.5) continue; if (!wall[j]) { wall[j] = 1; dirty = wallDirty = true; } P[j] = 0; }
+      else { if (wall[j]) { wall[j] = 0; dirty = wallDirty = true; } P[j] = 0; }
+    }
+    if (on) foods = foods.filter(f => !wall[cellAt(f.x, f.y)]);
+    else foods = foods.filter(f => Math.hypot(f.x - x, f.y - y) > f.r + 1.5);
+  }
+  function lineBrush(x0, y0, x1, y1, on) { const n = Math.max(1, Math.ceil(Math.hypot(x1 - x0, y1 - y0) / .7)); for (let k = 0; k <= n; k++) brush(x0 + (x1 - x0) * k / n, y0 + (y1 - y0) * k / n, on); }
+  function rectWall(x0, y0, x1, y1) { for (let y = y0; y <= y1; y++) for (let x = x0; x <= x1; x++) wall[y * GW + x] = 1; }
+
+  function reset(p) {
+    preset = p || preset;
+    P.fill(0); P2.fill(0); wall.fill(0); foods = []; trips = []; delivered = 0; t = 0; acc = 0; autoT = 0; ants = []; antSeq = 0;
+    nest.x = 60; nest.y = 45;
+    if (preset === 'two') { addFood(81, 31, 700, true); addFood(17, 72, 700, true); }
+    else if (preset === 'wall') { nest.x = 34; nest.y = 50; rectWall(60, 12, 61, 64); addFood(90, 50, 900, true); }
+    else if (preset === 'four') { addFood(78, 45, 400, true); addFood(60, 17, 400, true); addFood(24, 58, 400, true); addFood(104, 78, 400, true); }
+    $('anAuto').checked = preset !== 'empty';
+    dirty = wallDirty = true; setCount(prm.n);
+    document.querySelectorAll('#anPre button').forEach(b => b.classList.toggle('on', b.dataset.p === preset));
+    lastUI = 0;
+  }
+
+  // ---------- 描く ----------
+  let dpr = 1;
+  const off = document.createElement('canvas'); off.width = GW; off.height = GH; const octx = off.getContext('2d'), img = octx.createImageData(GW, GH);
+  const woff = document.createElement('canvas'); woff.width = GW; woff.height = GH; const wctx = woff.getContext('2d'), wimg = wctx.createImageData(GW, GH);
+  function size() {
+    const w = cv.clientWidth || 600; dpr = Math.min(2, window.devicePixelRatio || 1);
+    const W = Math.round(w * dpr), Hh = Math.round(w * .75 * dpr); if (cv.width !== W || cv.height !== Hh) { cv.width = W; cv.height = Hh; }
+  }
+  function draw() {
+    size(); if (dirty) fields();
+    const c = ctx, W = cv.width, Hh = cv.height, s = W / GW;
+    c.setTransform(1, 0, 0, 1, 0, 0); c.fillStyle = '#eadfc6'; c.fillRect(0, 0, W, Hh);
+    const d = img.data;
+    for (let i = 0, j = 0; i < N; i++, j += 4) { d[j] = 124; d[j + 1] = 58; d[j + 2] = 237; d[j + 3] = Math.min(215, P[i] * 190); }
+    octx.putImageData(img, 0, 0); c.imageSmoothingEnabled = true; c.drawImage(off, 0, 0, W, Hh);
+    if (wallDirty) { const wd = wimg.data; for (let i = 0, j = 0; i < N; i++, j += 4) { wd[j] = 87; wd[j + 1] = 83; wd[j + 2] = 78; wd[j + 3] = wall[i] ? 255 : 0; } wctx.putImageData(wimg, 0, 0); wallDirty = false; }
+    c.imageSmoothingEnabled = false; c.drawImage(woff, 0, 0, W, Hh); c.imageSmoothingEnabled = true;
+    // 巣
+    c.fillStyle = '#a16207'; c.beginPath(); c.arc(nest.x * s, nest.y * s, (nest.r + 1.3) * s, 0, 7); c.fill();
+    c.fillStyle = '#7c4a1e'; c.beginPath(); c.arc(nest.x * s, nest.y * s, nest.r * s, 0, 7); c.fill();
+    c.fillStyle = '#1c1008'; c.beginPath(); c.arc(nest.x * s, nest.y * s, nest.r * .5 * s, 0, 7); c.fill();
+    // エサ
+    for (const f of foods) {
+      c.fillStyle = '#15803d'; c.beginPath(); c.arc(f.x * s, f.y * s, f.r * s, 0, 7); c.fill();
+      c.fillStyle = '#4ade80'; c.beginPath(); c.arc((f.x - f.r * .25) * s, (f.y - f.r * .25) * s, f.r * .45 * s, 0, 7); c.fill();
+    }
+    // アリ
+    const len = Math.max(s * 1.5, 4 * dpr) / 2;
+    c.strokeStyle = '#1c1917'; c.lineCap = 'round'; c.lineWidth = Math.max(s * .6, 1.6 * dpr); c.beginPath();
+    for (const a of ants) { const x = a.x * s, y = a.y * s, cx = Math.cos(a.a) * len, cy = Math.sin(a.a) * len; c.moveTo(x - cx, y - cy); c.lineTo(x + cx, y + cy); }
+    c.stroke();
+    c.fillStyle = '#22c55e'; c.beginPath(); const fr = Math.max(s * .5, 1.5 * dpr);
+    for (const a of ants) if (a.c) { const x = a.x * s + Math.cos(a.a) * len * 1.5, y = a.y * s + Math.sin(a.a) * len * 1.5; c.moveTo(x + fr, y); c.arc(x, y, fr, 0, 7); }
+    c.fill();
+  }
+
+  // ---------- 数字とひとこと ----------
+  function stats() {
+    let on = 0, car = 0, left = 0, ps = 0;
+    for (const a of ants) { if (a.c) car++; const j = cellAt(a.x, a.y); if (j >= 0 && P[j] > .3) on++; }
+    for (const f of foods) left += f.amt;
+    for (let i = 0; i < N; i++) ps += P[i];
+    const avg = trips.length ? trips.reduce((x, y) => x + y, 0) / trips.length : null;
+    return { t, ants: ants.length, carrying: car, delivered, onTrail: ants.length ? on / ants.length : 0, avgTrip: avg, foodLeft: left, foods: foods.length, walls: wall.reduce((x, y) => x + y, 0), pher: ps, tool, preset, speed, playing, evap: prm.evap, follow: prm.follow, halfLife: Math.LN2 / evapRate() };
+  }
+  let lastUI = 0;
+  function ui(force) {
+    const now = performance.now(); if (!force && now - lastUI < 250) return; lastUI = now;
+    const m = stats();
+    $('anDel').innerHTML = m.delivered + '<small>こ</small>';
+    $('anTrail').innerHTML = Math.round(m.onTrail * 100) + '<small>%</small>';
+    $('anTrip').innerHTML = m.avgTrip == null ? '–' : m.avgTrip.toFixed(1) + '<small>秒</small>';
+    $('anFood').innerHTML = m.foodLeft + '<small>こ</small>';
+    $('anTime').innerHTML = Math.floor(m.t) + '<small>秒</small>';
+    let s;
+    if (!m.foods && m.pher > 30) s = '🍂 エサがなくなりました。フェロモンが蒸発すると、行列も消えていきます。';
+    else if (!m.foods) s = '🔍 エサがありません。画面をタップしてエサを置いてみましょう。';
+    else if (prm.follow < 15) s = '👃 フェロモンにほとんど従わないので、エサが見つかっても行列になりにくくなっています。';
+    else if (m.onTrail > .3) s = '🐜 行列ができました。濃い道ほど多くのアリが通り、さらに濃くなります。';
+    else if (m.delivered > 0 && m.halfLife < 3) s = '💨 蒸発が速く、道しるべがすぐ消えてしまいます。';
+    else if (m.delivered > 0) s = '🐜 エサを見つけたアリが、フェロモンを残しながら巣へ帰っています。';
+    else s = '🔍 アリがバラバラに歩いて、エサを探しています。';
+    $('anNote').textContent = s;
+  }
+
+  // ---------- 操作 ----------
+  function flash(s) { const el = $('anMsg'); el.textContent = s; el.classList.add('show'); clearTimeout(flash.t); flash.t = setTimeout(() => el.classList.remove('show'), 2600); }
+  const HINT = { food: '画面をタップすると、その場所にエサを置けます。', wall: '画面をなぞると、かべを描けます。アリはかべを通れません。', erase: '画面をなぞると、かべ・エサ・フェロモンを消せます。' };
+  $('anTool').addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return; tool = b.dataset.t;
+    document.querySelectorAll('#anTool button').forEach(x => x.classList.toggle('on', x === b));
+    $('anHint').textContent = HINT[tool]; cv.style.touchAction = tool === 'food' ? 'pan-y' : 'none';
+  });
+  $('anPre').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; reset(b.dataset.p); flash(b.dataset.p === 'empty' ? 'タップしてエサを置いてみましょう' : '場面を変えました'); });
+  let down = false, lx = 0, ly = 0;
+  const pos = e => { const r = cv.getBoundingClientRect(); return [(e.clientX - r.left) / r.width * GW, (e.clientY - r.top) / r.height * GH]; };
+  cv.addEventListener('pointerdown', e => {
+    const [x, y] = pos(e);
+    if (tool === 'food') { if (addFood(x, y, 300)) flash('エサを置きました'); }
+    else { down = true; lx = x; ly = y; try { cv.setPointerCapture(e.pointerId); } catch (_) {} brush(x, y, tool === 'wall'); e.preventDefault(); }
+    ui(true);
+  });
+  cv.addEventListener('pointermove', e => { if (!down) return; const [x, y] = pos(e); lineBrush(lx, ly, x, y, tool === 'wall'); lx = x; ly = y; e.preventDefault(); });
+  const up = () => { down = false; };
+  cv.addEventListener('pointerup', up); cv.addEventListener('pointercancel', up); cv.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse' && !e.buttons) up(); });
+  function updPlay() { $('anPlay').textContent = playing ? '⏸ 止める' : '▶ 動かす'; document.querySelectorAll('#anSp button').forEach(b => b.classList.toggle('on', +b.dataset.sp === speed)); }
+  $('anPlay').addEventListener('click', () => { playing = !playing; updPlay(); });
+  $('anSp').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; speed = +b.dataset.sp; playing = true; updPlay(); });
+  $('anReset').addEventListener('click', () => { reset(); playing = true; updPlay(); flash('最初からやり直します'); });
+  const binds = [
+    ['kN', 'n', v => v + 'ひき'],
+    ['kEvap', 'evap', () => { const h = Math.LN2 / evapRate(); return (prm.evap < 34 ? 'おそい' : prm.evap < 67 ? 'ふつう' : '速い') + '・約' + (h < 10 ? h.toFixed(1) : Math.round(h)) + '秒で半分'; }],
+    ['kFollow', 'follow', v => v + '（' + (v < 15 ? 'ほぼ無視' : v < 45 ? '弱い' : v < 80 ? 'ふつう' : '強い') + '）'],
+  ];
+  binds.forEach(([id, key, f]) => { const el = $(id), out = $('v' + id.slice(1)); const upd = () => { prm[key] = +el.value; out.textContent = f(prm[key]); if (key === 'n') setCount(prm.n); lastUI = 0; }; el.addEventListener('input', upd); upd(); });
+
+  // ---------- シェア ----------
+  function shareText() { const m = stats(); return `アリの行列シミュレーターで、${m.ants}ひきのアリが${Math.floor(m.t)}秒でエサを${m.delivered}こ運びました🐜 行列に乗っているアリは${Math.round(m.onTrail * 100)}%${m.avgTrip == null ? '' : '、往復の平均は' + m.avgTrip.toFixed(1) + '秒'}でした。`; }
+  $('shareBtn').addEventListener('click', () => { const u = location.origin + location.pathname; window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText() + '\n') + '&url=' + encodeURIComponent(u) + '&hashtags=' + encodeURIComponent('シミュラボ'), '_blank', 'noopener'); });
+  $('copyBtn').addEventListener('click', async () => { try { await navigator.clipboard.writeText(shareText() + '\n' + location.origin + location.pathname); flash('コピーしました'); } catch (e) { flash('コピーできませんでした'); } });
+
+  // ---------- 動かす ----------
+  let tPrev = performance.now();
+  function loop(now) {
+    const dt = Math.min(.1, (now - tPrev) / 1000); tPrev = now;
+    if (playing) { acc += dt * speed; let n = 0; while (acc >= DT && n < 40) { step(); acc -= DT; n++; } if (n >= 40) acc = 0; }
+    draw(); ui(); requestAnimationFrame(loop);
+  }
+  reset('two'); updPlay(); draw(); ui(true);
+  requestAnimationFrame(loop);
+  window.__t = {
+    step(sec) { const n = Math.max(0, Math.round((sec || 0) * 60)); for (let i = 0; i < n; i++) step(); draw(); ui(true); },
+    get s() { return stats(); },
+    reset, addFood, brush, lineBrush, prm, get ants() { return ants; }, get foods() { return foods; }
+  };
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'ari-pheromone', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>
