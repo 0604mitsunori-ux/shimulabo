@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/kouso-hannou-sokudo/">
+<title>酵素の反応速度シミュレーター｜酵素濃度・基質濃度と反応速度、時間と生成物量のグラフ（高校生物）｜シミュラボ</title>
+<meta name="description" content="酵素と基質の数を変えると、酵素基質複合体ができて生成物が増えていく様子と、時間と生成物量のグラフが同時に動くシミュレーター。酵素を増やすと速くなるが最終量は同じ、基質を増やすと反応速度が頭打ちになることを、粒子の動きとグラフで確かめられます。">
+<meta property="og:title" content="酵素の反応速度シミュレーター（酵素濃度・基質濃度と反応速度のグラフ）">
+<meta property="og:description" content="酵素が基質をつかまえて、生成物に変えて放す。酵素を増やすと速くなるのに最終量は同じ。基質を増やすと反応速度は頭打ち。粒子の動きとグラフが同時に動くので、グラフがその形になる理由が見える。">
+<meta property="og:type" content="website">
+    <meta property="og:image" content="https://shimulabo.com/ogp/kouso-hannou-sokudo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/kouso-hannou-sokudo.png">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/kouso-hannou-sokudo/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": ["WebApplication", "LearningResource"], "name": "酵素の反応速度シミュレーター（酵素濃度・基質濃度と反応速度のグラフ）", "url": "https://shimulabo.com/sims/kouso-hannou-sokudo/", "description": "酵素が基質をつかまえて、生成物に変えて放す。酵素を増やすと速くなるのに最終量は同じ。基質を増やすと反応速度は頭打ち。粒子の動きとグラフが同時に動くので、グラフがその形になる理由が見える。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "educationalLevel": "高校（生物）、生物基礎の発展", "learningResourceType": "シミュレーション", "teaches": "生物 細胞と分子（酵素：酵素濃度・基質濃度と反応速度）", "educationalUse": ["授業", "自習"], "audience": {"@type": "EducationalAudience", "educationalRole": ["teacher", "student"]}, "educationalAlignment": {"@type": "AlignmentObject", "alignmentType": "educationalSubject", "educationalFramework": "学習指導要領（平成29・30年告示）", "targetName": "高等学校 生物（2）生命現象と物質 ア（ｱ）細胞と分子 ㋑生命現象とタンパク質"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "シミュラボ", "url": "https://shimulabo.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "理科の授業向け", "item": "https://shimulabo.com/rika/"}, {"@type": "ListItem", "position": 3, "name": "酵素の反応速度シミュレーター（酵素濃度・基質濃度と反応速度のグラフ）", "item": "https://shimulabo.com/sims/kouso-hannou-sokudo/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "酵素を増やすと、できる生成物の量も増えるの？", "acceptedAnswer": {"@type": "Answer", "text": "増えません。酵素を増やすと反応は速くなりますが、基質の量が同じなら、基質を使い切ったときの生成物の量は同じです。酵素は反応の前後で変化せず、くり返し使われる触媒だからです。生成物の最終量は基質の量で決まります。"}}, {"@type": "Question", "name": "基質濃度を高くしても反応速度が頭打ちになるのはなぜ？", "acceptedAnswer": {"@type": "Answer", "text": "基質濃度が十分に高いと、ほぼすべての酵素が基質と結合して酵素基質複合体になっています。酵素が1回の反応にかける時間は決まっているので、空いている酵素がない状態では、基質をそれ以上増やしても反応速度は大きくなりません。このときの速度を最大反応速度といいます。"}}, {"@type": "Question", "name": "時間と生成物の量のグラフが水平になるのはどういう意味？", "acceptedAnswer": {"@type": "Answer", "text": "基質がすべて生成物に変わり、反応が終わったことを表します。グラフの傾きは反応速度なので、水平は反応速度が0という意味です。酵素がこわれたわけではなく、基質を加えればまた反応が進みます。"}}, {"@type": "Question", "name": "反応速度はグラフのどこから読み取るの？", "acceptedAnswer": {"@type": "Answer", "text": "時間と生成物の量のグラフの傾きが反応速度です。反応開始直後は基質がまだ多く、傾きがほぼ一定なので、この部分の傾きを「反応開始直後の反応速度（初速度）」として、酵素濃度や基質濃度との関係を調べます。"}}, {"@type": "Question", "name": "酵素濃度と反応速度が比例するのはどんなとき？", "acceptedAnswer": {"@type": "Answer", "text": "基質が十分にあるときです。どの酵素もすぐに次の基質と結合できるので、酵素の数が2倍になれば、単位時間にできる生成物も2倍になります。基質が少ないと、基質がすぐに減ってしまい、比例からはずれます。"}}, {"@type": "Question", "name": "同じ条件なのに結果が毎回少しちがうのはなぜ？", "acceptedAnswer": {"@type": "Answer", "text": "このシミュレーターは粒子1個1個のランダムな動きを計算しており、粒子の数が実際の反応液よりはるかに少ないためです。実際の実験では分子の数が非常に多いので、ばらつきは平均されて見えなくなります。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+<style>
+.lab-ctl{width:100%;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;}
+.lab-ctl .field{margin-bottom:6px;}
+.lab-ctl>*,.lab-stats>*{min-width:0;}
+.lab-ctl .slider-head{display:flex;justify-content:space-between;align-items:center;}
+.lab-ctl .slider-head label{margin:0;font-size:13px;}
+.lab-ctl .val{font-weight:800;color:var(--teal-d);font-size:13px;}
+.lab-ctl input[type=range]{width:100%;}
+.lab-ctl select{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;font-size:14px;background:#fff;}
+.lab-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px;}
+.lab-btns .btn{padding:11px 18px;font-size:14px;width:auto;}
+.lab-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;width:100%;max-width:640px;margin-top:4px;}
+.lab-stats .stat{background:var(--teal-l);border-radius:10px;padding:10px 12px;text-align:center;}
+.lab-stats .k{font-size:11px;color:var(--ink-2);}
+.lab-stats .v{font-size:20px;font-weight:800;color:var(--ink);font-feature-settings:"tnum";}
+.lab-stats .v.accent{color:var(--accent);}
+.lab-legend{text-align:center;color:var(--ink-2);font-size:13px;margin-top:12px;}
+.lab-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;background:rgba(44,107,134,.10);color:var(--teal-d);margin-bottom:8px;}
+canvas.lab{width:100%;max-width:640px;height:auto;border:1px solid var(--line);border-radius:12px;background:#0b1020;touch-action:none;}
+canvas.lab.light{background:#fff;}
+.panel:fullscreen,.panel:-webkit-full-screen{overflow:auto;padding:24px;background:var(--bg,#faf8f3);}
+.panel:fullscreen canvas.lab{max-width:min(96vw,1100px);}
+.panel:fullscreen .lab-ctl,.panel:fullscreen .lab-stats{max-width:min(96vw,1100px);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../rika/">🔬 理科の授業向け</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span><a href="../../rika/">理科の授業向け</a><span>›</span><span class="cur">酵素の反応速度シミュレーター（酵素濃度・基質濃度と反応速度のグラフ）</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">理科の授業向け</div>
+    <h1>酵素の反応速度シミュレーター（酵素濃度・基質濃度と反応速度のグラフ）</h1>
+    <p class="lead">青い丸が酵素、オレンジのくさび形が基質、緑が生成物です。基質が酵素の活性部位（切れこみ）にはまると酵素基質複合体になり、しばらくすると生成物になって離れ、酵素はまた次の基質と反応します。酵素と基質の数を変えて、生成物の増え方と反応速度がどう変わるかを、粒子の動きとグラフで比べてみましょう。</p>
+  </div>
+
+  <section class="panel">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;gap:14px;">
+      <span class="lab-badge">🔬 生物 細胞と分子（酵素：酵素濃度・基質濃度と反応速度）</span>
+      <canvas id="cv" class="lab light" width="640" height="590"></canvas>
+      <div class="lab-ctl"><div class="field"><div class="slider-head"><label for="nE">酵素の数（酵素濃度）</label><span class="val" id="nEL"></span></div><input type="range" id="nE" min="1" max="20" value="6" step="1" data-fmt="{v} 個"></div><div class="field"><div class="slider-head"><label for="nS">基質の数（基質濃度）</label><span class="val" id="nSL"></span></div><input type="range" id="nS" min="10" max="150" value="60" step="5" data-fmt="{v} 個"></div><div class="field"><div class="slider-head"><label for="gsel">右のグラフ</label></div><select id="gsel"><option value="S" selected>基質濃度と反応速度</option><option value="E">酵素濃度と反応速度（基質は150個）</option></select></div><div class="field"><div class="slider-head"><label for="spd">速さ</label></div><select id="spd"><option value="1" selected>×1</option><option value="2">×2</option><option value="4">×4</option><option value="0.5">×0.5（ゆっくり）</option></select></div></div>
+      <div class="lab-btns"><button class="btn btn-primary" id="go">▶ 反応を始める（はじめから）</button><button class="btn btn-ghost" id="pause">⏸ 一時停止</button><button class="btn btn-ghost" id="keep">📌 この結果を残す</button><button class="btn btn-ghost" id="sweep">⚡ 自動で測定</button><button class="btn btn-ghost" id="clr">🧹 グラフを消す</button></div>
+      <div class="lab-stats"><div class="stat"><div class="k">時間</div><div class="v" id="sT">—</div></div><div class="stat"><div class="k">生成物</div><div class="v accent" id="sP">—</div></div><div class="stat"><div class="k">残りの基質</div><div class="v" id="sS">—</div></div><div class="stat"><div class="k">いまの反応速度</div><div class="v accent" id="sV">—</div></div><div class="stat"><div class="k">基質と結合している酵素</div><div class="v" id="sB">—</div></div></div>
+    </div>
+    <p class="lab-legend">青＝酵素（切れこみが活性部位）、オレンジ＝基質、緑＝生成物。酵素のまわりの光と輪は、反応が進んでいるしるしです。左のグラフは時間と生成物の量、右のグラフは反応開始直後（1.4〜3.9秒）の反応速度。スライダーを動かすと、新しい条件ではじめから反応します。</p>
+    <div style="text-align:center;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-ghost" id="fsBtn" hidden>⛶ 全画面で表示</button>
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+
+<h2>このシミュレーションでわかること</h2>
+<p>酵素は、基質と結合して<b>酵素基質複合体</b>をつくり、基質を生成物に変えて放します。酵素そのものは変化しないので、くり返し働きます。このシミュレーターでは、酵素と基質の数を変えて、粒子の動きと「時間と生成物の量」のグラフ、「濃度と反応開始直後の反応速度」のグラフを同時に見ることができます。</p>
+<div class="note"><b>対応する単元</b>：高等学校「生物」（2）生命現象と物質 ア（ｱ）細胞と分子「㋑生命現象とタンパク質」。学習指導要領解説では、タンパク質が生命現象を支えている例として、生体触媒である酵素を取り上げることが示されています。「生物基礎」（1）の「生物とエネルギー」（酵素の基質特異性）の発展としても使えます。</div>
+<h2>授業での使い方</h2>
+<h3>導入：グラフの傾きは何を表すか</h3>
+<p>まず酵素6個・基質60個で反応を始め、左のグラフを見ます。生成物ははじめ速く増え、基質が減るにつれて増え方がゆるやかになり、基質を使い切ると水平になります。赤い点線（接線）の傾きが、その時点の<b>反応速度</b>です。「グラフが水平になった＝反応速度が0になった」であり、「生成物がなくなった」ではないことを確かめます。</p>
+<h3>展開1：酵素を増やすと何が変わるか</h3>
+<p>「📌 この結果を残す」を押してから、基質の数はそのままで酵素を12個に増やして、もう一度反応させます。生成物は速く増えますが、最後の量は同じです。生成物の最終量を決めているのは基質の量だからです。次に、酵素はそのままで基質を120個に増やすと、最終量が2倍になります。</p>
+<h3>展開2：反応速度が頭打ちになる理由</h3>
+<p>右のグラフを「基質濃度と反応速度」にして「⚡ 自動で測定」を押すと、基質の数を変えたときの反応開始直後の反応速度が次々に点で入ります。基質が少ないうちは基質を増やすほど速くなりますが、やがて頭打ちになります。このとき基質を150個にして反応させ、画面右下の「基質と結合している酵素」を見ると、ほとんどの酵素が基質と結合しています。酵素が1回の反応にかける時間は決まっているので、すべての酵素がふさがると、それ以上は速くなりません。</p>
+<p>右のグラフを「酵素濃度と反応速度」にして自動で測定すると、基質が十分にあるとき（150個）、反応速度は酵素の数にほぼ比例します。</p>
+<h3>生徒への問いの例</h3>
+<ol>
+<li>酵素を2倍にすると、反応が終わるまでの時間と、最後にできる生成物の量はそれぞれどうなるだろう？</li>
+<li>時間と生成物の量のグラフが水平になったとき、反応液の中では何が起きているだろう？</li>
+<li>基質をどんどん増やしても、反応速度がそれ以上大きくならなくなるのはなぜだろう？そのとき酵素はどんな状態だろう？</li>
+</ol>
+<h2>しくみ・解説</h2>
+<h3>用語</h3>
+<ul>
+<li><b>酵素</b>とは、生体内の化学反応を速める触媒としてはたらくタンパク質です。反応の前後で酵素自身は変化しません。</li>
+<li><b>基質</b>とは、酵素が作用する相手の物質です。酵素は特定の基質にだけ作用します（<b>基質特異性</b>）。</li>
+<li><b>活性部位</b>とは、酵素の中で基質が結合し、反応が起こる部分です。</li>
+<li><b>酵素基質複合体</b>とは、酵素の活性部位に基質が結合したものです。</li>
+<li><b>反応速度</b>とは、単位時間あたりにできる生成物の量（または減る基質の量）です。時間と生成物の量のグラフでは、接線の傾きにあたります。</li>
+</ul>
+<h3>条件を変えたときのまとめ</h3>
+<div class="tbl-scroll"><table class="seo-table"><tr><th>変えた条件</th><th>反応開始直後の反応速度</th><th>生成物の最終量</th><th>反応が終わるまでの時間</th></tr><tr><td>酵素濃度を2倍（基質濃度は同じ）</td><td>ほぼ2倍（基質が十分なとき）</td><td>変わらない</td><td>短くなる</td></tr><tr><td>基質濃度を2倍（酵素濃度は同じ）</td><td>大きくなるが、やがて頭打ち</td><td>2倍になる</td><td>長くなる</td></tr></table></div>
+<h3>反応速度が頭打ちになる理由</h3>
+<p>反応は「酵素＋基質 → 酵素基質複合体 → 酵素＋生成物」の順に進みます。基質濃度が低いときは、酵素が基質と出会うまでの待ち時間が長く、基質を増やすと出会いが増えて反応速度が上がります。基質濃度が十分に高いと、酵素は生成物を放すとすぐ次の基質と結合するので、ほぼすべての酵素が酵素基質複合体になっています。この状態の反応速度が<b>最大反応速度</b>で、酵素の数と、酵素が1回の反応にかける時間で決まります。</p>
+<div class="note" style="border-left:4px solid var(--teal)"><strong>ポイント</strong>：生成物の<b>量</b>と反応<b>速度</b>を区別することが大切です。酵素を増やすと「速く」なりますが、基質の量が同じなら、できる生成物の「量」は変わりません。</div>
+<h3>このシミュレーターのモデル</h3>
+<p>一定の広さ（体積）の容器の中を、酵素と基質がランダムに動きます。基質が空いている酵素にぶつかると結合し、約1.2秒後に生成物になって放されます。温度とpHは一定で、生成物から基質にもどる逆向きの反応や、生成物による阻害は考えていません。粒子の数が少ないため、同じ条件でも結果は毎回少しずつちがいます。自動で測定した点は、14回の平均です。分子の大きさ・形・数は、見やすいように大きく単純にしてあります。</p>
+<h2>参考</h2>
+<ul>
+<li><a href="https://www.mext.go.jp/a_menu/shotou/new-cs/1407074.htm" target="_blank" rel="noopener">文部科学省 高等学校学習指導要領（平成30年告示）解説 理科編</a>（生物（2）生命現象と物質）</li>
+<li>高等学校「生物」「生物基礎」の教科書（酵素の性質、酵素反応の速度）</li>
+</ul>
+
+    <h2>引用・転載について</h2>
+    <p>本ページのシミュレーション結果・数値は、<b>出典を明記いただければ</b>ブログ・ニュース記事・SNS・授業や社内資料への引用を歓迎します。事前連絡は不要です。</p>
+    <div class="note">推奨クレジット表記：<code>出典：シミュラボ「酵素の反応速度シミュレーター（酵素濃度・基質濃度と反応速度のグラフ）」 https://shimulabo.com/sims/kouso-hannou-sokudo/</code></div>
+    <h2>よくある質問</h2><dl class="faq"><dt>酵素を増やすと、できる生成物の量も増えるの？</dt><dd>増えません。酵素を増やすと反応は速くなりますが、基質の量が同じなら、基質を使い切ったときの生成物の量は同じです。酵素は反応の前後で変化せず、くり返し使われる触媒だからです。生成物の最終量は基質の量で決まります。</dd><dt>基質濃度を高くしても反応速度が頭打ちになるのはなぜ？</dt><dd>基質濃度が十分に高いと、ほぼすべての酵素が基質と結合して酵素基質複合体になっています。酵素が1回の反応にかける時間は決まっているので、空いている酵素がない状態では、基質をそれ以上増やしても反応速度は大きくなりません。このときの速度を最大反応速度といいます。</dd><dt>時間と生成物の量のグラフが水平になるのはどういう意味？</dt><dd>基質がすべて生成物に変わり、反応が終わったことを表します。グラフの傾きは反応速度なので、水平は反応速度が0という意味です。酵素がこわれたわけではなく、基質を加えればまた反応が進みます。</dd><dt>反応速度はグラフのどこから読み取るの？</dt><dd>時間と生成物の量のグラフの傾きが反応速度です。反応開始直後は基質がまだ多く、傾きがほぼ一定なので、この部分の傾きを「反応開始直後の反応速度（初速度）」として、酵素濃度や基質濃度との関係を調べます。</dd><dt>酵素濃度と反応速度が比例するのはどんなとき？</dt><dd>基質が十分にあるときです。どの酵素もすぐに次の基質と結合できるので、酵素の数が2倍になれば、単位時間にできる生成物も2倍になります。基質が少ないと、基質がすぐに減ってしまい、比例からはずれます。</dd><dt>同じ条件なのに結果が毎回少しちがうのはなぜ？</dt><dd>このシミュレーターは粒子1個1個のランダムな動きを計算しており、粒子の数が実際の反応液よりはるかに少ないためです。実際の実験では分子の数が非常に多いので、ばらつきは平均されて見えなくなります。</dd></dl>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>ほかのシミュレーション</h2>
+    <div class="related-grid"><a class="related-card" href="../kouso-sogai/"><span class="e">🔒</span><span>酵素の阻害シミュレーター（競争的阻害と非競争的阻害のちがい）</span></a><a class="related-card" href="../maku-yuso/"><span class="e">🚪</span><span>膜輸送のシミュレーター（拡散・チャネル・担体・ナトリウムポンプ）</span></a><a class="related-card" href="../rinshishitsu-maku/"><span class="e">🧼</span><span>リン脂質と細胞膜のでき方シミュレーター（単分子膜・ミセル・脂質二重層・小胞）</span></a><a class="related-card" href="../kougousei/"><span class="e">🍃</span><span>光合成と呼吸のシミュレーター（気体の出入り・BTB溶液・ヨウ素液・蒸散）</span></a><a class="related-card" href="../diffusion/"><span class="e">🫧</span><span>拡散シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュも見てみたい？</h2>
+    <p>あなたの「これ数字で見たい」を送ってください。面白い案から実際に作って、できたらお知らせします。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+    <div style="margin-top:12px;"><a href="../../board/" style="font-size:13px;font-weight:800;">📋 みんなのリクエストと進み具合を見る →</a></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a>　<a href="../../rika/">🔬 理科の授業向けシミュレーター</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (n) => Math.round(n).toLocaleString('ja-JP');
+  const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+  const rnd = (a,b) => a + Math.random()*(b-a);
+  const randn = () => { let u=0,v=0; while(!u)u=Math.random(); while(!v)v=Math.random(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
+  let SHARE = '';
+  function setShare(t){ SHARE = t; }
+  function syncSliders(){ document.querySelectorAll('input[type=range]').forEach(s=>{ const l=$(s.id+'L'); if(l){ const u=()=>{ l.textContent = (s.dataset.fmt ? s.dataset.fmt.replace('{v}', s.value) : s.value); }; s.addEventListener('input',u); u(); } }); }
+  function cpos(cv,e){ const r=cv.getBoundingClientRect(); const t=(e.touches&&e.touches[0])?e.touches[0]:e; return [(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]; }
+  function setStat(id, v){ const e=$(id); if(e) e.textContent = v; }
+  try {
+    syncSliders();
+
+  const cv=$('cv'); const dpr=Math.min(2,window.devicePixelRatio||1); const W=cv.width,H=cv.height; cv.width=W*dpr; cv.height=H*dpr; const ctx=cv.getContext('2d'); ctx.setTransform(dpr,0,0,dpr,0,0);
+  const FF='"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic UI","Yu Gothic",Meiryo,sans-serif';
+  function tx(s,x,y,size,col,align,bold){ ctx.font=(bold?'bold ':'')+size+'px '+FF; ctx.fillStyle=col; ctx.textAlign=align||'left'; ctx.fillText(s,x,y); ctx.textAlign='left'; }
+  function tw(s,size,bold){ ctx.font=(bold?'bold ':'')+size+'px '+FF; return ctx.measureText(s).width; }
+  function rr(x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
+  function pill(s,x,y,size,col,bg){ const w=tw(s,size,true)+16; rr(x-w/2,y-size-2,w,size+12,8); ctx.fillStyle=bg||'rgba(255,255,255,.92)'; ctx.fill(); tx(s,x,y+2,size,col,'center',true); }
+
+  // ===== 粒子モデル =====
+  // 酵素は基質とぶつかると結合し（酵素基質複合体）、TAU 秒ほどで生成物に変えて放す。酵素はくり返し使われる。
+  // 阻害剤：comp＝活性部位に結合（基質と取り合い）／non＝別の場所に結合（基質は結合できるが、生成物ができない）。どちらも時間がたつと離れる（可逆）。
+  const RE=16, RC=23, TAU=1.2, TI=1.2, OPEN=1.0, VH=300;
+  function mkWorld(o){
+    const w={t:0,P:0,E:[],S:[],I:[],Pr:[],fx:[],o:o};
+    function put(arr,n,sp,ex){ for(let i=0;i<n;i++){ arr.push(Object.assign({x:rnd(24,o.W-24),y:rnd(24,o.H-24),a:rnd(0,6.283),sp:sp,th:rnd(0,6.283),w:rnd(-1.5,1.5)},ex||{})); } }
+    function mv(p,dt,R){ p.a+=randn()*Math.sqrt(dt)*1.5; p.x+=Math.cos(p.a)*p.sp*dt; p.y+=Math.sin(p.a)*p.sp*dt; p.th+=p.w*dt;
+      if(p.x<R){p.x=R;p.a=Math.PI-p.a;} if(p.x>o.W-R){p.x=o.W-R;p.a=Math.PI-p.a;} if(p.y<R){p.y=R;p.a=-p.a;} if(p.y>o.H-R){p.y=o.H-R;p.a=-p.a;} }
+    for(let i=0;i<o.nE;i++){ w.E.push({x:rnd(30,o.W-30),y:rnd(30,o.H-30),a:rnd(0,6.283),sp:13,th:rnd(0,6.283),w:rnd(-.35,.35),st:0,tc:0,tc0:1,inh:false,ti:0,cool:0,op:OPEN,bk:0}); }
+    put(w.I,o.nI||0,130);
+    w.step=function(dt){
+      w.t+=dt;
+      const E=w.E,S=w.S,I=w.I,non=o.mode==='non',comp=o.mode==='comp';
+      for(const e of E){
+        mv(e,dt,RE+3);
+        if(e.cool>0) e.cool-=dt;
+        if(e.inh){ e.ti-=dt; if(e.ti<=0){ e.inh=false; const d=comp?e.th:e.th+Math.PI; I.push({x:e.x+Math.cos(d)*(RE+9),y:e.y+Math.sin(d)*(RE+9),a:d+rnd(-.5,.5),sp:130,th:d,w:rnd(-1.5,1.5)}); e.cool=Math.max(e.cool,.25); } }
+        if(e.st===1 && !(non&&e.inh)){ e.tc-=dt; if(e.tc<=0){ e.st=0; e.cool=.18; w.P++; const d=e.th+rnd(-.3,.3);
+            w.Pr.push({x:e.x+Math.cos(e.th)*(RE+6),y:e.y+Math.sin(e.th)*(RE+6),a:d,sp:55,th:e.th,w:rnd(-1.5,1.5)});
+            if(o.fx) w.fx.push({x:e.x+Math.cos(e.th)*RE,y:e.y+Math.sin(e.th)*RE,t:w.t}); } }
+      }
+      for(let i=S.length-1;i>=0;i--){ const s=S[i]; mv(s,dt,9);
+        for(const e of E){ if(e.st!==0||e.cool>0||(comp&&e.inh)) continue; const dx=s.x-e.x,dy=s.y-e.y; if(dx*dx+dy*dy<RC*RC){ e.st=1; e.tc0=e.tc=rnd(TAU-.2,TAU+.2); e.bk=0; S.splice(i,1); break; } } }
+      for(let i=I.length-1;i>=0;i--){ const s=I[i]; mv(s,dt,9);
+        for(const e of E){ if(e.inh||e.cool>0) continue; if(comp&&e.st!==0) continue; const dx=s.x-e.x,dy=s.y-e.y; if(dx*dx+dy*dy<RC*RC){ e.inh=true; e.ti=-Math.log(1-Math.random())*TI; e.bk=0; I.splice(i,1); break; } } }
+      for(const p of w.Pr) mv(p,dt,9);
+      if(o.fx&&w.fx.length&&w.t-w.fx[0].t>.7) w.fx.shift();
+    };
+    // 阻害剤は、基質を入れる前に酵素とまぜておく（結合と解離がつり合った状態から始める）
+    if(o.nI>0&&o.mode!=='none'){ for(let k=0;k<480;k++) w.step(1/60); w.t=0; w.fx.length=0; }
+    put(w.S,o.nS,95);
+    w.bound=function(){ let n=0; for(const e of w.E) if(e.st===1) n++; return n; };
+    w.inhib=function(){ let n=0; for(const e of w.E) if(e.inh) n++; return n; };
+    return w;
+  }
+  // 反応開始直後の反応速度（個/秒）。T0〜T1 秒にできた生成物の数から求める。trials 回の平均。
+  const T0=1.4, T1=3.9;
+  function measure(nE,nS,nI,mode,trials){ let v=0; for(let k=0;k<trials;k++){ const w=mkWorld({nE:nE,nS:nS,nI:nI,mode:mode,W:W,H:VH,fx:false}); let p0=0,got=false;
+      while(w.t<T1){ w.step(1/60); if(!got&&w.t>=T0){p0=w.P;got=true;} } v+=(w.P-p0)/(T1-T0); } return v/trials; }
+
+  // ===== 描く =====
+  function wedge(x,y,r,rot,open){ ctx.beginPath(); ctx.moveTo(x,y); ctx.arc(x,y,r,rot-open/2,rot+open/2); ctx.closePath(); }
+  function dSub(x,y,rot,k,sc){ // k=0 基質 → 1 生成物（2つに分かれた形）
+    const r=13*(sc||1);
+    if(k<.5){ wedge(x,y,r,rot,OPEN-.1); ctx.fillStyle='#f59e0b'; ctx.fill(); ctx.strokeStyle='#b45309'; ctx.lineWidth=1.2; ctx.stroke();
+      if(k>0){ ctx.strokeStyle='rgba(120,53,15,'+(k*2)+')'; ctx.lineWidth=1.4; ctx.beginPath(); ctx.moveTo(x,y); ctx.lineTo(x+Math.cos(rot)*r,y+Math.sin(rot)*r); ctx.stroke(); } }
+    else { const g=(k-.5)*2*3.2+1.2, h=(OPEN-.1)/2; for(const sgn of [-1,1]){ const rr2=rot+sgn*h/2, ox=Math.cos(rot+sgn*1.57)*g, oy=Math.sin(rot+sgn*1.57)*g;
+        wedge(x+ox,y+oy,r,rr2,h-.04); ctx.fillStyle='#22c55e'; ctx.fill(); ctx.strokeStyle='#15803d'; ctx.lineWidth=1.2; ctx.stroke(); } }
+  }
+  function dProd(p){ const ax=p.x-Math.cos(p.th)*7, ay=p.y-Math.sin(p.th)*7; dSub(ax,ay,p.th,1,.92); }
+  function dFreeSub(p){ dSub(p.x-Math.cos(p.th)*7,p.y-Math.sin(p.th)*7,p.th,0,.92); }
+  function dInhC(x,y,rot,sc){ const r=13*(sc||1); wedge(x,y,r,rot,OPEN-.1); ctx.fillStyle='#a855f7'; ctx.fill(); ctx.strokeStyle='#6b21a8'; ctx.lineWidth=1.2; ctx.stroke();
+    ctx.beginPath(); ctx.arc(x+Math.cos(rot)*r,y+Math.sin(rot)*r,4.2,0,7); ctx.fillStyle='#6b21a8'; ctx.fill(); }
+  function dInhN(x,y,rot){ ctx.beginPath(); for(let i=0;i<6;i++){ const a=rot+i*Math.PI/3; ctx.lineTo(x+Math.cos(a)*8,y+Math.sin(a)*8); } ctx.closePath(); ctx.fillStyle='#a855f7'; ctx.fill(); ctx.strokeStyle='#6b21a8'; ctx.lineWidth=1.3; ctx.stroke(); }
+  function dFreeInh(p,mode){ if(mode==='comp') dInhC(p.x-Math.cos(p.th)*7,p.y-Math.sin(p.th)*7,p.th,.92); else dInhN(p.x,p.y,p.th); }
+  function dEnz(e,mode,t){
+    const non=mode==='non', comp=mode==='comp';
+    const tgt=(non&&e.inh)?.5:OPEN; e.op+=(tgt-e.op)*.18; e.bk=Math.min(1,e.bk+.09);
+    const act=e.st===1&&!(non&&e.inh), blocked=e.inh;
+    ctx.save();
+    if(act){ ctx.shadowColor='rgba(245,158,11,.9)'; ctx.shadowBlur=10+6*Math.sin(t*9); }
+    ctx.beginPath(); ctx.arc(e.x,e.y,RE,e.th+e.op/2,e.th-e.op/2+Math.PI*2); ctx.lineTo(e.x+Math.cos(e.th)*2,e.y+Math.sin(e.th)*2); ctx.closePath();
+    const g=ctx.createRadialGradient(e.x-5,e.y-6,2,e.x,e.y,RE+2);
+    if(blocked){ g.addColorStop(0,'#e2e8f0'); g.addColorStop(1,'#94a3b8'); } else { g.addColorStop(0,'#93c5fd'); g.addColorStop(1,'#2563eb'); }
+    ctx.fillStyle=g; ctx.fill(); ctx.restore();
+    ctx.strokeStyle=blocked?'#475569':'#1e3a8a'; ctx.lineWidth=1.6; ctx.stroke();
+    if(e.st===1){ const k=act?Math.max(0,Math.min(.49,(1-e.tc/e.tc0)*.5)):0, sc=.55+.45*e.bk;
+      ctx.save(); if(e.op<OPEN-.05){ ctx.globalAlpha=.75; } dSub(e.x+Math.cos(e.th)*(1-e.bk)*10,e.y+Math.sin(e.th)*(1-e.bk)*10,e.th,k,sc*(e.op<OPEN-.05?.8:1)); ctx.restore();
+      if(act){ ctx.strokeStyle='#f59e0b'; ctx.lineWidth=2.5; ctx.beginPath(); ctx.arc(e.x,e.y,RE+4,-1.57,-1.57+(1-e.tc/e.tc0)*6.283); ctx.stroke(); } }
+    if(e.inh){ if(comp) dInhC(e.x+Math.cos(e.th)*(1-e.bk)*10,e.y+Math.sin(e.th)*(1-e.bk)*10,e.th,.55+.45*e.bk);
+      else { const d=e.th+Math.PI, q=RE+6+(1-e.bk)*8; dInhN(e.x+Math.cos(d)*q,e.y+Math.sin(d)*q,d);
+        if(e.st===1){ ctx.strokeStyle='#dc2626'; ctx.lineWidth=2.2; const cx=e.x+Math.cos(e.th)*8,cy=e.y+Math.sin(e.th)*8; ctx.beginPath(); ctx.moveTo(cx-4,cy-4); ctx.lineTo(cx+4,cy+4); ctx.moveTo(cx+4,cy-4); ctx.lineTo(cx-4,cy+4); ctx.stroke(); } } }
+  }
+  function dVessel(w,mode){
+    const g=ctx.createLinearGradient(0,0,0,VH); g.addColorStop(0,'#f0f9ff'); g.addColorStop(1,'#dbeafe'); ctx.fillStyle=g; ctx.fillRect(0,0,W,VH);
+    for(const p of w.Pr) dProd(p);
+    for(const p of w.S) dFreeSub(p);
+    for(const p of w.I) dFreeInh(p,mode);
+    for(const e of w.E) dEnz(e,mode,w.t);
+    for(const f of w.fx){ const k=(w.t-f.t)/.7; if(k<0||k>1) continue; ctx.strokeStyle='rgba(34,197,94,'+(1-k)+')'; ctx.lineWidth=3*(1-k)+.5; ctx.beginPath(); ctx.arc(f.x,f.y,6+k*26,0,7); ctx.stroke();
+      for(let i=0;i<6;i++){ const a=i*1.047+f.t*7, r1=10+k*24; ctx.fillStyle='rgba(250,204,21,'+(1-k)+')'; ctx.beginPath(); ctx.arc(f.x+Math.cos(a)*r1,f.y+Math.sin(a)*r1,2.2*(1-k)+.4,0,7); ctx.fill(); } }
+    ctx.strokeStyle='#94a3b8'; ctx.lineWidth=1; ctx.strokeRect(.5,.5,W-1,VH-1);
+  }
+  function dLegend(items){ // [[kind,label],...]
+    let x=10; const y=10, h=26; let wsum=10; for(const it of items) wsum+=30+tw(it[1],12,true)+10;
+    rr(6,6,wsum,h+2,8); ctx.fillStyle='rgba(255,255,255,.9)'; ctx.fill(); ctx.strokeStyle='#cbd5e1'; ctx.lineWidth=1; ctx.stroke(); x=14;
+    for(const it of items){ const cy=y+h/2-1;
+      if(it[0]==='E'){ ctx.beginPath(); ctx.arc(x+10,cy,9,.5,-.5+6.283); ctx.lineTo(x+11,cy); ctx.closePath(); ctx.fillStyle='#3b82f6'; ctx.fill(); ctx.strokeStyle='#1e3a8a'; ctx.lineWidth=1.2; ctx.stroke(); }
+      if(it[0]==='S') dSub(x+3,cy,0,0,.95);
+      if(it[0]==='P') dSub(x+3,cy,0,1,.95);
+      if(it[0]==='IC') dInhC(x+3,cy,0,.9);
+      if(it[0]==='IN') dInhN(x+10,cy,0);
+      tx(it[1],x+24,cy+4,12,'#0f172a','left',true); x+=30+tw(it[1],12,true)+10; }
+  }
+  // グラフの枠。戻り値は座標変換
+  function frame(x,y,w,h,xmax,ymax,xl,yl,xt,yt){
+    rr(x,y,w,h,10); ctx.fillStyle='#fff'; ctx.fill(); ctx.strokeStyle='#e2e8f0'; ctx.lineWidth=1; ctx.stroke();
+    const L=x+42,R=x+w-14,Tp=y+28,B=y+h-34; const X=v=>L+v/xmax*(R-L), Y=v=>B-v/ymax*(B-Tp);
+    ctx.strokeStyle='#eef2f7'; ctx.lineWidth=1; for(let i=1;i<=4;i++){ const yy=B-(B-Tp)*i/4; ctx.beginPath(); ctx.moveTo(L,yy); ctx.lineTo(R,yy); ctx.stroke(); }
+    ctx.strokeStyle='#334155'; ctx.lineWidth=1.4; ctx.beginPath(); ctx.moveTo(L,Tp-4); ctx.lineTo(L,B); ctx.lineTo(R+2,B); ctx.stroke();
+    for(let i=0;i<=4;i++){ const v=ymax*i/4; tx(yt?yt(v):(ymax<10?v.toFixed(1):String(Math.round(v))),L-5,B-(B-Tp)*i/4+4,11,'#475569','right'); }
+    for(let i=0;i<=4;i++){ const v=xmax*i/4; tx(xt?xt(v):String(Math.round(v)),L+(R-L)*i/4,B+14,11,'#475569','center'); }
+    tx(xl,(L+R)/2,y+h-4,12,'#0f172a','center',true); tx(yl,x+8,y+16,12,'#0f172a','left',true);
+    return {X:X,Y:Y,L:L,R:R,T:Tp,B:B};
+  }
+  function nice(v){ const p=Math.pow(10,Math.floor(Math.log10(v))); const m=v/p; return (m<=1?1:m<=1.2?1.2:m<=1.6?1.6:m<=2?2:m<=2.4?2.4:m<=3.2?3.2:m<=4?4:m<=6?6:m<=8?8:10)*p; }
+
+  const COLS=['#db2777','#7c3aed','#d97706','#0891b2','#65a30d'];
+  let world, paused=false, data=[], runs=[], ptsS=[], ptsE=[], rec=0, p0=0, queue=[], fcount=0, doneMsg=false, sweeping='';
+  function cond(){ return {nE:+$('nE').value,nS:+$('nS').value}; }
+  function start(){ const c=cond(); world=mkWorld({nE:c.nE,nS:c.nS,nI:0,mode:'none',W:W,H:VH,fx:true}); data=[[0,0]]; rec=0; p0=0; paused=false; doneMsg=false; $('pause').textContent='⏸ 一時停止'; }
+  function addPt(list,p){ for(let i=list.length-1;i>=0;i--) if(list[i].x===p.x&&list[i].k===p.k) list.splice(i,1); p.born=performance.now(); list.push(p); }
+  function rateNow(){ if(data.length<3) return 0; const b=data[data.length-1]; let a=data[0]; for(let i=data.length-1;i>=0;i--){ if(b[0]-data[i][0]>=1.5){a=data[i];break;} } return b[0]>a[0]?(b[1]-a[1])/(b[0]-a[0]):0; }
+  function tick(dt){
+    world.step(dt);
+    const last=data[data.length-1]; if(world.t-last[0]>=.2) data.push([world.t,world.P]);
+    if(rec===0&&world.t>=T0){ p0=world.P; rec=1; }
+    if(rec===1&&world.t>=T1){ rec=2; const v=(world.P-p0)/(T1-T0), c=world.o; addPt(ptsS,{x:c.nS,k:c.nE,v:v}); addPt(ptsE,{x:c.nE,k:c.nS,v:v}); }
+    if(!doneMsg&&world.S.length===0&&world.bound()===0){ doneMsg=true; data.push([world.t,world.P]); }
+  }
+  function series(list){ const ks=[]; for(const p of list) if(ks.indexOf(p.k)<0) ks.push(p.k); return ks; }
+  function drawTime(){
+    let tmax=20, pmax=20; const all=runs.concat([{data:data,nS:world.o.nS}]);
+    for(const r of all){ tmax=Math.max(tmax,r.data[r.data.length-1][0]); pmax=Math.max(pmax,r.nS); }
+    tmax=Math.ceil(tmax/20)*20; pmax=nice(pmax);
+    const f=frame(6,VH+10,312,H-VH-16,tmax,pmax,'時間（秒）','生成物の量（個）');
+    function line(d,col,lw){ ctx.strokeStyle=col; ctx.lineWidth=lw; ctx.lineJoin='round'; ctx.beginPath(); d.forEach((q,i)=>{ const x=f.X(q[0]),y=f.Y(q[1]); i?ctx.lineTo(x,y):ctx.moveTo(x,y); }); ctx.stroke(); }
+    runs.forEach((r,i)=>{ line(r.data,r.col,1.8); const q=r.data[r.data.length-1]; tx(r.label,Math.min(f.R-2,f.X(q[0])),f.Y(q[1])-5-(i%2)*11,10.5,r.col,'right',true); });
+    line(data,'#0d9488',3);
+    const q=data[data.length-1], v=rateNow(), x=f.X(q[0]), y=f.Y(q[1]);
+    if(data.length>3){ const sx=(f.R-f.L)/tmax, sy=(f.B-f.T)/pmax, dx=34, dy=v*dx/sx*sy; const n=Math.hypot(dx,dy)/34; ctx.strokeStyle='#ef4444'; ctx.lineWidth=2; ctx.setLineDash([5,3]); ctx.beginPath(); ctx.moveTo(x-dx/n,y+dy/n); ctx.lineTo(x+dx/n,y-dy/n); ctx.stroke(); ctx.setLineDash([]); }
+    ctx.fillStyle='#0d9488'; ctx.beginPath(); ctx.arc(x,y,4.5,0,7); ctx.fill(); ctx.strokeStyle='#fff'; ctx.lineWidth=1.5; ctx.stroke();
+    tx('赤い点線の傾き＝いまの反応速度 '+v.toFixed(1)+' 個/秒',f.L+8,f.T+4,10.5,'#dc2626','left',true);
+    if(doneMsg){ ctx.strokeStyle='#94a3b8'; ctx.setLineDash([3,3]); ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(f.L,f.Y(world.P)); ctx.lineTo(f.R,f.Y(world.P)); ctx.stroke(); ctx.setLineDash([]); }
+  }
+  function drawV0(){
+    const isS=$('gsel').value==='S', list=isS?ptsS:ptsE, xmax=isS?160:20;
+    let vmax=4; for(const p of list) vmax=Math.max(vmax,p.v*1.15); vmax=nice(vmax);
+    const f=frame(322,VH+10,312,H-VH-16,xmax,vmax,isS?'はじめの基質の数（基質濃度）':'酵素の数（酵素濃度）','反応開始直後の反応速度（個/秒）');
+    const ks=series(list), now=performance.now(), c=cond();
+    ks.forEach((k,i)=>{ const col=COLS[i%COLS.length], pts=list.filter(p=>p.k===k).sort((a,b)=>a.x-b.x);
+      if(pts.length>=3){ ctx.strokeStyle=col; ctx.lineWidth=2; ctx.globalAlpha=.75; ctx.beginPath(); ctx.moveTo(f.X(0),f.Y(0)); pts.forEach(p=>ctx.lineTo(f.X(p.x),f.Y(p.v))); ctx.stroke(); ctx.globalAlpha=1; }
+      pts.forEach(p=>{ const a=Math.min(1,(now-p.born)/350), r=4.5+(1-a)*9; ctx.fillStyle=col; ctx.globalAlpha=.35+.65*a; ctx.beginPath(); ctx.arc(f.X(p.x),f.Y(p.v),r,0,7); ctx.fill(); ctx.globalAlpha=1; ctx.strokeStyle='#fff'; ctx.lineWidth=1.2; ctx.stroke(); });
+      const lp=pts[pts.length-1]; tx(isS?('酵素'+k+'個'):('基質'+k+'個'),Math.min(f.R,f.X(lp.x)+4),f.Y(lp.v)-8,10.5,col,'right',true); });
+    const cx=f.X(isS?c.nS:c.nE); ctx.strokeStyle='#0d9488'; ctx.setLineDash([3,3]); ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(cx,f.T); ctx.lineTo(cx,f.B); ctx.stroke(); ctx.setLineDash([]);
+    if(!list.length) tx('反応を始めて約4秒たつと、点が1つ入ります',(f.L+f.R)/2,(f.T+f.B)/2,11.5,'#64748b','center');
+    if(sweeping) pill('自動で測定中… '+sweeping,(f.L+f.R)/2,f.T+14,11,'#0f172a','rgba(254,243,199,.95)');
+  }
+  function draw(){
+    ctx.clearRect(0,0,W,H); ctx.fillStyle='#f8fafc'; ctx.fillRect(0,0,W,H);
+    dVessel(world,'none');
+    dLegend([['E','酵素'],['S','基質'],['P','生成物']]);
+    const b=world.bound(), n=world.E.length, gw=150, gx=W-gw-12, gy=VH-26;
+    rr(gx-8,gy-18,gw+16,38,8); ctx.fillStyle='rgba(255,255,255,.9)'; ctx.fill();
+    tx('基質と結合している酵素 '+b+'/'+n,gx,gy-4,11,'#0f172a','left',true);
+    rr(gx,gy+2,gw,9,4); ctx.fillStyle='#e2e8f0'; ctx.fill(); if(b>0){ rr(gx,gy+2,Math.max(9,gw*b/n),9,4); ctx.fillStyle='#f59e0b'; ctx.fill(); }
+    if(doneMsg) pill('基質を使い切りました（生成物 '+world.P+' 個）',W/2,VH/2,14,'#0f172a','rgba(255,255,255,.95)');
+    else if(paused) pill('一時停止中',W/2,VH/2,14,'#0f172a','rgba(255,255,255,.95)');
+    drawTime(); drawV0();
+    const v=rateNow();
+    setStat('sT',world.t.toFixed(1)+' 秒'); setStat('sP',world.P+' 個'); setStat('sS',(world.S.length+b)+' 個'); setStat('sV',v.toFixed(1)+' 個/秒'); setStat('sB',b+' / '+n);
+    setShare('【酵素の反応速度】酵素'+world.o.nE+'個・基質'+world.o.nS+'個で反応させると、'+world.t.toFixed(0)+'秒で生成物が'+world.P+'個できた｜シミュラボ');
+  }
+  function loop(){
+    fcount++;
+    if(!paused&&!doneMsg){ const sp=+$('spd').value; const n=Math.max(1,Math.round(sp*2)); for(let i=0;i<n;i++) tick(1/120); }
+    if(queue.length&&fcount%5===0){ queue.shift()(); if(!queue.length) sweeping=''; }
+    draw(); requestAnimationFrame(loop);
+  }
+  $('go').addEventListener('click',start);
+  $('pause').addEventListener('click',()=>{ paused=!paused; $('pause').textContent=paused?'▶ 再開':'⏸ 一時停止'; });
+  $('keep').addEventListener('click',()=>{ if(data.length<5) return; if(runs.length>=5) runs.shift(); const c=world.o; runs.push({label:'酵素'+c.nE+'・基質'+c.nS,col:COLS[runs.length%COLS.length],data:data.slice(),nS:c.nS}); runs.forEach((r,i)=>r.col=COLS[i%COLS.length]); });
+  $('sweep').addEventListener('click',()=>{ if(queue.length) return; const c=cond();
+    if($('gsel').value==='S'){ [5,10,20,35,50,75,100,125,150].forEach(s=>queue.push(()=>{ sweeping='基質'+s+'個'; addPt(ptsS,{x:s,k:c.nE,v:measure(c.nE,s,0,'none',14)}); })); }
+    else { [1,2,4,6,8,10,13,16,20].forEach(e=>queue.push(()=>{ sweeping='酵素'+e+'個'; addPt(ptsE,{x:e,k:150,v:measure(e,150,0,'none',14)}); })); } });
+  $('clr').addEventListener('click',()=>{ runs=[]; ptsS=[]; ptsE=[]; });
+  $('nE').addEventListener('change',start); $('nS').addEventListener('change',start);
+  window.__test={measure:measure,mk:mkWorld,get world(){return world;},tick:function(n){ for(let i=0;i<n;i++) tick(1/60); while(queue.length) queue.shift()(); sweeping=''; draw(); }};
+  start(); loop();
+
+  } catch(e) { console.error(e); }
+  (function(){ const fs=$('fsBtn'), panel=document.querySelector('.panel');
+    const req = panel && (panel.requestFullscreen || panel.webkitRequestFullscreen);
+    if (fs && req) { fs.hidden = false; fs.addEventListener('click', () => {
+      const cur = document.fullscreenElement || document.webkitFullscreenElement;
+      if (cur) { (document.exitFullscreen || document.webkitExitFullscreen).call(document); }
+      else { req.call(panel); } }); }
+  })();
+  $('shareBtn').addEventListener('click', () => window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(SHARE || document.title)+'&url='+encodeURIComponent(location.href)+'&hashtags='+encodeURIComponent('シミュラボ'),'_blank','noopener'));
+  $('copyBtn').addEventListener('click', async () => { try{ await navigator.clipboard.writeText((SHARE||document.title)+'\n'+location.href); $('copyBtn').textContent='コピーしました ✓'; setTimeout(()=>$('copyBtn').textContent='結果をコピー',1600);}catch{alert(SHARE);} });
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'kouso-hannou-sokudo', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

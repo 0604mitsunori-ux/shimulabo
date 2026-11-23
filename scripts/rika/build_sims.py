@@ -23,7 +23,8 @@ MODULES = ["sims_tenmon", "sims_denki_hikari", "sims_kishou_jishin", "sims_chika
            "sims_sho3_a", "sims_sho3_b", "sims_sho34_seibutsu", "sims_sho4_a", "sims_sho4_b",   # 第5弾（小3・小4）
            "sims_kou_seibutsu_maku",
            "sims_shuukihyou",
-           "sims_shokumotsu_rensa", "sims_hannoushiki", "sims_daniel_denchi", "sims_kumo_dekikata"]   # 2026-11-18 リッチ化5本   # 2026-11-18 さわれる周期表   # リクエスト（高校生物：膜輸送・リン脂質）
+           "sims_shokumotsu_rensa", "sims_hannoushiki", "sims_daniel_denchi", "sims_kumo_dekikata",
+           "sims_kou_seibutsu_kouso"]   # 2026-11-18 リッチ化5本   # 2026-11-18 さわれる周期表   # リクエスト（高校生物：膜輸送・リン脂質）
 REQUIRED = ["slug", "cat", "title", "title_tag", "meta_desc", "og_title", "og_desc", "lead", "model", "level", "unit",
             "emoji", "card_desc", "score", "article", "faqs", "rel", "js"]
 
