@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/mizukiri-ishi/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/mizukiri-ishi.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/mizukiri-ishi.png">
+<title>水切りシミュレーター｜石は何回はねる？ 投げる速さ・かたむき・回転でためす｜シミュラボ</title>
+<meta name="description" content="川に石を投げて水面ではねさせる「水切り」のシミュレーター。投げる速さ、石のかたむき、投げ下ろす角度、回転の速さ、石の形を変えると、はねる回数ととんだきょりが変わります。なぜ石がはねるのか、平たい石と回転が大切な理由もやさしく説明します。">
+<meta property="og:title" content="水切りシミュレーター 石は何回はねる？">
+<meta property="og:description" content="速さ・かたむき・角度・回転・石の形を変えて、水面で石を何回はねさせられるかためそう。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/mizukiri-ishi/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "水切りシミュレーター", "url": "https://shimulabo.com/sims/mizukiri-ishi/", "description": "川に石を投げて水面ではねさせる「水切り」のシミュレーター。投げる速さ、石のかたむき、投げ下ろす角度、回転の速さ、石の形を変えると、はねる回数ととんだきょりが変わります。なぜ石がはねるのか、平たい石と回転が大切な理由もやさしく説明します。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "水切りシミュレーター", "item": "https://shimulabo.com/sims/mizukiri-ishi/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "どうやって遊びますか？", "acceptedAnswer": {"@type": "Answer", "text": "スライダーで投げる速さ・石のかたむき・投げ下ろす角度・回転の速さを決め、石の形をえらんで「投げる」をおします。石がしずむと、はねた回数ととんだきょりが出ます。"}}, {"@type": "Question", "name": "すぐにしずんでしまいます。", "acceptedAnswer": {"@type": "Answer", "text": "回転がおそいと、はねるたびに石のかたむきがくずれて、すぐにしずみます。また、投げ下ろす角度が深すぎると、水に強くつっこんで1回もはねずにしずみます。回転を速くして、水面に近い浅い角度で投げてみましょう。"}}, {"@type": "Question", "name": "石のかたむきは何度がよいですか？", "acceptedAnswer": {"@type": "Answer", "text": "石と水面のあいだの角度が約20度のときに、いちばんはねやすいという実験の研究があります。このシミュレーターでも、20度に近いほどよくはねるようにしてあります。"}}, {"@type": "Question", "name": "この結果は本物と同じですか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。本物の水切りは、石の重さや形、波や風などでも変わります。このシミュレーターは、はねるたびに速さが少しずつへり、速さが足りなくなるとしずむ、というかんたんなモデルで計算した「めやす」です。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+
+<style>
+#mzWrap{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#bae6fd}
+#mz{display:block;width:100%;aspect-ratio:16/10}
+.mz-count{position:absolute;right:10px;top:10px;background:rgba(15,23,42,.8);color:#fff;border-radius:12px;padding:6px 14px;font-weight:800;font-size:13px;text-align:center}
+.mz-count b{display:block;font-size:26px;line-height:1.1;font-variant-numeric:tabular-nums}
+.mz-count.pop b{animation:mzPop .35s ease-out}
+@keyframes mzPop{0%{transform:scale(1.7);color:#fde047}100%{transform:scale(1)}}
+.mz-sum{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.mz-sum div{background:#eff6ff;border-radius:12px;padding:10px 4px;text-align:center}
+.mz-sum b{display:block;font-size:22px;color:#1d4ed8;font-variant-numeric:tabular-nums}
+.mz-sum b small{font-size:12px}
+.mz-sum span{font-size:11.5px;color:var(--ink-2);font-weight:700}
+.mz-note{font-size:13.5px;color:var(--ink);background:#eff6ff;border-radius:10px;padding:9px 12px;margin:10px 0 0;font-weight:700}
+.mz-cols{display:grid;grid-template-columns:1fr 1fr;gap:6px 22px;margin-top:14px}
+.mz-seg{display:flex;flex-wrap:wrap;gap:6px}
+.mz-seg button{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;font:inherit;font-size:13.5px;font-weight:800;cursor:pointer;color:var(--ink)}
+.mz-seg button.on{background:#1d4ed8;border-color:#1d4ed8;color:#fff}
+.mz-go{margin-top:12px}
+@media (max-width:640px){.mz-cols{grid-template-columns:1fr}.mz-count b{font-size:20px}}
+</style>
+
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span>あそぶ・実験<span>›</span><span class="cur">水切りシミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">あそぶ・実験</div>
+    <h1>水切りシミュレーター<br>石は何回はねる？</h1>
+    <p class="lead">川に石を投げて、水面でぴょんぴょんとはねさせるあそびが「水切り」です。投げる速さ、石のかたむき、投げ下ろす角度、回転の速さ、石の形を変えて、何回はねるかをためしてみましょう。はねるたびに波紋が広がり、回数が数えられます。</p>
+    <p class="mz-note" style="font-weight:400">📏 このシミュレーターの計算は、動きの感じをつかむための「めやす」です。本物の水切りの回数やきょりを正しく予想するものではありません。</p>
+  </div>
+
+  <section class="panel" id="resultPanel">
+    <div id="mzWrap">
+      <canvas id="mz" aria-label="川に石を投げて水面ではねさせている絵"></canvas>
+      <div class="mz-count" id="mzCount"><b id="mzBig">0</b>回 はねた</div>
+    </div>
+    <div class="mz-sum">
+      <div><b id="mN">0<small>回</small></b><span>はねた回数</span></div>
+      <div><b id="mD">0<small>m</small></b><span>とんだきょり</span></div>
+      <div><b id="mB">0<small>回</small></b><span>今回のベスト記録</span></div>
+    </div>
+    <p class="mz-note" id="mzNote">🪨 石を投げます。</p>
+    <button class="btn btn-primary mz-go" id="mzThrow" type="button">🪨 投げる</button>
+
+    <div class="mz-cols">
+      <div class="field"><label>投げる速さ <span class="hint">（<b id="vV"></b>）</span></label><input type="range" id="kV" min="4" max="16" step="0.5" value="12"></div>
+      <div class="field"><label>石のかたむき <span class="hint">（<b id="vTilt"></b>）</span></label><input type="range" id="kTilt" min="0" max="45" step="1" value="20"></div>
+      <div class="field"><label>投げ下ろす角度 <span class="hint">（<b id="vDown"></b>）</span></label><input type="range" id="kDown" min="0" max="50" step="1" value="15"></div>
+      <div class="field"><label>回転の速さ <span class="hint">（<b id="vSpin"></b>）</span></label><input type="range" id="kSpin" min="0" max="14" step="1" value="10"></div>
+      <div class="field"><label>石の形</label><div class="mz-seg" id="mzShape"><button type="button" data-v="flat" class="on">平たい石</button><button type="button" data-v="round">丸い石</button></div></div>
+    </div>
+
+    <div style="text-align:center;margin-top:16px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-x" id="shareBtn">𝕏 で記録をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+
+<h2>なぜ石は水の上ではねるの？</h2>
+<p>石が速いスピードで水面にななめに当たると、石は水をおしのけます。そのとき、水は石を<b>上向きにおし返します</b>。このおし上げる力が石の重さよりも大きいと、石はしずまずに、水面からはね上がります。</p>
+<p>はねるたびに、石は水とぶつかって少しずつ速さをなくします。速さが足りなくなると、水がおし上げる力が弱くなり、石はしずみます。</p>
+
+<h2>平たい石がよい理由</h2>
+<p>平たい石は、水に当たる面が広いので、水からおし上げる力をたくさん受けられます。丸い石は当たる面がせまく、水の中にもぐりやすいので、はねにくくなります。</p>
+
+<h2>回転させるとよい理由</h2>
+<p>石を横に回転させながら投げると、石のむきが安定します。回っているコマがたおれにくいのと同じしくみです。回転が足りないと、水に当たったときに石のかたむきがくずれて、次にうまくはねられません。</p>
+
+<h2>かたむきは約20度がよくはねる</h2>
+<p>フランスの研究者たちは、石を決まった速さ・角度・回転で打ち出す機械を使って実験し、石と水面のあいだの角度が<b>約20度</b>のときに、いちばんはねやすいことを報告しました（2004年、科学雑誌『Nature』）。</p>
+
+<h2>ためしてみたいこと</h2>
+<ul>
+<li><b>回転の速さを0にする</b>：石のかたむきがくずれて、すぐにしずみます。</li>
+<li><b>投げ下ろす角度を45度にする</b>：水に深くつっこんで、はねずにしずみます。</li>
+<li><b>石の形を「丸い」にする</b>：同じ投げ方でも、はねる回数がへります。</li>
+<li><b>石のかたむきを0度や45度にする</b>：20度のときとくらべてみましょう。</li>
+</ul>
+
+    <h2>よくある質問</h2>
+    <dl class="faq"><dt>どうやって遊びますか？</dt><dd>スライダーで投げる速さ・石のかたむき・投げ下ろす角度・回転の速さを決め、石の形をえらんで「投げる」をおします。石がしずむと、はねた回数ととんだきょりが出ます。</dd><dt>すぐにしずんでしまいます。</dt><dd>回転がおそいと、はねるたびに石のかたむきがくずれて、すぐにしずみます。また、投げ下ろす角度が深すぎると、水に強くつっこんで1回もはねずにしずみます。回転を速くして、水面に近い浅い角度で投げてみましょう。</dd><dt>石のかたむきは何度がよいですか？</dt><dd>石と水面のあいだの角度が約20度のときに、いちばんはねやすいという実験の研究があります。このシミュレーターでも、20度に近いほどよくはねるようにしてあります。</dd><dt>この結果は本物と同じですか？</dt><dd>いいえ。本物の水切りは、石の重さや形、波や風などでも変わります。このシミュレーターは、はねるたびに速さが少しずつへり、速さが足りなくなるとしずむ、というかんたんなモデルで計算した「めやす」です。</dd></dl>
+    <h2>参考にした資料</h2>
+    <ul class="seo-refs"><li>Clanet, C., Hersen, F. &amp; Bocquet, L. (2004) Secrets of successful stone-skipping. Nature 427, 29.</li><li>Bocquet, L. (2003) The physics of stone skipping. American Journal of Physics 71, 150–155.</li></ul>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>関連するシミュレーター</h2>
+    <div class="related-grid"><a class="related-card" href="../coaster-energy/"><span class="e">🎢</span><span>ジェットコースターで学ぶエネルギー</span></a><a class="related-card" href="../domino-taoshi/"><span class="e">👉</span><span>ドミノ倒しシミュレーター</span></a><a class="related-card" href="../double-pendulum/"><span class="e">🪀</span><span>二重振り子シミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュレーターも見てみたい？</h2>
+    <p>あなたの「これシミュレーションしてみたい」を送ってください。面白い案から実際に作って、できたらお知らせします。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:8px;font-size:.85em"><!-- footer-links --><a href="../../about/">運営者情報</a>　<a href="../../privacy/">プライバシーポリシー</a>　<a href="../../terms/">利用規約</a>　<a href="../../contact/">お問い合わせ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const cv = $('mz'), ctx = cv.getContext('2d');
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+  const P = { v: 12, tilt: 20, down: 15, spin: 10, shape: 'flat' };
+  const GR = 9.8, X0 = 0.8, Y0 = 1.2;
+  let st = null, ripples = [], drops = [], pops = [], trail = [], best = 0, T = 0, viewW = 24, lastN = 0, lastD = 0;
+
+  function setNote(s) { $('mzNote').textContent = s; }
+  function doThrow() {
+    const b = P.down * Math.PI / 180;
+    st = { x: X0, y: Y0, vx: P.v * Math.cos(b), vy: -P.v * Math.sin(b), tilt: P.tilt, spin: P.spin, rot: 0, n: 0, mode: 'fly', sinkT: 0, why: '', shape: P.shape };
+    ripples = []; drops = []; pops = []; trail = []; viewW = 24;
+    setNote('🪨 投げました！');
+    ui(true);
+  }
+  function splash(x, pow) {
+    ripples.push({ x, t: 0, a: pow });
+    const n = Math.round(6 + 10 * pow);
+    for (let i = 0; i < n; i++) drops.push({ x, y: 0.02, vx: (Math.random() - .3) * 2.2 * pow, vy: (1 + Math.random() * 2.6) * pow, t: 0 });
+  }
+  // 水面に当たったとき（かんたんなモデル）
+  function hit() {
+    const s = st, attack = Math.atan2(-s.vy, s.vx) * 180 / Math.PI;
+    const stab = clamp(s.spin / 8, 0, 1);
+    s.tilt += (1 - stab) * (12 + 8 * s.n);            // 回転が足りないと、かたむきがくずれる
+    const e = (s.shape === 'flat' ? 1 : .5) * Math.exp(-Math.pow((s.tilt - 20) / 20, 2));
+    const lift = e * s.vx;
+    splash(s.x, clamp(Math.hypot(s.vx, s.vy) / 12, .25, 1.2));
+    if (attack > 22 + 22 * e) return sink('角度が深すぎて、水につっこんでしまいました。');
+    if (lift < 2.4) return sink(stab < 1 && s.tilt > 32 ? '回転が足りず、石のかたむきがくずれてしずみました。' : s.shape === 'round' && s.vx > 4 ? '丸い石は、水におし上げてもらう力が足りませんでした。' : '速さが足りなくなって、しずみました。');
+    s.n++;
+    s.vx *= clamp(.72 + .2 * e - attack / 300, .3, .95);
+    s.vy = Math.min(-s.vy * (.5 + .3 * e), s.vx * .3);
+    s.spin *= .985; s.y = 0;
+    pops.push({ x: s.x, t: 0, n: s.n });
+    const c = $('mzCount'); c.classList.remove('pop'); void c.offsetWidth; c.classList.add('pop');
+    ui(true);
+  }
+  function sink(why) { const s = st; s.mode = 'sink'; s.why = why; s.sinkT = 0; s.y = 0; }
+  function finish() {
+    const s = st; lastN = s.n; lastD = s.x - X0; best = Math.max(best, s.n);
+    setNote((s.n >= 8 ? '🎉 ' : s.n >= 3 ? '👍 ' : '💧 ') + s.n + '回はねて、' + lastD.toFixed(1) + 'mとびました。' + s.why);
+    ui(true);
+  }
+  function step(dt) {
+    T += dt;
+    for (const r of ripples) r.t += dt; ripples = ripples.filter(r => r.t < 3.5);
+    for (const d of drops) { d.vy -= GR * dt; d.x += d.vx * dt; d.y += d.vy * dt; d.t += dt; } drops = drops.filter(d => d.y > -.05 && d.t < 2);
+    for (const p of pops) p.t += dt; pops = pops.filter(p => p.t < 1.4);
+    const s = st; if (!s) return;
+    if (s.mode === 'fly') {
+      s.vy -= GR * dt; s.x += s.vx * dt; s.y += s.vy * dt; s.rot += s.spin * dt * 6.283;
+      trail.push([s.x, Math.max(0, s.y)]); if (trail.length > 600) trail.shift();
+      if (s.y <= 0 && s.vy < 0) { s.y = 0; hit(); }
+    } else if (s.mode === 'sink') {
+      s.sinkT += dt; s.vx *= Math.exp(-4 * dt); s.x += s.vx * dt; s.y -= .9 * dt;
+      if (s.sinkT > 1.2) { s.mode = 'done'; finish(); }
+    }
+  }
+
+  // ---------- 描く ----------
+  let dpr = 1;
+  function size() {
+    const w = cv.clientWidth || 600; dpr = Math.min(2, window.devicePixelRatio || 1);
+    const W = Math.round(w * dpr), Hh = Math.round(w * .625 * dpr);
+    if (cv.width !== W || cv.height !== Hh) { cv.width = W; cv.height = Hh; }
+  }
+  function draw() {
+    size();
+    const c = ctx, W = cv.width, Hh = cv.height, wy = Hh * .62;
+    const s = st;
+    const tgt = Math.max(24, (s ? s.x : 0) * 1.12 + 6); viewW += (tgt - viewW) * .08;
+    const S = W / viewW, X = x => x * S, Y = y => wy - y * S;
+    c.setTransform(1, 0, 0, 1, 0, 0);
+    // 空
+    const sky = c.createLinearGradient(0, 0, 0, wy); sky.addColorStop(0, '#7dd3fc'); sky.addColorStop(1, '#e0f2fe');
+    c.fillStyle = sky; c.fillRect(0, 0, W, wy);
+    c.fillStyle = 'rgba(253,224,71,.9)'; c.beginPath(); c.arc(W * .82, Hh * .16, 18 * dpr, 0, 7); c.fill();
+    // 雲
+    c.fillStyle = 'rgba(255,255,255,.85)';
+    for (let k = 0; k < 3; k++) { const cx = ((k * .37 + T * .008) % 1.2 - .1) * W, cy = Hh * (.1 + k * .07), r = (14 + k * 4) * dpr; c.beginPath(); c.arc(cx, cy, r, 0, 7); c.arc(cx + r, cy + r * .2, r * .8, 0, 7); c.arc(cx - r, cy + r * .25, r * .7, 0, 7); c.fill(); }
+    // 遠くの山と向こう岸
+    c.fillStyle = '#86b89a'; c.beginPath(); c.moveTo(0, wy);
+    for (let px = 0; px <= W; px += 8 * dpr) { const u = px / W * 24 / viewW * 6; c.lineTo(px, wy - (18 + 14 * Math.sin(u * 1.3 + 1) + 8 * Math.sin(u * 3.1)) * dpr); }
+    c.lineTo(W, wy); c.closePath(); c.fill();
+    c.fillStyle = '#4d7c5a'; c.fillRect(0, wy - 5 * dpr, W, 5 * dpr);
+    // 水
+    const wg = c.createLinearGradient(0, wy, 0, Hh); wg.addColorStop(0, '#38bdf8'); wg.addColorStop(1, '#0c4a6e');
+    c.fillStyle = wg; c.fillRect(0, wy, W, Hh - wy);
+    c.strokeStyle = 'rgba(255,255,255,.22)'; c.lineWidth = 1.2 * dpr;
+    for (let k = 0; k < 14; k++) { const yy = wy + (Hh - wy) * ((k + .5) / 14), ph = T * (.5 + k * .05) + k * 1.7, len = (20 + k * 5) * dpr; for (let j = 0; j < 5; j++) { const xx = ((j * .23 + k * .11 + Math.sin(ph) * .01) % 1) * W; c.beginPath(); c.moveTo(xx, yy + Math.sin(ph + j) * 1.5 * dpr); c.lineTo(xx + len, yy + Math.sin(ph + j + 1) * 1.5 * dpr); c.stroke(); } }
+    // 岸と人
+    c.fillStyle = '#65a30d'; c.beginPath(); c.moveTo(0, Y(.35)); c.lineTo(X(.55), Y(.3)); c.lineTo(X(1.0), Y(-.15)); c.lineTo(0, Y(-.15)); c.closePath(); c.fill();
+    const px = X(.3), fy = Y(.33), u = Math.max(5 * dpr, S * .22);
+    c.strokeStyle = '#1e293b'; c.lineWidth = Math.max(2 * dpr, u * .28); c.lineCap = 'round';
+    c.beginPath(); c.moveTo(px - u * .5, fy); c.lineTo(px, fy - u * 2); c.lineTo(px + u * .6, fy); c.moveTo(px, fy - u * 2); c.lineTo(px + u * .3, fy - u * 4); c.lineTo(px + u * 1.9, fy - u * 3.4); c.stroke();
+    c.fillStyle = '#1e293b'; c.beginPath(); c.arc(px + u * .4, fy - u * 4.8, u * .75, 0, 7); c.fill();
+    // 目もり（きょり）
+    c.fillStyle = 'rgba(255,255,255,.85)'; c.font = `${11 * dpr}px system-ui,sans-serif`; c.textAlign = 'center'; c.textBaseline = 'top';
+    const stp = viewW > 60 ? 20 : viewW > 30 ? 10 : 5;
+    for (let m = stp; m < viewW; m += stp) { const xx = X(X0 + m); c.fillRect(xx - .5 * dpr, wy, 1 * dpr, 6 * dpr); c.fillText(m + 'm', xx, wy + 8 * dpr); }
+    // 波紋
+    for (const r of ripples) {
+      for (let k = 0; k < 3; k++) { const tt = r.t - k * .35; if (tt <= 0) continue; const rad = Math.max(3 * dpr, (.25 + tt * 1.5) * S * (.6 + .4 * r.a)), al = clamp(1 - tt / 3, 0, 1) * .8; c.strokeStyle = `rgba(255,255,255,${al.toFixed(3)})`; c.lineWidth = (2.2 - k * .5) * dpr; c.beginPath(); c.ellipse(X(r.x), wy + 2 * dpr, rad, Math.max(1.5 * dpr, rad * .2), 0, 0, 7); c.stroke(); }
+    }
+    // 通ったあと
+    if (trail.length > 1) { c.strokeStyle = 'rgba(255,255,255,.55)'; c.lineWidth = 1.5 * dpr; c.setLineDash([4 * dpr, 4 * dpr]); c.beginPath(); trail.forEach((p, i) => i ? c.lineTo(X(p[0]), Y(p[1])) : c.moveTo(X(p[0]), Y(p[1]))); c.stroke(); c.setLineDash([]); }
+    // 水しぶき
+    c.fillStyle = 'rgba(255,255,255,.9)';
+    for (const d of drops) { c.beginPath(); c.arc(X(d.x), Y(d.y), 2 * dpr, 0, 7); c.fill(); }
+    // 石
+    if (s) {
+      const rx = Math.max(7 * dpr, .2 * S), ry = s.shape === 'flat' ? rx * .3 : rx * .75;
+      const wob = (1 - clamp(s.spin / 8, 0, 1)) * Math.sin(T * 9) * 10;
+      c.save(); c.translate(X(s.x), Y(s.y)); c.rotate(-(s.tilt + wob) * Math.PI / 180);
+      if (s.mode !== 'fly') c.globalAlpha = clamp(1 - s.sinkT / 1.2, .15, 1);
+      c.fillStyle = '#57534e'; c.beginPath(); c.ellipse(0, 0, rx, ry, 0, 0, 7); c.fill();
+      c.fillStyle = '#d6d3d1'; const mk = Math.cos(s.rot) * rx * .7; c.beginPath(); c.ellipse(mk, -ry * .2, rx * .16, ry * .4, 0, 0, 7); c.fill();
+      c.restore();
+    }
+    // 「○回！」の文字
+    c.textAlign = 'center'; c.textBaseline = 'bottom';
+    for (const p of pops) { const al = clamp(1 - p.t / 1.4, 0, 1); c.font = `800 ${(16 + 6 * Math.max(0, 1 - p.t * 3)) * dpr}px system-ui,sans-serif`; c.fillStyle = `rgba(254,240,138,${al})`; c.strokeStyle = `rgba(15,23,42,${al * .7})`; c.lineWidth = 3 * dpr; const tx = clamp(X(p.x), 24 * dpr, W - 24 * dpr), ty = wy - (22 + p.t * 34) * dpr; c.strokeText(p.n + '回！', tx, ty); c.fillText(p.n + '回！', tx, ty); }
+    ui(false);
+  }
+  let lastUI = 0;
+  function ui(force) {
+    const now = performance.now(); if (!force && now - lastUI < 150) return; lastUI = now;
+    const s = st, n = s ? s.n : 0, d = s ? Math.max(0, s.x - X0) : 0;
+    $('mzBig').textContent = n;
+    $('mN').innerHTML = n + '<small>回</small>'; $('mD').innerHTML = d.toFixed(1) + '<small>m</small>'; $('mB').innerHTML = Math.max(best, n) + '<small>回</small>';
+  }
+
+  // ---------- 操作 ----------
+  [['kV', 'v', v => v + ' m/秒'], ['kTilt', 'tilt', v => v + '°'], ['kDown', 'down', v => v + '°'], ['kSpin', 'spin', v => '1秒に' + v + '回転']].forEach(([id, key, f]) => {
+    const el = $(id), out = $('v' + id.slice(1)); const up = () => { P[key] = +el.value; out.textContent = f(P[key]); }; el.addEventListener('input', up); up();
+  });
+  $('mzShape').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; P.shape = b.dataset.v; document.querySelectorAll('#mzShape button').forEach(x => x.classList.toggle('on', x === b)); });
+  $('mzThrow').addEventListener('click', doThrow);
+  function shareText() { return `水切りシミュレーターで、石が${lastN}回はねて${lastD.toFixed(1)}mとびました🪨（ベスト${best}回）`; }
+  $('shareBtn').addEventListener('click', () => { const u = location.origin + location.pathname; window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText() + '\n') + '&url=' + encodeURIComponent(u) + '&hashtags=' + encodeURIComponent('シミュラボ'), '_blank', 'noopener'); });
+  $('copyBtn').addEventListener('click', async () => { try { await navigator.clipboard.writeText(shareText() + '\n' + location.origin + location.pathname); setNote('📋 コピーしました'); } catch (e) { setNote('コピーできませんでした'); } });
+
+  // ---------- 動かす ----------
+  const H = 1 / 120;
+  function advance(sec) { let n = Math.round(sec / H); while (n-- > 0) step(H); }
+  let tPrev = performance.now();
+  function loop(now) { const dt = Math.min(.05, (now - tPrev) / 1000); tPrev = now; advance(dt); draw(); requestAnimationFrame(loop); }
+  doThrow(); draw();
+  requestAnimationFrame(loop);
+  window.__t = {
+    step(sec) { advance(sec); draw(); ui(true); },
+    throw() { doThrow(); },
+    set(o) { Object.assign(P, o); },
+    get s() { const s = st; return { mode: s.mode, bounces: s.n, x: +s.x.toFixed(2), y: +s.y.toFixed(2), vx: +s.vx.toFixed(2), dist: +(s.x - X0).toFixed(2), tilt: +s.tilt.toFixed(1), best, ripples: ripples.length, drops: drops.length, viewW: +viewW.toFixed(1), nan: ![s.x, s.y, s.vx, s.vy, s.tilt, viewW].every(Number.isFinite), cw: cv.width, ch: cv.height, P: Object.assign({}, P) }; }
+  };
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'mizukiri-ishi', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>
