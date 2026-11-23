@@ -1,0 +1,448 @@
+# -*- coding: utf-8 -*-
+"""たき火シミュレーター（2026-11-24）燃焼の3条件（燃えるもの・酸素・温度）をあそびながら確かめる。
+   sims/takibi-honoo/index.html を書き出す（冪等）。 使い方: python -X utf8 scripts/gen_takibi_honoo.py"""
+import html as H, io, json, os, sys
+
+sys.stdout.reconfigure(encoding="utf-8")
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE = "https://shimulabo.com"
+SLUG = "takibi-honoo"
+NAME = "たき火シミュレーター"
+CAT = "ふしぎ・現象"
+TITLE = "たき火シミュレーター｜ものが燃える3つの条件（燃えるもの・酸素・温度）を炎で確かめる｜シミュラボ"
+DESC = ("夜のキャンプ場でたき火をするシミュレーター。まきを足すと炎が大きくなり、うちわであおぐとよく燃え、まきが燃えつきると熾火（おきび）になってやがて消えます。"
+        "しめったまき・風・水かけもためせて、ものが燃える3つの条件（燃えるもの・酸素・温度）がわかります。")
+OG_T = "たき火シミュレーター ものが燃える3つの条件を炎で確かめる"
+OG_D = "まきを足す・あおぐ・風・しめったまき・水かけ。炎と火の粉とけむりの動きで、燃えるしくみがわかる。"
+H1 = "たき火シミュレーター<br>ものが燃える3つの条件"
+LEAD = ("夜のキャンプ場で、たき火をしてみましょう。まきを足すと炎が大きくなり、うちわであおぐといきおいよく燃えます。"
+        "まきが燃えつきると炎は小さくなり、赤く光る「おきび」になって、やがて消えます。「燃えるもの・酸素・温度」の3つがそろうと燃えることを、あそびながら確かめられます。")
+NOTE = "🔥 これは画面の中のたき火です。本物の火をあつかうときは、かならず大人といっしょに、決められた場所で行いましょう。"
+
+FAQ = [
+    ("どうやって遊びますか？", "開くと、もう火がついています。「まきを足す」で炎が大きくなり、「うちわであおぐ」で数秒のあいだよく燃えます。風の強さを変えると炎がかたむきます。「水をかける」で消したあと、「火をつける」でもう一度つけられます。絵をタップしても、あおぐことができます。"),
+    ("あおぐと、なぜよく燃えるのですか？", "ものが燃えるには酸素が必要です。あおぐと、酸素をふくんだ新しい空気が火に送りこまれるので、よく燃えます。ただし、ろうそくのような小さな火は、強くふくと熱がうばわれて消えることがあります。"),
+    ("しめったまきは、なぜ燃えにくいのですか？", "まきの中の水を蒸発させるのに熱が使われて、まきの温度が上がりにくくなるからです。温度が足りないと、うまく燃えずに、けむりが多く出ます。このシミュレーターでも、しめったまきは火がつきにくく、けむりが多くなります。"),
+    ("「おきび」とは何ですか？", "まきが燃えると、まず木から出た燃える気体が炎を出して燃えます。気体が出つくすと、炭のようになった部分が、炎を出さずに赤く光りながら燃えます。これが熾火（おきび）です。おきびのうちに、かわいたまきを足すと、また炎が上がります。"),
+]
+REL = [("fireworks", "🎆", "花火シミュレーター"), ("kaminari-houden", "⚡", "雷はなぜジグザグ？（放電のしくみ）"), ("kumo-dekikata", "☁️", "雲のでき方シミュレーター")]
+
+ARTICLE = """
+<h2>ものが燃える3つの条件</h2>
+<p>ものが燃えつづけるには、次の3つがそろっている必要があります。これを<b>「燃焼の3要素」</b>といいます。</p>
+<ul>
+<li><b>燃えるもの</b>：まき、紙、ろうなど。</li>
+<li><b>酸素</b>：空気の中にふくまれています。</li>
+<li><b>温度（熱）</b>：燃えはじめるのに必要な温度より高いこと。</li>
+</ul>
+<p>3つのうち、どれか1つでもなくなると火は消えます。このシミュレーターでは、まきが燃えつきると「燃えるもの」がなくなり、水をかけると「温度」が下がって、火が消えます。絵の下の3つのしるしで、いまどの条件がそろっているかがわかります。</p>
+
+<h2>なぜ、あおぐとよく燃えるの？</h2>
+<p>火のまわりの酸素は、燃えることで使われていきます。うちわであおいだり、風がふいたりすると、酸素をふくんだ新しい空気が送りこまれるので、いきおいよく燃えます。そのぶん、まきも早くなくなります。</p>
+
+<h2>しめったまきが燃えにくい理由</h2>
+<p>しめったまきには水がふくまれています。火の熱は、まず<b>この水を蒸発させるのに使われる</b>ので、まきの温度がなかなか上がりません。温度が足りないと、うまく燃えきらずに、けむりが多く出ます。たき火には、よくかわいたまきが向いているのはこのためです。</p>
+
+<h2>炎が上にのびる理由</h2>
+<p>火であたためられた空気は、ふくらんで、まわりの空気より軽くなります。軽くなった空気は上へ上がっていき、下からは新しい空気が流れこみます。この流れにのって、炎は上へのび、火の粉やけむりも上がっていきます。風がふくと、この流れが横におされて、炎がかたむきます。</p>
+
+<h2>ためしてみたいこと</h2>
+<ul>
+<li><b>まきを足さずに待つ</b>：炎がだんだん小さくなり、おきびになって、やがて消えます。</li>
+<li><b>おきびのうちに、かわいたまきを足す</b>：火をつけなくても、おきびの熱でまた燃えはじめます。</li>
+<li><b>「しめった」にして、まきを足す</b>：けむりがふえて、炎が弱くなります。</li>
+<li><b>水をかけてから、火をつける</b>：まきがぬれているので、なかなかつきません。あおいだり、かわいたまきを足したりしてみましょう。</li>
+<li><b>風を強くする</b>：炎とけむりが横にかたむき、まきのへり方が早くなります。</li>
+</ul>
+<p>このシミュレーターは、燃え方の「感じ」をつかむために、しくみをとても単純にしたものです。炎の高さなどの数字は画面の中だけの目安で、本物のたき火を予測するものではありません。</p>
+"""
+
+REFS = [
+    "文部科学省「小学校学習指導要領解説 理科編」（第6学年 燃焼の仕組み）",
+    "文部科学省「中学校学習指導要領解説 理科編」（化学変化：酸化と還元）",
+]
+
+STAGE = r"""
+<style>
+#tkWrap{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#050a1f;touch-action:manipulation}
+#tk{display:block;width:100%;aspect-ratio:4/3;cursor:pointer}
+.tk-msg{position:absolute;left:50%;top:10px;transform:translateX(-50%);background:rgba(15,23,42,.85);color:#fff;font-size:12.5px;font-weight:700;border-radius:12px;padding:6px 14px;max-width:92%;width:max-content;text-align:center;pointer-events:none;opacity:0;transition:opacity .3s}
+.tk-msg.show{opacity:1}
+.tk-btns{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
+.tk-btns button{border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:11px 4px;font:inherit;font-size:14px;font-weight:800;cursor:pointer;color:var(--ink);min-width:0}
+.tk-btns button.tk-hot{background:#ea580c;border-color:#ea580c;color:#fff}
+.tk-btns button.tk-cool{background:#0369a1;border-color:#0369a1;color:#fff}
+.tk-btns button:active{transform:translateY(1px)}
+.tk-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.tk-chips span{border-radius:999px;padding:6px 12px;font-size:12.5px;font-weight:800;background:#f1f5f9;color:#64748b;border:1.5px solid #e2e8f0}
+.tk-chips span.on{background:#fff7ed;color:#c2410c;border-color:#fdba74}
+.tk-sum{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
+.tk-sum div{background:#fff7ed;border-radius:12px;padding:10px 4px;text-align:center;min-width:0}
+.tk-sum b{display:block;font-size:20px;color:#c2410c;font-variant-numeric:tabular-nums}
+.tk-sum b small{font-size:11.5px}
+.tk-sum span{font-size:11.5px;color:var(--ink-2);font-weight:700}
+.tk-note{font-size:13.5px;color:var(--ink);background:#fff7ed;border-radius:10px;padding:9px 12px;margin:10px 0 0;font-weight:700}
+.tk-cols{display:grid;grid-template-columns:1fr 1fr;gap:6px 22px;margin-top:14px}
+.tk-seg{display:flex;flex-wrap:wrap;gap:6px}
+.tk-seg button{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 13px;font:inherit;font-size:13.5px;font-weight:800;cursor:pointer;color:var(--ink)}
+.tk-seg button.on{background:#ea580c;border-color:#ea580c;color:#fff}
+@media (max-width:640px){.tk-btns{grid-template-columns:repeat(2,1fr)}.tk-sum{grid-template-columns:repeat(2,1fr)}.tk-cols{grid-template-columns:1fr}}
+</style>
+"""
+
+BODY = r"""
+  <section class="panel" id="resultPanel">
+    <div id="tkWrap">
+      <canvas id="tk" aria-label="夜のキャンプ場で燃えているたき火の絵"></canvas>
+      <div class="tk-msg" id="tkMsg"></div>
+    </div>
+    <div class="tk-chips" aria-label="燃える3つの条件">
+      <span id="tkC1">🪵 燃えるもの</span><span id="tkC2">💨 酸素</span><span id="tkC3">🌡 温度</span>
+    </div>
+    <div class="tk-btns">
+      <button type="button" id="tkAdd" class="tk-hot">🪵 まきを足す</button>
+      <button type="button" id="tkFan">🪭 うちわであおぐ</button>
+      <button type="button" id="tkLight">🔥 火をつける</button>
+      <button type="button" id="tkWater" class="tk-cool">💧 水をかける</button>
+    </div>
+    <div class="tk-sum">
+      <div><b id="tkH">0</b><span>炎の高さ（めやす）</span></div>
+      <div><b id="tkWood">0</b><span>残りのまき</span></div>
+      <div><b id="tkGenki">0</b><span>火の元気さ</span></div>
+      <div><b id="tkSmoke">-</b><span>けむりの量</span></div>
+    </div>
+    <p class="tk-note" id="tkNote">🔥 よく燃えています。</p>
+    <div class="tk-cols">
+      <div class="field"><label>🍃 風の強さ <span class="hint">（<b id="tkWindV"></b>）</span></label><input type="range" id="tkWind" min="0" max="100" step="5" value="20"></div>
+      <div class="field"><label>足すまきのしめり具合</label><div class="tk-seg" id="tkWet"><button type="button" data-v="0" class="on">かわいた</button><button type="button" data-v="1">しめった</button></div></div>
+    </div>
+
+    <div style="text-align:center;margin-top:16px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-x" id="shareBtn">𝕏 でシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+"""
+
+JS = r"""
+(() => {
+  const $ = id => document.getElementById(id);
+  const cv = $('tk'), ctx = cv.getContext('2d');
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+  const rnd = Math.random;
+  const VW = 600, VH = 450, FX = 300, FY = 356;
+  // lit=炎が出ている / wood=残りのまき(本) / w=まきのしめり(0-1) / T=火のいきおい / E=おきび / fan=あおぐ残り秒 / wind=風(0-1)
+  const S = { lit: true, wood: 3, w: .05, T: .6, E: .6, fan: 0, wind: .2, wetSel: 0, t: 0, smoke: .1, steam: 0 };
+  const P = [], CAP = { f: 240, s: 60, m: 90 }, cnt = { f: 0, s: 0, m: 0 }, acc = { f: 0, s: 0, m: 0 };
+
+  function sprite(stops) { const c = document.createElement('canvas'); c.width = c.height = 64; const x = c.getContext('2d'); const g = x.createRadialGradient(32, 32, 0, 32, 32, 32); stops.forEach(s => g.addColorStop(s[0], s[1])); x.fillStyle = g; x.fillRect(0, 0, 64, 64); return c; }
+  const SP_F = sprite([[0, 'rgba(255,236,170,1)'], [.3, 'rgba(255,160,40,.75)'], [.65, 'rgba(225,60,10,.28)'], [1, 'rgba(120,10,0,0)']]);
+  const SP_R = sprite([[0, 'rgba(255,150,50,.85)'], [.4, 'rgba(220,60,15,.5)'], [1, 'rgba(100,10,0,0)']]);
+  const SP_M = sprite([[0, 'rgba(170,176,190,.5)'], [.6, 'rgba(140,146,160,.2)'], [1, 'rgba(120,125,135,0)']]);
+  const SP_W = sprite([[0, 'rgba(245,248,255,.6)'], [.6, 'rgba(220,228,240,.22)'], [1, 'rgba(200,210,225,0)']]);
+  const STARS = []; { let s = 12345; const r = () => (s = (s * 16807) % 2147483647) / 2147483647; for (let i = 0; i < 70; i++) STARS.push([r() * VW, r() * 250, r() * 6.28, .6 + r() * 2, r() < .2 ? 2 : 1.2]); }
+  const TREES = [[20, 150], [62, 110], [240, 95], [290, 130], [345, 105], [400, 140], [455, 100], [520, 160], [575, 120]];
+  const LOGS = [[-26, 0, -.1], [26, 1, .12], [0, -11, .03], [-13, -20, .48], [15, -20, -.5], [0, -29, -.04]];
+
+  // ---------- 計算 ----------
+  const air = () => .75 + .25 * S.wind + (S.fan > 0 ? .6 : 0);
+  const power = () => Math.pow(Math.min(S.wood, 4) / 4, .6) * air() * (.35 + .65 * (1 - S.w)) * 1.1;
+  function add(type, o) { const key = type === 'f' ? 'f' : type === 's' ? 's' : 'm'; if (cnt[key] >= CAP[key]) return; cnt[key]++; o.type = type; o.key = key; o.max = o.life; P.push(o); }
+  function update(dt) {
+    S.t += dt; if (S.fan > 0) S.fan = Math.max(0, S.fan - dt);
+    const a = air();
+    if (S.lit) {
+      const tg = clamp(power(), 0, 1.3);
+      S.T += (tg - S.T) * Math.min(1, dt * .7);
+      S.wood = Math.max(0, S.wood - dt * .05 * S.T * a);
+      S.w = Math.max(0, S.w - dt * .02 * S.T);
+      S.E = Math.min(1, S.E + dt * .08);
+      if (S.wood <= .02) { S.wood = 0; S.lit = false; say('まきが燃えつきました。赤く光る「おきび」が残っています'); }
+      else if (S.T < .12) { S.lit = false; say('火が弱くなって、炎が消えました'); }
+    } else {
+      S.T += (0 - S.T) * Math.min(1, dt * 1.2);
+      S.E = Math.max(0, S.E - dt * (S.fan > 0 ? .05 : .03));
+      if (S.wood > 0) S.wood = Math.max(0, S.wood - dt * .004 * S.E);
+      if (S.E > .3 && S.wood > .3 && S.w < .45 + (S.fan > 0 ? .3 : 0)) { S.lit = true; S.T = Math.max(S.T, .2); say('おきびの熱で、まきに火がつきました'); }
+    }
+    S.steam = Math.max(0, S.steam - dt * .5);
+    const I = clamp(S.T, 0, 1.3);
+    const sm = S.lit ? .1 * I + S.w * 1.6 * (.4 + I) : (S.E > .05 ? .12 * S.E + S.w * .4 * S.E : 0);
+    S.smoke += (clamp(sm + S.steam, 0, 1.6) - S.smoke) * Math.min(1, dt * 2);
+    const wv = S.wind * 95 + (S.fan > 0 ? 45 + 25 * Math.sin(S.t * 9) : 0);
+    // 炎
+    if (S.lit) {
+      acc.f += dt * (30 + 170 * I);
+      while (acc.f >= 1) { acc.f--; const off = rnd() + rnd() - 1, e = 1 - Math.abs(off) * .6;
+        add('f', { x: FX + off * (26 + 22 * I), y: FY - 8 + rnd() * 10, vx: (rnd() - .5) * 16, vy: -(45 + 80 * I) * (.6 + rnd() * .7), life: (.45 + .65 * I) * (.55 + rnd() * .7) * e, sz: (15 + 24 * I) * (.6 + rnd() * .6), ph: rnd() * 6.28 }); }
+    } else acc.f = 0;
+    // 火の粉
+    acc.s += dt * (S.lit ? (1.5 + 12 * I) * (S.fan > 0 ? 2.5 : 1) : (S.fan > 0 ? 6 * S.E : .6 * S.E));
+    while (acc.s >= 1) { acc.s--; spark(); }
+    // けむり
+    acc.m += dt * S.smoke * 16;
+    while (acc.m >= 1) { acc.m--; const st = S.steam > .2;
+      add(st ? 'w' : 'm', { x: FX + (rnd() - .5) * 40 + wv * .12, y: FY - 20 - (S.lit ? 70 * I : 0) * rnd(), vx: (rnd() - .5) * 12, vy: -(24 + rnd() * 22), life: 2.4 + rnd() * 1.8, sz: 12 + rnd() * 10, ph: rnd() * 6.28 }); }
+    // つぶを動かす
+    for (let i = P.length - 1; i >= 0; i--) {
+      const p = P[i]; p.life -= dt;
+      if (p.life <= 0 || p.y < -60 || p.x < -80 || p.x > VW + 80) { cnt[p.key]--; P[i] = P[P.length - 1]; P.pop(); continue; }
+      if (p.type === 'f') { p.vx += (wv - p.vx) * dt * 2.2; p.vy -= 55 * dt; p.x += (p.vx + Math.sin(S.t * 11 + p.ph) * 14) * dt; p.y += p.vy * dt; }
+      else if (p.type === 's') { p.vx += (wv * 1.2 - p.vx) * dt * 1.2; p.vy += 22 * dt; p.x += (p.vx + Math.sin(S.t * 7 + p.ph) * 26) * dt; p.y += p.vy * dt; }
+      else { p.vx += (wv * .8 - p.vx) * dt * .9; p.x += (p.vx + Math.sin(S.t * 1.7 + p.ph) * 8) * dt; p.y += p.vy * dt; p.sz += 13 * dt; }
+    }
+  }
+  function spark() { add('s', { x: FX + (rnd() - .5) * 50, y: FY - 14 - rnd() * 30, vx: (rnd() - .5) * 70, vy: -(90 + rnd() * 130), life: .9 + rnd() * 1.4, sz: 1.2 + rnd() * 1.6, ph: rnd() * 6.28 }); }
+
+  // ---------- 描く ----------
+  let dpr = 1, k = 1;
+  function size() { const w = cv.clientWidth || 600; dpr = Math.min(2, window.devicePixelRatio || 1); const W = Math.round(w * dpr), Hh = Math.round(w * .75 * dpr); if (cv.width !== W || cv.height !== Hh) { cv.width = W; cv.height = Hh; } k = cv.width / VW; }
+  function rr(c, x, y, w, h, r) { c.beginPath(); c.moveTo(x + r, y); c.lineTo(x + w - r, y); c.arc(x + w - r, y + r, r, -Math.PI / 2, Math.PI / 2); c.lineTo(x + r, y + h); c.arc(x + r, y + r, r, Math.PI / 2, Math.PI * 1.5); c.closePath(); }
+  function draw() {
+    size(); const c = ctx; c.setTransform(k, 0, 0, k, 0, 0); c.globalCompositeOperation = 'source-over'; c.globalAlpha = 1;
+    const I = clamp(S.T, 0, 1.3), fl = 1 + .08 * Math.sin(S.t * 13) + .05 * Math.sin(S.t * 29.7), glow = clamp(I + S.E * .25, 0, 1.3) * fl;
+    const sky = c.createLinearGradient(0, 0, 0, VH); sky.addColorStop(0, '#050a1f'); sky.addColorStop(.6, '#0f1d3d'); sky.addColorStop(1, '#1b2a4a'); c.fillStyle = sky; c.fillRect(0, 0, VW, VH);
+    c.fillStyle = '#fff'; for (const s of STARS) { c.globalAlpha = .3 + .7 * Math.abs(Math.sin(S.t * s[3] * .5 + s[2])); c.fillRect(s[0], s[1], s[4], s[4]); } c.globalAlpha = 1;
+    c.fillStyle = '#fef9c3'; c.beginPath(); c.arc(505, 66, 20, 0, 7); c.fill(); c.fillStyle = '#081027'; c.beginPath(); c.arc(496, 60, 18.5, 0, 7); c.fill();
+    // 山と木
+    c.fillStyle = '#0c1730'; c.beginPath(); c.moveTo(0, 300); c.lineTo(90, 215); c.lineTo(190, 280); c.lineTo(300, 200); c.lineTo(420, 275); c.lineTo(520, 225); c.lineTo(600, 280); c.lineTo(600, 340); c.lineTo(0, 340); c.closePath(); c.fill();
+    c.fillStyle = `rgb(${Math.round(9 + 16 * glow)},${Math.round(20 + 9 * glow)},${Math.round(32)})`;
+    for (const t of TREES) { for (let j = 0; j < 3; j++) { const w = 26 - j * 6, y0 = 332 - t[1] * (j / 3), y1 = 332 - t[1] * ((j + 1.35) / 3.35); c.beginPath(); c.moveTo(t[0] - w, y0); c.lineTo(t[0], y1); c.lineTo(t[0] + w, y0); c.closePath(); c.fill(); } }
+    // 地面
+    const gr = c.createLinearGradient(0, 325, 0, VH); gr.addColorStop(0, '#16210f'); gr.addColorStop(1, '#090d07'); c.fillStyle = gr; c.fillRect(0, 325, VW, VH - 325);
+    c.save(); c.translate(FX, FY + 10); c.scale(1, .3); const gg = c.createRadialGradient(0, 0, 0, 0, 0, 70 + 210 * glow); gg.addColorStop(0, `rgba(255,150,50,${.5 * Math.min(1, glow)})`); gg.addColorStop(1, 'rgba(255,120,30,0)'); c.fillStyle = gg; c.beginPath(); c.arc(0, 0, 70 + 210 * glow, 0, 7); c.fill(); c.restore();
+    // テント
+    const tg = Math.min(1, glow);
+    c.fillStyle = `rgb(${Math.round(38 + 110 * tg)},${Math.round(52 + 50 * tg)},${Math.round(66 + 6 * tg)})`; c.beginPath(); c.moveTo(48, 345); c.lineTo(120, 250); c.lineTo(192, 345); c.closePath(); c.fill();
+    c.fillStyle = `rgb(${Math.round(16 + 40 * tg)},${Math.round(22 + 16 * tg)},${Math.round(34)})`; c.beginPath(); c.moveTo(102, 345); c.lineTo(120, 285); c.lineTo(138, 345); c.closePath(); c.fill();
+    // 石
+    for (let i = 0; i < 9; i++) { const a = i / 9 * 6.283 + .3, x = FX + Math.cos(a) * 70, y = FY + 8 + Math.sin(a) * 15; if (Math.sin(a) < -.2) { c.fillStyle = `rgb(${Math.round(45 + 60 * tg)},${Math.round(45 + 30 * tg)},${Math.round(50 + 10 * tg)})`; c.beginPath(); c.ellipse(x, y, 13, 8, 0, 0, 7); c.fill(); } }
+    // まき
+    const n = Math.min(6, Math.ceil(S.wood - .001)), ch = clamp(S.E * .7 + (S.lit ? .1 : 0), 0, 1), wetc = S.w;
+    for (let i = 0; i < n; i++) {
+      const L = LOGS[i], fr = i === n - 1 ? clamp(S.wood - (n - 1), .25, 1) : 1;
+      c.save(); c.translate(FX + L[0], FY + L[1]); c.rotate(L[2]);
+      c.fillStyle = `rgb(${Math.round(118 - 80 * ch - 25 * wetc)},${Math.round(72 - 46 * ch - 10 * wetc)},${Math.round(40 - 18 * ch + 6 * wetc)})`;
+      rr(c, -40 * fr, -7.5 * fr, 80 * fr, 15 * fr, 7 * fr); c.fill();
+      c.fillStyle = `rgb(${Math.round(170 - 110 * ch)},${Math.round(125 - 85 * ch)},${Math.round(80 - 50 * ch)})`; c.beginPath(); c.ellipse(40 * fr - 4 * fr, 0, 4 * fr, 7 * fr, 0, 0, 7); c.fill();
+      c.restore();
+    }
+    // おきび
+    c.globalCompositeOperation = 'lighter';
+    const eb = S.E * (S.lit ? .7 : 1) * (.75 + .25 * Math.sin(S.t * 3.1)) * (S.fan > 0 ? 1.5 : 1);
+    if (eb > .01) {
+      c.save(); c.translate(FX, FY + 2); c.scale(1, .42); const eg = c.createRadialGradient(0, 0, 0, 0, 0, 62); eg.addColorStop(0, `rgba(255,120,30,${clamp(eb, 0, 1) * .9})`); eg.addColorStop(.5, `rgba(220,50,10,${clamp(eb, 0, 1) * .5})`); eg.addColorStop(1, 'rgba(120,10,0,0)'); c.fillStyle = eg; c.beginPath(); c.arc(0, 0, 62, 0, 7); c.fill(); c.restore();
+      for (let i = 0; i < 14; i++) { const a = i * 2.4, r = 8 + (i * 37 % 40), tw = .5 + .5 * Math.sin(S.t * (2 + i % 5) + i); c.fillStyle = `rgba(255,${140 + (i * 13 % 60)},40,${clamp(eb * tw, 0, 1)})`; c.beginPath(); c.arc(FX + Math.cos(a) * r, FY + 3 + Math.sin(a) * r * .32, 2.2, 0, 7); c.fill(); }
+    }
+    // けむり
+    c.globalCompositeOperation = 'source-over';
+    for (const p of P) { if (p.key !== 'm') continue; const a = 1 - p.life / p.max; c.globalAlpha = Math.min(1, a / .15) * (1 - a) * .85; c.drawImage(p.type === 'w' ? SP_W : SP_M, p.x - p.sz, p.y - p.sz, p.sz * 2, p.sz * 2); }
+    // 炎
+    c.globalCompositeOperation = 'lighter';
+    for (const p of P) { if (p.type !== 'f') continue; const a = 1 - p.life / p.max, s = p.sz * (1 - .55 * a); c.globalAlpha = Math.min(1, a / .1) * Math.pow(1 - a, .8) * .9; c.drawImage(a < .55 ? SP_F : SP_R, p.x - s, p.y - s * 1.25, s * 2, s * 2.5); }
+    for (const p of P) { if (p.type !== 's') continue; const a = 1 - p.life / p.max; c.globalAlpha = (1 - a) * (.6 + .4 * Math.sin(S.t * 20 + p.ph)); c.fillStyle = a < .5 ? '#ffd27a' : '#ff7a2a'; c.fillRect(p.x, p.y, p.sz, p.sz); }
+    c.globalAlpha = 1; c.globalCompositeOperation = 'source-over';
+    // あおぐ風のすじ
+    if (S.fan > 0) { c.strokeStyle = 'rgba(255,255,255,.3)'; c.lineWidth = 2; c.lineCap = 'round'; for (let i = 0; i < 5; i++) { const x = 70 + ((S.t * 260 + i * 53) % 190), y = 292 + i * 13; c.beginPath(); c.moveTo(x, y); c.quadraticCurveTo(x + 16, y - 5, x + 32, y); c.stroke(); } }
+    ui(false);
+  }
+
+  // ---------- 数字とひとこと ----------
+  const heightCm = () => Math.round(clamp(S.T, 0, 1.3) * 90);
+  const genki = () => Math.round(clamp(S.T, 0, 1) * 100);
+  const smokeWord = () => S.smoke < .06 ? 'なし' : S.smoke < .25 ? '少ない' : S.smoke < .7 ? 'ふつう' : '多い';
+  function advice() {
+    if (S.lit && S.fan > 0) return '🪭 新しい空気（酸素）が送りこまれて、いきおいよく燃えています。';
+    if (S.lit && S.w > .3) return '💧 まきがしめっています。水を蒸発させるのに熱が使われて、炎が弱く、けむりが多くなります。';
+    if (S.lit && S.wood < .8) return '🪵 まきが少なくなってきました。炎が小さくなっていきます。';
+    if (S.lit) return '🔥 よく燃えています。「燃えるもの・酸素・温度」の3つがそろっています。';
+    if (S.E > .15) return '♨️ 炎は消えましたが、おきびが赤く光っています。いまのうちに、かわいたまきを足すと、また燃えます。';
+    if (S.wood > .05) return '🌑 火が消えています。「火をつける」をおしてみましょう。';
+    return '🌑 まきがありません。「まきを足す」をおしてから、火をつけましょう。';
+  }
+  let lastUI = 0;
+  function ui(force) {
+    const now = performance.now(); if (!force && now - lastUI < 150) return; lastUI = now;
+    $('tkH').innerHTML = heightCm() + '<small>cm</small>';
+    $('tkWood').innerHTML = S.wood.toFixed(1) + '<small>本ぶん</small>';
+    $('tkGenki').innerHTML = genki() + '<small>%</small>';
+    $('tkSmoke').textContent = smokeWord();
+    $('tkNote').textContent = advice();
+    $('tkC1').classList.toggle('on', S.wood > .05); $('tkC1').textContent = '🪵 燃えるもの ' + (S.wood > .05 ? '○' : '×');
+    $('tkC2').classList.add('on'); $('tkC2').textContent = '💨 酸素 ' + (S.fan > 0 || S.wind > .6 ? '◎' : '○');
+    const hot = S.lit || S.E > .3; $('tkC3').classList.toggle('on', hot); $('tkC3').textContent = '🌡 温度 ' + (hot ? '○' : '×');
+  }
+  function say(s) { const el = $('tkMsg'); el.textContent = s; el.classList.add('show'); clearTimeout(say.t); say.t = setTimeout(() => el.classList.remove('show'), 2600); }
+
+  // ---------- 操作 ----------
+  function addLog() {
+    if (S.wood >= 5.5) { say('これ以上は、のせられません'); return; }
+    const nw = S.wetSel ? .75 : .05;
+    S.w = (S.w * S.wood + nw) / (S.wood + 1); S.wood += 1;
+    if (S.lit) { if (S.wetSel) S.T *= .8; for (let i = 0; i < 10; i++) spark(); }
+    say(S.wetSel ? 'しめったまきを足しました' : 'かわいたまきを足しました');
+  }
+  function fan() { S.fan = 4; say(S.lit ? '空気（酸素）を送っています' : S.E > .1 ? 'おきびが赤く光ります' : 'あおいでも、火だねがないと燃えません'); }
+  function light() {
+    if (S.lit) { say('もう火がついています'); return; }
+    if (S.wood < .05) { say('まきがありません。先に「まきを足す」をおしましょう'); return; }
+    if (S.w > .45 && S.fan <= 0) { S.w = Math.max(0, S.w - .06); S.steam = Math.max(S.steam, .5); say('まきがしめっていて、なかなか火がつきません。あおぐか、かわいたまきを足してみましょう'); return; }
+    S.lit = true; S.T = Math.max(S.T, .3); S.E = Math.max(S.E, .2); say('火がつきました');
+  }
+  function water() {
+    S.lit = false; S.T = 0; S.E = 0; S.fan = 0; S.w = Math.min(1, S.w + .55); S.steam = 1.4;
+    for (let i = P.length - 1; i >= 0; i--) if (P[i].type === 'f') P[i].life = Math.min(P[i].life, .15);
+    say('水をかけて温度が下がり、火が消えました');
+  }
+  $('tkAdd').addEventListener('click', addLog); $('tkFan').addEventListener('click', fan); $('tkLight').addEventListener('click', light); $('tkWater').addEventListener('click', water);
+  cv.addEventListener('pointerdown', e => { e.preventDefault(); fan(); });
+  const windWord = v => v < 5 ? 'なし' : v < 35 ? '弱い' : v < 70 ? 'ふつう' : '強い';
+  const wEl = $('tkWind'); const upW = () => { S.wind = +wEl.value / 100; $('tkWindV').textContent = windWord(+wEl.value); }; wEl.addEventListener('input', upW); upW();
+  $('tkWet').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; S.wetSel = +b.dataset.v; document.querySelectorAll('#tkWet button').forEach(x => x.classList.toggle('on', x === b)); });
+
+  // ---------- シェア ----------
+  function shareText() { return S.lit ? `たき火シミュレーターで、炎の高さ${heightCm()}cm・火の元気さ${genki()}%のたき火をしました🔥 燃える3つの条件は「燃えるもの・酸素・温度」` : 'たき火シミュレーターで、ものが燃える3つの条件「燃えるもの・酸素・温度」を確かめました🔥'; }
+  $('shareBtn').addEventListener('click', () => { const u = location.origin + location.pathname; window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText() + '\n') + '&url=' + encodeURIComponent(u) + '&hashtags=' + encodeURIComponent('シミュラボ'), '_blank', 'noopener'); });
+  $('copyBtn').addEventListener('click', async () => { try { await navigator.clipboard.writeText(shareText() + '\n' + location.origin + location.pathname); say('コピーしました'); } catch (e) { say('コピーできませんでした'); } });
+
+  // ---------- 動かす ----------
+  let tPrev = performance.now();
+  function loop(now) { const dt = Math.min(.05, Math.max(0, (now - tPrev) / 1000)); tPrev = now; update(dt); draw(); requestAnimationFrame(loop); }
+  for (let i = 0; i < 45; i++) update(1 / 30);
+  draw(); ui(true);
+  requestAnimationFrame(loop);
+  window.__t = {
+    step(sec) { const n = Math.max(1, Math.round(sec * 30)); for (let i = 0; i < n; i++) update(1 / 30); draw(); ui(true); },
+    get s() { return { lit: S.lit, wood: +S.wood.toFixed(3), wet: +S.w.toFixed(3), T: +S.T.toFixed(3), ember: +S.E.toFixed(3), fan: +S.fan.toFixed(2), wind: S.wind, heightCm: heightCm(), genki: genki(), smoke: +S.smoke.toFixed(3), smokeWord: smokeWord(), nFlame: cnt.f, nSpark: cnt.s, nSmoke: cnt.m, nAll: P.length, cw: cv.width, ch: cv.height }; },
+    addLog, fan, light, water, setWet(v) { S.wetSel = v ? 1 : 0; }, setWind(v) { S.wind = clamp(v, 0, 1); }
+  };
+})();
+"""
+
+
+def esc(s): return H.escape(s, quote=True)
+
+
+def build():
+    url = f"{BASE}/sims/{SLUG}/"
+    ld_app = {"@context": "https://schema.org", "@type": "WebApplication", "name": NAME, "url": url, "description": DESC,
+              "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": True,
+              "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}}
+    ld_bc = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "ホーム", "item": BASE + "/"}, {"@type": "ListItem", "position": 2, "name": NAME, "item": url}]}
+    ld_faq = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]}
+    rel = "".join(f'<a class="related-card" href="../{s}/"><span class="e">{e}</span><span>{esc(t)}</span></a>' for s, e, t in REL)
+    faq = "".join(f"<dt>{esc(q)}</dt><dd>{a}</dd>" for q, a in FAQ)
+    refs = "".join(f"<li>{r}</li>" for r in REFS)
+    return f"""<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="{url}">
+    <meta property="og:image" content="{BASE}/ogp/{SLUG}.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{BASE}/ogp/{SLUG}.png">
+<title>{esc(TITLE)}</title>
+<meta name="description" content="{esc(DESC)}">
+<meta property="og:title" content="{esc(OG_T)}">
+<meta property="og:description" content="{esc(OG_D)}">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="{url}">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{json.dumps(ld_app, ensure_ascii=False)}</script>
+    <script type="application/ld+json">{json.dumps(ld_bc, ensure_ascii=False)}</script>
+    <script type="application/ld+json">{json.dumps(ld_faq, ensure_ascii=False)}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+{STAGE}
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span>{esc(CAT)}<span>›</span><span class="cur">{esc(NAME)}</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">{esc(CAT)}</div>
+    <h1>{H1}</h1>
+    <p class="lead">{esc(LEAD)}</p>
+    <p class="tk-note" style="font-weight:400">{esc(NOTE)}</p>
+  </div>
+{BODY}
+  <article class="article">
+{ARTICLE}
+    <h2>よくある質問</h2>
+    <dl class="faq">{faq}</dl>
+    <h2>参考にした資料</h2>
+    <ul class="seo-refs">{refs}</ul>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>関連するシミュレーター</h2>
+    <div class="related-grid">{rel}</div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュレーターも見てみたい？</h2>
+    <p>あなたの「これシミュレーションしてみたい」を送ってください。面白い案から実際に作って、できたらお知らせします。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:8px;font-size:.85em"><!-- footer-links --><a href="../../about/">運営者情報</a>　<a href="../../privacy/">プライバシーポリシー</a>　<a href="../../terms/">利用規約</a>　<a href="../../contact/">お問い合わせ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>{JS}</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({{ simId:'{SLUG}', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] }});</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>
+"""
+
+
+if __name__ == "__main__":
+    out = os.path.join(ROOT, "sims", SLUG, "index.html")
+    os.makedirs(os.path.dirname(out), exist_ok=True)
+    io.open(out, "w", encoding="utf-8", newline="\n").write(build())
+    print("wrote", out)

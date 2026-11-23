@@ -1,0 +1,409 @@
+# -*- coding: utf-8 -*-
+"""ラバランプ（対流と密度）のシミュレーター（2026-11-24）
+   sims/lava-lamp/index.html を書き出す（冪等）。 使い方: python -X utf8 scripts/gen_lava_lamp.py"""
+import html as H, io, json, os, sys
+
+sys.stdout.reconfigure(encoding="utf-8")
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE = "https://shimulabo.com"
+SLUG = "lava-lamp"
+NAME = "ラバランプのシミュレーター"
+CAT = "あそぶ・実験"
+TITLE = "ラバランプのシミュレーター｜ロウが上がって下がるしくみ（対流と密度）｜シミュラボ"
+DESC = ("下の電球であたためられたロウのかたまりが軽くなって上がり、上で冷えて重くなって下がる「ラバランプ」のシミュレーター。"
+        "電球のあたたかさ・ロウの量・色・速さを変えて、かたまりがくっついたり分かれたりする様子をながめられます。温度を色の濃さで見ることもできます。")
+OG_T = "ラバランプのシミュレーター（対流と密度）"
+OG_D = "あたためると軽くなって上がり、冷えると重くなって下がる。ロウのかたまりの動きをながめよう。"
+H1 = "ラバランプのシミュレーター<br>ロウが上がって下がるしくみ"
+LEAD = ("ラバランプの中では、ロウのかたまりがゆっくり上がったり下がったりします。下の電球であたためられたロウは軽くなって上がり、上で冷えると重くなって下がります。"
+        "電球のあたたかさやロウの量を変えて、動きのちがいを見てみましょう。")
+NOTE = "👆 ランプの中をさわる（おす）と、その近くのロウをあたためられます。"
+
+FAQ = [
+    ("どうしてロウは上がったり下がったりするのですか？", "ロウはあたためられると体積が少しふえて、密度（同じ体積あたりの重さ）が小さくなります。まわりの液体より密度が小さくなると浮かび上がり、上で冷えて体積がへり、密度が大きくなるとまたしずみます。これをくり返しています。"),
+    ("電球のあたたかさを弱くすると、どうなりますか？", "ロウが十分にあたたまらないので、まわりの液体より軽くなれず、下にたまったままになります。少しだけ強くすると、とちゅうまで上がってもどることもあります。"),
+    ("「対流」とは何ですか？", "あたためられた部分が軽くなって上がり、冷えた部分が重くなって下がることで、ぐるぐると流れができることです。なべの中のみそしるや、部屋の空気、大気や海でも同じしくみの流れが起きています。"),
+    ("本物のラバランプと同じですか？", "いいえ。このシミュレーターは、ロウを丸いかたまりの集まりとして、とても単純に計算しています。動きの「感じ」としくみをつかむためのもので、本物の液体の流れを正確に計算したものではありません。"),
+]
+REL = [("lorenz", "🦋", "ローレンツアトラクタ（カオス）"), ("double-pendulum", "🪀", "二重振り子"), ("fireworks", "🎆", "花火")]
+
+ARTICLE = """
+<h2>なぜ上がって、なぜ下がるのか</h2>
+<p>ラバランプの中には、<b>ロウ（ワックス）</b>と<b>液体</b>の2つが入っています。冷えているとき、ロウは液体よりほんの少しだけ<b>密度が大きい</b>（同じ体積で比べると重い）ので、下にしずんでいます。</p>
+<ol>
+<li><b>あたためる</b>：下の電球がロウをあたためます。ものはあたためると<b>体積が少しふえます</b>（重さは変わりません）。</li>
+<li><b>軽くなって上がる</b>：重さが同じで体積がふえるので、密度が小さくなります。まわりの液体より密度が小さくなると、ロウは浮かび上がります。</li>
+<li><b>冷える</b>：上の方は電球から遠いので、ロウは少しずつ冷えて、体積がへります。</li>
+<li><b>重くなって下がる</b>：密度がまた液体より大きくなり、しずんでいきます。下でまたあたためられて、①にもどります。</li>
+</ol>
+<p>このように、あたたかい部分が上がり、冷たい部分が下がってできる流れを<b>対流（たいりゅう）</b>といいます。</p>
+
+<h2>ためしてみたいこと</h2>
+<ul>
+<li><b>電球のあたたかさを20より下にする</b>：ロウが軽くなれず、下にたまったままになります。</li>
+<li><b>電球のあたたかさを100にする</b>：ロウがすぐにあたたまり、次々と上がっていきます。</li>
+<li><b>「温度を色で見る」をおす</b>：熱いロウほど色がこくなります。下でこくなり、上でうすくなる様子が見えます。</li>
+<li><b>ロウの量をふやす</b>：かたまり同士がくっついて、大きなかたまりになったり、ちぎれたりします。</li>
+<li><b>ランプの中をさわる</b>：さわった近くのロウがあたたまり、そこから上がっていきます。</li>
+</ul>
+
+<h2>身のまわりの対流</h2>
+<p>対流は、ラバランプだけのものではありません。おふろのお湯は上の方があたたかくなり、エアコンの暖かい空気は天井の方にたまります。なべでお湯をわかすと、底であたためられた水が上がり、上の水が下がって、全体があたたまっていきます。</p>
+<p>このシミュレーターでは、ロウを丸いかたまりの集まりとして、「熱いほど上向きの力がはたらく」という単純なルールで動かしています。本物のランプの温度や時間を再現したものではありません。表示している「あたたかさ」は0〜100のめやすで、実際の温度（℃）ではありません。</p>
+"""
+
+REFS = [
+    "文部科学省「小学校学習指導要領解説 理科編」（第4学年「金属，水，空気と温度」：温度による体積の変化，あたたまり方のちがい）",
+    "文部科学省「中学校学習指導要領解説 理科編」（第1学年「身の回りの物質」：密度，状態変化と体積）",
+]
+
+STAGE = r"""
+<style>
+.lv-wrap{position:relative;max-width:380px;margin:0 auto;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#0f172a}
+#lv{display:block;width:100%;aspect-ratio:5/8;touch-action:pan-y;cursor:pointer}
+.lv-tools{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:10px}
+.lv-seg{display:flex;flex-wrap:wrap;gap:6px}
+.lv-seg button,.lv-tools button{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 13px;font:inherit;font-size:13.5px;font-weight:800;cursor:pointer;color:var(--ink)}
+.lv-seg button.on,.lv-tools button.on{background:#c2410c;border-color:#c2410c;color:#fff}
+.lv-sum{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
+.lv-sum div{background:#fff7ed;border-radius:12px;padding:10px 4px;text-align:center}
+.lv-sum b{display:block;font-size:20px;color:#c2410c;font-variant-numeric:tabular-nums}
+.lv-sum b small{font-size:11.5px}
+.lv-sum span{font-size:11.5px;color:var(--ink-2);font-weight:700}
+.lv-note{font-size:13.5px;color:var(--ink);background:#fff7ed;border-radius:10px;padding:9px 12px;margin:10px 0 0;font-weight:700}
+.lv-cols{display:grid;grid-template-columns:1fr 1fr;gap:6px 22px;margin-top:14px}
+@media (max-width:640px){.lv-sum{grid-template-columns:repeat(2,1fr)}.lv-cols{grid-template-columns:1fr}}
+</style>
+"""
+
+BODY = r"""
+  <section class="panel" id="resultPanel">
+    <div class="lv-wrap"><canvas id="lv" aria-label="ロウのかたまりが上がったり下がったりするラバランプの絵"></canvas></div>
+    <div class="lv-tools">
+      <button type="button" id="lvPlay">⏸ 止める</button>
+      <button type="button" data-sp="0.4">🐢 スロー</button>
+      <button type="button" data-sp="1" class="on">ふつう</button>
+      <button type="button" data-sp="3">⏩ 早送り</button>
+      <button type="button" id="lvTemp">🌡 温度を色で見る</button>
+      <button type="button" id="lvReset">↺ はじめから</button>
+    </div>
+    <div class="lv-sum">
+      <div><b id="mHot">0</b><span>いちばん熱いかたまり（0〜100）</span></div>
+      <div><b id="mUp">0</b><span>上がっている</span></div>
+      <div><b id="mDn">0</b><span>下がっている</span></div>
+      <div><b id="mSt">0</b><span>とまっている</span></div>
+    </div>
+    <p class="lv-note" id="lvNote">💡 電球がロウをあたためています。</p>
+
+    <div class="lv-cols">
+      <div class="field"><label>💡 電球のあたたかさ <span class="hint">（<b id="vHeat"></b>）</span></label><input type="range" id="kHeat" min="0" max="100" step="5" value="70"></div>
+      <div class="field"><label>🫧 ロウの量 <span class="hint">（<b id="vN"></b>）</span></label><input type="range" id="kN" min="4" max="18" step="1" value="10"></div>
+    </div>
+    <div class="field"><label>🎨 色</label><div class="lv-seg" id="lvPre"></div></div>
+
+    <div style="text-align:center;margin-top:16px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-x" id="shareBtn">𝕏 でシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+"""
+
+JS = r"""
+(() => {
+  const $ = id => document.getElementById(id);
+  const cv = $('lv'), ctx = cv.getContext('2d');
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+  function rng(s) { s = s >>> 0; return () => { s = (s + 0x6D2B79F5) >>> 0; let t = s; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
+  const HH = 2.6, HWX = .55;
+  const hw = y => .2 + .32 * Math.sin(Math.PI * (.08 + .8 * clamp(y / HH, 0, 1)));
+  // 名前, ロウの色, 熱いときの色, 液体（上）, 液体（下）
+  const PRE = [
+    ['🔴 あか', [255, 70, 50], [255, 190, 70], '#2a0845', '#6a1b9a'],
+    ['🟢 みどり', [70, 225, 120], [220, 255, 120], '#04222f', '#0b6a8f'],
+    ['🟠 オレンジ', [255, 140, 30], [255, 225, 110], '#0b1445', '#23358f'],
+    ['💗 ピンク', [255, 95, 170], [255, 205, 225], '#0a4f7d', '#4fb3df'],
+  ];
+  const st = { heat: .7, n: 10, pre: 0, speed: 1, temp: false, playing: true };
+  let blobs = [], time = 0, R = rng(12345), touch = null;
+  function mk() { const r = .09 + R() * .07; return { x: (R() - .5) * .5, y: .3 + R() * (HH - .5), vx: 0, vy: 0, ax: 0, ay: 0, r, T: .25 + R() * .5, ph: R() * 6.28, k: .6 + R() * .8, nt: .4 + R() * .2 }; }
+  function setN(n) { while (blobs.length < n) blobs.push(mk()); blobs.length = n; }
+  function reset() { R = rng(12345); blobs = []; time = 0; setN(st.n); }
+
+  // ---------- 計算（熱いほど上向きの力・冷たいほど下向きの力） ----------
+  function step(dt) {
+    time += dt;
+    const Tb = .25 + .75 * st.heat, n = blobs.length;
+    for (let i = 0; i < n; i++) {
+      const b = blobs[i];
+      const hz = clamp((b.y - (HH - .32)) / .16, 0, 1), cz = clamp((.32 - b.y) / .16, 0, 1);
+      b.T += ((Tb - b.T) * 2.4 * b.k * hz + (.1 - b.T) * 1.6 * cz - .004 * b.T) * dt;
+      if (touch) { const dx = b.x - touch.x, dy = b.y - touch.y; if (dx * dx + dy * dy < .09) b.T += (1 - b.T) * 2.5 * dt; }
+      let ax = Math.sin(time * .7 + b.ph) * .04, ay = -(b.T - b.nt) * 1.5;
+      for (let j = 0; j < n; j++) if (j !== i) {
+        const o = blobs[j], dx = o.x - b.x, dy = o.y - b.y, d = Math.sqrt(dx * dx + dy * dy) + 1e-6, Rr = (b.r + o.r) * .8;
+        if (d < Rr) { const f = (Rr - d) * 14; ax -= dx / d * f; ay -= dy / d * f; }
+        else if (d < Rr * 1.5) { const f = .05 * (1 - (d - Rr) / (Rr * .5)); ax += dx / d * f; ay += dy / d * f; }
+        if (d < Rr * 1.3) b.T += (o.T - b.T) * .04 * dt;
+      }
+      b.ax = ax; b.ay = ay;
+    }
+    const k = Math.exp(-1.6 * dt);
+    for (const b of blobs) {
+      b.vx = (b.vx + b.ax * dt) * k; b.vy = (b.vy + b.ay * dt) * k;
+      b.x += b.vx * dt; b.y += b.vy * dt;
+      const top = b.r * .6, bot = HH - b.r * .6;
+      if (b.y < top) { b.y = top; if (b.vy < 0) b.vy = 0; }
+      if (b.y > bot) { b.y = bot; if (b.vy > 0) b.vy = 0; }
+      const m = Math.max(.02, hw(b.y) - b.r * .75);
+      if (b.x < -m) { b.x = -m; if (b.vx < 0) b.vx *= -.2; }
+      if (b.x > m) { b.x = m; if (b.vx > 0) b.vx *= -.2; }
+      b.T = clamp(b.T, 0, 1);
+    }
+  }
+
+  // ---------- なめらかなかたまり（メタボール）を小さい画像に描く ----------
+  const GW = 96, GH = 228, fc = document.createElement('canvas'); fc.width = GW; fc.height = GH;
+  const fx = fc.getContext('2d'), img = fx.createImageData(GW, GH);
+  function field() {
+    const d = img.data, p = PRE[st.pre], c0 = st.temp ? [255, 238, 214] : p[1], c1 = st.temp ? [214, 32, 24] : p[2];
+    const n = blobs.length; let q = 0;
+    for (let j = 0; j < GH; j++) {
+      const y = (j + .5) / GH * HH;
+      for (let i = 0; i < GW; i++, q += 4) {
+        const x = -HWX + (i + .5) / GW * HWX * 2;
+        let f = 0, tw = 0, s2 = 0;
+        for (let k = 0; k < n; k++) { const b = blobs[k], dx = x - b.x, dy = y - b.y, w = b.r * b.r / (dx * dx + dy * dy + 1e-4); f += w; tw += w * w * b.T; s2 += w * w; }
+        if (f < .8) { d[q + 3] = 0; continue; }
+        const a = clamp((f - .8) / .25, 0, 1), t = (st.temp ? 1 : .7) * tw / s2;
+        const sh = st.temp ? 1 : .8 + .2 * clamp((f - 1) / 1.5, 0, 1);
+        d[q] = (c0[0] + (c1[0] - c0[0]) * t) * sh; d[q + 1] = (c0[1] + (c1[1] - c0[1]) * t) * sh; d[q + 2] = (c0[2] + (c1[2] - c0[2]) * t) * sh; d[q + 3] = a * 255;
+      }
+    }
+    fx.putImageData(img, 0, 0);
+  }
+
+  // ---------- 描く ----------
+  let dpr = 1, geo = null;
+  function size() { const w = cv.clientWidth || 340; dpr = Math.min(2, window.devicePixelRatio || 1); const W = Math.round(w * dpr), Hh = Math.round(w * 1.6 * dpr); if (cv.width !== W || cv.height !== Hh) { cv.width = W; cv.height = Hh; } }
+  function glassPath(c, g) {
+    c.beginPath();
+    for (let k = 0; k <= 40; k++) { const y = k / 40 * HH, X = g.cx - hw(y) * g.S - g.pad, Y = g.y0 + y * g.S; k ? c.lineTo(X, Y) : c.moveTo(X, Y); }
+    for (let k = 40; k >= 0; k--) { const y = k / 40 * HH; c.lineTo(g.cx + hw(y) * g.S + g.pad, g.y0 + y * g.S); }
+    c.closePath();
+  }
+  function draw() {
+    size();
+    const c = ctx, W = cv.width, Hh = cv.height, p = PRE[st.pre];
+    c.setTransform(1, 0, 0, 1, 0, 0);
+    const bg = c.createLinearGradient(0, 0, 0, Hh); bg.addColorStop(0, '#0f172a'); bg.addColorStop(1, '#1e1b3a'); c.fillStyle = bg; c.fillRect(0, 0, W, Hh);
+    const S = Hh * .74 / HH, cx = W / 2, y0 = Hh * .09, yb = y0 + HH * S;
+    const g = geo = { S, cx, y0, pad: 3 * dpr };
+    const glow = c.createRadialGradient(cx, yb, 0, cx, yb, W * .7); glow.addColorStop(0, `rgba(255,190,90,${.06 + .3 * st.heat})`); glow.addColorStop(1, 'rgba(255,190,90,0)'); c.fillStyle = glow; c.fillRect(0, 0, W, Hh);
+    // ガラスの中
+    c.save(); glassPath(c, g); c.clip();
+    const lq = c.createLinearGradient(0, y0, 0, yb); lq.addColorStop(0, p[3]); lq.addColorStop(1, p[4]); c.fillStyle = lq; c.fillRect(0, 0, W, Hh);
+    const bl = c.createRadialGradient(cx, yb, 0, cx, yb, S * .9); bl.addColorStop(0, `rgba(255,225,150,${.12 + .55 * st.heat})`); bl.addColorStop(1, 'rgba(255,225,150,0)'); c.fillStyle = bl; c.fillRect(0, 0, W, Hh);
+    field(); c.imageSmoothingEnabled = true; c.imageSmoothingQuality = 'high';
+    c.drawImage(fc, cx - HWX * S, y0, HWX * 2 * S, HH * S);
+    if (touch) { const tx = cx + touch.x * S, ty = y0 + touch.y * S, tg = c.createRadialGradient(tx, ty, 0, tx, ty, .3 * S); tg.addColorStop(0, 'rgba(255,240,180,.55)'); tg.addColorStop(1, 'rgba(255,240,180,0)'); c.fillStyle = tg; c.fillRect(0, 0, W, Hh); }
+    const hl = c.createLinearGradient(cx - .5 * S, 0, cx + .5 * S, 0); hl.addColorStop(0, 'rgba(255,255,255,.18)'); hl.addColorStop(.25, 'rgba(255,255,255,0)'); hl.addColorStop(.8, 'rgba(0,0,0,0)'); hl.addColorStop(1, 'rgba(0,0,0,.28)'); c.fillStyle = hl; c.fillRect(0, 0, W, Hh);
+    c.restore();
+    glassPath(c, g); c.strokeStyle = 'rgba(255,255,255,.35)'; c.lineWidth = 1.5 * dpr; c.stroke();
+    // ふたと台
+    const tw = hw(0) * S + 5 * dpr, bw = hw(HH) * S + 5 * dpr;
+    const metal = c.createLinearGradient(cx - bw * 1.5, 0, cx + bw * 1.5, 0); metal.addColorStop(0, '#64748b'); metal.addColorStop(.4, '#e2e8f0'); metal.addColorStop(1, '#475569'); c.fillStyle = metal;
+    c.beginPath(); c.moveTo(cx - tw, y0 + 2 * dpr); c.lineTo(cx - tw * .7, y0 - Hh * .05); c.lineTo(cx + tw * .7, y0 - Hh * .05); c.lineTo(cx + tw, y0 + 2 * dpr); c.closePath(); c.fill();
+    c.beginPath(); c.moveTo(cx - bw, yb - 2 * dpr); c.lineTo(cx - bw * .62, yb + Hh * .07); c.lineTo(cx - bw * 1.45, yb + Hh * .15); c.lineTo(cx + bw * 1.45, yb + Hh * .15); c.lineTo(cx + bw * .62, yb + Hh * .07); c.lineTo(cx + bw, yb - 2 * dpr); c.closePath(); c.fill();
+    ui();
+  }
+
+  // ---------- 数字とひとこと ----------
+  function summary() {
+    let hot = 0, up = 0, dn = 0, nan = 0, minY = 9, maxY = -9;
+    for (const b of blobs) { if (!(isFinite(b.x) && isFinite(b.y) && isFinite(b.T) && isFinite(b.vy))) nan++; hot = Math.max(hot, b.T); if (b.vy < -.015) up++; else if (b.vy > .015) dn++; minY = Math.min(minY, b.y); maxY = Math.max(maxY, b.y); }
+    return { n: blobs.length, hot: Math.round(hot * 100), up, down: dn, still: blobs.length - up - dn, minY: +minY.toFixed(3), maxY: +maxY.toFixed(3), nan, t: +time.toFixed(2), heat: st.heat, pre: st.pre, temp: st.temp, speed: st.speed, playing: st.playing };
+  }
+  let lastUI = 0;
+  function ui() {
+    const now = performance.now(); if (now - lastUI < 200) return; lastUI = now;
+    const s = summary();
+    $('mHot').textContent = s.hot;
+    $('mUp').innerHTML = s.up + '<small>こ</small>'; $('mDn').innerHTML = s.down + '<small>こ</small>'; $('mSt').innerHTML = s.still + '<small>こ</small>';
+    $('lvNote').textContent = st.heat < .25 ? '🥶 電球が弱いので、ロウは軽くなれず、下にたまったままです。'
+      : touch ? '👆 さわった近くのロウをあたためています。'
+      : s.up && s.down ? '🔁 あたたまったロウが上がり、冷えたロウが下がっています（対流）。'
+      : s.up ? '⬆️ あたたまって軽くなったロウが、上がっています。'
+      : s.down ? '⬇️ 上で冷えて重くなったロウが、下がっています。'
+      : '💡 電球がロウをあたためています。';
+  }
+
+  // ---------- 操作 ----------
+  function pt(e) { if (!geo) return null; const r = cv.getBoundingClientRect(), k = cv.width / r.width; return { x: ((e.clientX - r.left) * k - geo.cx) / geo.S, y: ((e.clientY - r.top) * k - geo.y0) / geo.S }; }
+  cv.addEventListener('pointerdown', e => { touch = pt(e); });
+  cv.addEventListener('pointermove', e => { if (touch) touch = pt(e); });
+  ['pointerup', 'pointercancel', 'pointerleave'].forEach(n => cv.addEventListener(n, () => { touch = null; }));
+  const heatTxt = v => v + '（' + (v < 25 ? '弱い' : v < 60 ? 'ふつう' : v < 90 ? '強い' : 'とても強い') + '）';
+  function sync() {
+    $('kHeat').value = Math.round(st.heat * 100); $('vHeat').textContent = heatTxt(Math.round(st.heat * 100));
+    $('kN').value = st.n; $('vN').textContent = st.n + 'こ';
+    document.querySelectorAll('#lvPre button').forEach(b => b.classList.toggle('on', +b.dataset.i === st.pre));
+    document.querySelectorAll('[data-sp]').forEach(b => b.classList.toggle('on', +b.dataset.sp === st.speed));
+    $('lvTemp').classList.toggle('on', st.temp);
+    $('lvPlay').textContent = st.playing ? '⏸ 止める' : '▶ 動かす';
+    lastUI = 0;
+  }
+  $('lvPre').innerHTML = PRE.map((p, i) => `<button type="button" data-i="${i}">${p[0]}</button>`).join('');
+  $('lvPre').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; st.pre = +b.dataset.i; sync(); });
+  $('kHeat').addEventListener('input', e => { st.heat = +e.target.value / 100; sync(); });
+  $('kN').addEventListener('input', e => { st.n = +e.target.value; setN(st.n); sync(); });
+  document.querySelectorAll('[data-sp]').forEach(b => b.addEventListener('click', () => { st.speed = +b.dataset.sp; st.playing = true; sync(); }));
+  $('lvTemp').addEventListener('click', () => { st.temp = !st.temp; sync(); });
+  $('lvPlay').addEventListener('click', () => { st.playing = !st.playing; sync(); });
+  $('lvReset').addEventListener('click', () => { reset(); sync(); });
+
+  // ---------- シェア ----------
+  function shareText() { const s = summary(); return `ラバランプのシミュレーターで、ロウのかたまり${s.n}こが上がったり下がったりするのをながめました🫧（電球のあたたかさ${Math.round(st.heat * 100)}）`; }
+  $('shareBtn').addEventListener('click', () => { const u = location.origin + location.pathname; window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText() + '\n') + '&url=' + encodeURIComponent(u) + '&hashtags=' + encodeURIComponent('シミュラボ'), '_blank', 'noopener'); });
+  $('copyBtn').addEventListener('click', async () => { const n = $('lvNote'); try { await navigator.clipboard.writeText(shareText() + '\n' + location.origin + location.pathname); n.textContent = '📋 コピーしました'; } catch (e) { n.textContent = 'コピーできませんでした'; } lastUI = performance.now() + 1500; });
+
+  // ---------- 動かす ----------
+  function adv(sec) { const n = Math.min(40000, Math.ceil(sec * 60)); for (let i = 0; i < n; i++) step(1 / 60); }
+  let tPrev = performance.now();
+  function loop(now) {
+    const dt = Math.min(.05, Math.max(0, (now - tPrev) / 1000)); tPrev = now;
+    if (st.playing) { let r = dt * st.speed; while (r > 1e-6) { const h = Math.min(1 / 60, r); step(h); r -= h; } }
+    draw(); requestAnimationFrame(loop);
+  }
+  reset(); sync(); draw();
+  requestAnimationFrame(loop);
+  window.__t = { step(sec) { adv(sec); lastUI = 0; draw(); }, get s() { return summary(); }, st, get blobs() { return blobs; }, sync };
+})();
+"""
+
+
+def esc(s): return H.escape(s, quote=True)
+
+
+def build():
+    url = f"{BASE}/sims/{SLUG}/"
+    ld_app = {"@context": "https://schema.org", "@type": "WebApplication", "name": NAME, "url": url, "description": DESC,
+              "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": True,
+              "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}}
+    ld_bc = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "ホーム", "item": BASE + "/"}, {"@type": "ListItem", "position": 2, "name": NAME, "item": url}]}
+    ld_faq = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]}
+    rel = "".join(f'<a class="related-card" href="../{s}/"><span class="e">{e}</span><span>{esc(t)}</span></a>' for s, e, t in REL)
+    faq = "".join(f"<dt>{esc(q)}</dt><dd>{a}</dd>" for q, a in FAQ)
+    refs = "".join(f"<li>{r}</li>" for r in REFS)
+    return f"""<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="{url}">
+    <meta property="og:image" content="{BASE}/ogp/{SLUG}.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{BASE}/ogp/{SLUG}.png">
+<title>{esc(TITLE)}</title>
+<meta name="description" content="{esc(DESC)}">
+<meta property="og:title" content="{esc(OG_T)}">
+<meta property="og:description" content="{esc(OG_D)}">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="{url}">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{json.dumps(ld_app, ensure_ascii=False)}</script>
+    <script type="application/ld+json">{json.dumps(ld_bc, ensure_ascii=False)}</script>
+    <script type="application/ld+json">{json.dumps(ld_faq, ensure_ascii=False)}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+{STAGE}
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span>{esc(CAT)}<span>›</span><span class="cur">{esc(NAME)}</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">{esc(CAT)}</div>
+    <h1>{H1}</h1>
+    <p class="lead">{esc(LEAD)}</p>
+    <p class="lv-note" style="font-weight:400">{esc(NOTE)}</p>
+  </div>
+{BODY}
+  <article class="article">
+{ARTICLE}
+    <h2>よくある質問</h2>
+    <dl class="faq">{faq}</dl>
+    <h2>参考にした資料</h2>
+    <ul class="seo-refs">{refs}</ul>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>関連するシミュレーター</h2>
+    <div class="related-grid">{rel}</div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュレーターも見てみたい？</h2>
+    <p>あなたの「これシミュレーションしてみたい」を送ってください。面白い案から実際に作って、できたらお知らせします。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:8px;font-size:.85em"><!-- footer-links --><a href="../../about/">運営者情報</a>　<a href="../../privacy/">プライバシーポリシー</a>　<a href="../../terms/">利用規約</a>　<a href="../../contact/">お問い合わせ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>{JS}</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({{ simId:'{SLUG}', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] }});</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>
+"""
+
+
+if __name__ == "__main__":
+    out = os.path.join(ROOT, "sims", SLUG, "index.html")
+    os.makedirs(os.path.dirname(out), exist_ok=True)
+    io.open(out, "w", encoding="utf-8", newline="\n").write(build())
+    print("wrote", out)
