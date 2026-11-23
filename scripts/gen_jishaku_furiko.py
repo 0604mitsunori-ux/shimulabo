@@ -1,0 +1,441 @@
+# -*- coding: utf-8 -*-
+"""磁石の振り子（カオスの実験）シミュレーター（2026-11-24）
+   sims/jishaku-furiko/index.html を書き出す（冪等）。 使い方: python -X utf8 scripts/gen_jishaku_furiko.py"""
+import html as H, io, json, os, sys
+
+sys.stdout.reconfigure(encoding="utf-8")
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE = "https://shimulabo.com"
+SLUG = "jishaku-furiko"
+NAME = "磁石の振り子シミュレーター"
+CAT = "あそぶ・実験"
+TITLE = "磁石の振り子シミュレーター｜はなす場所で止まる磁石が変わるカオスの実験｜シミュラボ"
+DESC = ("床に置いた3つの磁石の上で、鉄のおもりがついた振り子をゆらすシミュレーター。指で好きな場所からはなすと、ふらふら動きまわって最後にどれか1つの磁石の上で止まります。"
+        "はなす場所がほんの少しちがうだけで止まる磁石が変わるようすを、軌跡と「どの磁石で止まるかの地図」で確かめられます。")
+OG_T = "磁石の振り子シミュレーター（カオスの実験）"
+OG_D = "はなす場所がほんの少しちがうだけで、止まる磁石が変わる。軌跡と色の地図で確かめよう。"
+H1 = "磁石の振り子シミュレーター<br>はなす場所で止まる磁石が変わる"
+LEAD = ("真上から見た図です。床に置いた磁石の上を、鉄のおもりがついた振り子がゆれています。画面の好きな場所をさわって、指をはなしてみましょう。"
+        "ふらふら動きまわって、最後にどれか1つの磁石の上で止まります。はなす場所がほんの少しちがうだけで、止まる磁石が変わります。")
+
+FAQ = [
+    ("どうやって遊びますか？", "図の好きな場所を指（マウス）でおさえると、そこにおもりが動きます。そのまま動かして場所を決め、はなすと振り子がゆれはじめます。止まると、しばらくして自動で別の場所からはなされます。"),
+    ("「地図をつくる」を押すと何が起きますか？", "画面のいろいろな点から振り子をはなしたとき、どの磁石で止まるかを計算して、その点を磁石の色でぬっていきます。はじめはあらく、だんだんこまかくぬります。明るい色ほど早く止まった場所、暗い色ほど長く動きまわった場所です。"),
+    ("どうして少しの違いで止まる磁石が変わるのですか？", "おもりは磁石と磁石のあいだの「どちらにも転がれる場所」を何度も通ります。そこでは、ほんの少しの位置や速さのちがいで進む向きが分かれます。これが何度もくり返されるので、はじめの小さなちがいが大きなちがいに育ちます。"),
+    ("これはでたらめ（乱数）で決めているのですか？", "いいえ。動きは毎回、同じ式で計算しています。まったく同じ場所からはなせば、毎回同じ磁石で止まります。それでも結果を見通しにくいのは、はなす場所のごく小さなちがいが結果を変えてしまうからです。"),
+    ("まさつを大きくするとどうなりますか？", "おもりがすぐに勢いをなくすので、はなした場所に近い磁石で止まりやすくなります。地図の模様も大きなかたまりになります。まさつを小さくすると長く動きまわり、地図はこまかく入り組んだ模様になります。"),
+]
+REL = [("double-pendulum", "🌀", "二重振り子シミュレーター"), ("magnet", "🧲", "磁力線シミュレーター"), ("lorenz", "🦋", "ローレンツ・アトラクタ")]
+
+ARTICLE = """
+<h2>このシミュレーターのしくみ</h2>
+<p>おもりには、いつも3種類の力がはたらいています。この3つをたし合わせて、1秒を120コマに分けて少しずつ位置を進めています。</p>
+<ul>
+<li><b>まん中へもどす力</b>：振り子は、まん中からはなれるほど強くまん中へ引きもどされます。ここでは、ばねと同じように「はなれた距離に比例する力」としています。</li>
+<li><b>まさつ</b>：速く動くほど強いブレーキがかかります。このおかげで、おもりは最後に止まります。</li>
+<li><b>磁石が引く力</b>：それぞれの磁石が、おもりを自分の方へ引きます。近いほど強く、距離の2乗に反比例する力としています。</li>
+</ul>
+<p>おもりは床から少し浮いているので、磁石の真上にきても、おもりと磁石の距離は0になりません。計算でもこの「高さの分」を距離に入れてあり、力が限りなく大きくなることをふせいでいます。</p>
+<p><b>単純にしている点</b>：本物の磁石が鉄を引く力は、距離の2乗に反比例するとは限りません。本物の振り子は弧をえがいて動きますが、ここでは平らな面の上の動きとして計算しています。また、「この磁石からもう出られない」と計算でわかった時点で、止まる磁石を決めています。</p>
+
+<h2>ためしてみたいこと</h2>
+<ul>
+<li><b>ほとんど同じ場所から2回はなす</b>：磁石から遠い場所でためすと、軌跡がとちゅうから分かれて、ちがう磁石で止まることがあります。</li>
+<li><b>磁石のすぐ近くからはなす</b>：その磁石にそのままつかまります。地図では、磁石のまわりが1色のかたまりになります。</li>
+<li><b>「地図をつくる」を押す</b>：磁石から遠いところほど、3色がこまかく入り組んだ模様になります。色の境目の近くからはなすと、結果を当てるのがむずかしくなります。</li>
+<li><b>まさつを小さくして地図をつくり直す</b>：模様がさらにこまかくなります。大きくすると、模様は単純になります。</li>
+<li><b>磁石の数を2つや4つにする</b>：模様の形（対称のしかた）が変わります。</li>
+<li><b>磁石の強さを変える</b>：強くすると、おもりが勢いよく引きよせられ、磁石から磁石へとびうつる動きが増えます。</li>
+</ul>
+
+<h2>本物では</h2>
+<p>磁石の上で振り子をゆらす実験は、「カオス」を体験できるものとしてよく知られています。カオスとは、きまった法則どおりに動いているのに、はじめのごく小さなちがいが大きく育つため、先の予想がとてもむずかしい動きのことです。</p>
+<p>この振り子は最後には止まるので、ずっと不規則に動きつづけるわけではありません。予想しにくいのは、止まるまでの動きと「どの磁石で止まるか」です。止まる磁石で色分けした地図の境目は、拡大してもまたこまかい模様があらわれる形（フラクタル）になることが、数学の研究で知られています。</p>
+<p>本物の実験では、手のわずかなふるえや空気の流れ、磁石の強さのばらつきも結果を変えます。そのため、同じ場所からはなしたつもりでも、同じ結果になるとは限りません。このシミュレーターの地図は、ここで使った単純な式についてのもので、本物の実験の結果を予測するものではありません。</p>
+"""
+
+REFS = [
+    "Peitgen, H.-O., Jürgens, H. & Saupe, D. (2004) Chaos and Fractals: New Frontiers of Science (2nd ed.). Springer.（磁石の上の振り子と、止まる場所の色分け図）",
+    "McDonald, S. W., Grebogi, C., Ott, E. & Yorke, J. A. (1985) Fractal basin boundaries. Physica D 17, 125–153.",
+    "Strogatz, S. H. (2015) Nonlinear Dynamics and Chaos (2nd ed.). Westview Press.",
+]
+
+STAGE = r"""
+<style>
+#mfWrap{position:relative;max-width:560px;margin:0 auto;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#0b1020}
+#mf{display:block;width:100%;aspect-ratio:1/1;touch-action:none;cursor:crosshair}
+.mf-msg{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);background:rgba(15,23,42,.85);color:#fff;font-size:12.5px;font-weight:700;border-radius:12px;padding:6px 14px;max-width:92%;text-align:center;pointer-events:none;opacity:0;transition:opacity .3s}
+.mf-msg.show{opacity:1}
+.mf-sum{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
+.mf-sum div{background:#eef2ff;border-radius:12px;padding:10px 4px;text-align:center;min-width:0}
+.mf-sum b{display:block;font-size:20px;color:#3730a3;font-variant-numeric:tabular-nums;white-space:nowrap}
+.mf-sum b small{font-size:11.5px}
+.mf-sum span{font-size:11.5px;color:var(--ink-2);font-weight:700}
+.mf-dot{display:inline-block;width:12px;height:12px;border-radius:50%;vertical-align:-1px;margin-right:4px;border:1px solid rgba(0,0,0,.2)}
+.mf-note{font-size:13.5px;color:var(--ink);background:#eef2ff;border-radius:10px;padding:9px 12px;margin:10px 0 0;font-weight:700}
+.mf-tools{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:12px}
+.mf-seg{display:flex;flex-wrap:wrap;gap:6px}
+.mf-seg button,.mf-tools button{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 13px;font:inherit;font-size:13.5px;font-weight:800;cursor:pointer;color:var(--ink)}
+.mf-seg button.on,.mf-tools button.on{background:#4338ca;border-color:#4338ca;color:#fff}
+.mf-cols{display:grid;grid-template-columns:1fr 1fr;gap:6px 22px;margin-top:6px}
+.mf-hint{font-size:13px;color:var(--ink-2);margin:8px 0 0}
+@media (max-width:640px){.mf-sum{grid-template-columns:repeat(2,1fr)}.mf-cols{grid-template-columns:1fr}}
+</style>
+"""
+
+BODY = r"""
+  <section class="panel" id="resultPanel">
+    <div id="mfWrap">
+      <canvas id="mf" aria-label="真上から見た磁石と振り子のおもり。さわった場所からおもりをはなせます"></canvas>
+      <div class="mf-msg" id="mfMsg"></div>
+    </div>
+    <p class="mf-hint">👆 図の好きな場所をおさえて、はなすとスタート。色のついた丸が磁石、白い丸がおもりです。</p>
+    <div class="mf-sum">
+      <div><b id="mfV">0.00</b><span>いまの速さ</span></div>
+      <div><b id="mfStop">…</b><span>止まった磁石</span></div>
+      <div><b id="mfT">0.0<small>秒</small></b><span>動いた時間</span></div>
+      <div><b id="mfMap">0<small>%</small></b><span>地図の完成度</span></div>
+    </div>
+    <p class="mf-note" id="mfNote">🧲 振り子がゆれています。</p>
+
+    <div class="mf-tools">
+      <button type="button" id="mfMapBtn">🗺 地図をつくる</button>
+      <button type="button" id="mfMapClr">地図を消す</button>
+      <button type="button" id="mfTrClr">軌跡を消す</button>
+      <button type="button" id="mfRand">🎲 別の場所からはなす</button>
+    </div>
+
+    <h2 style="margin:20px 0 6px;font-size:18px;">条件を変える</h2>
+    <p class="mf-hint" style="margin-top:0">条件を変えると、地図は消えます（条件ごとに模様がちがうためです）。</p>
+    <div class="mf-cols">
+      <div class="field"><label>磁石の数</label><div class="mf-seg" id="mfN"><button type="button" data-v="2">2つ</button><button type="button" data-v="3" class="on">3つ</button><button type="button" data-v="4">4つ</button></div></div>
+      <div class="field"><label>磁石の強さ <span class="hint">（<b id="mfSv"></b>）</span></label><input type="range" id="mfS" min="0.7" max="2" step="0.1" value="1"></div>
+      <div class="field"><label>まさつ <span class="hint">（<b id="mfCv"></b>）</span></label><input type="range" id="mfC" min="0.05" max="0.5" step="0.01" value="0.15"></div>
+    </div>
+
+    <div style="text-align:center;margin-top:16px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+"""
+
+JS = r"""
+(() => {
+  const $ = id => document.getElementById(id);
+  const cv = $('mf'), ctx = cv.getContext('2d');
+  const VW = 2.4, K = .5, H2 = .09, DT = 1 / 120, MAXK = 120 * 150, NMAP = 192;
+  const COLS = [[239, 68, 68, '赤'], [59, 130, 246, '青'], [34, 197, 94, '緑'], [245, 158, 11, '黄']];
+  const TRAIL = ['#fde047', '#f0abfc', '#67e8f9', '#fdba74', '#a7f3d0', '#ffffff'];
+  let n = 3, S = 1, C = .15, MX = [], MY = [], Ebar = 0;
+
+  // ---------- 力のモデル ----------
+  function potential(x, y) { let U = .5 * K * (x * x + y * y); for (let m = 0; m < n; m++) { const dx = MX[m] - x, dy = MY[m] - y; U -= S / Math.sqrt(dx * dx + dy * dy + H2); } return U; }
+  function setup() {
+    MX = []; MY = [];
+    for (let m = 0; m < n; m++) { const a = -Math.PI / 2 + m * 2 * Math.PI / n; MX.push(Math.cos(a)); MY.push(Math.sin(a)); }
+    // となりの磁石との境目（まん中から出る線）の上でいちばん低いエネルギー = これより低いと、もう外へ出られない
+    const a = -Math.PI / 2 + Math.PI / n; let mn = 1e9;
+    for (let r = 0; r <= 4; r += .005) mn = Math.min(mn, potential(Math.cos(a) * r, Math.sin(a) * r));
+    Ebar = mn - .002 * S;
+  }
+  // 地図用：(x,y) から静かにはなして、どの磁石につかまるか
+  let mapT = 0;
+  function mapSim(x, y) {
+    let vx = 0, vy = 0, near = 0;
+    for (let k = 0; k < MAXK; k++) {
+      let ax = -K * x - C * vx, ay = -K * y - C * vy, U = .5 * K * (x * x + y * y), bd = 1e9;
+      for (let m = 0; m < n; m++) { const dx = MX[m] - x, dy = MY[m] - y, d2 = dx * dx + dy * dy; if (d2 < bd) { bd = d2; near = m; } const inv = 1 / Math.sqrt(d2 + H2); U -= S * inv; const f = S * inv * inv * inv; ax += dx * f; ay += dy * f; }
+      if (U + .5 * (vx * vx + vy * vy) < Ebar) { mapT = k * DT; return near; }
+      vx += ax * DT; vy += ay * DT; x += vx * DT; y += vy * DT;
+    }
+    mapT = MAXK * DT; return near;
+  }
+
+  // ---------- いまの振り子 ----------
+  let x = 1.5, y = .4, vx = 0, vy = 0, t = 0, mode = 'run', caught = -1, tCaught = 0, stopped = -1, rest = 0, restWait = 1.6, launches = 0;
+  const counts = [0, 0, 0, 0];
+  let paths = [], dragging = false;
+  function stepLive() {
+    let ax = -K * x - C * vx, ay = -K * y - C * vy, U = .5 * K * (x * x + y * y), bd = 1e9, near = 0;
+    for (let m = 0; m < n; m++) { const dx = MX[m] - x, dy = MY[m] - y, d2 = dx * dx + dy * dy; if (d2 < bd) { bd = d2; near = m; } const inv = 1 / Math.sqrt(d2 + H2); U -= S * inv; const f = S * inv * inv * inv; ax += dx * f; ay += dy * f; }
+    const v2 = vx * vx + vy * vy;
+    if (caught < 0 && (U + .5 * v2 < Ebar || t > 150)) { caught = near; tCaught = t; counts[near]++; note(); }
+    if (caught >= 0 && ((v2 < .0009 && bd < .0025) || t - tCaught > 9)) { mode = 'rest'; stopped = caught; rest = 0; return; }
+    vx += ax * DT; vy += ay * DT; x += vx * DT; y += vy * DT; t += DT;
+  }
+  function launch(px, py, auto) {
+    x = Math.max(-VW * .98, Math.min(VW * .98, px)); y = Math.max(-VW * .98, Math.min(VW * .98, py)); vx = vy = 0; t = 0; caught = -1; mode = 'run'; launches++;
+    restWait = auto ? 1.6 : 2.6;
+    paths.push({ col: TRAIL[launches % TRAIL.length], pts: [x, y] });
+    if (paths.length > 6) { paths.shift(); redrawTrail(); }
+    note();
+  }
+  function autoLaunch() { const a = Math.random() * Math.PI * 2, r = 1.3 + Math.random() * .9; launch(Math.cos(a) * r, Math.sin(a) * r, true); }
+
+  // ---------- 地図 ----------
+  const mapCv = document.createElement('canvas'); mapCv.width = mapCv.height = NMAP;
+  const mapCx = mapCv.getContext('2d'); let mapImg = mapCx.createImageData(NMAP, NMAP);
+  let order = null, mapIdx = 0, mapOn = false, mapAny = false, mapDirty = false;
+  function buildOrder() {
+    const o = [];
+    [16, 8, 4, 2, 1].forEach((st, li) => { for (let j = 0; j < NMAP; j += st) for (let i = 0; i < NMAP; i += st) { if (li > 0 && i % (2 * st) === 0 && j % (2 * st) === 0) continue; o.push(i, j, st); } });
+    order = new Int16Array(o);
+  }
+  function mapPoint() {
+    const i = order[mapIdx * 3], j = order[mapIdx * 3 + 1], st = order[mapIdx * 3 + 2]; mapIdx++;
+    const m = mapSim(((i + .5) / NMAP * 2 - 1) * VW, ((j + .5) / NMAP * 2 - 1) * VW);
+    const b = .3 + .5 * Math.exp(-mapT / 9), c = COLS[m], r = c[0] * b, g = c[1] * b, bl = c[2] * b, d = mapImg.data;
+    for (let jj = j; jj < j + st; jj++) for (let ii = i; ii < i + st; ii++) { const p = (jj * NMAP + ii) * 4; d[p] = r; d[p + 1] = g; d[p + 2] = bl; d[p + 3] = 255; }
+  }
+  function mapWork(ms, maxPts) {
+    if (!mapOn) return;
+    const total = order.length / 3, t0 = performance.now(); let k = 0;
+    while (mapIdx < total && k < maxPts && (!ms || performance.now() - t0 < ms)) { mapPoint(); k++; }
+    mapAny = true; mapDirty = true;
+    if (mapIdx >= total) { mapOn = false; updMapBtn(); flash('地図ができました。色の境目の近くからはなしてみましょう'); }
+  }
+  function mapClear() { mapOn = false; mapIdx = 0; mapAny = false; mapImg = mapCx.createImageData(NMAP, NMAP); mapCx.clearRect(0, 0, NMAP, NMAP); updMapBtn(); }
+  const mapPct = () => order ? Math.floor(mapIdx / (order.length / 3) * 100) : 0;
+  function updMapBtn() { const b = $('mfMapBtn'); b.classList.toggle('on', mapOn); b.textContent = mapOn ? '⏸ 地図づくりを止める' : (mapIdx > 0 && mapPct() < 100 ? '🗺 地図のつづきをつくる' : '🗺 地図をつくる'); }
+
+  // ---------- 描く ----------
+  let dpr = 1, W = 0;
+  const trCv = document.createElement('canvas'), trCx = trCv.getContext('2d');
+  const PX = v => (v / VW * .5 + .5) * W;
+  function size() {
+    const w = cv.clientWidth || 320; dpr = Math.min(2, window.devicePixelRatio || 1);
+    const nw = Math.round(w * dpr);
+    if (cv.width !== nw || cv.height !== nw) { cv.width = cv.height = nw; W = nw; trCv.width = trCv.height = nw; redrawTrail(); }
+  }
+  function trailStyle(c, col) { c.strokeStyle = col; c.lineWidth = 1.6 * dpr; c.lineCap = 'round'; c.lineJoin = 'round'; c.globalAlpha = .85; }
+  function redrawTrail() {
+    if (!W) return; trCx.clearRect(0, 0, W, W);
+    paths.forEach(p => { trailStyle(trCx, p.col); trCx.beginPath(); for (let i = 0; i < p.pts.length; i += 2) i ? trCx.lineTo(PX(p.pts[i]), PX(p.pts[i + 1])) : trCx.moveTo(PX(p.pts[i]), PX(p.pts[i + 1])); trCx.stroke(); });
+  }
+  function addTrail() {
+    const p = paths[paths.length - 1]; if (!p) return; const q = p.pts, L = q.length;
+    if (L >= 2 && Math.abs(q[L - 2] - x) + Math.abs(q[L - 1] - y) < .004) return;
+    if (L >= 2) { trailStyle(trCx, p.col); trCx.beginPath(); trCx.moveTo(PX(q[L - 2]), PX(q[L - 1])); trCx.lineTo(PX(x), PX(y)); trCx.stroke(); }
+    q.push(x, y);
+  }
+  let pulse = 0;
+  function draw() {
+    size();
+    const c = ctx; c.setTransform(1, 0, 0, 1, 0, 0); c.globalAlpha = 1;
+    c.fillStyle = '#0b1020'; c.fillRect(0, 0, W, W);
+    if (mapAny) { if (mapDirty) { mapCx.putImageData(mapImg, 0, 0); mapDirty = false; } c.imageSmoothingEnabled = false; c.drawImage(mapCv, 0, 0, W, W); c.imageSmoothingEnabled = true; }
+    // めやすの円
+    c.strokeStyle = 'rgba(255,255,255,.1)'; c.lineWidth = 1 * dpr;
+    [1, 2].forEach(r => { c.beginPath(); c.arc(W / 2, W / 2, r / VW * W / 2, 0, 7); c.stroke(); });
+    c.drawImage(trCv, 0, 0);
+    // 磁石
+    const mr = Math.max(7 * dpr, .085 / VW * W / 2 * 2);
+    for (let m = 0; m < n; m++) {
+      const col = COLS[m], mx = PX(MX[m]), my = PX(MY[m]);
+      if (caught === m) { c.strokeStyle = `rgba(255,255,255,${.55 + .35 * Math.sin(pulse * 6)})`; c.lineWidth = 3 * dpr; c.beginPath(); c.arc(mx, my, mr * (1.55 + .12 * Math.sin(pulse * 6)), 0, 7); c.stroke(); }
+      c.fillStyle = `rgb(${col[0]},${col[1]},${col[2]})`; c.strokeStyle = '#fff'; c.lineWidth = 2 * dpr; c.beginPath(); c.arc(mx, my, mr, 0, 7); c.fill(); c.stroke();
+    }
+    // 糸（真上から見たもの）とおもり
+    const bx = PX(x), by = PX(y), br = mr * .78;
+    c.strokeStyle = 'rgba(255,255,255,.35)'; c.lineWidth = 1.2 * dpr; c.beginPath(); c.moveTo(W / 2, W / 2); c.lineTo(bx, by); c.stroke();
+    c.fillStyle = 'rgba(255,255,255,.5)'; c.beginPath(); c.arc(W / 2, W / 2, 2.5 * dpr, 0, 7); c.fill();
+    c.fillStyle = 'rgba(0,0,0,.35)'; c.beginPath(); c.arc(bx + 2 * dpr, by + 3 * dpr, br, 0, 7); c.fill();
+    const g = c.createRadialGradient(bx - br * .35, by - br * .35, br * .1, bx, by, br);
+    g.addColorStop(0, '#ffffff'); g.addColorStop(1, '#94a3b8');
+    c.fillStyle = g; c.strokeStyle = dragging ? '#fde047' : '#1e293b'; c.lineWidth = (dragging ? 3 : 1.5) * dpr; c.beginPath(); c.arc(bx, by, br, 0, 7); c.fill(); c.stroke();
+    ui();
+  }
+
+  // ---------- 数字とひとこと ----------
+  const dot = m => `<i class="mf-dot" style="background:rgb(${COLS[m][0]},${COLS[m][1]},${COLS[m][2]})"></i>${COLS[m][3]}`;
+  let lastUI = 0;
+  function ui(force) {
+    const now = performance.now(); if (!force && now - lastUI < 120) return; lastUI = now;
+    $('mfV').textContent = (mode === 'run' ? Math.hypot(vx, vy) : 0).toFixed(2);
+    $('mfStop').innerHTML = caught >= 0 ? dot(caught) : '…';
+    $('mfT').innerHTML = t.toFixed(1) + '<small>秒</small>';
+    $('mfMap').innerHTML = mapPct() + '<small>%</small>';
+  }
+  function tally() { let s = []; for (let m = 0; m < n; m++) s.push(COLS[m][3] + counts[m] + '回'); return s.join('・'); }
+  function note() {
+    const el = $('mfNote');
+    if (dragging) el.textContent = '👆 はなす場所を決めて、指をはなしましょう。';
+    else if (caught >= 0) el.textContent = `🧲 ${COLS[caught][3]}の磁石につかまりました。（これまで：${tally()}）`;
+    else el.textContent = '🧲 振り子がゆれています。どの磁石で止まるでしょう？';
+  }
+  function flash(s) { const el = $('mfMsg'); el.textContent = s; el.classList.add('show'); clearTimeout(flash.t); flash.t = setTimeout(() => el.classList.remove('show'), 2600); }
+
+  // ---------- 操作 ----------
+  function pos(e) { const r = cv.getBoundingClientRect(); return [((e.clientX - r.left) / r.width * 2 - 1) * VW, ((e.clientY - r.top) / r.height * 2 - 1) * VW]; }
+  function dragTo(e) { const p = pos(e); x = Math.max(-VW * .98, Math.min(VW * .98, p[0])); y = Math.max(-VW * .98, Math.min(VW * .98, p[1])); vx = vy = 0; }
+  cv.addEventListener('pointerdown', e => { e.preventDefault(); try { cv.setPointerCapture(e.pointerId); } catch (_) {} dragging = true; mode = 'drag'; caught = -1; t = 0; dragTo(e); note(); });
+  cv.addEventListener('pointermove', e => { if (dragging) dragTo(e); });
+  const up = e => { if (!dragging) return; dragging = false; launch(x, y, false); };
+  cv.addEventListener('pointerup', up); cv.addEventListener('pointercancel', up);
+  function resetCounts() { counts.fill(0); }
+  function changed() { setup(); mapClear(); resetCounts(); paths = []; redrawTrail(); autoLaunch(); }
+  $('mfN').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; n = +b.dataset.v; document.querySelectorAll('#mfN button').forEach(q => q.classList.toggle('on', q === b)); changed(); });
+  const lvS = v => v < 1 ? '弱い' : v <= 1.3 ? 'ふつう' : '強い', lvC = v => v < .12 ? '小さい' : v <= .25 ? 'ふつう' : '大きい';
+  function syncLabels() { $('mfSv').textContent = S.toFixed(1) + '・' + lvS(S); $('mfCv').textContent = C.toFixed(2) + '・' + lvC(C); }
+  $('mfS').addEventListener('input', e => { S = +e.target.value; syncLabels(); changed(); });
+  $('mfC').addEventListener('input', e => { C = +e.target.value; syncLabels(); changed(); });
+  $('mfMapBtn').addEventListener('click', () => { if (mapPct() >= 100) { flash('地図はもう完成しています。条件を変えるか「地図を消す」でつくり直せます'); return; } mapOn = !mapOn; updMapBtn(); });
+  $('mfMapClr').addEventListener('click', () => { mapClear(); ui(true); });
+  $('mfTrClr').addEventListener('click', () => { const p = paths[paths.length - 1]; paths = mode === 'run' && p ? [{ col: p.col, pts: [x, y] }] : []; redrawTrail(); });
+  $('mfRand').addEventListener('click', () => autoLaunch());
+
+  // ---------- シェア ----------
+  function shareText() { return `磁石の振り子をはなしたら、${tally()}で止まりました🧲 はなす場所がほんの少しちがうだけで、止まる磁石が変わります。`; }
+  $('shareBtn').addEventListener('click', () => { const u = location.origin + location.pathname; window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText() + '\n') + '&url=' + encodeURIComponent(u) + '&hashtags=' + encodeURIComponent('シミュラボ'), '_blank', 'noopener'); });
+  $('copyBtn').addEventListener('click', async () => { try { await navigator.clipboard.writeText(shareText() + '\n' + location.origin + location.pathname); flash('コピーしました'); } catch (e) { flash('コピーできませんでした'); } });
+
+  // ---------- 動かす ----------
+  function frame(dt) {
+    pulse += dt;
+    if (mode === 'run') { for (let k = 0; k < 2 && mode === 'run'; k++) stepLive(); addTrail(); }
+    else if (mode === 'rest') { rest += dt; if (rest > restWait) autoLaunch(); }
+  }
+  let tPrev = performance.now(), acc = 0;
+  function loop(now) {
+    acc += Math.min(.1, (now - tPrev) / 1000); tPrev = now;
+    let k = 0; while (acc >= 1 / 60 && k < 6) { frame(1 / 60); acc -= 1 / 60; k++; }
+    mapWork(12, 90);
+    draw(); requestAnimationFrame(loop);
+  }
+  setup(); buildOrder(); syncLabels(); updMapBtn(); size(); launch(1.62, .55, true);
+  requestAnimationFrame(loop);
+  window.__t = {
+    step(sec) { const N = Math.round(sec * 60); for (let i = 0; i < N; i++) { frame(1 / 60); if (mapOn) mapWork(0, 90); } lastUI = 0; draw(); },
+    get s() { return { x, y, vx, vy, speed: Math.hypot(vx, vy), t, mode, caught, stopped, n, strength: S, friction: C, mapOn, mapPct: mapPct(), counts: counts.slice(0, n), launches, paths: paths.length, Ebar }; },
+    launch(px, py) { launch(px, py, false); }, mapSim, mapStart() { mapOn = true; updMapBtn(); },
+  };
+})();
+"""
+
+
+def esc(s): return H.escape(s, quote=True)
+
+
+def build():
+    url = f"{BASE}/sims/{SLUG}/"
+    ld_app = {"@context": "https://schema.org", "@type": "WebApplication", "name": NAME, "url": url, "description": DESC,
+              "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": True,
+              "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}}
+    ld_bc = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "ホーム", "item": BASE + "/"}, {"@type": "ListItem", "position": 2, "name": NAME, "item": url}]}
+    ld_faq = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]}
+    rel = "".join(f'<a class="related-card" href="../{s}/"><span class="e">{e}</span><span>{esc(t)}</span></a>' for s, e, t in REL)
+    faq = "".join(f"<dt>{esc(q)}</dt><dd>{a}</dd>" for q, a in FAQ)
+    refs = "".join(f"<li>{r}</li>" for r in REFS)
+    return f"""<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="{url}">
+    <meta property="og:image" content="{BASE}/ogp/{SLUG}.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{BASE}/ogp/{SLUG}.png">
+<title>{esc(TITLE)}</title>
+<meta name="description" content="{esc(DESC)}">
+<meta property="og:title" content="{esc(OG_T)}">
+<meta property="og:description" content="{esc(OG_D)}">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="{url}">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{json.dumps(ld_app, ensure_ascii=False)}</script>
+    <script type="application/ld+json">{json.dumps(ld_bc, ensure_ascii=False)}</script>
+    <script type="application/ld+json">{json.dumps(ld_faq, ensure_ascii=False)}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+{STAGE}
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span>{esc(CAT)}<span>›</span><span class="cur">{esc(NAME)}</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">{esc(CAT)}</div>
+    <h1>{H1}</h1>
+    <p class="lead">{esc(LEAD)}</p>
+  </div>
+{BODY}
+  <article class="article">
+{ARTICLE}
+    <h2>よくある質問</h2>
+    <dl class="faq">{faq}</dl>
+    <h2>参考にした資料</h2>
+    <ul class="seo-refs">{refs}</ul>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>関連するシミュレーター</h2>
+    <div class="related-grid">{rel}</div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュレーターも見てみたい？</h2>
+    <p>あなたの「これシミュレーションしてみたい」を送ってください。面白い案から実際に作って、できたらお知らせします。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:8px;font-size:.85em"><!-- footer-links --><a href="../../about/">運営者情報</a>　<a href="../../privacy/">プライバシーポリシー</a>　<a href="../../terms/">利用規約</a>　<a href="../../contact/">お問い合わせ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>{JS}</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({{ simId:'{SLUG}', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] }});</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>
+"""
+
+
+if __name__ == "__main__":
+    out = os.path.join(ROOT, "sims", SLUG, "index.html")
+    os.makedirs(os.path.dirname(out), exist_ok=True)
+    io.open(out, "w", encoding="utf-8", newline="\n").write(build())
+    print("wrote", out)
