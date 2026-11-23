@@ -175,6 +175,7 @@ const ALLOW = new Set([
   'virus-sekken-alcohol',
   'shibousan-yuuten',
   'pcr-hou',
+  'tensha-honyaku-genkaku',
 ]);
 
 export default async function handler(req, res) {
