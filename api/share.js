@@ -171,6 +171,7 @@ const ALLOW = new Set([
   // rika 2026-11-23 リクエスト（酵素）
   'kouso-hannou-sokudo', 'kouso-sogai',
   'kouso-shikkatsu',
+  'sekken-shabondama',
 ]);
 
 export default async function handler(req, res) {
