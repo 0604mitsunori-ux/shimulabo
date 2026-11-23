@@ -173,6 +173,7 @@ const ALLOW = new Set([
   'kouso-shikkatsu',
   'sekken-shabondama',
   'virus-sekken-alcohol',
+  'shibousan-yuuten',
 ]);
 
 export default async function handler(req, res) {
