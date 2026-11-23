@@ -1,0 +1,512 @@
+# -*- coding: utf-8 -*-
+"""ドミノ倒しシミュレーター（2026-11-24）
+   sims/domino-taoshi/index.html を書き出す（冪等）。 使い方: python -X utf8 scripts/gen_domino_taoshi.py"""
+import html as H, io, json, os, sys
+
+sys.stdout.reconfigure(encoding="utf-8")
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE = "https://shimulabo.com"
+SLUG = "domino-taoshi"
+NAME = "ドミノ倒しシミュレーター"
+CAT = "あそぶ・実験"
+TITLE = "ドミノ倒しシミュレーター｜倒れる波の速さ・間かく・だんだん大きくなるドミノを実験｜シミュラボ"
+DESC = ("ドミノを一列に並べて、最初の1枚を指ではじくと次々に倒れていくシミュレーター。ドミノの数・間かく・高さを変えて、倒れる波の速さと全部倒れるまでの時間を測れます。"
+        "間かくが広すぎると途中で止まり、1枚ごとに1.5倍になる「だんだん大きくなるドミノ」では、小さな力で大きなドミノを倒せます。")
+OG_T = "ドミノ倒しシミュレーター 倒れる波の速さを測ろう"
+OG_D = "数・間かく・高さを変えてドミノを倒す。間かくが広すぎると止まる。だんだん大きくなるドミノも。"
+H1 = "ドミノ倒しシミュレーター<br>倒れる波の速さを測ろう"
+LEAD = ("ドミノを一列に並べて、最初の1枚を指ではじいてみましょう。数・間かく・高さを変えると、倒れる波の速さが変わります。"
+        "間かくが広すぎると途中で止まります。画面をなぞってドミノを足したり、タップで1枚ずつ足したり消したりもできます。")
+
+FAQ = [
+    ("どうやって遊びますか？", "「▶ たおす」をおすと、指が最初の1枚をはじいて、ドミノが次々に倒れます。数・間かく・高さのスライダーや、並べ方（まっすぐ／間かくがバラバラ／だんだん大きく）を変えて、倒れ方のちがいを見てみましょう。「↺ ならべ直す」で元にもどります。"),
+    ("ドミノを自分で並べられますか？", "はい。倒す前なら、床の空いているところをタップすると1枚追加、ドミノをタップするとその1枚を消せます。横になぞると、スライダーの間かくで続けて並びます（「だんだん大きく」のときは、消すことだけできます）。"),
+    ("途中で止まるのはなぜ？", "間かくがドミノの高さより広いと、倒れたドミノがとなりに届きません。届いても、とても低いところに当たると、となりを倒しきれないことがあります。「間かくがバラバラ」では、広いすき間がたまたまできると、そこで止まります。"),
+    ("「倒れる波の速さ」は本物と同じですか？", "いいえ、模式的な（おおよその）値です。このシミュレーターは、まさつや、ぶつかったときのはね返り、ドミノが床の上ですべることを省いているので、本物のドミノで測った値とはずれます。間かくや高さを変えたときの「増え方・減り方」を見るためのものです。"),
+    ("だんだん大きくなるドミノは、本当に倒せますか？", "はい。1枚ごとに約1.5倍の大きさにしたドミノを並べると、小さな1枚目から大きなドミノまで順番に倒せることが、実験で確かめられています（参考にした資料の Whitehead の論文）。大きなドミノを立てたときにたくわえた位置エネルギーが、順番に使われていくからです。"),
+]
+REL = [("newtons-cradle", "⚪", "ニュートンのゆりかご"), ("galton", "🔻", "ゴルトンボード"), ("gears", "⚙️", "歯車のシミュレーション")]
+
+ARTICLE = """
+<h2>このシミュレーターのしくみ</h2>
+<p>ドミノを横から見た図です。1枚1枚を「下の角を軸にして回る、かたい板（剛体）」として計算しています。</p>
+<ul>
+<li><b>重力で回る</b>：ドミノは、少しかたむけただけでは元にもどります。重心が、軸にしている角の真上をこえると、重力で自分から倒れていきます。</li>
+<li><b>ぶつかって伝える</b>：倒れてきたドミノの上の角が、となりのドミノの面に当たると、回るいきおい（角運動量）を受けわたします。当たったあとは、はね返らずに、くっついたまま一緒に動くものとしています。</li>
+<li><b>寄りかかって止まる</b>：最後のドミノは床にたおれ、ほかのドミノは、となりに寄りかかって止まります。</li>
+</ul>
+<p>立っているドミノは、重心が高いところにあるので<b>位置エネルギー</b>を持っています。倒れるとき、それが<b>運動エネルギー</b>に変わり、その一部がとなりのドミノを押して、次のドミノの位置エネルギーを引き出します。これが次々にくり返されるので、最初の小さな力だけで、列の最後まで「倒れる波」が進みます。</p>
+<p>「倒れる波の速さ」は、最初のドミノが倒れてから、いちばん先のドミノが倒れるまでに進んだ距離を、かかった時間で割ったものです。</p>
+<p><b>単純にしている点</b>：横から見た2次元だけで計算しています。まさつ、ぶつかったときのはね返り、ドミノが床の上ですべること、後ろ向きに倒れることは省いています。そのため、速さや時間の数字は模式的な値です。</p>
+
+<h2>ためしてみたいこと</h2>
+<ul>
+<li><b>間かくを少しずつ広げる</b>：ある広さをこえると、途中で止まるようになります。どこまで広げられるか、さがしてみましょう。</li>
+<li><b>間かくをせまくする／広くする</b>：波の速さがどう変わるか、数字でくらべてみましょう。</li>
+<li><b>高さを変える</b>：背の高いドミノと低いドミノで、波の速さと、全部倒れるまでの時間をくらべてみましょう。</li>
+<li><b>「だんだん大きく」をえらぶ</b>：1枚ごとに1.5倍になります。小さな1枚目をはじくだけで、何倍も大きなドミノが倒れます。大きいドミノほど、ゆっくり倒れることにも注目してください。</li>
+<li><b>「スロー」で見る</b>：ぶつかった瞬間に、となりのドミノが動き出すようすがよくわかります。</li>
+<li><b>自分で並べる</b>：途中に広いすき間を1つ作ると、そこで波が止まります。</li>
+</ul>
+
+<h2>本物のドミノ倒しでは</h2>
+<p>本物のドミノ倒しでも、位置エネルギーが運動エネルギーに変わって次へ伝わる、というしくみは同じです。ただし本物では、ドミノどうしや床とのまさつ、ぶつかったときの音や熱として、エネルギーの一部が失われます。ドミノが床の上で少しすべったり、列が曲がっていたりすることもあります。倒れる波の速さは、ドミノの大きさ・間かく・まさつによって変わります。</p>
+<p>1983年に物理学者の Whitehead は、1枚ごとに約1.5倍の大きさにした13枚のドミノを使い、とても小さな1枚目をそっと押すだけで、ずっと大きな最後の1枚まで倒せることを示しました。1枚目を倒すのに使うエネルギーはごくわずかですが、あとのドミノほど、立てたときにたくわえた位置エネルギーが大きいので、最後に出てくるエネルギーはけた違いに大きくなります。エネルギーが増えたのではなく、あらかじめドミノを立てるときに人がたくわえておいたエネルギーが、順番に出てきているのです。</p>
+"""
+
+REFS = [
+    "L. A. Whitehead (1983) Domino &quot;chain reaction&quot;. American Journal of Physics 51, 182.",
+    "W. J. Stronge (1987) The domino effect: a wave of destabilizing collisions in a periodic array. Proceedings of the Royal Society of London A 409, 199–208.",
+    "J. M. J. van Leeuwen (2010) The domino effect. American Journal of Physics 78, 721–727.",
+    "文部科学省「中学校学習指導要領解説 理科編」（運動とエネルギー・力学的エネルギー）",
+]
+
+STAGE = r"""
+<style>
+.dm-seg{display:flex;flex-wrap:wrap;gap:6px}
+.dm-seg button,.dm-btns button{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 13px;font:inherit;font-size:13.5px;font-weight:800;cursor:pointer;color:var(--ink)}
+.dm-seg button.on{background:#4338ca;border-color:#4338ca;color:#fff}
+#dmWrap{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#eef2ff;margin-top:12px}
+#dm{display:block;width:100%;aspect-ratio:5/2;touch-action:pan-y;cursor:pointer}
+.dm-msg{position:absolute;left:50%;top:10px;transform:translateX(-50%);background:rgba(15,23,42,.85);color:#fff;font-size:12.5px;font-weight:700;border-radius:12px;padding:6px 14px;max-width:92%;text-align:center;pointer-events:none;opacity:0;transition:opacity .3s}
+.dm-msg.show{opacity:1}
+.dm-btns{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px}
+.dm-btns .go{background:#4338ca;border-color:#4338ca;color:#fff;font-size:15.5px;padding:11px 22px}
+.dm-btns button.on{background:#f59e0b;border-color:#f59e0b;color:#111}
+.dm-sum{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.dm-sum div{background:#eef2ff;border-radius:12px;padding:10px 4px;text-align:center}
+.dm-sum b{display:block;font-size:20px;color:#4338ca;font-variant-numeric:tabular-nums}
+.dm-sum b small{font-size:11.5px}
+.dm-sum span{font-size:11.5px;color:var(--ink-2);font-weight:700}
+.dm-note{font-size:13.5px;color:var(--ink);background:#eef2ff;border-radius:10px;padding:9px 12px;margin:10px 0 0;font-weight:700}
+.dm-hint{font-size:12.5px;color:var(--ink-2);margin:8px 0 0}
+.dm-cols{display:grid;grid-template-columns:1fr 1fr;gap:6px 22px;margin-top:14px}
+@media (max-width:640px){#dm{aspect-ratio:2/1}.dm-cols{grid-template-columns:1fr}.dm-sum b{font-size:17px}.dm-btns .go{padding:10px 18px}}
+</style>
+"""
+
+BODY = r"""
+  <section class="panel" id="resultPanel">
+    <div class="field" style="margin:0"><label>ならべ方</label>
+      <div class="dm-seg" id="dmPreset"><button type="button" data-v="line" class="on">まっすぐ</button><button type="button" data-v="rand">間かくがバラバラ</button><button type="button" data-v="grow">だんだん大きく（×1.5）</button></div>
+    </div>
+    <div id="dmWrap">
+      <canvas id="dm" aria-label="横から見たドミノの列。最初の1枚を指ではじくと、次々に倒れていく"></canvas>
+      <div class="dm-msg" id="dmMsg"></div>
+    </div>
+    <div class="dm-btns">
+      <button type="button" class="go" id="dmGo">▶ たおす</button>
+      <button type="button" id="dmReset">↺ ならべ直す</button>
+      <div class="dm-seg" id="dmSpeed"><button type="button" data-v="1">本物の速さ</button><button type="button" data-v="0.25" class="on">ゆっくり</button><button type="button" data-v="0.08">スロー</button></div>
+      <button type="button" id="dmSound" class="on" aria-pressed="true">🔈 音あり</button>
+    </div>
+    <div class="dm-sum">
+      <div><b id="dmFallen">0</b><span>倒れたドミノ</span></div>
+      <div><b id="dmV">—</b><span>倒れる波の速さ（模式的な値）</span></div>
+      <div><b id="dmT">—</b><span>全部倒れるまでの時間</span></div>
+    </div>
+    <p class="dm-note" id="dmNote">👉 「▶ たおす」をおすと、最初の1枚をはじきます。</p>
+    <p class="dm-hint">倒す前なら、床をタップで1枚追加、ドミノをタップで削除、横になぞると続けて並びます。時間と速さは、本物の速さで動かしたときの値です（画面は見やすいように、ゆっくり動かしています）。</p>
+
+    <div class="dm-cols">
+      <div class="field"><label>ドミノの数 <span class="hint">（<b id="dmNv"></b>）</span></label><input type="range" id="dmN" min="4" max="40" step="1" value="16"></div>
+      <div class="field"><label>間かく <span class="hint">（高さの <b id="dmGapv"></b>）</span></label><input type="range" id="dmGap" min="15" max="130" step="5" value="50"></div>
+      <div class="field"><label>ドミノの高さ <span class="hint">（<b id="dmHv"></b>）</span></label><input type="range" id="dmH" min="2" max="10" step="0.5" value="5"></div>
+    </div>
+
+    <div style="text-align:center;margin-top:16px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+"""
+
+JS = r"""
+(() => {
+  const $ = id => document.getElementById(id);
+  const cv = $('dm'), ctx = cv.getContext('2d');
+  const GR = 9.8, HS = 1 / 960, TR = .15, HALF = Math.PI / 2, BETA = Math.atan(TR), FALL = .5;
+  function rng(s) { s = s >>> 0; return () => { s = (s + 0x6D2B79F5) >>> 0; let t = s; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
+
+  // ---------- 状態 ----------
+  let D = [];            // {x: 軸にする右下の角の位置(m), h, t, th: かたむき(rad), w: 角速度, I, tf: 倒れた時刻}
+  let preset = 'line', state = 'ready', simT = 0, acc = 0, speed = .25, seed = 11, custom = false;
+  let auto = true, autoT = 0, autoK = 0, sound = true, actx = null, lastClick = -1;
+  let view = { x0: -.1, x1: 1, ymax: .1 }, sparks = [], snap = null, snapT = 0, quiet = 0, minD = 0, fingerTh = 0;
+  const vals = () => ({ n: +$('dmN').value, gap: +$('dmGap').value / 100, h: +$('dmH').value / 100 });
+  const mk = (x, h) => ({ x, h, t: h * TR, th: 0, w: 0, I: Math.pow(h, 5), tf: -1 });
+
+  function layout() {
+    const v = vals(), R = rng(seed), n = preset === 'grow' ? Math.min(v.n, 10) : v.n;
+    D = []; let x = 0, h = v.h;
+    for (let i = 0; i < n; i++) {
+      x += h * TR; D.push(mk(x, h));
+      x += (preset === 'rand' ? v.gap * (.4 + 1.7 * R()) : v.gap) * h;
+      if (preset === 'grow') h *= 1.5;
+    }
+    custom = false; fit(); stand();
+  }
+  function fit() {
+    if (!D.length) return;
+    const a = D[0], b = D[D.length - 1]; let hm = 0; D.forEach(d => { hm = Math.max(hm, d.h); });
+    view = { x0: a.x - a.t - Math.max(a.h * 1.7, (b.x - a.x) * .07), x1: b.x + b.h * 1.12, ymax: hm * 1.25 };
+  }
+  function stand() {
+    D.forEach(d => { d.th = 0; d.w = 0; d.tf = -1; });
+    state = 'ready'; simT = 0; acc = 0; sparks = []; snap = null; snapT = 0; quiet = 0; minD = 0; fingerTh = 0; lastUI = 0;
+  }
+  function topple() {
+    if (!D.length) { flash('ドミノがありません。床をタップして並べましょう'); return; }
+    if (state !== 'ready') stand();
+    const d = D[0], r = Math.hypot(d.h, d.t) / 2;
+    d.w = 2.5 * Math.sqrt(1.5 * GR * (1 - Math.cos(BETA)) / r);   // 角をこえるのに必要な速さの2.5倍（そっとはじく）
+    d.th = 1e-4; state = 'run'; lastUI = 0;
+  }
+
+  // ---------- 計算（1/960秒ずつ） ----------
+  function sub() {
+    const n = D.length; simT += HS;
+    for (let i = 0; i < n; i++) {
+      const d = D[i];
+      if (d.th >= HALF) continue;
+      if (d.th <= 0 && d.w <= 0) { d.th = 0; d.w = 0; continue; }
+      d.w += 1.5 * GR / Math.hypot(d.h, d.t) * Math.sin(d.th - BETA) * HS;
+      d.w *= 1 - .4 * HS;
+      d.th += d.w * HS;
+      if (d.th <= 0) { d.th = 0; d.w = 0; }
+      if (d.th >= HALF) { d.th = HALF; d.w = 0; }
+    }
+    // 前のドミノの上の角が、次のドミノの面にめりこまないようにする
+    let md = 0;
+    for (let it = 0; it < 8; it++) for (let k = 0; k < n - 1; k++) {
+      const i = it % 2 ? k : n - 2 - k, a = D[i], b = D[i + 1];
+      if (a.th <= 0) continue;
+      const sa = Math.sin(a.th), ca = Math.cos(a.th), sb = Math.sin(b.th), cb = Math.cos(b.th);
+      const Dx = a.x + a.h * sa - b.x, Cy = a.h * ca;
+      const dd = -Dx * cb + Cy * sb - b.t;
+      if (dd >= 0) continue;
+      const s = Dx * sb + Cy * cb;
+      if (s < 0 || s > b.h) continue;
+      const ja = -a.h * Math.cos(a.th - b.th), jb = s;
+      const wa = 1 / a.I, wb = b.th >= HALF ? 0 : 1 / b.I, den = ja * ja * wa + jb * jb * wb;
+      if (!(den > 0)) continue;
+      const vd = ja * a.w + jb * b.w;
+      if (vd < 0) {
+        if (b.th < 1e-3 && it === 0) { sparks.push({ x: a.x + a.h * sa, y: Cy, t: simT }); click(b.h); }
+        const lam = -vd / den; a.w += lam * ja * wa; b.w += lam * jb * wb;
+      }
+      const mu = -dd / den; a.th += mu * ja * wa; b.th += mu * jb * wb;
+      if (a.th < 0) { a.th = 0; if (a.w < 0) a.w = 0; }
+      if (b.th >= HALF) { b.th = HALF; b.w = 0; }
+      if (it === 7 && dd < md) md = dd;
+    }
+    if (md < minD) minD = md;
+    for (let i = 0; i < n; i++) { const d = D[i]; if (d.tf < 0 && d.th > FALL) d.tf = simT; }
+    // 止まったかどうか
+    snapT += HS;
+    if (snapT >= .12) {
+      snapT = 0; let ch = 1;
+      if (snap && snap.length === n) { ch = 0; for (let i = 0; i < n; i++) ch = Math.max(ch, Math.abs(D[i].th - snap[i])); }
+      snap = D.map(d => d.th);
+      quiet = ch < .003 ? quiet + 1 : 0;
+      if (quiet >= 2 || simT > 60) { D.forEach(d => { d.w = 0; }); state = 'done'; autoT = 0; lastUI = 0; }
+    }
+    if (sparks.length && simT - sparks[0].t > .1) sparks.shift();
+  }
+  function advance(sec) {
+    if (state !== 'run') return;
+    acc += sec; let k = 0;
+    while (acc >= HS && k < 4000) { sub(); acc -= HS; k++; if (state !== 'run') { acc = 0; break; } }
+  }
+  function stats() {
+    const n = D.length; let fallen = 0, last = -1, tAll = -1;
+    for (let i = 0; i < n; i++) if (D[i].tf >= 0) { fallen++; last = i; }
+    let v = null;
+    if (last >= 1 && D[0].tf >= 0 && D[last].tf > D[0].tf) v = (D[last].x - D[0].x) / (D[last].tf - D[0].tf);
+    if (n && fallen === n) tAll = D[n - 1].tf;
+    return { n, fallen, last, v, tAll };
+  }
+
+  // ---------- 音（操作のあとだけ・小さく） ----------
+  function click(h) {
+    if (!sound || !actx || actx.state !== 'running') return;
+    const now = actx.currentTime; if (now - lastClick < .012) return; lastClick = now;
+    try {
+      const o = actx.createOscillator(), g = actx.createGain();
+      o.type = 'triangle'; o.frequency.value = Math.max(260, Math.min(2400, 110 / Math.max(.02, h)));
+      g.gain.setValueAtTime(.05, now); g.gain.exponentialRampToValueAtTime(.0005, now + .045);
+      o.connect(g); g.connect(actx.destination); o.start(now); o.stop(now + .05);
+    } catch (e) { }
+  }
+  function wakeAudio() { if (!sound) return; try { if (!actx) { const AC = window.AudioContext || window.webkitAudioContext; if (AC) actx = new AC(); } if (actx && actx.state === 'suspended') actx.resume(); } catch (e) { } }
+
+  // ---------- 描く ----------
+  let dpr = 1, S = 1, ox = 0, gy = 0;
+  function size() {
+    const w = cv.clientWidth || 600, hh = cv.clientHeight || w / 2.5; dpr = Math.min(2, window.devicePixelRatio || 1);
+    const W = Math.round(w * dpr), Hh = Math.round(hh * dpr); if (cv.width !== W || cv.height !== Hh) { cv.width = W; cv.height = Hh; }
+  }
+  function xf() { const W = cv.width, Hh = cv.height; gy = Hh * .84; S = Math.min(W / (view.x1 - view.x0), gy * .9 / view.ymax); ox = (W - (view.x1 - view.x0) * S) / 2 - view.x0 * S; }
+  function rr(c, x, y, w, h, r) { r = Math.min(r, w / 2, h / 2); c.beginPath(); c.moveTo(x + r, y); c.lineTo(x + w - r, y); c.quadraticCurveTo(x + w, y, x + w, y + r); c.lineTo(x + w, y + h - r); c.quadraticCurveTo(x + w, y + h, x + w - r, y + h); c.lineTo(x + r, y + h); c.quadraticCurveTo(x, y + h, x, y + h - r); c.lineTo(x, y + r); c.quadraticCurveTo(x, y, x + r, y); c.closePath(); }
+  function draw() {
+    size();
+    const c = ctx, W = cv.width, Hh = cv.height, n = D.length;
+    c.setTransform(1, 0, 0, 1, 0, 0);
+    const bg = c.createLinearGradient(0, 0, 0, Hh); bg.addColorStop(0, '#e0e7ff'); bg.addColorStop(1, '#f8fafc'); c.fillStyle = bg; c.fillRect(0, 0, W, Hh);
+    xf();
+    // 床
+    c.fillStyle = '#c7d2fe'; c.fillRect(0, gy, W, Hh - gy);
+    c.fillStyle = '#a5b4fc'; c.fillRect(0, gy, W, 2 * dpr);
+    // ものさし
+    const span = view.x1 - view.x0, unit = span > 4 ? 1 : span > 1.6 ? .5 : span > .5 ? .1 : .05;
+    const bx = 12 * dpr, by = gy + (Hh - gy) * .55;
+    c.strokeStyle = '#4338ca'; c.lineWidth = 1.5 * dpr; c.beginPath(); c.moveTo(bx, by - 4 * dpr); c.lineTo(bx, by + 4 * dpr); c.moveTo(bx, by); c.lineTo(bx + unit * S, by); c.moveTo(bx + unit * S, by - 4 * dpr); c.lineTo(bx + unit * S, by + 4 * dpr); c.stroke();
+    c.fillStyle = '#4338ca'; c.font = `700 ${11 * dpr}px system-ui,sans-serif`; c.textAlign = 'left'; c.textBaseline = 'middle';
+    c.fillText(unit >= 1 ? '1m' : Math.round(unit * 100) + 'cm', bx + unit * S + 6 * dpr, by);
+    // ドミノ
+    for (let i = 0; i < n; i++) {
+      const d = D[i], w = d.t * S, h = d.h * S, hue = 215 + 290 * (n > 1 ? i / (n - 1) : 0);
+      c.save(); c.translate(ox + d.x * S, gy); c.rotate(d.th);
+      const g = c.createLinearGradient(-w, 0, 0, 0); g.addColorStop(0, `hsl(${hue % 360},78%,${d.tf >= 0 ? 60 : 54}%)`); g.addColorStop(1, `hsl(${hue % 360},72%,${d.tf >= 0 ? 48 : 42}%)`);
+      c.fillStyle = g; rr(c, -w, -h, w, h, Math.min(w * .35, 4 * dpr)); c.fill();
+      c.strokeStyle = 'rgba(15,23,42,.35)'; c.lineWidth = Math.max(1, .8 * dpr); c.stroke();
+      if (w > 5 * dpr) { c.fillStyle = 'rgba(255,255,255,.55)'; c.fillRect(-w * .82, -h * .94, w * .2, h * .88); }
+      c.restore();
+    }
+    // ぶつかったところの光
+    for (const sp of sparks) {
+      const p = (simT - sp.t) / .1; if (p < 0 || p > 1) continue;
+      c.strokeStyle = `rgba(245,158,11,${(1 - p) * .9})`; c.lineWidth = 2 * dpr; c.beginPath(); c.arc(ox + sp.x * S, gy - sp.y * S, (3 + 13 * p) * dpr, 0, 7); c.stroke();
+    }
+    // 指
+    if (n && state !== 'done') {
+      const d = D[0];
+      if (state === 'run') fingerTh = Math.min(Math.max(fingerTh, d.th), .32);
+      const th = state === 'ready' ? 0 : fingerTh, back = state === 'ready' ? (.35 + .12 * Math.sin(performance.now() / 260)) * Math.max(d.h * S, 22 * dpr) : 0;
+      const tk = Math.max(.3 * d.h * S, 9 * dpr), L = Math.max(1.1 * d.h * S, 34 * dpr);
+      const tx = ox + (d.x - d.t * Math.cos(th) + .82 * d.h * Math.sin(th)) * S - back;
+      const ty = Math.min(gy - (d.t * Math.sin(th) + .82 * d.h * Math.cos(th)) * S, gy - tk / 2 - 1);
+      c.fillStyle = '#fcd9b6'; c.strokeStyle = '#d99a6c'; c.lineWidth = 1.2 * dpr; rr(c, tx - L, ty - tk / 2, L, tk, tk / 2); c.fill(); c.stroke();
+      c.fillStyle = '#fff1e6'; rr(c, tx - tk * .75, ty - tk * .42, tk * .6, tk * .4, tk * .2); c.fill();
+    }
+    ui();
+  }
+
+  // ---------- 数字とひとこと ----------
+  let lastUI = 0;
+  function ui() {
+    const now = performance.now(); if (now - lastUI < 150) return; lastUI = now;
+    const st = stats();
+    $('dmFallen').innerHTML = st.fallen + '<small> / ' + st.n + '枚</small>';
+    $('dmV').innerHTML = st.v == null ? '—' : st.v.toFixed(2) + '<small> m/秒</small>';
+    $('dmT').innerHTML = st.tAll < 0 ? (state === 'run' ? simT.toFixed(2) + '<small> 秒…</small>' : '—') : st.tAll.toFixed(2) + '<small> 秒</small>';
+    let s;
+    if (state === 'ready') s = '👉 「▶ たおす」をおすと、最初の1枚をはじきます。';
+    else if (state === 'run') s = '🧱 倒れる波が進んでいます…';
+    else if (st.fallen === st.n) s = `🎉 ${st.n}枚ぜんぶ倒れました。` + (preset === 'grow' && st.n > 1 ? `最後のドミノは、最初の約${Math.round(D[st.n - 1].h / D[0].h)}倍の高さです。` : '間かくや高さを変えて、速さをくらべてみましょう。');
+    else if (st.fallen === 0) s = '🤏 最初の1枚が倒れませんでした。';
+    else s = `✋ ${st.fallen}枚目で止まりました。次のドミノまでの間かくが広すぎて、倒しきれませんでした。`;
+    $('dmNote').textContent = s;
+    $('dmGo').textContent = state === 'ready' ? '▶ たおす' : '▶ もう一度たおす';
+  }
+  function flash(s) { const el = $('dmMsg'); el.textContent = s; el.classList.add('show'); clearTimeout(flash.t); flash.t = setTimeout(() => el.classList.remove('show'), 2400); }
+
+  // ---------- 操作 ----------
+  function labels() { const v = vals(); $('dmNv').textContent = (preset === 'grow' ? Math.min(v.n, 10) : v.n) + '枚' + (preset === 'grow' && v.n > 10 ? '（この並べ方は10枚まで）' : ''); $('dmGapv').textContent = Math.round(v.gap * 100) + '%'; $('dmHv').textContent = (preset === 'grow' ? '1枚目 ' : '') + (v.h * 100).toFixed(1).replace('.0', '') + 'cm'; }
+  function setSpeed(v) { speed = v; document.querySelectorAll('#dmSpeed button').forEach(x => x.classList.toggle('on', +x.dataset.v === v)); }
+  function setPreset(p) { preset = p; setSpeed(p === 'grow' ? 1 : .25); document.querySelectorAll('#dmPreset button').forEach(b => b.classList.toggle('on', b.dataset.v === p)); labels(); layout(); }
+  function stopAuto() { auto = false; }
+  $('resultPanel').addEventListener('pointerdown', () => { stopAuto(); wakeAudio(); }, true);
+  $('resultPanel').addEventListener('keydown', stopAuto, true);
+  ['dmN', 'dmGap', 'dmH'].forEach(id => $(id).addEventListener('input', () => { stopAuto(); labels(); layout(); }));
+  $('dmPreset').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; if (b.dataset.v === 'rand') seed++; setPreset(b.dataset.v); });
+  $('dmGo').addEventListener('click', () => { wakeAudio(); topple(); });
+  $('dmReset').addEventListener('click', () => { if (preset === 'rand' && !custom) { seed++; layout(); } else stand(); });
+  $('dmSpeed').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; setSpeed(+b.dataset.v); });
+  $('dmSound').addEventListener('click', () => { sound = !sound; const b = $('dmSound'); b.classList.toggle('on', sound); b.setAttribute('aria-pressed', sound); b.textContent = sound ? '🔈 音あり' : '🔇 音なし'; if (sound) wakeAudio(); });
+
+  // なぞって並べる・タップで追加／削除
+  let drag = null;
+  const toWorld = e => { size(); xf(); const r = cv.getBoundingClientRect(); return ((e.clientX - r.left) * cv.width / r.width - ox) / S; };
+  function tryAdd(x, minGap) {
+    if (preset === 'grow') { flash('「だんだん大きく」では、追加はできません（タップで消すことはできます）'); return false; }
+    if (D.length >= 60) { flash('ドミノは60枚までです'); return false; }
+    const h = vals().h, t = h * TR, xp = x + t / 2;
+    for (const d of D) { if (d.x <= xp ? (xp - t) - d.x < minGap : (d.x - d.t) - xp < minGap) return false; }
+    D.push(mk(xp, h)); D.sort((a, b) => a.x - b.x); custom = true; lastUI = 0; return true;
+  }
+  cv.addEventListener('pointerdown', e => {
+    if (state !== 'ready') { flash('「↺ ならべ直す」をおすと、また並べられます'); return; }
+    const x = toWorld(e), pad = 5 * dpr / S; let hit = -1;
+    D.forEach((d, i) => { if (x >= d.x - d.t - pad && x <= d.x + pad) hit = i; });
+    drag = { x0: x, last: x, moved: false, hit }; try { cv.setPointerCapture(e.pointerId); } catch (err) { }
+  });
+  cv.addEventListener('pointermove', e => {
+    if (!drag || state !== 'ready') return;
+    const x = toWorld(e), v = vals(), pitch = (v.gap + TR) * v.h;
+    if (!drag.moved && Math.abs(x - drag.x0) > Math.max(pitch * .6, 8 * dpr / S)) { drag.moved = true; tryAdd(drag.x0, v.h * .12); }
+    if (drag.moved) { let k = 0; while (Math.abs(x - drag.last) >= pitch && k < 60) { drag.last += Math.sign(x - drag.last) * pitch; tryAdd(drag.last, Math.min(v.gap, .5) * v.h * .9); k++; } }
+  });
+  const up = e => {
+    if (!drag) return; const g = drag; drag = null;
+    if (state !== 'ready') return;
+    if (!g.moved) { if (g.hit >= 0) { D.splice(g.hit, 1); custom = true; lastUI = 0; } else if (!tryAdd(g.x0, vals().h * .12) && preset !== 'grow' && D.length < 60) flash('となりのドミノに近すぎます'); }
+    if (D.length) fit();
+  };
+  cv.addEventListener('pointerup', up); cv.addEventListener('pointercancel', () => { drag = null; });
+
+  // ---------- シェア ----------
+  function shareText() { const st = stats(); return `ドミノ倒しシミュレーターで、${st.n}枚のうち${st.fallen}枚を倒しました。` + (st.v != null ? `倒れる波の速さは${st.v.toFixed(2)}m/秒（模式的な値）` : '') + (st.tAll >= 0 ? `、全部倒れるまで${st.tAll.toFixed(2)}秒` : '') + '🧱'; }
+  $('shareBtn').addEventListener('click', () => { const u = location.origin + location.pathname; window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText() + '\n') + '&url=' + encodeURIComponent(u) + '&hashtags=' + encodeURIComponent('シミュラボ'), '_blank', 'noopener'); });
+  $('copyBtn').addEventListener('click', async () => { try { await navigator.clipboard.writeText(shareText() + '\n' + location.origin + location.pathname); flash('コピーしました'); } catch (e) { flash('コピーできませんでした'); } });
+
+  // ---------- 動かす ----------
+  const CYCLE = ['line', 'grow', 'line', 'rand'];
+  let tPrev = performance.now();
+  function loop(now) {
+    const dt = Math.min(.1, (now - tPrev) / 1000); tPrev = now;
+    if (auto) {
+      autoT += dt;
+      if (state === 'ready' && autoT > 2.2) topple();
+      else if (state === 'done' && autoT > 2.6) { autoK = (autoK + 1) % CYCLE.length; if (CYCLE[autoK] === 'rand') seed++; setPreset(CYCLE[autoK]); autoT = 0; }
+    }
+    advance(dt * speed);
+    draw(); requestAnimationFrame(loop);
+  }
+  labels(); layout();
+  requestAnimationFrame(loop);
+  window.__t = {
+    step(sec) { const k = Math.round(sec * 60); for (let i = 0; i < k; i++) advance(1 / 60); lastUI = 0; draw(); },
+    get s() { const st = stats(); return { state, preset, n: st.n, fallen: st.fallen, v: st.v, tAll: st.tAll, simT: +simT.toFixed(3), minD, nan: D.some(d => !isFinite(d.th) || !isFinite(d.w) || !isFinite(d.x)), th: D.map(d => +d.th.toFixed(3)), auto }; },
+    topple() { auto = false; topple(); }, stand() { auto = false; stand(); },
+    set(o) { auto = false; if (o.n != null) $('dmN').value = o.n; if (o.gap != null) $('dmGap').value = o.gap; if (o.h != null) $('dmH').value = o.h; if (o.seed != null) seed = o.seed; setPreset(o.preset || preset); },
+  };
+})();
+"""
+
+
+def esc(s): return H.escape(s, quote=True)
+
+
+def build():
+    url = f"{BASE}/sims/{SLUG}/"
+    ld_app = {"@context": "https://schema.org", "@type": "WebApplication", "name": NAME, "url": url, "description": DESC,
+              "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": True,
+              "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}}
+    ld_bc = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "ホーム", "item": BASE + "/"}, {"@type": "ListItem", "position": 2, "name": NAME, "item": url}]}
+    ld_faq = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]}
+    rel = "".join(f'<a class="related-card" href="../{s}/"><span class="e">{e}</span><span>{esc(t)}</span></a>' for s, e, t in REL)
+    faq = "".join(f"<dt>{esc(q)}</dt><dd>{a}</dd>" for q, a in FAQ)
+    refs = "".join(f"<li>{r}</li>" for r in REFS)
+    return f"""<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="{url}">
+    <meta property="og:image" content="{BASE}/ogp/{SLUG}.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{BASE}/ogp/{SLUG}.png">
+<title>{esc(TITLE)}</title>
+<meta name="description" content="{esc(DESC)}">
+<meta property="og:title" content="{esc(OG_T)}">
+<meta property="og:description" content="{esc(OG_D)}">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="{url}">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{json.dumps(ld_app, ensure_ascii=False)}</script>
+    <script type="application/ld+json">{json.dumps(ld_bc, ensure_ascii=False)}</script>
+    <script type="application/ld+json">{json.dumps(ld_faq, ensure_ascii=False)}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+{STAGE}
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span>{esc(CAT)}<span>›</span><span class="cur">{esc(NAME)}</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">{esc(CAT)}</div>
+    <h1>{H1}</h1>
+    <p class="lead">{esc(LEAD)}</p>
+  </div>
+{BODY}
+  <article class="article">
+{ARTICLE}
+    <h2>よくある質問</h2>
+    <dl class="faq">{faq}</dl>
+    <h2>参考にした資料</h2>
+    <ul class="seo-refs">{refs}</ul>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>関連するシミュレーター</h2>
+    <div class="related-grid">{rel}</div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュレーターも見てみたい？</h2>
+    <p>あなたの「これシミュレーションしてみたい」を送ってください。面白い案から実際に作って、できたらお知らせします。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:8px;font-size:.85em"><!-- footer-links --><a href="../../about/">運営者情報</a>　<a href="../../privacy/">プライバシーポリシー</a>　<a href="../../terms/">利用規約</a>　<a href="../../contact/">お問い合わせ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>{JS}</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({{ simId:'{SLUG}', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] }});</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>
+"""
+
+
+if __name__ == "__main__":
+    out = os.path.join(ROOT, "sims", SLUG, "index.html")
+    os.makedirs(os.path.dirname(out), exist_ok=True)
+    io.open(out, "w", encoding="utf-8", newline="\n").write(build())
+    print("wrote", out)

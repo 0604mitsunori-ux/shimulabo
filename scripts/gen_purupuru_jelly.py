@@ -1,0 +1,582 @@
+# -*- coding: utf-8 -*-
+"""ぷるぷるゼリー（やわらかい物体のシミュレーション）（2026-11-24）
+   sims/purupuru-jelly/index.html を書き出す（冪等）。 使い方: python -X utf8 scripts/gen_purupuru_jelly.py"""
+import html as H, io, json, os, sys
+
+sys.stdout.reconfigure(encoding="utf-8")
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE = "https://shimulabo.com"
+SLUG = "purupuru-jelly"
+NAME = "ぷるぷるゼリー（やわらかい物体のシミュレーション）"
+CAT = "あそぶ・実験"
+TITLE = "ぷるぷるゼリー｜やわらかい物体（ソフトボディ）のシミュレーション｜つまんで投げてはずませる｜シミュラボ"
+DESC = ("点とバネでできたやわらかい物体（ゼリー・ボール・スライム・消しゴム）が、落ちて、はねて、ぷるぷるゆれるシミュレーション。"
+        "指やマウスでつまんで引っぱる・投げる・押しつぶすことができます。やわらかさ・ふくらみ・重力・ゆれのおさまりやすさを変えて、動きのちがいをくらべられます。")
+OG_T = "ぷるぷるゼリー やわらかい物体のシミュレーション"
+OG_D = "ゼリーやスライムをつまんで、引っぱって、投げる。やわらかさや重力を変えると、ゆれ方が変わります。"
+H1 = "ぷるぷるゼリー<br>やわらかい物体のシミュレーション"
+LEAD = ("ゼリーやスライムのようなやわらかい物体が、落ちて、はねて、ぷるぷるゆれます。指やマウスでつまんで引っぱったり、投げたり、押しつぶしたりしてみましょう。"
+        "何もないところをタップすると、新しい物体が出てきます。")
+
+FAQ = [
+    ("どうやって遊びますか？", "物体を指やマウスでつまんで動かすと、引っぱったり投げたりできます。何もないところをタップすると、新しい物体が出てきます。下の「やわらかさ」「ふくらみ」「重力」「ゆれのおさまりやすさ」を動かすと、ゆれ方が変わります。"),
+    ("どうして、ぷるぷるゆれるのですか？", "形が変わると、元の形にもどそうとする力がはたらきます。もどるときに勢いがついて行きすぎ、また反対向きにもどされる、ということをくり返すので、ゆれて見えます。バネにつけたおもりがゆれるのと同じしくみです。"),
+    ("つぶれ具合の数字は、何を表していますか？", "物体のまわりの点が、元の形からどれくらいずれているかを、物体の大きさとくらべた割合（%）です。0%なら元の形のまま、数字が大きいほど大きく変形しています。画面の中でいちばん変形している物体の数字を出しています。"),
+    ("「ふくらみ」を変えると、どうなりますか？", "物体の中の圧力を変えることにあたります。大きくすると、空気をたくさん入れた風船のようにふくらんで大きくなり、小さくすると、しぼんで小さくなります。"),
+    ("本物のゼリーと同じ動きですか？", "同じではありません。このシミュレーターは平面（2次元）で、物体のまわりの20この点だけを計算しています。本物のゼリーは立体で、中身もぜんぶ変形します。ゆれる感じをつかむための、単純にしたモデルです。"),
+]
+REL = [("nuno-cloth", "🧵", "布のシミュレーション"), ("double-pendulum", "🌀", "二重振り子"), ("wave", "🌊", "波のシミュレーション")]
+
+ARTICLE = """
+<h2>このシミュレーターのしくみ</h2>
+<p>画面の物体は、まわりにならんだ<b>20この点</b>でできています。となりどうしの点は<b>バネ</b>でつながっていて、1秒間に240回、次の計算をくり返しています。</p>
+<ul>
+<li><b>重力で落とす</b>：すべての点を下向きに加速します。</li>
+<li><b>元の形にもどす</b>：いまの点のならびに、元の形をいちばんよく重なるように回して置き、それぞれの点をその場所へ少しずつ引きもどします。この方法は「シェイプマッチング（shape matching）」とよばれ、ゲームやCGでやわらかい物体を動かすために使われています。</li>
+<li><b>中の圧力</b>：つぶれて面積が小さくなると、点を外向きにおし返します。下からつぶされると横にふくらむのは、このためです。</li>
+<li><b>ぶつかり</b>：床・かべ・ほかの物体にめりこんだ点を、外へおしもどします。</li>
+</ul>
+<p>「やわらかさ」は、元の形にもどす力の強さです。バネは、のびが小さいうちは「のびに比例した力」でもどろうとします（<b>フックの法則</b>）。もどす力が強いほど、ゆれは速く小さくなり、弱いほど、ゆっくり大きくゆれます。</p>
+<p>「ゆれのおさまりやすさ」は、形が変わる動きにだけブレーキをかける強さです。物体全体が飛んだり回ったりする動きには、ほとんどブレーキをかけていません。</p>
+
+<h2>ためしてみたいこと</h2>
+<ul>
+<li><b>4つの物体をくらべる</b>：ゼリー・ボール・スライム・かたい消しゴムを順番にえらび、床に落ちたときのつぶれ方と、ゆれが止まるまでの時間をくらべてみましょう。</li>
+<li><b>やわらかさだけを変える</b>：同じ物体でも、やわらかくするほど、ゆれがゆっくりになります。</li>
+<li><b>ゆれのおさまりやすさを0にする</b>：ブレーキがほとんどなくなり、いつまでもぷるぷるゆれ続けます。</li>
+<li><b>重力を0にする</b>：物体が落ちなくなります。投げると、かべにあたるまでまっすぐ進みます。</li>
+<li><b>スローで見る</b>：床にあたった瞬間に、下からつぶれて横にふくらむようすがよく見えます。</li>
+<li><b>積み上げる</b>：物体を何こも重ねると、下の物体ほど大きくつぶれます。上にのっている物体の重さがかかるからです。</li>
+</ul>
+
+<h2>本物では</h2>
+<p>力を加えると形が変わり、力をなくすと元にもどる性質を<b>弾性（だんせい）</b>といいます。ゴムやバネ、ゼリーは、弾性をもつ身近なものです。</p>
+<p>本物のゼリーは、ゼラチンなどの細長い分子があみ目のようにつながり、そのすきまにたくさんの水をかかえこんでいます。あみ目がバネのようにはたらくので、ゆらすとぷるぷるゆれます。ほとんどが水なので、おされても体積はあまり変わらず、つぶされると横にふくらみます。また、ゆれがしだいにおさまるのは、動きのエネルギーが少しずつ熱に変わっていくからです。</p>
+<p>このシミュレーターは、こうした動きの「感じ」を見るために単純にしています。平面（2次元）であること、まわりの点だけを計算していること、もどす力や圧力の強さは見た目がそれらしくなるように決めた値で、実際の材料を測った値ではないことに注意してください。大きさや速さの単位も、実際の長さや時間とは対応していません。</p>
+"""
+
+REFS = [
+    "文部科学省「中学校学習指導要領解説 理科編」（力の働き：ばねの伸びと力の大きさ）",
+    "M. Müller, B. Heidelberger, M. Teschner, M. Gross (2005) Meshless deformations based on shape matching. ACM SIGGRAPH.",
+    "M. Müller, B. Heidelberger, M. Hennix, J. Ratcliff (2007) Position based dynamics. Journal of Visual Communication and Image Representation 18(2), 109–118.",
+]
+
+STAGE = r"""
+<style>
+.pj-seg{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.pj-seg button,.pj-btns button{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 13px;font:inherit;font-size:13.5px;font-weight:800;cursor:pointer;color:var(--ink)}
+.pj-seg button.on{background:#db2777;border-color:#db2777;color:#fff}
+#pjWrap{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#fdf2f8}
+#pjCv{display:block;width:100%;aspect-ratio:16/10;touch-action:none;cursor:grab;-webkit-user-select:none;user-select:none}
+#pjCv.grabbing{cursor:grabbing}
+.pj-hint{font-size:13px;color:var(--ink-2);margin:8px 0 0}
+.pj-btns{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.pj-btns button.on{background:#f59e0b;border-color:#f59e0b;color:#111}
+.pj-sum{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
+.pj-sum div{background:#fdf2f8;border-radius:12px;padding:10px 4px;text-align:center}
+.pj-sum b{display:block;font-size:20px;color:#be185d;font-variant-numeric:tabular-nums}
+.pj-sum b small{font-size:11.5px}
+.pj-sum span{font-size:11.5px;color:var(--ink-2);font-weight:700}
+.pj-cols{display:grid;grid-template-columns:1fr 1fr;gap:6px 22px;margin-top:8px}
+.pj-msg{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);background:rgba(15,23,42,.85);color:#fff;font-size:12.5px;font-weight:700;border-radius:12px;padding:6px 14px;max-width:92%;text-align:center;pointer-events:none;opacity:0;transition:opacity .3s}
+.pj-msg.show{opacity:1}
+@media (max-width:640px){#pjCv{aspect-ratio:4/5}.pj-sum{grid-template-columns:repeat(2,1fr)}.pj-cols{grid-template-columns:1fr}}
+</style>
+"""
+
+BODY = r"""
+  <section class="panel" id="resultPanel">
+    <div class="pj-seg" id="pjPre">
+      <button type="button" data-k="jelly" class="on">🍮 ゼリー</button>
+      <button type="button" data-k="ball">🔴 ボール</button>
+      <button type="button" data-k="slime">🟢 スライム</button>
+      <button type="button" data-k="eraser">🧽 かたい消しゴム</button>
+    </div>
+    <div id="pjWrap">
+      <canvas id="pjCv" aria-label="やわらかい物体が落ちてはねているようす"></canvas>
+      <div class="pj-msg" id="pjMsg"></div>
+    </div>
+    <p class="pj-hint">👆 物体をつまんで、引っぱる・投げる・押しつぶす。何もないところをタップすると、新しい物体が出てきます。</p>
+    <div class="pj-btns">
+      <button type="button" id="pjAdd">＋ 物体を追加</button>
+      <button type="button" id="pjClear">🗑 全部消す</button>
+      <button type="button" id="pjSlow">🐢 スロー</button>
+    </div>
+    <div class="pj-sum">
+      <div><b id="pjN">0</b><span>物体の数</span></div>
+      <div><b id="pjSq">0</b><span>いちばんつぶれている物体</span></div>
+      <div><b id="pjWob">0</b><span>ゆれの大きさ</span></div>
+      <div><b id="pjHit">0</b><span>床やかべにあたった回数</span></div>
+    </div>
+    <div class="pj-cols">
+      <div class="field"><label>やわらかさ <span class="hint">（<b id="pjVSoft"></b>）</span></label><input type="range" id="pjSoft" min="0" max="100" step="1" value="62"></div>
+      <div class="field"><label>ふくらみ（中の圧力） <span class="hint">（<b id="pjVInfl"></b>）</span></label><input type="range" id="pjInfl" min="70" max="140" step="1" value="100"></div>
+      <div class="field"><label>重力 <span class="hint">（<b id="pjVGrav"></b>）</span></label><input type="range" id="pjGrav" min="0" max="200" step="5" value="100"></div>
+      <div class="field"><label>ゆれのおさまりやすさ <span class="hint">（<b id="pjVDamp"></b>）</span></label><input type="range" id="pjDamp" min="0" max="100" step="1" value="25"></div>
+    </div>
+
+    <div style="text-align:center;margin-top:16px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-x" id="shareBtn">𝕏 でシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+"""
+
+JS = r"""
+(() => {
+  const $ = id => document.getElementById(id);
+  const cv = $('pjCv'), ctx = cv.getContext('2d');
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+  const N = 20, SUB = 4, MAXB = 8, AUTOMAX = 5, VMAX = 45, G0 = 30;
+  const PRESETS = {
+    jelly: { shape: 'jelly', soft: 62, infl: 100, damp: 25 },
+    ball: { shape: 'circle', soft: 38, infl: 105, damp: 15 },
+    slime: { shape: 'blob', soft: 92, infl: 100, damp: 45 },
+    eraser: { shape: 'eraser', soft: 6, infl: 100, damp: 60 },
+  };
+  const COLORS = [[345, 85, 72], [150, 58, 58], [32, 95, 62], [265, 72, 74], [195, 80, 60], [52, 90, 58]];
+  const P = { soft: 62, infl: 1, grav: 1, damp: 25, slow: false, preset: 'jelly' };
+  let W = 10, Hh = 8, FLOOR = 7.6, dpr = 1, S = 50;
+  let bodies = [], hits = 0, calm = 0, tSim = 0, colorI = 0, nanCount = 0, maxEver = 0, lastUser = -99, lastSpawn = 0;
+  let grab = null;
+
+  // ---------- 形（元の形）----------
+  function restShape(kind) {
+    const pts = [];
+    for (let i = 0; i < N; i++) {
+      const t = i / N * 2 * Math.PI, c = Math.cos(t), s = Math.sin(t);
+      const se = (v, e) => Math.sign(v) * Math.pow(Math.abs(v), e);
+      let x, y;
+      if (kind === 'jelly') { x = .82 * se(c, .45); y = .7 * se(s, .45); x *= 1 + .16 * y / .7; }
+      else if (kind === 'eraser') { x = 1.02 * se(c, .3); y = .56 * se(s, .3); }
+      else if (kind === 'blob') { x = .95 * c; y = .9 * s; }
+      else { x = .8 * c; y = .8 * s; }
+      pts.push([x, y]);
+    }
+    let mx = 0, my = 0; pts.forEach(p => { mx += p[0]; my += p[1]; }); mx /= N; my /= N;
+    let r = 0, area = 0; pts.forEach(p => { p[0] -= mx; p[1] -= my; r = Math.max(r, Math.hypot(p[0], p[1])); });
+    for (let i = 0; i < N; i++) { const a = pts[i], b = pts[(i + 1) % N]; area += a[0] * b[1] - b[0] * a[1]; }
+    return { pts, r, area: area / 2 };
+  }
+  function makeBody(kind, cx, cy, vx, vy, enter) {
+    const q = restShape(kind), a0 = (Math.random() - .5) * .5, co = Math.cos(a0), si = Math.sin(a0);
+    const b = { kind, q: q.pts, A0: q.area, R: q.r, x: new Float64Array(N), y: new Float64Array(N), px: new Float64Array(N), py: new Float64Array(N), vx: new Float64Array(N), vy: new Float64Array(N),
+      col: COLORS[colorI++ % COLORS.length], ang: a0, cx, cy, dev: 0, wob: 0, spd: 0, enter: !!enter, airT: 1, blink: 1 + Math.random() * 4, minx: 0, maxx: 0, miny: 0, maxy: 0, born: tSim };
+    for (let i = 0; i < N; i++) { const p = q.pts[i]; b.x[i] = cx + (co * p[0] - si * p[1]) * P.infl; b.y[i] = cy + (si * p[0] + co * p[1]) * P.infl; b.vx[i] = vx; b.vy[i] = vy; }
+    return b;
+  }
+  const omega = () => 170 * Math.pow(9 / 170, P.soft / 100);
+
+  function inside(b, x, y) {
+    let c = false;
+    for (let i = 0, j = N - 1; i < N; j = i++) {
+      const yi = b.y[i], yj = b.y[j];
+      if ((yi > y) !== (yj > y) && x < (b.x[j] - b.x[i]) * (y - yi) / (yj - yi) + b.x[i]) c = !c;
+    }
+    return c;
+  }
+  function bbox(b) {
+    let a = 1e9, c = -1e9, d = 1e9, e = -1e9;
+    for (let i = 0; i < N; i++) { const x = b.x[i], y = b.y[i]; if (x < a) a = x; if (x > c) c = x; if (y < d) d = y; if (y > e) e = y; }
+    b.minx = a; b.maxx = c; b.miny = d; b.maxy = e;
+  }
+  function collide(a, b) {
+    if (a.maxx < b.minx || a.minx > b.maxx || a.maxy < b.miny || a.miny > b.maxy) return;
+    for (let i = 0; i < N; i++) {
+      const px = a.x[i], py = a.y[i];
+      if (px < b.minx || px > b.maxx || py < b.miny || py > b.maxy) continue;
+      if (!inside(b, px, py)) continue;
+      let best = 1e9, bj = 0, bt = 0, bx = 0, by = 0;
+      for (let j = 0; j < N; j++) {
+        const k = (j + 1) % N, x1 = b.x[j], y1 = b.y[j], ex = b.x[k] - x1, ey = b.y[k] - y1;
+        const t = clamp(((px - x1) * ex + (py - y1) * ey) / (ex * ex + ey * ey + 1e-9), 0, 1);
+        const qx = x1 + ex * t, qy = y1 + ey * t, d2 = (qx - px) * (qx - px) + (qy - py) * (qy - py);
+        if (d2 < best) { best = d2; bj = j; bt = t; bx = qx; by = qy; }
+      }
+      const dx = bx - px, dy = by - py, k2 = (bj + 1) % N, s = .5 / (bt * bt + (1 - bt) * (1 - bt));
+      a.x[i] += dx * .5; a.y[i] += dy * .5;
+      b.x[bj] -= dx * s * (1 - bt); b.y[bj] -= dy * s * (1 - bt);
+      b.x[k2] -= dx * s * bt; b.y[k2] -= dy * s * bt;
+    }
+  }
+  function walls(b, fric) {
+    let hit = false;
+    for (let i = 0; i < N; i++) {
+      if (b.y[i] > FLOOR) { b.y[i] = FLOOR; if (fric) b.x[i] += (b.px[i] - b.x[i]) * .25; hit = true; }
+      if (!b.enter && b.y[i] < 0) { b.y[i] = 0; hit = true; }
+      if (b.x[i] < 0) { b.x[i] = 0; if (fric) b.y[i] += (b.py[i] - b.y[i]) * .1; hit = true; }
+      else if (b.x[i] > W) { b.x[i] = W; if (fric) b.y[i] += (b.py[i] - b.y[i]) * .1; hit = true; }
+    }
+    return hit;
+  }
+
+  // ---------- 1回分の計算 ----------
+  function sub(h) {
+    const g = G0 * P.grav, om = omega(), al = Math.min(.9, om * om * h * h), ke = Math.min(.5, al * 6 + .02), infl = P.infl;
+    const dk = Math.exp(-(.25 + P.damp / 100 * 16) * h), air = Math.exp(-.06 * h);
+    for (const b of bodies) {
+      const x = b.x, y = b.y, q = b.q;
+      for (let i = 0; i < N; i++) { b.vy[i] += g * h; b.px[i] = x[i]; b.py[i] = y[i]; x[i] += b.vx[i] * h; y[i] += b.vy[i] * h; }
+      if (grab && grab.b === b) {
+        let ax = 0, ay = 0, ws = 0; const w = grab.w;
+        for (let i = 0; i < N; i++) { ax += x[i] * w[i]; ay += y[i] * w[i]; ws += w[i]; }
+        const dx = clamp(grab.x - grab.ox - ax / ws, -3, 3), dy = clamp(grab.y - grab.oy - ay / ws, -3, 3);
+        for (let i = 0; i < N; i++) { x[i] += dx * w[i] * .3; y[i] += dy * w[i] * .3; }
+      }
+      // 元の形にもどす（shape matching）
+      let cx = 0, cy = 0; for (let i = 0; i < N; i++) { cx += x[i]; cy += y[i]; } cx /= N; cy /= N;
+      let sc = 0, ss = 0;
+      for (let i = 0; i < N; i++) { const rx = x[i] - cx, ry = y[i] - cy; sc += q[i][0] * rx + q[i][1] * ry; ss += q[i][0] * ry - q[i][1] * rx; }
+      const th = Math.atan2(ss, sc), co = Math.cos(th), si = Math.sin(th);
+      let dev = 0;
+      for (let i = 0; i < N; i++) {
+        const dx = cx + (co * q[i][0] - si * q[i][1]) * infl - x[i], dy = cy + (si * q[i][0] + co * q[i][1]) * infl - y[i];
+        dev += dx * dx + dy * dy; x[i] += dx * al; y[i] += dy * al;
+      }
+      b.dev = Math.sqrt(dev / N) / (b.R * infl); b.ang = th;
+      // となりの点とのバネ
+      for (let d = 1; d <= 2; d++) for (let i = 0; i < N; i++) {
+        const j = (i + d) % N, L = Math.hypot(q[i][0] - q[j][0], q[i][1] - q[j][1]) * infl;
+        const dx = x[j] - x[i], dy = y[j] - y[i], D = Math.hypot(dx, dy); if (D < 1e-6) continue;
+        const k = ke * (D - L) / D * .5; x[i] += dx * k; y[i] += dy * k; x[j] -= dx * k; y[j] -= dy * k;
+      }
+      // 中の圧力（面積をたもつ）
+      let A = 0, per = 0;
+      for (let i = 0; i < N; i++) { const j = (i + 1) % N; A += x[i] * y[j] - x[j] * y[i]; per += Math.hypot(x[j] - x[i], y[j] - y[i]); }
+      A /= 2;
+      if (A > .05 * b.A0 && per > 1e-6) {
+        const lam = clamp(.5 * (b.A0 * infl * infl - A) / per, -.03, .03);
+        for (let i = 0; i < N; i++) {
+          const j = (i + 1) % N, k = (i + N - 1) % N, tx = x[j] - x[k], ty = y[j] - y[k], l = Math.hypot(tx, ty); if (l < 1e-6) continue;
+          x[i] += ty / l * lam; y[i] -= tx / l * lam;
+        }
+      }
+      const hit = walls(b, true);
+      if (hit) { if (b.airT > .12) hits++; b.airT = 0; } else b.airT += h;
+      bbox(b);
+      if (b.enter && b.miny > .05) b.enter = false;
+    }
+    // 物体どうし
+    for (let i = 0; i < bodies.length; i++) for (let j = i + 1; j < bodies.length; j++) {
+      const a = bodies[i], b = bodies[j];
+      if (a.maxx < b.minx || a.minx > b.maxx || a.maxy < b.miny || a.miny > b.maxy) continue;
+      collide(a, b); collide(b, a);
+      let ax = 0, ay = 0, bx = 0, by = 0;
+      for (let k = 0; k < N; k++) { ax += a.x[k]; ay += a.y[k]; bx += b.x[k]; by += b.y[k]; }
+      let dx = (bx - ax) / N, dy = (by - ay) / N; const D = Math.hypot(dx, dy), lim = .5 * (a.R + b.R) * P.infl;
+      if (D < lim) {
+        if (D < 1e-4) { dx = 1; dy = 0; } else { dx /= D; dy /= D; }
+        const p = (lim - D) * .1;
+        for (let k = 0; k < N; k++) { a.x[k] -= dx * p; a.y[k] -= dy * p; b.x[k] += dx * p; b.y[k] += dy * p; }
+      }
+    }
+    // 速度を出す・ゆれにブレーキ
+    for (let n = bodies.length - 1; n >= 0; n--) {
+      const b = bodies[n]; walls(b, false);
+      let cx = 0, cy = 0, vcx = 0, vcy = 0;
+      for (let i = 0; i < N; i++) { b.vx[i] = (b.x[i] - b.px[i]) / h; b.vy[i] = (b.y[i] - b.py[i]) / h; cx += b.x[i]; cy += b.y[i]; vcx += b.vx[i]; vcy += b.vy[i]; }
+      cx /= N; cy /= N; vcx /= N; vcy /= N;
+      let L = 0, I = 0;
+      for (let i = 0; i < N; i++) { const rx = b.x[i] - cx, ry = b.y[i] - cy; L += rx * (b.vy[i] - vcy) - ry * (b.vx[i] - vcx); I += rx * rx + ry * ry; }
+      const w = I > 1e-9 ? L / I : 0; let wob = 0;
+      for (let i = 0; i < N; i++) {
+        const rx = b.x[i] - cx, ry = b.y[i] - cy, rvx = vcx - w * ry, rvy = vcy + w * rx;
+        const ex = b.vx[i] - rvx, ey = b.vy[i] - rvy; wob += ex * ex + ey * ey;
+        let vx = (rvx + ex * dk) * air, vy = (rvy + ey * dk) * air;
+        const sp = Math.hypot(vx, vy); if (sp > VMAX) { vx *= VMAX / sp; vy *= VMAX / sp; }
+        b.vx[i] = vx; b.vy[i] = vy;
+      }
+      b.wob = Math.sqrt(wob / N); b.spd = Math.hypot(vcx, vcy); b.cx = cx; b.cy = cy; bbox(b);
+      if (!isFinite(cx) || !isFinite(cy) || !isFinite(b.wob)) { bodies.splice(n, 1); nanCount++; if (grab && grab.b === b) grab = null; }
+    }
+  }
+  function spawn(x, y, vx, vy, enter, max) {
+    const kind = PRESETS[P.preset].shape;
+    while (bodies.length >= max) { const o = bodies.shift(); if (grab && grab.b === o) grab = null; }
+    const b = makeBody(kind, x, y, vx, vy, enter); bodies.push(b); lastSpawn = tSim; return b;
+  }
+  function drop(max) { const m = 1.3 * P.infl; spawn(m + Math.random() * Math.max(.1, W - 2 * m), -1.2 * P.infl, (Math.random() - .5) * 7, 5, true, max); }
+  function reset() {
+    bodies = []; grab = null; calm = 0;
+    const m = 1.3 * P.infl;
+    for (let i = 0; i < 3; i++) spawn(clamp(W * (.25 + .25 * i) + (Math.random() - .5), m, W - m), -1.2 - i * 3, (Math.random() - .5) * 4, 3, true, MAXB);
+  }
+  function frame(dt) {
+    const sc = P.slow ? .25 : 1, h = dt * sc / SUB;
+    for (let s = 0; s < SUB; s++) sub(h);
+    tSim += dt * sc;
+    let mv = 0; for (const b of bodies) { mv = Math.max(mv, b.spd + b.wob); if (b.dev * 100 > maxEver && !b.enter) maxEver = Math.min(999, b.dev * 100); b.blink -= dt; if (b.blink < -.12) b.blink = 1.5 + Math.random() * 4; }
+    if (!grab && mv < .9) calm += dt; else calm = 0;
+    const idle = tSim - lastUser > 12 && tSim - lastSpawn > 12 * sc;
+    if (!grab && (calm > (bodies.length ? 1.6 : .4) || idle)) { drop(AUTOMAX); calm = 0; }
+  }
+
+  // ---------- 描く ----------
+  function size() {
+    const w = cv.clientWidth || 600, hh = cv.clientHeight || w * .625; dpr = Math.min(2, window.devicePixelRatio || 1);
+    const cw = Math.round(w * dpr), ch = Math.round(hh * dpr); if (cv.width !== cw || cv.height !== ch) { cv.width = cw; cv.height = ch; }
+    W = clamp(w / 72, 7, 11.5); Hh = W * hh / w; FLOOR = Hh - .4; S = cv.width / W;
+  }
+  function path(c, b) {
+    const x = b.x, y = b.y; c.beginPath();
+    c.moveTo((x[N - 1] + x[0]) / 2, (y[N - 1] + y[0]) / 2);
+    for (let i = 0; i < N; i++) { const j = (i + 1) % N; c.quadraticCurveTo(x[i], y[i], (x[i] + x[j]) / 2, (y[i] + y[j]) / 2); }
+    c.closePath();
+  }
+  let lastUI = 0;
+  function draw(force) {
+    size();
+    const c = ctx, cw = cv.width, ch = cv.height;
+    c.setTransform(1, 0, 0, 1, 0, 0);
+    const bg = c.createLinearGradient(0, 0, 0, ch); bg.addColorStop(0, '#fff7fb'); bg.addColorStop(1, '#fde8f1');
+    c.fillStyle = bg; c.fillRect(0, 0, cw, ch);
+    c.setTransform(S, 0, 0, S, 0, 0);
+    c.fillStyle = '#f9c6dc'; c.fillRect(0, FLOOR, W, Hh - FLOOR);
+    c.fillStyle = '#f472b6'; c.fillRect(0, FLOOR, W, .06);
+    // 影
+    for (const b of bodies) {
+      const hgt = clamp((FLOOR - b.maxy) / 4, 0, 1), rw = (b.maxx - b.minx) / 2 * (1 - .35 * hgt);
+      c.fillStyle = `rgba(131,24,67,${(.22 * (1 - .75 * hgt)).toFixed(3)})`;
+      c.beginPath(); c.ellipse((b.minx + b.maxx) / 2, FLOOR + .12, rw, .11, 0, 0, 7); c.fill();
+    }
+    for (const b of bodies) {
+      const [hu, sa, li] = b.col, R = b.R * P.infl;
+      path(c, b);
+      const gr = c.createLinearGradient(0, b.miny, 0, b.maxy);
+      gr.addColorStop(0, `hsla(${hu},${sa}%,${li + 12}%,.95)`); gr.addColorStop(1, `hsla(${hu},${sa}%,${li - 8}%,.95)`);
+      c.fillStyle = gr; c.fill();
+      c.save(); c.clip();
+      c.translate(b.cx, b.cy); c.rotate(b.ang);
+      c.fillStyle = `hsla(${hu},${sa}%,${li - 18}%,.28)`; c.beginPath(); c.ellipse(0, R * .75, R * 1.2, R * .38, 0, 0, 7); c.fill();
+      c.fillStyle = 'rgba(255,255,255,.6)'; c.beginPath(); c.ellipse(-R * .34, -R * .42, R * .3, R * .12, -.45, 0, 7); c.fill();
+      c.beginPath(); c.arc(-R * .58, -R * .2, R * .06, 0, 7); c.fill();
+      c.restore();
+      path(c, b); c.strokeStyle = `hsl(${hu},${sa - 10}%,${li - 24}%)`; c.lineWidth = .055; c.lineJoin = 'round'; c.stroke();
+      // 顔
+      c.save(); c.translate(b.cx, b.cy); c.rotate(b.ang);
+      const ey = -R * .04, ex = R * .27, er = R * .085, sq = clamp(b.dev * 3, 0, 1);
+      c.fillStyle = 'rgba(244,63,94,.3)'; c.beginPath(); c.arc(-ex * 1.6, ey + R * .2, er * 1.3, 0, 7); c.arc(ex * 1.6, ey + R * .2, er * 1.3, 0, 7); c.fill();
+      c.fillStyle = '#3b0a22';
+      const bl = b.blink < 0 ? .12 : 1;
+      c.beginPath(); c.ellipse(-ex, ey, er, er * bl * (1 + sq * .25), 0, 0, 7); c.ellipse(ex, ey, er, er * bl * (1 + sq * .25), 0, 0, 7); c.fill();
+      if (bl === 1) { c.fillStyle = '#fff'; c.beginPath(); c.arc(-ex - er * .3, ey - er * .35, er * .32, 0, 7); c.arc(ex - er * .3, ey - er * .35, er * .32, 0, 7); c.fill(); }
+      c.strokeStyle = '#3b0a22'; c.fillStyle = '#7f1d3f'; c.lineWidth = .05; c.lineCap = 'round';
+      if (sq > .45) { c.beginPath(); c.ellipse(0, ey + R * .24, er * .8, er * (.6 + sq * .6), 0, 0, 7); c.fill(); }
+      else { c.beginPath(); c.arc(0, ey + R * .14, R * .12, .15 * Math.PI, .85 * Math.PI); c.stroke(); }
+      c.restore();
+    }
+    if (grab) { c.strokeStyle = 'rgba(190,24,93,.7)'; c.lineWidth = .05; c.beginPath(); c.arc(grab.x, grab.y, .22, 0, 7); c.stroke(); }
+    const now = performance.now();
+    if (force || now - lastUI > 150) {
+      lastUI = now; const s = stat();
+      $('pjN').innerHTML = s.n + '<small>こ</small>';
+      $('pjSq').innerHTML = s.squash + '<small>%</small>';
+      $('pjWob').textContent = s.wobble;
+      $('pjHit').innerHTML = hits + '<small>回</small>';
+    }
+  }
+  function stat() {
+    let dv = 0, wb = 0, ok = true, a = 1e9, bx = -1e9, d = 1e9, e = -1e9;
+    for (const b of bodies) {
+      dv = Math.max(dv, b.dev); wb += b.wob;
+      for (let i = 0; i < N; i++) { if (!isFinite(b.x[i]) || !isFinite(b.y[i])) ok = false; a = Math.min(a, b.x[i]); bx = Math.max(bx, b.x[i]); d = Math.min(d, b.y[i]); e = Math.max(e, b.y[i]); }
+    }
+    const inB = bodies.every(b => { for (let i = 0; i < N; i++) if (b.x[i] < -1e-6 || b.x[i] > W + 1e-6 || b.y[i] > FLOOR + 1e-6 || (!b.enter && b.y[i] < -1e-6)) return false; return true; });
+    return { n: bodies.length, squash: Math.round(dv * 100), wobble: Math.min(99, Math.round((bodies.length ? wb / bodies.length : 0) * 10)), hits, finite: ok, inBounds: inB, nanCount,
+      minX: +a.toFixed(2), maxX: +bx.toFixed(2), minY: +d.toFixed(2), maxY: +e.toFixed(2), W: +W.toFixed(2), H: +Hh.toFixed(2), floor: +FLOOR.toFixed(2), preset: P.preset, soft: P.soft, infl: P.infl, grav: P.grav, damp: P.damp, slow: P.slow,
+      maxEver: Math.round(maxEver), t: +tSim.toFixed(2), grabbing: !!grab,
+      bodies: bodies.map(b => { let A = 0; for (let i = 0; i < N; i++) { const j = (i + 1) % N; A += b.x[i] * b.y[j] - b.x[j] * b.y[i]; } return { cx: +b.cx.toFixed(2), cy: +b.cy.toFixed(2), area: +(A / 2 / (b.A0 * P.infl * P.infl)).toFixed(2), dev: +b.dev.toFixed(3) }; }) };
+  }
+
+  // ---------- 操作 ----------
+  function flash(s) { const el = $('pjMsg'); el.textContent = s; el.classList.add('show'); clearTimeout(flash.t); flash.t = setTimeout(() => el.classList.remove('show'), 2000); }
+  const lv = (v, a) => a[v < 25 ? 0 : v < 50 ? 1 : v < 75 ? 2 : 3];
+  function sync() {
+    $('pjSoft').value = P.soft; $('pjInfl').value = Math.round(P.infl * 100); $('pjGrav').value = Math.round(P.grav * 100); $('pjDamp').value = P.damp;
+    $('pjVSoft').textContent = lv(P.soft, ['かたい', 'ややかたい', 'やわらかい', 'とてもやわらかい']);
+    $('pjVInfl').textContent = Math.round(P.infl * 100) + '%';
+    $('pjVGrav').textContent = P.grav === 0 ? 'なし' : Math.round(P.grav * 100) + '%';
+    $('pjVDamp').textContent = lv(P.damp, ['なかなか止まらない', 'ゆっくり止まる', 'すぐ止まる', 'とてもすぐ止まる']);
+    document.querySelectorAll('#pjPre button').forEach(b => b.classList.toggle('on', b.dataset.k === P.preset));
+    $('pjSlow').classList.toggle('on', P.slow);
+  }
+  function setPreset(k) { const p = PRESETS[k]; if (!p) return; P.preset = k; P.soft = p.soft; P.infl = p.infl / 100; P.damp = p.damp; hits = 0; sync(); reset(); }
+  $('pjPre').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; lastUser = tSim; setPreset(b.dataset.k); });
+  $('pjSoft').addEventListener('input', e => { P.soft = +e.target.value; lastUser = tSim; sync(); });
+  $('pjInfl').addEventListener('input', e => { P.infl = +e.target.value / 100; lastUser = tSim; sync(); });
+  $('pjGrav').addEventListener('input', e => { P.grav = +e.target.value / 100; lastUser = tSim; sync(); });
+  $('pjDamp').addEventListener('input', e => { P.damp = +e.target.value; lastUser = tSim; sync(); });
+  $('pjAdd').addEventListener('click', () => { lastUser = tSim; if (bodies.length >= MAXB) flash('いっぱいなので、古い物体と入れかえます'); drop(MAXB); });
+  $('pjClear').addEventListener('click', () => { lastUser = tSim; bodies = []; grab = null; calm = 0; hits = 0; flash('全部消しました。少し待つと、また落ちてきます'); });
+  $('pjSlow').addEventListener('click', () => { P.slow = !P.slow; sync(); });
+  function pos(e) { const r = cv.getBoundingClientRect(); return [clamp((e.clientX - r.left) / r.width * W, 0, W), clamp((e.clientY - r.top) / r.height * Hh, 0, Hh)]; }
+  function down(x, y, id) {
+    lastUser = tSim;
+    let hit = null;
+    for (let n = bodies.length - 1; n >= 0 && !hit; n--) if (inside(bodies[n], x, y)) hit = bodies[n];
+    if (!hit) { let best = .45; for (const b of bodies) for (let i = 0; i < N; i++) { const d = Math.hypot(b.x[i] - x, b.y[i] - y); if (d < best) { best = d; hit = b; } } }
+    if (hit) {
+      const w = new Float64Array(N), rr = hit.R * P.infl * .75; let ax = 0, ay = 0, ws = 0;
+      for (let i = 0; i < N; i++) { const d = Math.hypot(hit.x[i] - x, hit.y[i] - y); w[i] = .15 + .85 * Math.exp(-d * d / (rr * rr)); ax += hit.x[i] * w[i]; ay += hit.y[i] * w[i]; ws += w[i]; }
+      grab = { b: hit, w, x, y, ox: x - ax / ws, oy: y - ay / ws, id }; cv.classList.add('grabbing');
+    } else {
+      const m = 1.1 * P.infl; spawn(clamp(x, m, W - m), clamp(y, m, FLOOR - m), 0, 0, false, MAXB);
+    }
+  }
+  function up() { grab = null; cv.classList.remove('grabbing'); }
+  cv.addEventListener('pointerdown', e => { e.preventDefault(); try { cv.setPointerCapture(e.pointerId); } catch (_) {} const [x, y] = pos(e); down(x, y, e.pointerId); });
+  cv.addEventListener('pointermove', e => { if (grab && grab.id === e.pointerId) { const [x, y] = pos(e); grab.x = x; grab.y = y; lastUser = tSim; } });
+  cv.addEventListener('pointerup', e => { if (grab && grab.id === e.pointerId) up(); });
+  cv.addEventListener('pointercancel', e => { if (grab && grab.id === e.pointerId) up(); });
+
+  // ---------- シェア ----------
+  function shareText() { return `ぷるぷるゼリーで${bodies.length}この物体をはずませました。いちばんつぶれたときのつぶれ具合は${Math.round(maxEver)}%、床やかべにあたった回数は${hits}回🍮`; }
+  $('shareBtn').addEventListener('click', () => { const u = location.origin + location.pathname; window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText() + '\n') + '&url=' + encodeURIComponent(u) + '&hashtags=' + encodeURIComponent('シミュラボ'), '_blank', 'noopener'); });
+  $('copyBtn').addEventListener('click', async () => { try { await navigator.clipboard.writeText(shareText() + '\n' + location.origin + location.pathname); flash('コピーしました'); } catch (e) { flash('コピーできませんでした'); } });
+
+  // ---------- 動かす ----------
+  let tPrev = performance.now(), acc = 0;
+  function loop(now) {
+    acc += Math.min(.1, (now - tPrev) / 1000); tPrev = now;
+    let n = 0; while (acc >= 1 / 60 && n < 4) { frame(1 / 60); acc -= 1 / 60; n++; }
+    if (n === 4) acc = 0;
+    draw(false); requestAnimationFrame(loop);
+  }
+  size(); sync(); reset();
+  requestAnimationFrame(loop);
+  window.__t = {
+    step(sec) { const n = Math.max(1, Math.round(sec * 60)); for (let i = 0; i < n; i++) frame(1 / 60); draw(true); },
+    get s() { return stat(); },
+    preset: setPreset, add() { drop(MAXB); }, clear() { bodies = []; grab = null; },
+    set(o) { Object.assign(P, o); sync(); },
+    down(x, y) { down(x, y, -1); }, move(x, y) { if (grab) { grab.x = x; grab.y = y; } }, up
+  };
+})();
+"""
+
+
+def esc(s): return H.escape(s, quote=True)
+
+
+def build():
+    url = f"{BASE}/sims/{SLUG}/"
+    ld_app = {"@context": "https://schema.org", "@type": "WebApplication", "name": NAME, "url": url, "description": DESC,
+              "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": True,
+              "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}}
+    ld_bc = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "ホーム", "item": BASE + "/"}, {"@type": "ListItem", "position": 2, "name": NAME, "item": url}]}
+    ld_faq = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]}
+    rel = "".join(f'<a class="related-card" href="../{s}/"><span class="e">{e}</span><span>{esc(t)}</span></a>' for s, e, t in REL)
+    faq = "".join(f"<dt>{esc(q)}</dt><dd>{a}</dd>" for q, a in FAQ)
+    refs = "".join(f"<li>{r}</li>" for r in REFS)
+    return f"""<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="{url}">
+    <meta property="og:image" content="{BASE}/ogp/{SLUG}.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{BASE}/ogp/{SLUG}.png">
+<title>{esc(TITLE)}</title>
+<meta name="description" content="{esc(DESC)}">
+<meta property="og:title" content="{esc(OG_T)}">
+<meta property="og:description" content="{esc(OG_D)}">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="{url}">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{json.dumps(ld_app, ensure_ascii=False)}</script>
+    <script type="application/ld+json">{json.dumps(ld_bc, ensure_ascii=False)}</script>
+    <script type="application/ld+json">{json.dumps(ld_faq, ensure_ascii=False)}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+{STAGE}
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span>{esc(CAT)}<span>›</span><span class="cur">{esc(NAME)}</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">{esc(CAT)}</div>
+    <h1>{H1}</h1>
+    <p class="lead">{esc(LEAD)}</p>
+  </div>
+{BODY}
+  <article class="article">
+{ARTICLE}
+    <h2>よくある質問</h2>
+    <dl class="faq">{faq}</dl>
+    <h2>参考にした資料</h2>
+    <ul class="seo-refs">{refs}</ul>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>関連するシミュレーター</h2>
+    <div class="related-grid">{rel}</div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュレーターも見てみたい？</h2>
+    <p>あなたの「これシミュレーションしてみたい」を送ってください。面白い案から実際に作って、できたらお知らせします。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:8px;font-size:.85em"><!-- footer-links --><a href="../../about/">運営者情報</a>　<a href="../../privacy/">プライバシーポリシー</a>　<a href="../../terms/">利用規約</a>　<a href="../../contact/">お問い合わせ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>{JS}</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({{ simId:'{SLUG}', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] }});</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>
+"""
+
+
+if __name__ == "__main__":
+    out = os.path.join(ROOT, "sims", SLUG, "index.html")
+    os.makedirs(os.path.dirname(out), exist_ok=True)
+    io.open(out, "w", encoding="utf-8", newline="\n").write(build())
+    print("wrote", out)
