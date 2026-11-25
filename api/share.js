@@ -176,6 +176,8 @@ const ALLOW = new Set([
   'shibousan-yuuten',
   'pcr-hou',
   'tensha-honyaku-genkaku',
+  'kinniku-tsukikata',
+  'masatsu-zero',
   'inu-nadenade',
   'kami-hikouki',
   'sunadokei',

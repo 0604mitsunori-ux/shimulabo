@@ -61,7 +61,7 @@
   <h1>その<span class="mark-accent">「なんとなく」</span>、<br><span class="grad">数字にすると面白い。</span></h1>
   <p class="lead">身近なギモンや世界のふしぎを、入力するだけで数字とアニメで体感。<br>眺めるだけで「なるほど」が手に入るシミュレーター集です。</p>
   <div class="meta-strip">
-    <span><b>843</b>本 公開中</span>
+    <span><b>845</b>本 公開中</span>
     <span class="sep ms-plays" hidden></span>
     <span class="ms-plays" hidden><b id="msTotal">-</b>回 遊ばれた</span>
     <span class="sep"></span>
@@ -320,6 +320,10 @@
         <p>事故ゼロでも渋滞の波が発生する様子をリング道路で。混雑度を上げると赤い波が走り出す。</p>
         <span class="go">触ってみる →</span>
       </div>
+    </a>
+    <a class="sim-card" data-cat="wonder" href="sims/masatsu-zero/">
+      <div class="thumb" style="background:linear-gradient(135deg,#eef2ff,#e0e7ff)"><span class="emoji">🧊</span></div>
+      <div class="body"><div class="cat">ふしぎ・現象</div><h3>もしも摩擦がなかったら？</h3><p>摩擦を100%から0%へ。歩けない・止まれない・曲がれない・結べない世界を、歩く人・車・坂の箱のアニメで体験。</p><span class="go">触ってみる →</span></div>
     </a>
     <a class="sim-card" data-cat="wonder" href="sims/sunadokei/">
       <div class="thumb" style="background:linear-gradient(135deg,#eef2ff,#e0e7ff)"><span class="emoji">⏳</span></div>
@@ -917,6 +921,10 @@
     <a class="sim-card" data-cat="health" href="sims/bmi/">
       <div class="thumb" style="background:linear-gradient(135deg,#fef2f2,#fee2e2)"><span class="emoji">⚖️</span></div>
       <div class="body"><div class="cat">健康・カラダ</div><h3>BMI・適正体重チェック</h3><p>身長と体重でBMIと適正体重をすぐ計算。</p><span class="go">触ってみる →</span></div>
+    </a>
+    <a class="sim-card" data-cat="health" href="sims/kinniku-tsukikata/">
+      <div class="thumb" style="background:linear-gradient(135deg,#ecfdf5,#d1fae5)"><span class="emoji">💪</span></div>
+      <div class="body"><div class="cat">健康・カラダ</div><h3>筋肉がつく仕組み</h3><p>筋トレの回数・強さ・たんぱく質・すいみんを変えて、筋線維が太くなる様子と合成・分解のバランスを見る。</p><span class="go">触ってみる →</span></div>
     </a>
 
     <a class="sim-card" data-cat="health" href="sims/kiso-taisha/">
@@ -4553,7 +4561,8 @@
 
 <script src="assets/share-counter.js?v=4"></script>
 <script src="assets/req-api.js?v=2"></script>
-<script src="assets/req-live.js?v=1"></script>
+<script src="assets/req-boost.js?v=1"></script>
+<script src="assets/req-live.js?v=2"></script>
 <button class="to-top" id="toTop" aria-label="ページ上部へ戻る" hidden>↑</button>
 <script>
   /* ===== 人気ランキング =====
@@ -4565,6 +4574,7 @@
     { href: 'sims/kuchikomi-hakyu/index.html',    emoji: '📈', title: '口コミ波及シミュレーター',           cat: '店舗・ビジネス', score: 92 },
     { href: 'sims/shutten/index.html',            emoji: '🏪', title: '出店集客シミュレーター',             cat: '店舗・ビジネス', score: 89 },
     { href: 'sims/jutai/index.html',              emoji: '🚗', title: '渋滞は勝手に生まれる',               cat: 'ふしぎ・現象',   score: 86 },
+    { href: 'sims/masatsu-zero/', emoji: '🧊', title: 'もしも摩擦がなかったら？', cat: 'ふしぎ・現象', score: 78 },
     { href: 'sims/sunadokei/', emoji: '⏳', title: '砂時計シミュレーター', cat: 'ふしぎ・現象', score: 74 },
     { href: 'sims/tanpopo-watage/', emoji: '🌼', title: 'たんぽぽの綿毛を飛ばす', cat: 'ふしぎ・現象', score: 74 },
     { href: 'sims/hotaru-douki/', emoji: '✨', title: 'ホタルの光がそろうしくみ', cat: 'ふしぎ・現象', score: 75 },
@@ -4629,6 +4639,7 @@
     { href: 'sims/seo-kachi/index.html',          emoji: '💰', title: '検索流入のお金換算メーター',       cat: 'マーケティング', score: 60 },
     { href: 'sims/ai-inyou/index.html',           emoji: '🤖', title: 'AI被引用ポテンシャル診断',         cat: 'マーケティング', score: 63 },
     { href: 'sims/bmi/index.html', emoji: '⚖️', title: 'BMI・適正体重チェック', cat: '健康・カラダ', score: 69 },
+    { href: 'sims/kinniku-tsukikata/', emoji: '💪', title: '筋肉がつく仕組み', cat: '健康・カラダ', score: 76 },
     { href: 'sims/kiso-taisha/index.html', emoji: '🔥', title: '基礎代謝＆必要カロリー', cat: '健康・カラダ', score: 64 },
     { href: 'sims/tainai-nenrei/index.html', emoji: '🫀', title: '体内年齢診断', cat: '健康・カラダ', score: 67 },
     { href: 'sims/suibun/index.html', emoji: '💧', title: '1日の水分必要量', cat: '健康・カラダ', score: 58 },

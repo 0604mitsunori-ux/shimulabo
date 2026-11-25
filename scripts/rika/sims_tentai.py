@@ -553,6 +553,7 @@ JS2 = r'''
   const td=new Date();
   let n0=clamp(Math.round((Date.UTC(2026,td.getMonth(),td.getDate())-Date.UTC(2026,0,1))/864e5)+1,1,365);
   let hour=+$('hour').value, view='S', cam=null, sel=+$('star').value, play=false, last=0, need=true, drag=null, d0=null, trail=null, ghost=0;
+  let tilt=clamp(+$('tilt').value||0,0,90);   // 右の図をたおす角度（0＝真上・北極側、90＝真横・地球の軌道と同じ高さ）
   const tAbs=()=>(n0-1)*24+hour, jdT=(T)=>JD0+(T-9)/24;
   function mkCam(az){ const a=az*R, h=HC*R; return {F:[Math.sin(a)*Math.cos(h),Math.cos(a)*Math.cos(h),Math.sin(h)], Rt:[Math.cos(a),-Math.sin(a),0], U:[-Math.sin(h)*Math.sin(a),-Math.sin(h)*Math.cos(a),Math.cos(h)]}; }
   cam=mkCam(VAZ[view]);
@@ -636,37 +637,101 @@ JS2 = r'''
     x.font=F(11.5,1); x.fillStyle='#93c5fd'; x.fillText(HINT[view]+(sAlt>-3?'（いまは空が明るく見えない）':''),14,41);
     x.fillStyle='#fde68a'; x.fillText(cul,14,59);
     return L; }
-  function oxy(lam,r){ const t=(lam+TH0)*R; return [OX+r*Math.cos(t), OY-r*Math.sin(t)]; }
+  // 右の図（宇宙から見た公転）の投影。tilt＝たおす角度（0＝真上・北極側、90＝真横・地球の軌道と同じ高さ）。
+  // たおすのと同時に、地軸のかたむき（23.4°）が横から見える向きへ、視点を同じ角度だけ回す（真横では秋の星座の側から見る）
+  let OV={s:0,se:1,ce:0,th:TH0};
+  function oview(){ const el=(90-tilt)*R; return {s:tilt/90, se:tilt<=0?1:tilt>=90?0:Math.sin(el), ce:tilt<=0?0:tilt>=90?1:Math.cos(el), th:TH0+tilt}; }
+  const sv=(v)=>[v[0], -(v[1]*OV.se+v[2]*OV.ce), v[2]*OV.se-v[1]*OV.ce];   // 図の座標のベクトル → [画面x, 画面y, 奥行き（手前が正）]
+  function evec(a,b,c){ const t=OV.th*R, co=Math.cos(t), si=Math.sin(t); return [a*co-b*si, a*si+b*co, c]; }   // 黄道座標 → 図の座標
+  function oxy(lam,r){ const t=(lam+OV.th)*R, q=sv([r*Math.cos(t), r*Math.sin(t), 0]); return [OX+q[0], OY+q[1], q[2]]; }
+  function rayEnd(px,py,dx,dy,x0,y0,x1,y1){ let k=1e9; if(dx>1e-6) k=Math.min(k,(x1-px)/dx); if(dx<-1e-6) k=Math.min(k,(x0-px)/dx); if(dy>1e-6) k=Math.min(k,(y1-py)/dy); if(dy<-1e-6) k=Math.min(k,(y0-py)/dy); k=Math.max(0,k); return [px+dx*k, py+dy*k]; }
+  const tiltWord=()=>tilt<=3?'真上から':tilt>=87?'真横から':'ななめ上から';
   function drawOrbit(L){
     const jd=jdT(tAbs()), sn=sunOf(jd), sAlt=hor(sn.ra,sn.dec,L)[0], night=sAlt<-6;
+    OV=oview(); const se=OV.se, ce=OV.ce, fa=clamp(tilt/15,0,1), fp=clamp((tilt-30)/12,0,1), side=tilt>=87, TEAL='#5eead4';
     x.fillStyle='#0b1020'; x.fillRect(PW+2,0,W-PW-2,H);
-    x.textAlign='left'; x.textBaseline='alphabetic'; x.fillStyle='#fff'; x.font=F(13,1); x.fillText('宇宙から見た公転（北極側から）',PW+12,20);
-    x.font=F(10.5); x.fillStyle='rgba(203,213,225,.85)'; x.fillText(night?'黄色の矢印＝いま南に見える方向':'灰色の矢印＝いま南の方向（昼）',PW+12,36);
-    const am=ecl(L), le=sn.lam+180;
-    // 季節の星座（外側）
-    ORB.forEach((o,k)=>{ const c=CO[o[0]], q=oxy(o[2],CR), d=Math.abs(wrap(o[2]-am+180,360)-180), hit=night&&d<40, pt=ICON[k];
-      if(hit){ x.fillStyle='rgba(250,204,21,.16)'; x.beginPath(); x.arc(q[0],q[1],25,0,2*Math.PI); x.fill(); }
-      x.strokeStyle=hit?'#fde047':'rgba(147,197,253,.7)'; x.lineWidth=hit?1.6:1.1; c[1].forEach(ln=>{ x.beginPath(); ln.forEach((i,j)=>{ const v=pt[i]; j?x.lineTo(q[0]+v[0],q[1]+v[1]):x.moveTo(q[0]+v[0],q[1]+v[1]); }); x.stroke(); });
-      x.fillStyle=hit?'#fff':'rgba(226,232,240,.85)'; Object.keys(pt).forEach(i=>{ const v=pt[i]; x.beginPath(); x.arc(q[0]+v[0],q[1]+v[1],ST[i][2]<1.5?2:1.2,0,2*Math.PI); x.fill(); });
-      x.font=F(10.5,hit); const ty=q[1]+(q[1]>OY+30?33:q[1]<OY-30?-27:31); halo(c[0]+'（'+o[1]+'）',clamp(q[0],PW+44,W-44),ty,hit?'#fde047':'#bfdbfe',true); });
+    x.textAlign='left'; x.textBaseline='alphabetic'; x.fillStyle='#fff'; x.font=F(13,1);
+    let sy0=36;
+    if(side){ x.fillText('宇宙から見た公転',PW+12,20); x.font=F(10.5,1); x.fillText('（真横＝地球の軌道と同じ高さから）',PW+6,35); sy0=50; }
+    else x.fillText('宇宙から見た公転（'+(tilt<=3?'北極側から':'ななめ上から')+'）',PW+12,20);
+    x.font=F(10.5); x.fillStyle='rgba(203,213,225,.85)'; x.fillText(night?'黄色の矢印＝いま南に見える方向':'灰色の矢印＝いま南の方向（昼）',PW+12,sy0);
+    const am=ecl(L), le=sn.lam+180, items=[], add=(d,f)=>items.push([d,f]);   // items＝[奥行き, 描く関数]。奥から順に描く
+    // 地軸：公転の面に垂直な方向から23.4°かたむき、地球がどこにあっても同じ向き
+    const A=evec(0,Math.sin(EPS),Math.cos(EPS)), As=sv(A), al=Math.hypot(As[0],As[1]), pTop=side?74:60, pOK=fp>0&&al>0.1;
+    // 北極星（地軸を北へのばした方向の、ずっと遠く）
+    if(pOK){ const pq=rayEnd(OX,OY,As[0]/al,As[1]/al,PW+30,pTop,W-18,300);
+      add(-1e6,()=>{ x.globalAlpha=fp; const g=x.createRadialGradient(pq[0],pq[1],1,pq[0],pq[1],11); g.addColorStop(0,'rgba(255,241,184,.9)'); g.addColorStop(1,'rgba(255,241,184,0)'); x.fillStyle=g; x.beginPath(); x.arc(pq[0],pq[1],11,0,2*Math.PI); x.fill();
+        x.fillStyle='#fff1b8'; x.beginPath(); x.arc(pq[0],pq[1],2.8,0,2*Math.PI); x.fill();
+        const rt=E[0]<OX&&pq[0]+46<W-4;   // 名前は、地球からのびる点線と重ならない側に
+        x.font=F(11,1); halo('北極星',pq[0]+(rt?9:-9),pq[1]-1,TEAL,true,rt?'left':'right'); x.font=F(9); halo('（ずっと遠く）',rt?W-5:pq[0]-5,pq[1]+13,'rgba(203,213,225,.9)',true,'right'); x.globalAlpha=1; }); }
+    // 季節の星座（外側）。帯は、真横でも読めるように完全にはつぶさない
+    const fc=Math.max(se,0.6);
+    ORB.forEach((o,k)=>{ const c=CO[o[0]], t=(o[2]+OV.th)*R, yy=CR*Math.sin(t), q=[OX+CR*Math.cos(t), OY-yy*fc], d=Math.abs(wrap(o[2]-am+180,360)-180), hit=night&&d<40, pt=ICON[k];
+      add(-yy*ce,()=>{
+        if(hit){ x.fillStyle='rgba(250,204,21,.16)'; x.beginPath(); x.arc(q[0],q[1],25,0,2*Math.PI); x.fill(); }
+        x.strokeStyle=hit?'#fde047':'rgba(147,197,253,.7)'; x.lineWidth=hit?1.6:1.1; c[1].forEach(ln=>{ x.beginPath(); ln.forEach((i,j)=>{ const v=pt[i]; j?x.lineTo(q[0]+v[0],q[1]+v[1]):x.moveTo(q[0]+v[0],q[1]+v[1]); }); x.stroke(); });
+        x.fillStyle=hit?'#fff':'rgba(226,232,240,.85)'; Object.keys(pt).forEach(i=>{ const v=pt[i]; x.beginPath(); x.arc(q[0]+v[0],q[1]+v[1],ST[i][2]<1.5?2:1.2,0,2*Math.PI); x.fill(); });
+        x.font=F(10.5,hit); const tx=clamp(q[0],PW+44,W-44), below=q[1]+(q[1]>OY+30?33:31), above=q[1]-27, onE=(v)=>Math.abs(tx-E[0])<re*1.2+44&&v>E[1]-re*2.4-8&&v<E[1]+re*1.5+14; let ty=(q[1]<OY-30||(tilt>=60&&Math.abs(yy)<CR*0.6))?above:below;
+        if(fa>0&&onE(ty)){ const alt=ty===above?below:above; ty=!onE(alt)?alt:!onE(q[1]+50)?q[1]+50:ty; }   // たおしたとき：地球と重なる名前は反対側へ
+        halo(c[0]+'（'+o[1]+'）',tx,ty,hit?'#fde047':'#bfdbfe',true);
+        if(tilt>=60&&Math.abs(yy)>CR*0.6){ x.font=F(9); halo(yy>0?'太陽の向こう側（おく）':'手前',tx,ty+(ty<q[1]?-12:12),'rgba(203,213,225,.85)',true); } }); });
     // 公転軌道と月
-    x.setLineDash([3,4]); x.strokeStyle='rgba(203,213,225,.45)'; x.lineWidth=1; x.beginPath(); x.arc(OX,OY,OR,0,2*Math.PI); x.stroke(); x.setLineDash([]);
-    x.font=F(9.5); x.fillStyle='rgba(203,213,225,.75)';
-    [1,4,7,10].forEach(m=>{ let k=1; for(let i=0;i<m-1;i++) k+=ML[i]; const lm=sunOf(jdOf(k,0)).lam+180, q=oxy(lm,OR), t=oxy(lm,OR-13); x.beginPath(); x.arc(q[0],q[1],1.8,0,2*Math.PI); x.fill(); halo(m+'月',t[0],t[1],'rgba(203,213,225,.9)',true); });
-    const ga=oxy(le+50,OR), gb=oxy(le+62,OR); x.strokeStyle='rgba(203,213,225,.7)'; x.fillStyle='rgba(203,213,225,.7)'; x.lineWidth=1.3; x.beginPath(); x.arc(OX,OY,OR,-(le+50+TH0)*R,-(le+62+TH0)*R,true); x.stroke(); arrowHead(gb[0],gb[1],Math.atan2(gb[1]-ga[1],gb[0]-ga[0]),5);
+    const orb=(a,b)=>{ x.setLineDash([3,4]); x.strokeStyle='rgba(203,213,225,.45)'; x.lineWidth=1; x.beginPath(); tilt<=0?x.arc(OX,OY,OR,a,b):x.ellipse(OX,OY,OR,OR*se,0,a,b); x.stroke(); x.setLineDash([]); };
+    if(tilt<=0) add(0,()=>orb(0,2*Math.PI)); else { add(-OR*ce-0.5,()=>orb(Math.PI,2*Math.PI)); add(0.01,()=>orb(0,Math.PI)); }
+    const re=8+7*OV.s, E=oxy(le,OR);
+    [1,4,7,10].forEach(m=>{ let k=1; for(let i=0;i<m-1;i++) k+=ML[i]; const lm=sunOf(jdOf(k,0)).lam+180, q=oxy(lm,OR), t=oxy(lm,OR-13), far=q[2]<0, near=Math.abs(wrap(lm-le+180,360)-180)<26;
+      add(q[2],()=>{ x.fillStyle=m===1?'rgba(203,213,225,.75)':'rgba(203,213,225,.9)'; x.beginPath(); x.arc(q[0],q[1],1.8,0,2*Math.PI); x.fill();   // 点の色はこれまでの図と同じ（1月だけ少しうすい）
+        // たおしたとき：1・4・7・10月の位置の地球と地軸（どれも同じ向き）
+        if(fa>0&&!near){ const gr=4.5; x.globalAlpha=fa*0.9; x.strokeStyle=TEAL; x.lineWidth=1.2; x.beginPath(); x.moveTo(q[0]-As[0]*gr*2.2,q[1]-As[1]*gr*2.2); x.lineTo(q[0]+As[0]*gr*2.7,q[1]+As[1]*gr*2.7); x.stroke();
+          x.fillStyle='#3f7fb5'; x.beginPath(); x.arc(q[0],q[1],gr,0,2*Math.PI); x.fill(); x.beginPath(); x.moveTo(q[0]+As[0]*gr,q[1]+As[1]*gr); x.lineTo(q[0]+As[0]*gr*2.7,q[1]+As[1]*gr*2.7); x.stroke(); if(al>0.25){ x.fillStyle=TEAL; arrowHead(q[0]+As[0]*gr*2.7+As[0]/al*2,q[1]+As[1]*gr*2.7+As[1]/al*2,Math.atan2(As[1],As[0]),3.2); } x.globalAlpha=1; }
+        const sg=far?-1:1, lx=t[0]+(q[0]+sg*7-t[0])*fa, ly=t[1]+(q[1]+sg*13-t[1])*fa;
+        x.globalAlpha=(near||(Math.abs(lx-E[0])<re*1.6+24&&Math.abs(ly-E[1])<re*2.4+8))?1-fa:1; x.font=F(9.5);   // たおしたとき：地球のまわりの文字と重なる月の名前は消す
+        halo(m+'月',lx,ly,'rgba(203,213,225,.9)',true); x.globalAlpha=1; }); });
+    add(oxy(le+56,OR)[2]+0.02,()=>{ const ga=oxy(le+50,OR), gb=oxy(le+62,OR); x.strokeStyle='rgba(203,213,225,.7)'; x.fillStyle='rgba(203,213,225,.7)'; x.lineWidth=1.3; x.beginPath(); if(tilt<=0) x.arc(OX,OY,OR,-(le+50+TH0)*R,-(le+62+TH0)*R,true); else for(let a=50;a<=62;a++){ const p=oxy(le+a,OR); a>50?x.lineTo(p[0],p[1]):x.moveTo(p[0],p[1]); } x.stroke();
+      if(Math.hypot(gb[0]-ga[0],gb[1]-ga[1])>1) arrowHead(gb[0],gb[1],Math.atan2(gb[1]-ga[1],gb[0]-ga[0]),5); });
     // 太陽
-    const sg=x.createRadialGradient(OX,OY,3,OX,OY,22); sg.addColorStop(0,'rgba(255,240,170,1)'); sg.addColorStop(1,'rgba(255,200,60,0)'); x.fillStyle=sg; x.beginPath(); x.arc(OX,OY,22,0,2*Math.PI); x.fill();
-    x.fillStyle='#fde047'; x.beginPath(); x.arc(OX,OY,9,0,2*Math.PI); x.fill(); x.font=F(10,1); halo('太陽',OX,OY+19,'#fde68a',true);
-    // 地球（太陽の側が昼）と、南の向き
-    const ep=oxy(le,OR), ts=Math.atan2(OY-ep[1],OX-ep[0]);
-    x.fillStyle='#173153'; x.beginPath(); x.arc(ep[0],ep[1],8,0,2*Math.PI); x.fill(); x.fillStyle='#4f9fdc'; x.beginPath(); x.arc(ep[0],ep[1],8,ts-Math.PI/2,ts+Math.PI/2); x.closePath(); x.fill();
-    const ta=-(am+TH0)*R, ex=ep[0]+Math.cos(ta)*30, ey=ep[1]+Math.sin(ta)*30;
-    x.setLineDash([2,4]); x.strokeStyle=night?'rgba(250,204,21,.45)':'rgba(148,163,184,.35)'; x.lineWidth=1; x.beginPath(); x.moveTo(ep[0],ep[1]); x.lineTo(ep[0]+Math.cos(ta)*(CR+30),ep[1]+Math.sin(ta)*(CR+30)); x.stroke(); x.setLineDash([]);
-    x.strokeStyle=night?'#facc15':'#94a3b8'; x.fillStyle=x.strokeStyle; x.lineWidth=2.4; x.beginPath(); x.moveTo(ep[0]+Math.cos(ta)*9,ep[1]+Math.sin(ta)*9); x.lineTo(ex,ey); x.stroke(); arrowHead(ex,ey,ta,6);
-    x.fillStyle='#ef4444'; x.beginPath(); x.arc(ep[0]+Math.cos(ta)*8,ep[1]+Math.sin(ta)*8,2.6,0,2*Math.PI); x.fill();
+    add(0,()=>{ const sg=x.createRadialGradient(OX,OY,3,OX,OY,22); sg.addColorStop(0,'rgba(255,240,170,1)'); sg.addColorStop(1,'rgba(255,200,60,0)'); x.fillStyle=sg; x.beginPath(); x.arc(OX,OY,22,0,2*Math.PI); x.fill();
+      x.fillStyle='#fde047'; x.beginPath(); x.arc(OX,OY,9,0,2*Math.PI); x.fill(); x.font=F(10,1); halo('太陽',OX,OY+(fa>0&&Math.abs(E[0]-OX)<re+12&&Math.abs(E[1]-OY-19)<re+6?-19:19),'#fde68a',true); });   // 地球が名前に重なるときは太陽の上に書く
+    // 地球（太陽の側が昼）と、南の向き。たおしたときは地軸・自転の向き・観測者と「北」も描く
+    add(E[2],()=>{ const t=(le+OV.th)*R, Ss=sv([-Math.cos(t),-Math.sin(t),0]), ps=Math.atan2(Ss[1],Ss[0]), Op=evec(Math.cos(am*R),Math.sin(am*R),0), u=sv(Op), ul=Math.hypot(u[0],u[1]);
+      const tip=[E[0]+As[0]*re*2.35,E[1]+As[1]*re*2.35], sth=[E[0]-As[0]*re*1.45,E[1]-As[1]*re*1.45];
+      if(fa>0){ x.globalAlpha=fa; x.strokeStyle=TEAL; x.lineWidth=1.6; x.beginPath(); x.moveTo(sth[0],sth[1]); x.lineTo(tip[0],tip[1]); x.stroke(); x.globalAlpha=1; }
+      x.fillStyle='#173153'; x.beginPath(); x.arc(E[0],E[1],re,0,2*Math.PI); x.fill();
+      x.fillStyle='#4f9fdc'; x.beginPath(); x.arc(E[0],E[1],re,ps-Math.PI/2,ps+Math.PI/2); if(Math.abs(Ss[2])>1e-6) x.ellipse(E[0],E[1],re*Math.abs(Ss[2]),re,ps,Math.PI/2,-Math.PI/2,Ss[2]<0); x.closePath(); x.fill();
+      // 赤道（手前側）
+      const ul0=Math.hypot(A[0],A[1])||1, U=[-A[1]/ul0,A[0]/ul0,0], V=[A[1]*U[2]-A[2]*U[1],A[2]*U[0]-A[0]*U[2],A[0]*U[1]-A[1]*U[0]], Us=sv(U), Vs=sv(V);
+      if(fa>0){ x.globalAlpha=fa*0.55; x.strokeStyle='#fff'; x.lineWidth=1; x.beginPath(); let pen=false; for(let i=0;i<=72;i++){ const a=i*5*R, c=Math.cos(a), s=Math.sin(a); if(Us[2]*c+Vs[2]*s>=-0.02){ const px=E[0]+re*(Us[0]*c+Vs[0]*s), py=E[1]+re*(Us[1]*c+Vs[1]*s); pen?x.lineTo(px,py):x.moveTo(px,py); pen=true; } else pen=false; } x.stroke(); x.globalAlpha=1; }
+      // 南の向き（公転の面に写した方向）
+      x.setLineDash([2,4]); x.strokeStyle=night?'rgba(250,204,21,.45)':'rgba(148,163,184,.35)'; x.lineWidth=1; x.beginPath(); x.moveTo(E[0],E[1]); x.lineTo(E[0]+u[0]*(CR+30),E[1]+u[1]*(CR+30)); x.stroke(); x.setLineDash([]);
+      const k0=u[2]<-0.05?(re+1)/Math.max(ul,1e-3):re+1, k1=re+22;
+      if(k0<k1){ const ex=E[0]+u[0]*k1, ey=E[1]+u[1]*k1; x.strokeStyle=night?'#facc15':'#94a3b8'; x.fillStyle=x.strokeStyle; x.lineWidth=2.4; x.beginPath(); x.moveTo(E[0]+u[0]*k0,E[1]+u[1]*k0); x.lineTo(ex,ey); x.stroke(); if(ul>0.15) arrowHead(ex,ey,Math.atan2(u[1],u[0]),6); }
+      // 観測者（東京）。真上から見た図では、これまでどおり地球のふちに描く
+      const Lr=L*R, yq=CLA*Math.sin(Lr), Ot=evec(CLA*Math.cos(Lr), yq*Math.cos(EPS)+SLA*Math.sin(EPS), -yq*Math.sin(EPS)+SLA*Math.cos(EPS)), w=clamp(tilt/20,0,1);
+      let O=Op.map((v,i)=>v*(1-w)+Ot[i]*w); const ol=Math.hypot(O[0],O[1],O[2]); O=O.map(v=>v/ol);
+      const Os=sv(O), ox=E[0]+Os[0]*re, oy=E[1]+Os[1]*re, front=Os[2]>-0.08;
+      if(front){ x.fillStyle='#ef4444'; x.beginPath(); x.arc(ox,oy,2.6,0,2*Math.PI); x.fill(); }
+      else { x.setLineDash([1.5,1.5]); x.strokeStyle='rgba(239,68,68,.7)'; x.lineWidth=1; x.beginPath(); x.arc(ox,oy,2.6,0,2*Math.PI); x.stroke(); x.setLineDash([]); }
+      if(fa>0){ x.globalAlpha=fa;
+        if(front){ const ad=A[0]*O[0]+A[1]*O[1]+A[2]*O[2]; let Nt=A.map((v,i)=>v-ad*O[i]); const nl=Math.hypot(Nt[0],Nt[1],Nt[2])||1; Nt=Nt.map(v=>v/nl); const Ns=sv(Nt), nx=ox+Ns[0]*(re*0.35+4), ny=oy+Ns[1]*(re*0.35+4);
+          x.strokeStyle='#fff'; x.fillStyle='#fff'; x.lineWidth=1.4; x.beginPath(); x.moveTo(ox,oy); x.lineTo(ox+Os[0]*6.5,oy+Os[1]*6.5); x.stroke(); x.beginPath(); x.arc(ox+Os[0]*8,oy+Os[1]*8,2,0,2*Math.PI); x.fill();
+          if(tilt>55&&Math.hypot(Ns[0],Ns[1])>0.3){ x.globalAlpha=clamp((tilt-55)/10,0,1); x.strokeStyle='#fb923c'; x.fillStyle='#fb923c'; x.lineWidth=1.4; x.beginPath(); x.moveTo(ox,oy); x.lineTo(nx,ny); x.stroke(); arrowHead(nx,ny,Math.atan2(Ns[1],Ns[0]),3.5); x.font=F(9,1); halo('北',nx+Ns[0]*4+Os[0]*7,ny+Ns[1]*4+Os[1]*7,'#fdba74',true); x.globalAlpha=fa; } }
+        // 地軸（手前側）と自転の向き
+        x.strokeStyle=TEAL; x.lineWidth=1.6; x.beginPath(); x.moveTo(E[0]+As[0]*re,E[1]+As[1]*re); x.lineTo(tip[0],tip[1]); x.stroke();
+        // 自転の向きの輪は、真横から見ても輪に見えるように、少し北側から見た形に開いて描く
+        const cxr=E[0]+As[0]*re*1.75, cyr=E[1]+As[1]*re*1.75, rr0=re*0.5, a1=Math.atan2(Vs[2],Us[2])+0.6, og=Math.max(0,0.4-Math.abs(As[2]))/(al||1);
+        const rp=(a)=>{ const c=Math.cos(a), s=Math.sin(a), dd=(Us[2]*c+Vs[2]*s)*og; return [cxr+rr0*(Us[0]*c+Vs[0]*s-As[0]*dd), cyr+rr0*(Us[1]*c+Vs[1]*s-As[1]*dd)]; };
+        x.strokeStyle='#fff'; x.fillStyle='#fff'; x.lineWidth=1.2; x.beginPath(); for(let i=0;i<=30;i++){ const p=rp(a1-5+5*i/30); i?x.lineTo(p[0],p[1]):x.moveTo(p[0],p[1]); } x.stroke();
+        const p1=rp(a1-0.3), p2=rp(a1); if(Math.hypot(p2[0]-p1[0],p2[1]-p1[1])>0.3) arrowHead(p2[0],p2[1],Math.atan2(p2[1]-p1[1],p2[0]-p1[0]),3.6);
+        x.globalAlpha=1; }
+      if(pOK){ x.globalAlpha=fp; const pe=rayEnd(tip[0],tip[1],As[0]/al,As[1]/al,PW+14,pTop,W-18,H);
+        if(Math.hypot(pe[0]-tip[0],pe[1]-tip[1])>8){ x.setLineDash([3,3]); x.strokeStyle=TEAL; x.fillStyle=TEAL; x.lineWidth=1.2; x.beginPath(); x.moveTo(tip[0],tip[1]); x.lineTo(pe[0],pe[1]); x.stroke(); x.setLineDash([]); arrowHead(pe[0],pe[1],Math.atan2(As[1],As[0]),5); }
+        x.font=F(9.5,1); halo('地軸',sth[0]-3,sth[1]+9,TEAL,true,'right'); halo('自転',E[0]+As[0]*re*1.75+re*0.5+4,E[1]+As[1]*re*1.75+2,'#fff',true,'left');
+        if(tilt>=60){ x.setLineDash([2,2]); x.strokeStyle='rgba(203,213,225,.7)'; x.lineWidth=1; x.beginPath(); x.moveTo(E[0],E[1]-re*ce); x.lineTo(E[0],E[1]-re*2.3*ce); x.stroke(); x.setLineDash([]); x.font=F(9); halo('23.4°',E[0]-4,E[1]-re*2.1*ce,'rgba(226,232,240,.95)',true,'right'); }
+        x.globalAlpha=1; } });
+    items.sort((a,b)=>a[0]-b[0]).forEach(it=>it[1]());
     // 説明
     x.textAlign='left'; x.textBaseline='alphabetic'; x.font=F(10.5); x.fillStyle='rgba(226,232,240,.9)';
-    ['真夜中は、太陽と反対側の星座が南に見える','地球は1日に約1°公転 → 同じ時刻の星は','1か月に約30°ずつ西へずれる（大きさは誇張）'].forEach((t,i)=>x.fillText(t,PW+12,H-46+i*16));
+    (fp>=0.5?['北極星はとても遠いので、地球がどこに','あっても地軸は同じ向き（北極星の方向）','→ 北の空の星は北極星のまわりを回る']:['真夜中は、太陽と反対側の星座が南に見える','地球は1日に約1°公転 → 同じ時刻の星は','1か月に約30°ずつ西へずれる（大きさは誇張）']).forEach((t,i)=>x.fillText(t,PW+12,H-46+i*16));
   }
   const SELP=ST.findIndex(s=>s[4]==='北極星');
   function draw(){
@@ -693,7 +758,7 @@ JS2 = r'''
   function mv(q){
     if(drag==='sky'){ const dx=q[0]-d0.q[0]; if(Math.abs(dx)+Math.abs(q[1]-d0.q[1])>5) d0.moved=true; if(!d0.moved) return;
       let dh=dx/12; if(view==='N'){ const a=angAt(q); d0.acc+=wrap(a-d0.a+180,360)-180; d0.a=a; dh=d0.acc/SID; } n0=d0.n; hour=d0.h; step(dh); }
-    else if(drag==='orbit'){ const a=Math.atan2(-(q[1]-OY),q[0]-OX)/R, le=wrap(a-TH0,360), ls=wrap(le-180,360); let best=n0, bd=1e9; for(let k=1;k<=365;k++){ const d=Math.abs(wrap(sunOf(jdOf(k,hour)).lam-ls+180,360)-180); if(d<bd){ bd=d; best=k; } } n0=best; }
+    else if(drag==='orbit'){ const v=oview(), a=Math.atan2(-(q[1]-OY)/Math.max(v.se,0.3),q[0]-OX)/R, le=wrap(a-v.th,360), ls=wrap(le-180,360); let best=n0, bd=1e9; for(let k=1;k<=365;k++){ const d=Math.abs(wrap(sunOf(jdOf(k,hour)).lam-ls+180,360)-180); if(d<bd){ bd=d; best=k; } } n0=best; }
     trail=null; ghost=0; syncUI(); draw(); }
   cv.addEventListener('pointerdown',e=>{ const q=pos(e); stopPlay(); drag=q[0]<PW?'sky':'orbit'; d0={q:q,h:hour,n:n0,moved:false,a:angAt(q),acc:0}; try{ cv.setPointerCapture(e.pointerId); }catch(_){ } if(drag==='orbit') mv(q); });
   cv.addEventListener('pointermove',e=>{ if(drag) mv(pos(e)); });
@@ -705,8 +770,13 @@ JS2 = r'''
   ['E','S','W','N'].forEach(k=>$('v'+k).addEventListener('click',()=>{ view=k; draw(); }));
   $('play').addEventListener('click',()=>{ if(play){ stopPlay(); return; } play=true; ghost=0; trail=tAbs(); $('play').textContent='⏸ 止める'; });
   $('month').addEventListener('click',()=>{ stopPlay(); const n2=nextMonth(n0); ghost=wrap(n2-n0,365)||30; n0=n2; trail=null; syncUI(); draw(); });
+  function syncTilt(){ $('tilt').value=String(tilt); $('tiltL').textContent=tilt+'°（'+tiltWord()+'）'; }
+  function setTilt(v){ tilt=clamp(Math.round(+v)||0,0,90); syncTilt(); draw(); return tilt; }
+  $('tilt').addEventListener('input',()=>{ setTilt($('tilt').value); });
+  // テスト・連携用：右の図をたおす角度の取得と設定
+  window.__hoshi=Object.assign(window.__hoshi||{},{getTilt:()=>tilt, setTilt:setTilt, getState:()=>({day:n0,hour:hour,view:view,star:sel,tilt:tilt})});
   sel=autoSel(); $('star').value=String(sel);
-  syncUI(); draw(); need=false; requestAnimationFrame(frame);
+  syncUI(); syncTilt(); draw(); need=false; requestAnimationFrame(frame);
 '''
 
 sim(slug="hoshi-ugoki", cat="rika", emoji="⭐", score=79,
@@ -721,10 +791,11 @@ sim(slug="hoshi-ugoki", cat="rika", emoji="⭐", score=79,
     level="小学4年、中学3年",
     unit="小学校 第4学年 B(5)「月と星」／中学校 第2分野（6）地球と宇宙（ア）天体の動きと地球の自転・公転",
     canvas=canvas(640, 420),
-    controls=slider("day", "日付", 1, 365, 15, 1) + slider("hour", "時刻（日本時間）", 0, 24, 21, 0.25) + select("star", "注目する星", SEL_OPTS),
+    controls=slider("day", "日付", 1, 365, 15, 1) + slider("hour", "時刻（日本時間）", 0, 24, 21, 0.25) + select("star", "注目する星", SEL_OPTS)
+    + '<div class="field" style="grid-column:1/-1;"><div class="slider-head"><label for="tilt">右の図（宇宙から見た公転）をたおす</label><span class="val" id="tiltL"></span></div><input type="range" id="tilt" min="0" max="90" value="0" step="1"><div style="display:flex;justify-content:space-between;gap:10px;font-size:11.5px;color:var(--ink-2);"><span>真上から（北極側）</span><span style="text-align:right;">真横から（地球の軌道と同じ高さ）</span></div><p style="margin:6px 0 0;font-size:13px;line-height:1.7;color:var(--ink-2);">真横までたおすと、地軸がいつも北極星のほうを向いていることが分かります。だから北の空では、北極星がほとんど動かず、ほかの星がそのまわりを回って見えます。</p></div>',
     buttons=btn("vE", "東の空") + btn("vS", "南の空") + btn("vW", "西の空") + btn("vN", "北の空") + btn("play", "▶ 時間を進める", True) + btn("month", "＋1か月（同じ時刻）"),
     stats=stats([("sDate", "日付", False), ("sTime", "時刻", False), ("sSouth", "南の空の主な星座", True), ("sStar", "注目する星の高度・方位", False)]),
-    legend="左：東京で東・南・西・北のどれかを向いて見た空（カメラで写した見え方）。黄色の点線は注目する星の1日の道すじで、点は1時間ごとの位置です。「▶ 時間を進める」で星が動いた跡（光跡）が残り、「＋1か月」で1か月前の同じ時刻の位置（オレンジの点線）と比べられます。空を左右に（北の空では北極星のまわりに）なぞると時刻が、星をタップすると注目する星が変わります。右：北極の上から見た地球の公転と季節の星座。地球をなぞると日付が変わります。",
+    legend="左：東京で東・南・西・北のどれかを向いて見た空（カメラで写した見え方）。黄色の点線は注目する星の1日の道すじで、点は1時間ごとの位置です。「▶ 時間を進める」で星が動いた跡（光跡）が残り、「＋1か月」で1か月前の同じ時刻の位置（オレンジの点線）と比べられます。空を左右に（北の空では北極星のまわりに）なぞると時刻が、星をタップすると注目する星が変わります。右：北極の上から見た地球の公転と季節の星座。地球をなぞると日付が変わります。「右の図（宇宙から見た公転）をたおす」のスライダーを動かすと、真上から真横（地球の軌道と同じ高さ）まで見る高さを変えられ、地軸（青緑の線）と北極星の方向が出ます。",
     article='''
 <h2>このシミュレーションでわかること</h2>
 <p>星も太陽と同じように、東からのぼり、南の空を通って西へしずみます。空の星全体が、北極星の近くを中心にして、1時間に約15°（360°÷24時間）ずつ東から西へ回って見えます。これは地球が西から東へ自転しているために起こる見かけの動き（日周運動）です。北の空では、星は北極星を中心に反時計回りに回ります。</p>
@@ -752,6 +823,7 @@ sim(slug="hoshi-ugoki", cat="rika", emoji="⭐", score=79,
 <p>地球は1日（約24時間）で1回自転するので、星は1時間に 360° ÷ 24 ＝ 15° 動いて見えます。星が回る中心は、地軸を北へのばした方向（天の北極）で、そのすぐ近くに北極星があります。そのため北極星はほとんど動かず、その高度は観測地点の緯度とほぼ同じです（東京で約35.7°）。</p>
 ''' + T([["東の空", "地平線から右ななめ上へのぼる"], ["南の空", "東（左）から西（右）へ、弧をえがいて動く。真南にきたとき（南中）がいちばん高い"],
           ["西の空", "右ななめ下へしずむ"], ["北の空", "北極星を中心に、反時計回りに回る（1時間に15°）"]], ["見る方角", "星の動き方（東京）"]) + '''
+<p><b>地軸の向きと北極星</b>：地球の地軸は、公転の面に垂直な方向から約23.4°かたむいていて、地球が公転のどの位置にあっても同じ向きのままです。北極星は、地軸を北へのばした方向のすぐ近くに、とても遠くにあるので、地球が公転で動いても、地軸の先はいつも北極星の近くを指します。地球は地軸を中心に自転しているので、北半球の観測者からは、地軸の先にある北極星はほとんど動かず、ほかの星がそのまわりを回って見えます。「右の図（宇宙から見た公転）をたおす」のスライダーを真横まで動かすと、1月・4月・7月・10月の地球の地軸がどれも同じ向きになっていることを確かめられます。</p>
 <h3>年周運動：1か月に30°</h3>
 <p>地球は1年（12か月）で太陽のまわりを1周するので、同じ時刻に見える星の位置は、1か月に 360° ÷ 12 ＝ 30° ずつ東から西へずれます。1日では約1°で、時間にすると約4分です。つまり、星が南中する時刻は1日に約4分、1か月で約2時間ずつ早くなります。</p>
 <p><b>例題1</b>：ある日の午後8時に、オリオン座が南中しました。同じ日の午後10時には、オリオン座は南中した位置からどちらへ何度動いていますか。<br>答え：15° × 2時間 ＝ <b>西へ30°</b></p>
@@ -776,6 +848,7 @@ sim(slug="hoshi-ugoki", cat="rika", emoji="⭐", score=79,
 <li>大気による浮き上がり（地平線近くで約0.5°）は入れていません。高度は計算上の値です。</li>
 <li>星座は、明るい星だけを線で結んでいます。結び方は本によって少しずつ違います。</li>
 <li>右の公転の図は、大きさと距離を誇張しています。黄色の矢印は、いまの時刻に東京で真南の空の方向を、公転の面に写したものです。</li>
+<li>右の公転の図をたおすときは、地軸のかたむきが横から見えるように、たおす角度と同じだけ視点を回しています（真横では秋の星座の側から見ます）。季節の星座は、読みやすいように だ円の帯に並べたままにしていて、真横でも1本の線には重ねていません。北極星は実際にはずっと遠くにあり、図では地軸をのばした方向の目印として描いています。自転の向きの輪も、見やすいように少し開いて描いています。</li>
 <li>日付は2026年の暦で計算しています（ほかの年でも、星の位置のずれは1°ほどです）。</li>
 </ul>
 

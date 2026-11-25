@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- seo-head -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+    <meta property="og:site_name" content="シミュラボ">
+    <meta property="og:url" content="https://shimulabo.com/sims/masatsu-zero/">
+    <meta property="og:image" content="https://shimulabo.com/ogp/masatsu-zero.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shimulabo.com/ogp/masatsu-zero.png">
+<title>もしも摩擦がなかったら？シミュレーター｜歩く・車・坂の箱・身のまわりで摩擦0%を体験｜シミュラボ</title>
+<meta name="description" content="摩擦の強さを「ふつう（100%）」から「0%」まで下げて、歩く人・車の発進とブレーキとカーブ・坂の上の箱・えんぴつやくつひもがどう変わるかをアニメーションで見るシミュレーター。摩擦がないと歩きだせない理由（作用・反作用）、止まれない理由（慣性の法則）、車が止まるまでの距離 v²÷(2μg)、箱がすべり出す角度 tanθ＝μ を、さわってたしかめられます。">
+<meta property="og:title" content="「もしも摩擦がなかったら？」シミュレーター">
+<meta property="og:description" content="摩擦を100%から0%へ。歩けない・止まれない・曲がれない・結べない。摩擦がない世界をアニメーションで体験。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+    <!-- seo-internal -->
+    <link rel="canonical" href="https://shimulabo.com/sims/masatsu-zero/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="robots" content="index,follow">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "「もしも摩擦がなかったら？」シミュレーター", "url": "https://shimulabo.com/sims/masatsu-zero/", "description": "摩擦の強さを「ふつう（100%）」から「0%」まで下げて、歩く人・車の発進とブレーキとカーブ・坂の上の箱・えんぴつやくつひもがどう変わるかをアニメーションで見るシミュレーター。摩擦がないと歩きだせない理由（作用・反作用）、止まれない理由（慣性の法則）、車が止まるまでの距離 v²÷(2μg)、箱がすべり出す角度 tanθ＝μ を、さわってたしかめられます。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shimulabo.com/"}, {"@type": "ListItem", "position": 2, "name": "「もしも摩擦がなかったら？」シミュレーター", "item": "https://shimulabo.com/sims/masatsu-zero/"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "摩擦がなくなると、歩けなくなるのはなぜですか？", "acceptedAnswer": {"@type": "Answer", "text": "人は、足で地面を後ろにおし、地面から前におし返してもらうことで前に進みます（作用・反作用）。このおし返す力が、足と地面のあいだの摩擦力です。摩擦がないと、足は後ろにすべるだけで、前に進む力が生まれません。"}}, {"@type": "Question", "name": "摩擦がないと、動いているものはどうなりますか？", "acceptedAnswer": {"@type": "Answer", "text": "空気の抵抗など、ほかの力がはたらかなければ、同じ速さでまっすぐ動きつづけます。これを慣性の法則といいます。ふだん物が止まるのは、摩擦力などが動きをさまたげる向きにはたらくからです。"}}, {"@type": "Question", "name": "車が止まるまでの距離は、どうやって計算していますか？", "acceptedAnswer": {"@type": "Answer", "text": "ブレーキをかけてから止まるまでの距離を「速さの2乗 ÷（2 × 摩擦係数 × 重力加速度）」、つまり v²÷(2μg) で計算しています。摩擦係数 μ が半分になると、止まるまでの距離は2倍になります。ブレーキをふむまでに進む距離（空走距離）や空気の抵抗は入れていません。"}}, {"@type": "Question", "name": "摩擦が0の場所は、本当にありますか？", "acceptedAnswer": {"@type": "Answer", "text": "ふだんの生活の中に、摩擦が完全に0の場所はありません。氷の上やエアホッケーの台は、摩擦がとても小さいだけです。宇宙でも、物と物がふれ合えば摩擦力ははたらきます。"}}]}</script>
+    <!-- ga4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R72MT9H7PT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R72MT9H7PT");</script>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4521532459480990"
+         crossorigin="anonymous"></script>
+
+<style>
+.mz0-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:12px}
+.mz0-tabs button{border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:10px 4px;font:inherit;font-size:13.5px;font-weight:800;cursor:pointer;color:var(--ink);line-height:1.3}
+.mz0-tabs button.on{background:#0369a1;border-color:#0369a1;color:#fff}
+.mz0-fr{background:#f0f9ff;border-radius:14px;padding:12px 14px 10px;margin-bottom:12px}
+.mz0-fr label{display:block;font-weight:800;font-size:14.5px;margin-bottom:4px}
+.mz0-fr label b{font-size:22px;color:#0369a1;font-variant-numeric:tabular-nums}
+.mz0-fr label .mz0-mu{font-weight:600;color:var(--ink-2);font-size:12.5px;white-space:nowrap}
+.mz0-fr label .mz0-mu b{font-size:14px}
+.mz0-fr input[type=range]{width:100%;height:32px;accent-color:#0369a1;margin:0}
+.mz0-scale{display:flex;justify-content:space-between;font-size:11.5px;color:var(--ink-2);font-weight:700}
+.mz0-quick{display:flex;gap:8px;margin-top:8px}
+.mz0-quick button{flex:1;border:0;border-radius:999px;padding:10px 6px;font:inherit;font-size:14px;font-weight:800;cursor:pointer;color:#fff;background:#0ea5e9}
+.mz0-quick button.n{background:#475569}
+#mz0Wrap{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#e0f2fe}
+#mz0Cv{display:block;width:100%;aspect-ratio:3/2;touch-action:pan-y}
+.mz0-demo{position:absolute;right:8px;bottom:8px;background:rgba(15,23,42,.82);color:#fff;font-size:12px;font-weight:700;border-radius:999px;padding:5px 12px;pointer-events:none}
+.mz0-demo[hidden]{display:none}
+.mz0-acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.mz0-acts button{flex:1 1 auto;border:1.5px solid #0369a1;background:#fff;color:#0369a1;border-radius:999px;padding:11px 12px;font:inherit;font-size:14px;font-weight:800;cursor:pointer;white-space:nowrap}
+.mz0-acts button.p{background:#0369a1;color:#fff}
+.mz0-acts button.g{border-color:var(--line);color:var(--ink-2);flex:0 0 auto}
+.mz0-acts button[hidden]{display:none}
+#mz0AngF{margin-top:12px}
+#mz0AngF[hidden]{display:none}
+.mz0-sum{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.mz0-sum div{background:#f0f9ff;border-radius:12px;padding:10px 4px;text-align:center;min-width:0}
+.mz0-sum b{display:block;font-size:19px;color:#0369a1;font-variant-numeric:tabular-nums;line-height:1.3}
+.mz0-sum span{font-size:11.5px;color:var(--ink-2);font-weight:700;display:block;line-height:1.35}
+.mz0-note{font-size:14px;color:var(--ink);background:#fff7ed;border-radius:10px;padding:10px 12px;margin:10px 0 0;font-weight:700;line-height:1.6;min-height:3.2em}
+.mz0-from{font-size:13.5px;color:var(--ink);background:#f0f9ff;border-radius:10px;padding:9px 12px;margin:10px 0 0}
+@media (max-width:640px){#mz0Cv{aspect-ratio:4/3}.mz0-tabs button{font-size:12px;padding:7px 1px 8px}.mz0-tabs button span{display:block;font-size:17px;line-height:1.25}.mz0-sum b{font-size:15px}.mz0-acts button{padding:10px 10px;font-size:13.5px}.mz0-demo{font-size:11px;padding:4px 10px;right:6px;bottom:6px}.mz0-demo span{display:none}}
+</style>
+
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3h6M10 3v5.2L5.4 16.4A2.4 2.4 0 0 0 7.5 20h9a2.4 2.4 0 0 0 2.1-3.6L14 8.2V3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.7 14.5h8.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10.3" cy="16.7" r="1" fill="#fff"/>
+          <circle cx="13.4" cy="17.4" r=".7" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="name">シミュ<b>ラボ</b></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="back" href="../../">← 一覧へ</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="../../">ホーム</a><span>›</span>ふしぎ・現象<span>›</span><span class="cur">「もしも摩擦がなかったら？」シミュレーター</span></nav>
+
+  <div class="sim-head">
+    <div class="cat">ふしぎ・現象</div>
+    <h1>「もしも摩擦がなかったら？」<br>シミュレーター</h1>
+    <p class="lead">摩擦の強さを「ふつう（100%）」から「0%」まで下げて、歩く人・車・坂の上の箱・身のまわりの道具がどう変わるかを、アニメーションでたしかめましょう。摩擦がなくなると、歩きだせない・止まれない・曲がれない・結べない、ということが起こります。</p>
+    <p class="mz0-from">💌 このシミュレーターは、リクエスト「摩擦が無ければ世の中はどうなる？」から作りました。</p>
+  </div>
+
+  <section class="panel" id="resultPanel">
+    <div class="mz0-tabs" id="mz0Tabs" role="tablist" aria-label="場面">
+      <button type="button" data-s="walk" class="on"><span>🚶</span> 歩く</button>
+      <button type="button" data-s="car"><span>🚗</span> 車</button>
+      <button type="button" data-s="slope"><span>📦</span> 坂の箱</button>
+      <button type="button" data-s="life"><span>✏️</span> 身のまわり</button>
+    </div>
+
+    <div class="mz0-fr">
+      <label for="mz0Fr">摩擦の強さ <b id="mz0FrV">100%</b> <span class="mz0-mu">（めやすの摩擦係数 μ＝<b id="mz0MuV">0.70</b>）</span></label>
+      <input type="range" id="mz0Fr" min="0" max="100" step="1" value="100" aria-label="摩擦の強さ">
+      <div class="mz0-scale"><span>0%（つるつる）</span><span>ふつう（100%）</span></div>
+      <div class="mz0-quick"><button type="button" id="mz0Zero">🧊 0%にする</button><button type="button" id="mz0Norm" class="n">↩ ふつうにもどす</button></div>
+    </div>
+
+    <div id="mz0Wrap">
+      <canvas id="mz0Cv" aria-label="摩擦の強さを変えたときのようすのアニメーション"></canvas>
+      <div class="mz0-demo" id="mz0Demo">▶ 自動デモ中<span>（さわると止まります）</span></div>
+    </div>
+
+    <div class="mz0-acts" id="mz0Acts">
+      <button type="button" class="p" data-sc="walk" data-a="go">🚶 歩きだす</button>
+      <button type="button" data-sc="walk" data-a="stop">✋ 止まる</button>
+      <button type="button" data-sc="walk" data-a="push">👉 せなかをおしてもらう</button>
+      <button type="button" class="p" data-sc="car" data-a="go">🚗 発進</button>
+      <button type="button" data-sc="car" data-a="brake">🛑 ブレーキ</button>
+      <button type="button" data-sc="car" data-a="turn">↰ ハンドルを切る</button>
+      <button type="button" class="g" data-sc="walk car slope life" data-a="reset">↺ はじめから</button>
+    </div>
+    <div class="field" id="mz0AngF" hidden>
+      <label for="mz0Ang">坂の角度 <span class="hint">（<b id="mz0AngV">20°</b>）</span></label>
+      <input type="range" id="mz0Ang" min="0" max="45" step="1" value="20">
+    </div>
+
+    <div class="mz0-sum">
+      <div><b id="mz0T1">0</b><span id="mz0L1"></span></div>
+      <div><b id="mz0T2">0</b><span id="mz0L2"></span></div>
+      <div><b id="mz0T3">0</b><span id="mz0L3"></span></div>
+    </div>
+    <p class="mz0-note" id="mz0Note"></p>
+
+    <div style="text-align:center;margin-top:16px;"><span id="shareCount" class="share-count" style="display:none"></span></div>
+    <div class="share-row">
+      <button class="btn btn-x" id="shareBtn">𝕏 で結果をシェア</button>
+      <button class="btn btn-ghost" id="copyBtn">結果をコピー</button>
+    </div>
+  </section>
+
+  <article class="article">
+
+<h2>摩擦とは</h2>
+<p><b>摩擦（まさつ）</b>は、ふれ合っている2つの物の面のあいだで、すべる動きをさまたげる向きにはたらく力です。くつの底と地面、タイヤと道路、手とコップ。ふれ合っているところには、いつも摩擦があります。</p>
+<p>摩擦力の大きさの上限は、「面どうしをおしつけ合う力（垂直抗力）× 摩擦係数 μ（ミュー）」で表されます。μ は面の組み合わせで決まる数で、大きいほどすべりにくいことを表します。乾いたアスファルトとタイヤでおよそ0.7前後、氷の上でおよそ0.1前後と言われます。条件（ぬれているか、材質、温度など）で大きく変わります。</p>
+<p>このシミュレーターでは、摩擦の強さ100%を μ＝0.7 とし、スライダーを下げると μ がそのまま小さくなるようにしています（50%で0.35、0%で0）。</p>
+
+<h2>摩擦がないと歩けない理由（作用・反作用）</h2>
+<p>歩くとき、足は地面を<b>後ろに</b>おしています。すると地面は、同じ大きさの力で足を<b>前に</b>おし返します。物Aが物Bに力を加えると、BからAにも、同じ大きさで逆向きの力がはたらく。これが<b>作用・反作用の法則</b>です。</p>
+<p>地面が足を前におし返す力の正体が、摩擦力です。摩擦が0だと、足は地面を後ろにおすことができず、すべるだけになります。おし返してくれる力がないので、いくら足を動かしても体は前に進みません。「歩く」場面で摩擦を0%にして「歩きだす」を押すと、その場で足だけが動くのはこのためです。</p>
+
+<h2>止まれない理由（慣性の法則）</h2>
+<p>物は、力がはたらかないかぎり、止まっている物は止まりつづけ、動いている物は同じ速さでまっすぐ動きつづけます。これを<b>慣性の法則</b>といいます。</p>
+<p>歩いている人や走っている車が止まれるのは、摩擦力が動きと逆向きにはたらくからです。摩擦が0だと、動きを止める力がないので、すべりつづけます。カーブで向きを変えるときも、横向きの摩擦力が必要です。摩擦が0だと、ハンドルを切ってもまっすぐ進んでしまいます。</p>
+
+<h2>車が止まるまでの距離の式</h2>
+<p>速さ v で走っている車がブレーキをかけ、タイヤと道路の摩擦力（μ × 重さ）だけで止まるとすると、止まるまでの距離は次の式になります（g は重力加速度で、約9.8 m/s²）。</p>
+<p style="text-align:center;font-weight:800;font-size:17px">止まるまでの距離 ＝ v² ÷ ( 2 × μ × g )</p>
+<p>たとえば時速40km（秒速 約11.1m）、μ＝0.7 なら、11.1² ÷（2 × 0.7 × 9.8）≒ 9.0m です。μ が10分の1の 0.07 になると、約90m になります。μ が0に近づくほど距離は長くなり、0では止まれません。この式には、ブレーキをふむまでに進む距離（空走距離）は入っていません。</p>
+<p>カーブを曲がるには、μ が v² ÷（g × カーブの半径）より大きいことが必要です。このシミュレーターのカーブ（半径20m・時速30km）では、約0.35（摩擦の強さ 約51%）です。これより小さいと、外へふくらんでいきます。</p>
+
+<h2>坂の上の箱がすべり出す角度</h2>
+<p>坂の上の箱には、重力・垂直抗力・摩擦力の3つの力がはたらいています。坂の角度 θ を大きくすると、箱を坂にそってすべらせようとする力がふえ、坂におしつける力はへります。すべり出すのは、</p>
+<p style="text-align:center;font-weight:800;font-size:17px">tan θ ＞ μ</p>
+<p>になったときです。μ＝0.7 なら約35度、μ＝0.35 なら約19度。μ＝0 なら、ほんの少しかたむけただけですべり出します。</p>
+
+<h2>静止摩擦と動摩擦</h2>
+<p>止まっている物を動かそうとするとき、動きだすまでのあいだにはたらく摩擦力を<b>静止摩擦力</b>といいます。おす力に合わせて大きくなりますが、上限があり、それをこえると物はすべり出します。</p>
+<p>すべっているあいだにはたらく摩擦力は<b>動摩擦力</b>といいます。ふつう、動摩擦力は静止摩擦力の上限より小さくなります。重い家具が「動きだすまでが重く、動きだすと少し軽い」のはこのためです。このシミュレーターの坂の場面では、動摩擦を静止摩擦の0.8倍にしています（わかりやすくするための決めた値です）。</p>
+
+<h2>摩擦がなくて困ること／摩擦が小さいほうがうれしいこと</h2>
+<ul>
+<li><b>困ること</b>：歩けない、車が発進も停止もカーブもできない、ひもの結び目がほどける、ねじやくぎがぬける、えんぴつで字が書けない、物を持てない。えんぴつの線は、しんが紙とこすれてけずれ、紙にのこったものです。</li>
+<li><b>小さいほうがうれしいこと</b>：スケートは、氷とくつの刃の摩擦が小さいのでよくすべります。磁石の力で車体をうかせて走るリニアモーターカーは、車輪とレールの摩擦にたよらずに走ります。機械の動く部分に油をさすのは、摩擦をへらして、動きを軽くし、すりへりにくくするためです。</li>
+</ul>
+<p>摩擦は「じゃまもの」ではなく、場面によって、大きくしたり小さくしたりして使い分けているものです。</p>
+
+<h2>本当に摩擦0の世界はある？</h2>
+<p>ふだんの生活の中に、摩擦が完全に0の場所はありません。氷の上や、空気で円ばんをうかせるエアホッケーの台は、摩擦が「とても小さい」だけです。宇宙でも、物と物がふれ合えば摩擦力ははたらきます。</p>
+<p>このシミュレーターは、摩擦のはたらきをつかむために、とても単純にしたものです。空気の抵抗、タイヤの転がる抵抗、人がバランスをとる動きなどは入れていません。「身のまわり」の場面で、コップが落ちはじめる・結び目がほどけはじめる・ねじがゆるみはじめる摩擦の強さ（30%・20%・10%）は、ちがいを見やすくするために決めた目安で、実際の数字ではありません。</p>
+
+    <h2>よくある質問</h2>
+    <dl class="faq"><dt>摩擦がなくなると、歩けなくなるのはなぜですか？</dt><dd>人は、足で地面を後ろにおし、地面から前におし返してもらうことで前に進みます（作用・反作用）。このおし返す力が、足と地面のあいだの摩擦力です。摩擦がないと、足は後ろにすべるだけで、前に進む力が生まれません。</dd><dt>摩擦がないと、動いているものはどうなりますか？</dt><dd>空気の抵抗など、ほかの力がはたらかなければ、同じ速さでまっすぐ動きつづけます。これを慣性の法則といいます。ふだん物が止まるのは、摩擦力などが動きをさまたげる向きにはたらくからです。</dd><dt>車が止まるまでの距離は、どうやって計算していますか？</dt><dd>ブレーキをかけてから止まるまでの距離を「速さの2乗 ÷（2 × 摩擦係数 × 重力加速度）」、つまり v²÷(2μg) で計算しています。摩擦係数 μ が半分になると、止まるまでの距離は2倍になります。ブレーキをふむまでに進む距離（空走距離）や空気の抵抗は入れていません。</dd><dt>摩擦が0の場所は、本当にありますか？</dt><dd>ふだんの生活の中に、摩擦が完全に0の場所はありません。氷の上やエアホッケーの台は、摩擦がとても小さいだけです。宇宙でも、物と物がふれ合えば摩擦力ははたらきます。</dd></dl>
+    <h2>参考にした資料</h2>
+    <ul class="seo-refs"><li>文部科学省「中学校学習指導要領（平成29年告示）解説 理科編」（力のはたらき、運動の規則性：慣性の法則、作用・反作用の法則）</li><li>文部科学省「高等学校学習指導要領（平成30年告示）解説 理科編 理数編」（物理基礎：様々な力とその働き、運動の法則）</li></ul>
+  </article>
+
+  <nav class="related" aria-label="related">
+    <h2>関連するシミュレーター</h2>
+    <div class="related-grid"><a class="related-card" href="../coaster-energy/"><span class="e">🎢</span><span>ジェットコースターで学ぶエネルギー</span></a><a class="related-card" href="../domino-taoshi/"><span class="e">🧱</span><span>ドミノ倒しシミュレーター</span></a><a class="related-card" href="../mizukiri-ishi/"><span class="e">💧</span><span>水切りシミュレーター</span></a></div>
+  </nav>
+
+  <section class="req-banner">
+    <h2>💡 こんなシミュレーターも見てみたい？</h2>
+    <p>あなたの「これシミュレーションしてみたい」を送ってください。面白い案から実際に作って、できたらお知らせします。</p>
+    <a class="btn btn-primary" style="width:auto;display:inline-flex;padding:14px 30px;" href="../../request/">リクエストする →</a>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p><a href="../../">← シミュラボ トップへ戻る</a></p>
+    <p style="margin-top:8px;font-size:.85em"><!-- footer-links --><a href="../../about/">運営者情報</a>　<a href="../../privacy/">プライバシーポリシー</a>　<a href="../../terms/">利用規約</a>　<a href="../../contact/">お問い合わせ</a></p>
+    <p style="margin-top:10px;opacity:.7">© 2026 シミュラボ</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const cv = $('mz0Cv'), ctx = cv.getContext('2d');
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+  const lerp = (a, b, t) => a + (b - a) * t;
+  const mixc = (a, b, t) => `rgb(${Math.round(lerp(a[0], b[0], t))},${Math.round(lerp(a[1], b[1], t))},${Math.round(lerp(a[2], b[2], t))})`;
+  const G = 9.8, MU0 = 0.7;
+  const FONT = 'system-ui,-apple-system,"Hiragino Sans","Noto Sans JP","Yu Gothic",sans-serif';
+  let W = 0, H = 0, DPR = 1;
+  function fit() {
+    const r = cv.getBoundingClientRect(), d = Math.min(2, window.devicePixelRatio || 1);
+    if (!r.width || !r.height) return false;
+    if (Math.abs(r.width - W) > .5 || Math.abs(r.height - H) > .5 || d !== DPR) { W = r.width; H = r.height; DPR = d; cv.width = Math.round(W * d); cv.height = Math.round(H * d); }
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0); return true;
+  }
+
+  // ---------- 状態 ----------
+  const S = { scene: 'walk', fr: 100, angle: 20, demo: true, t: 0 };
+  const mu = () => MU0 * S.fr / 100;
+  const ice = () => 1 - S.fr / 100;
+  const A_PUSH = 5, A_STOP = 5, VT = 1.4;           // 歩く：ける強さ・止まる強さ(m/s²)・歩く速さ(m/s)
+  const VMAX = 40 / 3.6, A_ENG = 4, VTOP = 30 / 3.6, RC = 20;   // 車：時速40km・エンジンの加速・カーブは時速30km 半径20m
+  const SL = 3, S0 = .35, MK = .8;                  // 坂：長さ3m・箱の最初の位置・動摩擦＝静止摩擦×0.8
+  const CUP_T = 30, KNOT_T = 20, SCREW_T = 10;      // 身のまわり：落ちはじめる・ほどけはじめる・ゆるみはじめる（目安）
+  let wk, car, sl, ev, parts = [];
+  function resetWalk() { wk = { x: 0, v: 0, want: false, ph: 0, slip: 0, slipA: 0, gait: 0, brace: 0, used: 1, stopX: null, stopD: null, marks: [], pushed: false }; }
+  function resetTop() { car.top = { x: -18, y: 0, hd: 0, ph: 'run', t: 0, maxDev: 0, trail: [], steer: 0 }; }
+  function resetCar() { car = { mode: 'side', x: 0, v: 0, drive: false, brake: false, wv: 0, wa: 0, brakeX: null, brakeV: 0, stopD: null, pitch: 0, camO: .3, spin: false, skid: false, em: 0, top: null }; resetTop(); parts = []; }
+  function resetSlope() { sl = { s: S0, v: 0, st: 'rest', doneT: 0, a: 0, fade: 1 }; }
+  function resetLife() { ev = { pen: { u: 0, row: 0, pts: [], x: .08, y: .2, fr0: S.fr }, cup: { y: 0, vy: 0, st: 'hold', t: 0, tilt: 0 }, knot: { p: 0 }, screw: { p: 0, rot: 0, fell: false, fy: 0, vy: 0, t: 0 } }; }
+  resetWalk(); resetCar(); resetSlope(); resetLife();
+
+  // ---------- うごき（物理） ----------
+  function tickWalk(dt) {
+    const amax = mu() * G, v0 = wk.v; let slipV = 0;
+    if (wk.want) {
+      const lim = A_PUSH > amax + 1e-9;
+      if (wk.v < VT) wk.v = Math.min(VT, wk.v + Math.min(A_PUSH, amax) * dt);
+      const legV = lim ? VT : Math.max(wk.v, .7);
+      slipV = lim ? Math.max(0, VT - wk.v) : 0;
+      wk.ph += dt * legV / VT * 5.8;
+      wk.used = Math.min(1, amax / A_PUSH);
+    } else if (wk.v > 0) {
+      wk.v = Math.max(0, wk.v - Math.min(A_STOP, amax) * dt);
+      wk.used = Math.min(1, amax / A_STOP);
+    }
+    wk.x += (v0 + wk.v) / 2 * dt;
+    if (!wk.want && wk.stopX != null) {
+      const m = wk.marks[wk.marks.length - 1]; if (m && wk.v > 0) m.b = wk.x;
+      if (wk.v === 0 && wk.stopD == null) wk.stopD = wk.x - wk.stopX;
+    }
+    wk.slip = slipV / VT;
+    const sm = (c, t, r) => c + (t - c) * Math.min(1, r * dt);
+    wk.gait = sm(wk.gait, wk.want ? 1 : 0, 8); wk.slipA = sm(wk.slipA, wk.slip, 6);
+    wk.brace = sm(wk.brace, (!wk.want && wk.v > .03) ? 1 : 0, 9);
+  }
+  function tickTop(dt) {
+    const T = car.top, v = VTOP;
+    if (T.ph === 'run') {
+      T.steer = 0;
+      if (T.x >= 0 && T.hd < Math.PI / 2) { const m = mu(), Re = m > 0 ? Math.max(RC, v * v / (m * G)) : Infinity; T.hd = Math.min(Math.PI / 2, T.hd + v / Re * dt); T.steer = 1; }
+      T.x += Math.cos(T.hd) * v * dt; T.y += Math.sin(T.hd) * v * dt;
+      const dev = T.x < 0 ? Math.abs(T.y) : (T.y <= RC ? Math.abs(Math.hypot(T.x, T.y - RC) - RC) : Math.abs(T.x - RC));
+      T.maxDev = Math.max(T.maxDev, dev);
+      const q = T.trail[T.trail.length - 1]; if (!q || Math.hypot(q[0] - T.x, q[1] - T.y) > .5) T.trail.push([T.x, T.y]);
+      if (T.x >= 28.3) { T.ph = 'crash'; T.t = 0; } else if (T.y >= 27) { T.ph = 'done'; T.t = 0; }
+    } else { T.t += dt; if (T.t > 2.8) resetTop(); }
+    car.wa += v / .34 * dt;
+  }
+  function tickCar(dt) {
+    if (car.mode === 'top') { tickTop(dt); return; }
+    const amax = mu() * G, v0 = car.v; let acc = 0; car.spin = false; car.skid = false;
+    if (car.drive) {
+      if (car.v < VMAX) { acc = Math.min(A_ENG, amax); car.v = Math.min(VMAX, car.v + acc * dt); car.spin = A_ENG > amax + 1e-9; }
+      car.wv = car.spin ? Math.min(18, Math.max(car.wv, car.v) + 16 * dt) : car.v;
+    } else if (car.brake) {
+      if (car.v > 0) { acc = -amax; car.v = Math.max(0, car.v - amax * dt); car.skid = S.fr < 60; }
+      car.wv = car.v * clamp(S.fr / 60, 0, 1);
+    } else car.wv = car.v;
+    car.x += (v0 + car.v) / 2 * dt; car.wa += car.wv / .34 * dt;
+    car.camO += ((car.brake ? .55 : .3) - car.camO) * Math.min(1, 2.5 * dt);
+    if (car.brake && car.v === 0 && car.stopD == null) car.stopD = car.x - car.brakeX;
+    car.pitch += (-acc * .006 - car.pitch) * Math.min(1, 8 * dt);
+    const col = ice() > .5 ? '14,116,144' : '100,116,139';
+    if (car.spin) { car.em += dt * 46; while (car.em > 1) { car.em--; parts.push({ x: car.x - 1.5, y: .05, vx: -(2 + Math.random() * 5), vy: .5 + Math.random() * 2, life: 0, max: .45 + Math.random() * .3, r: .05 + Math.random() * .06, col }); } }
+    if (car.skid && car.v > 1) { car.em += dt * 30; while (car.em > 1) { car.em--; const fx = Math.random() < .5 ? -1.25 : 1.25; parts.push({ x: car.x + fx, y: .04, vx: car.v * .5 + Math.random() * 2, vy: .3 + Math.random() * 1.1, life: 0, max: .4 + Math.random() * .3, r: .06 + Math.random() * .07, col }); } }
+  }
+  function tickParts(dt) {
+    for (const p of parts) { p.life += dt; p.x += p.vx * dt; p.y += p.vy * dt; p.vy -= 5 * dt; if (p.y < 0) { p.y = 0; p.vy *= -.3; } }
+    if (parts.length) parts = parts.filter(p => p.life < p.max);
+  }
+  function tickSlope(dt) {
+    const th = S.angle * Math.PI / 180, ms = mu(), mk = MK * ms;
+    if (sl.st === 'rest' && sl.s < SL && Math.tan(th) > ms + 1e-9) sl.st = 'slide';
+    if (sl.st === 'slide') {
+      const a = sl.s < SL ? G * (Math.sin(th) - mk * Math.cos(th)) : -mk * G;
+      const v0 = sl.v; sl.a = a; sl.v += a * dt;
+      if (sl.v <= 0) { sl.v = 0; sl.st = 'rest'; sl.a = 0; sl.doneT = 0; }
+      sl.s += (v0 + sl.v) / 2 * dt;
+      if (sl.s > SL + 1.9) { sl.st = 'out'; sl.doneT = 0; sl.a = 0; }
+    } else sl.a = 0;
+    if (sl.st === 'out' || (sl.st === 'rest' && sl.s >= SL)) { sl.doneT += dt; if (sl.doneT > 1.5) { resetSlope(); sl.fade = 0; } }
+    sl.fade = Math.min(1, sl.fade + dt * 3);
+  }
+  function tickLife(dt) {
+    const f = S.fr / 100, p = ev.pen;
+    p.u += dt * .42; let nw = false;
+    if (p.u >= 1) { p.u = 0; p.row++; nw = true; if (p.row >= 3) { p.row = 0; p.pts = []; } }
+    p.x = .08 + .84 * p.u; p.y = .22 + .27 * p.row + .075 * Math.sin(p.u * Math.PI * 6) + Math.sin(S.t * 23) * (1 - f) * .02;
+    p.pts.push({ x: p.x, y: p.y, a: f * .95, n: nw || !p.pts.length });
+    const c = ev.cup, hold = S.fr >= CUP_T;
+    if (c.st === 'hold') { if (!hold) c.st = 'slip'; else c.y = Math.max(0, c.y - dt * 1.5); c.vy = 0; }
+    else if (c.st === 'slip') { if (hold) c.st = 'hold'; else { c.vy += (1 - S.fr / CUP_T) * 3.2 * dt; c.y += c.vy * dt; if (c.y >= 1) { c.y = 1; c.st = 'down'; c.t = 0; } } }
+    else { c.t += dt; c.tilt = Math.min(Math.PI / 2, c.t * 7); if (c.t > 2.4) { c.st = 'hold'; c.y = 0; c.tilt = 0; c.vy = 0; } }
+    const k = ev.knot;
+    if (S.fr < KNOT_T) k.p = Math.min(1, k.p + ((1 - S.fr / KNOT_T) * .8 + .08) * dt); else k.p = Math.max(0, k.p - dt * 1.3);
+    const s = ev.screw, loose = S.fr < SCREW_T;
+    if (!s.fell) {
+      if (loose) { const r = (1 - S.fr / SCREW_T) * .5 + .05; s.p = Math.min(1, s.p + r * dt); s.rot += r * dt * 70; if (s.p >= 1) { s.fell = true; s.vy = 0; s.t = 0; } }
+      else if (s.p > 0) { s.p = Math.max(0, s.p - dt * 1.2); s.rot -= dt * 84; }
+    } else {
+      s.vy += 4 * dt; s.fy = Math.min(1, s.fy + s.vy * dt); s.t += dt;
+      if ((!loose && s.t > 1) || s.t > 3.6) { s.fell = false; s.fy = 0; s.vy = 0; s.p = loose ? 0 : .7; }
+    }
+  }
+
+  // ---------- 自動デモ（歩く場面で 100→40→15→0%） ----------
+  const DEMO = [100, 40, 15, 0], dm = { i: 0, t: 0 };
+  function endDemo() { if (!S.demo) return; S.demo = false; $('mz0Demo').hidden = true; }
+  function demoTick(dt) {
+    if (S.scene !== 'walk') { endDemo(); return; }
+    dm.t += dt;
+    if (dm.i >= DEMO.length - 1) { if (!wk.want) doAct('go', true); if (dm.t > 7) endDemo(); return; }
+    if (dm.t < 2.6) { if (!wk.want) doAct('go', true); }
+    else if (dm.t < 5) { if (wk.want) doAct('stop', true); if (dm.t > 4.3) setFr(lerp(DEMO[dm.i], DEMO[dm.i + 1], clamp((dm.t - 4.3) / .7, 0, 1))); }
+    else { setFr(DEMO[dm.i + 1]); dm.i++; dm.t = 0; }
+  }
+  function tick(dt) {
+    S.t += dt;
+    if (S.demo) demoTick(dt);
+    if (S.scene === 'walk') tickWalk(dt); else if (S.scene === 'car') tickCar(dt); else if (S.scene === 'slope') tickSlope(dt); else tickLife(dt);
+    tickParts(dt);
+  }
+
+  // ---------- 絵の部品 ----------
+  function rr(x, y, w, h, r) { r = Math.min(r, w / 2, h / 2); ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath(); }
+  function arrow(x1, y1, x2, y2, col, lw, dash) {
+    const dx = x2 - x1, dy = y2 - y1, d = Math.hypot(dx, dy); if (d < 4) return;
+    const ux = dx / d, uy = dy / d, h = Math.min(lw * 3.4, d * .6);
+    ctx.save(); ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = lw; ctx.lineCap = 'round';
+    if (dash) ctx.setLineDash(dash);
+    ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2 - ux * h * .8, y2 - uy * h * .8); ctx.stroke(); ctx.setLineDash([]);
+    ctx.beginPath(); ctx.moveTo(x2, y2); ctx.lineTo(x2 - ux * h - uy * h * .55, y2 - uy * h + ux * h * .55); ctx.lineTo(x2 - ux * h + uy * h * .55, y2 - uy * h - ux * h * .55); ctx.closePath(); ctx.fill(); ctx.restore();
+  }
+  function label(txt, x, y, col, size, align, bg) {
+    ctx.font = `800 ${size}px ${FONT}`; ctx.textAlign = align || 'left'; ctx.textBaseline = 'middle';
+    if (bg) { const w = ctx.measureText(txt).width, x0 = align === 'center' ? x - w / 2 : align === 'right' ? x - w : x; ctx.fillStyle = bg; rr(x0 - 6, y - size * .8, w + 12, size * 1.6, size * .6); ctx.fill(); }
+    ctx.fillStyle = col; ctx.fillText(txt, x, y);
+  }
+  const fs = () => clamp(W / 50, 10.5, 14);
+  function pill(txt, bad) { label(txt, W - 14, 20, '#fff', fs() + 1, 'right', bad ? 'rgba(220,38,38,.92)' : 'rgba(21,128,61,.9)'); }
+  function sky(camPx) {
+    const g = ctx.createLinearGradient(0, 0, 0, H); g.addColorStop(0, '#bfe3ff'); g.addColorStop(1, '#eef8ff'); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+    const k = H / 480; ctx.fillStyle = '#fff3b0'; ctx.beginPath(); ctx.arc(W * .8, H * .24, 26 * k + 6, 0, 7); ctx.fill(); ctx.fillStyle = '#fde68a'; ctx.beginPath(); ctx.arc(W * .8, H * .24, 18 * k + 4, 0, 7); ctx.fill();
+    ctx.fillStyle = 'rgba(255,255,255,.92)'; const per = W + 300 * k, off = (((camPx || 0) * .12 + S.t * 5) % per + per) % per;
+    for (const [x, y, sc] of [[.12, .34, 1], [.5, .2, .8], [.82, .4, .65]]) { const X = ((x * per - off) % per + per) % per - 150 * k, Y = H * y, r = 20 * k * sc + 4; ctx.beginPath(); ctx.arc(X, Y, r, 0, 7); ctx.arc(X + r * 1.15, Y - r * .45, r * 1.15, 0, 7); ctx.arc(X + r * 2.35, Y, r * .9, 0, 7); ctx.fill(); }
+  }
+  const BLD = [[0, 60, 110, '#c7d2fe'], [70, 46, 150, '#bae6fd'], [125, 70, 90, '#fde68a'], [205, 50, 130, '#fecaca'], [265, 64, 105, '#bbf7d0'], [340, 44, 160, '#ddd6fe'], [392, 66, 80, '#fed7aa']];
+  function town(camPx, gy, k) {
+    const per = 470 * k, off = ((camPx * .35) % per + per) % per;
+    for (let b = -1; b <= Math.ceil(W / per) + 1; b++) for (const [x, w, h, c] of BLD) {
+      const X = b * per + x * k - off, hh = h * k; if (X > W || X + w * k < 0) continue;
+      ctx.fillStyle = c; ctx.fillRect(X, gy - hh, w * k, hh + 1); ctx.fillStyle = 'rgba(255,255,255,.7)';
+      for (let r = 0; r < Math.floor(h / 24); r++) for (let q = 0; q < Math.floor(w / 20); q++) ctx.fillRect(X + (6 + q * 20) * k, gy - hh + (9 + r * 24) * k, 9 * k, 12 * k);
+    }
+  }
+  function ground(camPx, gy, ppm, road) {
+    const t = ice(), gh = H - gy;
+    ctx.fillStyle = road ? mixc([71, 85, 105], [186, 230, 253], t) : mixc([203, 213, 225], [186, 230, 253], t); ctx.fillRect(0, gy, W, gh);
+    if (t > .04) { ctx.save(); ctx.globalAlpha = Math.min(1, t * .9); ctx.strokeStyle = '#fff'; ctx.lineWidth = 2.5; ctx.lineCap = 'round'; const per = 96, off = ((camPx % per) + per) % per; ctx.beginPath(); for (let x = -per; x < W + per; x += per) { const X = x - off; ctx.moveTo(X + 14, gy + gh * .34); ctx.lineTo(X + 46, gy + gh * .34); ctx.moveTo(X + 58, gy + gh * .58); ctx.lineTo(X + 76, gy + gh * .58); } ctx.stroke(); ctx.restore(); }
+    ctx.fillStyle = 'rgba(15,23,42,.4)'; ctx.fillRect(0, gy, W, 2);
+    const dark = !road || t > .45, m0 = Math.floor(camPx / ppm) - 1, m1 = m0 + Math.ceil(W / ppm) + 2;
+    for (let m = m0; m <= m1; m++) {
+      const X = m * ppm - camPx, big = m % 5 === 0; ctx.fillStyle = dark ? 'rgba(15,23,42,.4)' : 'rgba(255,255,255,.8)'; ctx.fillRect(X - 1, gy + 2, 2, big ? gh * .22 : gh * .1);
+      if (m >= 0 && (big || ppm > 40)) label(m + 'm', X, gy + gh * .82, dark ? '#334155' : '#fff', clamp(gh * .2, 9.5, 12), 'center');
+    }
+  }
+  function flag(X, gy, col, txt, hgt, al) {
+    ctx.fillStyle = col; ctx.fillRect(X - 1.5, gy - hgt, 3, hgt); ctx.beginPath(); ctx.moveTo(X, gy - hgt); ctx.lineTo(X + 16, gy - hgt + 7); ctx.lineTo(X, gy - hgt + 14); ctx.closePath(); ctx.fill();
+    label(txt, clamp(X, 60, W - 60), gy - hgt - 13, '#fff', fs(), al || 'center', col);
+  }
+
+  // ---------- 場面1：歩く ----------
+  function person(px, gy, u, k) {
+    const l1 = .45 * u, l2 = .45 * u, torso = .56 * u, headR = .125 * u, g = wk.gait, br = wk.brace, sA = wk.slipA;
+    const lean = .07 * g + Math.sin(S.t * 11) * .14 * sA - .3 * br;
+    const hx = px, hy = gy - .86 * u + Math.abs(Math.sin(wk.ph)) * .02 * u * g + .06 * u * br;
+    const stride = .34 * u, lift = .13 * u;
+    const foot = (ph, side) => { const wx = hx + Math.cos(ph) * stride * g, wy = gy - Math.max(0, -Math.sin(ph)) * lift * g; return [lerp(wx, hx + side * .32 * u, br), lerp(wy, gy, br)]; };
+    function leg(ph, side, col, shoe) {
+      const [fx, fy] = foot(ph, side), dx = fx - hx, dy = fy - .05 * u - hy; let d = Math.min(Math.hypot(dx, dy), l1 + l2 - .5);
+      const a = Math.atan2(dy, dx), A = Math.acos(clamp((l1 * l1 + d * d - l2 * l2) / (2 * l1 * d), -1, 1));
+      const kx = hx + Math.cos(a - A) * l1, ky = hy + Math.sin(a - A) * l1, ex = hx + Math.cos(a) * d, ey = hy + Math.sin(a) * d;
+      ctx.strokeStyle = col; ctx.lineWidth = .13 * u; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.beginPath(); ctx.moveTo(hx, hy); ctx.lineTo(kx, ky); ctx.lineTo(ex, ey); ctx.stroke();
+      ctx.fillStyle = shoe; rr(ex - .07 * u, ey - .035 * u, .25 * u, .095 * u, .04 * u); ctx.fill();
+      return fx;
+    }
+    function arm(sx, sy, ang, col) { const L = .3 * u, ex = sx + Math.sin(ang) * L, ey = sy + Math.cos(ang) * L, hx2 = ex + Math.sin(ang + .5) * L * .9, hy2 = ey + Math.cos(ang + .5) * L * .9; ctx.strokeStyle = col; ctx.lineWidth = .1 * u; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.beginPath(); ctx.moveTo(sx, sy); ctx.lineTo(ex, ey); ctx.lineTo(hx2, hy2); ctx.stroke(); ctx.fillStyle = '#fcd9b6'; ctx.beginPath(); ctx.arc(hx2, hy2, .055 * u, 0, 7); ctx.fill(); }
+    ctx.fillStyle = 'rgba(15,23,42,.16)'; ctx.beginPath(); ctx.ellipse(px, gy + 3 * k, .42 * u, .05 * u, 0, 0, 7); ctx.fill();
+    const sx = hx + Math.sin(lean) * torso, sy = hy - Math.cos(lean) * torso, sw = Math.sin(wk.ph) * .7 * g;
+    const aF = lerp(-sw, 2.0 + Math.sin(S.t * 13) * .5, sA) + br * .9, aB = lerp(sw, -1.9 + Math.sin(S.t * 13 + 2) * .5, sA) + br * .5;
+    arm(sx, sy, aB, '#1d4ed8');
+    const fB = leg(wk.ph + Math.PI, -1, '#334155', '#b91c1c');
+    ctx.strokeStyle = '#2563eb'; ctx.lineWidth = .27 * u; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(hx, hy - .06 * u); ctx.lineTo(sx, sy); ctx.stroke();
+    const cx = sx + Math.sin(lean) * (headR + .07 * u), cy = sy - Math.cos(lean) * (headR + .07 * u);
+    ctx.fillStyle = '#fcd9b6'; ctx.beginPath(); ctx.arc(cx, cy, headR, 0, 7); ctx.fill();
+    ctx.fillStyle = '#3f2a1d'; ctx.beginPath(); ctx.arc(cx - headR * .12, cy - headR * .18, headR * 1.02, Math.PI * .95, Math.PI * 1.92); ctx.fill();
+    ctx.fillStyle = '#0f172a'; ctx.beginPath(); ctx.arc(cx + headR * .5, cy + headR * .02, headR * .1, 0, 7); ctx.fill();
+    if (sA > .3 || br > .5) { ctx.strokeStyle = '#0f172a'; ctx.lineWidth = Math.max(1.2, headR * .1); ctx.beginPath(); ctx.arc(cx + headR * .45, cy + headR * .55, headR * .2, 0, 7); ctx.stroke(); }
+    const fA = leg(wk.ph, 1, '#475569', '#ef4444');
+    arm(sx, sy, aF, '#3b82f6');
+    const fx = Math.sin(wk.ph) >= 0 ? fA : fB, y1 = gy + (H - gy) * .22, y2 = gy + (H - gy) * .48, AL = Math.min(.95 * u, W * .2);
+    if (wk.want) {
+      if (wk.used > .04) { arrow(fx, y1, fx - AL * wk.used, y1, '#f97316', 4.5 * k + 1.5); arrow(fx, y2, fx + AL * wk.used, y2, '#2563eb', 4.5 * k + 1.5); }
+      else { ctx.strokeStyle = '#dc2626'; ctx.lineWidth = 4; ctx.lineCap = 'round'; const q = 7 * k + 3; ctx.beginPath(); ctx.moveTo(fx - q, y1 - q + 6); ctx.lineTo(fx + q, y1 + q + 6); ctx.moveTo(fx + q, y1 - q + 6); ctx.lineTo(fx - q, y1 + q + 6); ctx.stroke(); label('地面をけれない', fx + q + 8, y1 + 6, '#dc2626', fs(), 'left', 'rgba(255,255,255,.85)'); }
+      if (wk.slip > .08) { ctx.strokeStyle = 'rgba(15,23,42,.45)'; ctx.lineWidth = 2; ctx.lineCap = 'round'; ctx.beginPath(); for (let i = 0; i < 4; i++) { const o = (S.t * 160 + i * 23) % (.5 * u); ctx.moveTo(fx - o - .1 * u, gy - 3 - i * 3 * k); ctx.lineTo(fx - o - .1 * u - .16 * u, gy - 3 - i * 3 * k); } ctx.stroke(); if (Math.sin(S.t * 7) > -.3) label('ツルッ', px - .75 * u, gy - .34 * u + Math.sin(S.t * 9) * 3, '#0369a1', fs() + 2, 'center'); }
+    } else if (wk.v > .03) {
+      if (wk.used > .04) arrow(px + .32 * u, y1, px + .32 * u - AL * wk.used, y1, '#2563eb', 4.5 * k + 1.5);
+      ctx.strokeStyle = 'rgba(15,23,42,.45)'; ctx.lineWidth = 2; ctx.lineCap = 'round'; ctx.beginPath(); for (let i = 0; i < 4; i++) { const o = (S.t * 190 + i * 31) % (.6 * u); ctx.moveTo(px - .5 * u - o, gy - .2 * u - i * .18 * u); ctx.lineTo(px - .5 * u - o - .25 * u, gy - .2 * u - i * .18 * u); } ctx.stroke();
+      if (wk.used < .5) label('ズザー', px + .85 * u, gy - .28 * u + Math.sin(S.t * 9) * 3, '#0369a1', fs() + 2, 'center');
+    }
+    if (wk.v > .03) { const ay = gy - 1.98 * u; arrow(px - .1 * u, ay, px - .1 * u + wk.v / VT * .8 * u, ay, '#16a34a', 4 * k + 1.5); label('速さ', px - .18 * u, ay, '#15803d', fs(), 'right'); }
+  }
+  function drawWalk() {
+    const gy = H * .8, ppm = H / 3.7, k = H / 480, px = W * .36, camPx = wk.x * ppm - px;
+    sky(camPx); town(camPx, gy, k); ground(camPx, gy, ppm, false);
+    ctx.strokeStyle = 'rgba(30,41,59,.4)'; ctx.lineWidth = Math.max(2, 3 * k); ctx.lineCap = 'round';
+    for (const m of wk.marks) { const a = m.a * ppm - camPx, b = m.b * ppm - camPx; if (b < -80 || a > W + 80 || b - a < 2) continue; ctx.beginPath(); ctx.moveTo(a - .3 * ppm, gy + 5 * k); ctx.lineTo(b - .3 * ppm, gy + 5 * k); ctx.moveTo(a + .32 * ppm, gy + 9 * k); ctx.lineTo(b + .32 * ppm, gy + 9 * k); ctx.stroke(); }
+    person(px, gy, ppm, k);
+    const f = fs(); ctx.fillStyle = 'rgba(255,255,255,.82)'; rr(8, 8, f * 13.4 + 38, f * 3.3 + 8, 8); ctx.fill();
+    ctx.fillStyle = '#f97316'; ctx.fillRect(14, 12 + f * .55, 18, 4); label('足が地面を後ろへおす力', 38, 14 + f * .55, '#0f172a', f);
+    ctx.fillStyle = '#2563eb'; ctx.fillRect(14, 12 + f * 2.15, 18, 4); label('地面がおし返す力（摩擦力）', 38, 14 + f * 2.15, '#0f172a', f);
+    if (wk.want && wk.v < .05 && wk.used < .04) pill('前に進めない！', true);
+    else if (wk.want && wk.slip > .08) pill('足がすべる！', true);
+    else if (!wk.want && wk.v > .03 && wk.used < .04) pill('止まれない！', true);
+    else if (!wk.want && wk.v > .03 && wk.used < .5) pill('すべって止まれない…', true);
+    else if (wk.want && wk.v > .03 && mu() < .02) pill('すべり続けている（止まれない）', true);
+    else if (wk.want) pill('ふつうに歩ける', false);
+  }
+
+  // ---------- 場面2：車 ----------
+  function wheel(x, y, r, a, blur) {
+    ctx.fillStyle = '#1f2937'; ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fill(); ctx.fillStyle = '#e5e7eb'; ctx.beginPath(); ctx.arc(x, y, r * .58, 0, 7); ctx.fill();
+    ctx.strokeStyle = '#475569'; ctx.lineWidth = Math.max(1.5, r * .14); ctx.lineCap = 'round';
+    for (let i = 0; i < 5; i++) { const t = a + i * Math.PI * 2 / 5; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + Math.cos(t) * r * .55, y + Math.sin(t) * r * .55); ctx.stroke(); }
+    ctx.fillStyle = '#fbbf24'; ctx.beginPath(); ctx.arc(x + Math.cos(a) * r * .8, y + Math.sin(a) * r * .8, r * .15, 0, 7); ctx.fill();
+    if (blur) { ctx.strokeStyle = 'rgba(251,191,36,.55)'; ctx.lineWidth = r * .22; ctx.beginPath(); ctx.arc(x, y, r * .8, a - 2.2, a); ctx.stroke(); ctx.strokeStyle = 'rgba(255,255,255,.5)'; ctx.lineWidth = 2; for (let i = 0; i < 3; i++) { ctx.beginPath(); ctx.arc(x, y, r * (1.25 + i * .22), a * .7 + i * 2, a * .7 + i * 2 + 1.3); ctx.stroke(); } }
+  }
+  function carBody(cx, gy, u) {
+    const r = .34 * u;
+    ctx.fillStyle = 'rgba(15,23,42,.2)'; ctx.beginPath(); ctx.ellipse(cx, gy + 2, 2.05 * u, .09 * u, 0, 0, 7); ctx.fill();
+    ctx.save(); ctx.translate(cx, gy - r); ctx.rotate(car.pitch);
+    ctx.fillStyle = '#dc2626'; ctx.beginPath(); ctx.moveTo(-1.3 * u, -.55 * u); ctx.lineTo(-.9 * u, -1.16 * u); ctx.lineTo(.5 * u, -1.16 * u); ctx.lineTo(1.12 * u, -.55 * u); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = '#ef4444'; rr(-2 * u, -.62 * u, 4 * u, .72 * u, .2 * u); ctx.fill();
+    ctx.fillStyle = '#e0f2fe'; ctx.beginPath(); ctx.moveTo(-1.08 * u, -.62 * u); ctx.lineTo(-.8 * u, -1.06 * u); ctx.lineTo(-.14 * u, -1.06 * u); ctx.lineTo(-.14 * u, -.62 * u); ctx.closePath(); ctx.fill();
+    ctx.beginPath(); ctx.moveTo(-.02 * u, -.62 * u); ctx.lineTo(-.02 * u, -1.06 * u); ctx.lineTo(.46 * u, -1.06 * u); ctx.lineTo(.9 * u, -.62 * u); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = '#fde047'; rr(1.8 * u, -.46 * u, .17 * u, .17 * u, .05 * u); ctx.fill();
+    if (car.brake) { ctx.fillStyle = 'rgba(255,60,60,.35)'; ctx.beginPath(); ctx.arc(-1.95 * u, -.38 * u, .3 * u, 0, 7); ctx.fill(); }
+    ctx.fillStyle = car.brake ? '#ff2d2d' : '#7f1d1d'; rr(-2 * u, -.47 * u, .13 * u, .19 * u, .04 * u); ctx.fill();
+    ctx.restore();
+    const blur = Math.abs(car.wv - car.v) > 2.5;
+    wheel(cx - 1.25 * u, gy - r, r, car.wa, blur); wheel(cx + 1.25 * u, gy - r, r, car.wa, blur);
+  }
+  function drawCarSide() {
+    const gy = H * .78, ppm = W / 16, k = H / 480, px = W * car.camO, camPx = car.x * ppm - px, gh = H - gy;
+    sky(camPx); town(camPx * .6, gy, k); ground(camPx, gy, ppm, true);
+    if (car.brakeX != null) {
+      const a = (car.brakeX + 2) * ppm - camPx, n = (car.brakeX + 2 + car.brakeV * car.brakeV / (2 * MU0 * G)) * ppm - camPx, c = (car.x + 2) * ppm - camPx;
+      ctx.strokeStyle = `rgba(15,23,42,${.3 + ice() * .35})`; ctx.lineWidth = Math.max(2.5, 4 * k); ctx.lineCap = 'butt';
+      ctx.beginPath(); ctx.moveTo(a - 3.25 * ppm, gy + 5); ctx.lineTo(c - 3.25 * ppm, gy + 5); ctx.moveTo(a - .75 * ppm, gy + 5); ctx.lineTo(c - .75 * ppm, gy + 5); ctx.stroke();
+      if (c - a > 30) { const dy = gy + gh * .5, a2 = Math.max(a, 6); arrow(a2 + (c - a2) / 2, dy, c, dy, '#fde047', 3); if (a > 0) arrow(a2 + (c - a2) / 2, dy, a2, dy, '#fde047', 3); else { ctx.strokeStyle = '#fde047'; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(a2, dy); ctx.lineTo(a2 + (c - a2) / 2, dy); ctx.stroke(); } label(`${(car.x - car.brakeX).toFixed(1)}m`, a2 + (c - a2) / 2, dy, '#0f172a', fs() + 2, 'center', '#fde047'); }
+      if (a > -30 && a < W + 30) flag(a, gy, '#dc2626', 'ブレーキ開始', H * .42);
+      if (n > -30 && n < W + 60) flag(n, gy, '#15803d', 'ふつうの摩擦ならここで止まる', H * .3);
+    }
+    for (const p of parts) { const X = p.x * ppm - camPx, Y = gy - p.y * ppm, q = p.life / p.max; ctx.fillStyle = `rgba(${p.col},${(1 - q) * .8})`; ctx.beginPath(); ctx.arc(X, Y, p.r * ppm * (1 + q * 2.2), 0, 7); ctx.fill(); }
+    if (car.v > 3) { ctx.strokeStyle = 'rgba(255,255,255,.75)'; ctx.lineWidth = 2; ctx.lineCap = 'round'; ctx.beginPath(); for (let i = 0; i < 5; i++) { const o = (S.t * 300 + i * 53) % (3 * ppm), y = gy - (.35 + i * .22) * ppm; ctx.moveTo(px - 2.2 * ppm - o, y); ctx.lineTo(px - 2.2 * ppm - o - car.v * .07 * ppm, y); } ctx.stroke(); }
+    carBody(px, gy, ppm);
+    if (car.spin) { pill('タイヤが空回り！', true); label('キュルキュル', px - 1.6 * ppm, gy - 1.05 * ppm + Math.sin(S.t * 14) * 2, '#0369a1', fs() + 2, 'right'); }
+    else if (car.brake && car.v > 0 && S.fr === 0) pill('止まれない！', true);
+    else if (car.brake && car.v > 0 && car.skid) pill('すべって止まれない…', true);
+    else if (car.brake && car.v === 0 && car.stopD != null) pill(`${car.stopD.toFixed(1)}m で止まった`, car.stopD > 20);
+    label(`時速 ${Math.round(car.v * 3.6)}km`, 12, 20, '#0f172a', fs() + 1, 'left', 'rgba(255,255,255,.85)');
+  }
+  function drawCarTop() {
+    const T = car.top, sc = Math.min(W / 50, H / 33), X = x => W / 2 + (x - 6.5) * sc, Y = y => H / 2 - (y - 11) * sc, t = ice();
+    ctx.fillStyle = '#bbf7d0'; ctx.fillRect(0, 0, W, H);
+    ctx.fillStyle = '#a7f3d0'; for (let i = 0; i < 26; i++) { ctx.beginPath(); ctx.arc((i * 137.5) % W, (i * 89.3) % H, 5 + (i % 4) * 3, 0, 7); ctx.fill(); }
+    const road = () => { ctx.beginPath(); ctx.moveTo(X(-24), Y(0)); ctx.lineTo(X(0), Y(0)); ctx.arc(X(0), Y(RC), RC * sc, Math.PI / 2, 0, true); ctx.lineTo(X(RC), Y(34)); };
+    ctx.lineJoin = 'round'; ctx.lineCap = 'butt';
+    road(); ctx.strokeStyle = '#f8fafc'; ctx.lineWidth = 7 * sc; ctx.stroke();
+    road(); ctx.strokeStyle = mixc([71, 85, 105], [186, 230, 253], t); ctx.lineWidth = 6.2 * sc; ctx.stroke();
+    road(); ctx.save(); ctx.setLineDash([1.6 * sc, 1.6 * sc]); ctx.strokeStyle = t > .45 ? 'rgba(15,23,42,.45)' : 'rgba(255,255,255,.85)'; ctx.lineWidth = Math.max(1.5, .22 * sc); ctx.stroke(); ctx.restore();
+    for (let y = -4; y <= 27; y += 1.7) { ctx.fillStyle = '#1f2937'; ctx.beginPath(); ctx.arc(X(30.6), Y(y), .8 * sc, 0, 7); ctx.fill(); ctx.fillStyle = '#9ca3af'; ctx.beginPath(); ctx.arc(X(30.6), Y(y), .35 * sc, 0, 7); ctx.fill(); }
+    if (T.trail.length > 1) { for (const o of [-.75, .75]) { ctx.strokeStyle = 'rgba(15,23,42,.45)'; ctx.lineWidth = Math.max(1.5, .28 * sc); ctx.beginPath(); T.trail.forEach((p, i) => { const q = T.trail[Math.min(i + 1, T.trail.length - 1)], r = T.trail[Math.max(i - 1, 0)], a = Math.atan2(q[1] - r[1], q[0] - r[0]); const x = X(p[0] - Math.sin(a) * o), y = Y(p[1] + Math.cos(a) * o); i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }); ctx.stroke(); } }
+    ctx.save(); ctx.translate(X(T.x), Y(T.y)); ctx.rotate(-T.hd);
+    ctx.fillStyle = '#111827'; for (const [wx, wy, st] of [[1.25, -.92, 1], [1.25, .92, 1], [-1.25, -.92, 0], [-1.25, .92, 0]]) { ctx.save(); ctx.translate(wx * sc, wy * sc); if (st) ctx.rotate(-.5 * T.steer); ctx.fillRect(-.42 * sc, -.17 * sc, .84 * sc, .34 * sc); ctx.restore(); }
+    ctx.fillStyle = '#ef4444'; rr(-2 * sc, -.9 * sc, 4 * sc, 1.8 * sc, .45 * sc); ctx.fill();
+    ctx.fillStyle = '#e0f2fe'; rr(.25 * sc, -.7 * sc, .75 * sc, 1.4 * sc, .2 * sc); ctx.fill(); rr(-1.35 * sc, -.66 * sc, .5 * sc, 1.32 * sc, .15 * sc); ctx.fill();
+    ctx.fillStyle = '#fde047'; ctx.fillRect(1.82 * sc, -.75 * sc, .16 * sc, .34 * sc); ctx.fillRect(1.82 * sc, .41 * sc, .16 * sc, .34 * sc);
+    ctx.restore();
+    if (T.ph === 'crash') { ctx.fillStyle = '#f59e0b'; ctx.beginPath(); for (let i = 0; i < 16; i++) { const a = i * Math.PI / 8, r = (i % 2 ? 1.1 : 2.3) * sc * Math.min(1, T.t * 6 + .3); ctx.lineTo(X(T.x + 2.1) + Math.cos(a) * r, Y(T.y) + Math.sin(a) * r); } ctx.closePath(); ctx.fill(); label('ドン！', X(T.x + 2.1), Y(T.y), '#7c2d12', fs() + 1, 'center'); }
+    label('半径20mのカーブ・時速30km', 12, 20, '#0f172a', fs(), 'left', 'rgba(255,255,255,.85)');
+    label('タイヤのかべ', X(30.6) - sc, Y(-4.6), '#334155', fs() - 1, 'right');
+    const off = T.maxDev > 2.2;
+    if (T.ph === 'crash') pill('曲がれず、かべにドン！', true);
+    else if (T.ph === 'done') pill(off ? 'コースからはみ出した' : T.maxDev > .15 ? 'ふくらんだが曲がれた' : '曲がれた！', off);
+    else if (T.steer && S.fr === 0) pill('ハンドルがきかない！', true);
+    else if (off) pill('外へふくらむ…', true);
+  }
+
+  // ---------- 場面3：坂の上の箱 ----------
+  function drawSlope() {
+    const k = H / 480, f = fs(), th = S.angle * Math.PI / 180, cs = Math.cos(th), sn = Math.sin(th);
+    ctx.fillStyle = '#f8fafc'; ctx.fillRect(0, 0, W, H);
+    ctx.strokeStyle = '#e8eef5'; ctx.lineWidth = 1; ctx.beginPath(); for (let x = 0; x < W; x += 36 * k + 10) { ctx.moveTo(x, 0); ctx.lineTo(x, H); } for (let y = 0; y < H; y += 36 * k + 10) { ctx.moveTo(0, y); ctx.lineTo(W, y); } ctx.stroke();
+    const y0 = H * .86, hx = W * .72, Lp = Math.min(W * .6, (y0 - H * .12) / .7071 * .98), ppm = Lp / SL, tx = hx - Lp * cs, ty = y0 - Lp * sn, t = ice();
+    ctx.fillStyle = mixc([203, 213, 225], [186, 230, 253], t); ctx.fillRect(0, y0, W, H - y0); ctx.fillStyle = 'rgba(15,23,42,.4)'; ctx.fillRect(0, y0, W, 2);
+    const crit = Math.atan(mu()), cdeg = crit * 180 / Math.PI;
+    ctx.fillStyle = '#ecd2ad'; ctx.beginPath(); ctx.moveTo(tx, ty); ctx.lineTo(hx, y0); ctx.lineTo(tx, y0); ctx.closePath(); ctx.fill();
+    ctx.strokeStyle = '#b08a5a'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(tx, ty); ctx.lineTo(tx, y0); ctx.stroke();
+    ctx.strokeStyle = mixc([133, 94, 50], [56, 189, 248], t); ctx.lineWidth = 5 * k + 2; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(tx, ty); ctx.lineTo(hx, y0); ctx.lineTo(W, y0); ctx.stroke();
+    if (t > .04) { ctx.save(); ctx.globalAlpha = Math.min(1, t); ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.beginPath(); for (let i = 1; i < 5; i++) { const q = i / 5; ctx.moveTo(tx + Lp * cs * q, ty + Lp * sn * q - 1); ctx.lineTo(tx + Lp * cs * (q + .07), ty + Lp * sn * (q + .07) - 1); } ctx.stroke(); ctx.restore(); }
+    ctx.save(); ctx.setLineDash([7, 6]); ctx.strokeStyle = '#f97316'; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(hx, y0); const cl = Lp * .97; ctx.lineTo(hx - cl * Math.cos(crit), y0 - cl * Math.sin(crit)); ctx.stroke(); ctx.restore();
+    { const ly = y0 + (H - y0) * .55, tw = (ctx.font = `800 ${f}px ${FONT}`, ctx.measureText(`すべり出す角度 ${cdeg.toFixed(1)}°`).width); ctx.fillStyle = 'rgba(255,255,255,.88)'; rr(W - tw - 50, ly - f * .85, tw + 42, f * 1.7, f * .6); ctx.fill(); ctx.save(); ctx.setLineDash([5, 4]); ctx.strokeStyle = '#f97316'; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(W - tw - 42, ly); ctx.lineTo(W - tw - 18, ly); ctx.stroke(); ctx.restore(); label(`すべり出す角度 ${cdeg.toFixed(1)}°`, W - 14, ly, '#c2410c', f, 'right'); }
+    const ar = Math.min(54 * k + 12, Lp * .3); ctx.strokeStyle = '#0f172a'; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(hx, y0, ar, Math.PI, Math.PI + th); ctx.stroke();
+    label(`θ＝${S.angle}°`, hx - ar - 6, y0 - Math.max(f * .9, ar * Math.sin(th / 2)) , '#0f172a', f + 1, 'right', 'rgba(255,255,255,.8)');
+    const onR = sl.s <= SL, bs = .46 * ppm, rot = onR ? th : 0, ux = Math.cos(rot), uy = Math.sin(rot), nx = Math.sin(rot), ny = -Math.cos(rot);
+    const Px = onR ? tx + cs * sl.s * ppm : hx + (sl.s - SL) * ppm, Py = onR ? ty + sn * sl.s * ppm : y0, Cx = Px + nx * bs / 2, Cy = Py + ny * bs / 2;
+    ctx.save(); ctx.globalAlpha = sl.fade; ctx.translate(Cx, Cy); ctx.rotate(rot);
+    ctx.fillStyle = '#d4a373'; rr(-bs / 2, -bs / 2, bs, bs, bs * .08); ctx.fill(); ctx.strokeStyle = '#8d6e4a'; ctx.lineWidth = 2; ctx.stroke();
+    ctx.fillStyle = '#e9c9a0'; ctx.fillRect(-bs * .09, -bs / 2, bs * .18, bs); ctx.restore();
+    if (sl.st === 'slide' && sl.v > .3) { ctx.strokeStyle = 'rgba(15,23,42,.4)'; ctx.lineWidth = 2; ctx.lineCap = 'round'; ctx.beginPath(); for (let i = 0; i < 3; i++) { const o = bs * (.75 + i * .22), q = bs * (.2 + i * .28), ln = Math.min(bs * .9, sl.v * bs * .25); ctx.moveTo(Cx - ux * o + nx * (q - bs * .45), Cy - uy * o + ny * (q - bs * .45)); ctx.lineTo(Cx - ux * (o + ln) + nx * (q - bs * .45), Cy - uy * (o + ln) + ny * (q - bs * .45)); } ctx.stroke(); }
+    if (sl.st !== 'out' && sl.fade > .5) {
+      const Lg = H * .2, lw = 3.5 * k + 1.5, cR = Math.cos(rot), sR = Math.sin(rot), ms = mu();
+      const fr = sl.st === 'slide' ? MK * ms * cR : Math.min(sR, ms * cR);
+      arrow(Cx, Cy, Cx, Cy + Lg, '#dc2626', lw); label('重力', Cx + 7, Cy + Lg - 2, '#b91c1c', f, 'left', 'rgba(255,255,255,.8)');
+      arrow(Cx, Cy, Cx + nx * Lg * cR, Cy + ny * Lg * cR, '#2563eb', lw); label('垂直抗力', Cx + nx * Lg * cR + 7, Cy + ny * Lg * cR - 2, '#1d4ed8', f, 'left', 'rgba(255,255,255,.8)');
+      if (onR && sR > .01) { arrow(Cx, Cy, Cx + ux * Lg * sR, Cy + uy * Lg * sR, '#9333ea', lw * .8, [5, 4]); }
+      if (fr > .01) { arrow(Px + nx * 3, Py + ny * 3, Px + nx * 3 - ux * Lg * fr, Py + ny * 3 - uy * Lg * fr, '#16a34a', lw); label('摩擦力', Px - ux * Lg * fr - 4, Py - uy * Lg * fr - f, '#15803d', f, 'right', 'rgba(255,255,255,.8)'); }
+    }
+    const bw = Math.min(W * .42, 250), bx = W - bw - 14, by = 12, a1 = sn, a2 = mu() * cs, win = a1 > a2 + 1e-9;
+    ctx.fillStyle = 'rgba(255,255,255,.9)'; rr(bx - 8, by - 4, bw + 16, f * 6.6 + 14, 10); ctx.fill(); ctx.strokeStyle = '#e2e8f0'; ctx.lineWidth = 1; ctx.stroke();
+    label(bw > 200 ? 'すべらせる力（重力の坂にそった分）' : 'すべらせる力', bx, by + f * .7, '#7e22ce', f); ctx.fillStyle = '#f3e8ff'; rr(bx, by + f * 1.5, bw, f * .85, 4); ctx.fill(); ctx.fillStyle = '#9333ea'; if (a1 > .005) { rr(bx, by + f * 1.5, bw * a1, f * .85, 4); ctx.fill(); }
+    label('摩擦力の上限', bx, by + f * 3.2, '#15803d', f); ctx.fillStyle = '#dcfce7'; rr(bx, by + f * 4, bw, f * .85, 4); ctx.fill(); ctx.fillStyle = '#16a34a'; if (a2 > .005) { rr(bx, by + f * 4, bw * a2, f * .85, 4); ctx.fill(); }
+    label(win ? '→ すべらせる力の勝ち' : '→ 摩擦でささえて止まる', bx, by + f * 5.9, win ? '#dc2626' : '#15803d', f);
+  }
+
+  // ---------- 場面4：身のまわり ----------
+  function mini(x, y, w, h, title, status, bad) { ctx.fillStyle = '#fff'; rr(x, y, w, h, 12); ctx.fill(); ctx.strokeStyle = '#cbd5e1'; ctx.lineWidth = 1; ctx.stroke(); const f = fs(); label(title, x + 10, y + f * 1.1, '#0f172a', f + 1, 'left'); label(status, x + w - 9, y + f * 1.1, '#fff', f, 'right', bad ? '#dc2626' : '#15803d'); }
+  function drawPen(x, y, w, h) {
+    const a = x + w * .07, b = y + h * .26, pw = w * .86, ph = h * .66, p = ev.pen;
+    ctx.fillStyle = '#fffdf3'; rr(a, b, pw, ph, 6); ctx.fill(); ctx.strokeStyle = '#e2e8f0'; ctx.lineWidth = 1; ctx.stroke();
+    ctx.strokeStyle = '#dbeafe'; ctx.beginPath(); for (let i = 0; i < 3; i++) { const yy = b + ph * (.36 + .27 * i); ctx.moveTo(a + 6, yy); ctx.lineTo(a + pw - 6, yy); } ctx.stroke();
+    ctx.lineCap = 'round'; ctx.lineWidth = Math.max(2, h * .022);
+    for (let i = 1; i < p.pts.length; i++) { const q = p.pts[i], r = p.pts[i - 1]; if (q.n || q.a < .01) continue; ctx.strokeStyle = `rgba(30,41,59,${q.a})`; ctx.beginPath(); ctx.moveTo(a + r.x * pw, b + r.y * ph); ctx.lineTo(a + q.x * pw, b + q.y * ph); ctx.stroke(); }
+    const L = h * .3, wd = h * .075; ctx.save(); ctx.translate(a + p.x * pw, b + p.y * ph); ctx.rotate(-Math.PI * .32);
+    ctx.fillStyle = '#fde8c4'; ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(wd * 1.7, -wd / 2); ctx.lineTo(wd * 1.7, wd / 2); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = '#1e293b'; ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(wd * .65, -wd * .19); ctx.lineTo(wd * .65, wd * .19); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = '#f59e0b'; ctx.fillRect(wd * 1.7, -wd / 2, L, wd); ctx.fillStyle = '#d97706'; ctx.fillRect(wd * 1.7, -wd * .12, L, wd * .24);
+    ctx.fillStyle = '#94a3b8'; ctx.fillRect(wd * 1.7 + L, -wd / 2, wd * .4, wd); ctx.fillStyle = '#fca5a5'; rr(wd * 2.1 + L, -wd / 2, wd * .9, wd, wd * .3); ctx.fill(); ctx.restore();
+  }
+  function drawCup(x, y, w, h) {
+    const c = ev.cup, cx = x + w * .5, top = y + h * .36, tableY = y + h * .9, cw = Math.min(w * .2, h * .3), ch = h * .34, fw = cw * .34;
+    ctx.fillStyle = '#d6a26b'; rr(x + w * .1, tableY, w * .8, h * .05, 3); ctx.fill();
+    const y0 = top + c.y * (tableY - ch - top);
+    if (c.st === 'down') { ctx.fillStyle = 'rgba(56,189,248,.8)'; const g = Math.min(1, c.t * 2.2); ctx.beginPath(); ctx.ellipse(cx + ch * .9, tableY - 1, cw * (.3 + 1.2 * g), h * .028, 0, 0, 7); ctx.fill(); }
+    ctx.save(); ctx.translate(cx + (c.st === 'down' ? cw * .3 : 0), y0 + ch - Math.sin(c.tilt) * cw * .46); ctx.rotate(c.tilt);
+    ctx.beginPath(); ctx.moveTo(-cw * .4, 0); ctx.lineTo(cw * .4, 0); ctx.lineTo(cw * .5, -ch); ctx.lineTo(-cw * .5, -ch); ctx.closePath(); ctx.fillStyle = 'rgba(224,242,254,.9)'; ctx.fill();
+    if (c.tilt < .4) { ctx.beginPath(); ctx.moveTo(-cw * .4, 0); ctx.lineTo(cw * .4, 0); ctx.lineTo(cw * .465, -ch * .65); ctx.lineTo(-cw * .465, -ch * .65); ctx.closePath(); ctx.fillStyle = '#38bdf8'; ctx.fill(); }
+    ctx.beginPath(); ctx.moveTo(-cw * .4, 0); ctx.lineTo(cw * .4, 0); ctx.lineTo(cw * .5, -ch); ctx.lineTo(-cw * .5, -ch); ctx.closePath(); ctx.strokeStyle = '#0284c7'; ctx.lineWidth = 2; ctx.stroke(); ctx.restore();
+    if (c.st === 'slip' && c.vy > .1) { ctx.strokeStyle = 'rgba(15,23,42,.4)'; ctx.lineWidth = 2; ctx.beginPath(); for (const o of [-.3, 0, .3]) { ctx.moveTo(cx + cw * o, y0 - 4); ctx.lineTo(cx + cw * o, y0 - 4 - Math.min(h * .12, c.vy * h * .1)); } ctx.stroke(); }
+    ctx.fillStyle = '#fcd9b6'; ctx.strokeStyle = '#e0a878'; ctx.lineWidth = 1.5;
+    rr(cx - cw * .5 - fw * .7, y + h * .2, cw + fw * 1.4, top - y - h * .2 + ch * .14, fw * .6); ctx.fill(); ctx.stroke();
+    ctx.fillRect(cx - cw * .28, y + 2, cw * .56, h * .2);
+    rr(cx - cw * .5 - fw, top + ch * .05, fw, ch * .5, fw / 2); ctx.fill(); ctx.stroke();
+    rr(cx + cw * .5, top + ch * .02, fw, ch * .6, fw / 2); ctx.fill(); ctx.stroke();
+  }
+  function drawKnot(x, y, w, h) {
+    const p = ev.knot.p, cx = x + w * .54, cy = y + h * .6, sw = Math.min(w * .36, h * .62), sh = sw * .42, lw = Math.max(2.5, h * .028);
+    ctx.fillStyle = '#60a5fa'; ctx.beginPath(); ctx.ellipse(cx, cy, sw, sh, 0, 0, 7); ctx.fill(); ctx.strokeStyle = '#1d4ed8'; ctx.lineWidth = 2; ctx.stroke();
+    ctx.fillStyle = '#eff6ff'; ctx.beginPath(); ctx.ellipse(cx + sw * .66, cy, sw * .3, sh * .82, 0, -Math.PI / 2, Math.PI / 2); ctx.fill();
+    ctx.fillStyle = '#1e3a8a'; ctx.beginPath(); ctx.ellipse(cx - sw * .58, cy, sw * .28, sh * .56, 0, 0, 7); ctx.fill();
+    const gap = sh * (.24 + .3 * p); ctx.fillStyle = '#dbeafe'; rr(cx - sw * .3, cy - gap, sw * .78, gap * 2, 4); ctx.fill();
+    ctx.strokeStyle = '#f97316'; ctx.lineWidth = lw; ctx.lineCap = 'round';
+    for (let i = 0; i < 3; i++) { const x0 = cx - sw * .18 + i * sw * .22, x1 = x0 + sw * .18, sag = p * sh * .14 * Math.sin(S.t * 3 + i); ctx.beginPath(); ctx.moveTo(x0, cy - gap); ctx.lineTo(x1, cy + gap + sag); ctx.moveTo(x0, cy + gap); ctx.lineTo(x1, cy - gap - sag); ctx.stroke(); }
+    const bx = cx - sw * .28, by = cy, R = sh * 1.0 * (1 - p), len = sh * (.75 + 1.25 * p);
+    for (const sg of [-1, 1]) {
+      if (R > 1.5) { ctx.beginPath(); ctx.moveTo(bx, by); ctx.bezierCurveTo(bx - R * 1.1, by + sg * R * 1.5, bx + R * 1.1, by + sg * R * 1.5, bx, by); ctx.stroke(); }
+      const wob = p * Math.sin(S.t * 4 + sg) * sh * .12; ctx.beginPath(); ctx.moveTo(bx, by); ctx.quadraticCurveTo(bx - len * .35 + wob, by + sg * len * .15, bx - len * .9, by + sg * len * (.55 + .35 * p)); ctx.stroke();
+    }
+    if (p < .95) { ctx.fillStyle = '#ea580c'; ctx.beginPath(); ctx.arc(bx, by, lw * 1.25 * (1 - p * .6), 0, 7); ctx.fill(); }
+  }
+  function drawScrew(x, y, w, h) {
+    const s = ev.screw, wx = x + w * .12, ww = w * .32, wy = y + h * .25, wh = h * .68, ax = wx + ww, floorY = y + h * .92;
+    ctx.fillStyle = '#d6a26b'; rr(wx, wy, ww, wh, 5); ctx.fill(); ctx.strokeStyle = '#b98552'; ctx.lineWidth = 1.2; ctx.beginPath(); for (let i = 1; i < 4; i++) { ctx.moveTo(wx + ww * i / 4, wy + 4); ctx.lineTo(wx + ww * i / 4 - 3, wy + wh - 4); } ctx.stroke();
+    const baseY = wy + wh * .28, sLen = ww * .8, sr = Math.max(3, h * .035), hw = Math.max(4, w * .03), gapX = w * .07;
+    ctx.fillStyle = '#7a4f24'; ctx.fillRect(ax - sLen + gapX, baseY - sr, sLen - gapX, sr * 2);
+    const fall = s.fy * (floorY - baseY - sr * 2.6), cyS = baseY + fall, hx = ax + gapX + (s.fell ? sLen * .95 + s.fy * w * .08 : s.p * (sLen - gapX) * .98);
+    const wyT = baseY + h * .2 + (s.fell ? s.fy * (floorY - baseY - h * .2 - h * .17) : 0), wX = ax + gapX * .5 + (s.fell ? s.fy * w * .04 : 0), wW = w * .15, wH = h * .17;
+    ctx.strokeStyle = '#475569'; ctx.lineWidth = 1.6; ctx.beginPath(); ctx.moveTo(wX, s.fell ? wyT - h * .04 : baseY); ctx.lineTo(wX, wyT); ctx.stroke();
+    ctx.fillStyle = '#64748b'; ctx.beginPath(); ctx.moveTo(wX - wW * .32, wyT); ctx.lineTo(wX + wW * .32, wyT); ctx.lineTo(wX + wW * .5, wyT + wH); ctx.lineTo(wX - wW * .5, wyT + wH); ctx.closePath(); ctx.fill();
+    label('おもり', wX + wW * .7, wyT + wH * .55, '#475569', fs() - 1, 'left');
+    ctx.save(); ctx.translate(hx, cyS); if (s.fell) ctx.rotate(Math.min(.5, s.fy * .5));
+    ctx.fillStyle = '#cbd5e1'; ctx.fillRect(-sLen, -sr, sLen, sr * 2); ctx.beginPath(); ctx.moveTo(-sLen, -sr); ctx.lineTo(-sLen - sr * 1.6, 0); ctx.lineTo(-sLen, sr); ctx.closePath(); ctx.fill();
+    ctx.save(); ctx.beginPath(); ctx.rect(-sLen, -sr, sLen, sr * 2); ctx.clip(); ctx.strokeStyle = '#475569'; ctx.lineWidth = 1.4; const pt = sr * 1.5, ph = ((s.rot % pt) + pt) % pt; ctx.beginPath(); for (let q = -sLen - pt + ph; q < 0; q += pt) { ctx.moveTo(q, -sr); ctx.lineTo(q + pt * .55, sr); } ctx.stroke(); ctx.restore();
+    ctx.fillStyle = '#475569'; rr(0, -sr * 2.5, hw, sr * 5, 2); ctx.fill(); ctx.restore();
+    if (!s.fell && s.p > .02 && S.fr < SCREW_T) { ctx.strokeStyle = '#0369a1'; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(hx + hw * 2.2, baseY, sr * 2.2, -1 + S.t * 6, 1.6 + S.t * 6); ctx.stroke(); }
+    ctx.fillStyle = '#e2e8f0'; ctx.fillRect(x + w * .08, floorY, w * .84, 2);
+  }
+  function clipIn(p, w, h, fn) { ctx.save(); rr(p[0] + 1, p[1] + fs() * 2.1, w - 2, h - fs() * 2.1 - 1, 10); ctx.clip(); fn(p[0], p[1], w, h); ctx.restore(); }
+  function drawLife() {
+    ctx.fillStyle = '#eef2f7'; ctx.fillRect(0, 0, W, H);
+    const g = Math.max(6, W * .014), w = (W - g * 3) / 2, h = (H - g * 3) / 2, f = S.fr, c = ev.cup, k = ev.knot.p, s = ev.screw;
+    const P = [[g, g], [g * 2 + w, g], [g, g * 2 + h], [g * 2 + w, g * 2 + h]];
+    mini(P[0][0], P[0][1], w, h, 'えんぴつ', f < 5 ? '書けない！' : f < 50 ? 'うすい…' : '書ける', f < 50); clipIn(P[0], w, h, drawPen);
+    mini(P[1][0], P[1][1], w, h, 'コップ', c.st === 'down' ? '落ちた！' : c.st === 'slip' ? 'すべる！' : '持てる', c.st !== 'hold'); clipIn(P[1], w, h, drawCup);
+    mini(P[2][0], P[2][1], w, h, 'くつひも', k > .9 ? 'ほどけた！' : k > .1 ? 'ゆるむ…' : '結べている', k > .1); clipIn(P[2], w, h, drawKnot);
+    mini(P[3][0], P[3][1], w, h, 'ねじ', s.fell ? 'ぬけた！' : s.p > .05 ? 'ゆるむ…' : 'しまっている', s.fell || s.p > .05); clipIn(P[3], w, h, drawScrew);
+  }
+  function draw() {
+    if (!fit()) return;
+    ctx.clearRect(0, 0, W, H); ctx.globalAlpha = 1; ctx.setLineDash([]);
+    if (S.scene === 'walk') drawWalk(); else if (S.scene === 'car') (car.mode === 'top' ? drawCarTop : drawCarSide)(); else if (S.scene === 'slope') drawSlope(); else drawLife();
+  }
+
+  // ---------- 数字と説明 ----------
+  let uiT = 0;
+  const setT = (i, v, l) => { const b = $('mz0T' + i), s = $('mz0L' + i); if (b.textContent !== v) b.textContent = v; if (s.textContent !== l) s.textContent = l; };
+  const stopFormula = v => mu() > 0 ? v * v / (2 * mu() * G) : Infinity;
+  const fmtM = d => isFinite(d) ? (d >= 1000 ? Math.round(d).toLocaleString() : d.toFixed(1)) + ' m' : '止まらない';
+  function ui(force) {
+    const now = performance.now(); if (!force && now - uiT < 110) return; uiT = now;
+    let note = '';
+    if (S.scene === 'walk') {
+      setT(1, wk.x.toFixed(1) + ' m', '進んだきょり'); setT(2, wk.v.toFixed(2) + ' m', '速さ（1秒に進むきょり）'); setT(3, Math.round(wk.slip * 100) + '%', '足のすべり');
+      const amax = mu() * G;
+      if (wk.want) {
+        if (S.fr === 0 && wk.v < .05) note = '摩擦0%：足は動くのに、前に進めません。地面を後ろにけれないので、地面から前におし返してもらえないからです（作用・反作用）。';
+        else if (wk.slip > .08) note = '足がすべっています。地面をける力の一部しか伝わらず、なかなか速くなりません。';
+        else if (amax < A_STOP) note = '同じ速さで進んでいます（速さを保つだけなら力はいりません）。ここで「止まる」を押すと…？';
+        else note = 'ふつうに歩けています。足が地面を後ろにおし、地面が足を前におし返しています。';
+      } else if (wk.v > .03) {
+        if (S.fr === 0) note = '止まれません！ 摩擦0%では、動いているものは同じ速さで動きつづけます（慣性の法則）。';
+        else if (amax < A_STOP) note = 'すべっています… 摩擦が小さいので、止まるまでに長いきょりがかかります。';
+        else note = '足でふんばって止まります。';
+      } else if (wk.stopD != null) note = `止まるまでに ${wk.stopD.toFixed(1)}m 進みました。摩擦を下げて、もう一度「歩きだす」→「止まる」をためしてみましょう。`;
+      else note = '「歩きだす」を押してみましょう。摩擦を0%にしてから押すと、どうなるでしょう？';
+    } else if (S.scene === 'car') {
+      if (car.mode === 'top') {
+        const T = car.top, need = VTOP * VTOP / (G * RC);
+        setT(1, need.toFixed(2), '曲がるのに必要な μ'); setT(2, mu().toFixed(2), 'いまの μ'); setT(3, T.maxDev.toFixed(1) + ' m', 'コースからのずれ');
+        note = mu() >= need ? `カーブを曲がるには、横向きの摩擦力が必要です。いまの μ（${mu().toFixed(2)}）は必要な ${need.toFixed(2)} より大きいので、曲がれます。`
+          : S.fr === 0 ? '摩擦0%では、タイヤを切っても横向きの力が生まれません。車はまっすぐ進みつづけます（慣性の法則）。'
+          : VTOP * VTOP / (mu() * G) - RC <= 2.2 ? `μ が必要な ${need.toFixed(2)} より少し小さいので、車は外へふくらみます。道のはばの中で、なんとか曲がれます。`
+          : `μ が ${need.toFixed(2)} より小さいので、摩擦力が足りません。車は外へふくらんで、道からはみ出します。`;
+      } else {
+        const v0 = car.brakeX != null ? car.brakeV : (car.v > .5 ? car.v : VMAX), d = stopFormula(v0);
+        const live = car.brakeX != null ? (car.stopD != null ? car.stopD : car.x - car.brakeX) : null;
+        setT(1, '時速 ' + Math.round(car.v * 3.6) + ' km', '速さ');
+        setT(2, live == null ? '—' : fmtM(live), car.stopD != null ? '止まるまでのきょり' : car.brakeX != null ? 'ブレーキ後に進んだきょり' : '止まるまでのきょり');
+        setT(3, fmtM(d), `式 v²÷(2μg)：時速${Math.round(v0 * 3.6)}kmから`);
+        if (car.spin) note = S.fr === 0 ? '摩擦0%：タイヤは回るのに、車は進みません。タイヤが道路を後ろにおせないからです。' : 'タイヤが空回りしています。道路をおす力が小さく、ゆっくりしか速くなりません。';
+        else if (car.brake && car.v > 0) note = S.fr === 0 ? '止まれません！ ブレーキでタイヤを止めても、道路との摩擦がないので、そのまますべりつづけます。' : `ブレーキ中。止まるまでのきょりは v²÷(2μg)＝${fmtM(d)} の計算です。`;
+        else if (car.brake && car.stopD != null) note = `止まるまでに ${car.stopD.toFixed(1)}m かかりました（ふつうの摩擦なら ${(car.brakeV * car.brakeV / (2 * MU0 * G)).toFixed(1)}m）。摩擦が半分になると、きょりは2倍になります。`;
+        else if (car.v > .5) note = '走っています。「ブレーキ」を押すと、止まるまでのきょりをはかります。';
+        else note = '「発進」→「ブレーキ」の順に押してみましょう。「ハンドルを切る」では、上から見たカーブになります。';
+      }
+    } else if (S.scene === 'slope') {
+      const crit = Math.atan(mu()) * 180 / Math.PI;
+      setT(1, crit.toFixed(1) + '°', 'すべり出す角度'); setT(2, S.angle + '°', 'いまの坂の角度');
+      setT(3, sl.st === 'slide' ? 'すべる' : sl.st === 'out' ? '落ちた' : '止まる', sl.st === 'slide' ? `加速度 ${sl.a.toFixed(1)} m/s²` : '箱のようす');
+      const tn = Math.tan(S.angle * Math.PI / 180);
+      note = S.fr === 0 ? (S.angle === 0 ? '摩擦0%でも、まったく平らなら箱は動きません。坂を1°でもかたむけてみましょう。' : '摩擦0%：ささえる力がないので、どんなにゆるい坂でもすべり出します。')
+        : tn > mu() ? `tanθ＝${tn.toFixed(2)} が μ＝${mu().toFixed(2)} より大きいので、箱はすべります。`
+        : `tanθ＝${tn.toFixed(2)} が μ＝${mu().toFixed(2)} より小さいので、摩擦力（静止摩擦）が箱をささえています。坂を ${crit.toFixed(1)}° より急にするか、摩擦を下げるとすべり出します。`;
+    } else {
+      const c = ev.cup, k = ev.knot.p, s = ev.screw;
+      setT(1, S.fr + '%', 'えんぴつの線のこさ'); setT(2, c.st === 'hold' ? '持てる' : c.st === 'slip' ? 'すべる' : '落ちた', 'コップ');
+      setT(3, ((S.fr < 50 ? 1 : 0) + (c.st !== 'hold' ? 1 : 0) + (k > .1 ? 1 : 0) + (s.fell || s.p > .05 ? 1 : 0)) + ' / 4', 'うまくいかないもの');
+      note = S.fr >= CUP_T ? (S.fr < 60 ? 'えんぴつの線がうすくなってきました。線は、しんが紙とこすれてけずれたあとです。もっと下げると…？' : '書く・持つ・結ぶ・しめる。どれも摩擦が「すべらないように」止めてくれています。摩擦を下げてみましょう。')
+        : S.fr >= KNOT_T ? 'コップが指のあいだからすべり落ちます。物を持てるのは、指とコップのあいだの摩擦のおかげです。'
+        : S.fr >= SCREW_T ? '結び目がゆるんできました。結び目は、ひもどうしの摩擦で止まっています。'
+        : '摩擦がほとんどないと、えんぴつは書けず、コップは落ち、結び目はほどけ、ねじはひとりでに回ってぬけてしまいます。';
+    }
+    if ($('mz0Note').textContent !== note) $('mz0Note').textContent = note;
+  }
+
+  // ---------- 操作 ----------
+  function setFr(v) { S.fr = clamp(Math.round(v), 0, 100); if (ev && Math.abs(S.fr - ev.pen.fr0) >= 10) { ev.pen.fr0 = S.fr; ev.pen.pts = []; } $('mz0Fr').value = S.fr; $('mz0FrV').textContent = S.fr + '%'; $('mz0MuV').textContent = mu().toFixed(2); }
+  function setAngle(v) { S.angle = clamp(Math.round(v), 0, 45); $('mz0Ang').value = S.angle; $('mz0AngV').textContent = S.angle + '°'; }
+  function setScene(s) {
+    if (!['walk', 'car', 'slope', 'life'].includes(s)) return; S.scene = s;
+    document.querySelectorAll('#mz0Tabs button').forEach(b => b.classList.toggle('on', b.dataset.s === s));
+    document.querySelectorAll('#mz0Acts button').forEach(b => { b.hidden = !b.dataset.sc.split(' ').includes(s); });
+    $('mz0AngF').hidden = s !== 'slope'; ui(true);
+  }
+  function doAct(a, fromDemo) {
+    if (!fromDemo) endDemo();
+    if (S.scene === 'walk') {
+      if (a === 'go') { wk.want = true; wk.stopX = null; wk.stopD = null; }
+      else if (a === 'stop') { if (wk.want || wk.v > 0) { wk.want = false; wk.stopX = wk.x; wk.stopD = null; wk.marks.push({ a: wk.x, b: wk.x }); if (wk.marks.length > 8) wk.marks.shift(); } }
+      else if (a === 'push') { wk.want = false; wk.v = Math.max(wk.v, VT); wk.stopX = wk.x; wk.stopD = null; wk.marks.push({ a: wk.x, b: wk.x }); }
+      else if (a === 'reset') resetWalk();
+    } else if (S.scene === 'car') {
+      if (a === 'go') { car.mode = 'side'; car.drive = true; car.brake = false; car.brakeX = null; car.stopD = null; }
+      else if (a === 'brake') { car.mode = 'side'; if (car.v > 0 && !car.brake) { car.brake = true; car.drive = false; car.brakeX = car.x; car.brakeV = car.v; car.stopD = null; } }
+      else if (a === 'turn') { car.mode = 'top'; resetTop(); }
+      else if (a === 'reset') resetCar();
+    } else if (S.scene === 'slope') { if (a === 'reset') resetSlope(); }
+    else if (a === 'reset') resetLife();
+    ui(true);
+  }
+  $('mz0Tabs').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; endDemo(); setScene(b.dataset.s); });
+  $('mz0Acts').addEventListener('click', e => { const b = e.target.closest('button'); if (b) doAct(b.dataset.a); });
+  $('mz0Fr').addEventListener('input', () => { endDemo(); setFr(+$('mz0Fr').value); ui(true); });
+  $('mz0Ang').addEventListener('input', () => { endDemo(); setAngle(+$('mz0Ang').value); ui(true); });
+  $('mz0Zero').addEventListener('click', () => { endDemo(); setFr(0); ui(true); });
+  $('mz0Norm').addEventListener('click', () => { endDemo(); setFr(100); ui(true); });
+  $('resultPanel').addEventListener('pointerdown', endDemo, true);
+  $('resultPanel').addEventListener('keydown', endDemo, true);
+
+  // ---------- シェア ----------
+  function shareText() {
+    const r = S.scene === 'walk' ? (S.fr === 0 ? '足だけ動いて前に進めませんでした' : `歩いて${wk.x.toFixed(1)}m進みました`)
+      : S.scene === 'car' ? (mu() > 0 ? `時速40kmの車が止まるまでのきょりは計算で${fmtM(stopFormula(VMAX))}でした` : '時速40kmの車はブレーキをかけても止まりませんでした')
+      : S.scene === 'slope' ? `箱がすべり出す坂の角度は${(Math.atan(mu()) * 180 / Math.PI).toFixed(1)}°でした`
+      : (S.fr < SCREW_T ? 'えんぴつは書けず、ねじもぬけました' : 'えんぴつの線がうすくなりました');
+    return `「もしも摩擦がなかったら？」摩擦の強さ${S.fr}%でためしたら、${r}。`;
+  }
+  $('shareBtn').addEventListener('click', () => { const u = location.origin + location.pathname; window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText() + '\n') + '&url=' + encodeURIComponent(u) + '&hashtags=' + encodeURIComponent('シミュラボ'), '_blank', 'noopener'); });
+  $('copyBtn').addEventListener('click', async () => { const b = $('copyBtn'), t = b.textContent; try { await navigator.clipboard.writeText(shareText() + '\n' + location.origin + location.pathname); b.textContent = 'コピーしました'; } catch (e) { b.textContent = 'コピーできませんでした'; } setTimeout(() => { b.textContent = t; }, 1600); });
+
+  // ---------- 動かす ----------
+  let tPrev = performance.now();
+  function loop(now) {
+    const dt = Math.min(.05, (now - tPrev) / 1000); tPrev = now;
+    if (dt > 0) { const n = Math.max(1, Math.round(dt / (1 / 120))); for (let i = 0; i < n; i++) tick(dt / n); }
+    draw(); ui(); requestAnimationFrame(loop);
+  }
+  setFr(100); setAngle(20); setScene('walk');
+  requestAnimationFrame(loop);
+  window.__t = {
+    step(sec) { const n = Math.max(1, Math.round(sec * 120)); for (let i = 0; i < n; i++) tick(sec / n); draw(); ui(true); return this.s; },
+    set(o) { endDemo(); o = o || {}; if (o.scene != null) setScene(o.scene); if (o.pct != null) setFr(o.pct); if (o.mu != null) setFr(o.mu / MU0 * 100); if (o.angle != null) setAngle(o.angle); draw(); ui(true); return this.s; },
+    act(name) { doAct(name); draw(); return this.s; },
+    get s() { return { scene: S.scene, pct: S.fr, mu: mu(), angle: S.angle, demo: S.demo, t: S.t, W, H, walk: { x: wk.x, v: wk.v, want: wk.want, slip: wk.slip, stopD: wk.stopD }, car: { mode: car.mode, x: car.x, v: car.v, drive: car.drive, brake: car.brake, spin: car.spin, brakeV: car.brakeV, stopD: car.stopD, formula: stopFormula(car.brakeX != null ? car.brakeV : VMAX), top: { x: car.top.x, y: car.top.y, hd: car.top.hd, ph: car.top.ph, maxDev: car.top.maxDev } }, slope: { s: sl.s, v: sl.v, st: sl.st, a: sl.a, crit: Math.atan(mu()) * 180 / Math.PI }, life: { pen: S.fr / 100, cup: ev.cup.st, cupY: ev.cup.y, knot: ev.knot.p, screw: ev.screw.p, screwFell: ev.screw.fell } }; }
+  };
+})();
+</script>
+<script src="../../assets/share-counter.js?v=4"></script>
+<script>ShareCounter.initSim({ simId:'masatsu-zero', badgeEl:document.getElementById('shareCount'), shareBtnIds:['shareBtn'] });</script>
+<script src="../../assets/lang-toggle.js?v=4"></script>
+</body>
+</html>

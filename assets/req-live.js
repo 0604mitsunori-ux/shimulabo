@@ -118,6 +118,12 @@
         msg.className = 'rl-msg ok';
         msg.innerHTML = '📮 <b>受け付けました！</b>（受付番号 ' + esc(j.id) + '）できたら、このブラウザでシミュラボを開いたときにお知らせが出ます。' +
           ' <a href="board/?id=' + encodeURIComponent(j.id) + '">進み具合を見る →</a>';
+        // 送った直後に「シェアで優先」のカードを出す（assets/req-boost.js）
+        try {
+          var bz = document.getElementById('rlBoost');
+          if (!bz) { bz = document.createElement('div'); bz.id = 'rlBoost'; msg.parentNode.insertBefore(bz, msg.nextSibling); }
+          if (window.ReqBoost) ReqBoost.mount(bz, { id: j.id, idea: idea });
+        } catch (er) {}
         inp.value = '';
         try { gtag('event', 'request_submit', { genre: 'top_quick' }); } catch (er) {}
       })

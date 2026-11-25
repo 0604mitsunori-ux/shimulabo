@@ -122,6 +122,7 @@
     <h2 style="margin:8px 0 6px;">リクエストを受け付けました！</h2>
     <p style="color:var(--ink-2);font-size:14px;margin:0 0 6px;">受付番号：<b id="doneId" style="color:var(--ink);font-size:16px;letter-spacing:.04em;">—</b></p>
     <p style="color:var(--ink-2);font-size:14px;line-height:1.8;margin:0 0 16px;">シミュができたら、<b>このブラウザでシミュラボを開いたときに「できたシミュを見る →」のお知らせ</b>が出ます。<span id="doneMail"></span>進み具合はいつでもリクエストボードで見られます。</p>
+    <div id="doneBoost"></div>
     <a class="btn btn-primary" id="doneLink" style="width:auto;display:inline-flex;padding:14px 30px;" href="../board/">リクエストボードで進み具合を見る →</a>
     <div style="margin-top:14px;"><a href="./" style="font-size:13px;font-weight:800;">✍️ もう1つリクエストを送る</a></div>
   </section>
@@ -149,6 +150,7 @@
 </footer>
 
 <script src="../assets/req-api.js?v=2"></script>
+<script src="../assets/req-boost.js?v=1"></script>
 <script>
 (() => {
   const $ = (id) => document.getElementById(id);
@@ -175,6 +177,7 @@
       $('doneId').textContent = j.id;
       $('doneMail').textContent = data.email ? 'ご記入のメールアドレスにもお知らせを送ります。' : '';
       $('doneLink').href = '../board/?id=' + encodeURIComponent(j.id);
+      try { ReqBoost.mount($('doneBoost'), { id: j.id, idea: idea }); } catch (e) {}
       document.querySelectorAll('main > section.panel:not(#donePanel)').forEach(s => s.style.display = 'none');
       $('donePanel').style.display = '';
       $('donePanel').scrollIntoView({ behavior: 'smooth', block: 'start' });

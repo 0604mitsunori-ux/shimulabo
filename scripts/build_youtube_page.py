@@ -199,6 +199,7 @@ main = f'''<main class="wrap">
     <div id="reqDone" style="display:none;text-align:center;padding:10px 0 4px">
       <p style="font-size:18px;font-weight:800;margin:0 0 6px">🎉 受け付けました！</p>
       <p style="font-size:14px;color:var(--ink-2);margin:0 0 10px">受付番号：<b id="doneId"></b>　動画になったら、このページでお知らせします。</p>
+      <div id="doneBoost"></div>
       <button class="btn" id="againBtn" type="button" style="width:auto;display:inline-flex;padding:10px 20px">もう1つ送る</button>
     </div>
 
@@ -230,6 +231,7 @@ footer = c[c.index('<footer class="site-footer">'):c.index("</footer>") + len("<
 
 js = r'''
 <script src="../assets/req-api.js?v=2"></script>
+<script src="../assets/req-boost.js?v=1"></script>
 <script>
 (() => {
   const $ = (id) => document.getElementById(id);
@@ -296,6 +298,7 @@ js = r'''
       ReqAPI.remember(j.id, idea, ReqAPI.YT);
       $('doneId').textContent = j.id;
       $('reqForm').style.display = 'none'; $('reqDone').style.display = '';
+      try { ReqBoost.mount($('doneBoost'), { id: j.id, idea: idea, yt: true }); } catch (e) {}
       renderMine();
       ev('yt_request_submit', {});
     } catch (e) {
