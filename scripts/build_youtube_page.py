@@ -232,6 +232,7 @@ footer = c[c.index('<footer class="site-footer">'):c.index("</footer>") + len("<
 js = r'''
 <script src="../assets/req-api.js?v=2"></script>
 <script src="../assets/req-boost.js?v=1"></script>
+<script src="../assets/yt-track.js?v=1"></script>
 <script>
 (() => {
   const $ = (id) => document.getElementById(id);

@@ -60,7 +60,7 @@
       tx.appendChild(k); tx.appendChild(t); tx.appendChild(s);
       var x = document.createElement('button'); x.type = 'button'; x.className = 'ytp-x'; x.textContent = '×'; x.setAttribute('aria-label', 'この案内をかくす');
       x.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); try { localStorage.setItem(HIDE, String(Date.now())); } catch (er) {} a.remove(); try { gtag('event', 'yt_promo_hide', { item_id: slug }); } catch (er) {} });
-      a.addEventListener('click', function () { try { gtag('event', 'yt_promo_click', { item_id: slug, video: ep.v }); } catch (er) {} });
+      a.addEventListener('click', function () { try { sessionStorage.setItem('simulab:ytfrom', slug); } catch (er) {} try { gtag('event', 'yt_promo_click', { item_id: slug, video_id: ep.v, transport_type: 'beacon' }); } catch (er) {} });
       a.appendChild(th); a.appendChild(tx); a.appendChild(x);
       head.appendChild(a);
     } catch (e) {}

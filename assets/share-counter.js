@@ -130,5 +130,9 @@
     var s = document.createElement('script');
     s.src = me.src.replace(/share-counter\.js.*$/, 'yt-promo.js?v=1'); s.async = true;
     document.head.appendChild(s);
+    // YouTube へのクリックを数える（assets/yt-track.js）
+    var t = document.createElement('script');
+    t.src = me.src.replace(/share-counter\.js.*$/, 'yt-track.js?v=1'); t.async = true;
+    document.head.appendChild(t);
   } catch (e) {}
 })();
