@@ -121,3 +121,14 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
   else run();
 })();
+
+/* タイトル下の YouTube 案内（assets/yt-promo.js を読み込む。中身は scripts/build_yt_promo.py が作る）2026-11-26 */
+(function () {
+  try {
+    var me = document.currentScript || document.querySelector('script[src*="assets/share-counter.js"]');
+    if (!me || !me.src) return;
+    var s = document.createElement('script');
+    s.src = me.src.replace(/share-counter\.js.*$/, 'yt-promo.js?v=1'); s.async = true;
+    document.head.appendChild(s);
+  } catch (e) {}
+})();

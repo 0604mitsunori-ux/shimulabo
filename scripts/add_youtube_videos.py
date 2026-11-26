@@ -8,7 +8,8 @@
 新しい動画を出したら：
   1. assets/yt/<動画ID>.jpg（960×540・サムネを縮めたもの）を置く
   2. EPISODES の先頭に1件足す（新しい順）
-  3. python scripts/add_youtube_videos.py && python scripts/build_youtube_page.py
+  3. python scripts/add_youtube_videos.py && python scripts/build_youtube_page.py && python scripts/build_yt_promo.py
+     （build_yt_promo.py＝全シミュページのタイトル下に出す案内 assets/yt-promo.js を作る）
 
 gen_sims*.py でページを作り直したら、このスクリプトも再実行する。
 """
